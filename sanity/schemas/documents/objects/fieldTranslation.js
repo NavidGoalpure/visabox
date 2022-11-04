@@ -1,4 +1,4 @@
-import { languages, baseLanguage } from './languages';
+import { languages, baseLanguage } from '../../languages';
 
 // This is the basis for all fields that should have translations.
 // Its used to fill out more complete field definitions in
@@ -47,6 +47,7 @@ export const translateFields = (docs) => {
       return {
         ...languageField,
         name: field.name,
+
         fields: languages.map((language, i) => ({
           ...field,
           title: language.title,

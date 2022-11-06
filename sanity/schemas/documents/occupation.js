@@ -4,10 +4,6 @@ export default {
   type: 'document',
   groups: [
     {
-      name: 'common',
-      title: 'Common',
-    },
-    {
       name: 'visa_options',
       title: 'Visa Options',
     },
@@ -21,7 +17,7 @@ export default {
       name: 'code',
       title: 'Code',
       type: 'number',
-      group: 'common',
+
       validation: (Rule) => [
         Rule.required().min(121111).max(639211).error('این کد موجود نیست'),
       ],
@@ -30,7 +26,6 @@ export default {
       name: 'title',
       title: 'Title',
       type: 'string',
-      // group: 'common',
       localize: true,
     },
 
@@ -38,7 +33,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      group: 'common',
+
       options: {
         source: 'title',
         maxLength: 96,
@@ -49,7 +44,7 @@ export default {
       name: 'skill_level',
       title: 'Skill Level',
       type: 'string',
-      group: 'common',
+
       options: {
         list: ['1', '2', '3', '4', '5'], // <-- predefined values
         layout: 'radio', // <-- defaults to 'dropdown'
@@ -60,7 +55,7 @@ export default {
       name: 'assessing_authority',
       title: 'Assessing Authority',
       type: 'string',
-      group: 'common',
+
       options: {
         list: [
           { title: 'AACA', value: 'AACA' },
@@ -105,6 +100,18 @@ export default {
         layout: 'radio', // <-- defaults to 'dropdown'
         direction: 'horizontal',
       },
+    },
+    {
+      name: 'visa_option_section',
+      title: 'Visa Options',
+      type: 'visa_option_obj',
+      group: 'visa_options',
+    },
+    {
+      name: 'territory_section',
+      title: 'State/Territory',
+      type: 'territory_obj',
+      group: 'state/territory',
     },
   ],
   preview: {

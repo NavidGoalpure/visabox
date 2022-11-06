@@ -1,4 +1,4 @@
-import { languages, baseLanguage } from '../../languages';
+import { languages, baseLanguage } from '../languages';
 
 // This is the basis for all fields that should have translations.
 // Its used to fill out more complete field definitions in

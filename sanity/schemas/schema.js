@@ -13,6 +13,7 @@ import territory from './documents/territory';
 import visaOptionObj from './objects/visaOptionObj';
 import shallowBooleanStatus from './objects/shallowBooleanStatus';
 import territoryObj from './objects/territoryObj';
+import anzscoObj from './objects/anzscoObj';
 import { translateFields } from './objects/fieldTranslation';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -28,6 +29,7 @@ export default createSchema({
         // The following are document types which will appear
         // in the studio.
         // translateFields([occupation]),
+        anzscoObj,
         occupation,
         visaType,
         territory,

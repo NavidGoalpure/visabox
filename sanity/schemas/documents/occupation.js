@@ -11,6 +11,10 @@ export default {
       name: 'state/territory',
       title: 'State/Territory',
     },
+    {
+      name: 'anzsco_section',
+      title: 'Anzsco Section',
+    },
   ],
   fields: [
     {
@@ -112,6 +116,12 @@ export default {
       title: 'State/Territory',
       type: 'territory_obj',
       group: 'state/territory',
+    },
+    {
+      name: 'anzsco_section',
+      title: 'Anzsco Section',
+      type: 'anzsco_obj',
+      group: 'anzsco_section',
     },
   ],
   preview: {

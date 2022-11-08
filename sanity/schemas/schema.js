@@ -11,9 +11,9 @@ import territory from './documents/territory';
 
 //Objects
 import visaOptionObj from './objects/visaOptionObj';
-import shallowBooleanStatus from './objects/shallowBooleanStatus';
 import territoryObj from './objects/territoryObj';
 import anzscoObj from './objects/anzscoObj';
+import backlogObj from './objects/backlogObj';
 import { translateFields } from './objects/fieldTranslation';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -22,21 +22,15 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes
-    .concat([visaOptionObj, shallowBooleanStatus, territoryObj])
-    .concat(
-      translateFields([
-        // The following are document types which will appear
-        // in the studio.
-        // translateFields([occupation]),
-        anzscoObj,
-        occupation,
-        visaType,
-        territory,
-
-        // When added to this list, object types can be used as
-        // { type: 'typename' } in other document schemas
-      ])
-    ),
-  // .concat(),
+  types: schemaTypes.concat([visaOptionObj, territoryObj, backlogObj]).concat(
+    translateFields([
+      // The following are document types which will appear
+      // in the studio.
+      // translateFields([occupation]),
+      anzscoObj,
+      occupation,
+      visaType,
+      territory,
+    ])
+  ),
 });

@@ -19,31 +19,15 @@ export default {
       to: [{ type: 'territory' }],
     },
     {
-      name: 'eligibility190',
-      title: 'Eligibility 190',
-      type: 'string',
-
-      options: {
-        list: statuses,
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-    },
-    {
-      name: 'eligibility491',
-      title: 'Eligibility 491',
-      type: 'string',
-
-      options: {
-        list: statuses,
-        layout: 'radio',
-        direction: 'horizontal',
-      },
+      name: 'desc',
+      title: 'Description',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
   ],
-  //   preview: {
-  //     select: {
-  //       title: 'title',
-  //     },
-  //   },
+  preview: {
+    select: {
+      title: 'territory.title.en',
+    },
+  },
 };

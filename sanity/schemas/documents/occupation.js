@@ -15,6 +15,10 @@ export default {
       name: 'anzsco_section',
       title: 'Anzsco Section',
     },
+    {
+      name: 'backlog_section',
+      title: 'Backlog Section',
+    },
   ],
   fields: [
     {
@@ -108,13 +112,15 @@ export default {
     {
       name: 'visa_option_section',
       title: 'Visa Options',
-      type: 'visa_option_obj',
+      type: 'array',
+      of: [{ type: 'visa_option_obj' }],
       group: 'visa_options',
     },
     {
       name: 'territory_section',
       title: 'State/Territory',
-      type: 'territory_obj',
+      type: 'array',
+      of: [{ type: 'territory_obj' }],
       group: 'state/territory',
     },
     {
@@ -122,6 +128,13 @@ export default {
       title: 'Anzsco Section',
       type: 'anzsco_obj',
       group: 'anzsco_section',
+    },
+    {
+      name: 'backlog_section',
+      title: 'Backlog Section',
+      type: 'array',
+      of: [{ type: 'backlog_obj' }],
+      group: 'backlog_section',
     },
   ],
   preview: {

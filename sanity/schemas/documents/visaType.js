@@ -2,7 +2,7 @@ export default {
   name: 'visa_type',
   title: 'Visa Type',
   type: 'document',
-  readOnly: true,
+  // readOnly: true,
   fields: [
     {
       name: 'title',
@@ -16,6 +16,7 @@ export default {
       type: 'string',
       localize: true,
     },
+    // صفحه توضیحات این نوع ویزا
     {
       name: 'url',
       title: 'URL',

@@ -22,7 +22,12 @@ export default {
       name: 'desc',
       title: 'Description',
       type: 'array',
-      of: [{ type: 'block' }],
+      of: [
+        { type: 'block' },
+        {
+          type: 'table',
+        },
+      ],
     },
   ],
   preview: {

@@ -24,6 +24,19 @@ export default {
       of: [{ type: 'string' }],
       localize: true,
     },
+    {
+      name: 'nec_occupation',
+      title: 'Occupation in NEC category',
+      type: 'array',
+      of: [{ type: 'string' }],
+      localize: true,
+    },
+    {
+      name: 'priority_list',
+      title: 'Skill Priority List',
+      type: 'array',
+      of: [{ type: 'priority_list_obj' }],
+    },
   ],
   //   preview: {
   //     select: {

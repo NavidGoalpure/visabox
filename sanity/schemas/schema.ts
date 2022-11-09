@@ -9,11 +9,13 @@ import occupation from './documents/occupation';
 import visaType from './documents/visaType';
 import territory from './documents/territory';
 
-//Objects
-import visaOptionObj from './objects/visaOptionObj';
-import territoryObj from './objects/territoryObj';
-import anzscoObj from './objects/anzscoObj';
-import backlogObj from './objects/backlogObj';
+//Objects-section
+import visaOptionObj from './objects/sections/visaOptionObj';
+import territoryObj from './objects/sections/territoryObj';
+import backlogObj from './objects/sections/backlogObj';
+import anzscoObj from './objects/sections/anzscoObj';
+import priorityList from './objects/sections/priorityList';
+//Objects-other
 import { translateFields } from './objects/fieldTranslation';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -22,15 +24,17 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([visaOptionObj, territoryObj, backlogObj]).concat(
-    translateFields([
-      // The following are document types which will appear
-      // in the studio.
-      // translateFields([occupation]),
-      anzscoObj,
-      occupation,
-      visaType,
-      territory,
-    ])
-  ),
+  types: schemaTypes
+    .concat([visaOptionObj, territoryObj, backlogObj, priorityList])
+    .concat(
+      translateFields([
+        // The following are document types which will appear
+        // in the studio.
+        // translateFields([occupation]),
+        anzscoObj,
+        occupation,
+        visaType,
+        territory,
+      ])
+    ),
 });

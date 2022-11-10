@@ -40,6 +40,13 @@ export default {
       of: [{ type: 'priority_list_obj' }],
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
+    {
+      name: 'unit_group',
+      title: 'Unit Group',
+      type: 'reference',
+      to: [{ type: 'unit_group' }],
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
   ],
   //   preview: {
   //     select: {

@@ -33,18 +33,7 @@ export default {
       group: 'occupation_head',
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
-    {
-      name: 'skill_level',
-      title: 'Skill Level',
-      type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required(),
 
-      options: {
-        list: ['1', '2', '3', '4', '5'],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-    },
     {
       name: 'assessing_authority',
       title: 'Assessing Authority',

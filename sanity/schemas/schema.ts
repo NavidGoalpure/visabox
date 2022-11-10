@@ -9,7 +9,7 @@ import occupation from './documents/occupation';
 import visaType from './documents/visaType';
 import territory from './documents/territory';
 import occupationHead from './documents/occupationHead';
-// import unitGroup from './documents/unitGroup';
+import unitGroup from './documents/unitGroup';
 
 //Objects-section
 import visaOptionObj from './objects/sections/visaOptionObj';
@@ -19,6 +19,7 @@ import anzscoObj from './objects/sections/anzscoObj';
 import priorityList from './objects/sections/anzscoObj/priorityList';
 //Objects-other
 import { translateFields } from './objects/fieldTranslation';
+
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,7 +35,7 @@ export default createSchema({
         // in the studio.
         // translateFields([occupation]),
         occupationHead,
-        // unitGroup,
+        unitGroup,
         anzscoObj,
         occupation,
         visaType,

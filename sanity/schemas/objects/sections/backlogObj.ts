@@ -4,10 +4,11 @@ export default {
   type: 'object',
   fields: [
     {
-      name: 'visa',
-      title: 'Visa',
+      name: 'visa_type',
+      title: 'Visa Type',
       type: 'reference',
       to: [{ type: 'visa_type' }],
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   //   preview: {

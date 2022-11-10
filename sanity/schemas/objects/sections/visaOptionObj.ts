@@ -8,6 +8,7 @@ export default {
       title: 'Types',
       type: 'reference',
       to: [{ type: 'visa_type' }],
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   preview: {

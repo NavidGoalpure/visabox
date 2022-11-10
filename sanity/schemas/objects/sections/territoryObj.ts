@@ -8,6 +8,7 @@ export default {
       title: 'State/Territory',
       type: 'reference',
       to: [{ type: 'territory' }],
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'desc',
@@ -19,6 +20,7 @@ export default {
           type: 'table',
         },
       ],
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   preview: {

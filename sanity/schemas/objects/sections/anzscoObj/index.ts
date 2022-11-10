@@ -6,9 +6,9 @@ export default {
     {
       name: 'description',
       title: 'Description',
+      type: 'string',
       localize: true,
-      type: 'array',
-      of: [{ type: 'string' }],
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'alternative_title',
@@ -16,6 +16,7 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       localize: true,
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'specialisations',
@@ -23,6 +24,7 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       localize: true,
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'nec_occupation',
@@ -36,6 +38,7 @@ export default {
       title: 'Skill Priority List',
       type: 'array',
       of: [{ type: 'priority_list_obj' }],
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   //   preview: {

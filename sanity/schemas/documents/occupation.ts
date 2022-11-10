@@ -4,6 +4,10 @@ export default {
   type: 'document',
   groups: [
     {
+      name: 'occupation_head',
+      title: 'Occupation Head',
+    },
+    {
       name: 'visa_options',
       title: 'Visa Options',
     },
@@ -22,40 +26,22 @@ export default {
   ],
   fields: [
     {
-      name: 'code',
-      title: 'Code',
-      type: 'number',
-
-      validation: (Rule) => [
-        Rule.required().min(121111).max(639211).error('این کد موجود نیست'),
-      ],
-    },
-    {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      localize: true,
-    },
-
-    {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-
-      options: {
-        source: 'title',
-        maxLength: 96,
-        isUnique: true,
-      },
+      name: 'occupation',
+      title: 'Occupation',
+      type: 'reference',
+      to: [{ type: 'occupation_head' }],
+      group: 'occupation_head',
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'skill_level',
       title: 'Skill Level',
       type: 'string',
+      validation: (Rule: { required: () => any }) => Rule.required(),
 
       options: {
-        list: ['1', '2', '3', '4', '5'], // <-- predefined values
-        layout: 'radio', // <-- defaults to 'dropdown'
+        list: ['1', '2', '3', '4', '5'],
+        layout: 'radio',
         direction: 'horizontal',
       },
     },
@@ -63,7 +49,7 @@ export default {
       name: 'assessing_authority',
       title: 'Assessing Authority',
       type: 'string',
-
+      validation: (Rule: { required: () => any }) => Rule.required(),
       options: {
         list: [
           { title: 'AACA', value: 'AACA' },
@@ -115,6 +101,7 @@ export default {
       type: 'array',
       of: [{ type: 'visa_option_obj' }],
       group: 'visa_options',
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'territory_section',
@@ -122,12 +109,14 @@ export default {
       type: 'array',
       of: [{ type: 'territory_obj' }],
       group: 'state/territory',
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'anzsco_section',
       title: 'Anzsco Section',
       type: 'anzsco_obj',
       group: 'anzsco_section',
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'backlog_section',
@@ -135,6 +124,7 @@ export default {
       type: 'array',
       of: [{ type: 'backlog_obj' }],
       group: 'backlog_section',
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   preview: {

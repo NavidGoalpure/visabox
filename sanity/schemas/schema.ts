@@ -8,13 +8,15 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import occupation from './documents/occupation';
 import visaType from './documents/visaType';
 import territory from './documents/territory';
+import occupationHead from './documents/occupationHead';
+// import unitGroup from './documents/unitGroup';
 
 //Objects-section
 import visaOptionObj from './objects/sections/visaOptionObj';
 import territoryObj from './objects/sections/territoryObj';
 import backlogObj from './objects/sections/backlogObj';
 import anzscoObj from './objects/sections/anzscoObj';
-import priorityList from './objects/sections/priorityList';
+import priorityList from './objects/sections/anzscoObj/priorityList';
 //Objects-other
 import { translateFields } from './objects/fieldTranslation';
 
@@ -31,6 +33,8 @@ export default createSchema({
         // The following are document types which will appear
         // in the studio.
         // translateFields([occupation]),
+        occupationHead,
+        // unitGroup,
         anzscoObj,
         occupation,
         visaType,

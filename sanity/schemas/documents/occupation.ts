@@ -121,8 +121,7 @@ export default {
     {
       name: 'backlog_section',
       title: 'Backlog Section',
-      type: 'array',
-      of: [{ type: 'backlog_obj' }],
+      type: 'backlog_obj',
       group: 'backlog_section',
       validation: (Rule: { required: () => any }) => Rule.required(),
     },

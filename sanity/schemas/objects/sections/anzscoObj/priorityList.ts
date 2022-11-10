@@ -1,5 +1,3 @@
-import { string } from 'prop-types';
-
 const priorityEnum = [
   { title: 'S', value: 'S' },
   { title: 'NS', value: 'NS' },

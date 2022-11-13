@@ -8,7 +8,7 @@ export default {
       title: 'Description',
       type: 'string',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'alternative_title',
@@ -16,7 +16,7 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'specialisations',
@@ -24,7 +24,7 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'nec_occupation',

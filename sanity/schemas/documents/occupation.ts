@@ -3,10 +3,7 @@ export default {
   title: 'Occupation',
   type: 'document',
   groups: [
-    {
-      name: 'occupation_head',
-      title: 'Occupation Head',
-    },
+ 
     {
       name: 'visa_options',
       title: 'Visa Options',
@@ -26,12 +23,34 @@ export default {
   ],
   fields: [
     {
-      name: 'occupation',
-      title: 'Occupation',
-      type: 'reference',
-      to: [{ type: 'occupation_head' }],
-      group: 'occupation_head',
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      name: 'code',
+      title: 'Code',
+      type: 'number',
+
+      validation: (Rule) => [
+        Rule.required().min(121111).max(639211).error('این کد موجود نیست'),
+      ],
+    },
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+
+      localize: true,
+      // validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+
+      // validation: (Rule: { required: () => any }) => Rule.required(),
+      options: {
+        source: 'title.en',
+        maxLength: 96,
+        // isUnique: true,
+      },
     },
 
     {

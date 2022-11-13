@@ -10,7 +10,7 @@ export default {
       type: 'number',
 
       validation: (Rule) => [
-        Rule.required().min(121111).max(639211).error('این کد موجود نیست'),
+        Rule.required().min(12111).max(63921).error('این کد موجود نیست'),
       ],
     },
     {
@@ -18,24 +18,24 @@ export default {
       title: 'Title',
       type: 'string',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'description',
       title: 'Description',
       type: 'string',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
       options: {
-        source: 'title',
+        source: 'title.en',
         maxLength: 96,
-        isUnique: true,
+        // isUnique: true,
       },
     },
     {
@@ -56,15 +56,9 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
-    {
-      name: 'subgroups',
-      title: 'Subgroups',
-      type: 'array',
-      of: [{ type: 'occupation' }],
-      validation: (Rule: { required: () => any }) => Rule.required(),
-    },
+
   ],
   preview: {
     select: {

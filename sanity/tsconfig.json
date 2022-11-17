@@ -6,8 +6,8 @@
     "./node_modules/@sanity/base/types/**/*.ts",
     "./**/*.ts",
     "./**/*.tsx",
-    "schemas/schema.ts"
-  ],
+    "schemas/schema.js"
+, "schemas/documents/occupation.ts"  ],
   "compilerOptions": {
     "jsx": "react"
   }

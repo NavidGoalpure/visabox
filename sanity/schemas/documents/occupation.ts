@@ -3,7 +3,6 @@ export default {
   title: 'Occupation',
   type: 'document',
   groups: [
- 
     {
       name: 'visa_options',
       title: 'Visa Options',
@@ -27,7 +26,7 @@ export default {
       title: 'Code',
       type: 'number',
 
-      validation: (Rule) => [
+      validation: (Rule: { required: () => any }) => [
         Rule.required().min(121111).max(639211).error('این کد موجود نیست'),
       ],
     },

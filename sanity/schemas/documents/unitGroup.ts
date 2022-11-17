@@ -9,7 +9,7 @@ export default {
       title: 'Code',
       type: 'number',
 
-      validation: (Rule) => [
+      validation: (Rule: { required: () => any }) => [
         Rule.required().min(12111).max(63921).error('این کد موجود نیست'),
       ],
     },
@@ -58,7 +58,6 @@ export default {
       localize: true,
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
-
   ],
   preview: {
     select: {

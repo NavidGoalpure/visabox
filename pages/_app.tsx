@@ -1,12 +1,19 @@
-import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
+import styled, { ThemeProvider } from 'styled-components';
 
+
+enum ThemeModes {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress height={2} />
-      <Component {...pageProps} />
+      <ThemeProvider theme={{ mode: ThemeModes.DARK }}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }

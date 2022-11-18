@@ -16,3 +16,11 @@ export const boxStyles = theme('mode', {
     color: #ffffff;
   `,
 });
+export const directionStyles = theme('languageDirection', {
+  ltr: css`
+    direction: ltr;
+  `,
+  rtl: css`
+    direction: rtl;
+  `,
+});

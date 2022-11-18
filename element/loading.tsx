@@ -1,6 +1,6 @@
 import { HtmlHTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
-import { backgroundColor, boxStyles } from 'styles/theme';
+import { navidColor, boxStyles, directionStyles } from 'styles/theme';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}
 const Loading: React.FC<Props> = ({ ...props }) => {
@@ -31,10 +31,11 @@ const rotate = keyframes`
 `;
 const Square = styled.div`
   ${boxStyles}
+  ${directionStyles}
   width: 12px;
   height: 12px;
   border-radius: 4px;
-  // background-color: ${backgroundColor};
+  // background-color: ${navidColor};
   animation: ${rotate} 1.5s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
   margin: 0 2px;
 `;

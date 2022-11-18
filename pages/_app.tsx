@@ -6,11 +6,20 @@ enum ThemeModes {
   LIGHT = 'light',
   DARK = 'dark',
 }
+enum LanguageDirection {
+  LTR = 'ltr',
+  RTL = 'rtl',
+}
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress height={2} />
-      <ThemeProvider theme={{ mode: ThemeModes.DARK }}>
+      <ThemeProvider
+        theme={{
+          mode: ThemeModes.DARK,
+          languageDirection: LanguageDirection.RTL,
+        }}
+      >
         <Component {...pageProps} />
       </ThemeProvider>
     </>

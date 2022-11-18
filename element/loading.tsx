@@ -1,29 +1,22 @@
+import { HtmlHTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
+import { backgroundColor, boxStyles } from 'styles/theme';
 
-const Loading = () => {
+interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}
+const Loading: React.FC<Props> = ({ ...props }) => {
   return (
-    <Container>
-      <Wrapper>
-        <div className='square-holder'>
-          <Square />
-        </div>
-      </Wrapper>
+    <Container {...props}>
+      <Square />
+      <Square />
+      <Square />
     </Container>
   );
 };
 export { Loading };
 
 const Container = styled.div`
-  float: left;
-  width: 100px;
-  height: 100px;
-  margin: 0 10px 10px 0;
-  padding: 20px 20px 20px;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #d8d8d8;
+  display: flex;
 `;
-const Wrapper = styled.div``;
 const rotate = keyframes`
 0% {
     transform: translate(0, 0) rotate(0deg);
@@ -37,11 +30,13 @@ const rotate = keyframes`
 }
 `;
 const Square = styled.div`
+  ${boxStyles}
   width: 12px;
   height: 12px;
   border-radius: 4px;
-  background-color: #4b9cdb;
+  // background-color: ${backgroundColor};
   animation: ${rotate} 1.5s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+  margin: 0 2px;
 `;
 
 // Here we create a component that will rotate everything we pass in over two seconds

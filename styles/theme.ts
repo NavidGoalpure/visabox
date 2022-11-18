@@ -1,6 +1,18 @@
+import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 
-export const backgroundColor = theme.variants('mode', 'variant', {
-  dark: { light: 'red', dark: 'red' },
-  light: { light: 'blue', dark: 'darkblue' },
+export const navidColor = theme('mode', {
+  light: 'blue',
+  dark: 'red',
+});
+
+export const boxStyles = theme('mode', {
+  light: css`
+    background: #ffffff;
+    color: 414244;
+  `,
+  dark: css`
+    background: #3d3d3d;
+    color: #ffffff;
+  `,
 });

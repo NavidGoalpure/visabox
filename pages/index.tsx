@@ -1,15 +1,13 @@
 import theme from 'styled-theming';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import styled from 'styled-components';
-import { sanityClient, urlFor } from '../sanity';
-import { Post } from '../typings';
-import { backgroundColor } from '../styles/theme';
+
+import { navidColor } from '../styles/theme';
 import { Loading } from 'element/loading';
 
 const Button = styled.button`
-  background-color: ${backgroundColor};
+  background-color: ${navidColor};
 `;
 const Home: NextPage = () => {
   return (
@@ -19,7 +17,7 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div>navid</div>
-      <Button variant='dark'>oh oh</Button>
+      <Button>oh oh</Button>
       <Loading />
     </div>
   );

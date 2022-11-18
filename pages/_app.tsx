@@ -1,8 +1,7 @@
 import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import styled, { ThemeProvider } from 'styled-components';
-
-
+import '../styles/style.scss';
 enum ThemeModes {
   LIGHT = 'light',
   DARK = 'dark',

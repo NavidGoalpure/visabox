@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 
 import { navidColor } from '../styles/theme';
-import { Loading } from 'element/loading';
+import { Loading } from 'element/Loading';
 
 const Button = styled.button`
   background-color: ${navidColor};

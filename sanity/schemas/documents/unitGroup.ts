@@ -2,7 +2,6 @@ export default {
   name: 'unit_group',
   title: 'Unit Group',
   type: 'document',
-
   fields: [
     {
       name: 'code',
@@ -10,7 +9,7 @@ export default {
       type: 'number',
 
       validation: (Rule: { required: () => any }) => [
-        Rule.required().min(12111).max(63921).error('این کد موجود نیست'),
+        Rule.required().min(1211).max(6392).error('این کد موجود نیست'),
       ],
     },
     {

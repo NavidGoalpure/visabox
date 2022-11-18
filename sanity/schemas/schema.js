@@ -13,9 +13,10 @@ import unitGroup from './documents/unitGroup';
 //Objects-section
 import visaOptionObj from './objects/sections/visaOptionObj';
 import territoryObj from './objects/sections/territoryObj';
-import backlogObj from './objects/sections/backlogObj';
 import anzscoObj from './objects/sections/anzscoObj';
 import priorityList from './objects/sections/anzscoObj/priorityList';
+import backlogObj from './objects/sections/backlogObj';
+import backlogNumbersObj from './objects/sections/backlogObj/backlogNumbersObj';
 //Objects-other
 import { translateFields } from './objects/fieldTranslation';
 
@@ -26,7 +27,13 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes
-    .concat([visaOptionObj, territoryObj, backlogObj, priorityList])
+    .concat([
+      visaOptionObj,
+      territoryObj,
+      backlogObj,
+      priorityList,
+      backlogNumbersObj,
+    ])
     .concat(
       translateFields([
         // The following are document types which will appear

@@ -8,20 +8,20 @@ export default {
       title: 'Title',
       type: 'string',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'abv',
       title: 'ABV Name',
       type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'url',
       title: 'URL',
       type: 'url',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   preview: {

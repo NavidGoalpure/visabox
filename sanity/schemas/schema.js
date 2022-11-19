@@ -17,6 +17,7 @@ import anzscoObj from './objects/sections/anzscoObj';
 import priorityList from './objects/sections/anzscoObj/priorityList';
 import backlogObj from './objects/sections/backlogObj';
 import backlogNumbersObj from './objects/sections/backlogObj/backlogNumbersObj';
+import territoryBacklogObj from './objects/sections/backlogObj/territoryBacklogObj.ts';
 //Objects-other
 import { translateFields } from './objects/fieldTranslation';
 
@@ -33,6 +34,7 @@ export default createSchema({
       backlogObj,
       priorityList,
       backlogNumbersObj,
+      territoryBacklogObj,
     ])
     .concat(
       translateFields([

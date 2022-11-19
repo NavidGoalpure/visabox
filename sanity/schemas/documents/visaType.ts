@@ -9,14 +9,14 @@ export default {
       title: 'Title',
       type: 'string',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'description',
       title: 'Description',
       type: 'string',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     // صفحه توضیحات این نوع ویزا
     {
@@ -24,7 +24,7 @@ export default {
       title: 'URL',
       type: 'url',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   preview: {

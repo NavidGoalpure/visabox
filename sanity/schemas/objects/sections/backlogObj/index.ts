@@ -62,6 +62,22 @@ export default {
       title: 'Invited 491_family ',
       type: 'backlog_numbers_obj',
     },
+    ///////////////////////////
+    /////By State/////////////
+    //////////////////////////
+    {
+      name: 'submited_by_state',
+      title: 'Submited By State ',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
+    ////////////INVITED////////
+    {
+      name: 'invited_by_state',
+      title: 'Invited By State ',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
   ],
   //   preview: {
   //     select: {

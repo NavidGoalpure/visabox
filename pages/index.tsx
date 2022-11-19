@@ -5,13 +5,14 @@ import styled from 'styled-components';
 
 import { navidColor } from '../styles/theme';
 import { Loading } from 'element/Loading';
+import Layout from '@/components/Layout';
 
 const Button = styled.button`
   background-color: ${navidColor};
 `;
 const Home: NextPage = () => {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Mara Box</title>
         <link rel='icon' href='/favicon.ico' />
@@ -19,7 +20,7 @@ const Home: NextPage = () => {
       <div>navid</div>
       <Button>oh oh</Button>
       <Loading />
-    </div>
+    </Layout>
   );
 };
 export default Home;

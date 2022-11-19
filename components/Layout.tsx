@@ -15,8 +15,6 @@ const Layout: React.FC<Props> = ({ children, className }) => {
   );
 };
 const Container = styled.main`
-  ${PageColorBody}
-  ${directionStyles}
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -25,9 +23,10 @@ const Container = styled.main`
   overflow: auto;
 `;
 const Wrapper = styled.div`
+  ${PageColorBody}
+  ${directionStyles}
   width: 100%;
   height: 100%;
-  background: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

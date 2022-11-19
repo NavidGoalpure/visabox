@@ -16,8 +16,12 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/elements/*": ["elements/*"]
+      "@components/*": ["components/*"],
+      "@elements/*": ["elements/*"],
+      "@interfaces/*": ["interfaces/*"],
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
+      "@const/*": ["const/*"]
     }
   },
   "include": [

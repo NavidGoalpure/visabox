@@ -5,19 +5,19 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // We import object and document schemas
-import occupation from './documents/occupation';
-import visaType from './documents/visaType';
-import territory from './documents/territory';
-import unitGroup from './documents/unitGroup';
+import occupation from './documents/occupations/occupation';
+import visaType from './documents/occupations/visaType';
+import territory from './documents/occupations/territory';
+import unitGroup from './documents/occupations/unitGroup';
 
 //Objects-section
-import visaOptionObj from './objects/sections/visaOptionObj';
-import territoryObj from './objects/sections/territoryObj';
-import anzscoObj from './objects/sections/anzscoObj';
-import priorityList from './objects/sections/anzscoObj/priorityList';
-import backlogObj from './objects/sections/backlogObj';
-import backlogNumbersObj from './objects/sections/backlogObj/backlogNumbersObj';
-import territoryBacklogObj from './objects/sections/backlogObj/territoryBacklogObj.ts';
+import visaOptionObj from './objects/occupations/visaOptionObj';
+import territoryObj from './objects/occupations/territoryObj';
+import anzscoObj from './objects/occupations/anzscoObj';
+import priorityList from './objects/occupations/anzscoObj/priorityList';
+import backlogObj from './objects/occupations/backlogObj';
+import backlogNumbersObj from './objects/occupations/backlogObj/backlogNumbersObj';
+import territoryBacklogObj from './objects/occupations/backlogObj/territoryBacklogObj';
 //Objects-other
 import { translateFields } from './objects/fieldTranslation';
 

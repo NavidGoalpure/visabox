@@ -9,6 +9,7 @@
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "next": "latest",
+    "next-auth-sanity": "^1.4.4",
     "next-sanity": "^1.0.0",
     "nextjs-progressbar": "^0.0.16",
     "react": "18.1.0",

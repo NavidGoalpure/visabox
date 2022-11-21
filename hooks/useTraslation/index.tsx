@@ -1,4 +1,4 @@
-import { MultiLanguage } from 'pages/interfaces';
+import { MultiLanguageText } from 'pages/interfaces';
 import { translatedObject } from './Utils';
 
 ////////////////
@@ -8,7 +8,9 @@ import { translatedObject } from './Utils';
  * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
  * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
  */
-export const useTranslation = (statements: Record<string, MultiLanguage>) => {
+export const useTranslation = (
+  statements: Record<string, MultiLanguageText>
+) => {
   return {
     t: (sentence: string, aliases?: Record<string, string>[]) =>
       translatedObject({ sentence, statements, aliases }),

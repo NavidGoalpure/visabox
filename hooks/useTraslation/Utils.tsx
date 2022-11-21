@@ -1,7 +1,7 @@
 ////////////////
 
 import { useRouter } from 'next/router';
-import { Languages, MultiLanguage } from 'pages/interfaces';
+import { Languages, MultiLanguageText } from 'pages/interfaces';
 import { proxyUrlLocaleToLocale } from 'Utils/Language';
 
 /**
@@ -27,8 +27,6 @@ function convertAllTempKeysWithAllAliases({
   });
   return myLocaleSenttence;
 }
-
-
 
 ////////////////
 /**
@@ -64,7 +62,7 @@ export const translatedObject = ({
   aliases,
 }: {
   sentence: string;
-  statements: Record<string, MultiLanguage>;
+  statements: Record<string, MultiLanguageText>;
   aliases?: Record<string, string>[];
 }): string => {
   const {

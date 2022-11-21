@@ -2,9 +2,9 @@ enum Languages {
   ir = 'ir',
   en = 'en',
 }
-interface MultiLanguage {
+interface MultiLanguageText {
   [Languages.ir]: string;
   [Languages.en]: string;
 }
-export type { MultiLanguage };
+export type { MultiLanguageText };
 export { Languages };

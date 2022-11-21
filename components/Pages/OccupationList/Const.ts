@@ -1,10 +1,10 @@
-import { MultiLanguage } from 'pages/interfaces';
+import { MultiLanguageText } from 'pages/interfaces';
 
 export enum PageKeys {
   PageTitle = 'PageTitle',
   PageSubtitle = 'PageSubtitle',
 }
-export const componrntStatements: Record<PageKeys, MultiLanguage> = {
+export const componrntStatements: Record<PageKeys, MultiLanguageText> = {
   PageTitle: {
     ir: 'لیست مشاغل',
     en: 'Skill Occupation List',

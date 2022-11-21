@@ -1,15 +1,14 @@
-import theme from 'styled-theming';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Loading } from '@elements/Loading';
 import Layout from 'components/Layout';
-import Navid from 'components/navid';
-import { PageKeys, componrntStatements } from './LocaleConst';
-import styled from 'styled-components/macro';
-import { Headline4Style, Headline5Style } from 'styles/Typo';
+import {
+  PageKeys,
+  componrntStatements,
+} from '../../../components/Pages/OccupationList/Const';
 import { useTranslation } from '@hooks/useTraslation';
+import Content from '@components/Pages/OccupationList/Content';
 
-const List: NextPage = () => {
+const OccupationList: NextPage = () => {
   const { t } = useTranslation(componrntStatements);
 
   return (
@@ -18,18 +17,8 @@ const List: NextPage = () => {
         <title>{t(PageKeys.PageTitle)}</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <PageTitle>{t(PageKeys.PageTitle)}</PageTitle>
-      <PageSubtitle>
-        {t(PageKeys.PageSubtitle, [{ تست: 'نوید' }, { test: 'navid' }])}
-        LIN 19/051
-      </PageSubtitle>
+      <Content />
     </Layout>
   );
 };
-export default List;
-const PageTitle = styled.h1`
-  ${Headline4Style}
-`;
-const PageSubtitle = styled.h2`
-  ${Headline5Style}
-`;
+export default OccupationList;

@@ -1,9 +1,9 @@
-import { MultiLanguage } from 'pages/interfaces';
+import { MultiLanguageText } from 'pages/interfaces';
 
 export enum ComponentKeys {
   'to-second-page' = 'to-second-page',
 }
-export const componrntStatements: Record<string, MultiLanguage> = {
+export const componrntStatements: Record<string, MultiLanguageText> = {
   'to-second-page': {
     ir: 'فارسی',
     en: 'english',

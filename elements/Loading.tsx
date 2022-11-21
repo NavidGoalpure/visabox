@@ -1,6 +1,6 @@
 import { HtmlHTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
-import { navidColor, elementColorBody, directionStyles } from 'styles/theme';
+import { navidColor, elementColorBody, directionStyles } from 'styles/Theme';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}
 const Loading: React.FC<Props> = ({ ...props }) => {

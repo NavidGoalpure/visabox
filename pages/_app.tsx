@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider
         theme={{
           mode: ThemeModes.DARK,
-          languageDirection: LanguageDirection.RTL,
+          languageDirection: LanguageDirection.LTR,
         }}
       >
         <Component {...pageProps} />

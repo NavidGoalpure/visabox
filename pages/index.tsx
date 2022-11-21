@@ -3,14 +3,9 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import { navidColor } from '../styles/theme';
-import { Loading } from 'element/Loading';
 import Layout from 'components/Layout';
-import Navid from 'components/navid';
+import { Headline4Style, Headline5Style } from 'styles/Typo';
 
-const Button = styled.button`
-  background-color: ${navidColor};
-`;
 const Home: NextPage = () => {
   return (
     <Layout>
@@ -18,11 +13,19 @@ const Home: NextPage = () => {
         <title>Mara Box</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div>navid</div>
-      <Button>oh oh</Button>
-      <Loading />
-      <Navid />
+      <PageTitle>Skill Occupation List</PageTitle>
+      <PageSubtitle>
+        Below is the complete list of eligible skilled occupations or combined
+        list as prescribed in Legislative Instrument LIN 19/051
+      </PageSubtitle>
     </Layout>
   );
 };
 export default Home;
+
+const PageTitle = styled.h1`
+  ${Headline4Style}
+`;
+const PageSubtitle = styled.h2`
+  ${Headline5Style}
+`;

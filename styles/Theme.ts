@@ -1,12 +1,12 @@
 import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 
-export const navidColor = theme('mode', {
-  light: 'blue',
-  dark: 'red',
+export const boxShadow = theme('mode', {
+  light: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+  dark: '0px 1px 4px rgba(255, 255, 255, 0.25)',
 });
 
-export const PageColorBody = theme('mode', {
+export const pageColorBody = theme('mode', {
   light: css`
     background: #ffffff;
     color: #414244;
@@ -19,11 +19,11 @@ export const PageColorBody = theme('mode', {
 export const elementColorBody = theme('mode', {
   light: css`
     background: #ffffff;
-    color: --color-gray2;
+    color: var(--color-gray2);
   `,
   dark: css`
-    background: --color-backhround4-dark;
-    color: --color-gray6;
+    background: var(--color-backhround4-dark);
+    color: var(--color-gray6);
   `,
 });
 export const elementColorHeader = theme('mode', {
@@ -38,18 +38,18 @@ export const elementColorHeader = theme('mode', {
 });
 export const titleColor = theme('mode', {
   light: css`
-    color: --color-primary2;
+    color: var(--color-primary2);
   `,
   dark: css`
-    color: --color-primary2;
+    color: var(--color-primary5);
   `,
 });
 export const subtitleColor = theme('mode', {
   light: css`
-    color: --color-gray3;
+    color: var(--color-gray3);
   `,
   dark: css`
-    color: --color-gray5;
+    color: var(--color-gray5);
   `,
 });
 export const directionStyles = theme('languageDirection', {

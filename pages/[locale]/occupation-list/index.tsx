@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { Loading } from '@elements/Loading';
 import Layout from 'components/Layout';
 import Navid from 'components/navid';
-import { useTranslation } from 'hooks/useTraslation';
 import { PageKeys, componrntStatements } from './LocaleConst';
 import styled from 'styled-components/macro';
 import { Headline4Style, Headline5Style } from 'styles/Typo';
+import { useTranslation } from '@hooks/useTraslation';
 
 const List: NextPage = () => {
   const { t } = useTranslation(componrntStatements);

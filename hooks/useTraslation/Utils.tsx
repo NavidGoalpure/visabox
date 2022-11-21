@@ -1,7 +1,9 @@
+////////////////
+
 import { useRouter } from 'next/router';
 import { Languages, MultiLanguage } from 'pages/interfaces';
+import { proxyUrlLocaleToLocale } from 'Utils/Language';
 
-////////////////
 /**
  *  بوسیله این فانکشن که برای متون هوشمند استفاده میشود میتوان کلماتی از متن را که به صورت تمپلیت مشخص شده اند
  * با کلمات دیگری جایگزین نمود
@@ -26,19 +28,7 @@ function convertAllTempKeysWithAllAliases({
   return myLocaleSenttence;
 }
 
-////////////////
-/**
- *  اگر کلمه لوکال که از یوآرال گرفته شده با زبان های از پیش تعریف شده ما مساوی باشد، همان زبان را برمیگرداند
- * اگر کلمه ای که از یوآرال گرفته ایم در لیست زبان های ما نباشد، زبان انگلیسی را به صورت دیفالت برمیگرداند
- * @param  urlLocale زبان که از عموما از یوآرال گرفته میشود
- * @return      یکی از زبانهای تعریف شده سایت
- */
-function proxyUrlLocaleToLocale(
-  urlLocale: string | string[] | undefined
-): Languages {
-  if (urlLocale === Languages.ir) return Languages.ir;
-  return Languages.en;
-}
+
 
 ////////////////
 /**
@@ -68,7 +58,7 @@ function convertKeyWithValueInString({
  * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
  * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
  */
-const translatedObject = ({
+export const translatedObject = ({
   sentence,
   statements,
   aliases,
@@ -89,18 +79,4 @@ const translatedObject = ({
     localeSenttence: statements[sentence][smartLocale],
     aliases,
   });
-};
-
-////////////////
-/**
- *  متدی که به کمک آن میتوانیم ترجمه هر عبارتی که در استیتمتز مشخص شده است را به زبان کاربر پیدا کنیم
- * @param  senttence جمله
- * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
- * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
- */
-export const useTranslation = (statements: Record<string, MultiLanguage>) => {
-  return {
-    t: (sentence: string, aliases?: Record<string, string>[]) =>
-      translatedObject({ sentence, statements, aliases }),
-  };
 };

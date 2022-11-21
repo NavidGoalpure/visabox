@@ -1,6 +1,6 @@
 import { HtmlHTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
-import { navidColor, elementColorBody, directionStyles } from 'styles/Theme';
+import {  elementColorBody, directionStyles } from 'styles/Theme';
 import darkLogo from './darkLogo.svg';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}

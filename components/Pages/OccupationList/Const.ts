@@ -10,7 +10,7 @@ export const componrntStatements: Record<PageKeys, MultiLanguageText> = {
     en: 'Skill Occupation List',
   },
   PageSubtitle: {
-    ir: 'در این قسمت لیست کامل مشاغل واجد شرایط یا لیست ترکیبی مطابق با دستورالعمل قانونگذاری {{تست}}آمده است.',
-    en: 'Below is the complete list of eligible skilled occupations or combined list as prescribed in Legislative Instrument {{test}}',
+    ir: 'در این قسمت لیست کامل مشاغل واجد شرایط یا لیست ترکیبی مطابق با دستورالعمل قانونگذاری {{تگ}}آمده است.',
+    en: 'Below is the complete list of eligible skilled occupations or combined list as prescribed in Legislative Instrument {{tag}}',
   },
 };

@@ -15,7 +15,6 @@ enum LanguageDirection {
 }
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale } = useLocale();
-  console.log('navid locale =', locale);
   return (
     <>
       <NextNProgress height={2} />

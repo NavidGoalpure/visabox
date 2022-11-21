@@ -1,26 +1,25 @@
 import styled from 'styled-components/macro';
 import { Headline5Style } from 'styles/Typo';
-import { useTranslation } from '@hooks/useTraslation';
 import SmartComponentBaseOnLocale from '@components/SmartComponentBaseOnLocale';
-import { componrntStatements, PageKeys } from '../Const';
+import { componrntStatements } from '../Const';
+import reactStringReplace from 'react-string-replace';
 
 const LocaleSubtitle: React.FC = () => {
-  const { t } = useTranslation(componrntStatements);
-
+  const iranianSubtitle = reactStringReplace(
+    componrntStatements.PageSubtitle.ir,
+    '{{تگ}}',
+    () => <p>نوید</p>
+  );
+  const englishSubtitle = reactStringReplace(
+    componrntStatements.PageSubtitle.en,
+    '{{tag}}',
+    () => <p>navid</p>
+  );
   return (
     <SmartComponentBaseOnLocale
       compenents={{
-        ir: (
-          <PageSubtitle>
-            {t(PageKeys.PageSubtitle, [{ تگ: 'LIN 19/051' }])}
-          </PageSubtitle>
-        ),
-        en: (
-          <PageSubtitle>
-            {t(PageKeys.PageSubtitle, [{ tag: 'LIN 19/051' }])}
-            LIN 19/051
-          </PageSubtitle>
-        ),
+        ir: <PageSubtitle>{iranianSubtitle}</PageSubtitle>,
+        en: <PageSubtitle>{englishSubtitle}</PageSubtitle>,
       }}
     />
   );

@@ -1,8 +1,9 @@
 import { InputHTMLAttributes, ReactNode, useEffect, useRef } from 'react';
 import { Container, InputContainer, StyledInput, Error } from './styles';
+import styled from 'styled-components/macro';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon?: ReactNode;
+  icon: ReactNode;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: any;
   type?: string;
@@ -16,9 +17,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = ({
+  icon,
   type = 'text',
   errorMasage,
-  icon,
   value,
   disabled = false,
   className,

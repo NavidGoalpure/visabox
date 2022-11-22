@@ -6,7 +6,7 @@ import {
   componrntStatements,
 } from '../../../components/Pages/OccupationList/Const';
 import { useTranslation } from '@hooks/useTraslation';
-import Content from '@components/Pages/OccupationList/Content';
+import Content from '@components/Pages/OccupationList';
 
 const OccupationList: NextPage = () => {
   const { t } = useTranslation(componrntStatements);

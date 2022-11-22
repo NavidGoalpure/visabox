@@ -4,16 +4,29 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 865px;
+  max-height: 64px;
   width: 100%;
+  height: 100%;
 `;
 const InputContainer = styled.div<{
   disabled: boolean;
 }>`
   display: flex;
-  padding-bottom: 8px;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-inline-start: 3rem;
+  padding-inline-end: 1rem;
 
+  width: 100%;
+  height: 100%;
+
+  /* gray6 */
+  background: #f5f8fc;
+  border-radius: 65px;
   ////////////disabled////////////
   ${({ disabled }) => disabled && 'border-color:var(--color-gray5); '};
 `;

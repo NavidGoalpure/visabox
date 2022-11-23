@@ -1,11 +1,11 @@
 import styled from 'styled-components/macro';
-import { Headline5Style, Headline4Style } from 'styles/Typo';
 import SmartComponentBaseOnLocale from '@components/SmartComponentBaseOnLocale';
-import { componrntStatements } from '../Const';
+import { componrntStatements } from './Const';
 import reactStringReplace from 'react-string-replace';
-import { titleColor } from 'styles/Theme';
+import { pageTitleColor } from 'styles/Theme';
+import { PageSubtitleStyle } from '@components/Layouts/StyledComponents';
 
-const LocaleSubtitle: React.FC = () => {
+const PageSubtitle: React.FC = () => {
   const iranianSubtitle = reactStringReplace(
     componrntStatements.PageSubtitle.ir,
     '{{تگ}}',
@@ -35,18 +35,17 @@ const LocaleSubtitle: React.FC = () => {
   return (
     <SmartComponentBaseOnLocale
       compenents={{
-        ir: <PageSubtitle>{iranianSubtitle}</PageSubtitle>,
-        en: <PageSubtitle>{englishSubtitle}</PageSubtitle>,
+        ir: <Subtitle>{iranianSubtitle}</Subtitle>,
+        en: <Subtitle>{englishSubtitle}</Subtitle>,
       }}
     />
   );
 };
-export { LocaleSubtitle };
+export { PageSubtitle };
 
-const PageSubtitle = styled.h2`
-  ${Headline5Style}
+const Subtitle = styled.h2`
+  ${PageSubtitleStyle}
 `;
 const A = styled.a`
-  ${Headline5Style}
-  ${titleColor}
+  ${pageTitleColor}
 `;

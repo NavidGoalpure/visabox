@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
 
 const Container = styled.div`
   display: flex;
@@ -9,9 +10,19 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
 `;
+export const inputContainerTheme = theme('mode', {
+  light: css`
+    background: var(--color-gray7);
+    border: 1px solid var(--color-background7-dark);
+  `,
+  dark: css`
+    background: white;
+  `,
+});
 const InputContainer = styled.div<{
   disabled: boolean;
 }>`
+  ${inputContainerTheme}
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,12 +31,8 @@ const InputContainer = styled.div<{
   padding-bottom: 0.5rem;
   padding-inline-start: 3rem;
   padding-inline-end: 1rem;
-
   width: 100%;
   height: 100%;
-
-  /* gray6 */
-  background: #f5f8fc;
   border-radius: 65px;
   ////////////disabled////////////
   ${({ disabled }) => disabled && 'border-color:var(--color-gray5); '};
@@ -36,7 +43,6 @@ const InputStyle = css<{
 }>`
   // width: 246px;
   // height: 48px;
-  background: var(--color-background6-dark);
   border-radius: 5px;
 
   ${({ hasError }) => hasError && 'color:var(--color-error);'};

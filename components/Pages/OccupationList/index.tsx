@@ -1,17 +1,17 @@
 import styled from 'styled-components/macro';
-import { Headline4Style, Headline5Style } from 'styles/Typo';
 import { useTranslation } from '@hooks/useTraslation';
 import { componrntStatements, PageKeys } from './Const';
-import { LocaleSubtitle as PageLocaleSubtitle } from './Locale/Subtitle';
 import CardsSection from './CardsSection';
 import Search from './Search';
+import { PageSubtitle } from './PageSubtitle';
+import { PageTitleStyle } from '@components/Layouts/StyledComponents';
 
 const Content: React.FC = () => {
   const { t } = useTranslation(componrntStatements);
   return (
     <>
       <PageTitle>{t(PageKeys.PageTitle)}</PageTitle>
-      <PageLocaleSubtitle />
+      <PageSubtitle />
       <Search />
       <CardsSection />
     </>
@@ -19,5 +19,5 @@ const Content: React.FC = () => {
 };
 export default Content;
 const PageTitle = styled.h1`
-  ${Headline4Style}
+  ${PageTitleStyle}
 `;

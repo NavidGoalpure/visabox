@@ -1,13 +1,13 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components/macro';
-import { pageColorBody, directionStyles } from 'styles/Theme';
-import { Header } from './NavigationMenu';
+import { pageBackground, directionStyles, pageTextColor } from 'styles/Theme';
+import { Header } from '../NavigationMenu';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children, ...props }) => {
+const PageContainer: React.FC<Props> = ({ children, ...props }) => {
   return (
     <Container {...props}>
       <Header />
@@ -16,9 +16,9 @@ const Layout: React.FC<Props> = ({ children, ...props }) => {
     </Container>
   );
 };
-export default Layout;
-const Container = styled.div`
-  ${pageColorBody}
+export default PageContainer;
+export const Container = styled.main`
+  ${pageBackground}
   ${directionStyles}
   display: flex;
   justify-content: center;
@@ -28,7 +28,8 @@ const Container = styled.div`
   min-height: 100vh;
   overflow: hidden;
 `;
-const Content = styled.main`
+
+const Content = styled.article`
   width: 100%;
   display: flex;
   flex-direction: column;

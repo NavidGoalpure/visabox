@@ -3,12 +3,12 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 
-import Layout from 'components/Layout';
 import { Headline4Style, Headline5Style } from 'styles/Typo';
+import PageLayout from '@components/Layouts/PageContainer';
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <PageLayout>
       <Head>
         <title>Mara Box</title>
         <link rel='icon' href='/favicon.ico' />
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         Below is the complete list of eligible skilled occupations or combined
         list as prescribed in Legislative Instrument LIN 19/051
       </PageSubtitle>
-    </Layout>
+    </PageLayout>
   );
 };
 export default Home;

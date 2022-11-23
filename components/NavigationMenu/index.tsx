@@ -5,8 +5,8 @@ import styled from 'styled-components/macro';
 import {
   boxShadow,
   directionStyles,
-  elementColorBody,
-  pageColorBody,
+  pageColor,
+  pageBackground,
 } from 'styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
@@ -35,7 +35,8 @@ function Header() {
 export { Header };
 
 const Container = styled(NavigationMenu.Root)`
-  ${pageColorBody}
+  ${pageColor}
+  ${pageBackground}
   ${directionStyles}
 
   width: 100%;

@@ -20,4 +20,5 @@ const Container = styled.section`
   padding: 0px;
   gap: 2rem;
   width: 100%;
+  margin-bottom: 2rem;
 `;

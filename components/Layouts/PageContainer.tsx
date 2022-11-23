@@ -1,3 +1,4 @@
+import Footer from '@components/Footer';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components/macro';
 import { pageBackground, directionStyles, pageTextColor } from 'styles/Theme';
@@ -12,7 +13,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
     <Container {...props}>
       <Header />
       <Content>{children}</Content>
-      <footer>footer</footer>
+      <Footer />
     </Container>
   );
 };

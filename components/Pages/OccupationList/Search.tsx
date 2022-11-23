@@ -20,6 +20,7 @@ function Search() {
 
 export default Search;
 const SearchElement = styled(Input)`
+  margin: 0 auto;
   margin-bottom: 4rem;
 `;
 const SearchIcon = styled(CiSearch)`

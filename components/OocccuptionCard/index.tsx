@@ -1,21 +1,36 @@
 import ComponentContainer from '@components/Layouts/ComponentContainer';
 import { ComponentTitleStyle } from '@components/Layouts/StyledComponents';
+import { useLocale } from '@hooks/useLocale';
+import Link from 'next/link';
+import { MultiLanguageText } from 'pages/interfaces';
+import { Slug } from 'pages/interfaces/Fields';
 import React from 'react';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { componentTextColor } from 'styles/Theme';
 import { Headline6Style } from 'styles/Typo';
 
-function OccupationCard() {
+interface Props {
+  code?: number;
+  title?: MultiLanguageText;
+  description?: MultiLanguageText;
+  slug?: Slug;
+}
+function OccupationCard({ code, title, description, slug }: Props) {
+  const { locale } = useLocale();
+  const getSmartHref = (): URL => {
+    if (slug?.current)
+      return { pathname: `/${locale}/occupations/${slug?.current}` } as URL;
+    return { pathname: `/${locale}/occupations/${code}` } as URL;
+  };
   return (
-    <Container>
-      <Code>121111</Code>
-      <Title>Aquaculture Farmer</Title>
-      <Description>
-        Plans, organises, controls, coordinates and performs farming operations
-        to breed and raise fish and other aquatic stock.
-      </Description>
-    </Container>
+    <Link key={code} href={getSmartHref()} as={getSmartHref()} prefetch={false}>
+      <Container>
+        <Code>{code}</Code>
+        <Title>{title?.[locale]}</Title>
+        <Description>{description?.[locale]}</Description>
+      </Container>
+    </Link>
   );
 }
 
@@ -28,6 +43,7 @@ const Container = styled(ComponentContainer)`
   padding-bottom: 3.75rem;
   border-radius: 15px;
   padding-top: 1.5rem;
+  cursor: pointer;
 `;
 export const codeColor = theme('mode', {
   light: css`

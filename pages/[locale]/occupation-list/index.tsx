@@ -3,12 +3,17 @@ import Head from 'next/head';
 import {
   PageKeys,
   componrntStatements,
-} from '../../../components/Pages/OccupationList/Const';
+} from '../../../components/PagesComponents/OccupationList/Const';
 import { useTranslation } from '@hooks/useTraslation';
-import Content from '@components/Pages/OccupationList';
+import Content from '@components/PagesComponents/OccupationList';
 import PageLayout from '@components/Layouts/PageContainer';
+import { sanityClient } from '../../../sanity';
+import { Occupation } from 'pages/interfaces/Documents/Occupation';
 
-const OccupationList: NextPage = () => {
+interface Props {
+  occupations: Occupation[];
+}
+const OccupationList: NextPage<Props> = ({ occupations }) => {
   const { t } = useTranslation(componrntStatements);
 
   return (
@@ -17,8 +22,26 @@ const OccupationList: NextPage = () => {
         <title>{t(PageKeys.PageTitle)}</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Content />
+      <Content occupations={occupations} />
     </PageLayout>
   );
 };
+
+export const getServerSideProps = async () => {
+  const query = `*[_type=='occupation' ]{
+  _id,
+  slug,
+  code,
+  title,
+  anzsco_section,
+}`;
+
+  const occupations = await sanityClient.fetch(query);
+  return {
+    props: {
+      occupations,
+    },
+  };
+};
+
 export default OccupationList;

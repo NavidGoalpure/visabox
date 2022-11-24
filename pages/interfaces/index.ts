@@ -3,8 +3,8 @@ enum Languages {
   en = 'en',
 }
 interface MultiLanguageText {
-  [Languages.ir]: string;
   [Languages.en]: string;
+  [Languages.ir]?: string;
 }
 export type { MultiLanguageText };
 export { Languages };

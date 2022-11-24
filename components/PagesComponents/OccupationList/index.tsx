@@ -5,15 +5,19 @@ import CardsSection from './CardsSection';
 import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
 import { PageTitleStyle } from '@components/Layouts/StyledComponents';
+import { Occupation } from 'pages/interfaces/Documents/Occupation';
 
-const Content: React.FC = () => {
+interface Props {
+  occupations: Occupation[];
+}
+const Content: React.FC<Props> = ({ occupations }) => {
   const { t } = useTranslation(componrntStatements);
   return (
     <>
       <PageTitle>{t(PageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
       <Search />
-      <CardsSection />
+      <CardsSection occupations={occupations} />
     </>
   );
 };

@@ -15,6 +15,7 @@ interface Props {
 }
 const OccupationPage: NextPage<Props> = ({ occupation }) => {
   const { t } = useTranslation(componrntStatements);
+  console.log('navid skilllevel=', occupation.anzsco_section?.unit_group);
   return (
     <PageLayout>
       {/* <Head> */}
@@ -53,8 +54,19 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   console.log('***navid params=', params);
   const query = `
-  *[_type=='occupation' && slug.current==$slug][0]{
+    *[_type=='occupation' && slug.current == $slug]
+[0]
+{
 _id,
+code,
+  title,
+  anzsco_section {...,
+    unit_group  ->{
+  skill_level
+}
+   },
+assessing_authority,
+visa_option_section
 }
   `;
   const occupation = await sanityClient.fetch(query, {

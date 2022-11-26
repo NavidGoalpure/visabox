@@ -1,28 +1,37 @@
 import {
-  componrntStatements,
+  componentStatements,
   PageKeys,
-} from '@components/PagesComponents/OccupationList/Const';
-import { useTranslation } from '@hooks/useTraslation';
-import { Content } from '@radix-ui/react-navigation-menu';
-import { GetStaticProps, NextPage } from 'next';
-import { Head } from 'next/document';
-import { Occupation } from 'pages/interfaces/Documents/Occupation';
-import PageLayout from '@components/Layouts/PageContainer';
-import { sanityClient } from '../../../sanity';
+} from "@components/PagesComponents/OccupationList/Const";
+import { useTranslation } from "@hooks/useTraslation";
+import { Content } from "@radix-ui/react-navigation-menu";
+import { GetStaticProps, NextPage } from "next";
+import { Head } from "next/document";
+import { Occupation } from "pages/interfaces/Documents/Occupation";
+import PageLayout from "@components/Layouts/PageContainer";
+import { sanityClient } from "../../../sanity";
+import TooltipTag from "@elements/TooltipTag";
 
 interface Props {
   occupation: Occupation;
 }
 const OccupationPage: NextPage<Props> = ({ occupation }) => {
-  const { t } = useTranslation(componrntStatements);
-  console.log('navid skilllevel=', occupation.anzsco_section?.unit_group);
+  const { t } = useTranslation(componentStatements);
+  console.log("navid skilllevel=", occupation);
   return (
     <PageLayout>
       {/* <Head> */}
       {/* <title>{t(PageKeys.PageTitle)}</title> */}
-      <link rel='icon' href='/favicon.ico' />
+      {/* <link rel="icon" href="/favicon.ico" /> */}
       {/* </Head> */}
       <div>data</div>
+      <TooltipTag
+        content={
+          occupation?.anzsco_section?.priority_list
+            ? occupation?.anzsco_section?.priority_list[0]?.future_demend || ""
+            : ""
+        }
+        popupContent={"occupation."}
+      />
     </PageLayout>
   );
 };
@@ -39,20 +48,20 @@ export const getStaticPaths = async () => {
   const paths = occupations.map((occupation: Occupation) => ({
     params: {
       slug:
-        occupation?.slug?.current || occupation.title.en.replaceAll(' ', '_'),
+        occupation?.slug?.current || occupation.title.en.replaceAll(" ", "_"),
       //navid
-      locale: 'en',
+      locale: "en",
     },
   }));
 
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  console.log('***navid params=', params);
+  console.log("***navid params=", params);
   const query = `
     *[_type=='occupation' && slug.current == $slug]
 [0]

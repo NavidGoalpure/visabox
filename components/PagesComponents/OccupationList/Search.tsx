@@ -1,13 +1,13 @@
-import React from 'react';
-import { Input } from '../../../elements/Input';
-import { Button } from '@elements/Button';
-import styled from 'styled-components/macro';
-import { CiSearch } from 'react-icons/ci';
-import { useTranslation } from '@hooks/useTraslation';
-import { componrntStatements, PageKeys } from './Const';
+import React from "react";
+import { Input } from "../../../elements/Input";
+import { Button } from "@elements/Button";
+import styled from "styled-components/macro";
+import { CiSearch } from "react-icons/ci";
+import { useTranslation } from "@hooks/useTraslation";
+import { componentStatements, PageKeys } from "./Const";
 
 function Search() {
-  const { t } = useTranslation(componrntStatements);
+  const { t } = useTranslation(componentStatements);
 
   return (
     <SearchElement

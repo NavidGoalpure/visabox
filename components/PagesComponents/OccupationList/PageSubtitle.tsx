@@ -1,32 +1,32 @@
-import styled from 'styled-components/macro';
-import SmartComponentBaseOnLocale from '@components/SmartComponentBaseOnLocale';
-import { componrntStatements } from './Const';
-import reactStringReplace from 'react-string-replace';
-import { pageTitleColor } from 'styles/Theme';
-import { PageSubtitleStyle } from '@components/Layouts/StyledComponents';
+import styled from "styled-components/macro";
+import SmartComponentBaseOnLocale from "@components/SmartComponentBaseOnLocale";
+import { componentStatements } from "./Const";
+import reactStringReplace from "react-string-replace";
+import { pageTitleColor } from "styles/Theme";
+import { PageSubtitleStyle } from "@components/Layouts/StyledComponents";
 
 const PageSubtitle: React.FC = () => {
   const iranianSubtitle = reactStringReplace(
-    componrntStatements.PageSubtitle.ir,
-    '{{تگ}}',
+    componentStatements.PageSubtitle.ir,
+    "{{تگ}}",
     () => (
       <A
-        href='https://www.legislation.gov.au/Details/F2022C00574'
-        target='_blank'
-        rel='noopener noreferrer'
+        href="https://www.legislation.gov.au/Details/F2022C00574"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         LIN 29/051
       </A>
     )
   );
   const englishSubtitle = reactStringReplace(
-    componrntStatements.PageSubtitle.en,
-    '{{tag}}',
+    componentStatements.PageSubtitle.en,
+    "{{tag}}",
     () => (
       <A
-        href='https://www.legislation.gov.au/Details/F2022C00574'
-        target='_blank'
-        rel='noopener noreferrer'
+        href="https://www.legislation.gov.au/Details/F2022C00574"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         LIN 29/051
       </A>

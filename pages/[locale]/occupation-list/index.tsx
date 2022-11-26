@@ -1,26 +1,26 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
+import type { NextPage } from "next";
+import Head from "next/head";
 import {
   PageKeys,
-  componrntStatements,
-} from '../../../components/PagesComponents/OccupationList/Const';
-import { useTranslation } from '@hooks/useTraslation';
-import Content from '@components/PagesComponents/OccupationList';
-import PageLayout from '@components/Layouts/PageContainer';
-import { sanityClient } from '../../../sanity';
-import { Occupation } from 'pages/interfaces/Documents/Occupation';
+  componentStatements,
+} from "../../../components/PagesComponents/OccupationList/Const";
+import { useTranslation } from "@hooks/useTraslation";
+import Content from "@components/PagesComponents/OccupationList";
+import PageLayout from "@components/Layouts/PageContainer";
+import { sanityClient } from "../../../sanity";
+import { Occupation } from "pages/interfaces/Documents/Occupation";
 
 interface Props {
   occupations: Occupation[];
 }
 const OccupationList: NextPage<Props> = ({ occupations }) => {
-  const { t } = useTranslation(componrntStatements);
+  const { t } = useTranslation(componentStatements);
 
   return (
     <PageLayout>
       <Head>
         <title>{t(PageKeys.PageTitle)}</title>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Content occupations={occupations} />
     </PageLayout>

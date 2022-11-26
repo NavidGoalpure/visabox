@@ -1,6 +1,4 @@
 import { css } from 'styled-components/macro';
-import { device } from '../consts/device';
-import { pageTitleColor, pageSubtitleColor } from './Theme';
 
 export const Headline1Style = css<{
   weight?: number | string;
@@ -52,7 +50,7 @@ export const Headline5Style = css<{
   font-style: normal;
   font-weight: ${({ weight }) => weight || '500'};
   font-size: 24px;
-  line-height: 29px;
+  line-height: 32.3px;
 `;
 
 //-----------------
@@ -64,4 +62,14 @@ export const Headline6Style = css<{
   font-weight: ${({ weight }) => weight || '500'};
   font-size: 20px;
   line-height: 24px;
+`;
+//-----------------
+export const Headline7Style = css<{
+  weight?: number | string;
+}>`
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: ${({ weight }) => weight || '500'};
+  font-size: 16px;
+  line-height: 19.5px;
 `;

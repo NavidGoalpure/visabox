@@ -1,5 +1,4 @@
 import { MultiLanguageText } from 'pages/interfaces';
-import { title } from 'process';
 
 export type AnszcoGroup = {
   code: number;

@@ -1,39 +1,31 @@
 import {
   componentStatements,
   PageKeys,
-} from "@components/PagesComponents/OccupationList/Const";
-import { useTranslation } from "@hooks/useTraslation";
-import { Content } from "@radix-ui/react-navigation-menu";
-import { GetStaticProps, NextPage } from "next";
-import { Head } from "next/document";
-import { Occupation } from "pages/interfaces/Documents/Occupation";
-import PageLayout from "@components/Layouts/PageContainer";
-import { sanityClient } from "../../../sanity";
-import TooltipTag from "@elements/TooltipTag";
-import styled from "styled-components/macro";
-import { PageTitleStyle } from "@components/Layouts/StyledComponents";
+} from 'components/PagesComponents/Occupations/Const';
+import { useTranslation } from '@hooks/useTraslation';
+import { GetStaticProps, NextPage } from 'next';
+import { Head } from 'next/document';
+import { Occupation } from 'pages/interfaces/Documents/Occupation';
+import PageLayout from 'components/Layouts/PageContainer';
+import { sanityClient } from '../../../sanity';
+import TooltipTag from '@elements/TooltipTag';
+import styled from 'styled-components/macro';
+import { PageTitleStyle } from 'components/Layouts/StyledComponents';
+import Content from 'components/PagesComponents/Occupations/Slug';
 
 interface Props {
   occupation: Occupation;
 }
 const OccupationPage: NextPage<Props> = ({ occupation }) => {
   const { t } = useTranslation(componentStatements);
-  console.log("navid skilllevel=", occupation);
+  console.log('navid skilllevel=', occupation);
   return (
     <PageLayout>
       {/* <Head> */}
       {/* <title>{t(PageKeys.PageTitle)}</title> */}
       {/* <link rel="icon" href="/favicon.ico" /> */}
       {/* </Head> */}
-      <Title>data</Title>
-      <TooltipTag
-        content={
-          occupation?.anzsco_section?.priority_list
-            ? occupation?.anzsco_section?.priority_list[0]?.future_demend || ""
-            : ""
-        }
-        popupContent={"occupation."}
-      />
+      <Content occupation={occupation} />
     </PageLayout>
   );
 };
@@ -50,20 +42,20 @@ export const getStaticPaths = async () => {
   const paths = occupations.map((occupation: Occupation) => ({
     params: {
       slug:
-        occupation?.slug?.current || occupation.title.en.replaceAll(" ", "_"),
+        occupation?.slug?.current || occupation.title.en.replaceAll(' ', '_'),
       //navid
-      locale: "en",
+      locale: 'en',
     },
   }));
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  console.log("***navid params=", params);
+  console.log('***navid params=', params);
   const query = `
     *[_type=='occupation' && slug.current == $slug]
 [0]
@@ -97,6 +89,3 @@ visa_option_section
     revalidate: 60,
   };
 };
-const Title = styled.h1`
-  ${PageTitleStyle}
-`;

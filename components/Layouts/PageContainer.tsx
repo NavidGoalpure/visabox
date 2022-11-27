@@ -1,4 +1,4 @@
-import Footer from '@components/Footer';
+import Footer from 'components/Footer';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components/macro';
 import { pageBackground, directionStyles, pageTextColor } from 'styles/Theme';
@@ -19,7 +19,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
 };
 export default PageContainer;
 export const Container = styled.main`
-  ${pageBackground}
+ ${pageBackground}
   ${directionStyles}
   display: flex;
   justify-content: center;

@@ -14,7 +14,7 @@ export const pageBackground = theme('mode', {
     background: white;
   `,
   dark: css`
-    background: var(--color-background2-dark);
+    background: var(--color-gray3);
   `,
 });
 export const pageTitleColor = theme('mode', {
@@ -73,7 +73,7 @@ export const componentTextColor = theme('mode', {
     color: var(--color-gray2);
   `,
   dark: css`
-    color: var(--color-gray6);
+    color: var(--color-gray13);
   `,
 });
 

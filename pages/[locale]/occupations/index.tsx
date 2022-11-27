@@ -1,14 +1,14 @@
-import type { NextPage } from "next";
-import Head from "next/head";
+import type { NextPage } from 'next';
+import Head from 'next/head';
 import {
   PageKeys,
   componentStatements,
-} from "../../../components/PagesComponents/OccupationList/Const";
-import { useTranslation } from "@hooks/useTraslation";
-import Content from "@components/PagesComponents/OccupationList";
-import PageLayout from "@components/Layouts/PageContainer";
-import { sanityClient } from "../../../sanity";
-import { Occupation } from "pages/interfaces/Documents/Occupation";
+} from '../../../components/PagesComponents/Occupations/Const';
+import { useTranslation } from '@hooks/useTraslation';
+import Content from 'components/PagesComponents/Occupations';
+import PageLayout from 'components/Layouts/PageContainer';
+import { sanityClient } from '../../../sanity';
+import { Occupation } from 'pages/interfaces/Documents/Occupation';
 
 interface Props {
   occupations: Occupation[];
@@ -20,7 +20,7 @@ const OccupationList: NextPage<Props> = ({ occupations }) => {
     <PageLayout>
       <Head>
         <title>{t(PageKeys.PageTitle)}</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Content occupations={occupations} />
     </PageLayout>

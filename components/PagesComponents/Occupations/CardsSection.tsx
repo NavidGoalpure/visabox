@@ -1,4 +1,4 @@
-import OccupationCard from '@components/OocccuptionCard';
+import OccupationCard from 'components/OocccuptionCard';
 import { Occupation } from 'pages/interfaces/Documents/Occupation';
 import React from 'react';
 import styled from 'styled-components';

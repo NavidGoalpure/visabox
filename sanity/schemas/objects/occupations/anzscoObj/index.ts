@@ -4,6 +4,21 @@ export default {
   type: 'object',
   fields: [
     {
+      name: 'major_group',
+      title: 'Major Group',
+      type: 'number',
+    },
+    {
+      name: 'submajor_group',
+      title: 'Sub-Major Group',
+      type: 'number',
+    },
+    {
+      name: 'minor_group',
+      title: 'Minor Group',
+      type: 'number',
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'string',

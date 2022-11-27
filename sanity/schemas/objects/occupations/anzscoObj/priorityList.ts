@@ -6,7 +6,7 @@ const priorityEnum = [
 ];
 const futureDemandEnum = [
   { title: 'Strong', value: 'Strong' },
-  { title: 'Modarate', value: 'Modarate' },
+  { title: 'Moderate', value: 'Moderate' },
   { title: 'Soft', value: 'Soft' },
 ];
 export default {

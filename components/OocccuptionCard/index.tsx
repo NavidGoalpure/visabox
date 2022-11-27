@@ -48,7 +48,7 @@ const Container = styled(ComponentContainer)`
 export const codeColor = theme('mode', {
   light: css`
     background: var(--color-gray7);
-    color: var(--color-background6-dark);
+    color: var(--color-gray8);
     border: 2px solid var(--color-primary5);
   `,
   dark: css`

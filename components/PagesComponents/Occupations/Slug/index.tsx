@@ -4,6 +4,7 @@ import { Occupation } from 'pages/interfaces/Documents/Occupation';
 import React from 'react';
 import occupation from 'sanity/schemas/documents/occupations/occupation';
 import styled from 'styled-components/macro';
+import Toggle from '@elements/Button/Toggle';
 
 interface Props {
   occupation: Occupation;
@@ -15,11 +16,13 @@ const Content: React.FC<Props> = ({ occupation }) => {
       <TooltipTag
         content={
           occupation?.anzsco_section?.priority_list
-            ? occupation?.anzsco_section?.priority_list[0]?.future_demend || ''
-            : ''
+            ? occupation?.anzsco_section?.priority_list[0]?.future_demend || ""
+            : ""
         }
-        popupContent={'occupation.'}
+        popupContent={"occupation."}
       />
+      <Toggle content={"190"} isOn={true} />
+      <Toggle content={"189"} isOn={false} />
     </>
   );
 };

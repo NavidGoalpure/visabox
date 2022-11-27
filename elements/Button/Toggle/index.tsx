@@ -5,66 +5,19 @@ import border from "./LeftBorder.svg";
 
 interface Props {
   content: string;
-  popupContent: string;
-  delayDuration?: number;
+  isOn: boolean;
 }
-
-const TooltipTag: React.FC<Props> = ({
-  content,
-  popupContent,
-  delayDuration = 0,
-}) => {
+//navid change the name
+const Toggle: React.FC<Props> = ({ content, isOn }) => {
   return (
-    <Tooltip.Provider delayDuration={delayDuration}>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild>
-          <ButtonContainer>
-            <LeftBorder
-              src={border}
-              alt={"left border image"}
-              aria-hidden={true}
-            />
-            <Button>{content}</Button>
-            <RightBorder
-              src={border}
-              alt={"right border image"}
-              aria-hidden={true}
-            />
-          </ButtonContainer>
-        </Tooltip.Trigger>
-        <Tooltip.Portal>
-          <TooltipContent>
-            {popupContent}
-            <Tooltip.Arrow />
-          </TooltipContent>
-        </Tooltip.Portal>
-      </Tooltip.Root>
-    </Tooltip.Provider>
+    <Container isOn={isOn}>
+      <LeftText> {content} </LeftText>{" "}
+      <RightText isOn={isOn}>{isOn ? "ON" : "OFF"}</RightText>
+    </Container>
   );
 };
-export default TooltipTag;
+export default Toggle;
 
-const FadeInAnimation = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-export const ButtonTheme = theme("mode", {
-  light: css`
-    background: var(--color-primary4);
-    color: var(--color-gray13);
-  `,
-  dark: css`
-    background: var(--color-primary5);
-    color: var(--color-gray4);
-  `,
-});
 export const ButtonBorderTheme = theme("mode", {
   light: css`
     border: 5px solid var(--color-primary4);
@@ -73,34 +26,37 @@ export const ButtonBorderTheme = theme("mode", {
     border: 5px solid var(--color-primary5);
   `,
 });
-const ButtonContainer = styled.div`
+const Container = styled.div<{ isOn: boolean }>`
+  border-radius: 30px;
+  width: fit-content;
   display: flex;
   align-items: center;
-  width: max-content;
+  ${({ isOn }) =>
+    isOn
+      ? `
+border: 3px solid var(--color-primary4);
+box-shadow: 0 0 4px 0px var(--color-primary4);
+  color:white;
+  `
+      : `
+  border: 3px solid var(--color-primary1);
+  color:var(--color-gray9);
+
+  `}
 `;
-const Button = styled.button`
-  ${ButtonTheme};
-  padding: 0.5rem 1rem;
-  width: max-content;
-  border-radius: 30px;
-  position: relative;
-  z-index: 2;
+const LeftText = styled.h3`
+  padding: 0.25em 1em;
 `;
-const LeftBorder = styled.img``;
-const RightBorder = styled(LeftBorder)`
-  transform: rotate(180deg);
-`;
-const TooltipContent = styled(Tooltip.Content)`
-  // navid change when dark design is ready
-  color: white;
-  background-color: var(--color-gray2);
-  padding: 0.75em 1em;
-  transition: all 0.3s linear;
-  border-radius: 10px;
-  &[data-state="delayed-open"] {
-    animation: ${FadeInAnimation} 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  &[data-state="instant-open"] {
-    animation: ${FadeInAnimation} 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+const RightText = styled.h3<{ isOn: boolean }>`
+  padding: 0.25em 1em;
+  ${({ isOn }) =>
+    isOn
+      ? `
+  background-color: var(--color-primary4);
+  border-radius: 0 6px 6px 0;
+  `
+      : `
+  background-color: var(--color-primary1);
+  border-radius: 0 6px 6px 0;
+  `}
 `;

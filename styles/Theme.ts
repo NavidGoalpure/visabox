@@ -48,7 +48,7 @@ export const componentBackground = theme('mode', {
     border: 1px solid var(--color-gray4);
   `,
   dark: css`
-    background: var(--color-background4-dark);
+    background: var(--color-gray6);
   `,
 });
 

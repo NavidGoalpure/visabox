@@ -10,6 +10,8 @@ import { Occupation } from "pages/interfaces/Documents/Occupation";
 import PageLayout from "@components/Layouts/PageContainer";
 import { sanityClient } from "../../../sanity";
 import TooltipTag from "@elements/TooltipTag";
+import styled from "styled-components/macro";
+import { PageTitleStyle } from "@components/Layouts/StyledComponents";
 
 interface Props {
   occupation: Occupation;
@@ -23,7 +25,7 @@ const OccupationPage: NextPage<Props> = ({ occupation }) => {
       {/* <title>{t(PageKeys.PageTitle)}</title> */}
       {/* <link rel="icon" href="/favicon.ico" /> */}
       {/* </Head> */}
-      <div>data</div>
+      <Title>data</Title>
       <TooltipTag
         content={
           occupation?.anzsco_section?.priority_list
@@ -95,3 +97,6 @@ visa_option_section
     revalidate: 60,
   };
 };
+const Title = styled.h1`
+  ${PageTitleStyle}
+`;

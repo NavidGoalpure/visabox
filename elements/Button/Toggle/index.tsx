@@ -1,8 +1,7 @@
 import * as Tooltip from "@radix-ui/react-tooltip";
 import styled, { css, keyframes } from "styled-components/macro";
 import theme from "styled-theming";
-import { BorderSvg } from "./BorderSvg";
-import lightBorder from "./images/LightLeftBorder.svg";
+import border from "./LeftBorder.svg";
 
 interface Props {
   content: string;
@@ -20,9 +19,17 @@ const TooltipTag: React.FC<Props> = ({
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
           <ButtonContainer>
-            <LeftBorder aria-hidden={true} />
+            <LeftBorder
+              src={border}
+              alt={"left border image"}
+              aria-hidden={true}
+            />
             <Button>{content}</Button>
-            <RightBorder aria-hidden={true} />
+            <RightBorder
+              src={border}
+              alt={"right border image"}
+              aria-hidden={true}
+            />
           </ButtonContainer>
         </Tooltip.Trigger>
         <Tooltip.Portal>
@@ -60,17 +67,16 @@ export const ButtonTheme = theme("mode", {
 });
 export const ButtonBorderTheme = theme("mode", {
   light: css`
-    fill: var(--color-primary4);
+    border: 5px solid var(--color-primary4);
   `,
   dark: css`
-    fill: var(--color-primary5);
+    border: 5px solid var(--color-primary5);
   `,
 });
 const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   width: max-content;
-  
 `;
 const Button = styled.button`
   ${ButtonTheme};
@@ -80,9 +86,7 @@ const Button = styled.button`
   position: relative;
   z-index: 2;
 `;
-const LeftBorder = styled(BorderSvg)`
-  ${ButtonBorderTheme}
-`;
+const LeftBorder = styled.img``;
 const RightBorder = styled(LeftBorder)`
   transform: rotate(180deg);
 `;

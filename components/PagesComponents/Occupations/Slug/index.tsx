@@ -4,7 +4,7 @@ import { Occupation } from 'pages/interfaces/Documents/Occupation';
 import React from 'react';
 import occupation from 'sanity/schemas/documents/occupations/occupation';
 import styled from 'styled-components/macro';
-import Toggle from '@elements/Button/Toggle';
+import Toggle from 'elements/Button/Toggle';
 
 interface Props {
   occupation: Occupation;

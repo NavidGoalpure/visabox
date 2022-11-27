@@ -38,10 +38,10 @@ const Container = styled(NavigationMenu.Root)`
   ${pageColor}
   ${pageBackground}
   ${directionStyles}
+  ${boxShadow};
 
   width: 100%;
   padding: 0 1rem;
-  box-shadow: ${boxShadow};
 `;
 const Wrapper = styled(NavigationMenu.List)`
   display: flex;

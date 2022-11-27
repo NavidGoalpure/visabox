@@ -43,9 +43,9 @@ const TabsList = styled(Tabs.TabsList)`
   //color
   ${componentBackground}
   ${boxShadow}
+  //
   border-radius: 10px;
   overflow: hidden;
-  //
   list-style: none;
 `;
 const TabsTrigger = styled(Tabs.Trigger)`
@@ -55,4 +55,5 @@ const TabsTrigger = styled(Tabs.Trigger)`
   width: 100%;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
+  cursor: pointer;
 `;

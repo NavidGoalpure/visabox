@@ -2,12 +2,7 @@ import { Logo } from 'elements/Logo';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components/macro';
-import {
-  boxShadow,
-  directionStyles,
-  pageColor,
-  pageBackground,
-} from 'styles/Theme';
+import { boxShadow, directionStyles, pageBackground } from 'styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 function Header() {
@@ -35,7 +30,6 @@ function Header() {
 export { Header };
 
 const Container = styled(NavigationMenu.Root)`
-  ${pageColor}
   ${pageBackground}
   ${directionStyles}
   ${boxShadow};

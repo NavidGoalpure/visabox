@@ -1,4 +1,4 @@
-import { useLocale } from '@hooks/useLocale';
+import { useLocale } from 'hooks/useLocale';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import NextNProgress from 'nextjs-progressbar';

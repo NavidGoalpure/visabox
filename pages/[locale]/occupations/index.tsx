@@ -4,7 +4,7 @@ import {
   PageKeys,
   componentStatements,
 } from '../../../components/PagesComponents/Occupations/Const';
-import { useTranslation } from '@hooks/useTraslation';
+import { useTranslation } from 'hooks/useTraslation';
 import Content from 'components/PagesComponents/Occupations';
 import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';

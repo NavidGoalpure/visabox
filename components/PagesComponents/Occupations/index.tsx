@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { useTranslation } from '@hooks/useTraslation';
+import { useTranslation } from 'hooks/useTraslation';
 import { componentStatements, PageKeys } from './Const';
 import CardsSection from './CardsSection';
 import Search from './Search';

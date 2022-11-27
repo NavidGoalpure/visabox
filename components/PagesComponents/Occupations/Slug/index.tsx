@@ -1,4 +1,4 @@
-import TooltipTag from '@elements/TooltipTag';
+import TooltipTag from 'elements/TooltipTag';
 import { PageTitleStyle } from 'components/Layouts/StyledComponents';
 import { Occupation } from 'pages/interfaces/Documents/Occupation';
 import React from 'react';

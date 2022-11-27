@@ -1,4 +1,4 @@
-import { useLocale } from '@hooks/useLocale';
+import { useLocale } from 'hooks/useLocale';
 import { Languages } from 'pages/interfaces';
 import { ReactNode } from 'react';
 

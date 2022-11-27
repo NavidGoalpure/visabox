@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { Headline4Style, Headline5Style } from 'styles/Typo';
 import PageLayout from 'components/Layouts/PageContainer';
-import TooltipTag from '@elements/TooltipTag';
+import TooltipTag from 'elements/TooltipTag';
 
 const Home: NextPage = () => {
   return (

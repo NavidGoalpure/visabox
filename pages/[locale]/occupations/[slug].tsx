@@ -2,13 +2,13 @@ import {
   componentStatements,
   PageKeys,
 } from 'components/PagesComponents/Occupations/Const';
-import { useTranslation } from '@hooks/useTraslation';
+import { useTranslation } from 'hooks/useTraslation';
 import { GetStaticProps, NextPage } from 'next';
 import { Head } from 'next/document';
 import { Occupation } from 'pages/interfaces/Documents/Occupation';
 import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
-import TooltipTag from '@elements/TooltipTag';
+import TooltipTag from 'elements/TooltipTag';
 import styled from 'styled-components/macro';
 import { PageTitleStyle } from 'components/Layouts/StyledComponents';
 import Content from 'components/PagesComponents/Occupations/Slug';

@@ -1,4 +1,4 @@
-import { Loading } from '@elements/Loading';
+import { Loading } from 'elements/Loading';
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import styled, { css } from 'styled-components/macro';
 

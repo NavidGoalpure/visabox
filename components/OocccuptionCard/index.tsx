@@ -1,6 +1,6 @@
 import ComponentContainer from 'components/Layouts/ComponentContainer';
 import { ComponentTitleStyle } from 'components/Layouts/StyledComponents';
-import { useLocale } from '@hooks/useLocale';
+import { useLocale } from 'hooks/useLocale';
 import Link from 'next/link';
 import { MultiLanguageText } from 'pages/interfaces';
 import { Slug } from 'pages/interfaces/Fields';

@@ -2,14 +2,12 @@ import { HtmlHTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
 import darkLogo from './darkLogo.svg';
 
-interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}
+interface Props extends HtmlHTMLAttributes<HTMLImageElement> {}
 const Logo: React.FC<Props> = ({ ...props }) => {
   return (
-    <Container {...props}>
-      <img src={darkLogo}></img>
-    </Container>
+      <img {...props} src={darkLogo}></img>
+    
   );
 };
 export { Logo };
 
-const Container = styled.div``;

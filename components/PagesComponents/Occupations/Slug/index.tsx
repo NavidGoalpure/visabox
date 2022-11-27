@@ -4,12 +4,14 @@ import { Occupation } from 'pages/interfaces/Documents/Occupation';
 import React from 'react';
 import occupation from 'sanity/schemas/documents/occupations/occupation';
 import styled from 'styled-components/macro';
-import Toggle from '@elements/Button/Toggle';
+import ToggleTag from "@elements/Button/ToggleTag";
 
 interface Props {
   occupation: Occupation;
 }
 const Content: React.FC<Props> = ({ occupation }) => {
+  
+
   return (
     <>
       <Title>data</Title>
@@ -21,8 +23,8 @@ const Content: React.FC<Props> = ({ occupation }) => {
         }
         popupContent={"occupation."}
       />
-      <Toggle content={"190"} isOn={true} />
-      <Toggle content={"189"} isOn={false} />
+      <ToggleTag content={"190"} isOn={true} />
+      <ToggleTag content={"189"} isOn={false} />
     </>
   );
 };

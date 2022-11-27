@@ -14,7 +14,7 @@ function Header() {
             <Logo />
           </Link>
         </NavigationMenu.Item>
-        Mara Box
+        Visa Box
         {/* <MenuItems>
           <NavigationMenu.Item>
             About

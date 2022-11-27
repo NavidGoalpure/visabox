@@ -1,28 +1,49 @@
 import theme from 'styled-theming';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 
 import { Headline4Style, Headline5Style } from 'styles/Typo';
 import PageLayout from 'components/Layouts/PageContainer';
-import TooltipTag from 'elements/TooltipTag';
-import { SideBar } from 'components/Sidebar';
+import * as SideBar from 'components/Sidebar';
 import { boxShadow, componentBackground, pageBackground } from 'styles/Theme';
-
+import { TbListDetails } from 'react-icons/tb';
+import { GiPoolTriangle } from 'react-icons/gi';
+import { TbNumbers } from 'react-icons/tb';
 const Home: NextPage = () => {
   return (
     <PageLayout>
       <Head>
-        <title>Mara Box</title>
+        <title>Visa Box</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <SideBar
-        tabsList={
-          <TabsList aria-label='Manage your account'>
-            <TabsTrigger value='tab1'>Account</TabsTrigger>
-            <TabsTrigger value='tab2'>Password</TabsTrigger>
-          </TabsList>
+
+      <SideBar.Root
+        items={
+          <>
+            <SideBar.Item
+              title='Details'
+              value='Details'
+              icon={<TbListDetails style={{ marginRight: '1rem' }} />}
+            />
+            <SideBar.Item
+              title='Anzsco'
+              value='Anzsco'
+              icon={<TbNumbers style={{ marginRight: '1rem' }} />}
+            />
+            <SideBar.Item
+              title='Backlog'
+              value='Backlog'
+              icon={<GiPoolTriangle style={{ marginRight: '1rem' }} />}
+            />
+          </>
+        }
+        bodies={
+          <>
+            <Tabs.Content value='Details'>Details1</Tabs.Content>
+            <Tabs.Content value='Anzsco'>Anzsco</Tabs.Content>
+          </>
         }
       />
     </PageLayout>
@@ -30,30 +51,4 @@ const Home: NextPage = () => {
 };
 export default Home;
 
-const TabsList = styled(Tabs.TabsList)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px 0px;
-  gap: 8px;
-  //
-  position: relative;
-  width: max-content;
-  padding: 24px 0px;
-  //color
-  ${componentBackground}
-  ${boxShadow}
-  //
-  border-radius: 10px;
-  overflow: hidden;
-  list-style: none;
-`;
-const TabsTrigger = styled(Tabs.Trigger)`
-  padding: 1rem;
-  position: relative;
-  list-style: none;
-  width: 100%;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  cursor: pointer;
-`;
+///////////////

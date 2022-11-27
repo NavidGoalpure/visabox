@@ -1,20 +1,19 @@
-import { Logo } from "@elements/Logo";
-import { device } from "consts/device";
-import React from "react";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
+import { Logo } from 'elements/Logo';
+import { device } from 'consts/device';
+import React from 'react';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
 
 function Footer() {
   return (
     <Container>
-      {" "}
-      <StyledLogo />{" "}
+      <StyledLogo />
     </Container>
   );
 }
 
 export default Footer;
-export const footerBackground = theme("mode", {
+export const footerBackground = theme('mode', {
   light: css`
     background: var(--color-gray12);
   `,
@@ -32,7 +31,7 @@ const Container = styled.section`
   align-items: center;
   justify-content: center;
   :before {
-    content: "";
+    content: '';
     width: 1px;
     height: 100%;
     position: absolute;

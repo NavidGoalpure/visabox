@@ -6,11 +6,16 @@ import * as SideBar from 'components/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
 import { GiPoolTriangle } from 'react-icons/gi';
 import { TbNumbers } from 'react-icons/tb';
+import { ScrollBox } from 'elements/Scroll‌Box';
 
 interface Props {
   occupation: Occupation;
 }
 const SidebarPage: React.FC<Props> = ({ occupation }) => {
+  const TAGS = Array.from({ length: 50 }).map(
+    (_, i, a) => `v1.2.0-beta.${a.length - i}`
+  );
+
   return (
     <SideBar.Root
       defaultValue='Details'
@@ -27,7 +32,18 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       }
       bodies={
         <>
-          <Tabs.Content value='Details'>Details1</Tabs.Content>
+          <Tabs.Content value='Details'>
+            <ScrollBox>
+              <div style={{ padding: '15px 20px' }}>
+                <div className='Text'>Tags</div>
+                {TAGS.map((tag) => (
+                  <div className='Tag' key={tag}>
+                    {tag}
+                  </div>
+                ))}
+              </div>
+            </ScrollBox>
+          </Tabs.Content>
           <Tabs.Content value='Anzsco'>Anzsco</Tabs.Content>
         </>
       }

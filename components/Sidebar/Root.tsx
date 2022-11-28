@@ -14,7 +14,7 @@ export const Root: React.FC<Props> = ({ items, bodies, defaultValue }) => {
   return (
     <TabsRoot defaultValue={defaultValue}>
       <TabsList aria-label='sidebar'>{items}</TabsList>
-      <ContentsContainer>{bodies}</ContentsContainer>
+      <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
     </TabsRoot>
   );
 };
@@ -55,7 +55,7 @@ const TabsList = styled(Tabs.TabsList)`
 `;
 
 const ContentsContainer = styled.div`
-  background: red;
   width: 100%;
+  height: 100%;
   margin: 0 4.5rem;
 `;

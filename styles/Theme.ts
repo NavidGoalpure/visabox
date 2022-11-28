@@ -76,6 +76,13 @@ export const componentTextColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
+export const componentTheme = css`
+  ${componentBackground}
+  padding: 0 2rem;
+  p {
+    text-align: start;
+  }
+`;
 
 ///////////////
 

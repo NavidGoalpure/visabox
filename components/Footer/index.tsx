@@ -39,6 +39,7 @@ const Container = styled.section`
     left: 50%;
     z-index: 2;
     transform: translateX(-50%);
+    //farzam in to dorost kon
     background-color: #8b9199;
   }
   @media ${device.mobileL} {

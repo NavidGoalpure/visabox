@@ -31,10 +31,13 @@ const TabsTrigger = styled(Tabs.Trigger)`
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   cursor: pointer;
-  :hover {
+
+  ////////////selected//////////
+  &[aria-selected='true'] {
     background: var(--color-primary3);
+    color: white;
   }
-  :hover::before {
+  &[aria-selected='true']::before {
     content: '';
     position: absolute;
     right: 0;
@@ -45,7 +48,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
     border-bottom-right-radius: 20px;
     box-shadow: 7.5px 7.5px 0 7.5px var(--color-primary3);
   }
-  :hover::after {
+  &[aria-selected='true']::after {
     content: '';
     position: absolute;
     right: 0;
@@ -55,5 +58,32 @@ const TabsTrigger = styled(Tabs.Trigger)`
     bottom: -20px;
     border-top-right-radius: 20px;
     box-shadow: 7.5px -7.5px 0 7.5px var(--color-primary3);
+  }
+  ////////////hover//////////
+  :hover {
+    background: var(--color-primary5);
+    color: var(--color-gray2);
+  }
+  :hover::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    top: -20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 7.5px 7.5px 0 7.5px var(--color-primary5);
+  }
+  :hover::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    bottom: -20px;
+    border-top-right-radius: 20px;
+    box-shadow: 7.5px -7.5px 0 7.5px var(--color-primary5);
   }
 `;

@@ -3,6 +3,7 @@ import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
+import { directionStyles } from 'styles/Theme';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -23,13 +24,43 @@ const ContentContainer = styled.div`
   display: flex;
   align-items: center;
 `;
+////////////
+export const TabsTriggerDirStyle = theme('languageDirection', {
+  ltr: css`
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px; ;
+  `,
+  rtl: css`
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+  `,
+});
+export const beforeDirStyle = theme('languageDirection', {
+  ltr: css`
+    right: 0;
+  `,
+  rtl: css`
+    left: 0;
+    rotate: 90deg;
+  `,
+});
+export const afterDirStyle = theme('languageDirection', {
+  ltr: css`
+    right: 0;
+  `,
+  rtl: css`
+    left: 0;
+    rotate: 270deg;
+  `,
+});
 const TabsTrigger = styled(Tabs.Trigger)`
+  ${directionStyles}
+  ${TabsTriggerDirStyle}
   padding: 1rem;
   position: relative;
   list-style: none;
   width: 100%;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
+
   cursor: pointer;
 
   ////////////selected//////////
@@ -40,7 +71,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   &[aria-selected='true']::before {
     content: '';
     position: absolute;
-    right: 0;
+    ${beforeDirStyle}
     width: 20px;
     height: 20px;
     background: transparent;
@@ -51,7 +82,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   &[aria-selected='true']::after {
     content: '';
     position: absolute;
-    right: 0;
+    ${afterDirStyle}
     width: 20px;
     height: 20px;
     background: transparent;
@@ -67,7 +98,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   :hover::before {
     content: '';
     position: absolute;
-    right: 0;
+    ${beforeDirStyle}
     width: 20px;
     height: 20px;
     background: transparent;
@@ -78,7 +109,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   :hover::after {
     content: '';
     position: absolute;
-    right: 0;
+    ${afterDirStyle}
     width: 20px;
     height: 20px;
     background: transparent;

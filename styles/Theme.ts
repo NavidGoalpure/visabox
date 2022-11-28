@@ -8,6 +8,15 @@ export const boxShadow = theme('mode', {
   dark: 'box-shadow: 0px 1px 4px rgba(255, 255, 255, 0.25);',
 });
 
+export const directionStyles = theme('languageDirection', {
+  ltr: css`
+    direction: ltr;
+  `,
+  rtl: css`
+    direction: rtl;
+  `,
+});
+
 ///////Page///////////
 export const pageBackground = theme('mode', {
   light: css`
@@ -45,7 +54,7 @@ export const pageTextColor = theme('mode', {
 export const componentBackground = theme('mode', {
   light: css`
     background: #ffffff;
-    border: 1px solid var(--color-gray4);
+    border: 1px solid var(--color-gray9);
   `,
   dark: css`
     background: var(--color-gray6);
@@ -78,6 +87,7 @@ export const componentTextColor = theme('mode', {
 });
 export const componentTheme = css`
   ${componentBackground}
+  ${directionStyles}
   padding: 0 2rem;
   p {
     text-align: start;
@@ -85,12 +95,3 @@ export const componentTheme = css`
 `;
 
 ///////////////
-
-export const directionStyles = theme('languageDirection', {
-  ltr: css`
-    direction: ltr;
-  `,
-  rtl: css`
-    direction: rtl;
-  `,
-});

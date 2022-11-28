@@ -3,7 +3,7 @@ import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
-import { componentBackground, boxShadow } from 'styles/Theme';
+import { componentBackground, boxShadow, directionStyles } from 'styles/Theme';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
@@ -28,12 +28,18 @@ const rootColor = theme('mode', {
 });
 const TabsRoot = styled(Tabs.Root)`
   ${rootColor}
+  ${directionStyles}
   display: flex;
   justify-content: flex-start;
   //
   width: 100%;
 `;
 const TabsList = styled(Tabs.TabsList)`
+  ${directionStyles}
+  //color
+  ${componentBackground}
+  ${boxShadow}
+  //
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,11 +50,8 @@ const TabsList = styled(Tabs.TabsList)`
   width: max-content;
   min-width: 11.5rem;
   padding: 1.5rem 0px;
-  padding-left: 1rem;
-  //color
-  ${componentBackground}
-  ${boxShadow}
-  //
+  padding-inline-start: 1rem;
+
   border-radius: 10px;
   overflow: hidden;
   list-style: none;

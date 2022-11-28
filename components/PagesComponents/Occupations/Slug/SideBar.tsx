@@ -18,21 +18,21 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
 
   return (
     <SideBar.Root
-      defaultValue='Details'
+      defaultValue='details'
       items={
         <>
           <SideBar.Item
             title='Details'
-            value='Details'
+            value='details'
             icon={<DetailsIcon />}
           />
-          <SideBar.Item title='Anzsco' value='Anzsco' icon={<AnszcoIcon />} />
-          <SideBar.Item title='Backlog' value='Backlog' icon={<Backlog />} />
+          <SideBar.Item title='Anzsco' value='anzsco' icon={<AnszcoIcon />} />
+          <SideBar.Item title='Backlog' value='backlog' icon={<Backlog />} />
         </>
       }
       bodies={
         <>
-          <Tabs.Content value='Details'>
+          <Tabs.Content value='details'>
             <ScrollBox>
               <div style={{ padding: '15px 20px' }}>
                 <div className='Text'>Tags</div>
@@ -44,7 +44,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </div>
             </ScrollBox>
           </Tabs.Content>
-          <Tabs.Content value='Anzsco'>Anzsco</Tabs.Content>
+          <Tabs.Content value='anzsco'>Anzsco</Tabs.Content>
         </>
       }
     />
@@ -54,7 +54,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
 export { SidebarPage };
 
 const Icon = css`
-  margin-right: 1rem;
+  margin-inline-end: 1rem;
   width: 1.5rem;
   height: 1.5rem;
 `;

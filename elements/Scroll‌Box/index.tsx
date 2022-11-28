@@ -1,7 +1,8 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
-import styled from 'styled-components';
-import { boxShadow, componentTheme } from 'styles/Theme';
+import styled, { css } from 'styled-components';
+import { boxShadow, componentTheme, directionStyles } from 'styles/Theme';
+import theme from 'styled-theming';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -26,6 +27,7 @@ export { ScrollBox };
 const ScrollAreaRoot = styled(ScrollArea.Root)`
   ${boxShadow}
   ${componentTheme}
+
   width: 100%;
   height: 100%;
   border-radius: 4px;
@@ -38,6 +40,14 @@ const ScrollAreaViewport = styled(ScrollArea.Viewport)`
   border-radius: inherit;
   height: 10rem;
 `;
+////////////
+export const positionDirStyle = theme('languageDirection', {
+  ltr: css``,
+  rtl: css`
+    left: 0;
+    right: unset !important;
+  `,
+});
 const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   display: flex;
   /* ensures no selection */
@@ -49,6 +59,7 @@ const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   transition: background 160ms ease-out;
   ${ScrollAreaRoot}:hover & {
     background: lightgray;
+    ${positionDirStyle}
   }
   &[data-orientation='vertical'] {
     width: var(--scrollbar-size);

@@ -11,6 +11,7 @@ import { boxShadow, componentBackground, pageBackground } from 'styles/Theme';
 import { TbListDetails } from 'react-icons/tb';
 import { GiPoolTriangle } from 'react-icons/gi';
 import { TbNumbers } from 'react-icons/tb';
+
 const Home: NextPage = () => {
   return (
     <PageLayout>
@@ -25,18 +26,10 @@ const Home: NextPage = () => {
             <SideBar.Item
               title='Details'
               value='Details'
-              icon={<TbListDetails style={{ marginRight: '1rem' }} />}
+              icon={<DetailsIcon />}
             />
-            <SideBar.Item
-              title='Anzsco'
-              value='Anzsco'
-              icon={<TbNumbers style={{ marginRight: '1rem' }} />}
-            />
-            <SideBar.Item
-              title='Backlog'
-              value='Backlog'
-              icon={<GiPoolTriangle style={{ marginRight: '1rem' }} />}
-            />
+            <SideBar.Item title='Anzsco' value='Anzsco' icon={<AnszcoIcon />} />
+            <SideBar.Item title='Backlog' value='Backlog' icon={<Backlog />} />
           </>
         }
         bodies={
@@ -52,3 +45,17 @@ const Home: NextPage = () => {
 export default Home;
 
 ///////////////
+const Icon = css`
+  margin-right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+`;
+const DetailsIcon = styled(TbListDetails)`
+  ${Icon}
+`;
+const AnszcoIcon = styled(TbNumbers)`
+  ${Icon}
+`;
+const Backlog = styled(GiPoolTriangle)`
+  ${Icon}
+`;

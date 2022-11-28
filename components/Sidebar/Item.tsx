@@ -21,6 +21,7 @@ export const Item: React.FC<Props> = ({ title, value, icon }) => {
 };
 const ContentContainer = styled.div`
   display: flex;
+  align-items: center;
 `;
 const TabsTrigger = styled(Tabs.Trigger)`
   padding: 1rem;

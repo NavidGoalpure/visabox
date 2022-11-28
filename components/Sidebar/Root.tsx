@@ -12,11 +12,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export const Root: React.FC<Props> = ({ items, bodies }) => {
   return (
     <TabsRoot>
-      <TabsList aria-label='sidebar'>
-        {items}
-
-        <ContentsContainer>{bodies}</ContentsContainer>
-      </TabsList>
+      <TabsList aria-label='sidebar'>{items}</TabsList>
+      <ContentsContainer>{bodies}</ContentsContainer>
     </TabsRoot>
   );
 };
@@ -44,7 +41,9 @@ const TabsList = styled(Tabs.TabsList)`
   //
   position: relative;
   width: max-content;
-  padding: 24px 0px;
+  min-width: 11.5rem;
+  padding: 1.5rem 0px;
+  padding-left: 1rem;
   //color
   ${componentBackground}
   ${boxShadow}
@@ -56,4 +55,6 @@ const TabsList = styled(Tabs.TabsList)`
 
 const ContentsContainer = styled.div`
   background: red;
+  width: 100%;
+  margin: 0 4.5rem;
 `;

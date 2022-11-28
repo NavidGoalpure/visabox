@@ -8,10 +8,11 @@ import { componentBackground, boxShadow } from 'styles/Theme';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
   bodies: ReactNode;
+  defaultValue: string;
 }
-export const Root: React.FC<Props> = ({ items, bodies }) => {
+export const Root: React.FC<Props> = ({ items, bodies, defaultValue }) => {
   return (
-    <TabsRoot>
+    <TabsRoot defaultValue={defaultValue}>
       <TabsList aria-label='sidebar'>{items}</TabsList>
       <ContentsContainer>{bodies}</ContentsContainer>
     </TabsRoot>

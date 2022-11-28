@@ -1,16 +1,7 @@
-import theme from 'styled-theming';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styled, { css } from 'styled-components';
-import * as Tabs from '@radix-ui/react-tabs';
-
-import { Headline4Style, Headline5Style } from 'styles/Typo';
 import PageLayout from 'components/Layouts/PageContainer';
-import * as SideBar from 'components/Sidebar';
-import { boxShadow, componentBackground, pageBackground } from 'styles/Theme';
-import { TbListDetails } from 'react-icons/tb';
-import { GiPoolTriangle } from 'react-icons/gi';
-import { TbNumbers } from 'react-icons/tb';
+
 
 const Home: NextPage = () => {
   return (
@@ -20,42 +11,10 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <SideBar.Root
-        items={
-          <>
-            <SideBar.Item
-              title='Details'
-              value='Details'
-              icon={<DetailsIcon />}
-            />
-            <SideBar.Item title='Anzsco' value='Anzsco' icon={<AnszcoIcon />} />
-            <SideBar.Item title='Backlog' value='Backlog' icon={<Backlog />} />
-          </>
-        }
-        bodies={
-          <>
-            <Tabs.Content value='Details'>Details1</Tabs.Content>
-            <Tabs.Content value='Anzsco'>Anzsco</Tabs.Content>
-          </>
-        }
-      />
+      
     </PageLayout>
   );
 };
 export default Home;
 
 ///////////////
-const Icon = css`
-  margin-right: 1rem;
-  width: 1.5rem;
-  height: 1.5rem;
-`;
-const DetailsIcon = styled(TbListDetails)`
-  ${Icon}
-`;
-const AnszcoIcon = styled(TbNumbers)`
-  ${Icon}
-`;
-const Backlog = styled(GiPoolTriangle)`
-  ${Icon}
-`;

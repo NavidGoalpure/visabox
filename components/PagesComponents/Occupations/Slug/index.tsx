@@ -2,9 +2,9 @@ import TooltipTag from 'elements/TooltipTag';
 import { PageTitleStyle } from 'components/Layouts/StyledComponents';
 import { Occupation } from 'pages/interfaces/Documents/Occupation';
 import React from 'react';
-import occupation from 'sanity/schemas/documents/occupations/occupation';
-import styled from 'styled-components/macro';
-import ToggleTag from 'elements/Button/ToggleTag';
+import ToggleTag from 'elements/ToggleTag';
+import styled from 'styled-components';
+import { SidebarPage } from './SideBar';
 
 interface Props {
   occupation: Occupation;
@@ -23,6 +23,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
       />
       <ToggleTag content={'190'} isOn={true} />
       <ToggleTag content={'189'} isOn={false} />
+      <SidebarPage occupation={occupation} />
     </>
   );
 };

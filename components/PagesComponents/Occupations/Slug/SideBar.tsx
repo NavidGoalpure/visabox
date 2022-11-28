@@ -4,9 +4,11 @@ import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import * as SideBar from 'components/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
-import { GiPoolTriangle } from 'react-icons/gi';
+import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
 import { ScrollBox } from 'elements/Scroll‌Box';
+import { useTranslation } from 'hooks/useTraslation';
+import { componentStatements, PageKeys } from './Const';
 
 interface Props {
   occupation: Occupation;
@@ -15,19 +17,27 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const TAGS = Array.from({ length: 50 }).map(
     (_, i, a) => `v1.2.0-beta.${a.length - i}`
   );
-
+  const { t } = useTranslation(componentStatements);
   return (
     <SideBar.Root
       defaultValue='details'
       items={
         <>
           <SideBar.Item
-            title='Details'
+            title={t(PageKeys.Details)}
             value='details'
             icon={<DetailsIcon />}
           />
-          <SideBar.Item title='Anzsco' value='anzsco' icon={<AnszcoIcon />} />
-          <SideBar.Item title='Backlog' value='backlog' icon={<Backlog />} />
+          <SideBar.Item
+            title={t(PageKeys.Anzsco)}
+            value='Anzsco'
+            icon={<AnszcoIcon />}
+          />
+          <SideBar.Item
+            title={t(PageKeys.Backlog)}
+            value='Backlog'
+            icon={<Backlog />}
+          />
         </>
       }
       bodies={
@@ -64,6 +74,6 @@ const DetailsIcon = styled(TbListDetails)`
 const AnszcoIcon = styled(TbNumbers)`
   ${Icon}
 `;
-const Backlog = styled(GiPoolTriangle)`
+const Backlog = styled(TbStack2)`
   ${Icon}
 `;

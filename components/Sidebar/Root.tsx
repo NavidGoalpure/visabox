@@ -54,15 +54,16 @@ const TabsList = styled(Tabs.TabsList)`
   position: relative;
   width: 100%;
   min-width: 11.5rem;
-
-  border-radius: 10px;
+  height: 6rem;
   overflow: hidden;
   list-style: none;
-  @media ${deviceMin.laptopS} {
+  @media ${deviceMin.tabletS} {
     width: max-content;
     flex-direction: column;
     padding: 1.5rem 0px;
     padding-inline-start: 1rem;
+    border-radius: 10px;
+    height: auto;
   }
 `;
 

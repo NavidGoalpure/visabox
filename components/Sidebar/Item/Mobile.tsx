@@ -5,6 +5,10 @@ import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
 import { directionStyles } from 'styles/Theme';
 import { deviceMin } from 'consts/device';
+import {
+  ComponentTextStyle,
+  ComponentTitleStyle,
+} from 'components/Layouts/StyledComponents';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -32,17 +36,21 @@ const ContentContainer = styled.div`
 ////////////
 
 const TabsTrigger = styled(Tabs.Trigger)`
+  ${ComponentTextStyle}
+  margin-bottom: 0rem;
+  //
   ${directionStyles}
   padding: 1rem;
   position: relative;
   list-style: none;
   width: 100%;
+  height: 100%;
   cursor: pointer;
 
   ////////////selected//////////
   &[aria-selected='true'] {
     background: var(--color-primary2);
-    box-shadow: 0px 0px 20px var(--color-primary4);
+    box-shadow: 0px 0px 4px var(--color-primary4);
     color: white;
   }
 

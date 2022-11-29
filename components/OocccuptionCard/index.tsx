@@ -25,8 +25,12 @@ function OccupationCard({ code, title, description, slug }: Props) {
   return (
     <Link key={code} href={getSmartHref()} as={getSmartHref()} prefetch={false}>
       <Container>
-        <Code>{code}</Code>
-        <Title>{title?.[locale]}</Title>
+        {/* <Code>{code}</Code> */}
+        <Code>121111</Code>
+
+        {/* <Title>{title?.[locale]}</Title> */}
+        <Title>Grain, Oilseed or Pasture Grower / Field Crop Grower</Title>
+
         <Description>{description?.[locale]}</Description>
       </Container>
     </Link>
@@ -34,17 +38,6 @@ function OccupationCard({ code, title, description, slug }: Props) {
 }
 
 export default OccupationCard;
-const Container = styled.div`
-  ${componentTheme}
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 20rem;
-  padding-bottom: 3.75rem;
-  border-radius: 15px;
-  padding-top: 1.5rem;
-  cursor: pointer;
-`;
 export const codeColor = theme("mode", {
   light: css`
     background: var(--color-gray7);
@@ -56,6 +49,18 @@ export const codeColor = theme("mode", {
     border: 2px solid var(--color-primary4);
   `,
 });
+const Container = styled.div`
+  ${componentTheme}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  padding-bottom: 3.75rem;
+  border-radius: 15px;
+  padding-top: 1.5rem;
+  cursor: pointer;
+`;
+
 const Code = styled.h3`
   ${Headline6Style}
   ${codeColor}

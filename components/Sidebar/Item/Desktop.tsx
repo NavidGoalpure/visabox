@@ -15,7 +15,7 @@ export const Desktop: React.FC<Props> = ({ title, value, icon }) => {
     <TabsTrigger value={value}>
       <ContentContainer>
         {icon}
-        {title} desktop
+        {title}
       </ContentContainer>
     </TabsTrigger>
   );
@@ -65,6 +65,33 @@ const TabsTrigger = styled(Tabs.Trigger)`
   &[aria-selected='true'] {
     background: var(--color-primary3);
     color: white;
+    :hover {
+      background: var(--color-primary2);
+      // color: var(--color-gray11);
+      color: white;
+      ::before {
+        content: '';
+        position: absolute;
+        ${beforeDirStyle}
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        top: -20px;
+        border-bottom-right-radius: 20px;
+        box-shadow: 7.5px 7.5px 0 7.5px var(--color-primary2);
+      }
+      ::after {
+        content: '';
+        position: absolute;
+        ${afterDirStyle}
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        bottom: -20px;
+        border-top-right-radius: 20px;
+        box-shadow: 7.5px -7.5px 0 7.5px var(--color-primary2);
+      }
+    }
   }
   &[aria-selected='true']::before {
     content: '';
@@ -90,29 +117,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   }
   ////////////hover//////////
   :hover {
-    background: var(--color-primary5);
-    color: var(--color-gray2);
-  }
-  :hover::before {
-    content: '';
-    position: absolute;
-    ${beforeDirStyle}
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    top: -20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 7.5px 7.5px 0 7.5px var(--color-primary5);
-  }
-  :hover::after {
-    content: '';
-    position: absolute;
-    ${afterDirStyle}
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    bottom: -20px;
-    border-top-right-radius: 20px;
-    box-shadow: 7.5px -7.5px 0 7.5px var(--color-primary5);
+    background: var(--color-gray7);
+    color: white;
   }
 `;

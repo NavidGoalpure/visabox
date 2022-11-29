@@ -37,40 +37,20 @@ const TabsTrigger = styled(Tabs.Trigger)`
   position: relative;
   list-style: none;
   width: 100%;
-
   cursor: pointer;
 
   ////////////selected//////////
   &[aria-selected='true'] {
-    background: varred;
-    // background: var(--color-primary2);
+    background: var(--color-primary2);
     box-shadow: 0px 0px 20px var(--color-primary4);
     color: white;
   }
 
   ////////////hover//////////
-  :hover {
-    background: var(--color-primary5);
-    color: var(--color-gray2);
-  }
-  :hover::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    top: -20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 7.5px 7.5px 0 7.5px var(--color-primary5);
-  }
-  :hover::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    bottom: -20px;
-    border-top-right-radius: 20px;
-    box-shadow: 7.5px -7.5px 0 7.5px var(--color-primary5);
+  @media ${deviceMin.laptopS} {
+    :hover {
+      background: var(--color-primary5);
+      color: var(--color-gray2);
+    }
   }
 `;

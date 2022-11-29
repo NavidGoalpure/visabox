@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'pages/interfaces';
+import { MultiLanguageText } from 'interfaces';
 
 export enum PageKeys {
   Details = 'Details',

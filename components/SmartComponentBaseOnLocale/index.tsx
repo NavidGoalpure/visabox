@@ -1,5 +1,5 @@
 import { useLocale } from 'hooks/useLocale';
-import { Languages } from 'pages/interfaces';
+import { Languages } from 'interfaces';
 import { ReactNode } from 'react';
 
 interface Props {

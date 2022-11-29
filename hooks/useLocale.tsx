@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Languages } from 'pages/interfaces';
+import { Languages } from 'interfaces';
 import { proxyUrlLocaleToLocale } from 'Utils/Language';
 
 /**

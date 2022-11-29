@@ -1,6 +1,6 @@
 import TooltipTag from 'elements/TooltipTag';
 import { PageTitleStyle } from 'components/Layouts/StyledComponents';
-import { Occupation } from 'pages/interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/Occupation';
 import React from 'react';
 import ToggleTag from 'elements/ToggleTag';
 import styled from 'styled-components';

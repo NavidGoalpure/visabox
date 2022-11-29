@@ -1,17 +1,17 @@
-import { useLocale } from "hooks/useLocale";
-import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
-import NextNProgress from "nextjs-progressbar";
-import { ThemeProvider } from "styled-components";
-import "../styles/global.css";
-import { Languages } from "./interfaces";
+import { useLocale } from 'hooks/useLocale';
+import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import NextNProgress from 'nextjs-progressbar';
+import { ThemeProvider } from 'styled-components';
+import '../styles/global.css';
+import { Languages } from '../interfaces';
 enum ThemeModes {
-  LIGHT = "light",
-  DARK = "dark",
+  LIGHT = 'light',
+  DARK = 'dark',
 }
 enum LanguageDirection {
-  LTR = "ltr",
-  RTL = "rtl",
+  LTR = 'ltr',
+  RTL = 'rtl',
 }
 function MyApp({ Component, pageProps }: AppProps) {
   const { locale } = useLocale();

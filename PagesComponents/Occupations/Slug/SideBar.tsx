@@ -9,6 +9,7 @@ import { TbNumbers } from 'react-icons/tb';
 import { ScrollBox } from 'elements/Scroll‌Box';
 import { useTranslation } from 'hooks/useTraslation';
 import { componentStatements, PageKeys } from './Const';
+import { deviceMin } from 'consts/device';
 
 interface Props {
   occupation: Occupation;
@@ -64,9 +65,16 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
 export { SidebarPage };
 
 const Icon = css`
-  margin-inline-end: 1rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.25rem;
+  stroke-width: 1;
+  @media ${deviceMin.tabletS} {
+    margin-inline-end: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke-width: 2;
+  }
 `;
 const DetailsIcon = styled(TbListDetails)`
   ${Icon}

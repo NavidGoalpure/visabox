@@ -2,7 +2,6 @@
 export enum device {
   mobileS = `(max-width: 320px)`,
   mobileM = `(max-width: 375px)`,
-  // mobileL = `(max-width: 425px)`,
   mobileL = `(max-width: 550px)`,
   tabletS = `(max-width: 600px) `,
   tabletM = `(max-width: 768px) `,
@@ -17,7 +16,6 @@ export enum device {
 export enum deviceMin {
   mobileM = `(min-width: 321px)`,
   mobileL = `(min-width: 376px)`,
-  // tabletS = `(min-width: 426px)`,
   tabletS = `(min-width: 551px)`,
   tabletM = `(min-width: 601px) `,
   tabletL = `(min-width: 769px) `,

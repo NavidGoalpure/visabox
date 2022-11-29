@@ -15,7 +15,7 @@ export const Desktop: React.FC<Props> = ({ title, value, icon }) => {
     <TabsTrigger value={value}>
       <ContentContainer>
         {icon}
-        {title}
+        {title} desktop
       </ContentContainer>
     </TabsTrigger>
   );
@@ -60,9 +60,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   position: relative;
   list-style: none;
   width: 100%;
-
   cursor: pointer;
-
   ////////////selected//////////
   &[aria-selected='true'] {
     background: var(--color-primary3);

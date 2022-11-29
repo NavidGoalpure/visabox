@@ -5,6 +5,7 @@ interface MediaQueryTools {
   isMobile: boolean;
   isTablet: boolean;
   isLaptop: boolean;
+  isServer: boolean;
 }
 const useDevice = (): MediaQueryTools => {
   const isMobile = useMediaQuery({
@@ -12,11 +13,12 @@ const useDevice = (): MediaQueryTools => {
   });
   const isLaptop = useMediaQuery({ minWidth: deviceSize.laptopXS });
   const isTablet = !isLaptop && !isMobile;
-
+  const isServer = typeof window === 'undefined';
   return {
-    isTablet,
-    isMobile,
-    isLaptop,
+    isTablet: !isServer && isTablet,
+    isMobile: !isServer && isMobile,
+    isLaptop: !isServer && isLaptop,
+    isServer,
   };
 };
 export default useDevice;

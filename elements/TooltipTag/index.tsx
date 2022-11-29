@@ -66,14 +66,31 @@ export const ButtonBorderTheme = theme("mode", {
     fill: var(--color-primary5);
   `,
 });
-export const positionDirStyle = theme("languageDirection", {
+export const TooltipContentTheme = theme("mode", {
+  light: css`
+    color: white;
+    background-color: var(--color-gray2);
+    span {
+      fill: var(--color-gray2);
+    }
+  `,
+  dark: css`
+    color: var(--color-gray4);
+    background-color: white;
+    span {
+      fill: white;
+    }
+  `,
+});
+
+export const DirectionStyle = theme("languageDirection", {
   ltr: css``,
   rtl: css`
     flex-direction: row-reverse;
   `,
 });
 const ButtonContainer = styled.div`
-  ${positionDirStyle}
+  ${DirectionStyle}
   display: flex;
   align-items: center;
   width: max-content;
@@ -93,9 +110,8 @@ const RightBorder = styled(LeftBorder)`
   transform: rotate(180deg);
 `;
 const TooltipContent = styled(Tooltip.Content)`
-  // navid change when dark design is ready
-  color: white;
-  background-color: var(--color-gray2);
+  ${TooltipContentTheme}
+
   padding: 0.75em 1em;
   transition: all 0.3s linear;
   border-radius: 10px;

@@ -3,9 +3,9 @@ import Head from 'next/head';
 import {
   PageKeys,
   componentStatements,
-} from '../../../components/PagesComponents/Occupations/Const';
+} from '../../../PagesComponents/Occupations/Const';
 import { useTranslation } from 'hooks/useTraslation';
-import Content from 'components/PagesComponents/Occupations';
+import Content from 'PagesComponents/Occupations';
 import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
 import { Occupation } from 'pages/interfaces/Documents/Occupation';

@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
 import { componentBackground, boxShadow, directionStyles } from 'styles/Theme';
+import { deviceMin } from 'consts/device';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
@@ -29,10 +30,16 @@ const rootColor = theme('mode', {
 const TabsRoot = styled(Tabs.Root)`
   ${rootColor}
   ${directionStyles}
+
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
+
   //
   width: 100%;
+  @media ${deviceMin.tabletS} {
+    flex-direction: row;
+  }
 `;
 const TabsList = styled(Tabs.TabsList)`
   ${directionStyles}

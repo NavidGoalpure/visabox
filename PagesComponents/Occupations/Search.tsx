@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from '../../../elements/Input';
+import { Input } from '../../elements/Input';
 import { Button } from 'elements/Button';
 import styled from 'styled-components/macro';
 import { CiSearch } from 'react-icons/ci';

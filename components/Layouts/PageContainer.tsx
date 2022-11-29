@@ -1,4 +1,5 @@
 import Footer from 'components/Footer';
+import { deviceMin } from 'consts/device';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components/macro';
 import { pageBackground, directionStyles, pageTextColor } from 'styles/Theme';
@@ -19,7 +20,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
 };
 export default PageContainer;
 export const Container = styled.main`
- ${pageBackground}
+  ${pageBackground}
   ${directionStyles}
   display: flex;
   justify-content: center;
@@ -37,5 +38,9 @@ const Content = styled.article`
   max-width: var(--max-width-page);
   margin: 0 auto;
   flex: auto;
-  padding: 1rem 0;
+  padding: 1rem;
+
+  @media ${deviceMin.tabletS} {
+    padding: 1rem 0;
+  }
 `;

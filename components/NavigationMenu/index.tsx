@@ -2,8 +2,9 @@ import { Logo } from 'elements/Logo';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components/macro';
-import { boxShadow, directionStyles, pageBackground } from 'styles/Theme';
+import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { pageBackground } from 'Styles/Theme/Page';
 
 function Header() {
   return (

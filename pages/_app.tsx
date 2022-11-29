@@ -2,7 +2,7 @@ import { useLocale } from 'hooks/useLocale';
 import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import { ThemeProvider } from 'styled-components';
-import '../styles/global.css';
+import '../Styles/global.css';
 import { Languages } from '../interfaces';
 enum ThemeModes {
   LIGHT = 'light',

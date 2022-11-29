@@ -1,28 +1,6 @@
 import styled, { css } from 'styled-components';
-import {
-  componenSubtitleColor,
-  componentTextColor,
-  componentTitleColor,
-  pageSubtitleColor,
-  pageTitleColor,
-} from 'styles/Theme';
-import { Headline4Style, Headline5Style, Headline7Style } from 'styles/Typo';
-
-export const ComponentTitleStyle = css`
-  ${componentTitleColor}
-  ${Headline5Style}
-  margin-bottom: 2rem;
-`;
-export const ComponentSubtitleStyle = css`
-  ${componenSubtitleColor}
-  ${Headline5Style}
-  margin-bottom: 2rem;
-`;
-export const ComponentTextStyle = css`
-  ${componentTextColor}
-  ${Headline7Style}
-  margin-bottom: 2rem;
-`;
+import { pageTitleColor, pageSubtitleColor } from 'Styles/Theme/Page';
+import { Headline4Style, Headline5Style } from 'Styles/Typo';
 ///////////pages//////////////
 export const PageTitleStyle = css<{
   color?: string;

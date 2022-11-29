@@ -3,8 +3,9 @@ import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
-import { componentBackground, boxShadow, directionStyles } from 'styles/Theme';
+import { boxShadow, directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'consts/device';
+import { componentBackground } from 'Styles/Theme/Component';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;

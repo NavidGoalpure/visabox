@@ -1,10 +1,10 @@
 import { HtmlHTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
+import { directionStyles } from 'Styles/Theme';
 import {
   componentTextColor,
   componentBackground,
-  directionStyles,
-} from 'styles/Theme';
+} from 'Styles/Theme/Component';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}
 const Loading: React.FC<Props> = ({ ...props }) => {

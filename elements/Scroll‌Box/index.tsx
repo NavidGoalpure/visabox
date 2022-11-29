@@ -1,8 +1,9 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import styled, { css } from 'styled-components';
-import { boxShadow, componentTheme, directionStyles } from 'styles/Theme';
 import theme from 'styled-theming';
+import { boxShadow } from 'Styles/Theme';
+import { componentTheme } from 'Styles/Theme/Component';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;

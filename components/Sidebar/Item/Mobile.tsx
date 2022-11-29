@@ -3,12 +3,9 @@ import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
-import { directionStyles } from 'styles/Theme';
+import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'consts/device';
-import {
-  ComponentTextStyle,
-  ComponentTitleStyle,
-} from 'components/Layouts/StyledComponents';
+import { ComponentTextStyle } from 'Styles/Theme/Component';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;

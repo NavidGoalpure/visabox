@@ -2,7 +2,8 @@ import Footer from 'components/Footer';
 import { deviceMin } from 'consts/device';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components/macro';
-import { pageBackground, directionStyles, pageTextColor } from 'styles/Theme';
+import { directionStyles } from 'Styles/Theme';
+import { pageBackground } from 'Styles/Theme/Page';
 import { Header } from '../NavigationMenu';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

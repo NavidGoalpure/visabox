@@ -1,13 +1,12 @@
-import { ComponentTitleStyle } from "components/Layouts/StyledComponents";
-import { useLocale } from "hooks/useLocale";
-import { MultiLanguageText } from "interfaces";
-import { Slug } from "interfaces/Fields";
-import Link from "next/link";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
-import { componentTextColor, componentTheme } from "styles/Theme";
-import { Headline6Style } from "styles/Typo";
-import { IoIosArrowDown } from "react-icons/io";
+import { useLocale } from 'hooks/useLocale';
+import { MultiLanguageText } from 'interfaces';
+import { Slug } from 'interfaces/Fields';
+import Link from 'next/link';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
+import { Headline6Style } from 'Styles/Typo';
+import { IoIosArrowDown } from 'react-icons/io';
+import { componentTheme, ComponentTitleStyle, componentTextColor } from 'Styles/Theme/Component';
 
 interface Props {
   code?: number;
@@ -32,8 +31,8 @@ function OccupationCard({ code, title, description, slug }: Props) {
 
         <Description>{description?.[locale]}</Description>
         <PopupContainer>
-          {" "}
-          <Arrow />{" "}
+          {' '}
+          <Arrow />{' '}
         </PopupContainer>
       </Container>
     </Link>
@@ -41,7 +40,7 @@ function OccupationCard({ code, title, description, slug }: Props) {
 }
 
 export default OccupationCard;
-export const codeColor = theme("mode", {
+export const codeColor = theme('mode', {
   light: css`
     background: var(--color-gray7);
     color: var(--color-gray8);

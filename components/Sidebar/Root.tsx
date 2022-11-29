@@ -43,18 +43,17 @@ const TabsRoot = styled(Tabs.Root)`
 `;
 const TabsList = styled(Tabs.TabsList)`
   ${directionStyles}
-  //color
   ${componentBackground}
   ${boxShadow}
   //
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding: 24px 0px;
   gap: 8px;
   //
   position: relative;
-  width: max-content;
+  width: 100%;
   min-width: 11.5rem;
   padding: 1.5rem 0px;
   padding-inline-start: 1rem;
@@ -62,6 +61,10 @@ const TabsList = styled(Tabs.TabsList)`
   border-radius: 10px;
   overflow: hidden;
   list-style: none;
+  @media ${deviceMin.laptopS} {
+    width: max-content;
+    flex-direction: column;
+  }
 `;
 
 const ContentsContainer = styled.div`

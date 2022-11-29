@@ -8,7 +8,7 @@ import { useTranslation } from 'hooks/useTraslation';
 import Content from 'PagesComponents/Occupations';
 import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
-import { Occupation } from 'pages/interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/Occupation';
 
 interface Props {
   occupations: Occupation[];

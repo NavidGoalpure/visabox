@@ -1,29 +1,29 @@
 import { useRouter } from 'next/router';
-import { MultiLanguageText } from 'pages/interfaces';
+import { MultiLanguageText } from 'interfaces';
 import { proxyUrlLocaleToLocale } from 'Utils/Language';
 
 /**
  *  بوسیله این فانکشن که برای متون هوشمند استفاده میشود میتوان کلماتی از متن را که به صورت تمپلیت مشخص شده اند
  * با کلمات دیگری جایگزین نمود
- * @param  localeSenttence متن که ممکن است به هر زبانی باشد
+ * @param  localeSentence متن که ممکن است به هر زبانی باشد
  * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
  * @return       جمله نهایی که تمام کلمات تمپلیت آن با کلمات مقصد جایگزین شده اند
  */
 function convertAllTempKeysWithAllAliases({
-  localeSenttence,
+  localeSentence,
   aliases,
 }: {
-  localeSenttence: string;
+  localeSentence: string;
   aliases: Record<string, string>[];
 }): string {
-  let myLocaleSenttence = localeSenttence;
+  let mylocaleSentence = localeSentence;
   aliases.map((pair) => {
-    myLocaleSenttence = convertKeyWithValueInString({
-      senttence: myLocaleSenttence,
+    mylocaleSentence = convertKeyWithValueInString({
+      senttence: mylocaleSentence,
       pair,
     });
   });
-  return myLocaleSenttence;
+  return mylocaleSentence;
 }
 
 ////////////////
@@ -49,30 +49,32 @@ function convertKeyWithValueInString({
 ////////////////
 /**
  *  یک گزاره را گرفته،‌بسته به زبان کاربر که از یوارال فهمیده میشود، ترجمه مناسب را برمیگرداند
- * @param  senttence جمله
+ * @param  statementKey جمله
  * @param  statements آبجکتی از تمام گزاره های یک پیج یا کامپوننت به زبان های مختلف
  * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
  * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
  */
 export const translatedObject = ({
-  sentence,
+  statementKey,
   statements,
   aliases,
 }: {
-  sentence: string;
+  statementKey: string;
   statements: Record<string, MultiLanguageText>;
   aliases?: Record<string, string>[];
 }): string => {
   const {
     query: { locale },
   } = useRouter();
-  if (!sentence || !locale) return '';
+
+  if (!statementKey || !locale) return '';
   const smartLocale = proxyUrlLocaleToLocale(locale);
+
   if (!aliases || aliases.length === 0)
-    return statements[sentence][smartLocale];
+    return statements?.[statementKey]?.[smartLocale] || '';
   //
   return convertAllTempKeysWithAllAliases({
-    localeSenttence: statements[sentence][smartLocale],
+    localeSentence: statements?.[statementKey]?.[smartLocale] || '',
     aliases,
   });
 };

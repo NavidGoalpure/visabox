@@ -1,4 +1,4 @@
-import { Occupation } from 'pages/interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/Occupation';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';

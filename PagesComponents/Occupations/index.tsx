@@ -5,7 +5,7 @@ import CardsSection from './CardsSection';
 import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
 import { PageTitleStyle } from 'components/Layouts/StyledComponents';
-import { Occupation } from 'pages/interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/Occupation';
 
 interface Props {
   occupations: Occupation[];

@@ -5,7 +5,7 @@ import {
 import { useTranslation } from 'hooks/useTraslation';
 import { GetStaticProps, NextPage } from 'next';
 import { Head } from 'next/document';
-import { Occupation } from 'pages/interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/Occupation';
 import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
 import TooltipTag from 'elements/TooltipTag';

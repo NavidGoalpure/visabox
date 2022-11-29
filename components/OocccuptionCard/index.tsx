@@ -1,13 +1,12 @@
-import { ComponentTitleStyle } from "components/Layouts/StyledComponents";
-import { useLocale } from "hooks/useLocale";
-import Link from "next/link";
-import { MultiLanguageText } from "pages/interfaces";
-import { Slug } from "pages/interfaces/Fields";
-import React from "react";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
-import { componentTextColor, componentTheme } from "styles/Theme";
-import { Headline6Style } from "styles/Typo";
+import { ComponentTitleStyle } from 'components/Layouts/StyledComponents';
+import { useLocale } from 'hooks/useLocale';
+import { MultiLanguageText } from 'interfaces';
+import { Slug } from 'interfaces/Fields';
+import Link from 'next/link';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
+import { componentTextColor, componentTheme } from 'styles/Theme';
+import { Headline6Style } from 'styles/Typo';
 
 interface Props {
   code?: number;

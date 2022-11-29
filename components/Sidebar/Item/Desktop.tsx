@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   value: string;
   icon: ReactNode;
 }
-export const Item: React.FC<Props> = ({ title, value, icon }) => {
+export const Desktop: React.FC<Props> = ({ title, value, icon }) => {
   return (
     <TabsTrigger value={value}>
       <ContentContainer>

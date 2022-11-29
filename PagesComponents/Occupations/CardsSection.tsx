@@ -1,8 +1,7 @@
-import OccupationCard from "components/OocccuptionCard";
-import { MultiLanguageText } from "pages/interfaces";
-import { Occupation } from "pages/interfaces/Documents/Occupation";
-import React from "react";
-import styled from "styled-components";
+import OccupationCard from 'components/OocccuptionCard';
+import { Occupation } from 'interfaces/Documents/Occupation';
+import React from 'react';
+import styled from 'styled-components';
 
 interface Props {
   occupations: Occupation[];

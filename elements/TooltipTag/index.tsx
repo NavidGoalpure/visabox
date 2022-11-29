@@ -66,11 +66,17 @@ export const ButtonBorderTheme = theme("mode", {
     fill: var(--color-primary5);
   `,
 });
+export const positionDirStyle = theme("languageDirection", {
+  ltr: css``,
+  rtl: css`
+    flex-direction: row-reverse;
+  `,
+});
 const ButtonContainer = styled.div`
+  ${positionDirStyle}
   display: flex;
   align-items: center;
   width: max-content;
-  
 `;
 const Button = styled.button`
   ${ButtonTheme};

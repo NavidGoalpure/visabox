@@ -1,14 +1,13 @@
-import ComponentContainer from 'components/Layouts/ComponentContainer';
-import { ComponentTitleStyle } from 'components/Layouts/StyledComponents';
-import { useLocale } from 'hooks/useLocale';
-import Link from 'next/link';
-import { MultiLanguageText } from 'pages/interfaces';
-import { Slug } from 'pages/interfaces/Fields';
-import React from 'react';
-import styled, { css } from 'styled-components/macro';
-import theme from 'styled-theming';
-import { componentTextColor } from 'styles/Theme';
-import { Headline6Style } from 'styles/Typo';
+import { ComponentTitleStyle } from "components/Layouts/StyledComponents";
+import { useLocale } from "hooks/useLocale";
+import Link from "next/link";
+import { MultiLanguageText } from "pages/interfaces";
+import { Slug } from "pages/interfaces/Fields";
+import React from "react";
+import styled, { css } from "styled-components/macro";
+import theme from "styled-theming";
+import { componentTextColor, componentTheme } from "styles/Theme";
+import { Headline6Style } from "styles/Typo";
 
 interface Props {
   code?: number;
@@ -35,7 +34,8 @@ function OccupationCard({ code, title, description, slug }: Props) {
 }
 
 export default OccupationCard;
-const Container = styled(ComponentContainer)`
+const Container = styled.div`
+  ${componentTheme}
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +45,7 @@ const Container = styled(ComponentContainer)`
   padding-top: 1.5rem;
   cursor: pointer;
 `;
-export const codeColor = theme('mode', {
+export const codeColor = theme("mode", {
   light: css`
     background: var(--color-gray7);
     color: var(--color-gray8);
@@ -71,4 +71,5 @@ const Title = styled.h2`
 const Description = styled.p`
   ${componentTextColor}
   text-align: center;
+  overflow: hidden;
 `;

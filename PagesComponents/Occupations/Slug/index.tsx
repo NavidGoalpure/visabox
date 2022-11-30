@@ -1,10 +1,10 @@
 import TooltipTag from 'elements/TooltipTag';
-import { PageTitleStyle } from 'components/Layouts/StyledComponents';
 import { Occupation } from 'interfaces/Documents/Occupation';
 import React from 'react';
 import ToggleTag from 'elements/ToggleTag';
 import styled from 'styled-components';
 import { SidebarPage } from './SideBar';
+import { PageTitleStyle } from 'Styles/Theme/Page';
 
 interface Props {
   occupation: Occupation;

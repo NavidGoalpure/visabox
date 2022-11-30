@@ -1,16 +1,8 @@
-import {
-  componentStatements,
-  PageKeys,
-} from 'PagesComponents/Occupations/Const';
+import { componentStatements } from 'PagesComponents/Occupations/Const';
 import { useTranslation } from 'hooks/useTraslation';
-import { GetStaticProps, NextPage } from 'next';
-import { Head } from 'next/document';
+import { NextPage } from 'next';
 import { Occupation } from 'interfaces/Documents/Occupation';
 import PageLayout from 'components/Layouts/PageContainer';
-import { sanityClient } from '../../../sanity';
-import TooltipTag from 'elements/TooltipTag';
-import styled from 'styled-components/macro';
-import { PageTitleStyle } from 'components/Layouts/StyledComponents';
 import Content from 'PagesComponents/Occupations/Slug';
 
 interface Props {

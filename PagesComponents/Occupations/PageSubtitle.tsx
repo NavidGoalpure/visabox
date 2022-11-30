@@ -2,8 +2,7 @@ import styled from 'styled-components/macro';
 import SmartComponentBaseOnLocale from 'components/SmartComponentBaseOnLocale';
 import { componentStatements } from './Const';
 import reactStringReplace from 'react-string-replace';
-import { PageSubtitleStyle } from 'components/Layouts/StyledComponents';
-import { pageTitleColor } from 'Styles/Theme/Page';
+import { PageSubtitleStyle, pageTitleColor } from 'Styles/Theme/Page';
 
 const PageSubtitle: React.FC = () => {
   const iranianSubtitle = reactStringReplace(

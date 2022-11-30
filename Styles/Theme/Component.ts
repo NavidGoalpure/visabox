@@ -24,10 +24,10 @@ export const componentTitleColor = theme('mode', {
 });
 export const componenSubtitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray2);
+    color: var(--color-gray8);
   `,
   dark: css`
-    color: var(--color-gray6);
+    color: var(--color--primary6);
   `,
 });
 export const componentTextColor = theme('mode', {
@@ -39,19 +39,19 @@ export const componentTextColor = theme('mode', {
   `,
 });
 //////
-export const ComponentTitleStyle = css`
+export const componentTitleStyle = css`
   ${componentTitleColor}
   ${Headline5Style}
   margin-bottom: 2rem;
 `;
-export const ComponentSubtitleStyle = css`
+export const componentSubtitleStyle = css`
   ${componenSubtitleColor}
-  ${Headline5Style}
+  ${Headline6Style}
   margin-bottom: 2rem;
 `;
-export const ComponentTextStyle = css`
+export const componentTextStyle = css`
   ${componentTextColor}
-  ${Headline6Style}
+  ${Headline7Style}
   margin-bottom: 2rem;
 `;
 ///////////

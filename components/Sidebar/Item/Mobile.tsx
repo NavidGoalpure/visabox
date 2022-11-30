@@ -5,7 +5,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'consts/device';
-import { ComponentTextStyle } from 'Styles/Theme/Component';
+import { componentTextStyle } from 'Styles/Theme/Component';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -33,7 +33,7 @@ const ContentContainer = styled.div`
 ////////////
 
 const TabsTrigger = styled(Tabs.Trigger)`
-  ${ComponentTextStyle}
+  ${componentTextStyle}
   margin-bottom: 0rem;
   //
   ${directionStyles}

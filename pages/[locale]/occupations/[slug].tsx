@@ -10,7 +10,6 @@ import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
 import TooltipTag from 'elements/TooltipTag';
 import styled from 'styled-components/macro';
-import { PageTitleStyle } from 'components/Layouts/StyledComponents';
 import Content from 'PagesComponents/Occupations/Slug';
 
 interface Props {

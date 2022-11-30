@@ -16,6 +16,23 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
           title={occupation?.title}
           description={occupation?.anzsco_section?.description}
           slug={occupation.slug}
+          popupContent={
+            <>
+              <h3>Tasks</h3>
+              <ul>
+                <li>
+                  Planning and coordinating the operation of hatcheries to
+                  produce fish fry, seed oysters, crayfish, marron and prawns
+                  taking into account environmental and market factors
+                </li>
+                <li>
+                  Monitoring the environment to maintain optimal growing
+                  conditions
+                </li>
+                <li>Identifying and controlling environmental toxins and</li>
+              </ul>
+            </>
+          }
         />
       ))}
     </Container>

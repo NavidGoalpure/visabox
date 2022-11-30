@@ -4,8 +4,8 @@ import { componentStatements, PageKeys } from './Const';
 import CardsSection from './CardsSection';
 import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
-import { PageTitleStyle } from 'components/Layouts/StyledComponents';
 import { Occupation } from 'interfaces/Documents/Occupation';
+import { PageTitleStyle } from 'Styles/Theme/Page';
 
 interface Props {
   occupations: Occupation[];

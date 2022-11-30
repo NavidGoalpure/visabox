@@ -1,6 +1,6 @@
 import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
-import { Headline5Style, Headline7Style } from 'Styles/Typo';
+import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
 import { directionStyles } from '.';
 
 /////components////////
@@ -51,7 +51,7 @@ export const ComponentSubtitleStyle = css`
 `;
 export const ComponentTextStyle = css`
   ${componentTextColor}
-  ${Headline7Style}
+  ${Headline6Style}
   margin-bottom: 2rem;
 `;
 ///////////

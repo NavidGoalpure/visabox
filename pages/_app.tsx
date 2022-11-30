@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NextNProgress height={2} />
       <ThemeProvider
         theme={{
-          mode: ThemeModes.DARK,
+          mode: ThemeModes.LIGHT,
           languageDirection:
             locale === Languages.ir
               ? LanguageDirection.RTL

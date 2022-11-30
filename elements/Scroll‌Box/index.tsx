@@ -58,6 +58,8 @@ const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   padding: 2px;
   background: lightgray;
   transition: background 160ms ease-out;
+  ${positionDirStyle}
+
   ${ScrollAreaRoot}:hover & {
     background: lightgray;
     ${positionDirStyle}
@@ -75,6 +77,7 @@ const ScrollAreaThumb = styled(ScrollArea.Thumb)`
   background: gray;
   border-radius: 10px;
   position: relative;
+
   :before {
     content: '';
     position: absolute;

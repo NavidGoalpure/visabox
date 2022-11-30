@@ -1,24 +1,23 @@
-import * as Tooltip from "@radix-ui/react-tooltip";
-import styled, { css, keyframes } from "styled-components/macro";
-import theme from "styled-theming";
-import border from "./LeftBorder.svg";
+import * as Tooltip from '@radix-ui/react-tooltip';
+import styled, { css, keyframes } from 'styled-components/macro';
+import theme from 'styled-theming';
+import border from './LeftBorder.svg';
 
 interface Props {
   content: string;
   isOn: boolean;
 }
-//navid change the name
 const ToggleTag: React.FC<Props> = ({ content, isOn }) => {
   return (
     <Container isOn={isOn}>
-      <LeftText isOn={isOn}> {content} </LeftText>{" "}
-      <RightText>{isOn ? "ON" : "OFF"}</RightText>
+      <LeftText isOn={isOn}> {content} </LeftText>{' '}
+      <RightText>{isOn ? 'ON' : 'OFF'}</RightText>
     </Container>
   );
 };
 export default ToggleTag;
 
-const ContainerOnColorTheme = theme("mode", {
+const ContainerOnColorTheme = theme('mode', {
   light: css`
     border: 3px solid var(--color-primary4);
     box-shadow: 0 0 4px 0px var(--color-primary4);
@@ -32,7 +31,7 @@ const ContainerOnColorTheme = theme("mode", {
     color: white;
   `,
 });
-const ContainerOffColorTheme = theme("mode", {
+const ContainerOffColorTheme = theme('mode', {
   light: css`
     border: 3px solid var(--color-primary1);
     background-color: var(--color-primary1);
@@ -44,7 +43,7 @@ const ContainerOffColorTheme = theme("mode", {
     color: white;
   `,
 });
-const LeftTextBackgroundColor = theme("mode", {
+const LeftTextBackgroundColor = theme('mode', {
   light: css`
     background-color: white;
   `,
@@ -68,4 +67,3 @@ const LeftText = styled.h3<{ isOn: boolean }>`
 const RightText = styled.h3`
   padding: 0.25em 1em;
 `;
-

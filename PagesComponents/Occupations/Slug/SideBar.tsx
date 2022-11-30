@@ -31,12 +31,12 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           />
           <SideBar.Item
             title={t(PageKeys.Anzsco)}
-            value='Anzsco'
+            value='anzsco'
             icon={<AnszcoIcon />}
           />
           <SideBar.Item
             title={t(PageKeys.Backlog)}
-            value='Backlog'
+            value='backlog'
             icon={<Backlog />}
           />
         </>

@@ -11,6 +11,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 export const Item: React.FC<Props> = ({ title, value, icon }) => {
   const { isMobile, isTablet } = useDevice();
+  console.log('navid title=', title);
   return isMobile || isTablet ? (
     <Mobile title={title} value={value} icon={icon} />
   ) : (

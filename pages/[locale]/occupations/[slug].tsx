@@ -18,7 +18,6 @@ interface Props {
 }
 const OccupationPage: NextPage<Props> = ({ occupation }) => {
   const { t } = useTranslation(componentStatements);
-  console.log('navid skilllevel=', occupation);
   const NavidObject: Occupation = {
     _id: 'e5d5393d-85ca-4b5f-b099-15f394a66760',
     anzsco_section: {
@@ -118,7 +117,6 @@ export default OccupationPage;
 // };
 
 // export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   console.log('***navid params=', params);
 //   const query = `
 //     *[_type=='occupation' && slug.current == $slug]
 // [0]

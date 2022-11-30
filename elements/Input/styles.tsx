@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 export const inputContainerTheme = theme('mode', {
   light: css`
-    background: var(--color-gray7);
+    background: var(--color-gray13);
     border: 1px solid var(--color-gray10);
   `,
   dark: css`

@@ -60,9 +60,7 @@ body {
     background-color: var(--color-gray4);
   } */
 }
-a {
-  text-decoration: none;
-}
+
 *,
 *:before,
 *:after {
@@ -78,4 +76,10 @@ a {
   border: none;
   background: transparent;
   color: inherit;
+}
+button {
+  all: unset;
+}
+a {
+  text-decoration: none;
 }

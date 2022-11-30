@@ -1,5 +1,6 @@
 import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
+import { Headline4Style, Headline5Style } from 'Styles/Typo';
 
 ///////Page///////////
 export const pageBackground = theme('mode', {
@@ -35,3 +36,23 @@ export const pageTextColor = theme('mode', {
   `,
 });
 ///////////////
+export const PageTitleStyle = css<{
+  color?: string;
+}>`
+  ${Headline4Style}
+  ${pageTitleColor}
+  ${({ color }) => color && color};
+  margin-bottom: 2.5rem;
+`;
+export const PageSubtitleStyle = css<{
+  color?: string;
+}>`
+  ${Headline5Style}
+  ${pageSubtitleColor}
+  ${({ color }) => color && color};
+  margin-bottom: 2.5rem;
+  //
+  a {
+    ${pageTitleColor}
+  }
+`;

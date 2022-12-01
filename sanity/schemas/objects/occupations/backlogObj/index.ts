@@ -114,14 +114,29 @@ export default {
     ////////////SUBMITED////////
 
     {
-      name: 'submited_by_state',
+      name: 'submited_by_state_190',
+      title: 'Submited By State 190',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
+    ////////////INVITED////////
+    {
+      name: 'invited_by_state_190',
+      title: 'Invited By State 190',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
+    ////////////SUBMITED////////
+
+    {
+      name: 'submited_by_state_491',
       title: 'Submited By State ',
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],
     },
     ////////////INVITED////////
     {
-      name: 'invited_by_state',
+      name: 'invited_by_state_491',
       title: 'Invited By State ',
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],

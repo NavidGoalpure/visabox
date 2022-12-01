@@ -1,22 +1,22 @@
-import { useLocale } from "hooks/useLocale";
-import { MultiLanguageText } from "interfaces";
-import { Slug } from "interfaces/Fields";
-import Link from "next/link";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
-import { IoIosArrowDown } from "react-icons/io";
+import { useLocale } from 'hooks/useLocale';
+import { MultiLanguageText } from 'interfaces';
+import { Slug } from 'interfaces/Fields';
+import Link from 'next/link';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
+import { IoIosArrowDown } from 'react-icons/io';
 import {
   componentTheme,
   componentTextColor,
   componentSubtitleStyle,
   componentTextStyle,
   componentTitleColor,
-} from "Styles/Theme/Component";
-import { ReactNode, useState } from "react";
-import { Button } from "elements/Button";
-import { device, deviceMin } from "consts/device";
-import { ScrollBox } from "elements/ScrollBox";
-import { useRouter } from "next/router";
+} from 'Styles/Theme/Component';
+import { ReactNode, useState } from 'react';
+import { Button } from 'elements/Button';
+import { device, deviceMin } from 'consts/device';
+import { ScrollBox } from 'elements/ScrollBox';
+import { useRouter } from 'next/router';
 
 interface Props {
   code?: number;
@@ -43,25 +43,20 @@ function OccupationCard({
         prefetch={false}
       >
         <Wrapper>
-          {/* <Code>{code}</Code> */}
-          <Code>121111</Code>
-          {/* <Title>{title?.[locale]}</Title> */}
-          <Title>
-            {"Grain, Oilseed or Pasture Grower / Field Crop Grower"}
-          </Title>
-
+          <Code>{code}</Code>
+          <Title>{title?.[locale]}</Title>
           <Description>{description?.[locale]}</Description>
         </Wrapper>
       </Link>
       <PopupContainer isPopupOpen={isPopupOpen}>
-        {" "}
+        {' '}
         <Arrow
           isPopupOpen={isPopupOpen}
           onClick={() => {
             setIsPopupOpen((prevState) => !prevState);
             return false;
           }}
-        />{" "}
+        />{' '}
         <PopupContentContainer isPopupOpen={isPopupOpen}>
           {popupContent}
           <StyledButton
@@ -78,7 +73,7 @@ function OccupationCard({
 }
 
 export default OccupationCard;
-export const codeColor = theme("mode", {
+export const codeColor = theme('mode', {
   light: css`
     background: var(--color-gray13);
     color: var(--color-gray8);
@@ -89,7 +84,7 @@ export const codeColor = theme("mode", {
     border: 2px solid var(--color-primary4);
   `,
 });
-const popupContainerColor = theme("mode", {
+const popupContainerColor = theme('mode', {
   light: css`
     background-color: var(--color-gray12);
   `,

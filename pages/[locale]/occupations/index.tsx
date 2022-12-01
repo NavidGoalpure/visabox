@@ -12,6 +12,7 @@ import { sanityClient } from '../../../sanity';
 import { Occupation } from 'interfaces/Documents/Occupation';
 import {
   dehydrate,
+  InfiniteData,
   QueryClient,
   useInfiniteQuery,
   useQuery,
@@ -51,13 +52,9 @@ const OccupationList: NextPage<Props> = (
     isLoading,
     isError,
     data: occupations,
-  } = useInfiniteQuery(['occupations', { lastCode: 0 }], () =>
+  } = useInfiniteQuery<Occupation>(['occupations', { lastCode: 0 }], () =>
     sanityClient.fetch(query)
   );
-
-  if (isLoading) console.log('navid isLoading=', isLoading);
-  if (isError) console.log('navid isError=', isError);
-  if (occupations) console.log('navid data=', occupations);
 
   return (
     <PageLayout>
@@ -65,15 +62,15 @@ const OccupationList: NextPage<Props> = (
         <title>{t(PageKeys.PageTitle)}</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      {/* <Content occupations={occupations} allOcupationsCount={200} /> */}
+      <Content occupations={occupations} allOcupationsCount={200} />
     </PageLayout>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {
-    props: {},
-  };
+  // return {
+  //   props: {},
+  // };
   // const lastCode = context?.query?.['start-code'] || 0;
   // اگه بازه ای که میخواستیم بزرگتر از چیزی بود که توی سرور رکوئست میزنیم
   // رکوئست الکی نزن و بزار رکوئست سمت فرانت زده بشه

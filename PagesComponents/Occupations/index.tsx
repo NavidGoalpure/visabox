@@ -7,9 +7,10 @@ import { PageSubtitle } from './PageSubtitle';
 import { Occupation } from 'interfaces/Documents/Occupation';
 import { PageTitleStyle } from 'Styles/Theme/Page';
 import { Button } from 'elements/Button';
+import { InfiniteData } from 'react-query';
 
 interface Props {
-  occupations: Occupation[];
+  occupations: InfiniteData<Occupation> | undefined;
   allOcupationsCount: number;
 }
 const Content: React.FC<Props> = ({ occupations, allOcupationsCount }) => {

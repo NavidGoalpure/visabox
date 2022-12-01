@@ -14,47 +14,47 @@ export default {
     {
       name: 'upper_than_65',
       title: '> 65 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_70',
       title: '> 70 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_75',
       title: '> 75 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_80',
       title: '> 80 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_85',
       title: '> 85 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_90',
       title: '> 90 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_95',
       title: '> 95 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_100',
       title: '> 100 ',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'upper_than_105',
       title: '> 105 ',
-      type: 'number',
+      type: 'string',
     },
   ],
   //   preview: {

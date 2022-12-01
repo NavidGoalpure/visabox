@@ -18,8 +18,18 @@ export default {
       type: 'backlog_numbers_obj',
     },
 
-    ///////////////////////////////////
-
+    //////Total Submited////////////////
+    {
+      name: 'total_submited_189',
+      title: 'Total Submited 189',
+      type: 'string',
+    },
+    /////// Total INVITED////////
+    {
+      name: 'total_invited_189',
+      title: 'Total Invited 189',
+      type: 'string',
+    },
     ////////////////////////////
     //////190 Visa//////////////
     ////////////SUBMITED////////
@@ -33,6 +43,18 @@ export default {
       name: 'invited_190',
       title: 'Invited 190 ',
       type: 'backlog_numbers_obj',
+    },
+    //////Total Submited////////////////
+    {
+      name: 'total_submited_190',
+      title: 'Total Submited 190',
+      type: 'string',
+    },
+    /////// Total INVITED////////
+    {
+      name: 'total_invited_190',
+      title: 'Total Invited 190',
+      type: 'string',
     },
     ////////////////////////////
     //////491 Visa//////////////
@@ -48,6 +70,18 @@ export default {
       title: 'Invited 491 ',
       type: 'backlog_numbers_obj',
     },
+    //////Total Submited////////////////
+    {
+      name: 'total_submited_491',
+      title: 'Total Submited 491',
+      type: 'string',
+    },
+    /////// Total INVITED////////
+    {
+      name: 'total_invited_491',
+      title: 'Total Invited 491',
+      type: 'string',
+    },
     ////////////////////////////
     //////491_family Visa//////////////
     ////////////SUBMITED////////
@@ -62,18 +96,47 @@ export default {
       title: 'Invited 491_family ',
       type: 'backlog_numbers_obj',
     },
+    //////Total Submited////////////////
+    {
+      name: 'total_submited_491_family',
+      title: 'Total Submited 491_family',
+      type: 'string',
+    },
+    /////// Total INVITED////////
+    {
+      name: 'total_invited_491_family',
+      title: 'Total Invited 491_family',
+      type: 'string',
+    },
     ///////////////////////////
     /////By State/////////////
     //////////////////////////
+    ////////////SUBMITED////////
+
     {
-      name: 'submited_by_state',
+      name: 'submited_by_state_190',
+      title: 'Submited By State 190',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
+    ////////////INVITED////////
+    {
+      name: 'invited_by_state_190',
+      title: 'Invited By State 190',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
+    ////////////SUBMITED////////
+
+    {
+      name: 'submited_by_state_491',
       title: 'Submited By State ',
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],
     },
     ////////////INVITED////////
     {
-      name: 'invited_by_state',
+      name: 'invited_by_state_491',
       title: 'Invited By State ',
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],

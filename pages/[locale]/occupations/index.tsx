@@ -28,7 +28,9 @@ const OccupationList: NextPage<Props> = ({ occupations }) => {
 };
 
 export const getServerSideProps = async () => {
-  const query = `*[_type=='occupation' ]{
+  const occupationCount = `count(*[_type=='occupation' ])`;
+  const OCCUPATION_PER_PAGE = 3;
+  const query = `*[_type=='occupation' ]| order(_id) [0...${OCCUPATION_PER_PAGE}] {
   _id,
   slug,
   code,

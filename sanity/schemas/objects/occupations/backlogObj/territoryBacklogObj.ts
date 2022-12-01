@@ -13,7 +13,7 @@ export default {
     {
       name: 'eoi_count',
       title: 'Eoi Count',
-      type: 'number',
+      type: 'string',
     },
   ],
   preview: {

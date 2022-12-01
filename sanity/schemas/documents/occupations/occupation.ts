@@ -95,8 +95,13 @@ export default {
           { title: 'SPA', value: 'SPA' },
           { title: 'SSSI', value: 'SSSI' },
           { title: 'TRA', value: 'TRA' },
-          { title: 'VETASSESS', value: 'VETASSESS' },
           { title: 'ACPSEM', value: 'ACPSEM' },
+          { title: 'VETASSESS_A', value: 'VETASSESS_A' },
+          { title: 'VETASSESS_B', value: 'VETASSESS_B' },
+          { title: 'VETASSESS_C', value: 'VETASSESS_C' },
+          { title: 'VETASSESS_D', value: 'VETASSESS_D' },
+          { title: 'VETASSESS_E', value: 'VETASSESS_E' },
+          { title: 'VETASSESS_F', value: 'VETASSESS_F' },
         ], // <-- predefined values
         layout: 'radio', // <-- defaults to 'dropdown'
         direction: 'horizontal',

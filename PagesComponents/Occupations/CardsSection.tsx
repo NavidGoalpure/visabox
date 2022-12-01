@@ -17,7 +17,7 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
           description={occupation?.anzsco_section?.description}
           slug={occupation.slug}
           popupContent={
-            <>
+            <div>
               <h3>Tasks</h3>
               <ul>
                 <li>
@@ -31,7 +31,7 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
                 </li>
                 <li>Identifying and controlling environmental toxins and</li>
               </ul>
-            </>
+            </div>
           }
         />
       ))}

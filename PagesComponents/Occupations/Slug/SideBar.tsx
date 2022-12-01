@@ -6,7 +6,7 @@ import * as SideBar from 'components/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
 import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
-import { ScrollBox } from 'elements/Scroll‌Box';
+import { ScrollBox } from 'elements/ScrollBox';
 import { useTranslation } from 'hooks/useTraslation';
 import { componentStatements, PageKeys } from './Const';
 import { deviceMin } from 'consts/device';

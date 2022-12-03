@@ -196,12 +196,33 @@ export const SUB_MAJOR_GROUP: AnszcoGroup[] = [
       ir: 'کارمندان استعلام و پذیرش',
     },
   },
-  { code: 55, title: { en: 'Numerical Clerks', ir: 'اعداد و ارقام' } },
+  { code: 55, title: { en: 'Numerical Clerks', ir: 'کارمندان اعداد' } },
+  {
+    code: 56,
+    title: {
+      en: 'Clerical and Office Support Workers',
+      ir: 'کارمندان دفتری و پشتیبانی اداری',
+    },
+  },
   {
     code: 61,
     title: {
       en: 'Sales Representatives and Agents',
       ir: 'نمایندگی ها و نمایندگان فروش',
+    },
+  },
+  {
+    code: 62,
+    title: {
+      en: 'Sales Assistants and Salespersons',
+      ir: 'دستیاران فروش و فروشندگان',
+    },
+  },
+  {
+    code: 63,
+    title: {
+      en: 'Sales Support Workers',
+      ir: 'کارمند پشتیبانی فروش',
     },
   },
 ];
@@ -221,10 +242,45 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 132,
+    title: {
+      en: 'Business Administration Managers',
+      ir: 'مدیریت بازرگانی',
+    },
+  },
+  {
+    code: 133,
+    title: {
+      en: 'Construction, Distribution and Production Managers',
+      ir: 'مدیران ساخت، توزیع و تولید',
+    },
+  },
+  {
+    code: 134,
+    title: {
+      en: 'Education, Health and Welfare Services Managers',
+      ir: 'مدیران آموزش، بهداشت و خدمات رفاهی',
+    },
+  },
+  {
+    code: 135,
+    title: {
+      en: 'ICT Managers',
+      ir: 'مدیران فناوری اطلاعات و ارتباطات',
+    },
+  },
+  {
     code: 141,
     title: {
       en: 'Accommodation and Hospitality Managers',
       ir: 'مدیران اسکان و پذیرایی',
+    },
+  },
+  {
+    code: 142,
+    title: {
+      en: 'Retail Managers',
+      ir: 'مدیران خرده فروشی',
     },
   },
   {
@@ -249,12 +305,41 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 222,
+    title: {
+      en: 'Financial Brokers and Dealers, and Investment Advisers',
+      ir: 'کارگزاران و دلالان مالی و مشاوران سرمایه گذاری',
+    },
+  },
+  {
+    code: 223,
+    title: {
+      en: 'Human Resource and Training Professionals',
+      ir: 'منابع انسانی و آموزش حرفه ای',
+    },
+  },
+  {
+    code: 224,
+    title: {
+      en: 'Information and Organisation Professionals',
+      ir: 'متخصصان اطلاعات و سازمان',
+    },
+  },
+  {
+    code: 225,
+    title: {
+      en: 'Sales, Marketing and Public Relations Professionals',
+      ir: 'کارشناسان فروش، بازاریابی و روابط عمومی',
+    },
+  },
+  {
     code: 231,
     title: {
       en: 'Air and Marine Transport Professionals',
       ir: 'متخصصان حمل و نقل هوایی و دریایی',
     },
   },
+  // navid تا اینجا
   { code: 241, title: { en: ' School Teachers', ir: 'معلمان مدرسه' } },
   {
     code: 251,
@@ -357,10 +442,31 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 561,
+    title: {
+      en: 'Clerical and Office Support Workers',
+      ir: 'کارمندان دفتری و پشتیبانی اداری',
+    },
+  },
+  {
     code: 611,
     title: {
       en: 'Insurance Agents and Sales Representatives',
       ir: 'نمایندگی های بیمه و نمایندگان فروش',
+    },
+  },
+  {
+    code: 621,
+    title: {
+      en: 'Sales Assistants and Salespersons',
+      ir: 'دستیاران فروش و فروشندگان',
+    },
+  },
+  {
+    code: 631,
+    title: {
+      en: 'Checkout Operators and Office Cashiers',
+      ir: 'اپراتورها و صندوقدارهای دفتر',
     },
   },
 ];

@@ -6,11 +6,13 @@ import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
 import { Occupation } from 'interfaces/Documents/Occupation';
 import { PageTitleStyle } from 'Styles/Theme/Page';
+import { Button } from 'elements/Button';
 
 interface Props {
   occupations: Occupation[];
+  allOcupationsCount: number;
 }
-const Content: React.FC<Props> = ({ occupations }) => {
+const Content: React.FC<Props> = ({ occupations, allOcupationsCount }) => {
   const { t } = useTranslation(componentStatements);
   return (
     <>
@@ -18,6 +20,7 @@ const Content: React.FC<Props> = ({ occupations }) => {
       <PageSubtitle />
       <Search />
       <CardsSection occupations={occupations} />
+      <Button>Load More</Button>
     </>
   );
 };

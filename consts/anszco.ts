@@ -476,8 +476,36 @@ export const Minor_GROUP: AnszcoGroup[] = [
       ir: 'آجركاران و نجاران',
     },
   },
-  // navid تا اینجا
+  {
+    code: 332,
+    title: {
+      en: 'Floor Finishers and Painting Trades Workers',
+      ir: 'کارگران کف سازی و نقاشی',
+    },
+  },
+  {
+    code: 333,
+    title: {
+      en: 'Glaziers, Plasterers and Tilers',
+      ir: 'شیشه کار، گچ کار و کاشی کار',
+    },
+  },
+  {
+    code: 334,
+    title: {
+      en: 'Plumbers',
+      ir: 'لوله کش ها',
+    },
+  },
+
   { code: 341, title: { en: 'Electricians', ir: 'برق کاران' } },
+  {
+    code: 342,
+    title: {
+      en: 'Electronics and Telecommunications Trades Workers',
+      ir: 'کارگران صنایع الکترونیک و مخابرات',
+    },
+  },
   {
     code: 351,
     title: { en: 'Food Trades Workers', ir: 'متخصصان صنایع غذایی' },
@@ -490,19 +518,49 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 362,
+    title: {
+      en: 'Horticultural Trades Workers',
+      ir: 'کارگران صنایع باغبانی',
+    },
+  },
+
+  {
     code: 411,
     title: {
       en: 'Health and Welfare Support Workers',
       ir: 'متخصصان حامی سلامت و رفاه',
     },
   },
+
   { code: 421, title: { en: 'Child Carers', ir: 'مراقبین کودک' } },
+  {
+    code: 422,
+    title: {
+      en: 'Education Aides',
+      ir: 'دستیاران آموزش و پرورش',
+    },
+  },
+  {
+    code: 423,
+    title: {
+      en: 'Personal Carers and Assistants',
+      ir: 'مراقبین شخصی و دستیاران',
+    },
+  },
   { code: 431, title: { en: 'Hospitality Workers', ir: 'متخصصان هتلداری' } },
   {
     code: 441,
     title: {
       en: 'Defence Force Members, Fire Fighters and Police',
       ir: 'اعضای نیروی دفاعی، آتش نشانان و پلیس',
+    },
+  },
+  {
+    code: 442,
+    title: {
+      en: 'Prison and Security Officers',
+      ir: 'ماموران زندان و ماموران امنیتی',
     },
   },
   {
@@ -513,12 +571,20 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 452,
+    title: {
+      en: 'Sports and Fitness Workers',
+      ir: 'مربیان ورزش و تناسب اندام',
+    },
+  },
+  {
     code: 511,
     title: {
       en: 'Contract, Program and Project Administrators',
       ir: 'مدیران قرارداد، برنامه و پروژه',
     },
   },
+  // navid تا اینجا
   {
     code: 521,
     title: {

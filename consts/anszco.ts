@@ -339,13 +339,62 @@ export const Minor_GROUP: AnszcoGroup[] = [
       ir: 'متخصصان حمل و نقل هوایی و دریایی',
     },
   },
-  // navid تا اینجا
-  { code: 241, title: { en: ' School Teachers', ir: 'معلمان مدرسه' } },
+  {
+    code: 232,
+    title: {
+      en: 'Architects, Designers, Planners and Surveyors',
+      ir: 'معماران، طراحان، برنامه ریزان و نقشه برداران',
+    },
+  },
+  {
+    code: 233,
+    title: {
+      en: 'Engineering Professionals',
+      ir: 'متخصصان مهندسی',
+    },
+  },
+  {
+    code: 234,
+    title: {
+      en: 'Natural and Physical Science Professionals',
+      ir: 'متخصصان علوم طبیعی و فیزیکی',
+    },
+  },
+
+  { code: 241, title: { en: 'School Teachers', ir: 'معلمان مدرسه' } },
+  {
+    code: 242,
+    title: {
+      en: 'Tertiary Education Teachers',
+      ir: 'معلمان آموزش عالی',
+    },
+  },
   {
     code: 251,
     title: {
       en: 'Health Diagnostic and Promotion Professionals',
       ir: 'متخصصان تشخیص و ارتقای سلامت',
+    },
+  },
+  {
+    code: 252,
+    title: {
+      en: 'Health Therapy Professionals',
+      ir: 'متخصصان سلامت درمانی',
+    },
+  },
+  {
+    code: 253,
+    title: {
+      en: 'Medical Practitioners',
+      ir: 'پزشکان',
+    },
+  },
+  {
+    code: 254,
+    title: {
+      en: 'Midwifery and Nursing Professionals',
+      ir: 'متخصصین مامایی و پرستاری',
     },
   },
   {
@@ -355,7 +404,29 @@ export const Minor_GROUP: AnszcoGroup[] = [
       ir: 'تحلیلگران کسب و کار و سیستم ها و برنامه نویسان',
     },
   },
+  {
+    code: 262,
+    title: {
+      en: 'Database and Systems Administrators, and ICT Security Specialists',
+      ir: 'مدیران پایگاه داده و سیستم ها و متخصصان امنیت فناوری اطلاعات و ارتباطات',
+    },
+  },
+  {
+    code: 263,
+    title: {
+      en: 'ICT Network and Support Professionals',
+      ir: 'شبکه های فناوری اطلاعات و ارتباطات و متخصصان پشتیبانی',
+    },
+  },
   { code: 271, title: { en: 'Legal Professionals', ir: 'متخصصان حقوق' } },
+  {
+    code: 272,
+    title: {
+      en: 'Social and Welfare Professionals',
+      ir: 'متخصصین اجتماعی و رفاهی',
+    },
+  },
+
   {
     code: 311,
     title: {
@@ -364,10 +435,38 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
-    code: 321,
+    code: 312,
     title: {
-      en: 'Automotive Electricians and Mechanics',
-      ir: 'برق و مکانیک خودرو',
+      en: 'Building and Engineering Technicians',
+      ir: 'تکنسین های ساختمان و مهندسی',
+    },
+  },
+  {
+    code: 313,
+    title: {
+      en: 'ICT and Telecommunications Technicians',
+      ir: 'تکنسین های فناوری اطلاعات و ارتباطات و ارتباطات',
+    },
+  },
+  {
+    code: 322,
+    title: {
+      en: 'Fabrication Engineering Trades Workers',
+      ir: 'کارگران صنایع مهندسی ساخت',
+    },
+  },
+  {
+    code: 323,
+    title: {
+      en: 'Mechanical Engineering Trades Workers',
+      ir: 'کارگران صنایع مهندسی مکانیک',
+    },
+  },
+  {
+    code: 324,
+    title: {
+      en: 'Panelbeaters, and Vehicle Body Builders, Trimmers and Painters',
+      ir: 'پانل کوب، و بدنه ساز خودرو، صافکار و نقاش',
     },
   },
   {
@@ -377,6 +476,7 @@ export const Minor_GROUP: AnszcoGroup[] = [
       ir: 'آجركاران و نجاران',
     },
   },
+  // navid تا اینجا
   { code: 341, title: { en: 'Electricians', ir: 'برق کاران' } },
   {
     code: 351,

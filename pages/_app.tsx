@@ -4,7 +4,7 @@ import NextNProgress from 'nextjs-progressbar';
 import { ThemeProvider } from 'styled-components';
 import '../Styles/global.css';
 import { Languages } from '../interfaces';
-import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
+import { QueryClient, QueryClientProvider, Hydrate } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';
 
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NextNProgress height={2} />
       <ThemeProvider
         theme={{
-          mode: ThemeModes.DARK,
+          mode: ThemeModes.LIGHT,
           languageDirection:
             locale === Languages.ir
               ? LanguageDirection.RTL

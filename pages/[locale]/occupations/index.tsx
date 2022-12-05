@@ -4,7 +4,7 @@ import {
   PageKeys,
   componentStatements,
   OCCUPATION_PER_PAGE,
-} from '../../../PagesComponents/Occupations/Const';
+} from '../../../PagesComponents/Occupations/const';
 import { useTranslation } from 'hooks/useTraslation';
 import Content from 'PagesComponents/Occupations';
 import PageLayout from 'components/Layouts/PageContainer';
@@ -18,6 +18,7 @@ import {
   useQuery,
 } from 'react-query';
 import { Loading } from 'elements/Loading';
+import { getListQuery, getOccupationsList } from 'PagesComponents/utils';
 
 interface Props {
   occupations: Occupation[];
@@ -31,30 +32,6 @@ const OccupationList: NextPage<Props> = (
   props
 ) => {
   const { t } = useTranslation(componentStatements);
-  const query = `*[_type=='occupation' ]| order(_id) [0...9] {
-  _id,
-  slug,
-  code,
-  title,
-  anzsco_section,
-}`;
-
-  // const {
-  //   isSuccess,
-  //   data: occupations,
-  //   isLoading,
-  //   isError,
-  // } = useQuery(['occupations', { lastCode: 0 }], () =>
-  //   sanityClient.fetch(query)
-  // );
-
-  const {
-    isLoading,
-    isError,
-    data: occupations,
-  } = useInfiniteQuery<Occupation>(['occupations', { lastCode: 0 }], () =>
-    sanityClient.fetch(query)
-  );
 
   return (
     <PageLayout>
@@ -62,32 +39,17 @@ const OccupationList: NextPage<Props> = (
         <title>{t(PageKeys.PageTitle)}</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Content occupations={occupations} allOcupationsCount={200} />
+      <Content />
     </PageLayout>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // return {
-  //   props: {},
-  // };
-  // const lastCode = context?.query?.['start-code'] || 0;
-  // اگه بازه ای که میخواستیم بزرگتر از چیزی بود که توی سرور رکوئست میزنیم
-  // رکوئست الکی نزن و بزار رکوئست سمت فرانت زده بشه
-  // if (lastCode > OCCUPATION_PER_PAGE) return { props: {} };
-  const query = `*[_type=='occupation' ]| order(_id) [0...${OCCUPATION_PER_PAGE}] {
-  _id,
-  slug,
-  code,
-  title,
-  anzsco_section,
-}`;
   //
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['occupations', { lastCode: 0 }], () =>
-    sanityClient.fetch(query)
+    sanityClient.fetch(getListQuery({}))
   );
-  // const occupations = await sanityClient.fetch(query);
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

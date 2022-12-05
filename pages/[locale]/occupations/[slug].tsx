@@ -1,4 +1,4 @@
-import { componentStatements } from 'PagesComponents/Occupations/Const';
+import { componentStatements } from 'PagesComponents/Occupations/const';
 import { useTranslation } from 'hooks/useTraslation';
 import { NextPage } from 'next';
 import { Occupation } from 'interfaces/Documents/Occupation';

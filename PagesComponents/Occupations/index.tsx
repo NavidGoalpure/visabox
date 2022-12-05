@@ -27,7 +27,7 @@ const Content: React.FC = () => {
     useData();
   const { t } = useTranslation(componentStatements);
   const getSmartComponent = () => {
-    if (isFetching) return <Loading />;
+    if (true) return <Loading />;
     if (isError) return <p>navid error</p>;
     return <CardsSection occupations={occupations} />;
   };

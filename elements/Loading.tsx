@@ -1,10 +1,7 @@
 import { HtmlHTMLAttributes } from 'react';
-import styled, { keyframes } from 'styled-components/macro';
+import styled, { css, keyframes } from 'styled-components/macro';
+import theme from 'styled-theming';
 import { directionStyles } from 'Styles/Theme';
-import {
-  componentTextColor,
-  componentBackground,
-} from 'Styles/Theme/Component';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}
 const Loading: React.FC<Props> = ({ ...props }) => {
@@ -20,8 +17,10 @@ export { Loading };
 
 const Container = styled.div`
   display: flex;
+  width: 100%;
+  justify-content: center;
 `;
-const rotate = keyframes`
+const Rotate = keyframes`
 0% {
     transform: translate(0, 0) rotate(0deg);
 }
@@ -33,21 +32,20 @@ const rotate = keyframes`
     transform: translate(0, 0) rotate(0deg);
 }
 `;
+export const SquareBg = theme('mode', {
+  light: css`
+    background: var(--color-primary2);
+  `,
+  dark: css`
+    background: var(--color-gray6);
+  `,
+});
 const Square = styled.div`
-  ${componentTextColor}
-  ${componentBackground}
+  ${SquareBg}
   ${directionStyles}
   width: 12px;
   height: 12px;
   border-radius: 4px;
-  animation: ${rotate} 1.5s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
+  animation: ${Rotate} 1.5s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
   margin: 0 2px;
-`;
-
-// Here we create a component that will rotate everything we pass in over two seconds
-const Rotate = styled.div`
-  display: inline-block;
-  animation: ${rotate} 2s linear infinite;
-  padding: 2rem 1rem;
-  font-size: 1.2rem;
 `;

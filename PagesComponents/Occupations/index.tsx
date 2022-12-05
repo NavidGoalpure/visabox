@@ -9,6 +9,8 @@ import { Button } from 'elements/Button';
 import { useListData } from './useListData';
 import { Loading } from 'elements/Loading';
 import { useLastOccupationData } from './useLastOccupationData';
+import { getHasNextPage } from './utils';
+import { ReactNode } from 'react';
 
 const Content: React.FC = () => {
   const { occupations, isFetching, fetchNextPage, isError } = useListData();
@@ -23,21 +25,20 @@ const Content: React.FC = () => {
       occupations?.pages?.[occupations?.pages.length - 1].length - 1
     ];
   console.log('navid lastFechedOccupation=', lastOccupation);
-  const hasNextPage =
-    //@ts-ignore
-    lastOccupation?.code || 1 > lastFechedOccupation?.code || 0;
+  const hasNextPage = getHasNextPage({ lastOccupation, lastFechedOccupation });
+  const getSmartButtonComponent = (): ReactNode => {
+    if (isFetching) return <Loading />;
+    if (hasNextPage)
+      return <Button onClick={() => fetchNextPage()}>Load More</Button>;
+    return null;
+  };
   return (
     <>
       <PageTitle>{t(PageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
       <Search />
       {getSmartComponent()}
-      {/* {hasNextPage?:null} */}
-      {isFetching ? (
-        <Loading />
-      ) : (
-        <Button onClick={() => fetchNextPage()}>Load More</Button>
-      )}
+      {getSmartButtonComponent()}
     </>
   );
 };

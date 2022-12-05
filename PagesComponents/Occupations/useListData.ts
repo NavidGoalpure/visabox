@@ -18,8 +18,6 @@ export const useListData = () => {
     },
     {
       getNextPageParam: (lastPage: Occupation[]) => {
-        //  برای اینکه هزنکست پیج فالس بشه باید در موقع لازم آندیفایند برگردونیم
-        // navid
         return lastPage?.[lastPage.length - 1]?.code || 0;
       },
     }

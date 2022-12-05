@@ -32,4 +32,22 @@ const getlastOccupationCode = async (): Promise<Occupation> => {
   const data = sanityClient.fetch(lastOccupationCodeQuery);
   return data;
 };
-export { getListQuery, getOccupationsList, getlastOccupationCode };
+///////////////////////////////////
+const getHasNextPage = ({
+  lastOccupation,
+  lastFechedOccupation,
+}: {
+  lastOccupation: Occupation | undefined;
+  lastFechedOccupation: Occupation | undefined;
+}): boolean => {
+  if (lastOccupation?.code === undefined) return false;
+  if (lastFechedOccupation?.code === undefined) return false;
+  if (lastOccupation?.code <= lastFechedOccupation?.code) return false;
+  return true;
+};
+export {
+  getListQuery,
+  getOccupationsList,
+  getlastOccupationCode,
+  getHasNextPage,
+};

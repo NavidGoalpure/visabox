@@ -1,7 +1,7 @@
-import { sanityClient } from '../sanity';
+import { sanityClient } from '../../sanity';
 
 import { Occupation } from 'interfaces/Documents/Occupation';
-import { OCCUPATION_PER_PAGE } from './Occupations/const';
+import { OCCUPATION_PER_PAGE } from './const';
 
 const getListQuery = ({ lastCode = 0 }: { lastCode?: number }): string => {
   const query = `*[_type=='occupation' && code>${lastCode} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
@@ -19,9 +19,17 @@ const getOccupationsList = async ({
 }: {
   lastCode?: number;
 }): Promise<Occupation[]> => {
-  console.log('navid lastCode1=', lastCode);
   const data = sanityClient.fetch(getListQuery({ lastCode }));
   return data;
 };
-
-export { getListQuery, getOccupationsList };
+////////////////////////////////
+//////lastOccupationCode////////
+///////////////////////////////
+const lastOccupationCodeQuery = `*[_type=='occupation']| order(code desc)[0] {
+  code,
+}`;
+const getlastOccupationCode = async (): Promise<Occupation> => {
+  const data = sanityClient.fetch(lastOccupationCodeQuery);
+  return data;
+};
+export { getListQuery, getOccupationsList, getlastOccupationCode };

@@ -3,34 +3,15 @@ import Head from 'next/head';
 import {
   PageKeys,
   componentStatements,
-  OCCUPATION_PER_PAGE,
 } from '../../../PagesComponents/Occupations/const';
 import { useTranslation } from 'hooks/useTraslation';
 import Content from 'PagesComponents/Occupations';
 import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
-import { Occupation } from 'interfaces/Documents/Occupation';
-import {
-  dehydrate,
-  InfiniteData,
-  QueryClient,
-  useInfiniteQuery,
-  useQuery,
-} from 'react-query';
-import { Loading } from 'elements/Loading';
-import { getListQuery, getOccupationsList } from 'PagesComponents/utils';
+import { dehydrate, QueryClient } from 'react-query';
+import { getListQuery } from 'PagesComponents/Occupations/utils';
 
-interface Props {
-  occupations: Occupation[];
-  allOcupationsCount: number;
-}
-const OccupationList: NextPage<Props> = (
-  //   {
-  //   occupations,
-  //   allOcupationsCount,
-  // }
-  props
-) => {
+const OccupationList: NextPage = () => {
   const { t } = useTranslation(componentStatements);
 
   return (
@@ -44,11 +25,12 @@ const OccupationList: NextPage<Props> = (
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   //
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(['occupations', { lastCode: 0 }], () =>
-    sanityClient.fetch(getListQuery({}))
+  await queryClient.prefetchQuery(
+    ['occupations', 'list', { lastCode: 0 }],
+    () => sanityClient.fetch(getListQuery({}))
   );
   return {
     props: {

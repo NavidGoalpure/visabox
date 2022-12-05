@@ -73,25 +73,7 @@ function OccupationCard({
 }
 
 export default OccupationCard;
-export const codeColor = theme('mode', {
-  light: css`
-    background: var(--color-gray13);
-    color: var(--color-gray8);
-    border: 2px solid var(--color-primary5);
-  `,
-  dark: css`
-    color: var(--color-primary5);
-    border: 2px solid var(--color-primary4);
-  `,
-});
-const popupContainerColor = theme('mode', {
-  light: css`
-    background-color: var(--color-gray12);
-  `,
-  dark: css`
-    background-color: var(--color-gray8);
-  `,
-});
+
 const Container = styled.div`
   ${componentTheme}
   display: flex;
@@ -115,6 +97,18 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
+export const codeColor = theme('mode', {
+  light: css`
+    background: var(--color-gray13);
+    color: var(--color-gray8);
+    border: 2px solid var(--color-primary5);
+  `,
+  dark: css`
+    color: var(--color-primary5);
+    border: 2px solid var(--color-primary4);
+  `,
+});
+
 const Code = styled.h3`
   ${componentSubtitleStyle}
   ${codeColor}
@@ -146,6 +140,14 @@ const PopupContainerHoverCss = css`
   height: 100%;
   border-radius: 15px;
 `;
+const popupContainerColor = theme('mode', {
+  light: css`
+    background-color: var(--color-gray12);
+  `,
+  dark: css`
+    background-color: var(--color-gray8);
+  `,
+});
 const PopupContainer = styled.div<{ isPopupOpen: boolean }>`
   ${popupContainerColor}
   position: absolute;

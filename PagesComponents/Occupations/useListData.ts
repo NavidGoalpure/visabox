@@ -1,8 +1,9 @@
 import { Occupation } from 'interfaces/Documents/Occupation';
-import { getOccupationsList } from 'PagesComponents/utils';
+import { getlastOccupationCode, getOccupationsList } from './utils';
 import { useInfiniteQuery } from 'react-query';
+import { OccupationsKeys } from 'utils/query';
 
-export const useData = () => {
+export const useListData = () => {
   const {
     hasNextPage,
     fetchNextPage,
@@ -11,7 +12,7 @@ export const useData = () => {
     isFetching,
     data: occupations,
   } = useInfiniteQuery<Occupation[], Error>(
-    ['occupations', { lastCode: 0 }],
+    OccupationsKeys.list({}),
     ({ pageParam: lastCode = 1 }) => {
       return getOccupationsList({ lastCode });
     },

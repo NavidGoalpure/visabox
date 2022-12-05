@@ -3,19 +3,12 @@ import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import { ThemeProvider } from 'styled-components';
 import '../Styles/global.css';
-import { Languages } from '../interfaces';
+import { LanguageDirection, Languages, ThemeModes } from 'interfaces';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';
+import { getThemeFromLocalStorage } from 'utils';
 
-enum ThemeModes {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
-enum LanguageDirection {
-  LTR = 'ltr',
-  RTL = 'rtl',
-}
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
@@ -24,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NextNProgress height={2} />
       <ThemeProvider
         theme={{
-          mode: ThemeModes.DARK,
+          mode: getThemeFromLocalStorage(),
           languageDirection:
             locale === Languages.ir
               ? LanguageDirection.RTL

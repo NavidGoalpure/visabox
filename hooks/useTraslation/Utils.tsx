@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { MultiLanguageText } from 'interfaces';
-import { proxyUrlLocaleToLocale } from 'Utils/Language';
+import { proxyUrlLocaleToLocale } from 'utils/Language';
 
 /**
  *  بوسیله این فانکشن که برای متون هوشمند استفاده میشود میتوان کلماتی از متن را که به صورت تمپلیت مشخص شده اند

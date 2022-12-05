@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { Languages } from 'interfaces';
-import { proxyUrlLocaleToLocale } from 'Utils/Language';
+import { proxyUrlLocaleToLocale } from 'utils/Language';
 
 /**
  * زبان کاربر را بر اساس یوآرال برمیگرداند. اگر در یوآرال چیز مناسبی پیدا نکند انگلیسی را برمیگرداند

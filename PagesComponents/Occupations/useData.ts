@@ -23,8 +23,6 @@ export const useData = () => {
       },
     }
   );
-  console.log('navid isFetching=', isFetching);
-  console.log('navid hasNextPage=', hasNextPage);
 
   return {
     fetchNextPage,

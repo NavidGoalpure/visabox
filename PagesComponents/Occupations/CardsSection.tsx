@@ -5,15 +5,13 @@ import { InfiniteData } from 'react-query';
 import styled from 'styled-components';
 
 interface Props {
-  occupations: InfiniteData<Occupation> | undefined;
+  occupations: InfiniteData<Occupation[]> | undefined;
 }
 const CardsSection: React.FC<Props> = ({ occupations }) => {
-  console.log('navid occupations1=', occupations);
   return (
     <Container>
       {occupations?.pages?.map((occupationPage) =>
-        // @ts-ignore
-        occupationPage?.map((occupation) => {
+        occupationPage?.map((occupation: Occupation) => {
           return (
             <OccupationCard
               key={occupation._id}

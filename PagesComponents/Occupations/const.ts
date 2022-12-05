@@ -24,4 +24,5 @@ export const componentStatements: Record<PageKeys, MultiLanguageText> = {
     en: 'Job code or Job title',
   },
 };
+
 export const OCCUPATION_PER_PAGE = 9;

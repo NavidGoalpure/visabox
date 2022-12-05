@@ -29,8 +29,8 @@ export const BorderColor = theme("mode", {
 const SwitchRoot = styled(RdxSwitch.Root)`
   border: 3px solid var(--color-gray12);
   ${BorderColor};
-  width: 4.375rem;
-  height: 2.5rem;
+  width: 4rem;
+  height: 2.25rem;
   background-color: transparent;
   border-radius: 9999px;
   position: relative;

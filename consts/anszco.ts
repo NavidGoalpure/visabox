@@ -652,7 +652,6 @@ export const Minor_GROUP: AnszcoGroup[] = [
       ir: 'نمایندگی های فروش املاک',
     },
   },
-  // navid تا اینجا
   {
     code: 621,
     title: {

@@ -117,10 +117,10 @@ const LogosContainer = styled.div`
   align-items: center;
 `;
 const TelegramLogo = styled(FaTelegramPlane)`
-  outline: 2px solid var(--color-gray9);
+  outline: 3px solid var(--color-gray9);
   color: var(--color-gray9);
   border-radius: 50%;
-  outline-offset: 7px;
+  outline-offset: 3px;
   width: 2rem;
   height: 2rem;
 `;

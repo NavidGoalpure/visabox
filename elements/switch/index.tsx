@@ -40,9 +40,9 @@ const SwitchRoot = styled(RdxSwitch.Root)`
   .moon {
     font-size: 4px;
     position: absolute;
-    left: 0;
+    left: 4%;
     display: none;
-    width: 40%;
+    width: 35%;
     height: auto;
     path {
       fill: var(--color-gray10);

@@ -46,6 +46,16 @@ export const footerBackground = theme("mode", {
     }
   `,
 });
+export const LogoHover = theme("mode", {
+  light: css`
+    outline-color: var(--color-gray7);
+    color: var(--color-gray7);
+  `,
+  dark: css`
+    color: var(--color-gray10);
+    outline-color: var(--color-gray10);
+  `,
+});
 
 const Container = styled.section`
   ${footerBackground};
@@ -74,7 +84,6 @@ const Container = styled.section`
     left: 80%;
     z-index: 2;
   }
-  
 `;
 const StyledLogo = styled(Logo)`
   width: 10rem;
@@ -84,7 +93,6 @@ const StyledLogo = styled(Logo)`
   left: 20%;
   transform: translate(-50%, -50%);
   z-index: 3;
-  
 `;
 const ItemsContainer = styled.div`
   display: flex;
@@ -95,6 +103,27 @@ const Items = styled.h2`
   ${Headline5Style}
   color: var(--color-gray9);
   cursor: pointer;
+  position: relative;
+  width: max-content;
+  :before {
+    content: "";
+    pointer-events: none;
+    border: 4px solid var(--color-primary2);
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    border-radius: 1000px;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+    transition: all 0.3s ease;
+    transform: scaleX(0);
+  }
+  :hover {
+    :before {
+      transform: scaleX(1);
+    }
+  }
 `;
 const ContactUsContainer = styled.div`
   width: fit-content;
@@ -114,19 +143,27 @@ const ContactUs = styled.h2`
 `;
 const LogosContainer = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
 `;
 const TelegramLogo = styled(FaTelegramPlane)`
-  outline: 2px solid var(--color-gray9);
+  outline: 3px solid var(--color-gray9);
   color: var(--color-gray9);
   border-radius: 50%;
-  outline-offset: 7px;
+  outline-offset: 3px;
   width: 2rem;
   height: 2rem;
+  transition: all 0.3s ease;
+  :hover {
+    ${LogoHover}
+  }
 `;
 const WhatsappLogo = styled(FaWhatsapp)`
   color: var(--color-gray9);
   width: 3rem;
   height: 3rem;
+  transition: all 0.3s ease;
+  :hover {
+    ${LogoHover}
+  }
 `;

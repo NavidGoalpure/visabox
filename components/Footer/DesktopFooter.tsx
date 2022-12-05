@@ -89,7 +89,7 @@ const StyledLogo = styled(Logo)`
   width: 10rem;
   height: auto;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 20%;
   transform: translate(-50%, -50%);
   z-index: 3;
@@ -98,6 +98,7 @@ const ItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-top: 10%;
 `;
 const Items = styled.h2`
   ${Headline5Style}
@@ -128,8 +129,8 @@ const Items = styled.h2`
 const ContactUsContainer = styled.div`
   width: fit-content;
   position: absolute;
-  top: 55%;
-  left: 82%;
+  top: 60%;
+  right: 5%;
   transform: translateY(-50%);
   color: var(--color-gray9);
   display: flex;
@@ -150,6 +151,7 @@ const TelegramLogo = styled(FaTelegramPlane)`
   outline: 3px solid var(--color-gray9);
   color: var(--color-gray9);
   border-radius: 50%;
+  padding-right: 0.2rem;
   outline-offset: 3px;
   width: 2rem;
   height: 2rem;

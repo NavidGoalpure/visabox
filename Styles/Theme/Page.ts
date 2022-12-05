@@ -21,10 +21,10 @@ export const pageTitleColor = theme('mode', {
 });
 export const pageSubtitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray3);
+    color: var(--color-gray6);
   `,
   dark: css`
-    color: var(--color-gray7);
+    color: var(--color-gray13);
   `,
 });
 export const pageTextColor = theme('mode', {

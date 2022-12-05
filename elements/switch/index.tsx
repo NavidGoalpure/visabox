@@ -42,7 +42,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     position: absolute;
     left: 4%;
     display: none;
-    width: 35%;
+    width: 30%;
     height: auto;
     path {
       fill: var(--color-gray10);
@@ -53,11 +53,11 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     font-size: 4px;
     position: absolute;
     right: 5%;
-    width: 30%;
+    width: 25%;
     height: auto;
     path {
-      fill: var(--color-gray10);
-      stroke: var(--color-gray10);
+      fill: var(--color-gray5);
+      stroke: var(--color-gray5);
     }
   }
   &[data-state="checked"] {
@@ -72,7 +72,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
 `;
 const SwitchThumb = styled(RdxSwitch.Thumb)`
   display: block;
-  width: 65%;
+  width: 68%;
   height: calc(100% + 6px);
   border-radius: 50%;
   transition: all 100ms;

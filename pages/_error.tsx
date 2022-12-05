@@ -1,21 +1,15 @@
-import Link from 'next/link';
-import React from 'react';
+import PageLayout from "components/Layouts/PageContainer";
+import { Head } from "next/document";
+import React from "react";
 
 export default function Error() {
   return (
-    <>
-      <header>
-        <h1>Oops we did not expect that to happen</h1>
-        <p>
-          Have you wondered into the unknow. Let us help you, Please take a look
-          at below options
-        </p>
-      </header>
-      <Link href='/'>
-        <div className='button' style={{ marginTop: '2rem' }}>
-          Back to Homepage
-        </div>
-      </Link>
-    </>
+    <PageLayout>
+      {/* <Head> */}
+        {/* <title>Not Found</title> */}
+        {/* <link rel="icon" href="/favicon.ico" /> */}
+      {/* </Head> */}
+      
+    </PageLayout>
   );
 }

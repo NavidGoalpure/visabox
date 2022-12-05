@@ -584,7 +584,13 @@ export const Minor_GROUP: AnszcoGroup[] = [
       ir: 'مدیران قرارداد، برنامه و پروژه',
     },
   },
-  // navid تا اینجا
+  {
+    code: 512,
+    title: {
+      en: 'Office and Practice Managers',
+      ir: 'مدیران دفتر و تمرین',
+    },
+  },
   {
     code: 521,
     title: {
@@ -594,6 +600,10 @@ export const Minor_GROUP: AnszcoGroup[] = [
   },
   { code: 531, title: { en: 'General Clerks', ir: 'کارمندان عمومی' } },
   {
+    code: 532,
+    title: { en: 'Keyboard Operators', ir: 'اپراتورهای صفحه کلید' },
+  },
+  {
     code: 541,
     title: {
       en: 'Call or Contact Centre Information Clerks',
@@ -601,10 +611,24 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 542,
+    title: {
+      en: 'Receptionists',
+      ir: 'مسئولین پذیرش',
+    },
+  },
+  {
     code: 551,
     title: {
       en: 'Accounting Clerks and Bookkeepers',
       ir: 'کارمندان حسابداری و حسابداران',
+    },
+  },
+  {
+    code: 552,
+    title: {
+      en: 'Financial and Insurance Clerks',
+      ir: 'کارمندان مالی و بیمه',
     },
   },
   {
@@ -621,6 +645,14 @@ export const Minor_GROUP: AnszcoGroup[] = [
       ir: 'نمایندگی های بیمه و نمایندگان فروش',
     },
   },
+  {
+    code: 612,
+    title: {
+      en: 'Real Estate Sales Agents',
+      ir: 'نمایندگی های فروش املاک',
+    },
+  },
+  // navid تا اینجا
   {
     code: 621,
     title: {

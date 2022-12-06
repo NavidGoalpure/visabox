@@ -1,8 +1,8 @@
-import * as Tooltip from "@radix-ui/react-tooltip";
-import styled, { css, keyframes } from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 import theme from "styled-theming";
 import { BsCheckLg } from "react-icons/bs";
 import { HiXMark } from "react-icons/hi2";
+import { Headline6Style } from "Styles/Typo";
 
 interface Props {
   content: string;
@@ -64,6 +64,7 @@ const Container = styled.div<{ isOn: boolean }>`
 `;
 const LeftText = styled.h3<{ isOn: boolean }>`
   ${LeftTextBackgroundColor}
+  ${Headline6Style}
   padding: 0.25em 1em;
 `;
 const RightText = styled.h3`

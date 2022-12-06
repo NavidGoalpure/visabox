@@ -5,8 +5,8 @@ const getThemeFromLocalStorage = (): ThemeModes => {
   const res =
     typeof window === 'undefined'
       ? DEFAULT_THEME
-      : (localStorage?.getItem(LocalStorageKeys.Theme) as ThemeModes);
-  return res || DEFAULT_THEME;
+      : (localStorage.getItem(LocalStorageKeys.Theme) as ThemeModes);
+  return res;
 };
 //
 const setThemeFromLocalStorage = (newTheme: ThemeModes) => {

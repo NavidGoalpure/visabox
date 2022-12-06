@@ -1,38 +1,39 @@
-import * as RdxSwitch from "@radix-ui/react-switch";
-import React from "react";
-import styled, { css } from "styled-components/macro";
-import Sun from "./Images/Sun.svg";
-import Moon from "./Images/Moon.svg";
-import MoonLogo from "./MoonLogo";
-import SunLogo from "./SunLogo";
-import theme from "styled-theming";
-import { getThemeFromLocalStorage, setThemeFromLocalStorage } from "utils";
-import { ThemeModes } from "interfaces";
+import * as RdxSwitch from '@radix-ui/react-switch';
+import React from 'react';
+import styled, { css } from 'styled-components/macro';
+import Sun from './Images/Sun.svg';
+import Moon from './Images/Moon.svg';
+import MoonLogo from './MoonLogo';
+import SunLogo from './SunLogo';
+import theme from 'styled-theming';
+import { ThemeModes } from 'interfaces';
+import useSsr from 'hooks/useSsr';
+import useTheme from 'hooks/useTheme';
 
 const Switch = () => {
-  
+  const { isClient } = useSsr();
+  const { theme, setTheme } = useTheme();
+  const isChecked = theme === ThemeModes.LIGHT;
   return (
-    <SwitchRoot>
-      <MoonLogo className="moon" />
-      <SwitchThumb
-        onClick={() =>
-          {
-            console.log(
-              "navid getThemeFromLocalStorage ===",
-              getThemeFromLocalStorage()
-            );
-          getThemeFromLocalStorage() === ThemeModes.DARK
-            ? setThemeFromLocalStorage(ThemeModes.LIGHT)
-            : setThemeFromLocalStorage(ThemeModes.DARK)}
+    <SwitchRoot
+      defaultChecked={isChecked}
+      onCheckedChange={() => {
+        if (isClient) {
+          theme === ThemeModes.DARK
+            ? setTheme(ThemeModes.LIGHT)
+            : setTheme(ThemeModes.DARK);
         }
-      />
-      <SunLogo className="sun" />
+      }}
+    >
+      {isChecked && <MoonLogo id='moon' />}
+      <SwitchThumb />
+      {!isChecked && <SunLogo id='sun' />}
     </SwitchRoot>
   );
 };
 
 export default Switch;
-export const BorderColor = theme("mode", {
+export const BorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray12);
   `,
@@ -51,7 +52,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
   outline: none;
   display: flex;
   align-items: center;
-  .moon {
+  #moon {
     font-size: 4px;
     position: absolute;
     left: 4%;
@@ -63,7 +64,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
       stroke: var(--color-gray10);
     }
   }
-  .sun {
+  #sun {
     font-size: 4px;
     position: absolute;
     right: 5%;
@@ -74,7 +75,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
       stroke: var(--color-gray5);
     }
   }
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     justify-content: flex-end;
     .sun {
       display: none;
@@ -97,7 +98,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
   justify-content: center;
   background-color: var(--color-gray9);
   :before {
-    content: "";
+    content: '';
     z-index: 2;
     width: 70%;
     background-size: contain;
@@ -105,7 +106,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
     background-repeat: no-repeat;
     background-image: url(${Moon});
   }
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     transform: translateX(3px);
     background-color: var(--color-secondary4);
     :before {

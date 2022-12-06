@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import { ThemeProvider } from 'styled-components';
 import '../Styles/global.css';
-import { LanguageDirection, Languages, ThemeModes } from 'interfaces';
+import { LanguageDirection, Languages } from 'interfaces';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';

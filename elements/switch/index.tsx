@@ -6,12 +6,26 @@ import Moon from "./Images/Moon.svg";
 import MoonLogo from "./MoonLogo";
 import SunLogo from "./SunLogo";
 import theme from "styled-theming";
+import { getThemeFromLocalStorage, setThemeFromLocalStorage } from "utils";
+import { ThemeModes } from "interfaces";
 
 const Switch = () => {
+  
   return (
     <SwitchRoot>
       <MoonLogo className="moon" />
-      <SwitchThumb />
+      <SwitchThumb
+        onClick={() =>
+          {
+            console.log(
+              "navid getThemeFromLocalStorage ===",
+              getThemeFromLocalStorage()
+            );
+          getThemeFromLocalStorage() === ThemeModes.DARK
+            ? setThemeFromLocalStorage(ThemeModes.LIGHT)
+            : setThemeFromLocalStorage(ThemeModes.DARK)}
+        }
+      />
       <SunLogo className="sun" />
     </SwitchRoot>
   );

@@ -1,5 +1,5 @@
 import PageLayout from "components/Layouts/PageContainer";
-import { Head } from "next/document";
+import Content from "PagesComponents/NotFound";
 import React from "react";
 
 export default function Error() {
@@ -9,7 +9,7 @@ export default function Error() {
         {/* <title>Not Found</title> */}
         {/* <link rel="icon" href="/favicon.ico" /> */}
       {/* </Head> */}
-      
+      <Content />
     </PageLayout>
   );
 }

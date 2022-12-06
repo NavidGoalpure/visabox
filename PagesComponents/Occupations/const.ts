@@ -1,13 +1,13 @@
 import { MultiLanguageText } from 'interfaces';
 
-export enum PageKeys {
+export enum LanguageKeys {
   PageTitle = 'PageTitle',
   PageSubtitle = 'PageSubtitle',
   Search = 'Search',
   SearchPlaceHolder = 'SearchPlaceHolder',
-  LoadMore='LoadMore'
+  LoadMore = 'LoadMore',
 }
-export const componentStatements: Record<PageKeys, MultiLanguageText> = {
+export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   PageTitle: {
     ir: 'لیست مشاغل',
     en: 'Skill Occupation List',
@@ -24,10 +24,10 @@ export const componentStatements: Record<PageKeys, MultiLanguageText> = {
     ir: 'کد یا نام شغل',
     en: 'Job code or Job title',
   },
-  LoadMore:{
+  LoadMore: {
     ir: 'بیشتر',
-    en: 'Load More'
-  }
+    en: 'Load More',
+  },
 };
 
 export const OCCUPATION_PER_PAGE = 9;

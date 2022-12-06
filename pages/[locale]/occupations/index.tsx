@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import {
-  PageKeys,
+  LanguageKeys,
   componentStatements,
 } from '../../../PagesComponents/Occupations/const';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
@@ -17,7 +17,7 @@ const OccupationList: NextPage = () => {
   return (
     <PageLayout>
       <Head>
-        <title>{t(PageKeys.PageTitle)}</title>
+        <title>{t(LanguageKeys.PageTitle)}</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Content />

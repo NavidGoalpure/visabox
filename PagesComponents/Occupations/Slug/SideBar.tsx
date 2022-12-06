@@ -8,7 +8,7 @@ import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
 import { ScrollBox } from 'elements/ScrollBox';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { componentStatements, PageKeys } from './Const';
+import { componentStatements, LanguageKeys } from './Const';
 import { deviceMin } from 'consts/device';
 
 interface Props {
@@ -25,17 +25,17 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       items={
         <>
           <SideBar.Item
-            title={t(PageKeys.Details)}
+            title={t(LanguageKeys.Details)}
             value='details'
             icon={<DetailsIcon />}
           />
           <SideBar.Item
-            title={t(PageKeys.Anzsco)}
+            title={t(LanguageKeys.Anzsco)}
             value='anzsco'
             icon={<AnszcoIcon />}
           />
           <SideBar.Item
-            title={t(PageKeys.Backlog)}
+            title={t(LanguageKeys.Backlog)}
             value='backlog'
             icon={<Backlog />}
           />

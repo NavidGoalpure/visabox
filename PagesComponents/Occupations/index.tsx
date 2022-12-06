@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { componentStatements, PageKeys } from './const';
+import { componentStatements, LanguageKeys } from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
@@ -30,14 +30,14 @@ const Content: React.FC = () => {
     if (hasNextPage)
       return (
         <Button style={{ margin: '0 auto' }} onClick={() => fetchNextPage()}>
-          {t(PageKeys.LoadMore)}
+          {t(LanguageKeys.LoadMore)}
         </Button>
       );
     return null;
   };
   return (
     <>
-      <PageTitle>{t(PageKeys.PageTitle)}</PageTitle>
+      <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
       <Search />
       {getSmartComponent()}

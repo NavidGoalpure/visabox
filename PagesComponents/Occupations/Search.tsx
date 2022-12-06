@@ -4,7 +4,7 @@ import { Button } from 'elements/Button';
 import styled from 'styled-components/macro';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { componentStatements, PageKeys } from './const';
+import { componentStatements, LanguageKeys } from './const';
 
 function Search() {
   const { t } = useStaticTranslation(componentStatements);
@@ -12,9 +12,9 @@ function Search() {
   return (
     <SearchElement
       icon={<SearchIcon />}
-      placeholder={t(PageKeys.SearchPlaceHolder)}
+      placeholder={t(LanguageKeys.SearchPlaceHolder)}
       endElement={
-        <Button style={{ width: 'auto' }}>{t(PageKeys.Search)}</Button>
+        <Button style={{ width: 'auto' }}>{t(LanguageKeys.Search)}</Button>
       }
     />
   );

@@ -1,21 +1,24 @@
-import { Logo } from "elements/Logo";
-import { device } from "consts/device";
-import React from "react";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
-import { Headline5Style } from "Styles/Typo";
-import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+import { Logo } from 'elements/Logo';
+import React from 'react';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
+import { Headline5Style } from 'Styles/Typo';
+import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
+import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
 
 function DesktopFooter() {
+  const { t } = useStaticTranslation(componentStatements);
+
   return (
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <Items>Home</Items>
-        <Items>Skilled Occupation List</Items>
+        <Items>{t(LanguageKeys.Home)}</Items>
+        <Items>{t(LanguageKeys.SkilledOccupationList)}</Items>
       </ItemsContainer>
       <ContactUsContainer>
-        <ContactUs>Contact us</ContactUs>
+        <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
           <TelegramLogo />
           <WhatsappLogo />
@@ -26,7 +29,7 @@ function DesktopFooter() {
 }
 
 export default DesktopFooter;
-export const footerBackground = theme("mode", {
+export const footerBackground = theme('mode', {
   light: css`
     background: var(--color-gray12);
     :before {
@@ -46,7 +49,7 @@ export const footerBackground = theme("mode", {
     }
   `,
 });
-export const LogoHover = theme("mode", {
+export const LogoHover = theme('mode', {
   light: css`
     outline-color: var(--color-gray7);
     color: var(--color-gray7);
@@ -67,7 +70,7 @@ const Container = styled.section`
   align-items: center;
   justify-content: center;
   :before {
-    content: "";
+    content: '';
     width: 1px;
     height: 100%;
     position: absolute;
@@ -76,7 +79,7 @@ const Container = styled.section`
     z-index: 2;
   }
   :after {
-    content: "";
+    content: '';
     width: 1px;
     height: 100%;
     position: absolute;
@@ -107,7 +110,7 @@ const Items = styled.h2`
   position: relative;
   width: max-content;
   :before {
-    content: "";
+    content: '';
     pointer-events: none;
     border: 4px solid var(--color-primary2);
     width: 100%;

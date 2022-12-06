@@ -75,7 +75,7 @@ const OccupationPage: NextPage<Props> = ({ occupation }) => {
   return (
     <PageLayout>
       {/* <Head> */}
-      {/* <title>{t(PageKeys.PageTitle)}</title> */}
+      {/* <title>{t(LanguageKeys.PageTitle)}</title> */}
       {/* <link rel="icon" href="/favicon.ico" /> */}
       {/* </Head> */}
       {/* <Content occupation={occupation} /> */}

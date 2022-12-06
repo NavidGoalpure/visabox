@@ -1,11 +1,11 @@
 import { MultiLanguageText } from 'interfaces';
 
-export enum PageKeys {
+export enum LanguageKeys {
   Details = 'Details',
   Anzsco = 'Anzsco',
   Backlog = 'Backlog',
 }
-export const componentStatements: Record<PageKeys, MultiLanguageText> = {
+export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Details: {
     ir: 'جزییات',
     en: 'Details',

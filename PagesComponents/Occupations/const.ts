@@ -5,6 +5,7 @@ export enum PageKeys {
   PageSubtitle = 'PageSubtitle',
   Search = 'Search',
   SearchPlaceHolder = 'SearchPlaceHolder',
+  LoadMore='LoadMore'
 }
 export const componentStatements: Record<PageKeys, MultiLanguageText> = {
   PageTitle: {
@@ -23,6 +24,10 @@ export const componentStatements: Record<PageKeys, MultiLanguageText> = {
     ir: 'کد یا نام شغل',
     en: 'Job code or Job title',
   },
+  LoadMore:{
+    ir: 'بیشتر',
+    en: 'Load More'
+  }
 };
 
 export const OCCUPATION_PER_PAGE = 9;

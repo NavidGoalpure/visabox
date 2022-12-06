@@ -5,7 +5,7 @@ import styled from 'styled-components/macro';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { pageBackground } from 'Styles/Theme/Page';
-import Switch from 'elements/switch';
+import SwitchTheme from './switchTheme';
 
 function Header() {
   return (
@@ -16,7 +16,7 @@ function Header() {
             <Logo />
           </Link>
         </NavigationMenu.Item>
-        <Switch />
+        <SwitchTheme />
         {/* <MenuItems>
           <NavigationMenu.Item>
             About

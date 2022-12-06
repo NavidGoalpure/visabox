@@ -10,7 +10,7 @@ import { ThemeModes } from 'interfaces';
 import useSsr from 'hooks/useSsr';
 import useTheme from 'hooks/useTheme';
 
-const Switch = () => {
+const SwitchTheme = () => {
   const { isClient } = useSsr();
   const { theme, setTheme } = useTheme();
   const isChecked = theme === ThemeModes.LIGHT;
@@ -25,14 +25,18 @@ const Switch = () => {
         }
       }}
     >
-      {isChecked && <MoonLogo id='moon' />}
-      <SwitchThumb />
-      {!isChecked && <SunLogo id='sun' />}
+      {isClient && (
+        <>
+          {isChecked && <MoonLogo id='moon' />}
+          <SwitchThumb />
+          {!isChecked && <SunLogo id='sun' />}
+        </>
+      )}
     </SwitchRoot>
   );
 };
 
-export default Switch;
+export default SwitchTheme;
 export const BorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray12);

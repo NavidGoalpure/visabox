@@ -25,13 +25,9 @@ const SwitchTheme = () => {
         }
       }}
     >
-      {isClient && (
-        <>
-          {isChecked && <MoonLogo id='moon' />}
-          <SwitchThumb />
-          {!isChecked && <SunLogo id='sun' />}
-        </>
-      )}
+      {isChecked && <MoonLogo id='moon' />}
+      <SwitchThumb />
+      {!isChecked && <SunLogo id='sun' />}
     </SwitchRoot>
   );
 };

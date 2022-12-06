@@ -28,7 +28,11 @@ const Content: React.FC = () => {
   const getSmartButtonComponent = (): ReactNode => {
     if (isFetching) return <Loading />;
     if (hasNextPage)
-      return <Button onClick={() => fetchNextPage()}>Load More</Button>;
+      return (
+        <Button style={{ margin: '0 auto' }} onClick={() => fetchNextPage()}>
+          {t(PageKeys.LoadMore)}
+        </Button>
+      );
     return null;
   };
   return (

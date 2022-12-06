@@ -1,3 +1,4 @@
+import { deviceMin } from 'consts/device';
 import { Loading } from 'elements/Loading';
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import styled, { css } from 'styled-components/macro';
@@ -32,7 +33,7 @@ export const ButtonCss = css<{
   align-items: center;
   white-space: nowrap;
   cursor: pointer;
-  width: auto;
+  width: 100%;
   height: 3rem;
   padding: 0 3rem;
 
@@ -52,6 +53,9 @@ export const ButtonCss = css<{
     transform: scale(1);
     transition: all 0.4s ease 0s;
     filter: drop-shadow(0px 20px 10px #0008);
+  }
+  @media ${deviceMin.tabletS} {
+    width: 12.5rem;
   }
 `;
 

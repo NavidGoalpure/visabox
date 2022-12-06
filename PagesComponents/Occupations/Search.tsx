@@ -13,7 +13,9 @@ function Search() {
     <SearchElement
       icon={<SearchIcon />}
       placeholder={t(PageKeys.SearchPlaceHolder)}
-      endElement={<Button>{t(PageKeys.Search)}</Button>}
+      endElement={
+        <Button style={{ width: 'auto' }}>{t(PageKeys.Search)}</Button>
+      }
     />
   );
 }

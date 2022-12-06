@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { useTranslation } from 'hooks/useTraslation';
+import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, PageKeys } from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';
@@ -15,7 +15,7 @@ import { ReactNode } from 'react';
 const Content: React.FC = () => {
   const { occupations, isFetching, fetchNextPage, isError } = useListData();
   const { lastOccupation } = useLastOccupationData();
-  const { t } = useTranslation(componentStatements);
+  const { t } = useStaticTranslation(componentStatements);
   const getSmartComponent = () => {
     if (isError) return <p>navid error</p>;
     return <CardsSection occupations={occupations} />;

@@ -8,7 +8,7 @@ import { translatedObject } from './Utils';
  * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
  * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
  */
-export const useTranslation = (
+export const useStaticTranslation = (
   statements: Record<string, MultiLanguageText>
 ) => {
   return {

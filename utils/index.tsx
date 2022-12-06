@@ -1,7 +1,7 @@
 import { LocalStorageKeys, ThemeModes } from 'interfaces';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
-  const DEFAULT_THEME = ThemeModes.LIGHT;
+  const DEFAULT_THEME = ThemeModes.DARK;
   const res =
     typeof window === 'undefined'
       ? DEFAULT_THEME

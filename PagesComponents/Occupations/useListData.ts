@@ -1,5 +1,5 @@
 import { Occupation } from 'interfaces/Documents/Occupation';
-import { getlastOccupationCode, getOccupationsList } from './utils';
+import { getOccupationsList } from './utils';
 import { useInfiniteQuery } from 'react-query';
 import { OccupationsKeys } from 'utils/query';
 

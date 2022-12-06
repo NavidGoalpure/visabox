@@ -4,7 +4,7 @@ import {
   PageKeys,
   componentStatements,
 } from '../../../PagesComponents/Occupations/const';
-import { useTranslation } from 'hooks/useTraslation';
+import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import Content from 'PagesComponents/Occupations';
 import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
@@ -12,7 +12,7 @@ import { dehydrate, QueryClient } from 'react-query';
 import { getListQuery } from 'PagesComponents/Occupations/utils';
 
 const OccupationList: NextPage = () => {
-  const { t } = useTranslation(componentStatements);
+  const { t } = useStaticTranslation(componentStatements);
 
   return (
     <PageLayout>

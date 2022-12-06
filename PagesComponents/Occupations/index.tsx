@@ -24,7 +24,6 @@ const Content: React.FC = () => {
     occupations?.pages?.[occupations?.pages.length - 1][
       occupations?.pages?.[occupations?.pages.length - 1].length - 1
     ];
-  console.log('navid lastFechedOccupation=', lastOccupation);
   const hasNextPage = getHasNextPage({ lastOccupation, lastFechedOccupation });
   const getSmartButtonComponent = (): ReactNode => {
     if (isFetching) return <Loading />;

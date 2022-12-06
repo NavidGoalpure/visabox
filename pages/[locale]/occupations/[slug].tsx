@@ -1,5 +1,5 @@
 import { componentStatements } from 'PagesComponents/Occupations/const';
-import { useTranslation } from 'hooks/useTraslation';
+import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { NextPage } from 'next';
 import { Occupation } from 'interfaces/Documents/Occupation';
 import PageLayout from 'components/Layouts/PageContainer';
@@ -9,7 +9,7 @@ interface Props {
   occupation: Occupation;
 }
 const OccupationPage: NextPage<Props> = ({ occupation }) => {
-  const { t } = useTranslation(componentStatements);
+  const { t } = useStaticTranslation(componentStatements);
   const NavidObject: Occupation = {
     _id: 'e5d5393d-85ca-4b5f-b099-15f394a66760',
     anzsco_section: {

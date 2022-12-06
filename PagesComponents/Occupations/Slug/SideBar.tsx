@@ -7,7 +7,7 @@ import { TbListDetails } from 'react-icons/tb';
 import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
 import { ScrollBox } from 'elements/ScrollBox';
-import { useTranslation } from 'hooks/useTraslation';
+import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, PageKeys } from './Const';
 import { deviceMin } from 'consts/device';
 
@@ -18,7 +18,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const TAGS = Array.from({ length: 50 }).map(
     (_, i, a) => `v1.2.0-beta.${a.length - i}`
   );
-  const { t } = useTranslation(componentStatements);
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBar.Root
       defaultValue='details'

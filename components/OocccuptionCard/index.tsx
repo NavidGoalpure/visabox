@@ -17,6 +17,7 @@ import { Button } from 'elements/Button';
 import { device, deviceMin } from 'consts/device';
 import { ScrollBox } from 'elements/ScrollBox';
 import { useRouter } from 'next/router';
+import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
 
 interface Props {
   code?: number;
@@ -35,6 +36,7 @@ function OccupationCard({
   const { locale } = useLocale();
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const router = useRouter();
+  const { dt } = useDynamicTranslation();
   return (
     <Container>
       <Link
@@ -44,12 +46,11 @@ function OccupationCard({
       >
         <Wrapper>
           <Code>{code}</Code>
-          <Title>{title?.[locale]}</Title>
-          <Description>{description?.[locale]}</Description>
+          <Title>{dt(title)}</Title>
+          <Description>{dt(description)}</Description>
         </Wrapper>
       </Link>
       <PopupContainer isPopupOpen={isPopupOpen}>
-        {' '}
         <Arrow
           isPopupOpen={isPopupOpen}
           onClick={() => {
@@ -64,6 +65,7 @@ function OccupationCard({
               router.push(`/${locale}/occupations/${slug?.current}`)
             }
           >
+            {/* navid multilanguage */}
             Read More
           </StyledButton>
         </PopupContentContainer>
@@ -96,6 +98,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 export const codeColor = theme('mode', {
   light: css`
@@ -128,8 +131,8 @@ const Title = styled.h2`
 const Description = styled.p`
   ${componentTextStyle}
   text-align: center;
-  overflow: hidden;
   margin: 0;
+  overflow: hidden;
 `;
 const PopupContainerHoverCss = css`
   transition-delay: 0s;

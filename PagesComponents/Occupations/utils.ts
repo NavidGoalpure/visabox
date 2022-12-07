@@ -73,10 +73,14 @@ const getOccupationsList = async ({
 /**
  * یک رکوئست به سنیتی زده میشه تا بفهمیم اگه همه آکیوپیشن ها بر اساس کد مرتبط شده باشن، آخرین آکوپیشن حاوی چه اطلاعاتی هست
  * این کار به این صورت انجام میشه که کدها رو برعکس مرتب میکنیم و اولین عضو آرایه رو میفرستیم
- * @returns {any}
+ * @param عبارت سرچ شده
+ * @returns
  */
-const getlastOccupationCode = async (): Promise<Occupation> => {
-  const lastOccupationCodeQuery = `*[_type=='occupation']| order(code desc)[0] {
+const getlastOccupationCode = async (
+  searchValue: string
+): Promise<Occupation> => {
+  const searchCondition = getSearchConditions(searchValue);
+  const lastOccupationCodeQuery = `*[_type=='occupation' ${searchCondition}]| order(code desc)[0] {
   code,
 }`;
   const data = sanityClient.fetch(lastOccupationCodeQuery);
@@ -119,6 +123,6 @@ export {
   getListQuery,
   getOccupationsList,
   getlastOccupationCode,
-  getHasNextPage,
   getLastFechedOccupation,
+  getHasNextPage,
 };

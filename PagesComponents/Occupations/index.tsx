@@ -18,7 +18,7 @@ const Content: React.FC = () => {
   const { occupations, isFetching, fetchNextPage, isError } = useListData({
     search: searchValue,
   });
-  const { lastOccupation } = useLastOccupationData();
+  const { lastOccupation } = useLastOccupationData(searchValue);
   //
   const lastFechedOccupation = getLastFechedOccupation(occupations);
   //

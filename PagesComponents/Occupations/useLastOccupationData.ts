@@ -3,13 +3,14 @@ import { useQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'utils/query';
 import { getlastOccupationCode } from './utils';
 
-export const useLastOccupationData = () => {
+export const useLastOccupationData = (searchValue: string) => {
   const {
     isLoading,
     isError,
     data: lastOccupation,
-  } = useQuery<Occupation, Error>(OccupationsQueryKeys.last(), () =>
-    getlastOccupationCode()
+  } = useQuery<Occupation, Error>(
+    OccupationsQueryKeys.last({ search: searchValue }),
+    () => getlastOccupationCode(searchValue)
   );
 
   return {

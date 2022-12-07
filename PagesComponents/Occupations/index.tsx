@@ -6,7 +6,7 @@ import { PageSubtitle } from './PageSubtitle';
 import { PageTitleStyle } from 'Styles/Theme/Page';
 import { useListData } from './useListData';
 import { useLastOccupationData } from './useLastOccupationData';
-import { getHasNextPage } from './utils';
+import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
 import { ErrorOrContent } from './ErrorOrContent';
 import styled from 'styled-components/macro';
@@ -15,15 +15,10 @@ const Content: React.FC = () => {
   const { occupations, isFetching, fetchNextPage, isError } = useListData();
   const { lastOccupation } = useLastOccupationData();
   const { t } = useStaticTranslation(componentStatements);
-
   //
-  const lastFechedOccupation =
-    occupations?.pages?.[occupations?.pages.length - 1][
-      occupations?.pages?.[occupations?.pages.length - 1].length - 1
-    ];
+  const lastFechedOccupation = getLastFechedOccupation(occupations);
   //
   const hasNextPage = getHasNextPage({ lastOccupation, lastFechedOccupation });
-
   //
   return (
     <>

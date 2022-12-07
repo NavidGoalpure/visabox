@@ -2,6 +2,7 @@ import { sanityClient } from '../../sanity';
 
 import { Occupation } from 'interfaces/Documents/Occupation';
 import { OCCUPATION_PER_PAGE } from './const';
+import { InfiniteData } from 'react-query';
 
 const getListQuery = ({ lastCode = 0 }: { lastCode?: number }): string => {
   const query = `*[_type=='occupation' && code>${lastCode} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
@@ -45,9 +46,19 @@ const getHasNextPage = ({
   if (lastOccupation?.code <= lastFechedOccupation?.code) return false;
   return true;
 };
+/////////////////////////
+const getLastFechedOccupation = (
+  occupations: InfiniteData<Occupation[]> | undefined
+) => {
+  return occupations?.pages?.[occupations?.pages.length - 1][
+    occupations?.pages?.[occupations?.pages.length - 1].length - 1
+  ];
+};
+//////////
 export {
   getListQuery,
   getOccupationsList,
   getlastOccupationCode,
   getHasNextPage,
+  getLastFechedOccupation,
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Input } from '../../elements/Input';
-import { Button } from 'elements/Button';
 import styled from 'styled-components/macro';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
@@ -19,9 +18,9 @@ function Search({ searchValue, setSearchValue }: Props) {
       onChange={setSearchValue}
       icon={<SearchIcon />}
       placeholder={t(LanguageKeys.SearchPlaceHolder)}
-      endElement={
-        <Button style={{ width: 'auto' }}>{t(LanguageKeys.Search)}</Button>
-      }
+      // endElement={
+      //   <Button style={{ width: 'auto' }}>{t(LanguageKeys.Search)}</Button>
+      // }
     />
   );
 }

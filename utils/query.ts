@@ -8,7 +8,8 @@ const OccupationsQueryKeys = {
   list: (params: OccupationsListParams) =>
     [...OccupationsQueryKeys.key, 'list', params] as const,
   //
-  last: () => [...OccupationsQueryKeys.key, 'last'] as const,
+  last: (params: OccupationsListParams) =>
+    [...OccupationsQueryKeys.key, 'last', params] as const,
   //
   detail: (id: number) => [...OccupationsQueryKeys.key, 'detail', id] as const,
 };

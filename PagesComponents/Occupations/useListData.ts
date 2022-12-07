@@ -18,7 +18,7 @@ export const useListData = ({ search }: OccupationsListParams) => {
   } = useInfiniteQuery<Occupation[], Error>(
     OccupationsQueryKeys.list({ search }),
     ({ pageParam: lastCode = 1 }) => {
-      return getOccupationsList({ lastCode ,search});
+      return getOccupationsList({ lastCode, search });
     },
     {
       getNextPageParam: (lastPage: Occupation[]) => {

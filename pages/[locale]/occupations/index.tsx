@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   //
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(OccupationsQueryKeys.list({}), () =>
-    sanityClient.fetch(getListQuery({}))
+    sanityClient.fetch(getListQuery({ searchCondition: '' }))
   );
   return {
     props: {

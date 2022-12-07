@@ -28,9 +28,9 @@ export { ScrollBox };
 
 const ScrollAreaRoot = styled(ScrollArea.Root)`
   width: 100%;
-  height: 100%;
+  height: 10rem;
   border-radius: 4px;
-
+  overflow: hidden;
   --scrollbar-size: 0.5rem;
 `;
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`
@@ -89,5 +89,5 @@ const ScrollAreaThumb = styled(ScrollArea.Thumb)`
   }
 `;
 const ScrollAreaCorner = styled(ScrollArea.Corner)`
-  background: lightgray;
+  background: red;
 `;

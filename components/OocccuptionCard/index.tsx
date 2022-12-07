@@ -13,13 +13,9 @@ import {
   componentTitleColor,
 } from 'Styles/Theme/Component';
 import { useState } from 'react';
-import { Button } from 'elements/Button';
 import { device, deviceMin } from 'consts/device';
 import { ScrollBox } from 'elements/ScrollBox';
-import { useRouter } from 'next/router';
 import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
 import PopupContent from './popupContent';
 
 interface Props {

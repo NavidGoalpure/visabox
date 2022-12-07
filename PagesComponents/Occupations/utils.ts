@@ -4,23 +4,33 @@ import { Occupation } from 'interfaces/Documents/Occupation';
 import { OCCUPATION_PER_PAGE } from './const';
 import { InfiniteData } from 'react-query';
 
-const getListQuery = ({ lastCode = 0 }: { lastCode?: number }): string => {
-  const query = `*[_type=='occupation' && code>${lastCode} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
-  _id,
-  slug,
-  code,
-  title,
-  anzsco_section,
+const getListQuery = ({
+  lastCode = 0,
+  searchCondition,
+}: {
+  lastCode?: number;
+  searchCondition: string;
+}): string => {
+  const query = `*[_type=='occupation' && code>${lastCode} ${searchCondition} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
+    _id,
+    slug,
+    code,
+    title,
+    anzsco_section,
 }`;
   return query;
 };
-
+/////////
+type QueryParams = {
+  lastCode?: number;
+  search: string;
+};
 const getOccupationsList = async ({
   lastCode = 0,
-}: {
-  lastCode?: number;
-}): Promise<Occupation[]> => {
-  const data = sanityClient.fetch(getListQuery({ lastCode }));
+  search,
+}: QueryParams): Promise<Occupation[]> => {
+  const searchCondition = search ? `&& title.en match "*${search}*"` : '';
+  const data = sanityClient.fetch(getListQuery({ lastCode, searchCondition }));
   return data;
 };
 ////////////////////////////////

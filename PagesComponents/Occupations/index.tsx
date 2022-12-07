@@ -10,21 +10,28 @@ import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
 import { ErrorOrContent } from './ErrorOrContent';
 import styled from 'styled-components/macro';
+import { useState } from 'react';
 
 const Content: React.FC = () => {
-  const { occupations, isFetching, fetchNextPage, isError } = useListData();
-  const { lastOccupation } = useLastOccupationData();
   const { t } = useStaticTranslation(componentStatements);
+  const [searchValue, setSearchValue] = useState<string>('');
+  const { occupations, isFetching, fetchNextPage, isError } = useListData({
+    search: searchValue,
+  });
+  const { lastOccupation } = useLastOccupationData();
   //
   const lastFechedOccupation = getLastFechedOccupation(occupations);
   //
   const hasNextPage = getHasNextPage({ lastOccupation, lastFechedOccupation });
   //
+  const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
+    setSearchValue(e.currentTarget.value);
+  };
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
-      <Search />
+      <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
       <ErrorOrContent
         isError={isError}
         content={<CardsSection occupations={occupations} />}

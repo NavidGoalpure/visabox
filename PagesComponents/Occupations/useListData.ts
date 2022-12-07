@@ -3,7 +3,11 @@ import { getOccupationsList } from './utils';
 import { useInfiniteQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'utils/query';
 
-export const useListData = () => {
+type OccupationsListParams = {
+  search: string;
+};
+
+export const useListData = ({ search }: OccupationsListParams) => {
   const {
     hasNextPage,
     fetchNextPage,
@@ -12,9 +16,9 @@ export const useListData = () => {
     isFetching,
     data: occupations,
   } = useInfiniteQuery<Occupation[], Error>(
-    OccupationsQueryKeys.list({}),
+    OccupationsQueryKeys.list({ search }),
     ({ pageParam: lastCode = 1 }) => {
-      return getOccupationsList({ lastCode });
+      return getOccupationsList({ lastCode ,search});
     },
     {
       getNextPageParam: (lastPage: Occupation[]) => {

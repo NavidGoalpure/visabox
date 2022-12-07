@@ -6,11 +6,17 @@ import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 
-function Search() {
+interface Props {
+  searchValue: string;
+  setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
+}
+function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
     <SearchElement
+      value={searchValue}
+      onChange={setSearchValue}
       icon={<SearchIcon />}
       placeholder={t(LanguageKeys.SearchPlaceHolder)}
       endElement={

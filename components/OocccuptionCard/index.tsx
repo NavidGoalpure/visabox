@@ -12,31 +12,27 @@ import {
   componentTextStyle,
   componentTitleColor,
 } from 'Styles/Theme/Component';
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Button } from 'elements/Button';
 import { device, deviceMin } from 'consts/device';
 import { ScrollBox } from 'elements/ScrollBox';
 import { useRouter } from 'next/router';
 import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
+import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import PopupContent from './popupContent';
 
 interface Props {
   code?: number;
   title?: MultiLanguageText;
   description?: MultiLanguageText;
   slug?: Slug;
-  popupContent: ReactNode;
 }
-function OccupationCard({
-  code,
-  title,
-  description,
-  slug,
-  popupContent,
-}: Props) {
+function OccupationCard({ code, title, description, slug }: Props) {
+  // const { t } = useStaticTranslation(componentStatements);
+  const { dt } = useDynamicTranslation();
   const { locale } = useLocale();
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-  const router = useRouter();
-  const { dt } = useDynamicTranslation();
   return (
     <Container>
       <Link
@@ -59,15 +55,7 @@ function OccupationCard({
           }}
         />{' '}
         <PopupContentContainer isPopupOpen={isPopupOpen}>
-          {popupContent}
-          <StyledButton
-            onClick={() =>
-              router.push(`/${locale}/occupations/${slug?.current}`)
-            }
-          >
-            {/* navid multilanguage */}
-            Read More
-          </StyledButton>
+          <PopupContent slug={slug} />
         </PopupContentContainer>
       </PopupContainer>
     </Container>
@@ -98,7 +86,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  // overflow: hidden;
 `;
 export const codeColor = theme('mode', {
   light: css`
@@ -218,6 +206,8 @@ const PopupContentContainer = styled(ScrollBox)<{ isPopupOpen: boolean }>`
   justify-content: center;
   transition: all 0.5s ease;
   pointer-events: none;
+  //
+  overflow: hidden;
   #scroll-area-scrollbar {
     margin-right: -1rem;
   }
@@ -237,8 +227,4 @@ const PopupContentContainer = styled(ScrollBox)<{ isPopupOpen: boolean }>`
     }
   }
   ${({ isPopupOpen }) => isPopupOpen && PopupContentContainerHoverCss}
-`;
-const StyledButton = styled(Button)`
-  margin: 0 auto;
-  margin-bottom: 2rem;
 `;

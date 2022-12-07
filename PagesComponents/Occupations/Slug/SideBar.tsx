@@ -10,6 +10,7 @@ import { ScrollBox } from 'elements/ScrollBox';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './Const';
 import { deviceMin } from 'consts/device';
+import AccordionElement from 'elements/Accordion';
 
 interface Props {
   occupation: Occupation;
@@ -21,41 +22,57 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBar.Root
-      defaultValue='details'
+      defaultValue="details"
       items={
         <>
           <SideBar.Item
             title={t(LanguageKeys.Details)}
-            value='details'
+            value="details"
             icon={<DetailsIcon />}
           />
           <SideBar.Item
             title={t(LanguageKeys.Anzsco)}
-            value='anzsco'
+            value="anzsco"
             icon={<AnszcoIcon />}
           />
           <SideBar.Item
             title={t(LanguageKeys.Backlog)}
-            value='backlog'
+            value="backlog"
             icon={<Backlog />}
           />
         </>
       }
       bodies={
         <>
-          <Tabs.Content value='details'>
+          <Tabs.Content value="details">
             <ScrollBox>
-              <div style={{ padding: '15px 20px' }}>
-                <div className='Text'>Tags</div>
+              <div style={{ padding: "15px 20px" }}>
+                <div className="Text">Tags</div>
                 {TAGS.map((tag) => (
-                  <div className='Tag' key={tag}>
+                  <div className="Tag" key={tag}>
                     {tag}
                   </div>
                 ))}
               </div>
+              <AccordionElement
+                content={
+                  <ul>
+                    <li>
+                      Interpreting architectural drawings and specifications
+                    </li>
+                    <li>
+                      Interpreting architectural drawings and specifications
+                    </li>
+                    <li>
+                      Interpreting architectural drawings and specifications
+                    </li>
+                  </ul>
+                }
+                triggerContent={"Tasks"}
+              />
             </ScrollBox>
           </Tabs.Content>
-          <Tabs.Content value='anzsco'>Anzsco</Tabs.Content>
+          <Tabs.Content value="anzsco">Anzsco</Tabs.Content>
         </>
       }
     />

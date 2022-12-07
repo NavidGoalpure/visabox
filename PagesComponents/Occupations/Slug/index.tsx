@@ -18,6 +18,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <Title>
           {occupation?.code}: {dt(occupation?.title)}
         </Title>
+        
         <TooltipTag
           content={
             occupation?.anzsco_section?.priority_list
@@ -29,8 +30,8 @@ const Content: React.FC<Props> = ({ occupation }) => {
         />
       </TitleContainer>
       <ToggleContainer>
-      <ToggleTag content={"190"} isOn={true} />
-      <ToggleTag content={"189"} isOn={false} />
+        <ToggleTag content={"190"} isOn={true} />
+        <ToggleTag content={"189"} isOn={false} />
       </ToggleContainer>
       <SidebarPage occupation={occupation} />
     </Container>
@@ -56,6 +57,5 @@ const TitleContainer = styled.div`
   gap: 2rem;
 `;
 const ToggleContainer = styled.div`
-display:flex;
-
-`
+  display: flex;
+`;

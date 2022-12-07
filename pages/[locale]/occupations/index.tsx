@@ -10,6 +10,7 @@ import PageLayout from 'components/Layouts/PageContainer';
 import { sanityClient } from '../../../sanity';
 import { dehydrate, QueryClient } from 'react-query';
 import { getListQuery } from 'PagesComponents/Occupations/utils';
+import { OccupationsQueryKeys } from 'utils/query';
 
 const OccupationList: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
@@ -28,9 +29,8 @@ const OccupationList: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async () => {
   //
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(
-    ['occupations', 'list', { lastCode: 0 }],
-    () => sanityClient.fetch(getListQuery({}))
+  await queryClient.prefetchQuery(OccupationsQueryKeys.list({}), () =>
+    sanityClient.fetch(getListQuery({}))
   );
   return {
     props: {

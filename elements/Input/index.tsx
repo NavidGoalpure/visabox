@@ -1,6 +1,5 @@
 import { InputHTMLAttributes, ReactNode, useEffect, useRef } from 'react';
 import { Container, InputContainer, StyledInput, Error } from './styles';
-import styled from 'styled-components/macro';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon: ReactNode;

@@ -1,6 +1,6 @@
 import { Occupation } from 'interfaces/Documents/Occupation';
 import { useQuery } from 'react-query';
-import { OccupationsKeys } from 'utils/query';
+import { OccupationsQueryKeys } from 'utils/query';
 import { getlastOccupationCode } from './utils';
 
 export const useLastOccupationData = () => {
@@ -8,7 +8,7 @@ export const useLastOccupationData = () => {
     isLoading,
     isError,
     data: lastOccupation,
-  } = useQuery<Occupation, Error>(OccupationsKeys.last(), () =>
+  } = useQuery<Occupation, Error>(OccupationsQueryKeys.last(), () =>
     getlastOccupationCode()
   );
 

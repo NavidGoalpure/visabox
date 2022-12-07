@@ -1,16 +1,16 @@
-type ListInterface = {
+type OccupationsListParams = {
   // majorGroup?: number
   search?: string;
 };
-const OccupationsKeys = {
+const OccupationsQueryKeys = {
   key: ['occupations'] as const,
   //
-  list: (filters: ListInterface) =>
-    [...OccupationsKeys.key, 'list', { filters }] as const,
+  list: (params: OccupationsListParams) =>
+    [...OccupationsQueryKeys.key, 'list', params] as const,
   //
-  last: () => [...OccupationsKeys.key, 'last'] as const,
+  last: () => [...OccupationsQueryKeys.key, 'last'] as const,
   //
-  detail: (id: number) => [...OccupationsKeys.key, 'detail', id] as const,
+  detail: (id: number) => [...OccupationsQueryKeys.key, 'detail', id] as const,
 };
 
-export { OccupationsKeys };
+export { OccupationsQueryKeys };

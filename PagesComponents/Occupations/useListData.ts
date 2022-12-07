@@ -1,7 +1,7 @@
 import { Occupation } from 'interfaces/Documents/Occupation';
 import { getOccupationsList } from './utils';
 import { useInfiniteQuery } from 'react-query';
-import { OccupationsKeys } from 'utils/query';
+import { OccupationsQueryKeys } from 'utils/query';
 
 export const useListData = () => {
   const {
@@ -12,7 +12,7 @@ export const useListData = () => {
     isFetching,
     data: occupations,
   } = useInfiniteQuery<Occupation[], Error>(
-    OccupationsKeys.list({}),
+    OccupationsQueryKeys.list({}),
     ({ pageParam: lastCode = 1 }) => {
       return getOccupationsList({ lastCode });
     },

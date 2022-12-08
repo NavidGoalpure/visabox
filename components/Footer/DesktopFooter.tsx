@@ -14,8 +14,10 @@ function DesktopFooter() {
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <Items>{t(LanguageKeys.Home)}</Items>
-        <Items>{t(LanguageKeys.SkilledOccupationList)}</Items>
+        <Items data-name={t(LanguageKeys.Home)}>{t(LanguageKeys.Home)}</Items>
+        <Items data-name={t(LanguageKeys.SkilledOccupationList)}>
+          {t(LanguageKeys.SkilledOccupationList)}
+        </Items>
       </ItemsContainer>
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
@@ -69,6 +71,8 @@ const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: skew(10deg);
+  transform: scaleX(1);
   :before {
     content: '';
     width: 1px;
@@ -103,6 +107,14 @@ const ItemsContainer = styled.div`
   gap: 2rem;
   margin-top: 10%;
 `;
+export const hoverBackground = theme('mode', {
+  light: css`
+    var(--color-gray12);
+  `,
+  dark: css`
+     var(--color-gray2);
+  `,
+});
 const Items = styled.h2`
   ${Headline5Style}
   color: var(--color-gray9);
@@ -110,22 +122,37 @@ const Items = styled.h2`
   position: relative;
   width: max-content;
   :before {
-    content: '';
-    pointer-events: none;
-    border: 4px solid var(--color-primary2);
-    width: 100%;
-    height: 1px;
+    content: attr(data-name);
     position: absolute;
-    bottom: -4px;
-    left: 0;
-    border-radius: 1000px;
-    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
-    transition: all 0.3s ease;
-    transform: scaleX(0);
+    top: 0;
+    left: -20px;
+    background:${hoverBackground}
+    height: 21px;
+    overflow: hidden;
+    transition: all 300ms ease;
+    padding-left: 20px;
+    width: max-content;
+  }
+  :after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-primary4);
+    transition: all 300ms ease;
   }
   :hover {
+    transform: skew(10deg);
     :before {
-      transform: scaleX(1);
+      top: -5px;
+      color: var(--color-primary4);
+    }
+    :after {
+      width: 110%;
+      outline: 2px solid ${hoverBackground}
     }
   }
 `;

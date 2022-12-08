@@ -35,5 +35,5 @@ const SearchIcon = styled(CiSearch)`
   width: 1.5rem;
   height: 1.5rem;
   color: var(--color-primary4);
-  margin-right: 0.5rem;
+  margin-inline-end: 0.5rem;
 `;

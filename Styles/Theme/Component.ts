@@ -19,7 +19,7 @@ export const componentTitleColor = theme('mode', {
     color: var(--color-primary2);
   `,
   dark: css`
-    color: var(--color-primary5);
+    color: var(--color-primary6);
   `,
 });
 export const componenSubtitleColor = theme('mode', {

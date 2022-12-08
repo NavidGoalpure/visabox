@@ -150,11 +150,7 @@ const Wrapper = styled(ScrollBox)<{ isPopupOpen: boolean }>`
   flex-direction: column;
   justify-content: center;
   transition: all 0.5s ease;
-  padding-right: 1rem;
-  #scroll-area-scrollbar {
-    // margin-right: -0.5rem;
-    // overflow-x: none;
-  }
+  padding-inline-end: 1rem;
   h3 {
     ${componentSubtitleStyle}
     ${componentTextColor}

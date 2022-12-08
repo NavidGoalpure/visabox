@@ -3,7 +3,8 @@ import React from 'react';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { Headline5Style } from 'Styles/Typo';
-import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
+import { FaTelegramPlane } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 
@@ -23,7 +24,7 @@ function DesktopFooter() {
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
           <TelegramLogo />
-          <WhatsappLogo />
+          <GmailLogo />
         </LogosContainer>
       </ContactUsContainer>
     </Container>
@@ -53,12 +54,12 @@ export const footerBackground = theme('mode', {
 });
 export const LogoHover = theme('mode', {
   light: css`
-    outline-color: var(--color-gray7);
-    color: var(--color-gray7);
+    outline-color: var(--color-primary4);
+    color: var(--color-primary4);
   `,
   dark: css`
-    color: var(--color-gray10);
-    outline-color: var(--color-gray10);
+    color: var(--color-primary5);
+    outline-color: var(--color-primary5);
   `,
 });
 
@@ -174,27 +175,24 @@ const ContactUs = styled.h2`
 `;
 const LogosContainer = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
 `;
 const TelegramLogo = styled(FaTelegramPlane)`
-  outline: 3px solid var(--color-gray9);
   color: var(--color-gray9);
-  border-radius: 50%;
   padding-right: 0.2rem;
-  outline-offset: 3px;
   width: 2rem;
   height: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
   :hover {
     ${LogoHover}
   }
 `;
-const WhatsappLogo = styled(FaWhatsapp)`
+const GmailLogo = styled(SiGmail)`
   color: var(--color-gray9);
-  width: 3rem;
-  height: 3rem;
-  transition: all 0.3s ease;
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.8s ease;
   :hover {
     ${LogoHover}
   }

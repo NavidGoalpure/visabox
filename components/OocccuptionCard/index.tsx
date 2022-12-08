@@ -84,7 +84,7 @@ export const codeColor = theme('mode', {
     border: 2px solid var(--color-primary5);
   `,
   dark: css`
-    color: var(--color-primary5);
+    color: var(--color-primary6);
     border: 2px solid var(--color-primary4);
   `,
 });

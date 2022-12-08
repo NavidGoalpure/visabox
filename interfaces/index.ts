@@ -18,5 +18,9 @@ interface MultiLanguageText {
   [Languages.en]: string;
   [Languages.ir]?: string;
 }
-export type { MultiLanguageText };
+interface MultiLanguageTextArray {
+  [Languages.en]: string[];
+  [Languages.ir]?: string[];
+}
+export type { MultiLanguageText, MultiLanguageTextArray };
 export { Languages, LanguageDirection, ThemeModes, LocalStorageKeys };

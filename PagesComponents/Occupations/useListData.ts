@@ -1,4 +1,4 @@
-import { Occupation } from 'interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/occupation';
 import { getOccupationsList } from './utils';
 import { useInfiniteQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'utils/query';

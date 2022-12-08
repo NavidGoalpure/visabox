@@ -1,4 +1,4 @@
-import { Occupation } from 'interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/occupation';
 import { useQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'utils/query';
 import { getlastOccupationCode } from './utils';

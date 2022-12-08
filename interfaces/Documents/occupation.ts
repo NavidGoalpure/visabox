@@ -9,6 +9,7 @@
 
 import { MultiLanguageText } from '..';
 import { Slug } from '../Fields';
+import { UnitGroup } from './unitGroup';
 
 export interface Occupation {
   _createdAt: Date;
@@ -32,7 +33,7 @@ export interface AnzscoSection {
   description?: MultiLanguageText;
   priority_list?: PriorityList[];
   specialisations?: AlternativeTitle;
-  unit_group?: UnitGroup;
+  unit_group?: ReferenceType | UnitGroup;
 }
 
 export interface AlternativeTitle {
@@ -55,13 +56,9 @@ export interface PriorityList {
   year?: Date;
 }
 
-interface UnitGroup {
+interface ReferenceType {
   _ref?: string;
-  _type?: UnitGroupType;
-}
-
-enum UnitGroupType {
-  Reference = 'reference',
+  _type?: 'reference;';
 }
 
 export interface BacklogSection {
@@ -81,7 +78,7 @@ export interface TerritorySection {
   _key?: string;
   _type?: string;
   desc?: Desc[];
-  territory?: UnitGroup;
+  territory?: ReferenceType;
 }
 
 export interface Desc {
@@ -114,5 +111,5 @@ export enum Style {
 export interface VisaOptionSection {
   _key?: string;
   _type?: string;
-  types?: UnitGroup;
+  types?: ReferenceType;
 }

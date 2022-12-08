@@ -1,4 +1,4 @@
-import { Occupation } from 'interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/occupation';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
@@ -22,34 +22,34 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBar.Root
-      defaultValue="details"
+      defaultValue='details'
       items={
         <>
           <SideBar.Item
             title={t(LanguageKeys.Details)}
-            value="details"
+            value='details'
             icon={<DetailsIcon />}
           />
           <SideBar.Item
             title={t(LanguageKeys.Anzsco)}
-            value="anzsco"
+            value='anzsco'
             icon={<AnszcoIcon />}
           />
           <SideBar.Item
             title={t(LanguageKeys.Backlog)}
-            value="backlog"
+            value='backlog'
             icon={<Backlog />}
           />
         </>
       }
       bodies={
         <>
-          <Tabs.Content value="details">
+          <Tabs.Content value='details'>
             <ScrollBox>
-              <div style={{ padding: "15px 20px" }}>
-                <div className="Text">Tags</div>
+              <div style={{ padding: '15px 20px' }}>
+                <div className='Text'>Tags</div>
                 {TAGS.map((tag) => (
-                  <div className="Tag" key={tag}>
+                  <div className='Tag' key={tag}>
                     {tag}
                   </div>
                 ))}
@@ -68,11 +68,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                     </li>
                   </ul>
                 }
-                triggerContent={"Tasks"}
+                triggerContent={'Tasks'}
               />
             </ScrollBox>
           </Tabs.Content>
-          <Tabs.Content value="anzsco">Anzsco</Tabs.Content>
+          <Tabs.Content value='anzsco'>Anzsco</Tabs.Content>
         </>
       }
     />

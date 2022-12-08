@@ -1,11 +1,11 @@
-import TooltipTag from "elements/TooltipTag";
-import { Occupation } from "interfaces/Documents/Occupation";
-import React from "react";
-import ToggleTag from "elements/ToggleTag";
-import styled from "styled-components";
-import { SidebarPage } from "./SideBar";
-import { PageTitleStyle } from "Styles/Theme/Page";
-import { useDynamicTranslation } from "hooks/useDynamicTraslation";
+import TooltipTag from 'elements/TooltipTag';
+import { Occupation } from 'interfaces/Documents/occupation';
+import React from 'react';
+import ToggleTag from 'elements/ToggleTag';
+import styled from 'styled-components';
+import { SidebarPage } from './SideBar';
+import { PageTitleStyle } from 'Styles/Theme/Page';
+import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
 
 interface Props {
   occupation: Occupation;
@@ -18,20 +18,20 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <Title>
           {occupation?.code}: {dt(occupation?.title)}
         </Title>
-        
+
         <TooltipTag
           content={
             occupation?.anzsco_section?.priority_list
               ? occupation?.anzsco_section?.priority_list[0]?.future_demend ||
-                ""
-              : ""
+                ''
+              : ''
           }
-          popupContent={"occupation."}
+          popupContent={'occupation.'}
         />
       </TitleContainer>
       <ToggleContainer>
-        <ToggleTag content={"190"} isOn={true} />
-        <ToggleTag content={"189"} isOn={false} />
+        <ToggleTag content={'190'} isOn={true} />
+        <ToggleTag content={'189'} isOn={false} />
       </ToggleContainer>
       <SidebarPage occupation={occupation} />
     </Container>

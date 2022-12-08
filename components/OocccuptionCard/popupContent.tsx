@@ -1,6 +1,7 @@
 import { Button } from 'elements/Button';
 import { useLocale } from 'hooks/useLocale';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { MultiLanguageTextArray } from 'interfaces';
 import { Slug } from 'interfaces/Fields';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -9,8 +10,9 @@ import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
   slug?: Slug;
+  tasks: MultiLanguageTextArray;
 }
-const PopupContent: React.FC<Props> = ({ slug }) => {
+const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
   const { locale } = useLocale();
@@ -19,15 +21,9 @@ const PopupContent: React.FC<Props> = ({ slug }) => {
     <div>
       <h3>{t(LanguageKeys.Tasks)}</h3>
       <ul>
-        <li>
-          Planning and coordinating the operation of hatcheries to produce fish
-          fry, seed oysters, crayfish, marron and prawns taking into account
-          environmental and market factors
-        </li>
-        <li>
-          Monitoring the environment to maintain optimal growing conditions
-        </li>
-        <li>Identifying and controlling environmental toxins and</li>
+        {tasks?.[locale]?.map((task, i) => (
+          <li key={i}>{task}</li>
+        ))}
       </ul>
       <StyledButton
         onClick={() => router.push(`/${locale}/occupations/${slug?.current}`)}

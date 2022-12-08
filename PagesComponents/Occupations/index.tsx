@@ -8,7 +8,7 @@ import { useListData } from './useListData';
 import { useLastOccupationData } from './useLastOccupationData';
 import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
-import { ErrorOrContent } from './ErrorOrContent';
+import { ContentOrError } from './contentOrError';
 import styled from 'styled-components/macro';
 import { useState } from 'react';
 
@@ -32,11 +32,12 @@ const Content: React.FC = () => {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
       <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
-      <ErrorOrContent
+      <ContentOrError
         isError={isError}
         content={<CardsSection occupations={occupations} />}
       />
       <SmartButton
+        isError={isError}
         isFetching={isFetching}
         hasNextPage={hasNextPage}
         fetchNextPage={fetchNextPage}

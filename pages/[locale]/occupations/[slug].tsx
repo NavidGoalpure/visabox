@@ -1,7 +1,7 @@
 import { componentStatements } from 'PagesComponents/Occupations/const';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { NextPage } from 'next';
-import { Occupation } from 'interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/occupation';
 import PageLayout from 'components/Layouts/PageContainer';
 import Content from 'PagesComponents/Occupations/Slug';
 

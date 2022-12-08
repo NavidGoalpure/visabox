@@ -1,6 +1,6 @@
 import { sanityClient } from '../../sanity';
 
-import { Occupation } from 'interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/occupation';
 import { OCCUPATION_PER_PAGE } from './const';
 import { InfiniteData } from 'react-query';
 
@@ -43,7 +43,11 @@ const getListQuery = ({
     slug,
     code,
     title,
-    anzsco_section,
+    anzsco_section{
+     unit_group->{
+      tasks
+     },
+    }
 }`;
   return query;
 };

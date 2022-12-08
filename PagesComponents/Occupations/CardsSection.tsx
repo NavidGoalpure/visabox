@@ -1,5 +1,6 @@
 import OccupationCard from 'components/OocccuptionCard';
-import { Occupation } from 'interfaces/Documents/Occupation';
+import { Occupation } from 'interfaces/Documents/occupation';
+import { UnitGroup } from 'interfaces/Documents/unitGroup';
 import React from 'react';
 import { InfiniteData } from 'react-query';
 import styled from 'styled-components';
@@ -7,6 +8,7 @@ import styled from 'styled-components';
 interface Props {
   occupations: InfiniteData<Occupation[]> | undefined;
 }
+
 const CardsSection: React.FC<Props> = ({ occupations }) => {
   return (
     <Container>
@@ -19,6 +21,9 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
               title={occupation?.title}
               description={occupation?.anzsco_section?.description}
               slug={occupation.slug}
+              tasks={
+                (occupation.anzsco_section?.unit_group as UnitGroup)?.tasks
+              }
             />
           );
         })

@@ -1,5 +1,5 @@
 import { useLocale } from 'hooks/useLocale';
-import { MultiLanguageText } from 'interfaces';
+import { MultiLanguageText, MultiLanguageTextArray } from 'interfaces';
 import { Slug } from 'interfaces/Fields';
 import Link from 'next/link';
 import styled, { css } from 'styled-components/macro';
@@ -23,8 +23,9 @@ interface Props {
   title?: MultiLanguageText;
   description?: MultiLanguageText;
   slug?: Slug;
+  tasks: MultiLanguageTextArray;
 }
-function OccupationCard({ code, title, description, slug }: Props) {
+function OccupationCard({ code, title, description, slug, tasks }: Props) {
   // const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
   const { locale } = useLocale();
@@ -51,7 +52,7 @@ function OccupationCard({ code, title, description, slug }: Props) {
           }}
         />{' '}
         <PopupContentContainer isPopupOpen={isPopupOpen}>
-          <PopupContent slug={slug} />
+          <PopupContent slug={slug} tasks={tasks} />
         </PopupContentContainer>
       </PopupContainer>
     </Container>

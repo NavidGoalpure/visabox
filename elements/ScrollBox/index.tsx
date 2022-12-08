@@ -2,6 +2,7 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
+import { directionStyles } from 'Styles/Theme';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -33,6 +34,7 @@ const ScrollBox: React.FC<Props> = ({
 export { ScrollBox };
 
 const ScrollAreaRoot = styled(ScrollArea.Root)<{ heightToRem: number }>`
+  ${directionStyles}
   width: 100%;
   height: ${({ heightToRem }) => `${heightToRem}rem`};
   border-radius: 4px;

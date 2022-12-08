@@ -25,8 +25,10 @@ interface Props {
 function OccupationCard({ code, title, description, slug, tasks }: Props) {
   // const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
+  
   const { locale } = useLocale();
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+
   return (
     <Container>
       <Link

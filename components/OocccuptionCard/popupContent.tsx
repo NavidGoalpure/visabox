@@ -16,6 +16,7 @@ import {
 } from 'Styles/Theme/Component';
 import { componentStatements, LanguageKeys } from './const';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
 
 interface Props {
   slug?: Slug;
@@ -30,6 +31,8 @@ const PopupContent: React.FC<Props> = ({
   setIsPopupOpen,
 }) => {
   const { t } = useStaticTranslation(componentStatements);
+  const { dtArray } = useDynamicTranslation();
+
   const router = useRouter();
   const { locale } = useLocale();
 
@@ -45,7 +48,7 @@ const PopupContent: React.FC<Props> = ({
       <Wrapper isPopupOpen={isPopupOpen} heightToRem={30}>
         <Title>{t(LanguageKeys.Tasks)}</Title>
         <ul>
-          {tasks?.[locale]?.map((task, i) => (
+          {dtArray(tasks)?.map((task, i) => (
             <>
               <li key={i}>{task}</li>
               <br />
@@ -165,7 +168,6 @@ const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
   ${({ isPopupOpen }) => isPopupOpen && ArrowHoverCss}
 `;
 const Title = styled.h3`
-
   ${componentSubtitleStyle}
   ${componentTextColor}
     margin-bottom:1rem;

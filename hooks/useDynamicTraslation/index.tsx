@@ -1,5 +1,5 @@
-import { MultiLanguageText } from 'interfaces';
-import { translatedObject } from './Utils';
+import { MultiLanguageText, MultiLanguageTextArray } from 'interfaces';
+import { translatedObject, translateDynamicArray } from './Utils';
 
 ////////////////
 /**
@@ -12,5 +12,7 @@ export const useDynamicTranslation = () => {
   return {
     dt: (statementObj: MultiLanguageText | undefined) =>
       translatedObject({ statementObj }),
+    dtArray: (statementObj: MultiLanguageTextArray) =>
+      translateDynamicArray(statementObj),
   };
 };

@@ -1,5 +1,9 @@
 import { useRouter } from 'next/router';
-import { Languages, MultiLanguageText } from 'interfaces';
+import {
+  Languages,
+  MultiLanguageText,
+  MultiLanguageTextArray,
+} from 'interfaces';
 import { proxyUrlLocaleToLocale } from 'utils/Language';
 
 /**
@@ -20,11 +24,31 @@ export const translatedObject = ({
   const smartLocale = proxyUrlLocaleToLocale(locale);
 
   if (
-    typeof statementObj[smartLocale] !== undefined &&
+    typeof statementObj[smartLocale] !== 'undefined' &&
     statementObj[smartLocale] !== ''
   )
     return statementObj[smartLocale] || statementObj[Languages.en];
+
   return statementObj[Languages.en];
 
   //
+};
+///////////////////////
+export const translateDynamicArray = (
+  statementObj: MultiLanguageTextArray
+): string[] => {
+  const {
+    query: { locale },
+  } = useRouter();
+  if (!statementObj || !locale) return [];
+  const smartLocale = proxyUrlLocaleToLocale(locale);
+
+  if (typeof statementObj[smartLocale] !== 'undefined')
+    return (
+      statementObj[smartLocale] ||
+      //defensive
+      statementObj[Languages.en]
+    );
+
+  return statementObj[Languages.en];
 };

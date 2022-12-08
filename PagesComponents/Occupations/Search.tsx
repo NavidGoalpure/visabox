@@ -29,9 +29,11 @@ export default Search;
 const SearchElement = styled(Input)`
   margin: 0 auto;
   margin-bottom: 4rem;
+  height: 4rem;
 `;
 const SearchIcon = styled(CiSearch)`
   width: 1.5rem;
   height: 1.5rem;
   color: var(--color-primary4);
+  margin-right: 0.5rem;
 `;

@@ -56,7 +56,7 @@ const InputStyle = css<{
     font-weight: normal;
     font-size: 16px;
     line-height: 22px;
-    color: var(--color-gray4);
+    color: var(--color-gray10);
     ${({ disabled }) => disabled && 'color:var(--color-gray5); '};
   }
 `;

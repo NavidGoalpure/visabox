@@ -45,7 +45,8 @@ const getListQuery = ({
     title,
     anzsco_section{
      unit_group->{
-      tasks
+      tasks,
+      description
      },
     }
 }`;

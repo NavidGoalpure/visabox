@@ -19,7 +19,10 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
               key={occupation._id}
               code={occupation?.code}
               title={occupation?.title}
-              description={occupation?.anzsco_section?.description}
+              description={
+                (occupation.anzsco_section?.unit_group as UnitGroup)
+                  ?.description
+              }
               slug={occupation.slug}
               tasks={
                 (occupation.anzsco_section?.unit_group as UnitGroup)?.tasks

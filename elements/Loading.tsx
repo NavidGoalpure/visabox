@@ -32,17 +32,10 @@ const Rotate = keyframes`
     transform: translate(0, 0) rotate(0deg);
 }
 `;
-export const SquareBg = theme('mode', {
-  light: css`
-    background: var(--color-primary2);
-  `,
-  dark: css`
-    background: var(--color-gray6);
-  `,
-});
+
 const Square = styled.div`
-  ${SquareBg}
   ${directionStyles}
+  background: var(--color-primary2);
   width: 12px;
   height: 12px;
   border-radius: 4px;

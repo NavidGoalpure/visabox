@@ -28,7 +28,7 @@ export { ScrollBox };
 
 const ScrollAreaRoot = styled(ScrollArea.Root)`
   width: 100%;
-  height: 10rem;
+  height: 100%;
   border-radius: 4px;
   overflow: hidden;
   --scrollbar-size: 0.5rem;

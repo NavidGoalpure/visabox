@@ -40,16 +40,19 @@ export const componentTextColor = theme('mode', {
 });
 //////
 export const componentTitleStyle = css`
+  ${directionStyles}
   ${componentTitleColor}
   ${Headline5Style}
   margin-bottom: 2rem;
 `;
 export const componentSubtitleStyle = css`
+  ${directionStyles}
   ${componenSubtitleColor}
   ${Headline6Style}
   margin-bottom: 2rem;
 `;
 export const componentTextStyle = css`
+  ${directionStyles}
   ${componentTextColor}
   ${Headline7Style}
   margin-bottom: 2rem;

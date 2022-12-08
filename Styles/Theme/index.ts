@@ -1,6 +1,5 @@
 import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
-import { Headline5Style } from '../Typo';
 
 //// فعلا فقط توی منو استفاده شده
 export const boxShadow = theme('mode', {

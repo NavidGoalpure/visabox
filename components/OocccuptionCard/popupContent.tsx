@@ -43,7 +43,7 @@ const PopupContent: React.FC<Props> = ({
         }}
       />{' '}
       <Wrapper isPopupOpen={isPopupOpen} heightToRem={30}>
-        <h3>{t(LanguageKeys.Tasks)}</h3>
+        <Title>{t(LanguageKeys.Tasks)}</Title>
         <ul>
           {tasks?.[locale]?.map((task, i) => (
             <>
@@ -106,6 +106,31 @@ const Container = styled.div<{ isPopupOpen: boolean }>`
 
   ${({ isPopupOpen }) => isPopupOpen && ContainerHoverCss}
 `;
+const Wrapper = styled(ScrollBox)<{ isPopupOpen: boolean }>`
+  opacity: 0;
+  padding: 0;
+  transform: translateY(-20px);
+  width: 100%;
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s ease;
+  padding-inline-end: 1rem;
+
+  ul {
+    ${componentTextStyle}
+    margin-bottom:1rem;
+  }
+
+  @media ${deviceMin.tabletL} {
+    ${Container}:hover & {
+      ${PopupContentContainerHoverCss}
+    }
+  }
+  ${({ isPopupOpen }) => isPopupOpen && PopupContentContainerHoverCss}
+`;
+
 const ArrowHoverCss = css`
   transition-delay: 0s;
   transform: translateX(-50%) rotate(0deg);
@@ -139,34 +164,11 @@ const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
   }
   ${({ isPopupOpen }) => isPopupOpen && ArrowHoverCss}
 `;
+const Title = styled.h3`
 
-const Wrapper = styled(ScrollBox)<{ isPopupOpen: boolean }>`
-  opacity: 0;
-  padding: 0;
-  transform: translateY(-20px);
-  width: 100%;
-  height: 17rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: all 0.5s ease;
-  padding-inline-end: 1rem;
-  h3 {
-    ${componentSubtitleStyle}
-    ${componentTextColor}
+  ${componentSubtitleStyle}
+  ${componentTextColor}
     margin-bottom:1rem;
-  }
-  ul {
-    ${componentTextStyle}
-    margin-bottom:1rem;
-  }
-
-  @media ${deviceMin.tabletL} {
-    ${Container}:hover & {
-      ${PopupContentContainerHoverCss}
-    }
-  }
-  ${({ isPopupOpen }) => isPopupOpen && PopupContentContainerHoverCss}
 `;
 const StyledButton = styled(Button)`
   margin: 0 auto;

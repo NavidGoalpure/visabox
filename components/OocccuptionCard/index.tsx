@@ -79,7 +79,7 @@ const Wrapper = styled.div`
 `;
 export const codeColor = theme('mode', {
   light: css`
-    background: var(--color-gray13);
+    background: white;
     color: var(--color-gray8);
     border: 2px solid var(--color-primary5);
   `,

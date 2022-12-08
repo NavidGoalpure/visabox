@@ -25,7 +25,7 @@ const SwitchTheme = () => {
         }
       }}
     >
-      {isChecked && <MoonLogo id='moon' />}
+      <MoonLogo id='moon' />
       <SwitchThumb />
       {!isChecked && <SunLogo id='sun' />}
     </SwitchRoot>
@@ -56,7 +56,6 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     font-size: 4px;
     position: absolute;
     left: 4%;
-    display: none;
     width: 30%;
     height: auto;
     path {
@@ -71,8 +70,8 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     width: 25%;
     height: auto;
     path {
-      fill: var(--color-gray5);
-      stroke: var(--color-gray5);
+      fill: var(--color-gray9);
+      stroke: var(--color-gray9);
     }
   }
   &[data-state='checked'] {

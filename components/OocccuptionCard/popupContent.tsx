@@ -46,7 +46,10 @@ const PopupContent: React.FC<Props> = ({
         <h3>{t(LanguageKeys.Tasks)}</h3>
         <ul>
           {tasks?.[locale]?.map((task, i) => (
-            <li key={i}>{task}</li>
+            <>
+              <li key={i}>{task}</li>
+              <br />
+            </>
           ))}
         </ul>
         <StyledButton
@@ -94,7 +97,6 @@ const Container = styled.div<{ isPopupOpen: boolean }>`
   border-radius: 0 0 15px 15px;
   transition: all 0.4s ease, border-radius 0.4s 0.1s ease;
   transition-delay: 0.3s;
-  pointer-events: none;
   @media ${deviceMin.tabletL} {
     :hover {
       ${ContainerHoverCss}
@@ -122,6 +124,7 @@ const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
   transition: all 0.4s ease;
   transition-delay: 0.3s;
   pointer-events: all;
+  z-index: 1;
 
   @media ${deviceMin.tabletS} {
     top: -1rem;

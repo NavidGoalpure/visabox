@@ -42,7 +42,7 @@ const PopupContent: React.FC<Props> = ({
           return false;
         }}
       />{' '}
-      <Wrapper isPopupOpen={isPopupOpen}>
+      <Wrapper isPopupOpen={isPopupOpen} heightToRem={30}>
         <h3>{t(LanguageKeys.Tasks)}</h3>
         <ul>
           {tasks?.[locale]?.map((task, i) => (
@@ -64,8 +64,8 @@ const ContainerHoverCss = css`
   transition-delay: 0s;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
-  padding-inline-start: 2.5rem;
-  padding-inline-end: 2rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 0.25rem;
   height: 100%;
   border-radius: 15px;
 `;
@@ -147,8 +147,10 @@ const Wrapper = styled(ScrollBox)<{ isPopupOpen: boolean }>`
   flex-direction: column;
   justify-content: center;
   transition: all 0.5s ease;
+  padding-right: 1rem;
   #scroll-area-scrollbar {
-    margin-right: -1rem;
+    // margin-right: -0.5rem;
+    // overflow-x: none;
   }
   h3 {
     ${componentSubtitleStyle}

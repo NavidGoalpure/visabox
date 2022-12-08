@@ -5,10 +5,16 @@ import theme from 'styled-theming';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
+  heightToRem: number;
 }
-const ScrollBox: React.FC<Props> = ({ className, id, children }) => {
+const ScrollBox: React.FC<Props> = ({
+  className,
+  id,
+  children,
+  heightToRem,
+}) => {
   return (
-    <ScrollAreaRoot className={className} id={id}>
+    <ScrollAreaRoot className={className} id={id} heightToRem={heightToRem}>
       <ScrollAreaViewport>{children}</ScrollAreaViewport>
       <ScrollAreaScrollbar id={'scroll-area-scrollbar'} orientation='vertical'>
         <ScrollAreaThumb />
@@ -26,9 +32,9 @@ const ScrollBox: React.FC<Props> = ({ className, id, children }) => {
 
 export { ScrollBox };
 
-const ScrollAreaRoot = styled(ScrollArea.Root)`
+const ScrollAreaRoot = styled(ScrollArea.Root)<{ heightToRem: number }>`
   width: 100%;
-  height: 100%;
+  height: ${({ heightToRem }) => `${heightToRem}rem`};
   border-radius: 4px;
   overflow: hidden;
   --scrollbar-size: 0.5rem;
@@ -89,5 +95,5 @@ const ScrollAreaThumb = styled(ScrollArea.Thumb)`
   }
 `;
 const ScrollAreaCorner = styled(ScrollArea.Corner)`
-  background: red;
+  background: lightgray;
 `;

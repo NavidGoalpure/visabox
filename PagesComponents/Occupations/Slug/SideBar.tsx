@@ -45,7 +45,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       bodies={
         <>
           <Tabs.Content value='details'>
-            <ScrollBox>
+            <ScrollBox heightToRem={40}>
               <div style={{ padding: '15px 20px' }}>
                 <div className='Text'>Tags</div>
                 {TAGS.map((tag) => (

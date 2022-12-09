@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme={{
           mode: theme,
           languageDirection:
-            locale === Languages.ir
+            locale === Languages.fa
               ? LanguageDirection.RTL
               : LanguageDirection.LTR,
         }}

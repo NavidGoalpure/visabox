@@ -1,5 +1,5 @@
 enum Languages {
-  ir = 'ir',
+  fa = 'fa',
   en = 'en',
 }
 enum ThemeModes {
@@ -16,11 +16,11 @@ enum LocalStorageKeys {
 }
 interface MultiLanguageText {
   [Languages.en]: string;
-  [Languages.ir]?: string;
+  [Languages.fa]?: string;
 }
 interface MultiLanguageTextArray {
   [Languages.en]: string[];
-  [Languages.ir]?: string[];
+  [Languages.fa]?: string[];
 }
 export type { MultiLanguageText, MultiLanguageTextArray };
 export { Languages, LanguageDirection, ThemeModes, LocalStorageKeys };

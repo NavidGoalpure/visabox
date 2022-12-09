@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 interface Props {
   compenents: {
-    [Languages.ir]: ReactNode;
+    [Languages.fa]: ReactNode;
     [Languages.en]: ReactNode;
   };
 }

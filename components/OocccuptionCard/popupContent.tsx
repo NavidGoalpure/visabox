@@ -1,22 +1,22 @@
-import { deviceMin } from 'consts/device';
-import { Button } from 'elements/Button';
-import { ScrollBox } from 'elements/ScrollBox';
-import { useLocale } from 'hooks/useLocale';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { MultiLanguageTextArray } from 'interfaces';
-import { Slug } from 'interfaces/Fields';
-import { useRouter } from 'next/router';
-import React, { Dispatch, SetStateAction } from 'react';
-import styled, { css } from 'styled-components/macro';
-import theme from 'styled-theming';
+import { deviceMin } from "consts/device";
+import { Button } from "elements/Button";
+import { ScrollBox } from "elements/ScrollBox";
+import { useLocale } from "hooks/useLocale";
+import { useStaticTranslation } from "hooks/useStaticTraslation";
+import { MultiLanguageTextArray } from "interfaces";
+import { Slug } from "interfaces/Fields";
+import { useRouter } from "next/router";
+import React, { Dispatch, SetStateAction } from "react";
+import styled, { css } from "styled-components/macro";
+import theme from "styled-theming";
 import {
   componentSubtitleStyle,
   componentTextColor,
   componentTextStyle,
-} from 'Styles/Theme/Component';
-import { componentStatements, LanguageKeys } from './const';
-import { IoIosArrowDown } from 'react-icons/io';
-import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
+} from "Styles/Theme/Component";
+import { componentStatements, LanguageKeys } from "./const";
+import { IoIosArrowDown } from "react-icons/io";
+import { useDynamicTranslation } from "hooks/useDynamicTraslation";
 
 interface Props {
   slug?: Slug;
@@ -44,8 +44,8 @@ const PopupContent: React.FC<Props> = ({
           setIsPopupOpen((prevState) => !prevState);
           return false;
         }}
-      />{' '}
-      <Wrapper isPopupOpen={isPopupOpen} heightToRem={30}>
+      />{" "}
+      <StyledScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
         <Title>{t(LanguageKeys.Tasks)}</Title>
         <ul>
           {dtArray(tasks)?.map((task, i) => (
@@ -60,7 +60,7 @@ const PopupContent: React.FC<Props> = ({
         >
           {t(LanguageKeys.ReadMore)}
         </StyledButton>
-      </Wrapper>
+      </StyledScrollBox>
     </Container>
   );
 };
@@ -81,7 +81,7 @@ const PopupContentContainerHoverCss = css`
   transform: translateY(0);
   opacity: 1;
 `;
-const ContainerColor = theme('mode', {
+const ContainerColor = theme("mode", {
   light: css`
     background-color: var(--color-gray12);
   `,
@@ -103,13 +103,14 @@ const Container = styled.div<{ isPopupOpen: boolean }>`
   @media ${deviceMin.tabletL} {
     :hover {
       ${ContainerHoverCss}
+      pointer-events: all;
     }
-    pointer-events: all;
   }
 
   ${({ isPopupOpen }) => isPopupOpen && ContainerHoverCss}
 `;
-const Wrapper = styled(ScrollBox)<{ isPopupOpen: boolean }>`
+
+const StyledScrollBox = styled(ScrollBox)<{ isPopupOpen: boolean }>`
   opacity: 0;
   padding: 0;
   transform: translateY(-20px);
@@ -120,18 +121,23 @@ const Wrapper = styled(ScrollBox)<{ isPopupOpen: boolean }>`
   justify-content: center;
   transition: all 0.5s ease;
   padding-inline-end: 1rem;
-
+  pointer-events: none;
+  @media ${deviceMin.tabletL} {
+    ${Container}:hover & {
+      ${PopupContentContainerHoverCss}
+      pointer-events: all;
+    }
+  }
   ul {
     ${componentTextStyle}
     margin-bottom:1rem;
   }
 
-  @media ${deviceMin.tabletL} {
-    ${Container}:hover & {
-      ${PopupContentContainerHoverCss}
-    }
-  }
-  ${({ isPopupOpen }) => isPopupOpen && PopupContentContainerHoverCss}
+  ${({ isPopupOpen }) =>
+    isPopupOpen &&
+    `
+    ${PopupContentContainerHoverCss}
+    pointer-events: all;`}
 `;
 
 const ArrowHoverCss = css`

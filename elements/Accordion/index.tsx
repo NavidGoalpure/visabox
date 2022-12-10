@@ -4,6 +4,7 @@ import styled, { css, keyframes } from "styled-components/macro";
 import { Headline5Style, Headline7Style } from "Styles/Typo";
 import { AiOutlinePlus } from "react-icons/ai";
 import theme from "styled-theming";
+import { pageBackground } from "Styles/Theme/Page";
 
 interface Props {
   triggerContent: string;
@@ -34,27 +35,25 @@ const AccordionElement: React.FC<Props> = ({ triggerContent, content }) => (
 export default AccordionElement;
 const TextColor = theme("mode", {
   light: css`
-color:black;
+    color: black;
   `,
   dark: css`
-  color:white;
+    color: white;
   `,
 });
 const slideDown = keyframes`
  from {
-    height: 0;
+    transform:translateY(-100%);
   }
   to {
-    height: var(--radix-accordion-content-height);
+    transform:translateY(0);
   
 }
 `;
 const slideUp = keyframes`
-  from {
-    height: var(--radix-accordion-content-height);
-  }
+  
   to {
-    height: 0;
+    transform:translateY(-100%);
   }
 `;
 const AccordionRoot = styled(Accordion.Root)`
@@ -62,6 +61,7 @@ const AccordionRoot = styled(Accordion.Root)`
   max-width: 50rem;
 `;
 const AccordionItem = styled(Accordion.Item)`
+  overflow: hidden;
   margin-top: 1px;
   :focus-within {
     position: relative;
@@ -70,10 +70,15 @@ const AccordionItem = styled(Accordion.Item)`
   }
 `;
 const AccordionHeader = styled(Accordion.Header)`
+  ${pageBackground}
   display: flex;
+  position: relative;
+  z-index: 11;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`
   ${Headline5Style};
+  position: relative;
+  z-index: 10;
   width: 100%;
   color: white;
   padding: 0.5rem 1.5rem;
@@ -107,14 +112,12 @@ const PlusIcon = styled(AiOutlinePlus)`
     transform-origin: center;
     transition: all 0.3s ease;
   }
-  &[data-state="open"] {
-  }
-  :hover {
-  }
 `;
 const AccordionContent = styled(Accordion.Content)`
   ${Headline7Style}
   overflow: hidden;
+  position: relative;
+  z-index: 0;
   font-size: 15px;
   color: white;
   background-color: transparent;

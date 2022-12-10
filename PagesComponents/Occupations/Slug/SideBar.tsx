@@ -11,14 +11,12 @@ import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './Const';
 import { deviceMin } from 'consts/device';
 import AccordionElement from 'elements/Accordion';
+import AnzcoComponent from './AnzcoComponent';
 
 interface Props {
   occupation: Occupation;
 }
 const SidebarPage: React.FC<Props> = ({ occupation }) => {
-  const TAGS = Array.from({ length: 50 }).map(
-    (_, i, a) => `v1.2.0-beta.${a.length - i}`
-  );
   const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBar.Root
@@ -46,30 +44,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
         <>
           <Tabs.Content value='details'>
             <ScrollBox heightToRem={40}>
-              <div style={{ padding: '15px 20px' }}>
-                <div className='Text'>Tags</div>
-                {TAGS.map((tag) => (
-                  <div className='Tag' key={tag}>
-                    {tag}
-                  </div>
-                ))}
-              </div>
-              <AccordionElement
-                content={
-                  <ul>
-                    <li>
-                      Interpreting architectural drawings and specifications
-                    </li>
-                    <li>
-                      Interpreting architectural drawings and specifications
-                    </li>
-                    <li>
-                      Interpreting architectural drawings and specifications
-                    </li>
-                  </ul>
-                }
-                triggerContent={'Tasks'}
-              />
+              <AnzcoComponent />
             </ScrollBox>
           </Tabs.Content>
           <Tabs.Content value='anzsco'>Anzsco</Tabs.Content>

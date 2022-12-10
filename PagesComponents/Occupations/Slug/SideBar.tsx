@@ -10,7 +10,6 @@ import { ScrollBox } from 'elements/ScrollBox';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './Const';
 import { deviceMin } from 'consts/device';
-import AccordionElement from 'elements/Accordion';
 import AnzcoComponent from './AnzcoComponent';
 
 interface Props {

@@ -7,15 +7,15 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
-    ir: 'خانه',
+    fa: 'خانه',
     en: 'Home',
   },
   SkilledOccupationList: {
-    ir: 'لیست تخصص ها',
+    fa: 'لیست تخصص ها',
     en: 'Skilled Occupation List',
   },
   ContactUs: {
-    ir: 'تماس با ما',
+    fa: 'تماس با ما',
     en: 'Contact Us',
   },
 };

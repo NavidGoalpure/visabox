@@ -11,7 +11,8 @@ const OccupationsQueryKeys = {
   last: (params: OccupationsListParams) =>
     [...OccupationsQueryKeys.key, 'last', params] as const,
   //
-  detail: (id: number) => [...OccupationsQueryKeys.key, 'detail', id] as const,
+  detail: (slug: string) =>
+    [...OccupationsQueryKeys.key, 'detail', slug] as const,
 };
 
 export { OccupationsQueryKeys };

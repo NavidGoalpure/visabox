@@ -6,11 +6,11 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   ReadMore: {
-    ir: 'نمایش کامل',
+    fa: 'نمایش کامل',
     en: 'Read More',
   },
   Tasks: {
-    ir: 'شرح وظایف',
+    fa: 'شرح وظایف',
     en: 'Tasks',
   },
 };

@@ -3,14 +3,14 @@ import Head from 'next/head';
 import {
   LanguageKeys,
   componentStatements,
-} from '../../../PagesComponents/Occupations/const';
+} from 'PagesComponents/Occupations/const';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import Content from 'PagesComponents/Occupations';
 import PageLayout from 'components/Layouts/PageContainer';
-import { sanityClient } from '../../../sanity';
+import { sanityClient } from 'sanity';
 import { dehydrate, QueryClient } from 'react-query';
-import { getListQuery } from 'PagesComponents/Occupations/utils';
 import { OccupationsQueryKeys } from 'utils/query';
+import { getListQuery } from 'queries/occupations/List';
 
 const OccupationList: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);

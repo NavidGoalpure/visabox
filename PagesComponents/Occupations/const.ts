@@ -9,23 +9,23 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   PageTitle: {
-    ir: 'لیست مشاغل',
+    fa: 'لیست مشاغل',
     en: 'Skill Occupation List',
   },
   PageSubtitle: {
-    ir: 'در این قسمت لیست کامل مشاغل واجد شرایط یا لیست ترکیبی مطابق با دستورالعمل قانونگذاری {{تگ}} آمده است.',
+    fa: 'در این قسمت لیست کامل مشاغل واجد شرایط یا لیست ترکیبی مطابق با دستورالعمل قانونگذاری {{تگ}} آمده است.',
     en: 'Below is the complete list of eligible skilled occupations or combined list as prescribed in Legislative Instrument {{tag}}',
   },
   Search: {
-    ir: 'جستجو',
+    fa: 'جستجو',
     en: 'Search',
   },
   SearchPlaceHolder: {
-    ir: 'کد یا نام شغل',
+    fa: 'کد یا نام شغل',
     en: 'Job code or Job title',
   },
   LoadMore: {
-    ir: 'بیشتر',
+    fa: 'بیشتر',
     en: 'Load More',
   },
 };

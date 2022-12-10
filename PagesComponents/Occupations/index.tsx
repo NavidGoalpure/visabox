@@ -27,6 +27,7 @@ const Content: React.FC = () => {
   const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
   };
+  console.log('navid lastOccupation=', lastOccupation);
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>

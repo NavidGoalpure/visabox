@@ -2,7 +2,6 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import styled, { css, keyframes } from "styled-components/macro";
 import theme from "styled-theming";
 import { BorderSvg } from "./BorderSvg";
-import lightBorder from "./images/LightLeftBorder.svg";
 
 interface Props {
   content: string;
@@ -54,7 +53,7 @@ export const ButtonTheme = theme("mode", {
     color: var(--color-gray13);
   `,
   dark: css`
-    background: var(--color-primary5);
+    background: var(--color-primary6);
     color: var(--color-gray4);
   `,
 });
@@ -63,7 +62,7 @@ export const ButtonBorderTheme = theme("mode", {
     fill: var(--color-primary4);
   `,
   dark: css`
-    fill: var(--color-primary5);
+    fill: var(--color-primary6);
   `,
 });
 export const TooltipContentTheme = theme("mode", {

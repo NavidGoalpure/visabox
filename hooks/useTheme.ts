@@ -12,7 +12,7 @@ export default function useTheme<ThemeModes>() {
       // Get from local storage by key
       const item = localStorage.getItem(LocalStorageKeys.Theme);
       // Parse stored json or if none return initialValue
-      return item ? (item as ThemeModes) : ThemeModes.DARK;
+      return item ? (item as unknown as ThemeModes) : ThemeModes.DARK;
     } catch (error) {
       // If error also return initialValue
       console.log(error);
@@ -27,7 +27,10 @@ export default function useTheme<ThemeModes>() {
       setThemeState(value);
       // Save to local storage
       if (typeof window !== 'undefined') {
-        window.localStorage.setItem(LocalStorageKeys.Theme, value as string);
+        window.localStorage.setItem(
+          LocalStorageKeys.Theme,
+          value as unknown as string
+        );
         window.location.reload();
       }
     } catch (error) {

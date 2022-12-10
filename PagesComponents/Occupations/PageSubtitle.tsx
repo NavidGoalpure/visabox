@@ -6,7 +6,7 @@ import { PageSubtitleStyle, pageTitleColor } from 'Styles/Theme/Page';
 
 const PageSubtitle: React.FC = () => {
   const iranianSubtitle = reactStringReplace(
-    componentStatements.PageSubtitle.ir,
+    componentStatements.PageSubtitle.fa,
     '{{تگ}}',
     () => (
       <A
@@ -34,7 +34,7 @@ const PageSubtitle: React.FC = () => {
   return (
     <SmartComponentBaseOnLocale
       compenents={{
-        ir: <Subtitle>{iranianSubtitle}</Subtitle>,
+        fa: <Subtitle>{iranianSubtitle}</Subtitle>,
         en: <Subtitle>{englishSubtitle}</Subtitle>,
       }}
     />

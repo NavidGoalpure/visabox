@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
-import { BsCheckLg } from "react-icons/bs";
-import { HiXMark } from "react-icons/hi2";
-import { Headline6Style } from "Styles/Typo";
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
+import { BsCheckLg } from 'react-icons/bs';
+import { HiXMark } from 'react-icons/hi2';
+import { Headline6Style } from 'Styles/Typo';
 
 interface Props {
   content: string;
@@ -11,14 +11,14 @@ interface Props {
 const ToggleTag: React.FC<Props> = ({ content, isOn }) => {
   return (
     <Container isOn={isOn}>
-      <LeftText isOn={isOn}> {content} </LeftText>{" "}
+      <LeftText isOn={isOn}> {content} </LeftText>{' '}
       <RightText>{isOn ? <CheckLogo /> : <XLogo />}</RightText>
     </Container>
   );
 };
 export default ToggleTag;
 
-const ContainerOnColorTheme = theme("mode", {
+const ContainerOnColorTheme = theme('mode', {
   light: css`
     border: 3px solid var(--color-primary4);
     box-shadow: 0 0 4px 0px var(--color-primary4);
@@ -32,7 +32,7 @@ const ContainerOnColorTheme = theme("mode", {
     color: white;
   `,
 });
-const ContainerOffColorTheme = theme("mode", {
+const ContainerOffColorTheme = theme('mode', {
   light: css`
     border: 3px solid var(--color-primary1);
     background-color: var(--color-primary1);
@@ -44,7 +44,7 @@ const ContainerOffColorTheme = theme("mode", {
     color: white;
   `,
 });
-const LeftTextBackgroundColor = theme("mode", {
+const LeftTextBackgroundColor = theme('mode', {
   light: css`
     background-color: white;
   `,
@@ -59,8 +59,8 @@ const Container = styled.div<{ isOn: boolean }>`
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin: 2rem;
-  ${({ isOn }) => (isOn ? ContainerOnColorTheme : ContainerOffColorTheme)}
+  height: 2rem;
+  ${({ isOn }) => (isOn ? ContainerOnColorTheme : ContainerOffColorTheme)};
 `;
 const LeftText = styled.h3<{ isOn: boolean }>`
   ${LeftTextBackgroundColor}

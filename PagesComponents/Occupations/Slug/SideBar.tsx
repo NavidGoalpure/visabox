@@ -15,7 +15,8 @@ import AccordionElement from 'elements/Accordion';
 interface Props {
   occupation: Occupation;
 }
-const SidebarPage: React.FC<Props> = ({ occupation }) => {
+const SidebarPage: React.FC<Props> = () => {
+  
   const TAGS = Array.from({ length: 50 }).map(
     (_, i, a) => `v1.2.0-beta.${a.length - i}`
   );

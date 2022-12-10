@@ -1,30 +1,28 @@
 import TooltipTag from 'elements/TooltipTag';
-import { Occupation } from 'interfaces/Documents/occupation';
 import React from 'react';
 import ToggleTag from 'elements/ToggleTag';
 import styled from 'styled-components';
 import { SidebarPage } from './SideBar';
 import { PageTitleStyle } from 'Styles/Theme/Page';
 import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
+import { Occupation } from 'interfaces/Documents/occupation';
 
 interface Props {
   occupation: Occupation;
 }
+
 const Content: React.FC<Props> = ({ occupation }) => {
   const { dt } = useDynamicTranslation();
+
   return (
     <Container>
       <TitleContainer>
         <Title>
           {occupation?.code}: {dt(occupation?.title)}
         </Title>
-
         <TooltipTag
           content={
-            occupation?.anzsco_section?.priority_list
-              ? occupation?.anzsco_section?.priority_list[0]?.future_demend ||
-                ''
-              : ''
+            occupation?.anzsco_section?.priority_list?.[0]?.future_demend || ''
           }
           popupContent={'occupation.'}
         />
@@ -33,7 +31,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <ToggleTag content={'190'} isOn={true} />
         <ToggleTag content={'189'} isOn={false} />
       </ToggleContainer>
-      <SidebarPage occupation={occupation} />
+      {occupation && <SidebarPage occupation={occupation} />}
     </Container>
   );
 };
@@ -48,7 +46,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
   ${PageTitleStyle};
-  margin: 0;
+  margin-bottom: 1rem;
 `;
 const TitleContainer = styled.div`
   display: flex;
@@ -58,4 +56,7 @@ const TitleContainer = styled.div`
 `;
 const ToggleContainer = styled.div`
   display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 2rem;
 `;

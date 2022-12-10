@@ -1,7 +1,7 @@
 import { Occupation } from 'interfaces/Documents/occupation';
+import { getlastOccupationCode } from 'queries/occupations/List';
 import { useQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'utils/query';
-import { getlastOccupationCode } from './utils';
 
 export const useLastOccupationData = (searchValue: string) => {
   const {

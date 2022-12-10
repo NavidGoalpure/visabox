@@ -48,10 +48,10 @@ const Wrapper = styled(NavigationMenu.List)`
   max-width: var(--max-width-page);
   margin: 0 auto;
 `;
-const MenuItems = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: auto;
-  gap: 1rem;
-`;
+// const MenuItems = styled.div`
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: center;
+//   width: auto;
+//   gap: 1rem;
+// `;

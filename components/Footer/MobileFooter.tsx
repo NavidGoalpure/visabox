@@ -1,10 +1,9 @@
-import { Logo } from "elements/Logo";
-import { device } from "consts/device";
-import React from "react";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
-import { Headline5Style } from "Styles/Typo";
-import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+import { Logo } from 'elements/Logo';
+import React from 'react';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
+import { Headline5Style } from 'Styles/Typo';
+import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 
 function MobileFooter() {
   return (
@@ -27,7 +26,7 @@ function MobileFooter() {
 }
 
 export default MobileFooter;
-export const footerBackground = theme("mode", {
+export const footerBackground = theme('mode', {
   light: css`
     background: var(--color-gray12);
     :before {
@@ -41,7 +40,7 @@ export const footerBackground = theme("mode", {
     }
   `,
 });
-export const TextColor = theme("mode", {
+export const TextColor = theme('mode', {
   light: css`
     color: var(--color-gray6);
   `,
@@ -63,7 +62,7 @@ const Container = styled.section`
   justify-content: center;
   gap: 2rem;
   :before {
-    content: "";
+    content: '';
     width: 1px;
     height: 40%;
     position: absolute;

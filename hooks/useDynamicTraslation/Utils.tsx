@@ -1,10 +1,9 @@
-import { useRouter } from 'next/router';
 import {
   Languages,
   MultiLanguageText,
   MultiLanguageTextArray,
 } from 'interfaces';
-import { proxyUrlLocaleToLocale } from 'utils/Language';
+import { useLocale } from 'hooks/useLocale';
 
 /**
  *  یک گزاره را گرفته،‌بسته به زبان کاربر که از یوارال فهمیده میشود، ترجمه مناسب را برمیگرداند
@@ -16,18 +15,15 @@ export const translatedObject = ({
 }: {
   statementObj: MultiLanguageText | undefined;
 }): string => {
-  const {
-    query: { locale },
-  } = useRouter();
+  const { locale } = useLocale();
 
   if (!statementObj || !locale) return '';
-  const smartLocale = proxyUrlLocaleToLocale(locale);
 
   if (
-    typeof statementObj[smartLocale] !== 'undefined' &&
-    statementObj[smartLocale] !== ''
+    typeof statementObj[locale] !== 'undefined' &&
+    statementObj[locale] !== ''
   )
-    return statementObj[smartLocale] || statementObj[Languages.en];
+    return statementObj[locale] || statementObj[Languages.en];
 
   return statementObj[Languages.en];
 
@@ -37,15 +33,12 @@ export const translatedObject = ({
 export const translateDynamicArray = (
   statementObj: MultiLanguageTextArray
 ): string[] => {
-  const {
-    query: { locale },
-  } = useRouter();
+  const { locale } = useLocale();
   if (!statementObj || !locale) return [];
-  const smartLocale = proxyUrlLocaleToLocale(locale);
 
-  if (typeof statementObj[smartLocale] !== 'undefined')
+  if (typeof statementObj[locale] !== 'undefined')
     return (
-      statementObj[smartLocale] ||
+      statementObj[locale] ||
       //defensive
       statementObj[Languages.en]
     );

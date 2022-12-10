@@ -1,6 +1,5 @@
-import { useRouter } from 'next/router';
 import { MultiLanguageText } from 'interfaces';
-import { proxyUrlLocaleToLocale } from 'utils/Language';
+import { useLocale } from 'hooks/useLocale';
 
 /**
  *  بوسیله این فانکشن که برای متون هوشمند استفاده میشود میتوان کلماتی از متن را که به صورت تمپلیت مشخص شده اند
@@ -63,18 +62,15 @@ export const translatedObject = ({
   statements: Record<string, MultiLanguageText>;
   aliases?: Record<string, string>[];
 }): string => {
-  const {
-    query: { locale },
-  } = useRouter();
+  const { locale } = useLocale();
 
   if (!statementKey || !locale) return '';
-  const smartLocale = proxyUrlLocaleToLocale(locale);
 
   if (!aliases || aliases.length === 0)
-    return statements?.[statementKey]?.[smartLocale] || '';
+    return statements?.[statementKey]?.[locale] || '';
   //
   return convertAllTempKeysWithAllAliases({
-    localeSentence: statements?.[statementKey]?.[smartLocale] || '',
+    localeSentence: statements?.[statementKey]?.[locale] || '',
     aliases,
   });
 };

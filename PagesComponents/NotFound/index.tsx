@@ -1,20 +1,21 @@
-import AnimationComponent from "components/AnimationComponent";
-import styled from "styled-components/macro";
+import AnimationComponent from 'components/AnimationComponent';
+import styled from 'styled-components/macro';
 import {
-  PageSubtitleStyle,
-  pageTextColor,
-  PageTitleStyle,
-} from "Styles/Theme/Page";
-import { Headline5Style, Headline6Style } from "Styles/Typo";
+  billboardSubtitleStyle,
+  billboardTextStyle,
+  billboardTitleStyle,
+} from 'Styles/Theme/billboard';
+import { pageTextColor } from 'Styles/Theme/Page';
+import { Headline5Style, Headline6Style } from 'Styles/Typo';
 
 const Content: React.FC = () => {
   return (
     <Container>
-        <AnimationComponent />
-      <PageTitle>404</PageTitle>
-      <PageSubtitle>Oops...</PageSubtitle>
-      <PageDesc>You werent supposed to be here</PageDesc>
-      <PageText>{`You can go to the Homepage if you feel you're lost`}</PageText>
+      <AnimationComponent />
+      <Title>404</Title>
+      <Subtitle>Oops...</Subtitle>
+      <Desc>You weren't supposed to be here</Desc>
+      <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
     </Container>
   );
 };
@@ -24,20 +25,14 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 9.5rem 0;
-  position:relative;
+  position: relative;
 `;
-const PageTitle = styled.h1`
-  ${PageTitleStyle}
-  font-weight:bold;
+const Title = styled.h1`
+  ${billboardTitleStyle}
 `;
-const PageSubtitle = styled.h2`
-  ${PageSubtitleStyle}
+const Subtitle = styled.h2`
+  ${billboardSubtitleStyle}
 `;
-const PageDesc = styled.h3`
-  ${pageTextColor}
-  ${Headline5Style}
+const Desc = styled.h3`
+  ${billboardTextStyle}
 `;
-const PageText = styled.p`
-${pageTextColor}
-${Headline6Style}
-`

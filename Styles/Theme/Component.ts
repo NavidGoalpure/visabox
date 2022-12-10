@@ -62,6 +62,8 @@ export const componentTheme = css`
   ${componentBackground}
   ${directionStyles}
   padding: 0 2rem;
+  border-radius: 15px;
+
   p {
     text-align: start;
   }

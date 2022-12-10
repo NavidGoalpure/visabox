@@ -61,7 +61,7 @@ export const Headline6Style = css<{
   font-style: normal;
   font-weight: ${({ weight }) => weight || "500"};
   font-size: 20px;
-  line-height: 24px;
+  line-height: 32px;
 `;
 //-----------------
 export const Headline7Style = css<{

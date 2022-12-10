@@ -4,6 +4,8 @@ export enum LanguageKeys {
   Details = 'Details',
   Anzsco = 'Anzsco',
   Backlog = 'Backlog',
+  AnzscoTabTitle = 'AnzscoTabTitle',
+  MajorGroup = 'MajorGroup',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Details: {
@@ -17,5 +19,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Backlog: {
     fa: 'صف',
     en: 'Backlog',
+  },
+  AnzscoTabTitle: {
+    fa: 'مشخصات کد رشته',
+    en: 'ANZSCO Version Specifications',
+  },
+  MajorGroup: {
+    en: 'MajorGroup',
+    fa: 'گروه اصلی',
   },
 };

@@ -8,7 +8,7 @@ import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
 import { ScrollBox } from 'elements/ScrollBox';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './Const';
+import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'consts/device';
 import AnzcoComponent from './AnzcoComponent';
 

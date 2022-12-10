@@ -67,7 +67,9 @@ const getOccupationsList = async ({
   search,
 }: QueryParams): Promise<Occupation[]> => {
   const searchCondition = getSearchConditions(search);
-  const data = sanityClient.fetch(getListQuery({ lastCode, searchCondition }));
+  const data = await sanityClient.fetch(
+    getListQuery({ lastCode, searchCondition })
+  );
   return data;
 };
 ////////////////////////////////
@@ -87,7 +89,7 @@ const getlastOccupationCode = async (
   const lastOccupationCodeQuery = `*[_type=='occupation' ${searchCondition}]| order(code desc)[0] {
   code,
 }`;
-  const data = sanityClient.fetch(lastOccupationCodeQuery);
+  const data = await sanityClient.fetch(lastOccupationCodeQuery);
   return data;
 };
 

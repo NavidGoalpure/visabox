@@ -8,7 +8,7 @@ import { Occupation } from 'interfaces/Documents/occupation';
  * @returns
  */
 const getDetailQuery = (slug: string): string => {
-  const query = `*[_type=='occupation' && slug.current == ${slug}] [0]
+  const query = `*[_type=='occupation' && slug.current == $slug] [0]
    {
  _id,
  code,
@@ -20,10 +20,10 @@ const getDetailQuery = (slug: string): string => {
     },
  assessing_authority,
  visa_option_section
- }
-   `;
+ }`;
   return query;
 };
+
 /////////////////
 
 /**
@@ -32,7 +32,8 @@ const getDetailQuery = (slug: string): string => {
  * @returns {Occupation}
  */
 const getOccupationDetail = async (slug: string): Promise<Occupation> => {
-  const data = sanityClient.fetch(getDetailQuery(slug));
+  const params = { slug };
+  const data = await sanityClient.fetch(getDetailQuery(slug), params);
   return data;
 };
 

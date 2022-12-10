@@ -15,8 +15,8 @@ const OccupationPage: NextPage = () =>
     const { query, push } = useRouter();
     const { slug } = query;
     const { occupation } = useData(slug?.toString());
-    console.log('navid occupation=', occupation);
-    if (occupation === null) push('/404');
+
+    // if (occupation === null) push('/404');
 
     return (
       <PageLayout>

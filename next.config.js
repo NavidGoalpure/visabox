@@ -7,6 +7,15 @@ const config = {
     defaultLocale: 'en',
     localeDetection: false,
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/occupations',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = withImages(config);

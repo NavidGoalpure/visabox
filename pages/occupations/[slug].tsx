@@ -40,7 +40,7 @@ const OccupationPage: NextPage = () =>
   };
 export default OccupationPage;
 export const getStaticPaths = async ({ locales }: any) => {
-  const query = `*[_type=='occupation']{
+  const query = `*[_type=='occupation' && !(_id in path('drafts.**'))]{
  _id,
   slug{
     current

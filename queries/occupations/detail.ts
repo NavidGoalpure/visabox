@@ -14,8 +14,12 @@ const getDetailQuery = (slug: string): string => {
  code,
    title,
    anzsco_section {...,
-     unit_group  ->{
-   skill_level
+    major_group,
+    submajor_group,
+    minor_group,
+    unit_group  ->{
+   skill_level,
+   code
  }
     },
  assessing_authority,

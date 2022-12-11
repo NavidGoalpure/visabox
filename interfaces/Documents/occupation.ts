@@ -7,7 +7,7 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-import { MultiLanguageText } from '..';
+import { MultiLanguageText, MultiLanguageTextArray } from '..';
 import { Slug } from '../Fields';
 import { UnitGroup } from './unitGroup';
 
@@ -29,16 +29,17 @@ export interface Occupation {
 
 export interface AnzscoSection {
   _type?: string;
-  alternative_title?: AlternativeTitle;
+  alternative_title?: MultiLanguageTextArray;
   description?: MultiLanguageText;
   priority_list?: PriorityList[];
-  specialisations?: AlternativeTitle;
+  specialisations?: MultiLanguageTextArray;
   unit_group?: ReferenceType | UnitGroup;
+  major_group: number;
+  submajor_group: number;
+  minor_group: number;
 }
 
-export interface AlternativeTitle {
-  en?: string[];
-}
+
 
 export interface PriorityList {
   _key?: string;

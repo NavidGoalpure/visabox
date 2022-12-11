@@ -2,8 +2,8 @@ import {
   Languages,
   MultiLanguageText,
   MultiLanguageTextArray,
-} from 'interfaces';
-import { useLocale } from 'hooks/useLocale';
+} from "interfaces";
+import { useLocale } from "hooks/useLocale";
 
 /**
  *  یک گزاره را گرفته،‌بسته به زبان کاربر که از یوارال فهمیده میشود، ترجمه مناسب را برمیگرداند
@@ -17,11 +17,11 @@ export const translatedObject = ({
 }): string => {
   const { locale } = useLocale();
 
-  if (!statementObj || !locale) return '';
+  if (!statementObj || !locale) return "";
 
   if (
-    typeof statementObj[locale] !== 'undefined' &&
-    statementObj[locale] !== ''
+    typeof statementObj[locale] !== "undefined" &&
+    statementObj[locale] !== ""
   )
     return statementObj[locale] || statementObj[Languages.en];
 
@@ -31,12 +31,13 @@ export const translatedObject = ({
 };
 ///////////////////////
 export const translateDynamicArray = (
-  statementObj: MultiLanguageTextArray
+  statementObj: MultiLanguageTextArray | undefined
 ): string[] => {
+  if (!statementObj) return [];
   const { locale } = useLocale();
   if (!statementObj || !locale) return [];
 
-  if (typeof statementObj[locale] !== 'undefined')
+  if (typeof statementObj[locale] !== "undefined")
     return (
       statementObj[locale] ||
       //defensive

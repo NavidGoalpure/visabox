@@ -12,7 +12,7 @@ export const useDynamicTranslation = () => {
   return {
     dt: (statementObj: MultiLanguageText | undefined) =>
       translatedObject({ statementObj }),
-    dtArray: (statementObj: MultiLanguageTextArray) =>
+    dtArray: (statementObj: MultiLanguageTextArray | undefined) =>
       translateDynamicArray(statementObj),
   };
 };

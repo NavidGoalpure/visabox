@@ -1,31 +1,38 @@
 import * as Accordion from "@radix-ui/react-accordion";
-import React, { ReactNode } from "react";
+import React, { HTMLAttributes, ReactNode } from "react";
 import styled, { css, keyframes } from "styled-components/macro";
 import { Headline5Style, Headline7Style } from "Styles/Typo";
 import { AiOutlinePlus } from "react-icons/ai";
 import theme from "styled-theming";
 import { pageBackground } from "Styles/Theme/Page";
+import { componentBackground } from "Styles/Theme/Component";
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerContent: string;
   content: ReactNode;
+  backgroundTheme: "PAGE" | "COMPONENT";
 }
 
-const AccordionElement: React.FC<Props> = ({ triggerContent, content }) => (
+const AccordionElement: React.FC<Props> = ({
+  triggerContent,
+  content,
+  backgroundTheme,
+  ...props
+}) => (
   <AccordionRoot
-    className="AccordionRoot"
+    {...props}
     type="single"
     defaultValue="item-1"
     collapsible
   >
-    <AccordionItem className="AccordionItem" value="item-3">
-      <AccordionHeader>
+    <AccordionItem value="item-3">
+      <AccordionHeader backgroundTheme={backgroundTheme}>
         <AccordionTrigger>
           <PlusIcon />
           {triggerContent}
         </AccordionTrigger>
       </AccordionHeader>
-      <AccordionContent className="AccordionContent">
+      <AccordionContent>
         <Content>{content}</Content>
       </AccordionContent>
     </AccordionItem>
@@ -69,11 +76,14 @@ const AccordionItem = styled(Accordion.Item)`
     box-shadow: 0 0 0 2px var(--mauve12);
   }
 `;
-const AccordionHeader = styled(Accordion.Header)`
-  ${pageBackground}
+const AccordionHeader = styled(Accordion.Header)<{
+  backgroundTheme: "PAGE" | "COMPONENT";
+}>`
   display: flex;
   position: relative;
   z-index: 11;
+  ${({ backgroundTheme }) =>
+    backgroundTheme === "PAGE" ? pageBackground : componentBackground}
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`
   ${Headline5Style};

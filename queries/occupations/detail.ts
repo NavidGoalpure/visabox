@@ -7,7 +7,7 @@ import { Occupation } from 'interfaces/Documents/occupation';
  * @param  searchCondition عبارتی که یوزر در باکس سرچ تایپ کرده
  * @returns
  */
-const getDetailQuery = (slug: string): string => {
+const getDetailQuery = (): string => {
   const query = `*[_type=='occupation' && slug.current == $slug] [0]
    {
  _id,
@@ -37,7 +37,7 @@ const getDetailQuery = (slug: string): string => {
  */
 const getOccupationDetail = async (slug: string): Promise<Occupation> => {
   const params = { slug };
-  const data = await sanityClient.fetch(getDetailQuery(slug), params);
+  const data = await sanityClient.fetch(getDetailQuery(), params);
   return data;
 };
 

@@ -52,14 +52,6 @@ body {
   font-family: var(--font-family);
   min-height: 100%;
   box-sizing: border-box;
-  /* // scrollbar-width: none; */
-  /* &::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--color-gray4);
-  } */
 }
 
 *,
@@ -83,4 +75,7 @@ button {
 }
 a {
   text-decoration: none;
+}
+ul {
+  list-style: none;
 }

@@ -15,7 +15,7 @@ import AnzscoComponent from './AnzscoComponent';
 interface Props {
   occupation: Occupation;
 }
-const SidebarPage: React.FC<Props> = ({ occupation }) => {
+const SidebarPage: React.FC<Props> = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBar.Root

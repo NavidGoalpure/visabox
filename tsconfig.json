@@ -7,7 +7,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "noUnusedLocals": true,
+    // "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -23,7 +23,8 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/_document.js",
-    "pages/indexold.old"
+    "pages/indexold.old",
+    "hoc/withCSR.js"
   ],
   "exclude": ["node_modules"]
 }

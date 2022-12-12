@@ -24,7 +24,8 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
   return (
     <PageLayout>
       <Head>
-        <title>{t(LanguageKeys.PageTitle)}</title>
+        <title>{t(LanguageKeys.SeoTitle)}</title>
+        <meta name='description' content={t(LanguageKeys.SeoTitle)} />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Content />

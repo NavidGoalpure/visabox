@@ -8,7 +8,7 @@ import { sanityClient } from '../../sanity';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Occupations/const';
+} from 'PagesComponents/Occupations/Slug/const';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { Occupation } from 'interfaces/Documents/occupation';
 import path from 'path';
@@ -18,26 +18,28 @@ import { Languages } from 'interfaces';
 // interface Props {
 //   occupation: Occupation;
 // }
-const OccupationPage: NextPage = () =>
-  // { occupation }
-  {
-    const { t } = useStaticTranslation(componentStatements);
-    const { query, push } = useRouter();
-    const { slug } = query;
-    const { occupation } = useData(slug?.toString());
+const OccupationPage: NextPage = () => {
+  const { t } = useStaticTranslation(componentStatements);
+  const { query } = useRouter();
+  const { slug } = query;
+  const { occupation } = useData(slug?.toString());
 
-    // if (occupation === null) push('/404');
-
-    return (
-      <PageLayout>
-        <Head>
-          <title>{t(LanguageKeys.PageTitle)}</title>
-          <link rel='icon' href='/favicon.ico' />
-        </Head>
-        {occupation ? <Content occupation={occupation} /> : null}
-      </PageLayout>
-    );
-  };
+  return (
+    <PageLayout>
+      <Head>
+        <title>
+          {t(LanguageKeys.SeoTitle, [
+            { $title: occupation?.title.en || '' },
+            { $code: occupation?.code.toString() || '' },
+          ])}
+        </title>
+        <meta name='description' content={t(LanguageKeys.SeoDesc)} />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+      {occupation ? <Content occupation={occupation} /> : null}
+    </PageLayout>
+  );
+};
 export default OccupationPage;
 export const getStaticPaths = async ({ locales }: any) => {
   const query = `*[_type=='occupation' && !(_id in path('drafts.**'))]{

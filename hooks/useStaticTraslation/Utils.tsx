@@ -17,6 +17,9 @@ function convertAllTempKeysWithAllAliases({
 }): string {
   let mylocaleSentence = localeSentence;
   aliases.map((pair) => {
+    console.log('navid mylocaleSentence=', mylocaleSentence);
+    console.log('navid pair=', pair);
+
     mylocaleSentence = convertKeyWithValueInString({
       senttence: mylocaleSentence,
       pair,
@@ -39,10 +42,7 @@ function convertKeyWithValueInString({
   senttence: string;
   pair: Record<string, string>;
 }): string {
-  return senttence.replace(
-    `{{${Object.keys(pair)[0]}}}`,
-    Object.values(pair)[0]
-  );
+  return senttence.replace(`${Object.keys(pair)[0]}`, Object.values(pair)[0]);
 }
 
 ////////////////
@@ -63,12 +63,12 @@ export const translatedObject = ({
   aliases?: Record<string, string>[];
 }): string => {
   const { locale } = useLocale();
-
   if (!statementKey || !locale) return '';
 
   if (!aliases || aliases.length === 0)
     return statements?.[statementKey]?.[locale] || '';
   //
+
   return convertAllTempKeysWithAllAliases({
     localeSentence: statements?.[statementKey]?.[locale] || '',
     aliases,

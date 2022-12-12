@@ -1,6 +1,6 @@
 import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
-import { Headline2Style, Headline3Style, Headline4Style } from 'Styles/Typo';
+import { Headline3Style, Headline4Style, Headline5Style } from 'Styles/Typo';
 import { directionStyles } from '.';
 
 export const billboardTitleColor = theme('mode', {
@@ -31,21 +31,21 @@ export const billboardTextColor = theme('mode', {
 export const billboardTitleStyle = css`
   ${directionStyles}
   ${billboardTitleColor}
-  ${Headline2Style}
+  ${Headline3Style}
   font-weight: bold;
   margin-bottom: 2rem;
 `;
 export const billboardSubtitleStyle = css`
   ${directionStyles}
   ${billboardSubtitleColor}
-  ${Headline3Style}
+  ${Headline4Style}
   font-weight: 600;
   margin-bottom: 2rem;
 `;
 export const billboardTextStyle = css`
   ${directionStyles}
   ${billboardTextColor}
-  ${Headline4Style}
+  ${Headline5Style}
   margin-bottom: 2rem;
 `;
 ///////////

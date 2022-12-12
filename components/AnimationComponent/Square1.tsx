@@ -1,7 +1,8 @@
-import styled, { keyframes } from "styled-components/macro";
+import styled, { css, keyframes } from 'styled-components/macro';
+import theme from 'styled-theming';
 
 const Square1 = () => {
-  return <Content  aria-hidden={true} />;
+  return <Content aria-hidden={true} />;
 };
 export default Square1;
 const MovingAnimation = keyframes`
@@ -30,6 +31,14 @@ left:30%;
 }
 `;
 
+export const borderColorContent = theme('mode', {
+  light: css`
+    border: 6px solid var(--color-gray10);
+  `,
+  dark: css`
+    border: 6px solid var(--color-primary1);
+  `,
+});
 const Content = styled.span`
   width: 5rem;
   height: 5rem;
@@ -38,15 +47,14 @@ const Content = styled.span`
   position: absolute;
   top: 10%;
   left: 15%;
-  animation: ${MovingAnimation} 15s infinite
-    ease;
+  animation: ${MovingAnimation} 15s infinite ease;
   :before {
+    ${borderColorContent}
     content: "";
     position: absolute;
     width: 5rem;
     height: 5rem;
     top: -30%;
     left: -30%;
-    border: 6px solid var(--color-primary1);
   }
 `;

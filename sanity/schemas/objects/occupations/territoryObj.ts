@@ -20,7 +20,12 @@ export default {
           type: 'table',
         },
       ],
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      // validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
+      name: 'html_desc',
+      title: 'HTmL Description',
+      type: 'string',
     },
   ],
   preview: {

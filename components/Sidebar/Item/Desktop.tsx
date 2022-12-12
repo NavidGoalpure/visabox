@@ -23,6 +23,7 @@ export const Desktop: React.FC<Props> = ({ title, value, icon }) => {
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
+  padding-inline-start: 1rem;
 `;
 ////////////
 export const TabsTriggerDirStyle = theme('languageDirection', {
@@ -56,7 +57,7 @@ export const afterDirStyle = theme('languageDirection', {
 const TabsTrigger = styled(Tabs.Trigger)`
   ${directionStyles}
   ${TabsTriggerDirStyle}
-  padding: 1rem;
+  height: 4rem;
   position: relative;
   list-style: none;
   width: 100%;

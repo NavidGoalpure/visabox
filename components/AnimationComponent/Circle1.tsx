@@ -1,4 +1,5 @@
-import styled, { keyframes } from "styled-components/macro";
+import styled, { css, keyframes } from "styled-components/macro";
+import theme from "styled-theming";
 
 const Circle1 = () => {
   return <Content aria-hidden={true} />;
@@ -31,6 +32,15 @@ left:20%;
 }
 `;
 
+export const borderColorContent = theme('mode', {
+  light: css`
+    border: 6px solid var(--color-gray10);
+  `,
+  dark: css`
+    border: 6px solid var(--color-primary1);
+  `,
+});
+
 const Content = styled.span`
   width: 5rem;
   height: 5rem;
@@ -49,6 +59,6 @@ const Content = styled.span`
     height: 5rem;
     top: -30%;
     left: -30%;
-    border: 6px solid var(--color-primary1);
+    ${borderColorContent}
   }
 `;

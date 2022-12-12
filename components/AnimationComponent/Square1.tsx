@@ -34,7 +34,6 @@ const Content = styled.span`
   width: 5rem;
   height: 5rem;
   border: 6px solid var(--color-primary3);
-  opacity: 0.2;
   transform: rotate(45deg);
   position: absolute;
   top: 10%;

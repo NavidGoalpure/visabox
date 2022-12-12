@@ -52,10 +52,11 @@ export const ButtonCss = css<{
 
     transform: scale(1);
     transition: all 0.4s ease 0s;
-    filter: drop-shadow(0px 20px 10px #0008);
+    // filter: drop-shadow(0px 4px 4px rgb(0 0 0 / 10%)); 
+    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
   @media ${deviceMin.tabletS} {
-    width: 12.5rem;
+    width: auto;
   }
 `;
 

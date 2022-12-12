@@ -34,7 +34,6 @@ left:20%;
 const Content = styled.span`
   width: 5rem;
   height: 5rem;
-  opacity: 0.2;
   transform: rotate(45deg);
   background-color: var(--color-primary3);
   position: absolute;
@@ -45,7 +44,7 @@ const Content = styled.span`
   :before {
     content: "";
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background-color: var(--color-gray3);
+    background-color: var(--color-gray8);
     position: absolute;
     width: 85%;
     height: 85%;

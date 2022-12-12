@@ -1,4 +1,5 @@
 import AnimationComponent from 'components/AnimationComponent';
+import { Button } from "elements/Button";
 import PageLayout from 'components/Layouts/PageContainer';
 import Head from 'next/head';
 import React from 'react';
@@ -18,10 +19,20 @@ export default function NotFound() {
       </Head>
       <Container>
         <AnimationComponent />
-        <Title>404</Title>
-        <Subtitle>Oops...</Subtitle>
-        <Desc>You weren't supposed to be here</Desc>
-        <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
+        <TxtContainer>
+          <Title>404</Title>
+          <Subtitle>Oops...</Subtitle>
+          <Desc>You weren't supposed to be here</Desc>
+          <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
+          {/* // navid link this */}
+
+
+
+
+          <Button>
+            Home
+          </Button>
+        </TxtContainer>
       </Container>
     </PageLayout>
   );
@@ -33,6 +44,15 @@ const Container = styled.div`
   padding: 9.5rem 0;
   position: relative;
 `;
+
+const TxtContainer = styled.div`
+padding: 32px 24px;
+backdrop-filter: blur(10px);
+display: flex;
+align-items: center;
+flex-direction: column;
+`
+
 const Title = styled.h1`
   ${billboardTitleStyle}
 `;

@@ -1,6 +1,7 @@
 import { Occupation } from 'interfaces/Documents/occupation';
 import React from 'react';
 import styled, { css } from 'styled-components';
+
 import * as Tabs from '@radix-ui/react-tabs';
 import * as SideBar from 'components/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
@@ -11,6 +12,7 @@ import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'consts/device';
 import AnzscoComponent from './AnzscoComponent';
+import DetailComponent from './DetailComponent';
 
 interface Props {
   occupation: Occupation;
@@ -41,7 +43,9 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       }
       bodies={
         <>
-          <Tabs.Content value='details'>details</Tabs.Content>
+          <Tabs.Content value='details'>
+            <DetailComponent occupation={occupation} />
+          </Tabs.Content>
           <Tabs.Content value='anzsco'>
             <ScrollBox heightToRem={40}>
               <AnzscoComponent occupation={occupation} />

@@ -70,7 +70,9 @@ body {
   background: transparent;
   color: inherit;
 }
-button {
+button,
+fieldset,
+input {
   all: unset;
 }
 a {

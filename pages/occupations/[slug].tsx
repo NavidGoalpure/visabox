@@ -41,62 +41,63 @@ const OccupationPage: NextPage = () => {
   );
 };
 export default OccupationPage;
-export const getStaticPaths = async ({ locales }: any) => {
-  const query = `*[_type=='occupation' && !(_id in path('drafts.**'))]{
- _id,
-  slug{
-    current
-  },
-  title
-}`;
-  const occupations = await sanityClient.fetch(query);
-  let paths: { params: { slug: string }; locale: Languages }[] = [];
-  occupations.map((occupation: Occupation) => {
-    return locales.map((locale: Languages) => {
-      if (occupation.slug)
-        return paths.push({
-          params: { slug: `${occupation.slug.current}` },
-          locale,
-        });
-    });
-  });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+// export const getStaticPaths = async ({ locales }: any) => {
+//   const query = `*[_type=='occupation' && !(_id in path('drafts.**'))]{
+//  _id,
+//   slug{
+//     current
+//   },
+//   title
+// }`;
+//   const occupations = await sanityClient.fetch(query);
+//   let paths: { params: { slug: string }; locale: Languages }[] = [];
+//   occupations.map((occupation: Occupation) => {
+//     return locales.map((locale: Languages) => {
+//       if (occupation.slug)
+//         return paths.push({
+//           params: { slug: `${occupation.slug.current}` },
+//           locale,
+//         });
+//     });
+//   });
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const query = `
-    *[_type=='occupation' && slug.current == $slug]
-[0]
-{
-_id,
-code,
-  title,
-  anzsco_section {...,
-    unit_group  ->{
-  skill_level
-}
-   },
-assessing_authority,
-visa_option_section
-}
-  `;
-  const occupation = await sanityClient.fetch(query, {
-    slug: params?.slug,
-  });
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
-  if (!occupation) {
-    return {
-      notFound: true,
-    };
-  }
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const query = `
+//     *[_type=='occupation' && slug.current == $slug]
+// [0]
+// {
+// _id,
+// code,
+//   title,
+//   anzsco_section {...,
+//     unit_group  ->{
+//   skill_level
+// }
+//    },
+// assessing_authority,
+// visa_option_section
+// }
+//   `;
+//   const occupation = await sanityClient.fetch(query, {
+//     slug: params?.slug,
+//   });
 
-  return {
-    props: {
-      occupation,
-    },
-  };
-};
+//   if (!occupation) {
+//     return {
+//       notFound: true,
+//     };
+//   }
+
+//   return {
+//     props: {
+//       occupation,
+//     },
+//   };
+// };

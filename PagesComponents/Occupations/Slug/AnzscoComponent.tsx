@@ -3,21 +3,24 @@ import { useDynamicTranslation } from "hooks/useDynamicTraslation";
 import { useStaticTranslation } from "hooks/useStaticTraslation";
 import { Occupation } from "interfaces/Documents/occupation";
 import { UnitGroup } from "interfaces/Documents/unitGroup";
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
+import theme from "styled-theming";
 import {
   componentSubtitleStyle,
   componentTheme,
   componentTitleStyle,
 } from "Styles/Theme/Component";
 import { LanguageKeys, componentStatements } from "./const";
+import UnitGroupCompoenent from "./UnitGroup";
 import { ConvertAnzscoCodeToTitle } from "./utils";
-const { t } = useStaticTranslation(componentStatements);
-const { dt, dtArray } = useDynamicTranslation();
+
 
 interface Props {
   occupation: Occupation;
 }
 const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
+  const { t } = useStaticTranslation(componentStatements);
+  const { dt, dtArray } = useDynamicTranslation();
   return (
     <Container>
       <TitleWrapper>
@@ -66,7 +69,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
             </Td>
           </Tr>
         </Table>
-        <ContentTitle>Description</ContentTitle>
+        <ContentTitle>{t(LanguageKeys.Description)}</ContentTitle>
         <Description>{dt(occupation?.anzsco_section?.description)}</Description>
         <StyledAccordion
           backgroundTheme={"COMPONENT"}
@@ -89,23 +92,33 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
           content={"farzam"}
         />
       </Wrapper>
+      <UnitGroupCompoenent occupation={occupation} />
     </Container>
   );
 };
 
 export default AnzscoComponent;
+
+export const TitleBackground = theme("mode", {
+  light: css`
+    background-color: var(--color-gray13);
+  `,
+  dark: css`
+    background-color: var(--color-gray7);
+  `,
+});
+
 const Container = styled.div`
   ${componentTheme}
   padding:0;
   border: 1px solid var(--color-gray9);
-  background-color: var(--color-gray6);
 `;
 const TitleWrapper = styled.div`
+  ${TitleBackground}
   width: 100%;
   border-radius: 15px 15px 0 0;
   padding: 1rem;
   border-bottom: 1px solid var(--color-gray9);
-  background-color: var(--color-gray7);
 `;
 
 const Title = styled.h2`

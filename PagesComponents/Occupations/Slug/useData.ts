@@ -1,7 +1,7 @@
-import { Occupation } from 'interfaces/Documents/occupation';
-import { getOccupationDetail } from 'queries/occupations/detail';
-import { useQuery } from 'react-query';
-import { OccupationsQueryKeys } from 'utils/query';
+import { Occupation } from "interfaces/Documents/occupation";
+import { getOccupationDetail } from "queries/occupations/detail";
+import { useQuery } from "react-query";
+import { OccupationsQueryKeys } from "utils/query";
 
 export const useData = (slug: string | undefined) => {
   if (!slug)
@@ -19,9 +19,11 @@ export const useData = (slug: string | undefined) => {
       minor_group: 121,
       alternative_title: {
         en: ["Marine Farmer"],
+        fa: ["کشاورز دریایی"],
       },
       description: {
         en: "Plans, organises, controls, coordinates and performs farming operations to breed and raise fish and other aquatic stock.",
+        fa: "برنامه ریزی، سازماندهی، کنترل، هماهنگی و اجرای عملیات کشاورزی برای پرورش و پرورش ماهی و سایر آبزیان.",
       },
       nec_occupation: {
         en: ["qwe", "asd", "zzxc"],
@@ -59,7 +61,11 @@ export const useData = (slug: string | undefined) => {
         code: 1211,
         title: {
           en: "Aquaculture Farmers",
-          fa: "Aquaculture Farmers",
+          fa: "",
+        },
+        description: {
+          en: "Plan, organise, control, coordinate and perform farming operations to breed and raise fish and other aquatic stock.",
+          fa: "برنامه ریزی، سازماندهی، کنترل، هماهنگی و اجرای عملیات کشاورزی برای پرورش و پرورش ماهی و سایر آبزیان.",
         },
       },
     },

@@ -66,7 +66,18 @@ const PopupContent: React.FC<Props> = ({
 };
 
 export default PopupContent;
+
+
+const ContainerHoverColor = theme("mode", {
+  light: css`
+    background-color: var(--color-gray13);
+  `,
+  dark: css`
+    background-color: var(--color-gray8);
+  `,
+});
 const ContainerHoverCss = css`
+  ${ContainerHoverColor}
   transition-delay: 0s;
   padding-top: 1.5rem;
   padding-bottom: 1rem;
@@ -90,6 +101,7 @@ const ContainerColor = theme("mode", {
   `,
 });
 
+
 const Container = styled.div<{ isPopupOpen: boolean }>`
   ${ContainerColor}
   position: absolute;
@@ -110,7 +122,7 @@ const Container = styled.div<{ isPopupOpen: boolean }>`
   ${({ isPopupOpen }) => isPopupOpen && ContainerHoverCss}
 `;
 
-const StyledScrollBox = styled(ScrollBox)<{ isPopupOpen: boolean }>`
+const StyledScrollBox = styled(ScrollBox) <{ isPopupOpen: boolean }>`
   opacity: 0;
   padding: 0;
   transform: translateY(-20px);
@@ -144,7 +156,7 @@ const ArrowHoverCss = css`
   transition-delay: 0s;
   transform: translateX(-50%) rotate(0deg);
 `;
-const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
+const Arrow = styled(IoIosArrowDown) <{ isPopupOpen: boolean }>`
   position: absolute;
   top: -1.5rem;
   left: 50%;

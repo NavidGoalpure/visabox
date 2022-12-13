@@ -4,7 +4,10 @@ import styled, { css } from 'styled-components/macro';
 import * as Tabs from '@radix-ui/react-tabs';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'consts/device';
-import { componentTextStyle } from 'Styles/Theme/Component';
+import {
+  componentSubtitleStyle,
+  componentTextStyle,
+} from 'Styles/Theme/Component';
 import theme from 'styled-theming';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -33,7 +36,7 @@ const ContentContainer = styled.div`
 
 const ColorTriggerInactiveStyle = theme('mode', {
   light: css`
-    //navid
+    color: var(--color-gray4);
   `,
   dark: css`
     color: var(--color-gray13);
@@ -43,28 +46,22 @@ const TabsTrigger = styled(Tabs.Trigger)`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${componentTextStyle}
+  ${componentSubtitleStyle}
   margin-bottom:0;
   ${directionStyles}
   ${ColorTriggerInactiveStyle}
-
   width: 100px;
-  height: 2rem;
-  border-width: 1px 1px 0px 1px;
-  border-style: solid;
-  border-color: #595959;
-  border-radius: 5px 5px 0px 0px;
   cursor: pointer;
   transition: all 0.3s ease;
-
+  // border-right: 1px solid var(--color-gray9);
+  border-left: 1px solid var(--color-gray9);
   ////////////selected//////////
   &[aria-selected='true'] {
     color: var(--color-gray12);
-    background: var(--color-primary3);
-    border: 2px solid var(--color-primary2);
-    border-radius: 10px 10px 0px 0px;
   }
-
+  :first-child {
+    border-left: 0;
+  }
   ////////////hover//////////
   @media ${deviceMin.laptopS} {
     :hover {

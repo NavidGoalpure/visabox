@@ -1,7 +1,8 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 import { deviceMin } from 'consts/device';
+import theme from 'styled-theming';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
@@ -21,13 +22,26 @@ const TabsRoot = styled(Tabs.Root)`
   display: flex;
   flex-direction: column;
   width: 100%;
+  overflow: scroll;
 `;
+export const backgroundTabsList = theme('mode', {
+  light: css`
+    background: var(--color-gray13);
+    border: 1px solid var(--color-gray9);
+  `,
+  dark: css`
+    background: var(--color-gray7);
+  `,
+});
 const TabsList = styled(Tabs.List)`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid blue;
-  flex-wrap: wrap;
-  width: 100%;
+  ${backgroundTabsList}
+  width: max-content;
+  height: 4rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 1rem 0;
 `;
 
 const ContentsContainer = styled.div`

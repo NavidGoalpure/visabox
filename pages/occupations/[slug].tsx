@@ -13,17 +13,21 @@ import { useStaticTranslation } from 'hooks/useStaticTraslation';
 import { Occupation } from 'interfaces/Documents/occupation';
 import path from 'path';
 import { Languages } from 'interfaces';
+import {
+  getAllOccupationSlugs,
+  getOccupationDetail,
+} from 'queries/occupations/detail';
 // import { useData } from 'PagesComponents/Occupations/Slug/useData';
 
-// interface Props {
-//   occupation: Occupation;
-// }
-const OccupationPage: NextPage = () => {
+interface Props {
+  occupation?: Occupation;
+  isError?: boolean;
+}
+const OccupationPage: NextPage<Props> = ({ occupation, isError }) => {
   const { t } = useStaticTranslation(componentStatements);
-  const { query } = useRouter();
-  const { slug } = query;
-  const { occupation } = useData(slug?.toString());
-
+  // const { query } = useRouter();
+  // const { occupation } = useData(slug?.toString());
+  if (isError) return <p>'navid is error...'</p>;
   return (
     <PageLayout>
       <Head>
@@ -42,62 +46,41 @@ const OccupationPage: NextPage = () => {
 };
 export default OccupationPage;
 
-// export const getStaticPaths = async ({ locales }: any) => {
-//   const query = `*[_type=='occupation' && !(_id in path('drafts.**'))]{
-//  _id,
-//   slug{
-//     current
-//   },
-//   title
-// }`;
-//   const occupations = await sanityClient.fetch(query);
-//   let paths: { params: { slug: string }; locale: Languages }[] = [];
-//   occupations.map((occupation: Occupation) => {
-//     return locales.map((locale: Languages) => {
-//       if (occupation.slug)
-//         return paths.push({
-//           params: { slug: `${occupation.slug.current}` },
-//           locale,
-//         });
-//     });
-//   });
+export const getStaticPaths = async ({ locales }: any) => {
+  let paths: { params: { slug: string }; locale: Languages }[] = [];
+  const allOccupation = await getAllOccupationSlugs();
+  if (allOccupation?.length > 0)
+    allOccupation?.map((occupation: Occupation) => {
+      return locales.map((locale: Languages) => {
+        if (occupation.slug)
+          return paths.push({
+            params: { slug: `${occupation.slug.current}` },
+            locale,
+          });
+      });
+    });
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   const query = `
-//     *[_type=='occupation' && slug.current == $slug]
-// [0]
-// {
-// _id,
-// code,
-//   title,
-//   anzsco_section {...,
-//     unit_group  ->{
-//   skill_level
-// }
-//    },
-// assessing_authority,
-// visa_option_section
-// }
-//   `;
-//   const occupation = await sanityClient.fetch(query, {
-//     slug: params?.slug,
-//   });
-
-//   if (!occupation) {
-//     return {
-//       notFound: true,
-//     };
-//   }
-
-//   return {
-//     props: {
-//       occupation,
-//     },
-//   };
-// };
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  try {
+    const occupation = await getOccupationDetail(
+      params?.slug?.toString() || ''
+    );
+    return {
+      props: {
+        occupation,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        isError: true,
+      },
+    };
+  }
+};

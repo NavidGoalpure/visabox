@@ -24,12 +24,12 @@ const Content: React.FC<Props> = ({ occupation }) => {
           content={
             occupation?.anzsco_section?.priority_list?.[0]?.future_demend || ''
           }
-          popupContent={"occupation."}
+          popupContent={'occupation.'}
         />
       </TitleContainer>
       <ToggleContainer>
-        <ToggleTag content={"190"} isOn={true} />
-        <ToggleTag content={"189"} isOn={false} />
+        <ToggleTag content={'190'} isOn={true} />
+        <ToggleTag content={'189'} isOn={false} />
       </ToggleContainer>
       {occupation && <SidebarPage occupation={occupation} />}
     </Container>

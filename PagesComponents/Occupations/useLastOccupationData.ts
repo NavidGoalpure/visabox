@@ -1,3 +1,4 @@
+import { ClientError } from '@sanity/client';
 import { Occupation } from 'interfaces/Documents/occupation';
 import { getlastOccupationCode } from 'queries/occupations/List';
 import { useQuery } from 'react-query';
@@ -8,7 +9,7 @@ export const useLastOccupationData = (searchValue: string) => {
     isLoading,
     isError,
     data: lastOccupation,
-  } = useQuery<Occupation, Error>(
+  } = useQuery<Occupation, ClientError>(
     OccupationsQueryKeys.last({ search: searchValue }),
     () => getlastOccupationCode(searchValue)
   );

@@ -1,3 +1,4 @@
+import { ClientError } from '@sanity/client';
 import { Occupation } from 'interfaces/Documents/occupation';
 import { getOccupationsList } from 'queries/occupations/List';
 import { useInfiniteQuery } from 'react-query';
@@ -15,7 +16,7 @@ export const useListData = ({ search }: OccupationsListParams) => {
     isError,
     isFetching,
     data: occupations,
-  } = useInfiniteQuery<Occupation[], Error>(
+  } = useInfiniteQuery<Occupation[], ClientError>(
     OccupationsQueryKeys.list({ search }),
     ({ pageParam: lastCode = 1 }) => {
       return getOccupationsList({ lastCode, search });

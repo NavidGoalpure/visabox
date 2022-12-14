@@ -1,3 +1,4 @@
+import { ClientError } from '@sanity/client';
 import { Button } from 'elements/Button';
 import { Loading } from 'elements/Loading';
 import { useStaticTranslation } from 'hooks/useStaticTraslation';
@@ -12,7 +13,7 @@ interface Props {
   hasNextPage: boolean;
   fetchNextPage: (
     options?: FetchNextPageOptions | undefined
-  ) => Promise<InfiniteQueryObserverResult<Occupation[], Error>>;
+  ) => Promise<InfiniteQueryObserverResult<Occupation[], ClientError>>;
 }
 export const SmartButton: React.FC<Props> = ({
   isError,

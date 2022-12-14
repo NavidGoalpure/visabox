@@ -23,6 +23,9 @@ const TabsRoot = styled(Tabs.Root)`
   flex-direction: column;
   width: 100%;
   overflow: scroll;
+  @media ${deviceMin.tabletS} {
+    overflow: hidden;
+  }
 `;
 export const backgroundTabsList = theme('mode', {
   light: css`
@@ -41,7 +44,7 @@ const TabsList = styled(Tabs.List)`
   height: 4rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  padding: 1rem 0;
+  padding-top: 1rem 0;
 `;
 
 const ContentsContainer = styled.div`

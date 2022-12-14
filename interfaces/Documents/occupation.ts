@@ -39,22 +39,30 @@ export interface AnzscoSection {
   minor_group: number;
 }
 
-
-
+export enum Territories {
+  ACT = 'ACT',
+  NSW = 'NSW',
+  NT = 'NT',
+  QLD = 'QLD',
+  SA = 'SA',
+  TAS = 'TAS',
+  VIC = 'VIC',
+  WA = 'WA',
+}
 export interface PriorityList {
-  _key?: string;
+  _key: string;
   _type?: string;
-  act?: string;
   future_demend?: string;
   national?: string;
-  nsw?: string;
-  nt?: string;
-  qld?: string;
-  sa?: string;
-  tas?: string;
-  vic?: string;
-  wa?: string;
   year?: Date;
+  [Territories.ACT]: string;
+  [Territories.NSW]: string;
+  [Territories.NT]: string;
+  [Territories.QLD]: string;
+  [Territories.SA]: string;
+  [Territories.TAS]: string;
+  [Territories.VIC]: string;
+  [Territories.WA]: string;
 }
 
 interface ReferenceType {

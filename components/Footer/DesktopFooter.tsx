@@ -94,7 +94,7 @@ const Container = styled.section`
   }
 `;
 const StyledLogo = styled(Logo)`
-  width: 10rem;
+  width: 6rem;
   height: auto;
   position: absolute;
   top: 60%;

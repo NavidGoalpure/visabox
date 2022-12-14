@@ -58,5 +58,5 @@ const ToggleContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 `;

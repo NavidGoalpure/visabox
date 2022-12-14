@@ -73,7 +73,7 @@ const Container = styled.section`
   }
 `;
 const StyledLogo = styled(Logo)`
-  width: 6.25rem;
+  width: 6rem;
   height: auto;
   position: absolute;
   top: 35%;

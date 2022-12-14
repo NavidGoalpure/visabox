@@ -19,10 +19,8 @@ interface Props {
 }
 const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
-  console.log('navid oocupation', occupation);
-
   return (
-    <SideBar.Root
+    <SideBarRoot
       defaultValue='details'
       items={
         <>
@@ -60,7 +58,16 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
 };
 
 export { SidebarPage };
-
+const SideBarRoot = styled(SideBar.Root)`
+  div {
+    &[aria-label='sidebar'] {
+      margin-bottom: 4rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: auto;
+    }
+  }
+`;
 const Icon = css`
   width: 2.5rem;
   height: 2.5rem;

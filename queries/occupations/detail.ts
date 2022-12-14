@@ -22,12 +22,19 @@ const getDetailQuery = (): string => {
       skill_level,
       code,
       description,
-title,
-tasks,
-    }
+      title,
+      tasks,
+      }
     },
  assessing_authority,
- visa_option_section
+ visa_option_section,
+ territory_section[]{
+   territory->{
+      title,
+      abv
+    },
+    html_desc
+ }
  }`;
   return query;
 };

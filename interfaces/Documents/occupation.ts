@@ -7,6 +7,7 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
+import { AbstractView } from 'react';
 import { MultiLanguageText, MultiLanguageTextArray } from '..';
 import { Slug } from '../Fields';
 import { UnitGroup } from './unitGroup';
@@ -83,11 +84,19 @@ export interface Submited491 {
   upper_than_85?: number;
 }
 
+export interface TerritoryObj {
+  _key?: string;
+  _type?: string;
+  title?: string;
+  abv?: string;
+  url: URL;
+}
 export interface TerritorySection {
   _key?: string;
   _type?: string;
   desc?: Desc[];
-  territory?: ReferenceType;
+  html_desc: string;
+  territory?: ReferenceType | TerritoryObj;
 }
 
 export interface Desc {

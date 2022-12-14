@@ -19,9 +19,12 @@ const getDetailQuery = (): string => {
     submajor_group,
     minor_group,
     unit_group  ->{
-   skill_level,
-   code
- }
+      skill_level,
+      code,
+      description,
+title,
+tasks,
+    }
     },
  assessing_authority,
  visa_option_section

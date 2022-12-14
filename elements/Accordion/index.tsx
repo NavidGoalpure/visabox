@@ -5,7 +5,12 @@ import { Headline5Style, Headline7Style } from "Styles/Typo";
 import { AiOutlinePlus } from "react-icons/ai";
 import theme from "styled-theming";
 import { pageBackground } from "Styles/Theme/Page";
-import { componentBackground } from "Styles/Theme/Component";
+import {
+  componentBackground,
+  componentSubtitleStyle,
+  componentTextStyle,
+} from "Styles/Theme/Component";
+import { deviceMin } from "consts/device";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerContent: string;
@@ -78,11 +83,12 @@ const AccordionHeader = styled(Accordion.Header)<{
   position: relative;
   z-index: 11;
   ${({ backgroundTheme }) =>
-  backgroundTheme === "PAGE" ? pageBackground : componentBackground}
+    backgroundTheme === "PAGE" ? pageBackground : componentBackground}
   border: none;
-  `;
+`;
 const AccordionTrigger = styled(Accordion.Trigger)`
-  ${Headline5Style};
+  ${componentTextStyle}
+  margin: 0;
   position: relative;
   z-index: 10;
   width: 100%;
@@ -95,6 +101,11 @@ const AccordionTrigger = styled(Accordion.Trigger)`
   transition: all 500ms ease;
   border-radius: 30px;
   background-color: var(--color-primary3);
+  @media ${deviceMin.mobileL} {
+    ${componentSubtitleStyle};
+    margin: 0;
+    color: white;
+  }
   &[data-state="open"] {
     border-radius: 30px 30px 0 0;
     svg {

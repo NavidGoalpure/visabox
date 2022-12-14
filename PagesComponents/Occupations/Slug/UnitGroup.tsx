@@ -1,7 +1,8 @@
 import Accordion from "elements/Accordion";
 import { useDynamicTranslation } from "hooks/useDynamicTraslation";
+import { useLocale } from "hooks/useLocale";
 import { useStaticTranslation } from "hooks/useStaticTraslation";
-import { Occupation } from "interfaces/Documents/occupation";
+import { AnzscoSection, Occupation } from "interfaces/Documents/occupation";
 import { UnitGroup } from "interfaces/Documents/unitGroup";
 import styled, { css } from "styled-components/macro";
 import theme from "styled-theming";
@@ -10,22 +11,24 @@ import {
   componentTextStyle,
   componentTitleStyle,
 } from "Styles/Theme/Component";
+import AccordionContent from "./AccordionContent";
 import { LanguageKeys, componentStatements } from "./const";
+import { SkillLevelDescription } from "./utils";
 
 interface Props {
-  occupation: Occupation;
+  occupation: AnzscoSection | undefined;
 }
 const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt, dtArray } = useDynamicTranslation();
-  const occupationUnitGroup = occupation?.anzsco_section
-    ?.unit_group as UnitGroup;
+  const { locale } = useLocale();
+  const occupationUnitGroup = occupation?.unit_group as UnitGroup;
   return (
     <Container>
       <TitleWrapper>
-        <Title>{`${t(LanguageKeys.UnitGroup)} ${occupation.code}: ${dt(
-          occupationUnitGroup?.title
-        )}`}</Title>
+        <Title>{`${t(LanguageKeys.UnitGroup)} ${
+          occupationUnitGroup?.code
+        }: ${dt(occupationUnitGroup?.title)}`}</Title>
       </TitleWrapper>
       <Wrapper>
         <ContentTitle>{t(LanguageKeys.Description)} </ContentTitle>
@@ -33,19 +36,15 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
         <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ""}>
           {t(LanguageKeys.IndicativeSkillLevel)}
         </SkillLevelTitle>
-        <SkillLevelContainer>
-          {dtArray(occupationUnitGroup.tasks)}
-        </SkillLevelContainer>
-
+        <SkillLevelDesc>
+          {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ""))}
+        </SkillLevelDesc>
         <StyledAccordion
           backgroundTheme={"COMPONENT"}
           triggerContent={t(LanguageKeys.Tasks)}
-          content={dtArray(
-            occupation?.anzsco_section?.alternative_title || {
-              en: [""],
-              fa: [""],
-            }
-          )}
+          content={
+            <AccordionContent data={dtArray(occupationUnitGroup?.tasks)} />
+          }
         />
         {/* navid occupation in this unit accordion
          <StyledAccordion
@@ -65,6 +64,14 @@ export const TitleBackground = theme("mode", {
   `,
   dark: css`
     background-color: var(--color-gray7);
+  `,
+});
+export const BorderColor = theme("mode", {
+  light: css`
+    border: 1px solid var(--color-gray9);
+  `,
+  dark: css`
+    border: 1px solid var(--color-primary7);
   `,
 });
 const Container = styled.div``;
@@ -91,10 +98,10 @@ const ContentTitle = styled.h2`
 `;
 const Description = styled.p`
   ${componentSubtitleStyle};
+  ${BorderColor};
   margin: 0;
   margin-bottom: 2rem;
   padding: 2rem 1.75rem;
-  border: 1px solid var(--color-primary7);
   border-radius: 5px;
 `;
 const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
@@ -115,12 +122,17 @@ const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
     color: white;
   }
 `;
-const SkillLevelContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+const SkillLevelDesc = styled.p`
+  ${componentSubtitleStyle}
+  padding: 2rem 1rem;
+  background-color: var(--color-gray7);
+  border-radius: 40px;
+  color: white;
+  white-space: break-spaces;
+  margin: 0;
+  margin-bottom: 1.5rem;
 `;
-const SkillLevelWrapper = styled.div``;
 const StyledAccordion = styled(Accordion)`
   margin-bottom: 1rem;
 `;

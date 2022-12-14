@@ -22,8 +22,14 @@ export enum LanguageKeys {
   AverageSalary = "AverageSalary",
   AlternativeTitles_title = "AlternativeTitles_title",
   AlternativeTitles_description = "AlternativeTitles_description",
+  alternativeTitles_empty = "alternativeTitles_empty",
   specialisations_title = "specialisations_title",
   specialisations_description = "specialisations_description",
+  specialisations_empty = "specialisations_empty",
+  IndicativeSkillLevel_1 = "IndicativeSkillLevel_1",
+  IndicativeSkillLevel_2 = "IndicativeSkillLevel_2",
+  IndicativeSkillLevel_3 = "IndicativeSkillLevel_3",
+  IndicativeSkillLevel_4 = "IndicativeSkillLevel_4",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -114,5 +120,67 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   specialisations_description: {
     en: "are any commonly used titles which refer to a subset of jobs belonging to the occupation designated in the principal title. These jobs involve the performance of specialised tasks rather than the broader range of tasks usually performed in the occupation.",
     fa: "عناوین رایجی هستند که به زیرمجموعه ای از مشاغل متعلق به شغل تعیین شده در عنوان اصلی اشاره می کنند. این مشاغل شامل انجام وظایف تخصصی به جای گستره وسیع تری از وظایفی است که معمولاً در شغل انجام می شود.",
+  },
+  IndicativeSkillLevel_1: {
+    en: `In Australia and New Zealand:
+Most occupations in this unit group have a level of skill commensurate with a bachelor degree or higher qualification (ANZSCO Skill Level 1).`,
+    fa: `در استرالیا و نیوزلند:
+
+     اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با مدرک لیسانس یا بالاتر (سطح مهارت ANZSCO 1) هستند.`,
+  },
+  IndicativeSkillLevel_2: {
+    en: `In Australia:
+
+AQF Associate Degree, Advanced Diploma or Diploma (ANZSCO Skill Level 2)
+
+In New Zealand:
+NZQF Diploma (ANZSCO Skill Level 2)
+
+At least three years of relevant experience may substitute for the formal qualifications listed above. In some instances relevant experience and/or on-the-job training may be required in addition to the formal qualification.`,
+    fa: `در استرالیا:
+
+مدرک کاردانی AQF، دیپلم یا دیپلم پیشرفته (سطح مهارت ANZSCO)
+
+در نیوزلند:
+دیپلم NZQF (سطح مهارت ANZSCO)
+
+حداقل سه سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد تجربه مرتبط و/یا آموزش در حین کار ممکن است علاوه بر صلاحیت رسمی مورد نیاز باشد.`,
+  },
+  IndicativeSkillLevel_3: {
+    en: `Most occupations in this unit group have a level of skill commensurate with the qualifications and experience outlined below.
+
+In Australia:
+
+AQF Certificate III including at least two years of on-the-job training, or AQF Certificate IV (ANZSCO Skill Level 3)
+
+In New Zealand:
+NZQF Level 4 qualification (ANZSCO Skill Level 3)
+
+At least three years of relevant experience may substitute for the formal qualifications listed above. In some instances relevant experience and/or on-the-job training may be required in addition to the formal qualification.
+Registration or licensing may be required.`,
+    fa: `اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با صلاحیت ها و تجربه های ذکر شده در زیر هستند.
+
+در استرالیا:
+
+گواهینامه AQF III شامل حداقل دو سال آموزش در محل کار، یا گواهینامه AQF IV (سطح مهارت ANZSCO)
+
+در نیوزلند:
+مدرک NZQF سطح 4 (سطح مهارت ANZSCO)
+
+حداقل سه سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد تجربه مرتبط و/یا آموزش در حین کار ممکن است علاوه بر صلاحیت رسمی مورد نیاز باشد.
+ثبت یا پروانه ممکن است لازم باشد.`,
+  },
+  IndicativeSkillLevel_4: {
+    //navid
+    en: ``,
+    fa: ``,
+  },
+  alternativeTitles_empty: {
+    en: `There are no Alternative Titles for this occupation.`,
+    fa: `هیچ عنوان جایگزینی برای این شغل وجود ندارد.`,
+  },
+  specialisations_empty: {
+    en: `There are no Specialisation Titles for this occupation.`,
+    fa: `هیچ عنوان تخصصی برای این شغل وجود ندارد.`,
   },
 };

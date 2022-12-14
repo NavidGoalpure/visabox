@@ -1,4 +1,4 @@
-import { Occupation } from 'interfaces/Documents/occupation';
+import { AnzscoSection, Occupation } from 'interfaces/Documents/occupation';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -50,7 +50,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           </Tabs.Content>
           <Tabs.Content value='anzsco'>
             <ScrollBox heightToRem={40}>
-              <AnzscoComponent occupation={occupation} />
+              <AnzscoComponent occupation={occupation.anzsco_section} />
             </ScrollBox>
           </Tabs.Content>
         </>

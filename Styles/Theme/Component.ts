@@ -32,7 +32,7 @@ export const componenSubtitleColor = theme('mode', {
 });
 export const componentTextColor = theme('mode', {
   light: css`
-    color: var(--color-gray2);
+    color: var(--color-gray4);
   `,
   dark: css`
     color: var(--color-gray13);

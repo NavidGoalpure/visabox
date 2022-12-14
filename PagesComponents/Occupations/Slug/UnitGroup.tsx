@@ -47,16 +47,12 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
             }
           )}
         />
-        <StyledAccordion
+        {/* navid occupation in this unit accordion
+         <StyledAccordion
           backgroundTheme={"COMPONENT"}
           triggerContent={t(LanguageKeys.OccupationsinUnitGroup)}
           content={"farzam"}
-        />
-        <StyledAccordion
-          backgroundTheme={"COMPONENT"}
-          triggerContent={t(LanguageKeys.AverageSalary)}
-          content={"farzam"}
-        />
+        /> */}
       </Wrapper>
     </Container>
   );
@@ -83,7 +79,6 @@ const Title = styled.h2`
   ${componentSubtitleStyle}
   margin:0;
   text-align: center;
-  color: var(--color-gray13);
 `;
 
 const Wrapper = styled.div`
@@ -117,6 +112,7 @@ const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
     height: 90%;
     background-color: var(--color-primary3);
     border-radius: 50%;
+    color: white;
   }
 `;
 const SkillLevelContainer = styled.div`
@@ -124,7 +120,7 @@ const SkillLevelContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const SkillLevelWrapper = styled.div``
+const SkillLevelWrapper = styled.div``;
 const StyledAccordion = styled(Accordion)`
   margin-bottom: 1rem;
 `;

@@ -19,12 +19,7 @@ const AccordionElement: React.FC<Props> = ({
   backgroundTheme,
   ...props
 }) => (
-  <AccordionRoot
-    {...props}
-    type="single"
-    defaultValue="item-1"
-    collapsible
-  >
+  <AccordionRoot {...props} type="single" defaultValue="item-1" collapsible>
     <AccordionItem value="item-3">
       <AccordionHeader backgroundTheme={backgroundTheme}>
         <AccordionTrigger>
@@ -83,8 +78,9 @@ const AccordionHeader = styled(Accordion.Header)<{
   position: relative;
   z-index: 11;
   ${({ backgroundTheme }) =>
-    backgroundTheme === "PAGE" ? pageBackground : componentBackground}
-`;
+  backgroundTheme === "PAGE" ? pageBackground : componentBackground}
+  border: none;
+  `;
 const AccordionTrigger = styled(Accordion.Trigger)`
   ${Headline5Style};
   position: relative;

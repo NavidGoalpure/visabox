@@ -1,5 +1,6 @@
 import Accordion from "elements/Accordion";
 import { useDynamicTranslation } from "hooks/useDynamicTraslation";
+import { useLocale } from "hooks/useLocale";
 import { useStaticTranslation } from "hooks/useStaticTraslation";
 import { Occupation } from "interfaces/Documents/occupation";
 import { UnitGroup } from "interfaces/Documents/unitGroup";
@@ -10,17 +11,18 @@ import {
   componentTheme,
   componentTitleStyle,
 } from "Styles/Theme/Component";
+import AccordionContent from "./AccordionContent";
 import { LanguageKeys, componentStatements } from "./const";
 import UnitGroupCompoenent from "./UnitGroup";
 import { ConvertAnzscoCodeToTitle } from "./utils";
-
 
 interface Props {
   occupation: Occupation;
 }
 const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
-  const { dt, dtArray } = useDynamicTranslation();
+  const { dt } = useDynamicTranslation();
+  const { locale } = useLocale();
   return (
     <Container>
       <TitleWrapper>
@@ -74,17 +76,24 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
         <StyledAccordion
           backgroundTheme={"COMPONENT"}
           triggerContent={t(LanguageKeys.AlternativeTitles)}
-          content={dtArray(
-            occupation?.anzsco_section?.alternative_title || {
-              en: [""],
-              fa: [""],
-            }
-          )}
+          content={
+            <AccordionContent
+              data={
+                occupation?.anzsco_section?.alternative_title?.[locale] || [""]
+              }
+              title={t(LanguageKeys.AlternativeTitles_title)}
+              description={t(LanguageKeys.AlternativeTitles_description)}
+            />
+          }
         />
         <StyledAccordion
           backgroundTheme={"COMPONENT"}
           triggerContent={t(LanguageKeys.Specialisations)}
-          content={"farzam"}
+          content={
+            <AccordionContent data={occupation?.anzsco_section?.specialisations?.[locale] || [""]}
+            title={t(LanguageKeys.specialisations_title)}
+            description={t(LanguageKeys.specialisations_description)} />
+          }
         />
         <StyledAccordion
           backgroundTheme={"COMPONENT"}
@@ -125,7 +134,6 @@ const Title = styled.h2`
   ${componentSubtitleStyle}
   margin:0;
   text-align: center;
-  color: var(--color-gray13);
 `;
 
 const Wrapper = styled.div`

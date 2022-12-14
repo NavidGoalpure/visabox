@@ -20,6 +20,10 @@ export enum LanguageKeys {
   Tasks = "Tasks",
   OccupationsinUnitGroup = "OccupationsinUnitGroup",
   AverageSalary = "AverageSalary",
+  AlternativeTitles_title = "AlternativeTitles_title",
+  AlternativeTitles_description = "AlternativeTitles_description",
+  specialisations_title = "specialisations_title",
+  specialisations_description = "specialisations_description",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -84,8 +88,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "سطح مهارت نشان دهنده",
   },
   Tasks: {
-en:"Tasks",
-fa:"وظایف"
+    en: "Tasks",
+    fa: "وظایف",
   },
   OccupationsinUnitGroup: {
     en: "Occupations in This Unit Group",
@@ -94,5 +98,21 @@ fa:"وظایف"
   AverageSalary: {
     en: "Average Salary 2021",
     fa: "میانگین حقوق ۲۰۲۱",
+  },
+  AlternativeTitles_title: {
+    en: "Alternative titles",
+    fa: "عنوان جایگزین",
+  },
+  AlternativeTitles_description: {
+    en: "are any commonly used alternative title (or titles) for the occupation. These alternative titles have the same meaning as the principal title but may be less commonly used.",
+    fa: "هر جایگزین رایج استفاده می شود عنوان (یا عناوین) برای شغل. این عناوین جایگزین دارند  همان معنای عنوان اصلی است اما ممکن است کمتر مورد استفاده قرار گیرد.",
+  },
+  specialisations_title: {
+    en: "specialisations title",
+    fa: "عنوان تخصص ها",
+  },
+  specialisations_description: {
+    en: "are any commonly used titles which refer to a subset of jobs belonging to the occupation designated in the principal title. These jobs involve the performance of specialised tasks rather than the broader range of tasks usually performed in the occupation.",
+    fa: "عناوین رایجی هستند که به زیرمجموعه ای از مشاغل متعلق به شغل تعیین شده در عنوان اصلی اشاره می کنند. این مشاغل شامل انجام وظایف تخصصی به جای گستره وسیع تری از وظایفی است که معمولاً در شغل انجام می شود.",
   },
 };

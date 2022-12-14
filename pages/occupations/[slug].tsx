@@ -23,10 +23,14 @@ interface Props {
   occupation?: Occupation;
   isError?: boolean;
 }
-const OccupationPage: NextPage<Props> = ({ occupation, isError }) => {
+const OccupationPage: NextPage<Props> = ({
+  // occupation,
+  isError,
+}) => {
   const { t } = useStaticTranslation(componentStatements);
-  // const { query } = useRouter();
+  const { query } = useRouter();
   // const { occupation } = useData(slug?.toString());
+  const { occupation } = useData(query?.toString());
   if (isError) return <p>'navid is error...'</p>;
   return (
     <PageLayout>
@@ -46,41 +50,41 @@ const OccupationPage: NextPage<Props> = ({ occupation, isError }) => {
 };
 export default OccupationPage;
 
-export const getStaticPaths = async ({ locales }: any) => {
-  let paths: { params: { slug: string }; locale: Languages }[] = [];
-  const allOccupation = await getAllOccupationSlugs();
-  if (allOccupation?.length > 0)
-    allOccupation?.map((occupation: Occupation) => {
-      return locales.map((locale: Languages) => {
-        if (occupation.slug)
-          return paths.push({
-            params: { slug: `${occupation.slug.current}` },
-            locale,
-          });
-      });
-    });
+// export const getStaticPaths = async ({ locales }: any) => {
+//   let paths: { params: { slug: string }; locale: Languages }[] = [];
+//   const allOccupation = await getAllOccupationSlugs();
+//   if (allOccupation?.length > 0)
+//     allOccupation?.map((occupation: Occupation) => {
+//       return locales.map((locale: Languages) => {
+//         if (occupation.slug)
+//           return paths.push({
+//             params: { slug: `${occupation.slug.current}` },
+//             locale,
+//           });
+//       });
+//     });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const occupation = await getOccupationDetail(
-      params?.slug?.toString() || ''
-    );
-    return {
-      props: {
-        occupation,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        isError: true,
-      },
-    };
-  }
-};
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   try {
+//     const occupation = await getOccupationDetail(
+//       params?.slug?.toString() || ''
+//     );
+//     return {
+//       props: {
+//         occupation,
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       props: {
+//         isError: true,
+//       },
+//     };
+//   }
+// };

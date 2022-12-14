@@ -1,5 +1,5 @@
 import AnimationComponent from 'components/AnimationComponent';
-import { Button } from "elements/Button";
+import { Button } from 'elements/Button';
 import PageLayout from 'components/Layouts/PageContainer';
 import Head from 'next/head';
 import React from 'react';
@@ -9,6 +9,7 @@ import {
   billboardSubtitleStyle,
   billboardTextStyle,
 } from 'Styles/Theme/billboard';
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -24,14 +25,9 @@ export default function NotFound() {
           <Subtitle>Oops...</Subtitle>
           <Desc>You weren't supposed to be here</Desc>
           <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
-          {/* // navid link this */}
-
-
-
-
-          <Button>
-            Home
-          </Button>
+          <Link href='/occupations'>
+            <Button>Home</Button>
+          </Link>
         </TxtContainer>
       </Container>
     </PageLayout>
@@ -46,12 +42,12 @@ const Container = styled.div`
 `;
 
 const TxtContainer = styled.div`
-padding: 32px 24px;
-backdrop-filter: blur(10px);
-display: flex;
-align-items: center;
-flex-direction: column;
-`
+  padding: 32px 24px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
 
 const Title = styled.h1`
   ${billboardTitleStyle}

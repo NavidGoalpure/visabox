@@ -17,9 +17,6 @@ function convertAllTempKeysWithAllAliases({
 }): string {
   let mylocaleSentence = localeSentence;
   aliases.map((pair) => {
-    console.log('navid mylocaleSentence=', mylocaleSentence);
-    console.log('navid pair=', pair);
-
     mylocaleSentence = convertKeyWithValueInString({
       senttence: mylocaleSentence,
       pair,

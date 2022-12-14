@@ -19,6 +19,8 @@ interface Props {
 }
 const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
+  console.log('navid oocupation', occupation);
+
   return (
     <SideBar.Root
       defaultValue='details'

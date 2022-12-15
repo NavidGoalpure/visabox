@@ -74,4 +74,5 @@ const ColumnWrappers = styled.article`
   gap: 1rem;
   width: 100%;
   margin-bottom: 2rem;
+  justify-content: center;
 `;

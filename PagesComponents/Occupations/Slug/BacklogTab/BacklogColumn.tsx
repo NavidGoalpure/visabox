@@ -1,6 +1,7 @@
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
+  BacklogSection,
   Occupation,
   Territories,
   TerritoryObj,
@@ -16,18 +17,44 @@ import {
   componentTextStyle,
   componentTitleStyle,
 } from 'Styles/Theme/Component';
-import { componentStatements, LanguageKeys } from '../const';
+import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
   title: string;
+  backlogSection: BacklogSection;
 }
 
-const BacklogColumn: React.FC<Props> = ({ title }) => {
+const BacklogColumn: React.FC<Props> = ({ title, backlogSection }) => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container>
       <Title>{title}</Title>
+      <TabRoot
+        defaultValue={t(LanguageKeys.Submited)}
+        items={
+          <>
+            <TabItem
+              title={t(LanguageKeys.Submited)}
+              value={t(LanguageKeys.Submited)}
+            />
+            <TabItem
+              title={t(LanguageKeys.Invited)}
+              value={t(LanguageKeys.Invited)}
+            />
+          </>
+        }
+        bodies={
+          <>
+            <RadixTab.Content value={t(LanguageKeys.Submited)}>
+              {t(LanguageKeys.Submited)}
+            </RadixTab.Content>
+            <RadixTab.Content value={t(LanguageKeys.Invited)}>
+              {t(LanguageKeys.Invited)}
+            </RadixTab.Content>
+          </>
+        }
+      />
     </Container>
   );
 };
@@ -35,6 +62,7 @@ const BacklogColumn: React.FC<Props> = ({ title }) => {
 export default BacklogColumn;
 const Container = styled.div`
   width: 100%;
+  margin-bottom: 1rem;
 `;
 const Title = styled.h2`
   ${componentTextStyle}
@@ -44,4 +72,10 @@ const Title = styled.h2`
   padding: 12px 1rem;
   border: 1px solid var(--color-gray13);
   border-radius: 10px;
+`;
+const TabRoot = styled(Tab.Root)`
+  width: 100%;
+`;
+const TabItem = styled(Tab.Item)`
+  width: 50%;
 `;

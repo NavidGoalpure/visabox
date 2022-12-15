@@ -100,9 +100,10 @@ export const componentTheme = css`
   border-radius: 15px;
   ${componentBorderColor}
 
-  header {
+  header  {
     ${componentHeaderTheme}
   }
+
   article {
     ${componentBodyTheme}
   }

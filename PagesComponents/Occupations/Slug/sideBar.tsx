@@ -13,7 +13,7 @@ import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import AnzscoComponent from './anzscoTab';
 import BacklogComponent from './BacklogTab';
-import DetailComponent from './detailTab';
+import DetailComponent from './DetailTab';
 
 interface Props {
   occupation: Occupation;

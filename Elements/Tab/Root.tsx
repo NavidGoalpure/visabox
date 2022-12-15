@@ -37,10 +37,11 @@ export const backgroundTabsList = theme('mode', {
   `,
 });
 const TabsList = styled(Tabs.List)`
+  ${backgroundTabsList}
   display: flex;
   justify-content: space-between;
-  ${backgroundTabsList}
   width: max-content;
+  min-width: 100%;
   height: 4rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;

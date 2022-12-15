@@ -46,7 +46,8 @@ const TabsTrigger = styled(Tabs.Trigger)`
   margin-bottom:0;
   ${directionStyles}
   ${ColorTriggerInactiveStyle}
-  width: 100px;
+  width: 100%;
+  min-width: 100px;
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 1rem 0;
@@ -58,7 +59,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
     background-color: var(--color-primary5);
     width: 10px;
     height: 10px;
-    transition: all 0.25s;
+    transition: all 0.3s;
     border-radius: 50%;
   }
   ////////////selected//////////
@@ -75,15 +76,14 @@ const TabsTrigger = styled(Tabs.Trigger)`
     border-left: 0;
   }
   ////////////hover//////////
-    &:hover {
-      &::before {
-        background-color: var(--color-primary3);
-        bottom: -5px;
-      }
+  &:hover {
+    &::before {
+      background-color: var(--color-primary3);
+      bottom: -5px;
+    }
   }
 `;
 const ContentContainer = styled.div`
-
   width: 100%;
   border-left: 1px solid var(--color-gray9);
   text-align: center;

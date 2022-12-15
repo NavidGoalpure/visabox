@@ -7,7 +7,6 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-import { AbstractView } from 'react';
 import { MultiLanguageText, MultiLanguageTextArray } from '..';
 import { Slug } from '../Fields';
 import { UnitGroup } from './unitGroup';
@@ -73,15 +72,39 @@ interface ReferenceType {
 
 export interface BacklogSection {
   _type?: string;
-  submited_491?: Submited491;
+  //
+  submited_189?: BacklogPoints;
+  invited_189?: BacklogPoints;
+  total_submited_189?: BacklogPoints;
+  total_invited_189?: BacklogPoints;
+  //
+  submited_190?: BacklogPoints;
+  invited_190?: BacklogPoints;
+  total_submited_190?: BacklogPoints;
+  total_invited_190?: BacklogPoints;
+  //
+  submited_491?: BacklogPoints;
+  invited_491: BacklogPoints;
+  total_submited_491?: BacklogPoints;
+  total_invited_491?: BacklogPoints;
+  //
+  submited_491_family?: BacklogPoints;
+  invited_491_family: BacklogPoints;
+  total_submited_491_family?: BacklogPoints;
+  total_invited_491_family?: BacklogPoints;
+  //
 }
 
-export interface Submited491 {
+export interface BacklogPoints {
   _type?: string;
+  upper_than_65?: number;
   upper_than_70?: number;
   upper_than_75?: number;
   upper_than_80?: number;
   upper_than_85?: number;
+  upper_than_90?: number;
+  upper_than_100?: number;
+  upper_than_105?: number;
 }
 
 export interface TerritoryObj {

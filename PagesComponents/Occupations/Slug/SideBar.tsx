@@ -1,16 +1,16 @@
-import { AnzscoSection, Occupation } from 'interfaces/Documents/occupation';
+import { AnzscoSection, Occupation } from 'Interfaces/Documents/occupation';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
 import * as Tabs from '@radix-ui/react-tabs';
-import * as SideBar from 'components/Sidebar';
+import * as SideBar from 'Elements/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
 import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
-import { ScrollBox } from 'elements/ScrollBox';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { ScrollBox } from 'Elements/ScrollBox';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
-import { deviceMin } from 'consts/device';
+import { deviceMin } from 'Consts/device';
 import AnzscoComponent from './AnzscoComponent';
 import DetailComponent from './DetailComponent';
 

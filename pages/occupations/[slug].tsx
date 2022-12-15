@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import PageLayout from 'components/Layouts/PageContainer';
+import PageLayout from 'Components/Layouts/PageContainer';
 import Content from 'PagesComponents/Occupations/Slug';
 import { useRouter } from 'next/router';
 import { useData } from 'PagesComponents/Occupations/Slug/useData';
@@ -9,14 +9,14 @@ import {
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Occupations/Slug/const';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { Occupation } from 'interfaces/Documents/occupation';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Occupation } from 'Interfaces/Documents/occupation';
 import path from 'path';
-import { Languages } from 'interfaces';
+import { Languages } from 'Interfaces';
 import {
   getAllOccupationSlugs,
   getOccupationDetail,
-} from 'queries/occupations/detail';
+} from 'Queries/occupations/detail';
 // import { useData } from 'PagesComponents/Occupations/Slug/useData';
 
 interface Props {

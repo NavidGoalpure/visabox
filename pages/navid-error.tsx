@@ -1,5 +1,5 @@
-import AnimationComponent from 'components/AnimationComponent';
-import PageLayout from 'components/Layouts/PageContainer';
+import AnimationComponent from 'Components/AnimationComponent';
+import PageLayout from 'Components/Layouts/PageContainer';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';

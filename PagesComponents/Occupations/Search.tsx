@@ -1,8 +1,8 @@
 import React from 'react';
-import { Input } from '../../elements/Input';
+import { Input } from '../../Elements/Input';
 import styled from 'styled-components/macro';
 import { CiSearch } from 'react-icons/ci';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 
 interface Props {

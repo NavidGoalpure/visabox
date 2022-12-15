@@ -1,8 +1,8 @@
 import { ClientError } from '@sanity/client';
-import { Button } from 'elements/Button';
-import { Loading } from 'elements/Loading';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
-import { Occupation } from 'interfaces/Documents/occupation';
+import { Button } from 'Elements/Button';
+import { Loading } from 'Elements/Loading';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Occupation } from 'Interfaces/Documents/occupation';
 import React from 'react';
 import { FetchNextPageOptions, InfiniteQueryObserverResult } from 'react-query';
 import { componentStatements, LanguageKeys } from './const';

@@ -1,20 +1,20 @@
-import Accordion from "elements/Accordion";
-import { useDynamicTranslation } from "hooks/useDynamicTraslation";
-import { useLocale } from "hooks/useLocale";
-import { useStaticTranslation } from "hooks/useStaticTraslation";
-import { AnzscoSection, Occupation } from "interfaces/Documents/occupation";
-import { UnitGroup } from "interfaces/Documents/unitGroup";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
+import Accordion from 'Elements/Accordion';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { AnzscoSection, Occupation } from 'Interfaces/Documents/occupation';
+import { UnitGroup } from 'Interfaces/Documents/unitGroup';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
   componentTheme,
   componentTitleStyle,
-} from "Styles/Theme/Component";
-import AccordionContent from "./AccordionContent";
-import { LanguageKeys, componentStatements } from "./const";
-import UnitGroupCompoenent from "./UnitGroup";
-import { ConvertAnzscoCodeToTitle } from "./utils";
+} from 'Styles/Theme/Component';
+import AccordionContent from './AccordionContent';
+import { LanguageKeys, componentStatements } from './const';
+import UnitGroupCompoenent from './UnitGroup';
+import { ConvertAnzscoCodeToTitle } from './utils';
 
 interface Props {
   occupation: AnzscoSection | undefined;
@@ -33,21 +33,21 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
           <Tr>
             <Td>{t(LanguageKeys.MajorGroup)} :</Td>
             <Td>
-              {`${occupation?.major_group} -${" "}
+              {`${occupation?.major_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(occupation?.major_group || 0))}`}
             </Td>
           </Tr>
           <Tr>
             <Td>{t(LanguageKeys.SubMajorGroup)} :</Td>
             <Td>
-              {`${occupation?.submajor_group} -${" "}
+              {`${occupation?.submajor_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(occupation?.submajor_group || 0))}`}
             </Td>
           </Tr>
           <Tr>
             <Td>{t(LanguageKeys.MinorGroup)} :</Td>
             <Td>
-              {`${occupation?.minor_group} -${" "}
+              {`${occupation?.minor_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(occupation?.minor_group || 0))}`}
             </Td>
           </Tr>
@@ -62,7 +62,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
         <ContentTitle>{t(LanguageKeys.Description)}</ContentTitle>
         <Description>{dt(occupation?.description)}</Description>
         <StyledAccordion
-          backgroundTheme={"COMPONENT"}
+          backgroundTheme={'COMPONENT'}
           triggerContent={t(LanguageKeys.AlternativeTitles)}
           content={
             <AccordionContent
@@ -74,7 +74,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
           }
         />
         <StyledAccordion
-          backgroundTheme={"COMPONENT"}
+          backgroundTheme={'COMPONENT'}
           triggerContent={t(LanguageKeys.Specialisations)}
           content={
             <AccordionContent
@@ -98,7 +98,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
 
 export default AnzscoComponent;
 
-export const TitleBackground = theme("mode", {
+export const TitleBackground = theme('mode', {
   light: css`
     background-color: var(--color-gray13);
   `,
@@ -106,7 +106,7 @@ export const TitleBackground = theme("mode", {
     background-color: var(--color-gray7);
   `,
 });
-export const BorderColor = theme("mode", {
+export const BorderColor = theme('mode', {
   light: css`
     border: 1px solid var(--color-gray9);
   `,

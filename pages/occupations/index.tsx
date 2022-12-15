@@ -4,13 +4,13 @@ import {
   LanguageKeys,
   componentStatements,
 } from 'PagesComponents/Occupations/const';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Content from 'PagesComponents/Occupations';
-import PageLayout from 'components/Layouts/PageContainer';
+import PageLayout from 'Components/Layouts/PageContainer';
 import { sanityClient } from 'sanity';
 import { dehydrate, QueryClient } from 'react-query';
-import { OccupationsQueryKeys } from 'utils/query';
-import { getListQuery } from 'queries/occupations/List';
+import { OccupationsQueryKeys } from 'Utils/query';
+import { getListQuery } from 'Queries/occupations/List';
 import { withCSR } from 'hoc/withCSR';
 import Error from 'next/error';
 

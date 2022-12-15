@@ -1,19 +1,19 @@
-import Accordion from "elements/Accordion";
-import { useDynamicTranslation } from "hooks/useDynamicTraslation";
-import { useLocale } from "hooks/useLocale";
-import { useStaticTranslation } from "hooks/useStaticTraslation";
-import { AnzscoSection, Occupation } from "interfaces/Documents/occupation";
-import { UnitGroup } from "interfaces/Documents/unitGroup";
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
+import Accordion from 'Elements/Accordion';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { AnzscoSection, Occupation } from 'Interfaces/Documents/occupation';
+import { UnitGroup } from 'Interfaces/Documents/unitGroup';
+import styled, { css } from 'styled-components/macro';
+import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
   componentTextStyle,
   componentTitleStyle,
-} from "Styles/Theme/Component";
-import AccordionContent from "./AccordionContent";
-import { LanguageKeys, componentStatements } from "./const";
-import { SkillLevelDescription } from "./utils";
+} from 'Styles/Theme/Component';
+import AccordionContent from './AccordionContent';
+import { LanguageKeys, componentStatements } from './const';
+import { SkillLevelDescription } from './utils';
 
 interface Props {
   occupation: AnzscoSection | undefined;
@@ -33,14 +33,14 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
       <Wrapper>
         <ContentTitle>{t(LanguageKeys.Description)} </ContentTitle>
         <Description>{dt(occupationUnitGroup?.description)}</Description>
-        <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ""}>
+        <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ''}>
           {t(LanguageKeys.IndicativeSkillLevel)}
         </SkillLevelTitle>
         <SkillLevelDesc>
-          {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ""))}
+          {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ''))}
         </SkillLevelDesc>
         <StyledAccordion
-          backgroundTheme={"COMPONENT"}
+          backgroundTheme={'COMPONENT'}
           triggerContent={t(LanguageKeys.Tasks)}
           content={
             <AccordionContent data={dtArray(occupationUnitGroup?.tasks)} />
@@ -58,7 +58,7 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
 };
 
 export default UnitGroupCompoenent;
-export const TitleBackground = theme("mode", {
+export const TitleBackground = theme('mode', {
   light: css`
     background-color: var(--color-gray13);
   `,
@@ -66,7 +66,7 @@ export const TitleBackground = theme("mode", {
     background-color: var(--color-gray7);
   `,
 });
-export const BorderColor = theme("mode", {
+export const BorderColor = theme('mode', {
   light: css`
     border: 1px solid var(--color-gray9);
   `,
@@ -112,7 +112,7 @@ const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
   gap: 0.5rem;
 
   :after {
-    content: "${({ skillLevel }) => skillLevel}";
+    content: '${({ skillLevel }) => skillLevel}';
     ${componentTextStyle};
     margin: 0;
     padding: 0.1rem 0.5rem;

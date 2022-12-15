@@ -1,13 +1,13 @@
-import { useLocale } from 'hooks/useLocale';
+import { useLocale } from 'Hooks/useLocale';
 import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import { ThemeProvider } from 'styled-components/macro';
 import '../Styles/global.css';
-import { LanguageDirection, Languages } from 'interfaces';
+import { LanguageDirection, Languages } from 'Interfaces';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';
-import useTheme from 'hooks/useTheme';
+import useTheme from 'Hooks/useTheme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());

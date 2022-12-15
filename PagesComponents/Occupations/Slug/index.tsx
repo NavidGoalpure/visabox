@@ -1,10 +1,10 @@
 import React from 'react';
-import ToggleTag from 'elements/ToggleTag';
+import ToggleTag from 'Elements/ToggleTag';
 import styled from 'styled-components';
 import { SidebarPage } from './SideBar';
 import { PageTitleStyle } from 'Styles/Theme/Page';
-import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
-import { Occupation } from 'interfaces/Documents/occupation';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { Occupation } from 'Interfaces/Documents/occupation';
 
 interface Props {
   occupation: Occupation;

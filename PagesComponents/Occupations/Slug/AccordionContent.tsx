@@ -1,14 +1,19 @@
-import { MultiLanguageText, MultiLanguageTextArray } from "interfaces";
-import styled from "styled-components/macro";
-import { componentTextStyle } from "Styles/Theme/Component";
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
+import styled from 'styled-components/macro';
+import { componentTextStyle } from 'Styles/Theme/Component';
 
 interface Props {
   data: string[] | undefined;
   title?: string;
   description?: string;
-  emptyMessage?:string;
+  emptyMessage?: string;
 }
-const AccordionContent: React.FC<Props> = ({ data, title, description,emptyMessage }) => {
+const AccordionContent: React.FC<Props> = ({
+  data,
+  title,
+  description,
+  emptyMessage,
+}) => {
   return (
     <AccordionContentContainer>
       <AccordionContentWrapper>

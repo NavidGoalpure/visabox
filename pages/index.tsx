@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import PageLayout from 'components/Layouts/PageContainer';
+import PageLayout from 'Components/Layouts/PageContainer';
 
 // این پیج هیچوقت دیده نمیشه، در نکست-کانفیگ تنظیم شده که به صفحه دیگه ای ریدایرکت بشه
 const Home: NextPage = () => {

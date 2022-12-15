@@ -1,4 +1,4 @@
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';

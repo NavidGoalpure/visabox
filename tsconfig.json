@@ -24,7 +24,7 @@
     "**/*.tsx",
     "pages/_document.js",
     "pages/indexold.old",
-    "hoc/withCSR.js"
+    "Hoc/withCSR.js"
   ],
   "exclude": ["node_modules"]
 }

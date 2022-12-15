@@ -1,4 +1,4 @@
-import { Occupation } from 'interfaces/Documents/occupation';
+import { Occupation } from 'Interfaces/Documents/occupation';
 import { InfiniteData } from 'react-query';
 
 /**

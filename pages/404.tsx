@@ -1,6 +1,6 @@
-import AnimationComponent from 'components/AnimationComponent';
-import { Button } from 'elements/Button';
-import PageLayout from 'components/Layouts/PageContainer';
+import AnimationComponent from 'Components/AnimationComponent';
+import { Button } from 'Elements/Button';
+import PageLayout from 'Components/Layouts/PageContainer';
 import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components/macro';

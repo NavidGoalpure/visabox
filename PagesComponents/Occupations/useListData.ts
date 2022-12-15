@@ -1,8 +1,8 @@
 import { ClientError } from '@sanity/client';
-import { Occupation } from 'interfaces/Documents/occupation';
-import { getOccupationsList } from 'queries/occupations/List';
+import { Occupation } from 'Interfaces/Documents/occupation';
+import { getOccupationsList } from 'Queries/occupations/List';
 import { useInfiniteQuery } from 'react-query';
-import { OccupationsQueryKeys } from 'utils/query';
+import { OccupationsQueryKeys } from 'Utils/query';
 
 type OccupationsListParams = {
   search: string;

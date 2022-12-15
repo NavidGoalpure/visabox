@@ -1,15 +1,15 @@
-import { useDynamicTranslation } from 'hooks/useDynamicTraslation';
-import { useStaticTranslation } from 'hooks/useStaticTraslation';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   Occupation,
   Territories,
   TerritoryObj,
-} from 'interfaces/Documents/occupation';
-import { UnitGroup } from 'interfaces/Documents/unitGroup';
+} from 'Interfaces/Documents/occupation';
+import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
-import * as Tab from 'elements/Tab';
-import { getTerritories } from 'utils/occupations';
+import * as Tab from 'Elements/Tab';
+import { getTerritories } from 'Utils/occupations';
 
 interface Props {
   occupation: Occupation;

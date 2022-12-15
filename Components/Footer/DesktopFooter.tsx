@@ -108,6 +108,8 @@ const ItemsContainer = styled.div`
   gap: 2rem;
   margin-top: 10%;
 `;
+
+//
 export const hoverBackground = theme('mode', {
   light: css`
     var(--color-gray12);
@@ -122,41 +124,34 @@ const Items = styled.h2`
   cursor: pointer;
   position: relative;
   width: max-content;
+  transition: all 400ms ease;
   :before {
-    content: attr(data-name);
+    content: "";
     position: absolute;
-    top: 0;
-    left: -20px;
-    background:${hoverBackground}
-    height: 21px;
+    bottom: 0px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    background:${hoverBackground};
+    height: 5px;
+    width: 100%;
     overflow: hidden;
-    transition: all 300ms ease;
-    padding-left: 20px;
-    width: max-content;
-  }
-  :after {
-    content: '';
-    height: 2px;
-    width: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--color-primary4);
-    transition: all 300ms ease;
+    transition: all 400ms ease;
+    border-radius: 10px;
   }
   :hover {
-    transform: skew(10deg);
+    color: var(--color-gray12);
     :before {
-      top: -5px;
-      color: var(--color-primary4);
-    }
-    :after {
-      width: 110%;
-      outline: 2px solid ${hoverBackground}
+      bottom: -10px;
+      background-color: var(--color-primary4);
+      width: 100%;
+      border-radius: 10px;
     }
   }
 `;
+//
+
 const ContactUsContainer = styled.div`
   width: fit-content;
   position: absolute;

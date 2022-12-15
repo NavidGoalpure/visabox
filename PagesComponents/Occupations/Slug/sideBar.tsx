@@ -14,6 +14,7 @@ import { deviceMin } from 'Consts/device';
 import AnzscoComponent from './anzscoTab';
 import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
+import { componentTheme, componentTitleStyle } from 'Styles/Theme/Component';
 
 interface Props {
   occupation: Occupation;
@@ -45,17 +46,27 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       bodies={
         <>
           <Tabs.Content value='details'>
-            <DetailComponent occupation={occupation} />
+            <ContentWrapper>
+              <DetailComponent occupation={occupation} />
+            </ContentWrapper>
           </Tabs.Content>
           <Tabs.Content value='anzsco'>
-            <ScrollBox heightToRem={40}>
-              <AnzscoComponent occupation={occupation.anzsco_section} />
-            </ScrollBox>
+            <ContentWrapper>
+              <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
+              <ScrollBox heightToRem={40}>
+                <AnzscoComponent occupation={occupation.anzsco_section} />
+              </ScrollBox>
+            </ContentWrapper>
           </Tabs.Content>
           <Tabs.Content value='backlog'>
-            <ScrollBox heightToRem={40}>
-              <BacklogComponent occupation={occupation} />
-            </ScrollBox>
+            <ContentWrapper>
+              <Header>{t(LanguageKeys.BacklogTitle)}</Header>
+              <ScrollBox heightToRem={40}>
+                <BacklogComponent
+                  backlogSection={occupation?.backlog_section}
+                />
+              </ScrollBox>
+            </ContentWrapper>
           </Tabs.Content>
         </>
       }
@@ -94,4 +105,13 @@ const AnszcoIcon = styled(TbNumbers)`
 `;
 const Backlog = styled(TbStack2)`
   ${Icon}
+`;
+const Header = styled.header`
+  width: 100%;
+  padding: 1rem;
+  ${componentTitleStyle}
+`;
+const ContentWrapper = styled.section`
+  ${componentTheme}
+  width: auto;
 `;

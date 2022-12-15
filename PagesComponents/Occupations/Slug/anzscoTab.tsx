@@ -24,10 +24,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt, dtArray } = useDynamicTranslation();
   return (
-    <Container>
-      <Header>
-        <Title>{t(LanguageKeys.AnzscoTabTitle)}</Title>
-      </Header>
+    <>
       <Wrapper>
         <Table>
           <Tr>
@@ -92,7 +89,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
         /> */}
       </Wrapper>
       <UnitGroupCompoenent occupation={occupation} />
-    </Container>
+    </>
   );
 };
 

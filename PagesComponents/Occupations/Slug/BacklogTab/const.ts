@@ -1,7 +1,6 @@
 import { MultiLanguageText } from 'Interfaces';
 
 export enum LanguageKeys {
-  TabTitle = 'TabTitle',
   Submitted = 'Submitted',
   Invited = 'Invited',
   Title189 = 'Title189',
@@ -10,10 +9,6 @@ export enum LanguageKeys {
   Title491_family = 'Title491_family',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  TabTitle: {
-    en: 'Backlog & Invitations issued',
-    fa: 'صف انتظار و دعوت نامه های صادر شده',
-  },
   Submitted: {
     en: 'Submitted',
     fa: 'ثبت شده‌ها',

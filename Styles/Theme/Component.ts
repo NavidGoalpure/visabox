@@ -3,7 +3,9 @@ import theme from 'styled-theming';
 import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
 import { directionStyles } from '.';
 
-//////common/////
+///////////////////////
+//////common///////////
+///////////////////////
 export const componentBorderColor = theme('mode', {
   light: css`
     border: 1px solid var(--color-gray11);
@@ -88,7 +90,7 @@ export const componentBodyBackground = theme('mode', {
   `,
 });
 export const componentBodyTheme = css`
-  ${componentBodyBackground}
+  // ${componentBodyBackground}
   padding: 2rem 1rem;
   border-radius: 0 0 15px 15px;
 `;
@@ -99,8 +101,9 @@ export const componentTheme = css`
   ${directionStyles}
   border-radius: 15px;
   ${componentBorderColor}
+  overflow: hidden;
 
-  header  {
+  header {
     ${componentHeaderTheme}
   }
 

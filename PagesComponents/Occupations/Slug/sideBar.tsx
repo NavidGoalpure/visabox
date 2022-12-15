@@ -11,8 +11,9 @@ import { ScrollBox } from 'Elements/ScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
-import AnzscoComponent from './AnzscoComponent';
-import DetailComponent from './DetailComponent';
+import AnzscoComponent from './anzscoTab';
+import BacklogComponent from './backlogTab';
+import DetailComponent from './detailTab';
 
 interface Props {
   occupation: Occupation;
@@ -21,7 +22,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBarRoot
-      defaultValue='details'
+      defaultValue='backlog'
       items={
         <>
           <SideBar.Item
@@ -49,6 +50,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           <Tabs.Content value='anzsco'>
             <ScrollBox heightToRem={40}>
               <AnzscoComponent occupation={occupation.anzsco_section} />
+            </ScrollBox>
+          </Tabs.Content>
+          <Tabs.Content value='backlog'>
+            <ScrollBox heightToRem={40}>
+              <BacklogComponent occupation={occupation} />
             </ScrollBox>
           </Tabs.Content>
         </>

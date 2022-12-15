@@ -70,7 +70,7 @@ const TabsList = styled(Tabs.TabsList)`
     padding: 1.5rem 0px;
     padding-inline-start: 1rem;
     border-radius: 10px;
-    height: auto;
+    height: max-content;
   }
 `;
 

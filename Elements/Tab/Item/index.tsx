@@ -51,10 +51,12 @@ const TabsTrigger = styled(Tabs.Trigger)`
   ${directionStyles}
   ${ColorTriggerInactiveStyle}
   width: 100px;
+  height: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
   // border-right: 1px solid var(--color-gray9);
   border-left: 1px solid var(--color-gray9);
+
   ////////////selected//////////
   &[aria-selected='true'] {
     color: var(--color-gray12);

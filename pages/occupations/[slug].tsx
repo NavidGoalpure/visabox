@@ -5,10 +5,7 @@ import { useRouter } from 'next/router';
 import { useData } from 'PagesComponents/Occupations/Slug/useData';
 import Head from 'next/head';
 import { sanityClient } from '../../sanity';
-import {
-  componentStatements,
-  LanguageKeys,
-} from 'PagesComponents/Occupations/Slug/const';
+
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import path from 'path';
@@ -17,6 +14,10 @@ import {
   getAllOccupationSlugs,
   getOccupationDetail,
 } from 'Queries/occupations/detail';
+import {
+  componentStatements,
+  LanguageKeys,
+} from 'PagesComponents/Occupations/Slug/const';
 // import { useData } from 'PagesComponents/Occupations/Slug/useData';
 
 interface Props {

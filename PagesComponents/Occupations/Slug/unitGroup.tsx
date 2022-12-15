@@ -11,7 +11,7 @@ import {
   componentTextStyle,
   componentTitleStyle,
 } from 'Styles/Theme/Component';
-import AccordionContent from './AccordionContent';
+import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from './const';
 import { SkillLevelDescription } from './utils';
 

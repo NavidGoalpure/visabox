@@ -1,7 +1,7 @@
 import React from 'react';
 import ToggleTag from 'Elements/ToggleTag';
 import styled from 'styled-components';
-import { SidebarPage } from './SideBar';
+import { SidebarPage } from './sideBar';
 import { PageTitleStyle } from 'Styles/Theme/Page';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';

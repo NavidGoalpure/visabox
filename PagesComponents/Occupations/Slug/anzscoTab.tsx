@@ -8,8 +8,9 @@ import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
-  componentTheme,
+  componentBodyTheme,
   componentTitleStyle,
+  componentHeaderTheme,
 } from 'Styles/Theme/Component';
 import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from './const';
@@ -22,12 +23,11 @@ interface Props {
 const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt, dtArray } = useDynamicTranslation();
-  const { locale } = useLocale();
   return (
     <Container>
-      <TitleWrapper>
+      <Header>
         <Title>{t(LanguageKeys.AnzscoTabTitle)}</Title>
-      </TitleWrapper>
+      </Header>
       <Wrapper>
         <Table>
           <Tr>
@@ -98,34 +98,16 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
 
 export default AnzscoComponent;
 
-export const TitleBackground = theme('mode', {
-  light: css`
-    background-color: var(--color-gray13);
-  `,
-  dark: css`
-    background-color: var(--color-gray7);
-  `,
-});
-export const BorderColor = theme('mode', {
-  light: css`
-    border: 1px solid var(--color-gray9);
-  `,
-  dark: css`
-    border: 1px solid var(--color-primary7);
-  `,
-});
-
 const Container = styled.div`
-  ${componentTheme}
+  ${componentBodyTheme}
   padding:0;
   // border: 1px solid var(--color-gray9);
 `;
-const TitleWrapper = styled.div`
-  ${TitleBackground}
+
+const Header = styled.div`
+  ${componentHeaderTheme}
   width: 100%;
-  border-radius: 15px 15px 0 0;
   padding: 1rem;
-  border-bottom: 1px solid var(--color-gray9);
 `;
 
 const Title = styled.h2`
@@ -138,6 +120,15 @@ const Wrapper = styled.div`
   padding: 1rem;
 `;
 
+/////////
+const BorderColor = theme('mode', {
+  light: css`
+    border: 1px solid var(--color-gray9);
+  `,
+  dark: css`
+    border: 1px solid var(--color-primary7);
+  `,
+});
 const Table = styled.table`
   ${BorderColor};
   width: 100%;
@@ -145,6 +136,8 @@ const Table = styled.table`
   border-radius: 5px;
   margin-bottom: 1.5rem;
 `;
+////////////
+
 const Tr = styled.tr`
   width: 100%;
   display: grid;

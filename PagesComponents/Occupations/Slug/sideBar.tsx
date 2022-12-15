@@ -12,7 +12,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import AnzscoComponent from './anzscoTab';
-import BacklogComponent from './backlogTab';
+import BacklogComponent from './BacklogTab';
 import DetailComponent from './detailTab';
 
 interface Props {

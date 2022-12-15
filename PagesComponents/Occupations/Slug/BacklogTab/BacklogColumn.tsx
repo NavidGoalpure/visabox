@@ -12,24 +12,23 @@ import * as Tab from 'Elements/Tab';
 import { getTerritories } from 'Utils/occupations';
 import styled from 'styled-components/macro';
 import { componentTitleStyle } from 'Styles/Theme/Component';
-import { componentStatements, LanguageKeys } from './const';
+import { componentStatements, LanguageKeys } from '../const';
 
 interface Props {
   occupation: Occupation;
 }
 
-const BacklogComponent: React.FC<Props> = ({ occupation }) => {
+const BacklogColumn: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.BacklogTabTitle)}</Title>
-      <ColumnWrappers></ColumnWrappers>
     </Container>
   );
 };
 
-export default BacklogComponent;
+export default BacklogColumn;
 const Container = styled.div`
   width: auto;
 `;

@@ -5,7 +5,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
-import { componentBackground } from 'Styles/Theme/Component';
+import { componentBodyBackground } from 'Styles/Theme/Component';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
@@ -50,7 +50,7 @@ const TabsRoot = styled(Tabs.Root)`
 `;
 const TabsList = styled(Tabs.TabsList)`
   ${directionStyles}
-  ${componentBackground}
+  ${componentBodyBackground}
   ${boxShadow}
   //
   display: flex;

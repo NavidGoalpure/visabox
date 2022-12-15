@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import {
-  componentTheme,
+  componentBodyTheme,
   componentSubtitleStyle,
   componentTextStyle,
   componentTitleColor,
@@ -56,7 +56,7 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
 export default OccupationCard;
 
 const Container = styled.div`
-  ${componentTheme}
+  ${componentBodyTheme}
   display: flex;
   flex-direction: column;
   align-items: center;

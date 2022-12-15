@@ -6,7 +6,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import theme from 'styled-theming';
 import { pageBackground } from 'Styles/Theme/Page';
 import {
-  componentBackground,
+  componentBodyBackground,
   componentSubtitleStyle,
   componentTextStyle,
 } from 'Styles/Theme/Component';
@@ -83,7 +83,7 @@ const AccordionHeader = styled(Accordion.Header)<{
   position: relative;
   z-index: 11;
   ${({ backgroundTheme }) =>
-    backgroundTheme === 'PAGE' ? pageBackground : componentBackground}
+    backgroundTheme === 'PAGE' ? pageBackground : componentBodyBackground}
   border: none;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`

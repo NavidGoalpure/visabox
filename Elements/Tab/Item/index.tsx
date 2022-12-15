@@ -25,13 +25,7 @@ export const Item: React.FC<Props> = ({ title, value, icon }) => {
     </TabsTrigger>
   );
 };
-const ContentContainer = styled.div`
-  display: flex;
-  align-items: center;
-  @media ${deviceMin.tabletS} {
-    flex-direction: row;
-  }
-`;
+
 ////////////
 
 const ColorTriggerInactiveStyle = theme('mode', {
@@ -43,6 +37,8 @@ const ColorTriggerInactiveStyle = theme('mode', {
   `,
 });
 const TabsTrigger = styled(Tabs.Trigger)`
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,24 +47,47 @@ const TabsTrigger = styled(Tabs.Trigger)`
   ${directionStyles}
   ${ColorTriggerInactiveStyle}
   width: 100px;
-  height: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  // border-right: 1px solid var(--color-gray9);
-  border-left: 1px solid var(--color-gray9);
-
+  padding: 1rem 0;
+  &::before {
+    content: '';
+    position: absolute;
+    margin: auto;
+    bottom: -25px;
+    background-color: var(--color-primary5);
+    width: 10px;
+    height: 10px;
+    transition: all 0.25s;
+    border-radius: 50%;
+  }
   ////////////selected//////////
   &[aria-selected='true'] {
     color: var(--color-gray12);
+    &::before {
+      width: 64px;
+      border-radius: 6px;
+      bottom: -5px;
+      background-color: var(--color-primary5);
+    }
   }
   :first-child {
     border-left: 0;
   }
   ////////////hover//////////
-  @media ${deviceMin.laptopS} {
-    :hover {
-      background: var(--color-primary2);
-      color: var(--color-gray12);
-    }
+    &:hover {
+      &::before {
+        background-color: var(--color-primary3);
+        bottom: -5px;
+      }
+  }
+`;
+const ContentContainer = styled.div`
+
+  width: 100%;
+  border-left: 1px solid var(--color-gray9);
+  text-align: center;
+  @media ${deviceMin.tabletS} {
+    flex-direction: row;
   }
 `;

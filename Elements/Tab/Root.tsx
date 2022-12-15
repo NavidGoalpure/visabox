@@ -44,7 +44,6 @@ const TabsList = styled(Tabs.List)`
   height: 4rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  padding-top: 1rem;
 `;
 
 const ContentsContainer = styled.div`

@@ -1,9 +1,6 @@
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   Occupation,
   Territories,
-  TerritoryObj,
   TerritorySection,
 } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
@@ -12,28 +9,14 @@ import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
 import { getTerritories } from 'Utils/occupations';
 import { ScrollBox } from 'Elements/ScrollBox';
+import { Territory } from 'Interfaces/Documents/territory';
+import { getHtml_decsBaseOnAbv } from './utils';
 
 interface Props {
   occupation: Occupation;
 }
-// navid find html
-function getHtml_decsBaseOnAbv({
-  TerritorySection,
-  abv,
-}: {
-  TerritorySection: TerritorySection[];
-  abv: string;
-}): string {
-  console.log('navid obj=', TerritorySection);
-  return '';
-}
-const DetailComponent: React.FC<Props> = ({ occupation }) => {
-  // console.log('navid territory_section=', territory_section);
 
-  // getHtml_decsBaseOnAbv({
-  //   TerritorySection: occupation.territory_section[0],
-  //   abv: 'foo',
-  // });
+const DetailComponent: React.FC<Props> = ({ occupation }) => {
   return (
     <Tab.Root
       defaultValue={Territories.ACT}
@@ -46,11 +29,17 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
       }
       bodies={
         <ScrollBox heightToRem={40}>
-          {getTerritories().map((territory) => (
-            <RadixTab.Content key={territory} value={territory}>
-              {territory}
-            </RadixTab.Content>
-          ))}
+          {getTerritories().map((territory) => {
+            const html = getHtml_decsBaseOnAbv({
+              territorySection: occupation.territory_section,
+              currentTerritoryAbv: territory,
+            });
+            return (
+              <RadixTab.Content key={territory} value={territory}>
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </RadixTab.Content>
+            );
+          })}
         </ScrollBox>
       }
     />

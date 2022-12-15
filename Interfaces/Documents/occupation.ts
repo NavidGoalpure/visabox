@@ -10,6 +10,7 @@
 import { MultiLanguageText, MultiLanguageTextArray } from '..';
 import { Slug } from '../Fields';
 import { UnitGroup } from './unitGroup';
+import { Territory } from './territory';
 
 export interface Occupation {
   _createdAt: Date;
@@ -107,19 +108,12 @@ export interface BacklogPoints {
   upper_than_105?: number;
 }
 
-export interface TerritoryObj {
-  _key?: string;
-  _type?: string;
-  title?: string;
-  abv?: string;
-  url: URL;
-}
 export interface TerritorySection {
   _key?: string;
   _type?: string;
   desc?: Desc[];
   html_desc: string;
-  territory?: ReferenceType | TerritoryObj;
+  territory?: ReferenceType | Territory;
 }
 
 export interface Desc {

@@ -14,7 +14,7 @@ export const componentBorderColor = theme('mode', {
 //////
 export const componentTitleColor = theme('mode', {
   light: css`
-    color: var(--color-primary2);
+    color: var(--color-gray7);
   `,
   dark: css`
     color: var(--color-gray13);

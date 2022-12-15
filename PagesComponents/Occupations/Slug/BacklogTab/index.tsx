@@ -46,6 +46,7 @@ const Container = styled.section`
 const Header = styled.header`
   width: 100%;
   padding: 1rem;
+  ${componentTitleStyle}
 `;
 const ColumnWrappers = styled.article`
   dispaly: flex;

@@ -1,6 +1,7 @@
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
+  BacklogSection,
   Occupation,
   Territories,
   TerritoryObj,
@@ -21,18 +22,36 @@ import { componentStatements, LanguageKeys } from './const';
 import BacklogColumn from './BacklogColumn';
 
 interface Props {
-  occupation: Occupation;
+  backlogSection: BacklogSection;
 }
 
-const BacklogComponent: React.FC<Props> = ({ occupation }) => {
+const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container>
       <Header>{t(LanguageKeys.TabTitle)}</Header>
       <ColumnWrappers>
-        <BacklogColumn title={t(LanguageKeys.Title189)} />
-        <BacklogColumn title={t(LanguageKeys.Title190)} />
+        <BacklogColumn
+          title={t(LanguageKeys.Title189)}
+          submittedContent={backlogSection?.submitted_189}
+          invitedContent={backlogSection?.invited_189}
+        />
+        <BacklogColumn
+          title={t(LanguageKeys.Title190)}
+          submittedContent={backlogSection?.submitted_190}
+          invitedContent={backlogSection?.invited_190}
+        />
+        <BacklogColumn
+          title={t(LanguageKeys.Title491)}
+          submittedContent={backlogSection?.submitted_491}
+          invitedContent={backlogSection?.invited_491}
+        />
+        <BacklogColumn
+          title={t(LanguageKeys.Title491_family)}
+          submittedContent={backlogSection?.submitted_491_family}
+          invitedContent={backlogSection?.invited_491_family}
+        />
       </ColumnWrappers>
     </Container>
   );
@@ -50,6 +69,9 @@ const Header = styled.header`
   ${componentTitleStyle}
 `;
 const ColumnWrappers = styled.article`
-  dispaly: flex;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   width: 100%;
+  margin-bottom: 2rem;
 `;

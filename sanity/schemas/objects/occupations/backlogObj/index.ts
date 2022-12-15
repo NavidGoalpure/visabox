@@ -8,7 +8,7 @@ export default {
     ////////////SUBMITED////////
     {
       name: 'submited_189',
-      title: 'Submited 189 ',
+      title: 'Submitted 189 ',
       type: 'backlog_numbers_obj',
     },
     ////////////INVITED////////
@@ -18,10 +18,10 @@ export default {
       type: 'backlog_numbers_obj',
     },
 
-    //////Total Submited////////////////
+    //////Total Submitted////////////////
     {
       name: 'total_submited_189',
-      title: 'Total Submited 189',
+      title: 'Total Submitted 189',
       type: 'string',
     },
     /////// Total INVITED////////
@@ -35,7 +35,7 @@ export default {
     ////////////SUBMITED////////
     {
       name: 'submited_190',
-      title: 'Submited 190 ',
+      title: 'Submitted 190 ',
       type: 'backlog_numbers_obj',
     },
     ////////////INVITED////////
@@ -44,10 +44,10 @@ export default {
       title: 'Invited 190 ',
       type: 'backlog_numbers_obj',
     },
-    //////Total Submited////////////////
+    //////Total Submitted////////////////
     {
       name: 'total_submited_190',
-      title: 'Total Submited 190',
+      title: 'Total Submitted 190',
       type: 'string',
     },
     /////// Total INVITED////////
@@ -61,7 +61,7 @@ export default {
     ////////////SUBMITED////////
     {
       name: 'submited_491',
-      title: 'Submited 491 ',
+      title: 'Submitted 491 ',
       type: 'backlog_numbers_obj',
     },
     ////////////INVITED////////
@@ -70,10 +70,10 @@ export default {
       title: 'Invited 491 ',
       type: 'backlog_numbers_obj',
     },
-    //////Total Submited////////////////
+    //////Total Submitted////////////////
     {
       name: 'total_submited_491',
-      title: 'Total Submited 491',
+      title: 'Total Submitted 491',
       type: 'string',
     },
     /////// Total INVITED////////
@@ -87,7 +87,7 @@ export default {
     ////////////SUBMITED////////
     {
       name: 'submited_491_family',
-      title: 'Submited 491_family ',
+      title: 'Submitted 491_family ',
       type: 'backlog_numbers_obj',
     },
     ////////////INVITED////////
@@ -96,10 +96,10 @@ export default {
       title: 'Invited 491_family ',
       type: 'backlog_numbers_obj',
     },
-    //////Total Submited////////////////
+    //////Total Submitted////////////////
     {
       name: 'total_submited_491_family',
-      title: 'Total Submited 491_family',
+      title: 'Total Submitted 491_family',
       type: 'string',
     },
     /////// Total INVITED////////
@@ -115,7 +115,7 @@ export default {
 
     {
       name: 'submited_by_state_190',
-      title: 'Submited By State 190',
+      title: 'Submitted By State 190',
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],
     },
@@ -130,7 +130,7 @@ export default {
 
     {
       name: 'submited_by_state_491',
-      title: 'Submited By State ',
+      title: 'Submitted By State ',
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],
     },

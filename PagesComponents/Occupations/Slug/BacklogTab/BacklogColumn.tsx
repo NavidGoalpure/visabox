@@ -1,6 +1,7 @@
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
+  BacklogPoints,
   BacklogSection,
   Occupation,
   Territories,
@@ -18,25 +19,31 @@ import {
   componentTitleStyle,
 } from 'Styles/Theme/Component';
 import { componentStatements, LanguageKeys } from './const';
+import { deviceMin } from 'Consts/device';
 
 interface Props {
   title: string;
-  backlogSection: BacklogSection;
+  invitedContent: BacklogPoints | undefined;
+  submittedContent: BacklogPoints | undefined;
 }
 
-const BacklogColumn: React.FC<Props> = ({ title, backlogSection }) => {
+const BacklogColumn: React.FC<Props> = ({
+  title,
+  invitedContent,
+  submittedContent,
+}) => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container>
       <Title>{title}</Title>
       <TabRoot
-        defaultValue={t(LanguageKeys.Submited)}
+        defaultValue={t(LanguageKeys.Submitted)}
         items={
           <>
             <TabItem
-              title={t(LanguageKeys.Submited)}
-              value={t(LanguageKeys.Submited)}
+              title={t(LanguageKeys.Submitted)}
+              value={t(LanguageKeys.Submitted)}
             />
             <TabItem
               title={t(LanguageKeys.Invited)}
@@ -46,8 +53,8 @@ const BacklogColumn: React.FC<Props> = ({ title, backlogSection }) => {
         }
         bodies={
           <>
-            <RadixTab.Content value={t(LanguageKeys.Submited)}>
-              {t(LanguageKeys.Submited)}
+            <RadixTab.Content value={t(LanguageKeys.Submitted)}>
+              {t(LanguageKeys.Submitted)}
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
               {t(LanguageKeys.Invited)}
@@ -63,15 +70,20 @@ export default BacklogColumn;
 const Container = styled.div`
   width: 100%;
   margin-bottom: 1rem;
+  @media ${deviceMin.tabletS} {
+    width: 25%;
+  }
 `;
 const Title = styled.h2`
   ${componentTextStyle}
   ${componentBorderColor}
   width:100%;
+  height: 5rem;
   text-align: center;
   padding: 12px 1rem;
   border: 1px solid var(--color-gray13);
   border-radius: 10px;
+  margin-bottom: 1rem;
 `;
 const TabRoot = styled(Tab.Root)`
   width: 100%;

@@ -73,24 +73,24 @@ interface ReferenceType {
 export interface BacklogSection {
   _type?: string;
   //
-  submited_189?: BacklogPoints;
+  submitted_189?: BacklogPoints;
   invited_189?: BacklogPoints;
-  total_submited_189?: BacklogPoints;
+  total_submitted_189?: BacklogPoints;
   total_invited_189?: BacklogPoints;
   //
-  submited_190?: BacklogPoints;
+  submitted_190?: BacklogPoints;
   invited_190?: BacklogPoints;
-  total_submited_190?: BacklogPoints;
+  total_submitted_190?: BacklogPoints;
   total_invited_190?: BacklogPoints;
   //
-  submited_491?: BacklogPoints;
+  submitted_491?: BacklogPoints;
   invited_491: BacklogPoints;
-  total_submited_491?: BacklogPoints;
+  total_submitted_491?: BacklogPoints;
   total_invited_491?: BacklogPoints;
   //
-  submited_491_family?: BacklogPoints;
+  submitted_491_family?: BacklogPoints;
   invited_491_family: BacklogPoints;
-  total_submited_491_family?: BacklogPoints;
+  total_submitted_491_family?: BacklogPoints;
   total_invited_491_family?: BacklogPoints;
   //
 }

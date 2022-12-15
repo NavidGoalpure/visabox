@@ -1,6 +1,6 @@
 export default {
   name: 'territory_backlog_obj',
-  title: 'Submited/Invited by Territory',
+  title: 'Submitted/Invited by Territory',
   type: 'object',
   fields: [
     {

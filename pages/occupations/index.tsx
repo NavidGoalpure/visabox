@@ -11,7 +11,7 @@ import { sanityClient } from 'sanity';
 import { dehydrate, QueryClient } from 'react-query';
 import { OccupationsQueryKeys } from 'Utils/query';
 import { getListQuery } from 'Queries/occupations/List';
-import { withCSR } from 'hoc/withCSR';
+import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
 
 interface Props {

@@ -1,4 +1,3 @@
-import TooltipTag from 'elements/TooltipTag';
 import React from 'react';
 import ToggleTag from 'elements/ToggleTag';
 import styled from 'styled-components';
@@ -20,12 +19,6 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <Title>
           {occupation?.code}: {dt(occupation?.title)}
         </Title>
-        <TooltipTag
-          content={
-            occupation?.anzsco_section?.priority_list?.[0]?.future_demend || ''
-          }
-          popupContent={'occupation.'}
-        />
       </TitleContainer>
       <ToggleContainer>
         <ToggleTag content={'190'} isOn={true} />

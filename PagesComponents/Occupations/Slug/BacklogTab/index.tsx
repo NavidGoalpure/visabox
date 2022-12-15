@@ -17,7 +17,7 @@ import {
   componentTheme,
   componentTitleStyle,
 } from 'Styles/Theme/Component';
-import { componentStatements, LanguageKeys } from '../const';
+import { componentStatements, LanguageKeys } from './const';
 import BacklogColumn from './BacklogColumn';
 
 interface Props {
@@ -29,9 +29,10 @@ const BacklogComponent: React.FC<Props> = ({ occupation }) => {
 
   return (
     <Container>
-      <Header>{t(LanguageKeys.BacklogTabTitle)}</Header>
+      <Header>{t(LanguageKeys.TabTitle)}</Header>
       <ColumnWrappers>
-        <BacklogColumn occupation={occupation} />
+        <BacklogColumn title={t(LanguageKeys.Title189)} />
+        <BacklogColumn title={t(LanguageKeys.Title190)} />
       </ColumnWrappers>
     </Container>
   );

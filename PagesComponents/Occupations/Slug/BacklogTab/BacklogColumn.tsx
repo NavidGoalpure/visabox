@@ -11,31 +11,37 @@ import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
 import { getTerritories } from 'Utils/occupations';
 import styled from 'styled-components/macro';
-import { componentTitleStyle } from 'Styles/Theme/Component';
+import {
+  componentBorderColor,
+  componentTextStyle,
+  componentTitleStyle,
+} from 'Styles/Theme/Component';
 import { componentStatements, LanguageKeys } from '../const';
 
 interface Props {
-  occupation: Occupation;
+  title: string;
 }
 
-const BacklogColumn: React.FC<Props> = ({ occupation }) => {
+const BacklogColumn: React.FC<Props> = ({ title }) => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container>
-      <Title>{t(LanguageKeys.BacklogTabTitle)}</Title>
+      <Title>{title}</Title>
     </Container>
   );
 };
 
 export default BacklogColumn;
 const Container = styled.div`
-  width: auto;
+  width: 100%;
 `;
 const Title = styled.h2`
-  ${componentTitleStyle}
-`;
-const ColumnWrappers = styled.div`
-  dispaly: flex;
-  width: 100%;
+  ${componentTextStyle}
+  ${componentBorderColor}
+  width:100%;
+  text-align: center;
+  padding: 12px 1rem;
+  border: 1px solid var(--color-gray13);
+  border-radius: 10px;
 `;

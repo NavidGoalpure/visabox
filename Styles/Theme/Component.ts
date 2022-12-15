@@ -3,15 +3,16 @@ import theme from 'styled-theming';
 import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
 import { directionStyles } from '.';
 
+//////common/////
 export const componentBorderColor = theme('mode', {
   light: css`
-    border-color: var(--color-gray11);
+    border: 1px solid var(--color-gray11);
   `,
   dark: css`
-    border-color: var(--color-gray9);
+    border: 1px solid var(--color-gray13);
   `,
 });
-//////
+/////////////////
 export const componentTitleColor = theme('mode', {
   light: css`
     color: var(--color-gray7);
@@ -24,7 +25,6 @@ export const componentTitleStyle = css`
   ${directionStyles}
   ${componentTitleColor}
   ${Headline5Style}
-  margin-bottom: 2rem;
 `;
 ///////////
 
@@ -40,7 +40,6 @@ export const componentSubtitleStyle = css`
   ${directionStyles}
   ${componenSubtitleColor}
   ${Headline6Style}
-  margin-bottom: 2rem;
 `;
 ///////////////
 
@@ -56,7 +55,6 @@ export const componentTextStyle = css`
   ${directionStyles}
   ${componentTextColor}
   ${Headline7Style}
-  margin-bottom: 2rem;
 `;
 
 ///////////
@@ -69,12 +67,15 @@ export const componentHeaderBackground = theme('mode', {
     background: var(--color-gray7);
   `,
 });
+
 export const componentHeaderTheme = css`
   ${componentHeaderBackground}
   padding: 1rem 2rem;
   border-radius: 15px 15px 0 0;
-  border-bottom: 1px solid;
   ${componentBorderColor}
+  border-top:none;
+  border-right: none;
+  border-left: none;
 `;
 
 ///////////
@@ -88,7 +89,7 @@ export const componentBodyBackground = theme('mode', {
 });
 export const componentBodyTheme = css`
   ${componentBodyBackground}
-  padding: 1rem 2rem;
+  padding: 2rem 1rem;
   border-radius: 0 0 15px 15px;
 `;
 //////////
@@ -97,7 +98,6 @@ export const componentTheme = css`
   ${componentBodyBackground}
   ${directionStyles}
   border-radius: 15px;
-  border: 1px solid;
   ${componentBorderColor}
 
   header {

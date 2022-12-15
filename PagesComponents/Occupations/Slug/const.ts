@@ -31,8 +31,6 @@ export enum LanguageKeys {
   IndicativeSkillLevel_2 = 'IndicativeSkillLevel_2',
   IndicativeSkillLevel_3 = 'IndicativeSkillLevel_3',
   IndicativeSkillLevel_4 = 'IndicativeSkillLevel_4',
-  //
-  BacklogTabTitle = 'BacklogTabTitle',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -185,10 +183,5 @@ Registration or licensing may be required.`,
   specialisations_empty: {
     en: `There are no Specialisation Titles for this occupation.`,
     fa: `هیچ عنوان تخصصی برای این شغل وجود ندارد.`,
-  },
-  //
-  BacklogTabTitle: {
-    en: 'Backlog & Invitations issued',
-    fa: 'صف انتظار و دعوت نامه های صادر شده',
   },
 };

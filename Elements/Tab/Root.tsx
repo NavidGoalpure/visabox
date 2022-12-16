@@ -9,8 +9,13 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   bodies: ReactNode;
   defaultValue: string;
 }
-export const Root: React.FC<Props> = ({ items, bodies, defaultValue }) => (
-  <TabsRoot defaultValue={defaultValue}>
+export const Root: React.FC<Props> = ({
+  items,
+  bodies,
+  defaultValue,
+  ...props
+}) => (
+  <TabsRoot defaultValue={defaultValue} className={props.className}>
     <TabsList aria-label='tabs'>{items}</TabsList>
     <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
   </TabsRoot>

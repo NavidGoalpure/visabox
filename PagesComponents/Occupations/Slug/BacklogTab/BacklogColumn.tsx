@@ -5,7 +5,6 @@ import {
   BacklogSection,
   Occupation,
   Territories,
-  TerritoryObj,
 } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';
@@ -20,6 +19,7 @@ import {
 } from 'Styles/Theme/Component';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
+import { BacklogTable } from './table';
 
 interface Props {
   title: string;
@@ -54,7 +54,7 @@ const BacklogColumn: React.FC<Props> = ({
         bodies={
           <>
             <RadixTab.Content value={t(LanguageKeys.Submitted)}>
-              {t(LanguageKeys.Submitted)}
+              <BacklogTable />
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
               {t(LanguageKeys.Invited)}
@@ -77,7 +77,7 @@ const Container = styled.div`
 const Title = styled.h2`
   ${componentTextStyle}
   ${componentBorderColor}
-  width:100%;
+  width: 100%;
   height: 5rem;
   text-align: center;
   padding: 12px 1rem;
@@ -87,6 +87,9 @@ const Title = styled.h2`
 `;
 const TabRoot = styled(Tab.Root)`
   width: 100%;
+  #contents-container {
+    margin: 0.5rem;
+  }
 `;
 const TabItem = styled(Tab.Item)`
   width: 50%;

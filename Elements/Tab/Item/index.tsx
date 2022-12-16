@@ -37,15 +37,15 @@ const ColorTriggerInactiveStyle = theme('mode', {
   `,
 });
 const TabsTrigger = styled(Tabs.Trigger)`
+  ${ColorTriggerInactiveStyle}
+  ${componentSubtitleStyle}
+${directionStyles}
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  ${componentSubtitleStyle}
-  margin-bottom:0;
-  ${directionStyles}
-  ${ColorTriggerInactiveStyle}
+  margin-bottom: 0;
   width: 100%;
   min-width: 100px;
   cursor: pointer;
@@ -64,7 +64,8 @@ const TabsTrigger = styled(Tabs.Trigger)`
   }
   ////////////selected//////////
   &[aria-selected='true'] {
-    color: var(--color-gray12);
+    font-weight: 700;
+    color: var(--color-gray13);
     &::before {
       width: 64px;
       border-radius: 6px;
@@ -87,6 +88,7 @@ const ContentContainer = styled.div`
   width: 100%;
   border-left: 1px solid var(--color-gray9);
   text-align: center;
+  font-weight: 500;
   @media ${deviceMin.tabletS} {
     flex-direction: row;
   }

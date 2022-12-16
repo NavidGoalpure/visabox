@@ -26,7 +26,6 @@ interface Props {
 }
 const OccupationPage: NextPage<Props> = ({ occupation, isError }) => {
   const { t } = useStaticTranslation(componentStatements);
-  console.log('navid occupation=', occupation);
 
   const { query } = useRouter();
   // const { occupation } = useData(slug?.toString());

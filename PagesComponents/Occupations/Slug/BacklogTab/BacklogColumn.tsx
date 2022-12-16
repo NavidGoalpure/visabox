@@ -7,7 +7,7 @@ import {
   Territories,
 } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
 import { getTerritories } from 'Utils/occupations';
@@ -27,8 +27,8 @@ import {
 
 interface Props {
   title: string;
-  invitedContent: BacklogPoints | undefined;
-  submittedContent: BacklogPoints | undefined;
+  invitedContent: ReactNode;
+  submittedContent: ReactNode;
 }
 
 const BacklogColumn: React.FC<Props> = ({
@@ -58,22 +58,10 @@ const BacklogColumn: React.FC<Props> = ({
         bodies={
           <>
             <RadixTab.Content value={t(LanguageKeys.Submitted)}>
-              <BacklogTable
-                titleKey='By state'
-                titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints_Submitted(
-                  submittedContent
-                )}
-              />
+              {submittedContent}
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
-              <BacklogTable
-                titleKey='By state'
-                titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints_Invited(
-                  submittedContent
-                )}
-              />
+              {invitedContent}
             </RadixTab.Content>
           </>
         }
@@ -87,7 +75,7 @@ const Container = styled.div`
   width: 100%;
   margin-bottom: 1rem;
   @media ${deviceMin.tabletS} {
-    width: 50%;
+    width: 49%;
   }
 `;
 const Title = styled.h2`
@@ -103,6 +91,11 @@ const Title = styled.h2`
 `;
 const TabRoot = styled(Tab.Root)`
   width: 100%;
+  div {
+    &[aria-label='tabs'] {
+      border-radius: 15px;
+    }
+  }
   #contents-container {
     margin: 0.5rem;
   }

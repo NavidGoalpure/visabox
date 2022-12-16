@@ -13,6 +13,7 @@ export const BacklogTable: React.FC<Props> = ({
   rows,
 }) => {
   if (!rows || rows.length === 0) return null;
+
   return (
     <Table>
       <Thead id='header'>

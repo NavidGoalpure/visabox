@@ -10,8 +10,6 @@ export function getHtml_decsBaseOnAbv({
 }): string {
   if (!territorySection || territorySection.length === 0) return '';
   Object.entries(territorySection).map((territoryObj) => {
-    // console.log('navid obj=', territoryObj[1]);
-
     if ((territoryObj[1]?.territory as Territory)?.abv === currentTerritoryAbv)
       return territoryObj[1]?.html_desc;
   });

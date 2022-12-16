@@ -14,6 +14,7 @@ const getDetailQuery = (): string => {
  _id,
  code,
    title,
+   backlog_section,
    anzsco_section {...,
     major_group,
     submajor_group,

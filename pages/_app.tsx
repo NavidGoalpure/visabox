@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';
 import useTheme from 'Hooks/useTheme';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -28,6 +29,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           {/* @ts-ignore */}
           <Hydrate state={pageProps.dehydratedState}>
+            <Head>
+              <style>
+                @import
+                url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+              </style>
+            </Head>
             <Component {...pageProps} />
             <ReactQueryDevtools initialIsOpen={false} />
           </Hydrate>

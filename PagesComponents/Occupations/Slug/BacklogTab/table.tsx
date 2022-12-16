@@ -1,34 +1,45 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { componentTextStyle } from 'Styles/Theme/Component';
+import { componentTextStyle, componentTheme } from 'Styles/Theme/Component';
 
-export const BacklogTable = () => {
+interface Props {
+  titleKey: string;
+  titleValue: string;
+  rows: { rowKey: string; rowValue: string }[] | undefined;
+}
+export const BacklogTable: React.FC<Props> = ({
+  titleKey,
+  titleValue,
+  rows,
+}) => {
+  if (!rows || rows.length === 0) return null;
   return (
     <Table>
-      <Tr>
-        <Td>foo :</Td>
-        <Td>bar</Td>
-      </Tr>
-      <Tr>
-        <Td>sdf</Td>
-        <Td>gd</Td>
-      </Tr>
-      <Tr>
-        <Td>lk;</Td>
-        <Td>pop</Td>
-      </Tr>
-      <Tr>
-        <Td>34</Td>
-        <Td>;l </Td>
-      </Tr>
+      <Thead id='header'>
+        <Tr>
+          <th>{titleKey}</th>
+          <th>{titleValue}</th>
+        </Tr>
+      </Thead>
+      <Tbody id='body'>
+        {rows.map((row) => (
+          <Tr>
+            <Td>{row.rowKey}</Td>
+            <Td>{row.rowValue}</Td>
+          </Tr>
+        ))}
+      </Tbody>
     </Table>
   );
 };
 
 const Table = styled.table`
   width: 100%;
-  ${componentTextStyle}
+  ${componentTheme}
 `;
+const Thead = styled.thead``;
+
+const Tbody = styled.tbody``;
 const Tr = styled.tr`
   width: 100%;
   font-weight: 500;

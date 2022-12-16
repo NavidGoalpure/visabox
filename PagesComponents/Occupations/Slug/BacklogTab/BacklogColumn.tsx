@@ -20,6 +20,10 @@ import {
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import { BacklogTable } from './table';
+import {
+  getRowKeyValueBaseonBacklogPoints_Invited,
+  getRowKeyValueBaseonBacklogPoints_Submitted,
+} from './utils';
 
 interface Props {
   title: string;
@@ -54,10 +58,22 @@ const BacklogColumn: React.FC<Props> = ({
         bodies={
           <>
             <RadixTab.Content value={t(LanguageKeys.Submitted)}>
-              <BacklogTable />
+              <BacklogTable
+                titleKey='By state'
+                titleValue='EOI count'
+                rows={getRowKeyValueBaseonBacklogPoints_Submitted(
+                  submittedContent
+                )}
+              />
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
-              {t(LanguageKeys.Invited)}
+              <BacklogTable
+                titleKey='By state'
+                titleValue='EOI count'
+                rows={getRowKeyValueBaseonBacklogPoints_Invited(
+                  submittedContent
+                )}
+              />
             </RadixTab.Content>
           </>
         }

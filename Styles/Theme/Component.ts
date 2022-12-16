@@ -90,7 +90,7 @@ export const componentBodyBackground = theme('mode', {
   `,
 });
 export const componentBodyTheme = css`
-  // ${componentBodyBackground}
+  ${componentBodyBackground}
   padding: 2rem 1rem;
   border-radius: 0 0 15px 15px;
 `;
@@ -102,14 +102,21 @@ export const componentTheme = css`
   border-radius: 15px;
   ${componentBorderColor}
   overflow: hidden;
-
+  /////////////
   header {
     ${componentHeaderTheme}
   }
-
+  #header {
+    ${componentHeaderTheme}
+  }
+  ////////////
   article {
     ${componentBodyTheme}
   }
+  #body {
+    ${componentBodyTheme}
+  }
+  /////////////
   p {
     text-align: start;
   }

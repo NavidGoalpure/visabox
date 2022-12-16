@@ -26,22 +26,22 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {
     <ColumnWrappers>
       <BacklogColumn
         title={t(LanguageKeys.Title189)}
-        submittedContent={backlogSection?.submitted_189}
+        submittedContent={backlogSection?.submited_189}
         invitedContent={backlogSection?.invited_189}
       />
       <BacklogColumn
         title={t(LanguageKeys.Title190)}
-        submittedContent={backlogSection?.submitted_190}
+        submittedContent={backlogSection?.submited_190}
         invitedContent={backlogSection?.invited_190}
       />
       <BacklogColumn
         title={t(LanguageKeys.Title491)}
-        submittedContent={backlogSection?.submitted_491}
+        submittedContent={backlogSection?.submited_491}
         invitedContent={backlogSection?.invited_491}
       />
       <BacklogColumn
         title={t(LanguageKeys.Title491_family)}
-        submittedContent={backlogSection?.submitted_491_family}
+        submittedContent={backlogSection?.submited_491_family}
         invitedContent={backlogSection?.invited_491_family}
       />
     </ColumnWrappers>

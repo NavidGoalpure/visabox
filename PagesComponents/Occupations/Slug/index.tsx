@@ -5,6 +5,7 @@ import { SidebarPage } from './sideBar';
 import { PageTitleStyle } from 'Styles/Theme/Page';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
+import TooltipTag from 'Elements/TooltipTag';
 
 interface Props {
   occupation: Occupation;
@@ -20,9 +21,15 @@ const Content: React.FC<Props> = ({ occupation }) => {
           {occupation?.code}: {dt(occupation?.title)}
         </Title>
       </TitleContainer>
+      <TooltipTag
+        content='VETASSESS'
+        popupContent='Vocational Education and Training Assessment Services'
+      />
       <ToggleContainer>
         <ToggleTag content={'190'} isOn={true} />
         <ToggleTag content={'189'} isOn={false} />
+        <ToggleTag content={'491'} isOn={true} />
+        <ToggleTag content={'491 (family)'} isOn={false} />
       </ToggleContainer>
       {occupation && <SidebarPage occupation={occupation} />}
     </Container>

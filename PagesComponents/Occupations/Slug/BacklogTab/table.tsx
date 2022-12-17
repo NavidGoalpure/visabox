@@ -38,9 +38,17 @@ const Table = styled.table`
   width: 100%;
   ${componentTheme}
 `;
-const Thead = styled.thead``;
+const Thead = styled.thead`
+display: block;
+background-color: transparent !important; 
+padding: 0.5rem 0 !important;
+`;
 
-const Tbody = styled.tbody``;
+const Tbody = styled.tbody`
+text-align: center;
+padding: 1rem 0 !important;
+display: block;
+`;
 const Tr = styled.tr`
   width: 100%;
   font-weight: 500;

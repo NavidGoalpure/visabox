@@ -74,7 +74,7 @@ ${directionStyles}
     }
   }
   :first-child {
-    border-left: 0;
+    border-left: none;
   }
   ////////////hover//////////
   &:hover {
@@ -83,7 +83,7 @@ ${directionStyles}
       bottom: -5px;
     }
   }
-`;
+  `;
 const ContentContainer = styled.div`
   width: 100%;
   border-left: 1px solid var(--color-gray9);

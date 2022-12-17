@@ -37,7 +37,7 @@ const BacklogColumn: React.FC<Props> = ({
   submittedContent,
 }) => {
   const { t } = useStaticTranslation(componentStatements);
-
+  console.log("navid  =", submittedContent)
   return (
     <Container>
       <Title>{title}</Title>
@@ -82,9 +82,9 @@ const Title = styled.h2`
   ${componentTextStyle}
   ${componentBorderColor}
   width: 100%;
-  height: 5rem;
+  height: max-content;
   text-align: center;
-  padding: 12px 1rem;
+  padding: 1.5rem 0.5rem;
   border: 1px solid var(--color-gray13);
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -97,7 +97,7 @@ const TabRoot = styled(Tab.Root)`
     }
   }
   #contents-container {
-    margin: 0.5rem;
+    margin: 1rem 0;
   }
 `;
 const TabItem = styled(Tab.Item)`

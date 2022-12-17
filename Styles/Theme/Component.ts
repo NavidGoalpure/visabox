@@ -105,9 +105,11 @@ export const componentTheme = css`
   /////////////
   header {
     ${componentHeaderTheme}
+    text-align: center;
   }
   #header {
     ${componentHeaderTheme}
+    text-align: center;
   }
   ////////////
   article {

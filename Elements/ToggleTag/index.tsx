@@ -41,7 +41,7 @@ const ContainerOffColorTheme = theme('mode', {
   dark: css`
     border: 3px solid var(--color-primary1);
     background-color: var(--color-primary1);
-    color: white;
+    color: var(--color-gray9);
   `,
 });
 const LeftTextBackgroundColor = theme('mode', {
@@ -60,6 +60,7 @@ const Container = styled.div<{ isOn: boolean }>`
   align-items: center;
   overflow: hidden;
   height: 2rem;
+  margin-bottom: 1rem;
   ${({ isOn }) => (isOn ? ContainerOnColorTheme : ContainerOffColorTheme)};
 `;
 const LeftText = styled.h3<{ isOn: boolean }>`

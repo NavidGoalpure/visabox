@@ -76,7 +76,7 @@ const AccordionItem = styled(Accordion.Item)`
     box-shadow: 0 0 0 2px var(--mauve12);
   }
 `;
-const AccordionHeader = styled(Accordion.Header)<{
+const AccordionHeader = styled(Accordion.Header) <{
   backgroundTheme: 'PAGE' | 'COMPONENT';
 }>`
   display: flex;
@@ -101,6 +101,7 @@ const AccordionTrigger = styled(Accordion.Trigger)`
   transition: all 500ms ease;
   border-radius: 30px;
   background-color: var(--color-primary3);
+  cursor: pointer;
   @media ${deviceMin.mobileL} {
     ${componentSubtitleStyle};
     margin: 0;

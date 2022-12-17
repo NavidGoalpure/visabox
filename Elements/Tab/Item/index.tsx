@@ -59,7 +59,7 @@ ${directionStyles}
     background-color: var(--color-primary5);
     width: 10px;
     height: 10px;
-    transition: all 0.3s;
+    transition: all 0.25s;
     border-radius: 50%;
   }
   ////////////selected//////////

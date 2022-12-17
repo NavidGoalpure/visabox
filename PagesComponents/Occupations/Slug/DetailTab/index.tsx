@@ -11,6 +11,7 @@ import { getTerritories } from 'Utils/occupations';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { Territory } from 'Interfaces/Documents/territory';
 import { getHtml_decsBaseOnAbv } from './utils';
+import { actDetail } from './testdata';
 
 interface Props {
   occupation: Occupation;
@@ -36,7 +37,8 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
             });
             return (
               <RadixTab.Content key={territory} value={territory}>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
+                {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
+                <div dangerouslySetInnerHTML={{ __html: actDetail }} />
               </RadixTab.Content>
             );
           })}

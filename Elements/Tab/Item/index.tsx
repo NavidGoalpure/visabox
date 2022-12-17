@@ -73,9 +73,7 @@ ${directionStyles}
       background-color: var(--color-primary5);
     }
   }
-  :first-child {
-    border-left: none;
-  }
+ 
   ////////////hover//////////
   &:hover {
     &::before {

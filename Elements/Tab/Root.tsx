@@ -50,6 +50,13 @@ const TabsList = styled(Tabs.List)`
   height: 4rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  > * {
+    &:first-child {
+      div {
+        border-left: none;
+      }
+    }
+  }
 `;
 
 const ContentsContainer = styled.div`

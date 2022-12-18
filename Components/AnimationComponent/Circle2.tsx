@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from "styled-components/macro";
-import theme from "styled-theming";
+import { borderColorContent, CircleCss } from "./StyledComponents";
 
 const Circle2 = () => {
   return <Content aria-hidden={true} />;
@@ -32,33 +32,11 @@ left:40%;
 }
 `;
 
-export const borderColorContent = theme('mode', {
-  light: css`
-    border: 6px solid var(--color-gray10);
-  `,
-  dark: css`
-    border: 6px solid var(--color-primary1);
-  `,
-});
 
 const Content = styled.span`
-width: 5rem;
-height: 5rem;
-border: 6px solid var(--color-primary3);
-transform: rotate(45deg);
-border-radius: 50%;
-position: absolute;
+${CircleCss}
 top: 20%;
 left:80%;
 animation: ${MovingAnimation} 15s infinite ease;
-:before {
-  content: "";
-  border-radius: 50%;
-  position: absolute;
-  width: 5rem;
-  height: 5rem;
-  top: -30%;
-  left: -30%;
-  ${borderColorContent}
-  }
+
 `;

@@ -1,8 +1,12 @@
 import styled, { css, keyframes } from "styled-components/macro";
 import theme from "styled-theming";
-import { StyledTriangleIcon, TriangleCss, TriangleShadow } from "./StyledComponents";
+import {
+  StyledTriangleIcon,
+  TriangleCss,
+  TriangleShadow,
+} from "./StyledComponents";
 
-const Triangle1 = () => {
+const Triangle3 = () => {
   return (
     <Content aria-hidden={true}>
       <StyledTriangleIcon aria-hidden={true} />
@@ -11,37 +15,36 @@ const Triangle1 = () => {
   );
 };
 
-export default Triangle1;
+export default Triangle3;
 const MovingAnimation = keyframes`
 25%{
 transform: rotate(135deg);
-top:60%;
-left:20%;
+top:90%;
+left:40%;
 }
 
 50%{
 transform: rotate(90deg);
-top:45%;
-left:5%;
+top:40%;
+left:40%;
 }
 
 75%{
   transform: rotate(0deg);
-  top:55%;
-left:20%;
+  top:20%;
+left:80%;
 }
 
 100% {
   transform: rotate(45deg);
-  top: 80%;
-  left: 10%;
+  top: 90%;
+  left: 90%
 }
 `;
 
-
 const Content = styled.span`
   ${TriangleCss}
-  top: 80%;
-  left: 10%;
+  top: 90%;
+  left: 90%;
   animation: ${MovingAnimation} 15s infinite ease;
 `;

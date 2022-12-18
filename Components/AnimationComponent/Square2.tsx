@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from "styled-components/macro";
 import theme from "styled-theming";
+import { SquareCss } from "./StyledComponents";
 
 const Square2 = () => {
   return <Content aria-hidden={true} />;
@@ -31,7 +32,7 @@ left:85%;
 }
 `;
 
-export const borderColorContent = theme('mode', {
+export const borderColorContent = theme("mode", {
   light: css`
     border: 6px solid var(--color-gray10);
   `,
@@ -40,24 +41,9 @@ export const borderColorContent = theme('mode', {
   `,
 });
 
-
 const Content = styled.span`
-width: 5rem;
-height: 5rem;
-border: 6px solid var(--color-primary3);
-transform: rotate(45deg);
-position: absolute;
-top: 60%;
-left: 50%;
-animation: ${MovingAnimation} 15s infinite
-ease;
-:before {
-  content: "";
-  position: absolute;
-  width: 5rem;
-  height: 5rem;
-  top: -30%;
-  left: -30%;
-  ${borderColorContent}
-  }
+  ${SquareCss}
+  top: 60%;
+  left: 50%;
+  animation: ${MovingAnimation} 15s infinite ease;
 `;

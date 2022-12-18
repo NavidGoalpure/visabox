@@ -47,8 +47,8 @@ const ContainerOffColorTheme = theme('mode', {
     color: var(--color-disable-light);
   `,
   dark: css`
-    border: 3px solid var(--color-primary1-dark);
-    background-color: var(--color-primary1-dark);
+    border: 3px solid var(--color-disable-dark);
+    background-color: var(--color-disable-dark);
     color: var(--color-gray9);
   `,
 });

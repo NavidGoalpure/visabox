@@ -14,7 +14,8 @@ interface Props {
 
 const Content: React.FC<Props> = ({ occupation }) => {
   const { dt } = useDynamicTranslation();
-
+  console.log('navid occupation=', occupation);
+  const assessing_authority = occupation?.assessing_authority;
   return (
     <Container>
       <TitleContainer>
@@ -24,10 +25,12 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </TitleContainer>
       <VetassesContainer>
         <VetassesTitle>Assessing Authority</VetassesTitle>
-        <TooltipTag
-          content='VETASSESS'
-          popupContent='Vocational Education and Training Assessment Services'
-        />
+        {assessing_authority ? (
+          <TooltipTag
+            content={assessing_authority.replaceAll('_', ' ')}
+            // popupContent='Vocational Education and Training Assessment Services'
+          />
+        ) : null}
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag contentKey={'190'} isOn={true} backgroundTheme='PAGE' />
@@ -52,7 +55,7 @@ const Title = styled.h1`
   ${PageTitleStyle};
   margin-bottom: 1rem;
   text-align: center;
-  `;
+`;
 
 const VetassesContainer = styled.div`
   display: flex;
@@ -64,21 +67,20 @@ const VetassesContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    h1{
+    h1 {
       margin-bottom: 0;
     }
   }
-`
+`;
 const VetassesTitle = styled.h1`
   ${PageSubtitleStyle};
   margin-bottom: 1rem;
   text-align: center;
   font-weight: 400;
-  @media ${deviceMin.tabletS} { 
-  margin-right: 2rem;
-}
+  @media ${deviceMin.tabletS} {
+    margin-right: 2rem;
+  }
 `;
-
 
 const TitleContainer = styled.div`
   display: flex;
@@ -91,14 +93,9 @@ const TitleContainer = styled.div`
 
 
 const ToggleContainer = styled.div`
-display: flex;
-justify-content: space-around;
-flex-wrap: wrap;
-flex-direction: row;
-width: 100%;
-margin-bottom: 3rem;
-@media ${deviceMin.tabletS} {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -107,7 +104,6 @@ margin-bottom: 3rem;
       margin-right: 0;
     }
   }
-}
 `;
 const StyledToggleTag = styled(ToggleTag)`
  margin-right: 2rem;

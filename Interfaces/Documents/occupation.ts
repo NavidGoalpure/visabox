@@ -27,7 +27,51 @@ export interface Occupation {
   title: MultiLanguageText;
   visa_option_section?: VisaOptionSection[];
 }
-
+export enum AssessingAuthority {
+  'AACA' = 'AACA',
+  'AASW' = 'AASW',
+  'ACECQA' = 'ACECQA',
+  'ACS' = 'ACS',
+  'ACWA' = 'ACWA',
+  'ADC' = 'ADC',
+  'AIMS' = 'AIMS',
+  'AIQS' = 'AIQS',
+  'AITSL' = 'AITSL',
+  'ANMAC' = 'ANMAC',
+  'ANZSNM' = 'ANZSNM',
+  'AOAC' = 'AOAC',
+  'AOPA' = 'AOPA',
+  'APC' = 'APC',
+  'APharmC' = 'APharmC',
+  'APS' = 'APS',
+  'ASMIRT' = 'ASMIRT',
+  'AVBC' = 'AVBC',
+  'CASA' = 'CASA',
+  'CCEA' = 'CCEA',
+  'CMBA' = 'CMBA',
+  'CPAA' = 'CPAA',
+  'CAANZ' = 'CAANZ',
+  'IPA' = 'IPA',
+  'DDA' = 'DDA',
+  'EA' = 'EA',
+  'IML' = 'IML',
+  'MedBA' = 'MedBA',
+  'NAATI' = 'NAATI',
+  'OCANZ' = 'OCANZ',
+  'OTC' = 'OTC',
+  'PodBA' = 'PodBA',
+  'SLAA' = 'SLAA',
+  'SPA' = 'SPA',
+  'SSSI' = 'SSSI',
+  'TRA' = 'TRA',
+  'ACPSEM' = 'ACPSEM',
+  'VETASSESS_A' = 'VETASSESS_A',
+  'VETASSESS_B' = 'VETASSESS_B',
+  'VETASSESS_C' = 'VETASSESS_C',
+  'VETASSESS_D' = 'VETASSESS_D',
+  'VETASSESS_E' = 'VETASSESS_E',
+  'VETASSESS_F' = 'VETASSESS_F',
+}
 export interface AnzscoSection {
   _type?: string;
   alternative_title?: MultiLanguageTextArray;
@@ -38,6 +82,7 @@ export interface AnzscoSection {
   major_group: number;
   submajor_group: number;
   minor_group: number;
+  assessing_authority: AssessingAuthority;
 }
 
 export enum Territories {

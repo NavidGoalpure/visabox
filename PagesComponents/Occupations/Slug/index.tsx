@@ -113,6 +113,7 @@ const ToggleContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-bottom: 3rem;
 `;
 const StyledToggleTag = styled(ToggleTag)`
   margin-inline-end: 2rem;

@@ -39,6 +39,8 @@
   --color-fail1: #e4b8b8;
   --color-fail2: #fc8181;
   --color-fail3: #ffdede;
+  --color-disable-light: var(--color-gray11);
+  --color-disable-dark: var(--color-primary2);
   /* // */
   --max-width-page: 1134px;
 }

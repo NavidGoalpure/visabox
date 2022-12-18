@@ -4,10 +4,7 @@ import styled, { css } from 'styled-components/macro';
 import * as Tabs from '@radix-ui/react-tabs';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
-import {
-  componentSubtitleStyle,
-  componentTextStyle,
-} from 'Styles/Theme/Component';
+import { componentSubtitleStyle } from 'Styles/Theme/Component';
 import theme from 'styled-theming';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -31,6 +28,14 @@ export const Item: React.FC<Props> = ({ title, value, icon }) => {
 const ColorTriggerInactiveStyle = theme('mode', {
   light: css`
     color: var(--color-gray4);
+  `,
+  dark: css`
+    color: var(--color-gray13);
+  `,
+});
+const ColorTriggerActiveStyle = theme('mode', {
+  light: css`
+    color: var(--color-gray5);
   `,
   dark: css`
     color: var(--color-gray13);
@@ -65,7 +70,7 @@ ${directionStyles}
   ////////////selected//////////
   &[aria-selected='true'] {
     font-weight: 700;
-    color: var(--color-gray13);
+    ${ColorTriggerActiveStyle}
     &::before {
       width: 64px;
       border-radius: 6px;
@@ -73,7 +78,7 @@ ${directionStyles}
       background-color: var(--color-primary5);
     }
   }
- 
+
   ////////////hover//////////
   &:hover {
     &::before {
@@ -81,7 +86,7 @@ ${directionStyles}
       bottom: -5px;
     }
   }
-  `;
+`;
 const ContentContainer = styled.div`
   width: 100%;
   border-left: 1px solid var(--color-gray9);

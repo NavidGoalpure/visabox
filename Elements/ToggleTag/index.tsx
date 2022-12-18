@@ -34,13 +34,13 @@ const ContainerOnColorTheme = theme('mode', {
 });
 const ContainerOffColorTheme = theme('mode', {
   light: css`
-    border: 3px solid var(--color-primary1);
-    background-color: var(--color-primary1);
-    color: var(--color-gray9);
+    border: 3px solid var(--color-disable-light);
+    background-color: var(--color-disable-light);
+    color: var(--color-disable-light);
   `,
   dark: css`
-    border: 3px solid var(--color-primary1);
-    background-color: var(--color-primary1);
+    border: 3px solid var(--color-primary1-dark);
+    background-color: var(--color-primary1-dark);
     color: var(--color-gray9);
   `,
 });

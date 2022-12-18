@@ -37,8 +37,8 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
             });
             return (
               <RadixTab.Content key={territory} value={territory}>
-                {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
-                <div dangerouslySetInnerHTML={{ __html: actDetail }} />
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+                {/* <div dangerouslySetInnerHTML={{ __html: actDetail }} /> */}
               </RadixTab.Content>
             );
           })}

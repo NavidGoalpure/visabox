@@ -13,6 +13,7 @@ import {
 } from 'Styles/Theme/Component';
 import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from './const';
+import SkillPriorityLists from './SkillPriorityLists';
 import { SkillLevelDescription } from './utils';
 
 interface Props {
@@ -26,9 +27,8 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
   return (
     <Container>
       <TitleWrapper>
-        <Title>{`${t(LanguageKeys.UnitGroup)} ${
-          occupationUnitGroup?.code
-        }: ${dt(occupationUnitGroup?.title)}`}</Title>
+        <Title>{`${t(LanguageKeys.UnitGroup)} ${occupationUnitGroup?.code
+          }: ${dt(occupationUnitGroup?.title)}`}</Title>
       </TitleWrapper>
       <Wrapper>
         <ContentTitle>{t(LanguageKeys.Description)} </ContentTitle>
@@ -44,6 +44,13 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
           triggerContent={t(LanguageKeys.Tasks)}
           content={
             <AccordionContent data={dtArray(occupationUnitGroup?.tasks)} />
+          }
+        />
+        <StyledAccordion
+          backgroundTheme={'COMPONENT'}
+          triggerContent={t(LanguageKeys.SkillPriorityLists)}
+          content={
+            <div><SkillPriorityLists occupation={undefined} /></div>
           }
         />
         {/* navid occupation in this unit accordion
@@ -104,7 +111,7 @@ const Description = styled.p`
   padding: 2rem 1.75rem;
   border-radius: 5px;
 `;
-const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
+const SkillLevelTitle = styled(ContentTitle) <{ skillLevel: string }>`
   position: relative;
   display: flex;
   justify-content: flex-start;

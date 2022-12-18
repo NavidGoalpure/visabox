@@ -30,10 +30,10 @@ const Content: React.FC<Props> = ({ occupation }) => {
         />
       </VetassesContainer>
       <ToggleContainer>
-        <ToggleTag content={'190'} isOn={true} />
-        <ToggleTag content={'189'} isOn={false} />
-        <ToggleTag content={'491'} isOn={true} />
-        <ToggleTag content={'491 (family)'} isOn={false} />
+        <StyledToggleTag contentKey={'190'} isOn={true} backgroundTheme='PAGE' />
+        <StyledToggleTag contentKey={'189'} isOn={false} backgroundTheme='PAGE' />
+        <StyledToggleTag contentKey={'491'} isOn={true} backgroundTheme='PAGE' />
+        <StyledToggleTag contentKey={'491 (family)'} isOn={false} backgroundTheme='PAGE' />
       </ToggleContainer>
       {occupation && <SidebarPage occupation={occupation} />}
     </Container>
@@ -87,7 +87,8 @@ const TitleContainer = styled.div`
   gap: 2rem;
 `;
 
-// const ToggleTag = styled(ToggleTag)``
+
+
 
 const ToggleContainer = styled.div`
 display: flex;
@@ -101,9 +102,6 @@ margin-bottom: 3rem;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  div {
-    margin-right: 2rem;
-  }
   > * {
     &:last-child {
       margin-right: 0;
@@ -111,3 +109,6 @@ margin-bottom: 3rem;
   }
 }
 `;
+const StyledToggleTag = styled(ToggleTag)`
+ margin-right: 2rem;
+`

@@ -3,22 +3,30 @@ import theme from 'styled-theming';
 import { BsCheckLg } from 'react-icons/bs';
 import { HiXMark } from 'react-icons/hi2';
 import { Headline6Style } from 'Styles/Typo';
+import { ReactNode } from 'react';
 
 interface Props {
-  content: string;
-  isOn: boolean;
+  contentKey: string;
+  isOn?: boolean;
+  contentValue?: ReactNode;
+  backgroundTheme?: 'PAGE' | 'COMPONENT';
 }
-const ToggleTag: React.FC<Props> = ({ content, isOn }) => {
+const ToggleTag: React.FC<Props> = ({ backgroundTheme='COMPONENT',contentKey,contentValue, isOn }) => {
+  function getSmartContent({ contentValue, isOn }: { contentValue: ReactNode; isOn?: boolean; }):ReactNode {
+if (contentValue) return contentValue
+if (isOn) return <CheckLogo /> 
+return  <XLogo />
+  }
   return (
     <Container isOn={isOn}>
-      <LeftText isOn={isOn}> {content} </LeftText>{' '}
-      <RightText>{isOn ? <CheckLogo /> : <XLogo />}</RightText>
+      <ContentKey isOn={isOn} backgroundTheme={backgroundTheme}> {contentKey} </ContentKey>{' '}
+      <ContentValue >{getSmartContent({contentValue, isOn})}</ContentValue>
     </Container>
   );
 };
 export default ToggleTag;
 
-const ContainerOnColorTheme = theme('mode', {
+const ContainerOnColorTheme = theme('mode', { 
   light: css`
     border: 3px solid var(--color-primary4);
     box-shadow: 0 0 4px 0px var(--color-primary4);
@@ -44,16 +52,8 @@ const ContainerOffColorTheme = theme('mode', {
     color: var(--color-gray9);
   `,
 });
-const LeftTextBackgroundColor = theme('mode', {
-  light: css`
-    background-color: white;
-  `,
-  dark: css`
-    background-color: var(--color-gray3);
-  `,
-});
 
-const Container = styled.div<{ isOn: boolean }>`
+const Container = styled.div<{ isOn?: boolean }>`
   border-radius: 30px;
   width: fit-content;
   display: flex;
@@ -63,12 +63,33 @@ const Container = styled.div<{ isOn: boolean }>`
   margin-bottom: 1rem;
   ${({ isOn }) => (isOn ? ContainerOnColorTheme : ContainerOffColorTheme)};
 `;
-const LeftText = styled.h3<{ isOn: boolean }>`
-  ${LeftTextBackgroundColor}
+
+///////////////////////
+const ContentKeyBackgroundColorPage = theme('mode', {
+  light: css`
+    background-color: white;
+  `,
+  dark: css`
+    background-color: var(--color-gray3);
+  `,
+});
+const ContentKeyBackgroundColorComponent = theme('mode', {
+  light: css`
+    background-color: white;
+  `,
+  dark: css`
+    background-color: var(--color-gray6);
+  `,
+});
+
+const ContentKey = styled.h3<{ isOn?: boolean ; backgroundTheme: 'PAGE' | 'COMPONENT';}>`
+${({backgroundTheme})=> backgroundTheme==='COMPONENT'?ContentKeyBackgroundColorComponent:ContentKeyBackgroundColorPage}
   ${Headline6Style}
   padding: 0.25em 1em;
 `;
-const RightText = styled.h3`
+///////////////////////
+
+const ContentValue = styled.div`
   padding: 0.15em 1em;
   display: flex;
   align-items: center;

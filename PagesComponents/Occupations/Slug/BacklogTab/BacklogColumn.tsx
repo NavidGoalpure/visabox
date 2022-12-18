@@ -84,7 +84,6 @@ const Title = styled.h2`
   height: max-content;
   text-align: center;
   padding: 1.5rem 0.5rem;
-  border: 1px solid var(--color-gray13);
   border-radius: 10px;
   margin-bottom: 1rem;
 `;

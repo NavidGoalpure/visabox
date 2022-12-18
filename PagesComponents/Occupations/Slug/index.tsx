@@ -27,7 +27,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <VetassesTitle>Assessing Authority</VetassesTitle>
         {assessing_authority ? (
           <TooltipTag
-            content={assessing_authority}
+            content={assessing_authority.replaceAll('_', ' ')}
             // popupContent='Vocational Education and Training Assessment Services'
           />
         ) : null}

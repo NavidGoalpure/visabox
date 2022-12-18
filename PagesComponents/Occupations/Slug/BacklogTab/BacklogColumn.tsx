@@ -37,7 +37,6 @@ const BacklogColumn: React.FC<Props> = ({
   submittedContent,
 }) => {
   const { t } = useStaticTranslation(componentStatements);
-  console.log("navid  =", submittedContent)
   return (
     <Container>
       <Title>{title}</Title>

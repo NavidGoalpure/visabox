@@ -33,10 +33,27 @@ const Content: React.FC<Props> = ({ occupation }) => {
         ) : null}
       </VetassesContainer>
       <ToggleContainer>
-        <StyledToggleTag contentKey={'190'} isOn={true} backgroundTheme='PAGE' />
-        <StyledToggleTag contentKey={'189'} isOn={false} backgroundTheme='PAGE' />
-        <StyledToggleTag contentKey={'491'} isOn={true} backgroundTheme='PAGE' />
-        <StyledToggleTag contentKey={'491 (family)'} isOn={false} backgroundTheme='PAGE' />
+        <StyledToggleTag
+          contentKey={'190'}
+          isOn={true}
+          backgroundTheme='PAGE'
+        />
+        <StyledToggleTag
+          contentKey={'189'}
+          isOn={false}
+          backgroundTheme='PAGE'
+        />
+        <StyledToggleTag
+          contentKey={'491'}
+          isOn={true}
+          backgroundTheme='PAGE'
+        />
+        <StyledToggleTag
+          contentKey={'491 (family)'}
+          isOn={false}
+          backgroundTheme='PAGE'
+          style={{ marginInlineEnd: '0' }}
+        />
       </ToggleContainer>
       {occupation && <SidebarPage occupation={occupation} />}
     </Container>
@@ -89,9 +106,6 @@ const TitleContainer = styled.div`
   gap: 2rem;
 `;
 
-
-
-
 const ToggleContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -99,12 +113,7 @@ const ToggleContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  > * {
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 `;
 const StyledToggleTag = styled(ToggleTag)`
- margin-right: 2rem;
-`
+  margin-inline-end: 2rem;
+`;

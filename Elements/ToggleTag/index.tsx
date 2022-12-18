@@ -3,30 +3,45 @@ import theme from 'styled-theming';
 import { BsCheckLg } from 'react-icons/bs';
 import { HiXMark } from 'react-icons/hi2';
 import { Headline6Style } from 'Styles/Typo';
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   contentKey: string;
   isOn?: boolean;
   contentValue?: ReactNode;
   backgroundTheme?: 'PAGE' | 'COMPONENT';
 }
-const ToggleTag: React.FC<Props> = ({ backgroundTheme='COMPONENT',contentKey,contentValue, isOn }) => {
-  function getSmartContent({ contentValue, isOn }: { contentValue: ReactNode; isOn?: boolean; }):ReactNode {
-if (contentValue) return contentValue
-if (isOn) return <CheckLogo /> 
-return  <XLogo />
+const ToggleTag: React.FC<Props> = ({
+  backgroundTheme = 'COMPONENT',
+  contentKey,
+  contentValue,
+  isOn,
+  ...props
+}) => {
+  function getSmartContent({
+    contentValue,
+    isOn,
+  }: {
+    contentValue: ReactNode;
+    isOn?: boolean;
+  }): ReactNode {
+    if (contentValue) return contentValue;
+    if (isOn) return <CheckLogo />;
+    return <XLogo />;
   }
   return (
-    <Container isOn={isOn}>
-      <ContentKey isOn={isOn} backgroundTheme={backgroundTheme}> {contentKey} </ContentKey>{' '}
-      <ContentValue >{getSmartContent({contentValue, isOn})}</ContentValue>
+    <Container isOn={isOn} {...props}>
+      <ContentKey isOn={isOn} backgroundTheme={backgroundTheme}>
+        {' '}
+        {contentKey}{' '}
+      </ContentKey>{' '}
+      <ContentValue>{getSmartContent({ contentValue, isOn })}</ContentValue>
     </Container>
   );
 };
 export default ToggleTag;
 
-const ContainerOnColorTheme = theme('mode', { 
+const ContainerOnColorTheme = theme('mode', {
   light: css`
     border: 3px solid var(--color-primary4);
     box-shadow: 0 0 4px 0px var(--color-primary4);
@@ -82,8 +97,14 @@ const ContentKeyBackgroundColorComponent = theme('mode', {
   `,
 });
 
-const ContentKey = styled.h3<{ isOn?: boolean ; backgroundTheme: 'PAGE' | 'COMPONENT';}>`
-${({backgroundTheme})=> backgroundTheme==='COMPONENT'?ContentKeyBackgroundColorComponent:ContentKeyBackgroundColorPage}
+const ContentKey = styled.h3<{
+  isOn?: boolean;
+  backgroundTheme: 'PAGE' | 'COMPONENT';
+}>`
+  ${({ backgroundTheme }) =>
+    backgroundTheme === 'COMPONENT'
+      ? ContentKeyBackgroundColorComponent
+      : ContentKeyBackgroundColorPage}
   ${Headline6Style}
   padding: 0.25em 1em;
 `;

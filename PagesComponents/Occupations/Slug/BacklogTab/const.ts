@@ -7,6 +7,7 @@ export enum LanguageKeys {
   Title190 = 'Title190',
   Title491 = 'Title491',
   Title491_family = 'Title491_family',
+  NoData = 'NoData',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Submitted: {
@@ -32,5 +33,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title491_family: {
     en: 'Visa Subclass 491 (Family Sponsored)',
     fa: 'ویزا سابکلاس 491 (فامیلی)',
+  },
+  NoData: {
+    en: 'No EOI data for this occupation & status',
+    fa: 'هیچ EOI برای این شغل و وضعیت وجود ندارد',
   },
 };

@@ -7,6 +7,8 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import TooltipTag from 'Elements/TooltipTag';
 import { deviceMin } from 'Consts/device';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 interface Props {
   occupation: Occupation;
@@ -14,8 +16,10 @@ interface Props {
 
 const Content: React.FC<Props> = ({ occupation }) => {
   const { dt } = useDynamicTranslation();
-  console.log('navid occupation=', occupation);
+  const { t } = useStaticTranslation(componentStatements);
+  //
   const assessing_authority = occupation?.assessing_authority;
+  //
   return (
     <Container>
       <TitleContainer>
@@ -24,7 +28,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
         </Title>
       </TitleContainer>
       <VetassesContainer>
-        <VetassesTitle>Assessing Authority</VetassesTitle>
+        <VetassesTitle>{t(LanguageKeys.AssessingAuthority)}</VetassesTitle>
         {assessing_authority ? (
           <TooltipTag
             content={assessing_authority.replaceAll('_', ' ')}
@@ -34,23 +38,24 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag
-          contentKey={'190'}
-          isOn={true}
+          contentKey={'189'}
+          isOn={!!occupation?.backlog_section?.submited_189}
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={'189'}
-          isOn={false}
+          contentKey={'190'}
+          isOn={!!occupation?.backlog_section?.submited_190}
           backgroundTheme='PAGE'
         />
+
         <StyledToggleTag
           contentKey={'491'}
-          isOn={true}
+          isOn={!!occupation?.backlog_section?.submited_491}
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={'491 (family)'}
-          isOn={false}
+          contentKey={t(LanguageKeys['491-family'])}
+          isOn={!!occupation?.backlog_section?.submited_491_family}
           backgroundTheme='PAGE'
           style={{ marginInlineEnd: '0' }}
         />
@@ -66,6 +71,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top: 2rem;
 `;
 
 const Title = styled.h1`
@@ -95,7 +101,7 @@ const VetassesTitle = styled.h1`
   text-align: center;
   font-weight: 400;
   @media ${deviceMin.tabletS} {
-    margin-right: 2rem;
+    margin-inline-end: 1rem;
   }
 `;
 
@@ -113,7 +119,7 @@ const ToggleContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 `;
 const StyledToggleTag = styled(ToggleTag)`
   margin-inline-end: 2rem;

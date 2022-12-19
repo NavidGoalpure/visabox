@@ -5,6 +5,8 @@ export enum LanguageKeys {
   SeoDesc = 'SeoDesc',
 
   //
+  AssessingAuthority = 'AssessingAuthority',
+  '491-family' = '491-family',
   Details = 'Details',
   Anzsco = 'Anzsco',
   Backlog = 'Backlog',
@@ -42,6 +44,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoDesc: {
     fa: 'فهرست کامل مشاغل ماهر را ببینید و بدانید که آیا شغل شما واجد شرایط درخواست ویزای کار یا مهارت استرالیا است یا خیر | برای اطلاعات بیشتر امروز با ما تماس بگیرید',
     en: 'See the full Skilled Occupations List & find out whether your occupation is eligible to apply for an Australian Skilled or Work Visa | Contact us today for more info',
+  },
+  AssessingAuthority: {
+    fa: 'مرجع ارزیابی',
+    en: 'Assessing Authority',
+  },
+  '491-family': {
+    fa: '491-فامیلی',
+    en: '491-family',
   },
   //
   Details: {

@@ -42,15 +42,18 @@ flex-direction: column;
 align-items: center;
 @media ${deviceMin.tabletL} {
 flex-direction: row;
-justify-content: space-between;
+justify-content: center;
 flex-wrap: wrap;
+gap: 1rem;
 }
 `
 
 const StyledToggleTag = styled(ToggleTag)`
 width: 100%;
+box-shadow: none;
 @media ${deviceMin.tabletL} {
-width: 33%;
+width: 31%;
+height: max-content;
 }
 h3 {
     display: flex;

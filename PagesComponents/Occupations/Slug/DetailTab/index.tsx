@@ -12,6 +12,16 @@ import { ScrollBox } from 'Elements/ScrollBox';
 import { Territory } from 'Interfaces/Documents/territory';
 import { getHtml_decsBaseOnAbv } from './utils';
 import { actDetail } from './testdata';
+import styled from 'styled-components/macro';
+import {
+  componentSubtitleColor,
+  componentSubtitleStyle,
+  componentTextColor,
+  componentTextStyle,
+  componentTitleColor,
+  componentTitleStyle
+}
+  from 'Styles/Theme/Component';
 
 interface Props {
   occupation: Occupation;
@@ -37,8 +47,8 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
             });
             return (
               <RadixTab.Content key={territory} value={territory}>
-                <div dangerouslySetInnerHTML={{ __html: html }} />
-                {/* <div dangerouslySetInnerHTML={{ __html: actDetail }} /> */}
+                {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
+                <Details dangerouslySetInnerHTML={{ __html: actDetail }} />
               </RadixTab.Content>
             );
           })}
@@ -49,3 +59,24 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
 };
 
 export default DetailComponent;
+
+
+const Details = styled.div`
+gap: 1rem
+margin-top: 1rem;
+h3 {
+  ${componentTitleStyle}
+  ${componentTitleColor}
+}
+h4 {
+  ${componentSubtitleStyle}
+  color: var(--color-gray13);
+}
+h5 {
+  ${componentTextStyle}
+  ${componentTextColor}
+}
+div {
+  gap: 1rem;
+}
+`

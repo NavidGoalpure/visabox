@@ -7,6 +7,7 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
+import { device, deviceMin } from 'Consts/device';
 
 function DesktopFooter() {
   const { t } = useStaticTranslation(componentStatements);
@@ -164,6 +165,15 @@ const ContactUsContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  @media ${deviceMin.laptopXS} {
+    right: 3%;
+  }
+  @media ${deviceMin.laptopM} {
+    right: 5%;
+  }
+  @media ${deviceMin.laptopL} {
+    right: 6%;
+  }
 `;
 const ContactUs = styled.h2`
   ${Headline5Style};

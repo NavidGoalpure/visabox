@@ -13,7 +13,7 @@ export const TriangleIcon: React.FC<HTMLAttributes<HTMLOrSVGElement>> = (props) 
       <path
         d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
         stroke="#1BADA1"
-        stroke-width="6"
+        strokeWidth="6"
       />
     </svg>
   );

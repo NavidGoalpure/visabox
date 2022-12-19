@@ -2,7 +2,7 @@ export const actDetail: string = `<div id="tabs-act" aria-labelledby="ui-id-1" r
                           <h3 style="color:#FF6633;"><a href="https://www.act.gov.au/migration/skilled-migrants" target="_blank" rel="noopener">Australian Capital Territory</a> <i class="icon-tiny fa fa-external-link"></i></h3>
                           <h4 style="margin:20px 0px;"><a style="color: #333;" href="https://www.act.gov.au/migration/skilled-migrants/act-critical-skills-list" target="_blank" rel="noopener">ACT Critical Skills List</a> <i class="icon-tiny fa fa-external-link"></i></h4><h5 style="padding-bottom:20px;">121111: Aquaculture Farmer</h5><div style="overflow-x:auto;"><table id="tb"><tbody><tr><th style="text-align: center;">Subclass 190</th><th style="text-align: center;">Subclass 491</th><th>Nomination places available each month</th></tr><tr><td style="text-align:center;"><i style="color:indianred; font-size:26px;" class="fas fa-times" aria-hidden="true" title="Occupation MAY NOT be eligible"></i></td><td style="text-align:center;"><i style="color:indianred; font-size:26px;" class="fas fa-times" aria-hidden="true" title="Occupation MAY NOT be eligible"></i></td><td></td></tr></tbody></table></div>
                           <div class="ftab">
-                            <h5 style="padding-bottom:0px;">General Requirements</h5>
+                            <h4 style="padding-bottom:0px;">General Requirements</h4>
                             <p>Candidates must register their interest in ACT nomination by completing a score-based <a href="https://www.act.gov.au/migration/skilled-migrants/canberra-matrix" target="_blank" rel="noopener">Canberra Matrix</a> <i class="icon-tiny fa fa-external-link"></i><br>
                             Candidates may be nominated under four streams:</p>
                             <ul>
@@ -11,7 +11,7 @@ export const actDetail: string = `<div id="tabs-act" aria-labelledby="ui-id-1" r
                               <li>Doctorate Streamlined nomination</li>
                               <li>Significant economic benefit</li>
                             </ul>
-                            <h5 style="padding-bottom:0px;padding-top:10px;">Requirements for Canberra Residents</h5>
+                            <h4 style="padding-bottom:0px;padding-top:10px;">Requirements for Canberra Residents</h4>
                             <p>Candidates applying for <u>Subclass 190</u> nomination must:</p>
                             <ul>
                               <li>Have an occupation on the ACT Critical Skills List; or be the primary holder of a 457/482 visa sponsored by an ACT employer for the last 6 months; or be the majority owner of an eligible ACT business claiming Matrix points in the Small Business Owner category.</li>

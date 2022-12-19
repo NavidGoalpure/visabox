@@ -17,10 +17,10 @@ export const componentBorderColor = theme('mode', {
 /////////////////
 export const componentTitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray7);
+    color: var(--color-gray7) !important;
   `,
   dark: css`
-    color: var(--color-gray13);
+    color: var(--color-gray13) !important;
   `,
 });
 export const componentTitleStyle = css`
@@ -30,27 +30,27 @@ export const componentTitleStyle = css`
 `;
 ///////////
 
-export const componenSubtitleColor = theme('mode', {
+export const componentSubtitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray8);
+    color: var(--color-gray8) !important;
   `,
   dark: css`
-    color: var(--color--primary6);
+    color: var(--color--gray8) !important;
   `,
 });
 export const componentSubtitleStyle = css`
   ${directionStyles}
-  ${componenSubtitleColor}
+  ${componentSubtitleColor}
   ${Headline6Style}
 `;
 ///////////////
 
 export const componentTextColor = theme('mode', {
   light: css`
-    color: var(--color-gray4);
+    color: var(--color-gray4) !important;
   `,
   dark: css`
-    color: var(--color-gray13);
+    color: var(--color-gray13) !important;
   `,
 });
 export const componentTextStyle = css`

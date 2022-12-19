@@ -1,6 +1,6 @@
 import AnimationComponent from 'Components/AnimationComponent';
+import { Button } from 'Elements/Button';
 import PageLayout from 'Components/Layouts/PageContainer';
-import { NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components/macro';
@@ -9,12 +9,9 @@ import {
   billboardSubtitleStyle,
   billboardTextStyle,
 } from 'Styles/Theme/billboard';
+import Link from 'next/link';
 
-interface Props {
-  statusCode?: number;
-}
-const Error: NextPage<Props> = ({ statusCode }) => {
-  console.log(statusCode);
+export default function Error() {
   return (
     <PageLayout>
       <Head>
@@ -23,15 +20,18 @@ const Error: NextPage<Props> = ({ statusCode }) => {
       </Head>
       <Container>
         <AnimationComponent />
-        <Title>Error</Title>
-        <Subtitle>Oops...</Subtitle>
-        <Desc>We have some error {statusCode}</Desc>
+        <TxtContainer>
+          <Title>Someone stepped on the wire</Title>
+          <Subtitle>Please check your vpn connection</Subtitle>
+          <Desc>{`there most be some problems in the servers please try again later`}</Desc>
+          <Link href='/occupations'>
+            <Button>Home</Button>
+          </Link>
+        </TxtContainer>
       </Container>
     </PageLayout>
   );
-};
-export default Error;
-
+}
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -39,6 +39,15 @@ const Container = styled.div`
   padding: 9.5rem 0;
   position: relative;
 `;
+
+const TxtContainer = styled.div`
+  padding: 32px 24px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
 const Title = styled.h1`
   ${billboardTitleStyle}
 `;

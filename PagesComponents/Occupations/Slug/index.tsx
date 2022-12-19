@@ -7,6 +7,8 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import TooltipTag from 'Elements/TooltipTag';
 import { deviceMin } from 'Consts/device';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 interface Props {
   occupation: Occupation;
@@ -14,7 +16,8 @@ interface Props {
 
 const Content: React.FC<Props> = ({ occupation }) => {
   const { dt } = useDynamicTranslation();
-  console.log('navid occupation=', occupation);
+  const { t } = useStaticTranslation(componentStatements);
+  //
   const assessing_authority = occupation?.assessing_authority;
   return (
     <Container>
@@ -24,7 +27,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
         </Title>
       </TitleContainer>
       <VetassesContainer>
-        <VetassesTitle>Assessing Authority</VetassesTitle>
+        <VetassesTitle>{t(LanguageKeys.AssessingAuthority)}</VetassesTitle>
         {assessing_authority ? (
           <TooltipTag
             content={assessing_authority.replaceAll('_', ' ')}
@@ -49,7 +52,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={'491 (family)'}
+          contentKey={t(LanguageKeys['491-family'])}
           isOn={false}
           backgroundTheme='PAGE'
           style={{ marginInlineEnd: '0' }}
@@ -95,7 +98,7 @@ const VetassesTitle = styled.h1`
   text-align: center;
   font-weight: 400;
   @media ${deviceMin.tabletS} {
-    margin-right: 2rem;
+    margin-inline-end: 1rem;
   }
 `;
 

@@ -1,6 +1,7 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import React from 'react';
 import styled from 'styled-components/macro';
+import { directionStyles } from 'Styles/Theme';
 import { componentStatements, LanguageKeys } from './const';
 
 const NoData = () => {
@@ -8,7 +9,7 @@ const NoData = () => {
 
   return (
     <Container>
-      <p>{t(LanguageKeys.NoData)}</p>;
+      <p>{t(LanguageKeys.NoData)}</p>
     </Container>
   );
 };
@@ -16,6 +17,7 @@ const NoData = () => {
 export default NoData;
 
 const Container = styled.div`
+  ${directionStyles}
   display: flex;
   justify-content: center;
   width: 100%;

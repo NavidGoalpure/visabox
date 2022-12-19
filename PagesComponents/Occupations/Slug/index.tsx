@@ -19,6 +19,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   //
   const assessing_authority = occupation?.assessing_authority;
+  //
   return (
     <Container>
       <TitleContainer>
@@ -37,23 +38,24 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag
-          contentKey={'190'}
-          isOn={true}
+          contentKey={'189'}
+          isOn={!!occupation?.backlog_section?.submited_189}
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={'189'}
-          isOn={false}
+          contentKey={'190'}
+          isOn={!!occupation?.backlog_section?.submited_190}
           backgroundTheme='PAGE'
         />
+
         <StyledToggleTag
           contentKey={'491'}
-          isOn={true}
+          isOn={!!occupation?.backlog_section?.submited_491}
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
           contentKey={t(LanguageKeys['491-family'])}
-          isOn={false}
+          isOn={!!occupation?.backlog_section?.submited_491_family}
           backgroundTheme='PAGE'
           style={{ marginInlineEnd: '0' }}
         />
@@ -69,6 +71,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding-top: 2rem;
 `;
 
 const Title = styled.h1`
@@ -116,6 +119,7 @@ const ToggleContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-bottom: 4rem;
 `;
 const StyledToggleTag = styled(ToggleTag)`
   margin-inline-end: 2rem;

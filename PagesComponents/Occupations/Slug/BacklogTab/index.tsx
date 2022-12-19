@@ -80,53 +80,63 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {
   return (
     <ColumnWrappers>
       {/* //////////189////////// */}
-      <BacklogColumn
-        title={t(LanguageKeys.Title189)}
-        submittedContent={getSmartComponent_Submited(
-          backlogSection?.submited_189,
-          backlogSection?.total_submited_189
-        )}
-        invitedContent={getSmartComponent_Invited(
-          backlogSection?.invited_189,
-          backlogSection?.total_invited_189
-        )}
-      />
+      {backlogSection?.submited_189 || backlogSection?.total_submited_189 ? (
+        <BacklogColumn
+          title={t(LanguageKeys.Title189)}
+          submittedContent={getSmartComponent_Submited(
+            backlogSection?.submited_189,
+            backlogSection?.total_submited_189
+          )}
+          invitedContent={getSmartComponent_Invited(
+            backlogSection?.invited_189,
+            backlogSection?.total_invited_189
+          )}
+        />
+      ) : null}
       {/* ////////////190//////////// */}
-      <BacklogColumn
-        title={t(LanguageKeys.Title190)}
-        submittedContent={getSmartComponent_Submited(
-          backlogSection?.submited_190,
-          backlogSection?.total_submited_190
-        )}
-        invitedContent={getSmartComponent_Invited(
-          backlogSection?.invited_190,
-          backlogSection?.total_invited_190
-        )}
-      />
+      {backlogSection?.submited_190 || backlogSection?.total_submited_190 ? (
+        <BacklogColumn
+          title={t(LanguageKeys.Title190)}
+          submittedContent={getSmartComponent_Submited(
+            backlogSection?.submited_190,
+            backlogSection?.total_submited_190
+          )}
+          invitedContent={getSmartComponent_Invited(
+            backlogSection?.invited_190,
+            backlogSection?.total_invited_190
+          )}
+        />
+      ) : null}
       {/* //////////491////////// */}
-      <BacklogColumn
-        title={t(LanguageKeys.Title491)}
-        submittedContent={getSmartComponent_Submited(
-          backlogSection?.submited_491,
-          backlogSection?.total_submited_491
-        )}
-        invitedContent={getSmartComponent_Invited(
-          backlogSection?.invited_491,
-          backlogSection?.total_invited_491
-        )}
-      />
+      {backlogSection?.submited_491 ||
+      backlogSection?.total_submited_491_family ? (
+        <BacklogColumn
+          title={t(LanguageKeys.Title491)}
+          submittedContent={getSmartComponent_Submited(
+            backlogSection?.submited_491,
+            backlogSection?.total_submited_491
+          )}
+          invitedContent={getSmartComponent_Invited(
+            backlogSection?.invited_491,
+            backlogSection?.total_invited_491
+          )}
+        />
+      ) : null}
       {/* //////////491-FAMILY////////// */}
-      <BacklogColumn
-        title={t(LanguageKeys.Title491_family)}
-        submittedContent={getSmartComponent_Submited(
-          backlogSection?.submited_491_family,
-          backlogSection?.total_submited_491_family
-        )}
-        invitedContent={getSmartComponent_Invited(
-          backlogSection?.invited_491_family,
-          backlogSection?.total_invited_491_family
-        )}
-      />
+      {backlogSection?.submited_491_family ||
+      backlogSection?.total_submited_491_family ? (
+        <BacklogColumn
+          title={t(LanguageKeys.Title491_family)}
+          submittedContent={getSmartComponent_Submited(
+            backlogSection?.submited_491_family,
+            backlogSection?.total_submited_491_family
+          )}
+          invitedContent={getSmartComponent_Invited(
+            backlogSection?.invited_491_family,
+            backlogSection?.total_invited_491_family
+          )}
+        />
+      ) : null}
     </ColumnWrappers>
   );
 };
@@ -138,6 +148,11 @@ const ColumnWrappers = styled.article`
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
-  margin-bottom: 2rem;
   justify-content: center;
+  & > :first-child {
+    margin-inline-start: auto;
+  }
+  & > :last-child {
+    margin-inline-end: auto;
+  }
 `;

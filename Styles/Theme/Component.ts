@@ -47,10 +47,10 @@ export const componentSubtitleStyle = css`
 
 export const componentTextColor = theme('mode', {
   light: css`
-    color: var(--color-gray4) !important;
+    color: var(--color-gray4);
   `,
   dark: css`
-    color: var(--color-gray13) !important;
+    color: var(--color-gray13);
   `,
 });
 export const componentTextStyle = css`

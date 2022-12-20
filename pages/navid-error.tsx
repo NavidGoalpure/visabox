@@ -9,6 +9,7 @@ import {
   billboardSubtitleStyle,
   billboardTextStyle,
 } from 'Styles/Theme/billboard';
+import WirePic from "./images/WirePic.svg";
 import Link from 'next/link';
 
 export default function Error() {
@@ -21,6 +22,9 @@ export default function Error() {
       <Container>
         <AnimationComponent />
         <TxtContainer>
+          <Wire>
+            <img src="./images/Wirepic.svg" alt="" />
+          </Wire>
           <Title>Someone stepped on the wire</Title>
           <Subtitle>Please check your vpn connection</Subtitle>
           <Desc>{`there most be some problems in the servers please try again later`}</Desc>
@@ -47,6 +51,11 @@ const TxtContainer = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+
+const Wire = styled.img`
+width: 30%;
+height: max-content;
+`
 
 const Title = styled.h1`
   ${billboardTitleStyle}

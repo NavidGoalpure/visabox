@@ -32,10 +32,10 @@ export const componentTitleStyle = css`
 
 export const componentSubtitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray8) !important;
+    color: var(--color-gray8);
   `,
   dark: css`
-    color: var(--color--gray8) !important;
+    color: var(--color--gray13);
   `,
 });
 export const componentSubtitleStyle = css`

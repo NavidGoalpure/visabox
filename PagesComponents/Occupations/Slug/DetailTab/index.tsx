@@ -62,13 +62,10 @@ export default DetailComponent;
 const Details = styled.div`
 gap: 1rem
 margin-top: 1rem;
-h3 {
   ${componentTitleStyle}
   ${componentTitleColor}
-}
 h4 {
   ${componentSubtitleStyle}
-  color: var(--color-gray13);
 }
 h5 {
   ${componentTextStyle}
@@ -77,4 +74,59 @@ h5 {
 div {
   gap: 1rem;
 }
+/////
+a {
+    color: var(--color-primary2);
+}
+tbody{
+      margin: 0 0 20px;
+    padding: 0;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #fff;
+    border-top: 1px solid #ececec;
+}
+tr {
+  background-color: red;
+  border: none !important;
+}
+th{
+      text-align: center;
+  :first-child {
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-color: blue;
+    border-style: none solid solid none;
+    border-top: medium none;
+    border-width: medium 1px 1px medium;
+    font-weight: 700;
+    padding: 10px;
+}
+}
+ul li {
+    list-style: disc;
+    list-style-position: outside;
+ 
+    ::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: start !important;
+}
+}
+ p {
+    padding-bottom: 10px;
+}
+.ui-tabs-panel {
+    padding: 1.5em 1.5em 2em 1.5em;
+        border-width: 0;
+    background: none;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 3px;
+}
+
 `;

@@ -19,9 +19,8 @@ import {
   componentTextColor,
   componentTextStyle,
   componentTitleColor,
-  componentTitleStyle
-}
-  from 'Styles/Theme/Component';
+  componentTitleStyle,
+} from 'Styles/Theme/Component';
 
 interface Props {
   occupation: Occupation;
@@ -60,7 +59,6 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
 
 export default DetailComponent;
 
-
 const Details = styled.div`
 gap: 1rem
 margin-top: 1rem;
@@ -79,4 +77,4 @@ h5 {
 div {
   gap: 1rem;
 }
-`
+`;

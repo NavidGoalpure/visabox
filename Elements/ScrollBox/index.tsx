@@ -36,8 +36,7 @@ export { ScrollBox };
 const ScrollAreaRoot = styled(ScrollArea.Root)<{ heightToRem: number }>`
   ${directionStyles}
   width: 100%;
-  max-height: ${({ heightToRem }) => `${heightToRem}rem`};
-  height: max-content;
+  height: ${({ heightToRem }) => `${heightToRem}rem`};
   border-radius: 4px;
   overflow: hidden;
   --scrollbar-size: 0.5rem;

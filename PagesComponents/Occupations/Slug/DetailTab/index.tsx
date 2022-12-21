@@ -1,20 +1,12 @@
-import {
-  Occupation,
-  Territories,
-  TerritorySection,
-} from 'Interfaces/Documents/occupation';
-import { UnitGroup } from 'Interfaces/Documents/unitGroup';
+import { Occupation, Territories } from 'Interfaces/Documents/occupation';
 import React from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
 import { getTerritories } from 'Utils/occupations';
 import { ScrollBox } from 'Elements/ScrollBox';
-import { Territory } from 'Interfaces/Documents/territory';
 import { getHtml_decsBaseOnAbv } from './utils';
-import { actDetail } from './testdata';
 import styled from 'styled-components/macro';
 import {
-  componentSubtitleColor,
   componentSubtitleStyle,
   componentTextColor,
   componentTextStyle,
@@ -44,10 +36,11 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
               territorySection: occupation.territory_section,
               currentTerritoryAbv: territory,
             });
+            console.log('navid html=', html);
             return (
               <RadixTab.Content key={territory} value={territory}>
-                {/* <div dangerouslySetInnerHTML={{ __html: html }} /> */}
-                <Details dangerouslySetInnerHTML={{ __html: actDetail }} />
+                <Details dangerouslySetInnerHTML={{ __html: html }} />
+                {/* <Details dangerouslySetInnerHTML={{ __html: actDetail }} /> */}
               </RadixTab.Content>
             );
           })}

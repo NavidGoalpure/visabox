@@ -25,7 +25,7 @@ export default {
     {
       name: 'html_desc',
       title: 'HTmL Description',
-      type: 'string',
+      type: 'text',
     },
   ],
   preview: {

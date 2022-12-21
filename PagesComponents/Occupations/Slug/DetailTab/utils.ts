@@ -9,9 +9,16 @@ export function getHtml_decsBaseOnAbv({
   currentTerritoryAbv: string;
 }): string {
   if (!territorySection || territorySection.length === 0) return '';
-  Object.entries(territorySection).map((territoryObj) => {
-    if ((territoryObj[1]?.territory as Territory)?.abv === currentTerritoryAbv)
-      return territoryObj[1]?.html_desc;
-  });
-  return '';
+  let res = '';
+  for (let index = 0; index < territorySection.length; index++) {
+    const territoryObj = Object.entries(territorySection)[index];
+    if (
+      (territoryObj[1]?.territory as Territory)?.abv === currentTerritoryAbv
+    ) {
+      res = territoryObj[1]?.html_desc;
+      break;
+    }
+  }
+
+  return res;
 }

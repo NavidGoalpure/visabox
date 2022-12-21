@@ -135,12 +135,20 @@ export default {
       title: 'Backlog Section',
       type: 'backlog_obj',
       group: 'backlog_section',
-      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
   preview: {
     select: {
       title: 'title',
+      // subtitle: 'title',
+    },
+    prepare(selection) {
+      const { title, code } = selection;
+
+      return {
+        title: title,
+        subtitle: title,
+      };
     },
   },
 };

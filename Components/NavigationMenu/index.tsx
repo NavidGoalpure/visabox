@@ -12,7 +12,7 @@ function Header() {
     <Container>
       <Wrapper>
         <NavigationMenu.Item>
-          <Link href={'/'}>
+          <Link href={'/en/occupations'}>
             <Logo />
           </Link>
         </NavigationMenu.Item>

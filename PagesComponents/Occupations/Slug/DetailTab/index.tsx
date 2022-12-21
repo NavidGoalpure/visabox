@@ -7,6 +7,7 @@ import { ScrollBox } from 'Elements/ScrollBox';
 import { getHtml_decsBaseOnAbv } from './utils';
 import styled from 'styled-components/macro';
 import {
+  componentSubtitleColor,
   componentSubtitleStyle,
   componentTextColor,
   componentTextStyle,
@@ -53,19 +54,33 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
 export default DetailComponent;
 
 const Details = styled.div`
+flex-direction: column;
 gap: 1rem
-margin-top: 1rem;
-  ${componentTitleStyle}
-  ${componentTitleColor}
+${componentTitleStyle}
+${componentTitleColor}
 h4 {
   ${componentSubtitleStyle}
+  a{
+    ${componentSubtitleColor}
+  }
 }
 h5 {
   ${componentTextStyle}
   ${componentTextColor}
 }
 div {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
+  p {
+    ${componentTextStyle}
+    ${componentTextColor}
+  }
+  ul {
+    ${componentTextStyle}
+    ${componentTextColor}
+  }
 }
 /////
 a {

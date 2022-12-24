@@ -17,24 +17,31 @@ import {
   componentTitleStyle,
 } from 'Styles/Theme/Component';
 import Head from 'next/head';
+import useDevice from 'Hooks/useDevice';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
   occupation: Occupation;
 }
 
 const DetailComponent: React.FC<Props> = ({ occupation }) => {
+  const { isMobile } = useDevice();
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <>
-      <Head>
-        <link
-          rel='stylesheet'
-          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/solid.css'
-          crossOrigin='anonymous'
-        />
-      </Head>
+      {!isMobile ? (
+        <Head>
+          <link
+            rel='stylesheet'
+            href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/solid.css'
+            crossOrigin='anonymous'
+          />
+        </Head>
+      ) : null}
       <Tab.Root
         defaultValue={Territories.ACT}
-        items={
+        heads={
           <>
             {getTerritories().map((territory) => (
               <Tab.Item key={territory} title={territory} value={territory} />
@@ -42,21 +49,25 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
           </>
         }
         bodies={
-          <ScrollBox heightToRem={40}>
-            {getTerritories().map((territory) => {
-              const html = getHtml_decsBaseOnAbv({
-                territorySection: occupation.territory_section,
-                currentTerritoryAbv: territory,
-              });
-              console.log('navid html=', html);
-              return (
-                <RadixTab.Content key={territory} value={territory}>
-                  <Details dangerouslySetInnerHTML={{ __html: html }} />
-                  {/* <Details dangerouslySetInnerHTML={{ __html: actDetail }} /> */}
-                </RadixTab.Content>
-              );
-            })}
-          </ScrollBox>
+          isMobile ? (
+            <NoMobile>{t(LanguageKeys.NoMobile)}</NoMobile>
+          ) : (
+            <ScrollBox heightToRem={40}>
+              {getTerritories().map((territory) => {
+                const html = getHtml_decsBaseOnAbv({
+                  territorySection: occupation.territory_section,
+                  currentTerritoryAbv: territory,
+                });
+                console.log('navid html=', html);
+                return (
+                  <RadixTab.Content key={territory} value={territory}>
+                    <Details dangerouslySetInnerHTML={{ __html: html }} />
+                    {/* <Details dangerouslySetInnerHTML={{ __html: actDetail }} /> */}
+                  </RadixTab.Content>
+                );
+              })}
+            </ScrollBox>
+          )
         }
       />
     </>
@@ -64,6 +75,15 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
 };
 
 export default DetailComponent;
+
+const NoMobile = styled.div`
+  ${componentTextStyle}
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  min-height: 8rem;
+  text-align: center;
+`;
 
 const Details = styled.div`
   flex-direction: column;
@@ -93,7 +113,12 @@ const Details = styled.div`
   }
   /////
   a {
-    color: var(--color-primary2);
+    color: var(--color-primary2) !important;
+    text-decoration: underline;
+  }
+  u {
+    text-decoration: auto;
+    font-weight: 700;
   }
   table {
     ${componentBorderColor};
@@ -115,11 +140,14 @@ const Details = styled.div`
     overflow: hidden;
   }
   tr {
-    // background-color: red;
-    // border: none !important;
+    width: auto;
+    height: 4rem;
   }
   td {
     text-align: center;
+    ${componentTextStyle}
+    height: 2rem;
+    padding: 0.5rem;
   }
 
   th {
@@ -131,7 +159,7 @@ const Details = styled.div`
     border-top: medium none;
     border-width: medium 1px 1px medium;
     font-weight: 500;
-    padding: 10px;
+    padding: 16px;
     border-color: #ececec;
     :last-child {
       border-right: none;

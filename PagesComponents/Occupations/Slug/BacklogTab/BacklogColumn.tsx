@@ -42,7 +42,7 @@ const BacklogColumn: React.FC<Props> = ({
       <Title>{title}</Title>
       <TabRoot
         defaultValue={t(LanguageKeys.Submitted)}
-        items={
+        heads={
           <>
             <TabItem
               title={t(LanguageKeys.Submitted)}

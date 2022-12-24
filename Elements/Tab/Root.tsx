@@ -5,18 +5,20 @@ import { deviceMin } from 'Consts/device';
 import theme from 'styled-theming';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  items: ReactNode;
+  heads: ReactNode;
   bodies: ReactNode;
   defaultValue: string;
 }
 export const Root: React.FC<Props> = ({
-  items,
+  heads,
   bodies,
   defaultValue,
   ...props
 }) => (
   <TabsRoot defaultValue={defaultValue} className={props.className}>
-    <TabsList aria-label='tabs'>{items}</TabsList>
+    <HeadesWrapper id='heads-container'>
+      <HeadsList aria-label='tabs'>{heads}</HeadsList>
+    </HeadesWrapper>
     <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
   </TabsRoot>
 );
@@ -27,12 +29,14 @@ const TabsRoot = styled(Tabs.Root)`
   display: flex;
   flex-direction: column;
   width: 100%;
+`;
+const HeadesWrapper = styled.div`
   overflow: scroll;
   @media ${deviceMin.tabletS} {
     overflow: hidden;
   }
 `;
-export const backgroundTabsList = theme('mode', {
+export const backgroundHeadsList = theme('mode', {
   light: css`
     background: var(--color-gray13);
     border: 1px solid var(--color-gray9);
@@ -41,8 +45,8 @@ export const backgroundTabsList = theme('mode', {
     background: var(--color-gray7);
   `,
 });
-const TabsList = styled(Tabs.List)`
-  ${backgroundTabsList}
+const HeadsList = styled(Tabs.List)`
+  ${backgroundHeadsList}
   display: flex;
   justify-content: space-between;
   width: max-content;

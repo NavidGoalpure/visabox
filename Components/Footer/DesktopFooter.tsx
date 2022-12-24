@@ -8,6 +8,7 @@ import { SiGmail } from 'react-icons/si';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { device, deviceMin } from 'Consts/device';
+import Link from 'next/link';
 
 function DesktopFooter() {
   const { t } = useStaticTranslation(componentStatements);
@@ -16,8 +17,13 @@ function DesktopFooter() {
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <Items data-name={t(LanguageKeys.Home)}>{t(LanguageKeys.Home)}</Items>
-        <Items data-name={t(LanguageKeys.SkilledOccupationList)}>
+        <Items href={'/en/occupations'} data-name={t(LanguageKeys.Home)}>
+          {t(LanguageKeys.Home)}
+        </Items>
+        <Items
+          href={'/en/occupations'}
+          data-name={t(LanguageKeys.SkilledOccupationList)}
+        >
           {t(LanguageKeys.SkilledOccupationList)}
         </Items>
       </ItemsContainer>
@@ -119,7 +125,7 @@ export const hoverBackground = theme('mode', {
      var(--color-gray2);
   `,
 });
-const Items = styled.h2`
+const Items = styled(Link)`
   ${Headline5Style}
   color: var(--color-gray9);
   cursor: pointer;
@@ -127,14 +133,14 @@ const Items = styled.h2`
   width: max-content;
   transition: all 400ms ease;
   :before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0px;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
-    background:${hoverBackground};
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: ${hoverBackground};
     height: 5px;
     width: 100%;
     overflow: hidden;

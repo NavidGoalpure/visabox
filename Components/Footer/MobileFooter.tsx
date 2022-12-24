@@ -5,6 +5,7 @@ import theme from 'styled-theming';
 import { Headline5Style } from 'Styles/Typo';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
+import Link from 'next/link';
 
 function MobileFooter() {
   return (
@@ -12,8 +13,8 @@ function MobileFooter() {
       <StyledLogo />
       <ItemsContainer>
         <HeadItem>Pages</HeadItem>
-        <Items>Home</Items>
-        <Items>Skilled Occupation List</Items>
+        <Items href={'/en/occupations'}>Home</Items>
+        <Items href={'/en/occupations'}>Skilled Occupation List</Items>
       </ItemsContainer>
       <ContactUsContainer>
         <ContactUs>Contact us</ContactUs>
@@ -93,7 +94,7 @@ const HeadItem = styled.h2`
   ${TextColor};
   cursor: pointer;
 `;
-const Items = styled.h2`
+const Items = styled(Link)`
   ${Headline5Style}
   color: var(--color-gray9);
   cursor: pointer;

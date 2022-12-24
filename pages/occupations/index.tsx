@@ -7,7 +7,7 @@ import {
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Content from 'PagesComponents/Occupations';
 import PageLayout from 'Components/Layouts/PageContainer';
-import { sanityClient } from 'sanity';
+import { sanityClient } from 'Utils/sanity';
 import { dehydrate, QueryClient } from 'react-query';
 import { OccupationsQueryKeys } from 'Utils/query';
 import { getListQuery } from 'Queries/occupations/List';

@@ -1,9 +1,6 @@
 // lib/sanity.js
-import {
-  createPreviewSubscriptionHook,
-  createCurrentUserHook,
-  createClient,
-} from 'next-sanity';
+
+import createClient from '@sanity/client';
 import createImageUrlBuilder from '@sanity/image-url';
 
 export const config = {
@@ -43,4 +40,6 @@ export const sanityClient = createClient(config);
  * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
  * Read more: https://www.sanity.io/docs/image-url
  **/
+
+//@ts-ignore
 export const urlFor = (source) => createImageUrlBuilder(config).image(source);

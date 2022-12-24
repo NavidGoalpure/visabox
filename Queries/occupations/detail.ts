@@ -1,4 +1,4 @@
-import { sanityClient } from '../../sanity';
+import { sanityClient } from 'Utils/sanity';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { ClientError } from '@sanity/client';
 

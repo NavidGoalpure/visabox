@@ -4,7 +4,6 @@ import Content from 'PagesComponents/Occupations/Slug';
 import { useRouter } from 'next/router';
 import { useData } from 'PagesComponents/Occupations/Slug/useData';
 import Head from 'next/head';
-import { sanityClient } from '../../sanity';
 
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';

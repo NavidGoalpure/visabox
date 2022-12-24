@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { Headline5Style } from 'Styles/Typo';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
 
 function MobileFooter() {
   return (
@@ -18,7 +19,7 @@ function MobileFooter() {
         <ContactUs>Contact us</ContactUs>
         <LogosContainer>
           <TelegramLogo />
-          <WhatsappLogo />
+          <GmailLogo />
         </LogosContainer>
       </ContactUsContainer>
     </Container>
@@ -123,8 +124,9 @@ const TelegramLogo = styled(FaTelegramPlane)`
   width: 2rem;
   height: 2rem;
 `;
-const WhatsappLogo = styled(FaWhatsapp)`
+const GmailLogo = styled(SiGmail)`
   color: var(--color-gray9);
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.8s ease;
 `;

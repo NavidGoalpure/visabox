@@ -140,15 +140,15 @@ export default {
   preview: {
     select: {
       title: 'title',
-      // subtitle: 'title',
+      subtitle: 'code',
     },
-    prepare(selection) {
-      const { title, code } = selection;
+    // prepare(selection) {
+    //   const { title, code } = selection;
 
-      return {
-        title: title,
-        subtitle: title,
-      };
-    },
+    //   return {
+    //     title: title,
+    //     subtitle: title,
+    //   };
+    // },
   },
 };

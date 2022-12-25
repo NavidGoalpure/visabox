@@ -27,6 +27,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       items={
         <>
           <SideBar.Item
+            title={t(LanguageKeys.Backlog)}
+            value='backlog'
+            icon={<Backlog />}
+          />
+          <SideBar.Item
             title={t(LanguageKeys.Details)}
             value='details'
             icon={<DetailsIcon />}
@@ -35,11 +40,6 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             title={t(LanguageKeys.Anzsco)}
             value='anzsco'
             icon={<AnszcoIcon />}
-          />
-          <SideBar.Item
-            title={t(LanguageKeys.Backlog)}
-            value='backlog'
-            icon={<Backlog />}
           />
         </>
       }

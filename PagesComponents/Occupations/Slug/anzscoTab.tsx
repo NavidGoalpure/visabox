@@ -28,32 +28,32 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
       <Wrapper>
         <Table>
           <Tr>
-            <Td>{t(LanguageKeys.MajorGroup)} :</Td>
-            <Td>
+            <TdKey>{t(LanguageKeys.MajorGroup)} :</TdKey>
+            <TdValue>
               {`${occupation?.major_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(occupation?.major_group || 0))}`}
-            </Td>
+            </TdValue>
           </Tr>
           <Tr>
-            <Td>{t(LanguageKeys.SubMajorGroup)} :</Td>
-            <Td>
+            <TdKey>{t(LanguageKeys.SubMajorGroup)} :</TdKey>
+            <TdValue>
               {`${occupation?.submajor_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(occupation?.submajor_group || 0))}`}
-            </Td>
+            </TdValue>
           </Tr>
           <Tr>
-            <Td>{t(LanguageKeys.MinorGroup)} :</Td>
-            <Td>
+            <TdKey>{t(LanguageKeys.MinorGroup)} :</TdKey>
+            <TdValue>
               {`${occupation?.minor_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(occupation?.minor_group || 0))}`}
-            </Td>
+            </TdValue>
           </Tr>
           <Tr>
-            <Td>{t(LanguageKeys.UnitGroup)} :</Td>
-            <Td>
+            <TdKey>{t(LanguageKeys.UnitGroup)} :</TdKey>
+            <TdValue>
               {(occupation?.unit_group as UnitGroup)?.code} -
               {dt((occupation?.unit_group as UnitGroup)?.title)}
-            </Td>
+            </TdValue>
           </Tr>
         </Table>
         <ContentTitle>{t(LanguageKeys.Description)}</ContentTitle>
@@ -137,17 +137,42 @@ const Table = styled.table`
 
 const Tr = styled.tr`
   width: 100%;
-  display: grid;
-  grid-template-columns: 30% 70%;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1rem;
   :last-child {
     margin-bottom: 0;
   }
 `;
-const Td = styled.td`
+//////////////
+const tdValueColor = theme('mode', {
+  light: css`
+    color: var(--color-gray6);
+  `,
+  dark: css`
+    color: var(--color-gray13);
+  `,
+});
+const TdValue = styled.td`
   ${componentSubtitleStyle}
+  ${tdValueColor}
   margin:0;
 `;
+
+//////////////
+const tdKeyColor = theme('mode', {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray11);
+  `,
+});
+const TdKey = styled(TdValue)`
+  ${tdKeyColor}
+`;
+////////////////
+
 const ContentTitle = styled.h2`
   ${componentTitleStyle}
   margin-bottom:1.5rem;

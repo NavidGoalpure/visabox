@@ -35,7 +35,7 @@ export const componentSubtitleColor = theme('mode', {
     color: var(--color-gray8);
   `,
   dark: css`
-    color: var(--color-gray13);
+    color: var(--color-gray11);
   `,
 });
 export const componentSubtitleStyle = css`

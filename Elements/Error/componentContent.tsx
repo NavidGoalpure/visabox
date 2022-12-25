@@ -3,18 +3,21 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 import React, { ReactElement } from 'react';
 import styled from 'styled-components/macro';
-import { componentTitleStyle } from 'Styles/Theme/Component';
+import {
+  componentSubtitleStyle,
+  componentTitleStyle,
+} from 'Styles/Theme/Component';
 import { MdError } from 'react-icons/md';
-
 
 export const ComponentError: React.FC = () => {
   const { t } = useStaticTranslation(globalComponentStatements);
-    return (
-      <Container>
-        <ErrorIcon />
-        <p>{t(LanguageKeys.SomethingWentWrong)}</p>
-      </Container>
-    );
+  return (
+    <Container>
+      <ErrorIcon />
+      <h3>{t(LanguageKeys.WentWrongTitle)}</h3>
+      <p>{t(LanguageKeys.WentWrongSubtitle)}</p>
+    </Container>
+  );
 };
 const ErrorIcon = styled(MdError)`
   color: var(--color-fail1);
@@ -25,9 +28,13 @@ const ErrorIcon = styled(MdError)`
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  p {
+  h3 {
     ${componentTitleStyle}
+  }
+  p {
+    ${componentSubtitleStyle}
   }
 `;

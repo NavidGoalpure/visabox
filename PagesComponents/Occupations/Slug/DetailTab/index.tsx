@@ -58,7 +58,6 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
                   territorySection: occupation.territory_section,
                   currentTerritoryAbv: territory,
                 });
-                console.log('navid html=', html);
                 return (
                   <RadixTab.Content key={territory} value={territory}>
                     <Details dangerouslySetInnerHTML={{ __html: html }} />

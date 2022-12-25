@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import Head from 'next/head';
+import ErrorBoundary from 'Components/errorBoundary';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -35,7 +36,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                 url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
               </style>
             </Head>
-            <Component {...pageProps} />
+            <ErrorBoundary>
+              <Component {...pageProps} />
+            </ErrorBoundary>
             <ReactQueryDevtools initialIsOpen={false} />
           </Hydrate>
         </QueryClientProvider>

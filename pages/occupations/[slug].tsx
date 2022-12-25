@@ -2,12 +2,10 @@ import { GetStaticProps, NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
 import Content from 'PagesComponents/Occupations/Slug';
 import { useRouter } from 'next/router';
-import { useData } from 'PagesComponents/Occupations/Slug/useData';
 import Head from 'next/head';
 
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
-import path from 'path';
 import { Languages } from 'Interfaces';
 import {
   getAllOccupationSlugs,
@@ -17,18 +15,15 @@ import {
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Occupations/Slug/const';
-// import { useData } from 'PagesComponents/Occupations/Slug/useData';
+import Error from 'next/error';
 
 interface Props {
   occupation?: Occupation;
-  isError?: boolean;
+  errorCode?: number;
 }
-const OccupationPage: NextPage<Props> = ({ occupation, isError }) => {
+const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
   const { t } = useStaticTranslation(componentStatements);
-
-  const { query } = useRouter();
-  // const { occupation } = useData(slug?.toString());
-  if (isError) return <p>'navid is error...'</p>;
+  if (errorCode) return <Error statusCode={errorCode} />;
   return (
     <PageLayout>
       <Head>
@@ -80,7 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   } catch (error) {
     return {
       props: {
-        isError: true,
+        errorCode: 500,
       },
     };
   }

@@ -9,6 +9,8 @@ export enum LanguageKeys {
   Search = 'Search',
   SearchPlaceHolder = 'SearchPlaceHolder',
   LoadMore = 'LoadMore',
+  //
+  SomethingWentWrong = 'SomethingWentWrong',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -39,6 +41,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   LoadMore: {
     fa: 'بیشتر',
     en: 'Load More',
+  },
+  SomethingWentWrong: {
+    en: 'Something Went Wrong',
+    fa: 'متاسفانه مشکلی پیش آمده',
   },
 };
 

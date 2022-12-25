@@ -8,7 +8,7 @@ import { useListData } from './useListData';
 import { useLastOccupationData } from './useLastOccupationData';
 import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
-import { ContentOrError } from './contentOrError';
+import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components/macro';
 import { useState } from 'react';
 
@@ -33,7 +33,7 @@ const Content: React.FC = () => {
       <PageSubtitle />
       <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
       <ContentOrError
-        isError={isError}
+        isError={true}
         content={<CardsSection occupations={occupations} />}
       />
       <SmartButton

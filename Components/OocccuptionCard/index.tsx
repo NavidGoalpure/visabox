@@ -23,7 +23,6 @@ interface Props {
   tasks: MultiLanguageTextArray;
 }
 function OccupationCard({ code, title, description, slug, tasks }: Props) {
-  // const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
 
   const { locale } = useLocale();

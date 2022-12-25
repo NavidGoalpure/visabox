@@ -33,7 +33,7 @@ export const ButtonCss = css<{
   align-items: center;
   white-space: nowrap;
   cursor: pointer;
-  width: 100%;
+  width: -webkit-fill-available;
   height: 3rem;
   padding: 0 3rem;
 

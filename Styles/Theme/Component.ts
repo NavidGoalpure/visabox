@@ -81,9 +81,24 @@ export const componentHeaderTheme = css`
 `;
 
 ///////////
+export const componentBodyBackground_NoBorder = theme('mode', {
+  light: css`
+    background: #ffffff;
+  `,
+  dark: css`
+    background: var(--color-gray6);
+  `,
+});
+export const componentBodyTheme_NoBorder = css`
+  ${componentBodyBackground_NoBorder}
+  padding: 2rem 1rem;
+  border-radius: 0 0 15px 15px;
+`;
+//////////////////
 export const componentBodyBackground = theme('mode', {
   light: css`
     background: #ffffff;
+    border: 1px solid var(--color-gray11);
   `,
   dark: css`
     background: var(--color-gray6);
@@ -113,10 +128,10 @@ export const componentTheme = css`
   }
   ////////////
   article {
-    ${componentBodyTheme}
+    ${componentBodyTheme_NoBorder}
   }
   #body {
-    ${componentBodyTheme}
+    ${componentBodyTheme_NoBorder}
   }
   /////////////
   p {

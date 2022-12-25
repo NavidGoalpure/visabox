@@ -33,7 +33,7 @@ const Content: React.FC = () => {
       <PageSubtitle />
       <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
       <ContentOrError
-        isError={true}
+        isError={isError}
         content={<CardsSection occupations={occupations} />}
       />
       <SmartButton

@@ -6,6 +6,6 @@ interface Props {
   content: ReactElement;
 }
 export const ContentOrError: React.FC<Props> = ({ isError, content }) => {
-  return <ComponentError />;
-  if (isError) return content;
+  if (isError) return <ComponentError />;
+  return content;
 };

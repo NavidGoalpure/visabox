@@ -27,8 +27,9 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
   return (
     <Container>
       <TitleWrapper>
-        <Title>{`${t(LanguageKeys.UnitGroup)} ${occupationUnitGroup?.code
-          }: ${dt(occupationUnitGroup?.title)}`}</Title>
+        <Title>{`${t(LanguageKeys.UnitGroup)} ${
+          occupationUnitGroup?.code
+        }: ${dt(occupationUnitGroup?.title)}`}</Title>
       </TitleWrapper>
       <Wrapper>
         <ContentTitle>{t(LanguageKeys.Description)} </ContentTitle>
@@ -50,9 +51,12 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
           backgroundTheme={'COMPONENT'}
           triggerContent={t(LanguageKeys.SkillPriorityLists)}
           content={
-            <div><SkillPriorityLists occupation={undefined} /></div>
+            <div>
+              <SkillPriorityLists occupation={undefined} />
+            </div>
           }
         />
+        {/*  */}
         {/* navid occupation in this unit accordion
          <StyledAccordion
           backgroundTheme={"COMPONENT"}
@@ -111,7 +115,7 @@ const Description = styled.p`
   padding: 2rem 1.75rem;
   border-radius: 5px;
 `;
-const SkillLevelTitle = styled(ContentTitle) <{ skillLevel: string }>`
+const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
   position: relative;
   display: flex;
   justify-content: flex-start;

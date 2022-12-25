@@ -33,27 +33,27 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
   );
 };
 
-// export const getServerSideProps: GetServerSideProps = withCSR(
-//   async (ctx: NextPageContext) => {
-//     //
-//     const queryClient = new QueryClient();
-//     let statusCode = null;
+export const getServerSideProps: GetServerSideProps = withCSR(
+  async (ctx: NextPageContext) => {
+    //
+    const queryClient = new QueryClient();
+    let statusCode = null;
 
-//     try {
-//       await queryClient.fetchQuery(OccupationsQueryKeys.list({}), () =>
-//         sanityClient.fetch(getListQuery({ searchCondition: '' }))
-//       );
-//     } catch (error: any) {
-//       if (ctx.res) ctx.res.statusCode = error?.response?.status;
-//       statusCode = ctx?.res?.statusCode || null;
-//     }
-//     return {
-//       props: {
-//         statusCode: statusCode,
-//         dehydratedState: dehydrate(queryClient),
-//       },
-//     };
-//   }
-// );
+    try {
+      await queryClient.fetchQuery(OccupationsQueryKeys.list({}), () =>
+        sanityClient.fetch(getListQuery({ searchCondition: '' }))
+      );
+    } catch (error: any) {
+      if (ctx.res) ctx.res.statusCode = error?.response?.status;
+      statusCode = ctx?.res?.statusCode || null;
+    }
+    return {
+      props: {
+        statusCode: statusCode,
+        dehydratedState: dehydrate(queryClient),
+      },
+    };
+  }
+);
 
 export default OccupationList;

@@ -8,6 +8,8 @@ export function getHtml_decsBaseOnAbv({
   territorySection: TerritorySection[] | undefined;
   currentTerritoryAbv: string;
 }): string {
+  // console.log('navid territorySection=', territorySection);
+  // console.log('navid currentTerritoryAbv=', currentTerritoryAbv);
   if (!territorySection || territorySection.length === 0) return '';
   let res = '';
   for (let index = 0; index < territorySection.length; index++) {

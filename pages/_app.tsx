@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
   const { theme } = useTheme();
+
   return (
     <>
       <NextNProgress height={2} />

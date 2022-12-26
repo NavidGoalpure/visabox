@@ -12,6 +12,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   icon: ReactNode;
 }
 export const Mobile: React.FC<Props> = ({ title, value, icon }) => {
+  console.log('navid inja');
   return (
     <TabsTrigger value={value}>
       <ContentContainer>
@@ -25,8 +26,8 @@ const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  @media ${deviceMin.tabletS} {
-    flex-direction: row;
+  @media ${deviceMin.laptopS} {
+    flex-direction: column;
   }
 `;
 ////////////

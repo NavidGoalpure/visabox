@@ -16,11 +16,12 @@ interface Props {
 }
 
 const DetailComponent: React.FC<Props> = ({ occupation }) => {
+  console.log('navid occupation=', occupation);
   const { isLaptop } = useDevice();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <>
-      {!isLaptop ? (
+      {isLaptop ? (
         <Head>
           <link
             rel='stylesheet'

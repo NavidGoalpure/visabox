@@ -8,8 +8,10 @@ import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
+  componentTextColor,
   componentTextStyle,
   componentTitleStyle,
+  textTitleColor,
 } from 'Styles/Theme/Component';
 import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from './const';
@@ -105,6 +107,7 @@ const Wrapper = styled.div`
 
 const ContentTitle = styled.h2`
   ${componentTitleStyle}
+  ${textTitleColor}
   margin-bottom:1.5rem;
 `;
 const Description = styled.p`

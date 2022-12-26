@@ -11,6 +11,8 @@ import {
   componentBodyTheme,
   componentTitleStyle,
   componentHeaderTheme,
+  textTitleColor,
+  componentTextColor,
 } from 'Styles/Theme/Component';
 import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from './const';
@@ -95,24 +97,6 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
 
 export default AnzscoComponent;
 
-const Container = styled.div`
-  ${componentBodyTheme}
-  padding:0;
-  // border: 1px solid var(--color-gray9);
-`;
-
-const Header = styled.div`
-  ${componentHeaderTheme}
-  width: 100%;
-  padding: 1rem;
-`;
-
-const Title = styled.h2`
-  ${componentSubtitleStyle}
-  margin:0;
-  text-align: center;
-`;
-
 const Wrapper = styled.div`
   padding: 1rem;
 `;
@@ -175,6 +159,7 @@ const TdKey = styled(TdValue)`
 
 const ContentTitle = styled.h2`
   ${componentTitleStyle}
+  ${textTitleColor}
   margin-bottom:1.5rem;
 `;
 const Description = styled.p`

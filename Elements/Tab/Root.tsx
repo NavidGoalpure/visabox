@@ -66,7 +66,4 @@ const HeadsList = styled(Tabs.List)`
 const ContentsContainer = styled.div`
   width: auto;
   height: 100%;
-  @media ${deviceMin.tabletS} {
-    margin: 0 1rem;
-  }
 `;

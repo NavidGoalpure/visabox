@@ -14,13 +14,21 @@ export const componentBorderColor = theme('mode', {
     border: 1px solid var(--color-gray13);
   `,
 });
+export const textTitleColor = theme('mode', {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray11);
+  `,
+});
 /////////////////
 export const componentTitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray7) !important;
+    color: var(--color-gray7);
   `,
   dark: css`
-    color: var(--color-gray13) !important;
+    color: var(--color-gray13);
   `,
 });
 export const componentTitleStyle = css`
@@ -35,7 +43,7 @@ export const componentSubtitleColor = theme('mode', {
     color: var(--color-gray8);
   `,
   dark: css`
-    color: var(--color-gray11);
+    color: var(--color-gray13);
   `,
 });
 export const componentSubtitleStyle = css`

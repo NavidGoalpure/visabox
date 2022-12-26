@@ -10,10 +10,10 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   icon: ReactNode;
 }
 export const Item: React.FC<Props> = ({ title, value, icon }) => {
-  const { isMobile, isTablet } = useDevice();
-  return isMobile || isTablet ? (
-    <Mobile title={title} value={value} icon={icon} />
-  ) : (
+  const { isLaptop } = useDevice();
+  return isLaptop ? (
     <Desktop title={title} value={value} icon={icon} />
+  ) : (
+    <Mobile title={title} value={value} icon={icon} />
   );
 };

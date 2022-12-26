@@ -16,6 +16,7 @@ import {
   LanguageKeys,
 } from 'PagesComponents/Occupations/Slug/const';
 import Error from 'next/error';
+import { testOccupation } from 'Mock/occupation';
 
 interface Props {
   occupation?: Occupation;
@@ -24,6 +25,7 @@ interface Props {
 const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
   const { t } = useStaticTranslation(componentStatements);
   if (errorCode) return <Error statusCode={errorCode} />;
+
   return (
     <PageLayout>
       <Head>
@@ -64,9 +66,12 @@ export const getStaticPaths = async ({ locales }: any) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const occupation = await getOccupationDetail(
-      params?.slug?.toString() || ''
-    );
+    //navid chage comment lines
+    // const occupation = await getOccupationDetail(
+    //   params?.slug?.toString() || ''
+    // );
+    const occupation = testOccupation;
+
     return {
       props: {
         occupation,

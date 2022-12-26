@@ -10,6 +10,7 @@ import useDevice from 'Hooks/useDevice';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { Details, NoMobile } from './styledComponents';
+import { testOccupation } from 'Mock/occupation';
 
 interface Props {
   occupation: Occupation;

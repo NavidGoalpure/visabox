@@ -100,7 +100,7 @@ export interface PriorityList {
   _type?: string;
   future_demend?: string;
   national?: string;
-  year?: Date;
+  year?: string;
   [Territories.ACT]: string;
   [Territories.NSW]: string;
   [Territories.NT]: string;
@@ -113,9 +113,15 @@ export interface PriorityList {
 
 interface ReferenceType {
   _ref?: string;
-  _type?: 'reference;';
+  _type?: 'reference';
+  _weak?: boolean;
 }
-
+export interface SubmitedByState {
+  _key: string;
+  _type: 'territory_backlog_obj';
+  eoi_count: string;
+  territory: ReferenceType | Territory;
+}
 export interface BacklogSection {
   _type?: string;
   //
@@ -128,14 +134,17 @@ export interface BacklogSection {
   invited_190?: BacklogPoints;
   total_submited_190?: BacklogPoints;
   total_invited_190?: BacklogPoints;
+  //navid add this section to ui
+  submited_by_state_190: SubmitedByState[];
+  submited_by_state_491: SubmitedByState[];
   //
   submited_491?: BacklogPoints;
-  invited_491: BacklogPoints;
+  invited_491?: BacklogPoints;
   total_submited_491?: BacklogPoints;
   total_invited_491?: BacklogPoints;
   //
   submited_491_family?: BacklogPoints;
-  invited_491_family: BacklogPoints;
+  invited_491_family?: BacklogPoints;
   total_submited_491_family?: BacklogPoints;
   total_invited_491_family?: BacklogPoints;
   //

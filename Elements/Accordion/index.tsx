@@ -65,7 +65,6 @@ const slideUp = keyframes`
 `;
 const AccordionRoot = styled(Accordion.Root)`
   width: 100%;
-  max-width: 50rem;
 `;
 const AccordionItem = styled(Accordion.Item)`
   overflow: hidden;
@@ -76,7 +75,7 @@ const AccordionItem = styled(Accordion.Item)`
     box-shadow: 0 0 0 2px var(--mauve12);
   }
 `;
-const AccordionHeader = styled(Accordion.Header) <{
+const AccordionHeader = styled(Accordion.Header)<{
   backgroundTheme: 'PAGE' | 'COMPONENT';
 }>`
   display: flex;

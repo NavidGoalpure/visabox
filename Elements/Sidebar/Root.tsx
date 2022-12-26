@@ -78,6 +78,6 @@ const ContentsContainer = styled.div`
   width: 100%;
   height: 100%;
   @media ${deviceMin.tabletS} {
-    margin: 0 4.5rem;
+    margin: 0 2rem;
   }
 `;

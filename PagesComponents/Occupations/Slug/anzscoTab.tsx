@@ -1,3 +1,4 @@
+import { deviceMin } from 'Consts/device';
 import Accordion from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useLocale } from 'Hooks/useLocale';
@@ -127,6 +128,9 @@ const Tr = styled.tr`
   :last-child {
     margin-bottom: 0;
   }
+  @media${deviceMin.tabletS} {
+    flex-direction: row;
+  }
 `;
 //////////////
 const tdValueColor = theme('mode', {
@@ -154,6 +158,7 @@ const tdKeyColor = theme('mode', {
 });
 const TdKey = styled(TdValue)`
   ${tdKeyColor}
+  margin-inline-end: 0.5rem;
 `;
 ////////////////
 

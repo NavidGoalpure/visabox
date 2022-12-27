@@ -11,10 +11,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   value: string;
   icon: ReactNode;
 }
-export const Mobile: React.FC<Props> = ({ title, value, icon }) => {
-  console.log('navid inja');
+export const Mobile: React.FC<Props> = ({ title, value, icon, className }) => {
   return (
-    <TabsTrigger value={value}>
+    <TabsTrigger value={value} className={className}>
       <ContentContainer>
         {icon}
         {title}

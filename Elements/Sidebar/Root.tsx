@@ -44,7 +44,7 @@ const TabsRoot = styled(Tabs.Root)`
 
   //
   width: 100%;
-  @media ${deviceMin.tabletS} {
+  @media ${deviceMin.laptopS} {
     flex-direction: row;
   }
 `;
@@ -64,7 +64,7 @@ const TabsList = styled(Tabs.TabsList)`
   height: 6rem;
   overflow: hidden;
   list-style: none;
-  @media ${deviceMin.tabletS} {
+  @media ${deviceMin.laptopS} {
     width: max-content;
     flex-direction: column;
     padding: 1.5rem 0px;
@@ -77,6 +77,11 @@ const TabsList = styled(Tabs.TabsList)`
 const ContentsContainer = styled.div`
   width: 100%;
   height: 100%;
+  @media ${deviceMin.tabletS} {
+    margin: 0 1rem;
+    width: calc(100% - 2rem);
+    // margin: 0 2rem;
+  }
   @media ${deviceMin.tabletS} {
     margin: 0 2rem;
   }

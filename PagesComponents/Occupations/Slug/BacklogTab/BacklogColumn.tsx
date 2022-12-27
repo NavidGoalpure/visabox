@@ -74,7 +74,7 @@ const Container = styled.div`
   width: 100%;
   margin-bottom: 1rem;
   @media ${deviceMin.tabletS} {
-    width: 49%;
+    width: 48%;
   }
 `;
 const Title = styled.h2`

@@ -67,6 +67,7 @@ const Container = styled.div`
   max-width: 31%;
   position: relative;
   padding: 1.5rem 1rem 3.75rem 1rem;
+  overflow: hidden;
   @media ${device.tabletL} {
     max-width: unset;
   }

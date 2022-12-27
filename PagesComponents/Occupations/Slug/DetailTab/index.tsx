@@ -17,7 +17,10 @@ interface Props {
 }
 
 const DetailComponent: React.FC<Props> = ({ occupation }) => {
-  console.log('navid occupation=', occupation);
+  console.log(
+    'navid occupation=',
+    occupation.territory_section?.[0]?.html_desc
+  );
   const { isLaptop } = useDevice();
   const { t } = useStaticTranslation(componentStatements);
   return (

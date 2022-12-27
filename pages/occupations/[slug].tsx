@@ -67,10 +67,10 @@ export const getStaticPaths = async ({ locales }: any) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     //navid chage comment lines
-    // const occupation = await getOccupationDetail(
-    //   params?.slug?.toString() || ''
-    // );
-    const occupation = testOccupation;
+    const occupation = await getOccupationDetail(
+      params?.slug?.toString() || ''
+    );
+    // const occupation = testOccupation;
 
     return {
       props: {

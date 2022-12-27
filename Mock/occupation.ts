@@ -1,4 +1,4 @@
-import { Occupation } from 'Interfaces/Documents/occupation';
+import { AssessingAuthority, Occupation } from 'Interfaces/Documents/occupation';
 
 export const testOccupation: Occupation = {
   _id: '4c03f4c5500949d8be9fade2d4b6d7a6',
@@ -27,16 +27,16 @@ export const testOccupation: Occupation = {
         _type: 'priority_list_obj',
         //navid must be Capital
         // @ts-ignore
-        act: 'NS',
+        ACT: 'NS',
         future_demend: 'Strong',
         national: 'NS',
-        nsw: 'NS',
-        nt: 'NS',
-        qld: 'NS',
-        sa: 'NS',
-        tas: 'NS',
-        vic: 'NS',
-        wa: 'NS',
+        NSW: 'NS',
+        NT: 'NS',
+        QLD: 'NS',
+        SA: 'NS',
+        TAS: 'NS',
+        VIC: 'NS',
+        WA: 'NS',
         year: '2022-01-01',
       },
     ],
@@ -68,7 +68,7 @@ export const testOccupation: Occupation = {
       },
     },
   },
-  assessing_authority: 'VETASSESS_A',
+  assessing_authority: 'VETASSESS_A' as AssessingAuthority,
   backlog_section: {
     _type: 'backlog_obj',
     submited_190: {

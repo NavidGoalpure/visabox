@@ -12,21 +12,6 @@ import { Slug } from '../Fields';
 import { UnitGroup } from './unitGroup';
 import { Territory } from './territory';
 
-export interface Occupation {
-  _createdAt: Date;
-  _id: string;
-  _rev: string;
-  _type: string;
-  _updatedAt: Date;
-  anzsco_section?: AnzscoSection;
-  assessing_authority?: string;
-  backlog_section?: BacklogSection;
-  code: number;
-  slug?: Slug;
-  territory_section?: TerritorySection[];
-  title: MultiLanguageText;
-  visa_option_section?: VisaOptionSection[];
-}
 export enum AssessingAuthority {
   'AACA' = 'AACA',
   'AASW' = 'AASW',
@@ -72,6 +57,22 @@ export enum AssessingAuthority {
   'VETASSESS_E' = 'VETASSESS_E',
   'VETASSESS_F' = 'VETASSESS_F',
 }
+export interface Occupation {
+  _createdAt?: Date;
+  _id?: string;
+  _rev?: string;
+  _type?: string;
+  _updatedAt?: Date;
+  anzsco_section?: AnzscoSection;
+  assessing_authority?: AssessingAuthority;
+  backlog_section?: BacklogSection;
+  code: number;
+  slug?: Slug;
+  territory_section?: TerritorySection[];
+  title: MultiLanguageText;
+  visa_option_section?: VisaOptionSection[];
+}
+
 export interface AnzscoSection {
   _type?: string;
   alternative_title?: MultiLanguageTextArray;
@@ -82,7 +83,7 @@ export interface AnzscoSection {
   major_group: number;
   submajor_group: number;
   minor_group: number;
-  assessing_authority: AssessingAuthority;
+  nec_occupation: MultiLanguageTextArray;
 }
 
 export enum Territories {

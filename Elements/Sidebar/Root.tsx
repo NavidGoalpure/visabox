@@ -44,8 +44,14 @@ const TabsRoot = styled(Tabs.Root)`
 
   //
   width: 100%;
+
   @media ${deviceMin.laptopS} {
     flex-direction: row;
+    width: 100vw;
+    padding-inline-start: 1rem;
+  }
+  @media ${deviceMin.laptopL} {
+    width: 100%;
   }
 `;
 const TabsList = styled(Tabs.TabsList)`
@@ -80,9 +86,16 @@ const ContentsContainer = styled.div`
   @media ${deviceMin.tabletS} {
     margin: 0 1rem;
     width: calc(100% - 2rem);
-    // margin: 0 2rem;
   }
-  @media ${deviceMin.tabletS} {
-    margin: 0 2rem;
+  @media ${deviceMin.laptopS} {
+    margin: 0 1rem;
+    width: calc(100% - 2rem);
+    max-width: 61rem;
+  }
+  @media ${deviceMin.laptopM} {
+    max-width: 67rem;
+  }
+  @media ${deviceMin.laptopL} {
+    max-width: unset;
   }
 `;

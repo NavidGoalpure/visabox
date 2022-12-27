@@ -82,6 +82,10 @@ const SideBarRoot = styled(SideBar.Root)`
       margin-left: -1rem;
       margin-right: -1rem;
       width: auto;
+      @media ${deviceMin.laptopS} {
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
   }
 `;

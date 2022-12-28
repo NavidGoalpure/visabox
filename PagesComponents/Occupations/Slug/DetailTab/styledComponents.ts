@@ -342,7 +342,7 @@ export const Details = styled.div`
   [class*=' icon-'],
   i[class*='fa-'],
   span[class*='fa-'] {
-    font-family: 'Font Awesome 5 Free';
+    font-family: 'FontAwesome';
     font-weight: normal;
     font-style: normal;
     text-decoration: inherit;
@@ -351,7 +351,7 @@ export const Details = styled.div`
   }
   .fa {
     display: inline-block;
-    font: normal normal normal 14px/1 'Font Awesome 5 Free';
+    font: normal normal normal 14px/1 'FontAwesome';
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -365,7 +365,7 @@ export const Details = styled.div`
   }
 
   .fa-external-link:before {
-    content: '\f35d';
+    content: '\f08e';
   }
   [class^='icon-']:before,
   [class*=' icon-']:before {
@@ -395,4 +395,5 @@ export const Details = styled.div`
     display: block;
     width: 100%;
   }
+  ///////////////////
 `;

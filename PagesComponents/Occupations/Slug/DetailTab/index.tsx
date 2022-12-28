@@ -29,7 +29,8 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
         <Head>
           <link
             rel='stylesheet'
-            href='https://use.fontawesome.com/releases/v5.0.8/css/all.css'
+            href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+            integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN'
             crossOrigin='anonymous'
           />
         </Head>

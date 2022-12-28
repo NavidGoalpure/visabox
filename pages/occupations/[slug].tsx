@@ -10,16 +10,17 @@ import { Languages } from 'Interfaces';
 import {
   getAllOccupationSlugs,
   getOccupationDetail,
-} from 'Queries/occupations/detail';
+} from 'Queries/occupations/Detail';
 import {
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Occupations/Slug/const';
 import Error from 'next/error';
 import { testOccupation } from 'Mock/occupation';
+import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
 interface Props {
-  occupation?: Occupation;
+  occupation?: OccupationDetailRes;
   errorCode?: number;
 }
 const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {

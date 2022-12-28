@@ -21,7 +21,7 @@ import UnitGroupCompoenent from './unitGroup';
 import { ConvertAnzscoCodeToTitle } from './utils';
 
 interface Props {
-  occupation: AnzscoSection | undefined;
+  occupation: AnzscoSection;
 }
 const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);

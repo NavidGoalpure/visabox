@@ -24,6 +24,7 @@ export enum deviceMin {
   laptopM = `(min-width: 1281px)`,
   laptopL = `(min-width: 1367px)`,
   desktop = `(min-width: 1441px)`,
+  bigScreen = `(min-width: 2000px)`,
 }
 
 //use in mediaQuery with maxWidth

@@ -1,4 +1,8 @@
-import { Occupation, Territories } from 'Interfaces/Documents/occupation';
+import {
+  Occupation,
+  Territories,
+  TerritorySection,
+} from 'Interfaces/Documents/occupation';
 import React from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
@@ -11,16 +15,14 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { Details, NoMobile } from './styledComponents';
 import { testOccupation } from 'Mock/occupation';
+import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
 interface Props {
-  occupation: Occupation;
+  territorySection: TerritorySection[] ;
 }
 
-const DetailComponent: React.FC<Props> = ({ occupation }) => {
-  console.log(
-    'navid occupation=',
-    occupation.territory_section?.[0]?.html_desc
-  );
+const DetailComponent: React.FC<Props> = ({ territorySection }) => {
+  console.log('navid occupation=', territorySection?.[0]?.html_desc);
   const { isLaptop } = useDevice();
   const { t } = useStaticTranslation(componentStatements);
   return (
@@ -51,7 +53,7 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
             <ScrollBox heightToRem={40}>
               {getTerritories().map((territory) => {
                 const html = getHtml_decsBaseOnAbv({
-                  territorySection: occupation.territory_section,
+                  territorySection: territorySection,
                   currentTerritoryAbv: territory,
                 });
                 return (

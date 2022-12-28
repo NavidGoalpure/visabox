@@ -1,6 +1,7 @@
 import { sanityClient } from 'Utils/sanity';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { ClientError } from '@sanity/client';
+import { OccupationDetailRes } from './interface';
 
 /**
  * گروک کوئری مورد نیاز برای لیست آکیوپیشن ها رو تولید میکنه
@@ -35,7 +36,19 @@ const getDetailQuery = (): string => {
       abv
     },
     html_desc
- }
+ },
+ 'similarOccupations': *[_type=='occupation' && anzsco_section.unit_group._ref == ^.anzsco_section.unit_group._ref]{
+    _id,
+    slug,
+    code,
+    title,
+    anzsco_section{
+     unit_group->{
+      tasks,
+      description
+     },
+    }
+  }
  }`;
   return query;
 };
@@ -47,14 +60,16 @@ const getDetailQuery = (): string => {
  * @param  {string} slug
  * @returns {Occupation}
  */
-const getOccupationDetail = async (slug: string): Promise<Occupation> => {
+const getOccupationDetail = async (
+  slug: string
+): Promise<OccupationDetailRes> => {
   const params = { slug };
   try {
-    const data = await sanityClient.fetch<Occupation | ClientError>(
+    const data = await sanityClient.fetch<OccupationDetailRes | ClientError>(
       getDetailQuery(),
       params
     );
-    return data as Occupation;
+    return data as OccupationDetailRes;
   } catch (error) {
     throw error;
   }

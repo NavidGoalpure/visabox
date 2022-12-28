@@ -15,9 +15,10 @@ import AnzscoComponent from './anzscoTab';
 import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
 import { componentTheme, componentTitleStyle } from 'Styles/Theme/Component';
+import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
 interface Props {
-  occupation: Occupation;
+  occupation: OccupationDetailRes;
 }
 const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
@@ -45,28 +46,36 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       }
       bodies={
         <>
-          <Tabs.Content value='details'>
-            <ContentWrapper>
-              <DetailComponent occupation={occupation} />
-            </ContentWrapper>
-          </Tabs.Content>
+          {occupation.territory_section ? (
+            <Tabs.Content value='details'>
+              <ContentWrapper>
+                <DetailComponent
+                  territorySection={occupation.territory_section}
+                />
+              </ContentWrapper>
+            </Tabs.Content>
+          ) : null}
           <Tabs.Content value='anzsco'>
             <ContentWrapper>
               <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
-              <ScrollBox heightToRem={40}>
-                <AnzscoComponent occupation={occupation.anzsco_section} />
-              </ScrollBox>
+              {occupation.anzsco_section ? (
+                <ScrollBox heightToRem={40}>
+                  <AnzscoComponent occupation={occupation.anzsco_section} />
+                </ScrollBox>
+              ) : null}
             </ContentWrapper>
           </Tabs.Content>
           <Tabs.Content value='backlog'>
-            <ContentWrapper>
-              <Header>{t(LanguageKeys.BacklogTitle)}</Header>
-              <ScrollBox heightToRem={40}>
-                <BacklogComponent
-                  backlogSection={occupation?.backlog_section}
-                />
-              </ScrollBox>
-            </ContentWrapper>
+            {occupation?.backlog_section ? (
+              <ContentWrapper>
+                <Header>{t(LanguageKeys.BacklogTitle)}</Header>
+                <ScrollBox heightToRem={40}>
+                  <BacklogComponent
+                    backlogSection={occupation?.backlog_section}
+                  />
+                </ScrollBox>
+              </ContentWrapper>
+            ) : null}
           </Tabs.Content>
         </>
       }

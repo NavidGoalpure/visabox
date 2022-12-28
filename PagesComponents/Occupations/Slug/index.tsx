@@ -9,9 +9,11 @@ import TooltipTag from 'Elements/TooltipTag';
 import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
+import SimilarOccupations from './similarOccupations';
 
 interface Props {
-  occupation: Occupation;
+  occupation: OccupationDetailRes;
 }
 
 const Content: React.FC<Props> = ({ occupation }) => {
@@ -60,7 +62,19 @@ const Content: React.FC<Props> = ({ occupation }) => {
           style={{ marginInlineEnd: '0' }}
         />
       </ToggleContainer>
+
+      {/*  */}
+      {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
+
+      {/*  */}
+      {/*********** Similar Occupations ***************/}
+      {occupation?.similarOccupations ? (
+        <SimilarOccupations
+          similarOccupations={occupation.similarOccupations}
+          currentCode={occupation?.code}
+        />
+      ) : null}
     </Container>
   );
 };

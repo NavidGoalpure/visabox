@@ -360,13 +360,7 @@ export const Details = styled.div`
   .icon-default-style.extra-color-1 {
     color: var(--color-secondary3) !important;
   }
-  .fa-info-circle:before {
-    content: '\f05a';
-  }
 
-  .fa-external-link:before {
-    content: '\f08e';
-  }
   [class^='icon-']:before,
   [class*=' icon-']:before {
     text-decoration: inherit;

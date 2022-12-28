@@ -50,7 +50,7 @@ const TabsRoot = styled(Tabs.Root)`
     width: 100vw;
     padding-inline-start: 1rem;
   }
-  @media ${deviceMin.desktop} {
+  @media ${deviceMin.bigScreen} {
     width: 100%;
   }
 `;
@@ -95,7 +95,7 @@ const ContentsContainer = styled.div`
   @media ${deviceMin.laptopM} {
     max-width: 67rem;
   }
-  @media ${deviceMin.desktop} {
+  @media ${deviceMin.bigScreen} {
     max-width: unset;
   }
 `;

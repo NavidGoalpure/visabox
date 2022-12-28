@@ -29,7 +29,7 @@ const DetailComponent: React.FC<Props> = ({ occupation }) => {
         <Head>
           <link
             rel='stylesheet'
-            href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/solid.css'
+            href='https://use.fontawesome.com/releases/v5.0.8/css/all.css'
             crossOrigin='anonymous'
           />
         </Head>

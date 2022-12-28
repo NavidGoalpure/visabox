@@ -51,13 +51,13 @@ export const Details = styled.div`
       ${textTitleColor}
     }
   }
-  // h5 {
-  //   ${componentTextStyle}
-  //   ${componentTextColor}
-  //   font-size: 16px;
-  //   line-height: 26px;
-  //   margin-bottom: 7px;
-  // }
+  h5 {
+    ${componentTextStyle}
+    ${componentTextColor}
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 7px;
+  }
 
   /////
   a {

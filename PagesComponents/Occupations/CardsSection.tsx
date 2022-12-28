@@ -12,6 +12,7 @@ interface Props {
 const CardsSection: React.FC<Props> = ({ occupations }) => {
   return (
     <Container>
+      
       {occupations?.pages?.map((occupationPage) =>
         occupationPage?.map((occupation: Occupation) => {
           return (

@@ -61,6 +61,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  flex-shrink: 0;
   width: 20rem;
   height: 20rem;
   border-radius: 15px;
@@ -68,6 +69,7 @@ const Container = styled.div`
   max-width: 31%;
   position: relative;
   padding: 1.5rem 1rem 2rem 1rem;
+
   @media ${device.tabletL} {
     max-width: unset;
   }

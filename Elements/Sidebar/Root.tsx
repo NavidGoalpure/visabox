@@ -45,11 +45,6 @@ const TabsRoot = styled(Tabs.Root)`
   margin-bottom: 5rem;
   @media ${deviceMin.laptopS} {
     flex-direction: row;
-    width: 100vw;
-    padding-inline-start: 1rem;
-  }
-  @media ${deviceMin.bigScreen} {
-    width: 100%;
   }
 `;
 const TabsList = styled(Tabs.TabsList)`
@@ -87,13 +82,5 @@ const ContentsContainer = styled.div`
   }
   @media ${deviceMin.laptopS} {
     margin: 0 1rem;
-    width: calc(100% - 2rem);
-    max-width: 61rem;
-  }
-  @media ${deviceMin.laptopM} {
-    max-width: 67rem;
-  }
-  @media ${deviceMin.bigScreen} {
-    max-width: unset;
   }
 `;

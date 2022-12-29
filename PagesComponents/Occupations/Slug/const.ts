@@ -7,9 +7,10 @@ export enum LanguageKeys {
   //
   AssessingAuthority = 'AssessingAuthority',
   '491-family' = '491-family',
+  //
   Details = 'Details',
   Anzsco = 'Anzsco',
-  Backlog = 'Backlog',
+  //
   AnzscoTabTitle = 'AnzscoTabTitle',
   MajorGroup = 'MajorGroup',
   SubMajorGroup = 'SubMajorGroup',
@@ -34,7 +35,11 @@ export enum LanguageKeys {
   IndicativeSkillLevel_3 = 'IndicativeSkillLevel_3',
   IndicativeSkillLevel_4 = 'IndicativeSkillLevel_4',
   //backlog
+  Backlog = 'Backlog',
   BacklogTitle = 'BacklogTitle',
+  //Similar
+  Similars = 'Similars',
+  SimilarOccupations = 'SimilarOccupations',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -66,6 +71,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'صف',
     en: 'Backlog',
   },
+  SimilarOccupations: {
+    en: 'Similar Occupations',
+    fa: 'لیست مشاغل نزدیک به این شغل',
+  },
+  //
   AnzscoTabTitle: {
     fa: 'مشخصات کد رشته',
     en: 'ANZSCO Version Specifications',
@@ -200,5 +210,11 @@ Registration or licensing may be required.`,
   BacklogTitle: {
     en: 'Backlog & Invitations issued',
     fa: 'صف انتظار و دعوت نامه های صادر شده',
+  },
+
+  //////Similars////////
+  Similars: {
+    en: 'Similars',
+    fa: 'مشاغل مشابه',
   },
 };

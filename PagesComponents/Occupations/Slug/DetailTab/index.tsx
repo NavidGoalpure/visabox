@@ -7,7 +7,7 @@ import React from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
 import { getTerritories } from 'Utils/occupations';
-import { ScrollBox } from 'Elements/ScrollBox';
+import { VerticalScrollBox } from 'Elements/VerticalScrollBox';
 import { getHtml_decsBaseOnAbv } from './utils';
 import Head from 'next/head';
 import useDevice from 'Hooks/useDevice';
@@ -18,7 +18,7 @@ import { testOccupation } from 'Mock/occupation';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
 interface Props {
-  territorySection: TerritorySection[] ;
+  territorySection: TerritorySection[];
 }
 
 const DetailComponent: React.FC<Props> = ({ territorySection }) => {
@@ -49,7 +49,7 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
           !isLaptop ? (
             <NoMobile>{t(LanguageKeys.NoMobile)}</NoMobile>
           ) : (
-            <ScrollBox heightToRem={40}>
+            <VerticalScrollBox heightToRem={40}>
               {getTerritories().map((territory) => {
                 const html = getHtml_decsBaseOnAbv({
                   territorySection: territorySection,
@@ -61,7 +61,7 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
                   </RadixTab.Content>
                 );
               })}
-            </ScrollBox>
+            </VerticalScrollBox>
           )
         }
       />

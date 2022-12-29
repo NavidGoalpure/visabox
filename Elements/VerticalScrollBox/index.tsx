@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   heightToRem: number;
 }
-const ScrollBox: React.FC<Props> = ({
+const VerticalScrollBox: React.FC<Props> = ({
   className,
   id,
   children,
@@ -31,7 +31,7 @@ const ScrollBox: React.FC<Props> = ({
   );
 };
 
-export { ScrollBox };
+export { VerticalScrollBox };
 
 const ScrollAreaRoot = styled(ScrollArea.Root)<{ heightToRem: number }>`
   ${directionStyles}

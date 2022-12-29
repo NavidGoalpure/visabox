@@ -1,4 +1,3 @@
-import { AnzscoSection, Occupation } from 'Interfaces/Documents/occupation';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
@@ -7,7 +6,8 @@ import * as SideBar from 'Elements/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
 import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
-import { ScrollBox } from 'Elements/ScrollBox';
+import { VscRepoForked } from 'react-icons/vsc';
+import { VerticalScrollBox } from 'Elements/VerticalScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
@@ -16,6 +16,7 @@ import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
 import { componentTheme, componentTitleStyle } from 'Styles/Theme/Component';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
+import SimilarOccupations from './similarOccupations';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -42,6 +43,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
+          <SideBar.Item
+            title={t(LanguageKeys.SimilarOccupations)}
+            value='similarOccupations'
+            icon={<SimilarIcon />}
+          />
         </>
       }
       bodies={
@@ -55,28 +61,44 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </Tabs.Content>
           ) : null}
-          <Tabs.Content value='anzsco'>
-            <ContentWrapper>
-              <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
-              {occupation.anzsco_section ? (
-                <ScrollBox heightToRem={40}>
+          {/*  */}
+          {occupation.anzsco_section ? (
+            <Tabs.Content value='anzsco'>
+              <ContentWrapper>
+                <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
+                <VerticalScrollBox heightToRem={40}>
                   <AnzscoComponent occupation={occupation.anzsco_section} />
-                </ScrollBox>
-              ) : null}
-            </ContentWrapper>
-          </Tabs.Content>
-          <Tabs.Content value='backlog'>
-            {occupation?.backlog_section ? (
+                </VerticalScrollBox>
+              </ContentWrapper>
+            </Tabs.Content>
+          ) : null}
+          {/*  */}
+          {occupation?.backlog_section ? (
+            <Tabs.Content value='backlog'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
-                <ScrollBox heightToRem={40}>
+                <VerticalScrollBox heightToRem={40}>
                   <BacklogComponent
                     backlogSection={occupation?.backlog_section}
                   />
-                </ScrollBox>
+                </VerticalScrollBox>
               </ContentWrapper>
-            ) : null}
-          </Tabs.Content>
+            </Tabs.Content>
+          ) : null}
+          {/*  */}
+          {occupation?.similarOccupations ? (
+            <Tabs.Content value='similarOccupations'>
+              <ContentWrapper>
+                <Header>{t(LanguageKeys.SimilarOccupations)}</Header>
+                <VerticalScrollBox heightToRem={40}>
+                  <SimilarOccupations
+                    similarOccupations={occupation.similarOccupations}
+                    currentCode={occupation?.code}
+                  />
+                </VerticalScrollBox>
+              </ContentWrapper>
+            </Tabs.Content>
+          ) : null}
         </>
       }
     />
@@ -119,6 +141,16 @@ const AnszcoIcon = styled(TbNumbers)`
 const Backlog = styled(TbStack2)`
   ${Icon}
 `;
+
+const SimilarIcon = styled(VscRepoForked)`
+  ${Icon}
+  transform: rotate(180deg);
+  @media ${deviceMin.tabletS} {
+    stroke-width: 1;
+  }
+`;
+
+//////////
 const Header = styled.header`
   width: 100%;
   padding: 1rem;

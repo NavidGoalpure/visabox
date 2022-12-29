@@ -1,6 +1,6 @@
 import { deviceMin } from 'Consts/device';
 import { Button } from 'Elements/Button';
-import { ScrollBox } from 'Elements/ScrollBox';
+import { VerticalScrollBox } from 'Elements/VerticalScrollBox';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { MultiLanguageTextArray } from 'Interfaces';
@@ -45,7 +45,7 @@ const PopupContent: React.FC<Props> = ({
           return false;
         }}
       />{' '}
-      <StyledScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
+      <StyledVerticalScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
         <Title>{t(LanguageKeys.Tasks)}</Title>
         <ul>
           {dtArray(tasks)?.map((task, i) => (
@@ -60,7 +60,7 @@ const PopupContent: React.FC<Props> = ({
         >
           {t(LanguageKeys.ReadMore)}
         </StyledButton>
-      </StyledScrollBox>
+      </StyledVerticalScrollBox>
     </Container>
   );
 };
@@ -120,7 +120,9 @@ const Container = styled.div<{ isPopupOpen: boolean }>`
   ${({ isPopupOpen }) => isPopupOpen && ContainerHoverCss}
 `;
 
-const StyledScrollBox = styled(ScrollBox)<{ isPopupOpen: boolean }>`
+const StyledVerticalScrollBox = styled(VerticalScrollBox)<{
+  isPopupOpen: boolean;
+}>`
   opacity: 0;
   padding: 0;
   transform: translateY(-20px);

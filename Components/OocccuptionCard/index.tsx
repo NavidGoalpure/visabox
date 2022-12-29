@@ -31,6 +31,7 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
   return (
     <Container>
       <Link
+        style={{ height: '100%' }}
         key={code}
         href={{ pathname: `/${locale}/occupations/${slug?.current}` }}
         prefetch={false}
@@ -66,8 +67,7 @@ const Container = styled.div`
   cursor: pointer;
   max-width: 31%;
   position: relative;
-  padding: 1.5rem 1rem 3.75rem 1rem;
-  overflow: hidden;
+  padding: 1.5rem 1rem 2rem 1rem;
   @media ${device.tabletL} {
     max-width: unset;
   }
@@ -77,7 +77,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 `;
 export const codeColor = theme('mode', {
   light: css`
@@ -112,4 +113,5 @@ const Description = styled.p`
   text-align: center;
   margin: 0;
   overflow: hidden;
+  text-align: start;
 `;

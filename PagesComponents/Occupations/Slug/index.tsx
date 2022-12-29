@@ -69,11 +69,14 @@ const Content: React.FC<Props> = ({ occupation }) => {
 
       {/*  */}
       {/*********** Similar Occupations ***************/}
+
       {occupation?.similarOccupations ? (
-        <SimilarOccupations
-          similarOccupations={occupation.similarOccupations}
-          currentCode={occupation?.code}
-        />
+        <CardsContainer>
+          <SimilarOccupations
+            similarOccupations={occupation.similarOccupations}
+            currentCode={occupation?.code}
+          />
+        </CardsContainer>
       ) : null}
     </Container>
   );
@@ -137,4 +140,15 @@ const ToggleContainer = styled.div`
 `;
 const StyledToggleTag = styled(ToggleTag)`
   margin-inline-end: 2rem;
+`;
+const CardsContainer = styled.section`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
 `;

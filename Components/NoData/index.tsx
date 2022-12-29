@@ -1,18 +1,27 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { HiXMark } from 'react-icons/hi2';
 import styled from 'styled-components/macro';
 import { directionStyles } from 'Styles/Theme';
 import { componentBorderColor, componentTheme } from 'Styles/Theme/Component';
-import { componentStatements, LanguageKeys } from './const';
+import { componentStatements } from '../../PagesComponents/Occupations/Slug/BacklogTab/const';
+import { LanguageKeys } from './const';
 
-const NoData = () => {
+interface Props {
+  messageComponent?: ReactNode;
+  icon?: ReactNode;
+}
+const NoData: React.FC<Props> = ({ icon = <XLogo />, messageComponent }) => {
   const { t } = useStaticTranslation(componentStatements);
-
+  const smartMessageComponent = messageComponent ? (
+    messageComponent
+  ) : (
+    <p>{t(LanguageKeys.NoData)}</p>
+  );
   return (
     <Container>
-      <XLogo />
-      <p>{t(LanguageKeys.NoData)}</p>
+      {icon}
+      {smartMessageComponent}
     </Container>
   );
 };

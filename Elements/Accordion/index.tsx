@@ -123,7 +123,7 @@ const PlusIcon = styled(AiOutlinePlus)`
   padding: 0.4rem;
   width: 1rem;
   height: auto;
-  background-color: var(--color-primary6);
+  background-color: white;
   border-radius: 50%;
   path {
     transform-origin: center;

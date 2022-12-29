@@ -7,7 +7,7 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
-import { device, deviceMin } from 'Consts/device';
+import { deviceMin } from 'Consts/device';
 import Link from 'next/link';
 
 function DesktopFooter() {
@@ -125,6 +125,15 @@ export const hoverBackground = theme('mode', {
      var(--color-gray2);
   `,
 });
+///////////////////
+const hoverItemColor = theme('mode', {
+  light: css`
+    var(--color-gray6);
+  `,
+  dark: css`
+     var(--color-gray12);
+  `,
+});
 const Items = styled(Link)`
   ${Headline5Style}
   color: var(--color-gray9);
@@ -148,7 +157,7 @@ const Items = styled(Link)`
     border-radius: 10px;
   }
   :hover {
-    color: var(--color-gray12);
+    ${hoverItemColor}
     :before {
       bottom: -10px;
       background-color: var(--color-primary4);

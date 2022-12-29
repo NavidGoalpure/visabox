@@ -94,6 +94,7 @@ const HeadItem = styled.h2`
   ${TextColor};
   cursor: pointer;
 `;
+
 const Items = styled(Link)`
   ${Headline5Style}
   color: var(--color-gray9);
@@ -117,10 +118,9 @@ const LogosContainer = styled.div`
   gap: 1rem;
   align-items: center;
 `;
+
 const TelegramLogo = styled(FaTelegramPlane)`
-  outline: 3px solid var(--color-gray9);
   color: var(--color-gray9);
-  border-radius: 50%;
   outline-offset: 3px;
   width: 2rem;
   height: 2rem;

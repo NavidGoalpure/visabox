@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { componentTextStyle, componentTheme } from 'Styles/Theme/Component';
-import NoData from './noData';
+import { componentTheme } from 'Styles/Theme/Component';
+import NoData from 'Components/NoData';
 
 interface Props {
   titleKey: string;

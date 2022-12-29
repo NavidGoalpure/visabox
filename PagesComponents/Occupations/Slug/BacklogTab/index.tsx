@@ -9,7 +9,7 @@ import {
   getRowKeyValueBaseonBacklogPoints_Submitted,
 } from './utils';
 import { BacklogTable } from './table';
-import NoData from './noData';
+import NoData from 'Components/NoData';
 
 interface Props {
   backlogSection: BacklogSection | undefined;
@@ -17,6 +17,7 @@ interface Props {
 
 const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {
   const { t } = useStaticTranslation(componentStatements);
+  
 
   function getSmartComponent_Submited(
     arg0: BacklogPoints | undefined,

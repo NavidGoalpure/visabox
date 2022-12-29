@@ -41,10 +41,8 @@ const TabsRoot = styled(Tabs.Root)`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
-  //
   width: 100%;
-
+  margin-bottom: 5rem;
   @media ${deviceMin.laptopS} {
     flex-direction: row;
     width: 100vw;

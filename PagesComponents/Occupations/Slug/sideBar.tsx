@@ -26,6 +26,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
   return (
     <SideBarRoot
       defaultValue='backlog'
+      variant='UP_POSITION'
       items={
         <>
           <SideBar.Item
@@ -43,11 +44,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
-          <SideBar.Item
+          {/* <SideBar.Item
             title={t(LanguageKeys.SimilarOccupations)}
             value='similarOccupations'
             icon={<SimilarIcon />}
-          />
+          /> */}
         </>
       }
       bodies={
@@ -86,7 +87,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             </Tabs.Content>
           ) : null}
           {/*  */}
-          {occupation?.similarOccupations ? (
+          {/* {occupation?.similarOccupations ? (
             <Tabs.Content value='similarOccupations'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.SimilarOccupations)}</Header>
@@ -98,7 +99,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                 </VerticalScrollBox>
               </ContentWrapper>
             </Tabs.Content>
-          ) : null}
+          ) : null} */}
         </>
       }
     />
@@ -109,7 +110,7 @@ export { SidebarPage };
 const SideBarRoot = styled(SideBar.Root)`
   div {
     &[aria-label='sidebar'] {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       margin-left: -1rem;
       margin-right: -1rem;
       width: auto;

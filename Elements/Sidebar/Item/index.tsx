@@ -2,7 +2,8 @@ import React, { ReactNode } from 'react';
 import { HTMLAttributes } from 'react';
 import useDevice from 'Hooks/useDevice';
 import { Mobile } from './Mobile';
-import { Desktop } from './Desktop';
+import { DesktopSide } from './DesktopSide';
+import { DesktopTop } from './DesktopTop';
 import { deviceSize } from 'Consts/device';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -18,7 +19,7 @@ export const Item: React.FC<Props> = ({ title, value, icon }) => {
   return islaptopS ? (
     <Mobile title={title} value={value} icon={icon} />
   ) : (
-    <Desktop title={title} value={value} icon={icon} />
+    <DesktopTop title={title} value={value} icon={icon} />
   );
 };
 

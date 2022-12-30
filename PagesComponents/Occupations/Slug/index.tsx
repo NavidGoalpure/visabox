@@ -9,6 +9,7 @@ import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
+import SimilarOccupations from './similarOccupations';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -64,6 +65,13 @@ const Content: React.FC<Props> = ({ occupation }) => {
       {/*  */}
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
+      {/**********Similar Occupation***** */}
+      {occupation.similarOccupations && (
+        <SimilarOccupations
+          similarOccupations={occupation.similarOccupations}
+          currentCode={occupation?.code}
+        />
+      )}
     </Container>
   );
 };

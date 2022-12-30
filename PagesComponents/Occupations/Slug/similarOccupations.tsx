@@ -18,33 +18,43 @@ const similarOccupations: React.FC<Props> = ({
   );
   if (smartList.length === 0) return null;
   return (
-    <CardsContainer>
-      {smartList.map((occupation) => (
-        <OccupationCard
-          key={occupation._id}
-          code={occupation?.code}
-          title={occupation?.title}
-          description={
-            (occupation.anzsco_section?.unit_group as UnitGroup)?.description
-          }
-          slug={occupation.slug}
-          tasks={(occupation.anzsco_section?.unit_group as UnitGroup)?.tasks}
-        />
-      ))}
-    </CardsContainer>
+    <Container>
+      <Title> Similar Occupations</Title>
+      <CardsContainer>
+        {smartList.map((occupation) => (
+          <OccupationCard
+            key={occupation._id}
+            code={occupation?.code}
+            title={occupation?.title}
+            description={
+              (occupation.anzsco_section?.unit_group as UnitGroup)?.description
+            }
+            slug={occupation.slug}
+            tasks={(occupation.anzsco_section?.unit_group as UnitGroup)?.tasks}
+          />
+        ))}
+      </CardsContainer>
+    </Container>
   );
 };
 
 export default similarOccupations;
-
+const Container = styled.section`
+  width: 100%;
+`;
+const Title = styled.h2`
+  ${PageTitleStyle}
+  width: 100%;
+  text-align: center;
+`;
 const CardsContainer = styled.section`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  //
   padding: 0px;
   gap: 2rem;
+  width: 100%;
   margin-bottom: 2rem;
 `;

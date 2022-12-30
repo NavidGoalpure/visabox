@@ -11,17 +11,21 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
   bodies: ReactNode;
   defaultValue: string;
+  variant?: 'UP_POSITION' | 'SIDE_POSITION';
 }
 export const Root: React.FC<Props> = ({
   items,
   bodies,
   defaultValue,
+  variant = 'SIDE_POSITION',
   ...props
 }) => {
   return (
     // @ts-ignore
-    <TabsRoot defaultValue={defaultValue} {...props}>
-      <TabsList aria-label='sidebar'>{items}</TabsList>
+    <TabsRoot defaultValue={defaultValue} variant={variant} {...props}>
+      <TabsList aria-label='sidebar' variant={variant}>
+        {items}
+      </TabsList>
       <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
     </TabsRoot>
   );
@@ -34,7 +38,9 @@ const rootColor = theme('mode', {
     color: white;
   `,
 });
-const TabsRoot = styled(Tabs.Root)`
+const TabsRoot = styled(Tabs.Root)<{
+  variant: 'UP_POSITION' | 'SIDE_POSITION';
+}>`
   ${rootColor}
   ${directionStyles}
 
@@ -44,10 +50,20 @@ const TabsRoot = styled(Tabs.Root)`
   width: 100%;
   margin-bottom: 5rem;
   @media ${deviceMin.laptopS} {
-    flex-direction: row;
+    ${({ variant }) => variant === 'SIDE_POSITION' && 'flex-direction: row;'}
   }
 `;
-const TabsList = styled(Tabs.TabsList)`
+////////////////////////
+const TopPositionCss = css``;
+const SidePositionCss = css`
+  flex-direction: column;
+  padding: 1.5rem 0px;
+  padding-inline-start: 1rem;
+`;
+
+const TabsList = styled(Tabs.TabsList)<{
+  variant: 'UP_POSITION' | 'SIDE_POSITION';
+}>`
   ${directionStyles}
   ${componentBodyBackground}
   ${boxShadow}
@@ -65,9 +81,8 @@ const TabsList = styled(Tabs.TabsList)`
   list-style: none;
   @media ${deviceMin.laptopS} {
     width: max-content;
-    flex-direction: column;
-    padding: 1.5rem 0px;
-    padding-inline-start: 1rem;
+    ${({ variant }) =>
+      variant === 'SIDE_POSITION' ? SidePositionCss : TopPositionCss}
     border-radius: 10px;
     height: max-content;
   }
@@ -76,11 +91,4 @@ const TabsList = styled(Tabs.TabsList)`
 const ContentsContainer = styled.div`
   width: 100%;
   height: 100%;
-  @media ${deviceMin.tabletS} {
-    margin: 0 1rem;
-    width: calc(100% - 2rem);
-  }
-  @media ${deviceMin.laptopS} {
-    margin: 0 1rem;
-  }
 `;

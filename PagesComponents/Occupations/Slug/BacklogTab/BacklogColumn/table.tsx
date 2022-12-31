@@ -13,7 +13,7 @@ export const BacklogTable: React.FC<Props> = ({
   titleValue,
   rows,
 }) => {
-  if (!rows || rows.length === 0) return <NoData />;
+  // if (!rows || rows.length === 0) return <NoData />;
 
   return (
     <Table>
@@ -24,12 +24,17 @@ export const BacklogTable: React.FC<Props> = ({
         </Tr>
       </Thead>
       <Tbody id='body'>
-        {rows.map((row) => (
-          <Tr>
-            <Td>{row.rowKey}</Td>
-            <Td>{row.rowValue}</Td>
-          </Tr>
-        ))}
+        {rows && rows.length > 0 ? (
+          rows.map((row) => (
+            <Tr>
+              <Td>{row.rowKey}</Td>
+              <Td>{row.rowValue}</Td>
+            </Tr>
+          ))
+        ) : (
+          <NoData />
+        )}
+        {}
       </Tbody>
     </Table>
   );

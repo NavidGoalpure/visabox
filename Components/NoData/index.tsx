@@ -39,6 +39,7 @@ const Container = styled.div`
   padding: 1rem;
   color: var(--color-fail2);
   text-align: center;
+  border none;
 `;
 const XLogo = styled(HiXMark)`
     background: var(--color-fail1);

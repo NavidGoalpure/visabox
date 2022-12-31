@@ -1,4 +1,7 @@
-import { AssessingAuthority, Occupation } from 'Interfaces/Documents/occupation';
+import {
+  AssessingAuthority,
+  Occupation,
+} from 'Interfaces/Documents/occupation';
 
 export const testOccupation: Occupation = {
   _id: '4c03f4c5500949d8be9fade2d4b6d7a6',
@@ -25,8 +28,6 @@ export const testOccupation: Occupation = {
       {
         _key: '08e813a79592',
         _type: 'priority_list_obj',
-        //navid must be Capital
-        // @ts-ignore
         ACT: 'NS',
         future_demend: 'Strong',
         national: 'NS',

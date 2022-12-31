@@ -19,11 +19,11 @@ import {
 } from 'Styles/Theme/Component';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
-import { BacklogTable } from './table';
+import { BacklogTable } from './BacklogColumn/table';
 import {
   getRowKeyValueBaseonBacklogPoints_Invited,
   getRowKeyValueBaseonBacklogPoints_Submitted,
-} from './utils';
+} from './BacklogColumn/utils';
 
 interface Props {
   title: string;
@@ -86,6 +86,10 @@ const Title = styled.h2`
   padding: 1.5rem 0.5rem;
   border-radius: 10px;
   margin-bottom: 1rem;
+  background: var(--color-primary1);
+  span {
+    color: red;
+  }
 `;
 const TabRoot = styled(Tab.Root)`
   width: 100%;
@@ -95,7 +99,7 @@ const TabRoot = styled(Tab.Root)`
     }
   }
   #contents-container {
-    margin: 1rem 0;
+    margin: 0.5rem 0 1rem 0;
   }
 `;
 const TabItem = styled(Tab.Item)`

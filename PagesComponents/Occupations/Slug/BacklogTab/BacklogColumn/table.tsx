@@ -38,6 +38,7 @@ export const BacklogTable: React.FC<Props> = ({
 const Table = styled.table`
   width: 100%;
   ${componentTheme}
+  margin-bottom:1rem;
 `;
 const Thead = styled.thead`
   display: block;

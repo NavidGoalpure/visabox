@@ -98,7 +98,6 @@ const Code = styled.h3`
   ${componentSubtitleStyle}
   ${codeColor}
   width:min-content;
-  margin-bottom: 1rem;
   padding: 0.5rem;
   align-items: center;
   border-radius: 55px;
@@ -107,7 +106,8 @@ const Code = styled.h3`
 const Title = styled.h2`
   ${componentSubtitleStyle}
   ${componentTitleColor}
-  margin-bottom:1rem;
+  margin-bottom:0.5rem;
+  text-align: center;
 `;
 
 const Description = styled.p`

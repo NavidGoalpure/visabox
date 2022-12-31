@@ -44,11 +44,6 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
-          {/* <SideBar.Item
-            title={t(LanguageKeys.SimilarOccupations)}
-            value='similarOccupations'
-            icon={<SimilarIcon />}
-          /> */}
         </>
       }
       bodies={
@@ -87,19 +82,6 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             </Tabs.Content>
           ) : null}
           {/*  */}
-          {/* {occupation?.similarOccupations ? (
-            <Tabs.Content value='similarOccupations'>
-              <ContentWrapper>
-                <Header>{t(LanguageKeys.SimilarOccupations)}</Header>
-                <VerticalScrollBox heightToRem={40}>
-                  <SimilarOccupations
-                    similarOccupations={occupation.similarOccupations}
-                    currentCode={occupation?.code}
-                  />
-                </VerticalScrollBox>
-              </ContentWrapper>
-            </Tabs.Content>
-          ) : null} */}
         </>
       }
     />

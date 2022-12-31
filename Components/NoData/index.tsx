@@ -4,8 +4,7 @@ import { HiXMark } from 'react-icons/hi2';
 import styled from 'styled-components/macro';
 import { directionStyles } from 'Styles/Theme';
 import { componentBorderColor, componentTheme } from 'Styles/Theme/Component';
-import { componentStatements } from '../../PagesComponents/Occupations/Slug/BacklogTab/const';
-import { LanguageKeys } from './const';
+import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
   messageComponent?: ReactNode;
@@ -13,6 +12,7 @@ interface Props {
 }
 const NoData: React.FC<Props> = ({ icon = <XLogo />, messageComponent }) => {
   const { t } = useStaticTranslation(componentStatements);
+
   const smartMessageComponent = messageComponent ? (
     messageComponent
   ) : (

@@ -1,29 +1,14 @@
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import {
-  BacklogPoints,
-  BacklogSection,
-  Occupation,
-  Territories,
-} from 'Interfaces/Documents/occupation';
-import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React, { ReactNode } from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
-import { getTerritories } from 'Utils/occupations';
 import styled from 'styled-components/macro';
 import {
   componentBorderColor,
   componentTextStyle,
-  componentTitleStyle,
 } from 'Styles/Theme/Component';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
-import { BacklogTable } from './BacklogColumn/table';
-import {
-  getRowKeyValueBaseonBacklogPoints_Invited,
-  getRowKeyValueBaseonBacklogPoints_Submitted,
-} from './BacklogColumn/utils';
 
 interface Props {
   title: string;

@@ -4,10 +4,7 @@ import * as RadixTab from '@radix-ui/react-tabs';
 import { componentStatements, LanguageKeys } from './const';
 import { Container, TabItem, TabRoot, Title } from './StyledComponents';
 import { BacklogTable } from './table';
-import {
-  getRowKeyValueBaseonBacklogPoints_Invited,
-  getRowKeyValueBaseonBacklogPoints,
-} from './utils';
+import { getRowKeyValueBaseonBacklogPoints } from './utils';
 import { BacklogSection } from 'Interfaces/Documents/occupation';
 
 interface Props {

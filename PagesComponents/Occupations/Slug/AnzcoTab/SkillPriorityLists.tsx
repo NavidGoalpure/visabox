@@ -6,6 +6,7 @@ import { deviceMin } from 'Consts/device';
 import { PriorityList, Territories } from 'Interfaces/Documents/occupation';
 import { getValueBaseOnAlias } from './utils';
 import ShortageTag from './shortageTag';
+import theme from 'styled-theming';
 
 interface Props {
   priorityList: PriorityList | undefined;
@@ -122,9 +123,17 @@ const FutureDemand = styled.h3`
   flex-wrap: wrap;
   justify-content: center;
 `;
-
+////////////////
+const DemandColor = theme('mode', {
+  light: css`
+    color: var(--color-primary2);
+  `,
+  dark: css`
+    color: var(--color-primary4);
+  `,
+});
 const Demand = styled.h3`
   ${componentSubtitleStyle}
+  ${DemandColor}
   align-text: center;
-  color: var(--color-primary4);
 `;

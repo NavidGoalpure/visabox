@@ -23,32 +23,13 @@ const ShortageTag: React.FC<Props> = ({
 };
 export default ShortageTag;
 
-const ContentKeyBackgroundColor_NS = theme('mode', {
+const ContentKeytheme = theme('mode', {
   light: css`
     background-color: white;
   `,
   dark: css`
-    background-color: var(--color-primary6);
-    color: var(--color-gray9);
-    border: 3px solid var(--color-primary6);
-  `,
-});
-const ContentKeyBackgroundColor_M = theme('mode', {
-  light: css`
-    background-color: white;
-  `,
-  dark: css`
-    background-color: var(--color-primary5);
-    border: 3px solid var(--color-primary5);
-  `,
-});
-const ContentKeyBackgroundColor_S = theme('mode', {
-  light: css`
-    background-color: white;
-  `,
-  dark: css`
-    background-color: var(--color-primary4);
-    border: 3px solid var(--color-primary4);
+    background: var(--color-gray6);
+    color: white;
   `,
 });
 
@@ -56,11 +37,14 @@ const Container = styled.div<{
   shortageStatus: string;
 }>`
   ${({ shortageStatus }) =>
-    shortageStatus === 'NS' && ContentKeyBackgroundColor_NS}
+    shortageStatus === 'NS' &&
+    'background-color: var(--color-primary6); border: 3px solid var(--color-primary6);   color: var(--color-gray9);'}
   ${({ shortageStatus }) =>
-    shortageStatus === 'M' && ContentKeyBackgroundColor_M}
+    shortageStatus === 'M' &&
+    'background-color: var(--color-primary5);border: 3px solid var(--color-primary5);'}
     ${({ shortageStatus }) =>
-    shortageStatus === 'S' && ContentKeyBackgroundColor_S}
+    shortageStatus === 'S' &&
+    'background-color: var(--color-primary3);border: 3px solid var(--color-primary3);'}
   border-radius: 30px;
   width: fit-content;
   display: flex;
@@ -75,12 +59,11 @@ const Container = styled.div<{
 
 const ContentKey = styled.h3`
   ${Headline6Style}
+  ${ContentKeytheme}
   padding: 0.25em 1em;
   display: flex;
   width: 50%;
   justify-content: center;
-  background: var(--color-gray6);
-  color: white;
 `;
 ///////////////////////
 

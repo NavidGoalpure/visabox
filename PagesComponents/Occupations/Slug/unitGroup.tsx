@@ -1,6 +1,5 @@
 import Accordion from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { AnzscoSection, ReferenceType } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
@@ -26,6 +25,10 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
   const occupationUnitGroup = (anzscoSection as AnzscoSection)
     ?.unit_group as UnitGroup;
 
+  console.log(
+    'navid (anzscoSection as AnzscoSection)?.priority_list?.[0]?.year=',
+    (anzscoSection as AnzscoSection)?.priority_list?.[0]
+  );
   return (
     <Container>
       <TitleWrapper>
@@ -49,19 +52,21 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
             <AccordionContent data={dtArray(occupationUnitGroup?.tasks)} />
           }
         />
-        <StyledAccordion
-          backgroundTheme={'COMPONENT'}
-          triggerContent={t(LanguageKeys.SkillPriorityLists)}
-          content={
-            <div>
-              <SkillPriorityLists
-                priorityList={
-                  (anzscoSection as AnzscoSection)?.priority_list?.[0]
-                }
-              />
-            </div>
-          }
-        />
+        {(anzscoSection as AnzscoSection)?.priority_list?.[0]?.national ? (
+          <StyledAccordion
+            backgroundTheme={'COMPONENT'}
+            triggerContent={t(LanguageKeys.SkillPriorityLists)}
+            content={
+              <div>
+                <SkillPriorityLists
+                  priorityList={
+                    (anzscoSection as AnzscoSection)?.priority_list?.[0]
+                  }
+                />
+              </div>
+            }
+          />
+        ) : null}
       </Wrapper>
     </Container>
   );

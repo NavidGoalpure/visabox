@@ -1,19 +1,15 @@
 import { deviceMin } from 'Consts/device';
 import Accordion from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { AnzscoSection, Occupation } from 'Interfaces/Documents/occupation';
+import { AnzscoSection } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
-  componentBodyTheme,
   componentTitleStyle,
-  componentHeaderTheme,
   textTitleColor,
-  componentTextColor,
 } from 'Styles/Theme/Component';
 import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from './const';

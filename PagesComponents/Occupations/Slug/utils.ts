@@ -9,7 +9,7 @@ export const ConvertAnzscoCodeToTitle = (
   switch (anzscoCodeLength) {
     case 1:
       const majorGroupTitle = MAJOR_GROUP.find(
-        (element) => element?.code > anzscoCode
+        (element) => element?.code === anzscoCode
       );
       return majorGroupTitle?.title;
     case 2:

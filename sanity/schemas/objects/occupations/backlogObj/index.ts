@@ -44,18 +44,7 @@ export default {
       title: 'Invited 190 ',
       type: 'backlog_numbers_obj',
     },
-    //////Total Submitted////////////////
-    {
-      name: 'total_submited_190',
-      title: 'Total Submitted 190',
-      type: 'string',
-    },
-    /////// Total INVITED////////
-    {
-      name: 'total_invited_190',
-      title: 'Total Invited 190',
-      type: 'string',
-    },
+  
     ////////////////////////////
     //////491 Visa//////////////
     ////////////SUBMITED////////
@@ -70,18 +59,8 @@ export default {
       title: 'Invited 491 ',
       type: 'backlog_numbers_obj',
     },
-    //////Total Submitted////////////////
-    {
-      name: 'total_submited_491',
-      title: 'Total Submitted 491',
-      type: 'string',
-    },
-    /////// Total INVITED////////
-    {
-      name: 'total_invited_491',
-      title: 'Total Invited 491',
-      type: 'string',
-    },
+
+
     ////////////////////////////
     //////491_family Visa//////////////
     ////////////SUBMITED////////

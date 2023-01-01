@@ -81,7 +81,7 @@ const SkillPriorityLists: React.FC<Props> = ({ priorityList }) => {
       </Tags>
       <Text>
         <FutureDemand>
-          Future demand (national) :{' '}
+          National Future Demand :{' '}
           <Demand>{priorityList?.future_demend}</Demand>
         </FutureDemand>
       </Text>
@@ -129,7 +129,7 @@ const DemandColor = theme('mode', {
     color: var(--color-primary2);
   `,
   dark: css`
-    color: var(--color-primary4);
+    color: var(--color-primary5);
   `,
 });
 const Demand = styled.h3`

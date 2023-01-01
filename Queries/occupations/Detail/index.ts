@@ -15,7 +15,31 @@ const getDetailQuery = (): string => {
  _id,
  code,
    title,
-   backlog_section,
+   backlog_section {
+     invited_189,
+     submited_189,
+     invited_190,
+     submited_190,
+     invited_491,
+     submited_491,
+     invited_491f,
+     submited_491f,
+     submited_by_state_190[]{
+       eoi_count,
+       territory->{
+         abv
+       },
+     },
+     invited_by_state_190,
+     submited_by_state_491[]{
+       eoi_count,
+       territory->{
+         abv
+       },
+     },
+     invited_by_state_491,
+     
+   },
    anzsco_section {...,
     major_group,
     submajor_group,

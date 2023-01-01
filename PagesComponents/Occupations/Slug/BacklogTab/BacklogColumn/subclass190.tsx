@@ -5,7 +5,10 @@ import { componentStatements, LanguageKeys } from './const';
 import { Container, TabItem, TabRoot, Title } from './StyledComponents';
 import { BacklogTable } from './table';
 import { BacklogSection } from 'Interfaces/Documents/occupation';
-import { getRowKeyValueBaseonBacklogPoints } from './utils';
+import {
+  getRowKeyValueBaseonBacklogPoints,
+  getRowKeyValueBaseOn_ByState,
+} from './utils';
 
 interface Props {
   backlogSection: BacklogSection;
@@ -40,33 +43,33 @@ const Subclass190: React.FC<Props> = ({ backlogSection }) => {
           <>
             <RadixTab.Content value={t(LanguageKeys.Submitted)}>
               <BacklogTable
-                titleKey='By state'
+                titleKey='Points'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseonBacklogPoints(
                   backlogSection?.submited_190
                 )}
               />
               <BacklogTable
-                titleKey='Total'
+                titleKey='By State'
                 titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints(
-                  backlogSection.total_submited_190
+                rows={getRowKeyValueBaseOn_ByState(
+                  backlogSection.submited_by_state_190
                 )}
               />
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
               <BacklogTable
-                titleKey='By state'
+                titleKey='Points'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseonBacklogPoints(
                   backlogSection?.invited_190
                 )}
               />
               <BacklogTable
-                titleKey='Total'
+                titleKey='By State'
                 titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints(
-                  backlogSection.total_invited_190
+                rows={getRowKeyValueBaseOn_ByState(
+                  backlogSection.invited_by_state_190
                 )}
               />
             </RadixTab.Content>

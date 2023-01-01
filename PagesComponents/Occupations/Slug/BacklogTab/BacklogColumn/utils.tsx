@@ -1,4 +1,9 @@
-import { BacklogPoints } from 'Interfaces/Documents/occupation';
+import {
+  BacklogPoints,
+  ByStateTable,
+  Territories,
+} from 'Interfaces/Documents/occupation';
+import { Territory } from 'Interfaces/Documents/territory';
 
 export function getRowKeyValueBaseonBacklogPoints(
   obj: BacklogPoints | undefined
@@ -42,5 +47,17 @@ export function getRowKeyValueBaseonBacklogPoints(
       rowKey: '105',
       rowValue: obj?.upper_than_105,
     });
+  return res;
+}
+export function getRowKeyValueBaseOn_ByState(
+  objects: ByStateTable[] | undefined
+): { rowKey: string; rowValue: string }[] {
+  const res = [] as { rowKey: string; rowValue: string }[];
+  objects?.map((obj) => {
+    res.push({
+      rowKey: (obj?.territory as Territory)?.abv || '',
+      rowValue: obj?.eoi_count,
+    });
+  });
   return res;
 }

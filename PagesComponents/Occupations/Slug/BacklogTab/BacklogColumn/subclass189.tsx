@@ -47,13 +47,10 @@ const Subclass189: React.FC<Props> = ({ backlogSection }) => {
                   backlogSection?.submited_189
                 )}
               />
-              <BacklogTable
-                titleKey='Total'
-                titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints(
-                  backlogSection.total_submited_189
-                )}
-              />
+              <div>
+                <h5>Total:</h5>
+                <h6>{backlogSection?.total_submited_189}</h6>
+              </div>
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
               <BacklogTable
@@ -63,13 +60,10 @@ const Subclass189: React.FC<Props> = ({ backlogSection }) => {
                   backlogSection?.invited_189
                 )}
               />
-              <BacklogTable
-                titleKey='Total'
-                titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints(
-                  backlogSection.total_invited_189
-                )}
-              />
+              <div>
+                <h5>Total:</h5>
+                <h6>{backlogSection?.total_submited_189}</h6>
+              </div>
             </RadixTab.Content>
           </>
         }

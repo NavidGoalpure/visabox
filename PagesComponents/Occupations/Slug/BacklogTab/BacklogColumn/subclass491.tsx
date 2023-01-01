@@ -4,7 +4,10 @@ import * as RadixTab from '@radix-ui/react-tabs';
 import { componentStatements, LanguageKeys } from './const';
 import { Container, TabItem, TabRoot, Title } from './StyledComponents';
 import { BacklogSection } from 'Interfaces/Documents/occupation';
-import { getRowKeyValueBaseonBacklogPoints } from './utils';
+import {
+  getRowKeyValueBaseonBacklogPoints,
+  getRowKeyValueBaseOn_ByState,
+} from './utils';
 import { BacklogTable } from './table';
 
 interface Props {
@@ -47,10 +50,10 @@ const Subclass491: React.FC<Props> = ({ backlogSection }) => {
                 )}
               />
               <BacklogTable
-                titleKey='Total'
+                titleKey='By State'
                 titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints(
-                  backlogSection.total_submited_491
+                rows={getRowKeyValueBaseOn_ByState(
+                  backlogSection.submited_by_state_491
                 )}
               />
             </RadixTab.Content>
@@ -63,10 +66,10 @@ const Subclass491: React.FC<Props> = ({ backlogSection }) => {
                 )}
               />
               <BacklogTable
-                titleKey='Total'
+                titleKey='By State'
                 titleValue='EOI count'
-                rows={getRowKeyValueBaseonBacklogPoints(
-                  backlogSection.total_invited_491
+                rows={getRowKeyValueBaseOn_ByState(
+                  backlogSection.invited_by_state_491
                 )}
               />
             </RadixTab.Content>

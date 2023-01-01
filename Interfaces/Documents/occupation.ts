@@ -117,7 +117,7 @@ export interface ReferenceType {
   _type?: 'reference';
   _weak?: boolean;
 }
-export interface SubmitedByState {
+export interface ByStateTable {
   _key: string;
   _type: 'territory_backlog_obj';
   eoi_count: string;
@@ -128,26 +128,24 @@ export interface BacklogSection {
   //
   submited_189?: BacklogPoints;
   invited_189?: BacklogPoints;
-  total_submited_189?: BacklogPoints;
-  total_invited_189?: BacklogPoints;
+  total_submited_189?: string;
+  total_invited_189?: string;
   //
   submited_190?: BacklogPoints;
   invited_190?: BacklogPoints;
-  total_submited_190?: BacklogPoints;
-  total_invited_190?: BacklogPoints;
   //navid add this section to ui
-  submited_by_state_190: SubmitedByState[];
-  submited_by_state_491: SubmitedByState[];
+  submited_by_state_190: ByStateTable[];
+  submited_by_state_491: ByStateTable[];
+  invited_by_state_190: ByStateTable[];
+  invited_by_state_491: ByStateTable[];
   //
   submited_491?: BacklogPoints;
   invited_491?: BacklogPoints;
-  total_submited_491?: BacklogPoints;
-  total_invited_491?: BacklogPoints;
   //
   submited_491_family?: BacklogPoints;
   invited_491_family?: BacklogPoints;
-  total_submited_491_family?: BacklogPoints;
-  total_invited_491_family?: BacklogPoints;
+  total_submited_491_family?: string;
+  total_invited_491_family?: string;
   //
 }
 

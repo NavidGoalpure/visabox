@@ -112,7 +112,7 @@ export interface PriorityList {
   [Territories.WA]: string;
 }
 
-interface ReferenceType {
+export interface ReferenceType {
   _ref?: string;
   _type?: 'reference';
   _weak?: boolean;

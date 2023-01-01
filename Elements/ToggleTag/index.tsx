@@ -32,9 +32,8 @@ const ToggleTag: React.FC<Props> = ({
   return (
     <Container isOn={isOn} {...props}>
       <ContentKey isOn={isOn} backgroundTheme={backgroundTheme}>
-        {' '}
-        {contentKey}{' '}
-      </ContentKey>{' '}
+        {contentKey}
+      </ContentKey>
       <ContentValue>{getSmartContent({ contentValue, isOn })}</ContentValue>
     </Container>
   );
@@ -115,7 +114,7 @@ const ContentValue = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: bold;
+  font-weight: bold;
 `;
 const CheckLogo = styled(BsCheckLg)`
   color: var(--color-primary6);

@@ -21,7 +21,6 @@ const Content: React.FC<Props> = ({ occupation }) => {
   //
   const assessing_authority = occupation?.assessing_authority;
   //
-  console.log('navid occupation=', occupation);
   return (
     <Container>
       <TitleContainer>

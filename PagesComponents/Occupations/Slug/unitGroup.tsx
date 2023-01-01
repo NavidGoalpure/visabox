@@ -2,30 +2,30 @@ import Accordion from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { AnzscoSection, Occupation } from 'Interfaces/Documents/occupation';
+import { AnzscoSection, ReferenceType } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
-  componentTextColor,
   componentTextStyle,
   componentTitleStyle,
   textTitleColor,
 } from 'Styles/Theme/Component';
 import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from './const';
-import SkillPriorityLists from './SkillPriorityLists';
-import { SkillLevelDescription } from './utils';
+import SkillPriorityLists from './AnzcoTab/SkillPriorityLists';
+import { SkillLevelDescription } from './AnzcoTab/utils';
 
 interface Props {
-  occupation: AnzscoSection | undefined;
+  anzscoSection: ReferenceType | AnzscoSection | undefined;
 }
-const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
+const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt, dtArray } = useDynamicTranslation();
-  const { locale } = useLocale();
-  const occupationUnitGroup = occupation?.unit_group as UnitGroup;
+  const occupationUnitGroup = (anzscoSection as AnzscoSection)
+    ?.unit_group as UnitGroup;
+
   return (
     <Container>
       <TitleWrapper>
@@ -54,17 +54,14 @@ const UnitGroupCompoenent: React.FC<Props> = ({ occupation }) => {
           triggerContent={t(LanguageKeys.SkillPriorityLists)}
           content={
             <div>
-              <SkillPriorityLists occupation={undefined} />
+              <SkillPriorityLists
+                priorityList={
+                  (anzscoSection as AnzscoSection)?.priority_list?.[0]
+                }
+              />
             </div>
           }
         />
-        {/*  */}
-        {/* navid occupation in this unit accordion
-         <StyledAccordion
-          backgroundTheme={"COMPONENT"}
-          triggerContent={t(LanguageKeys.OccupationsinUnitGroup)}
-          content={"farzam"}
-        /> */}
       </Wrapper>
     </Container>
   );

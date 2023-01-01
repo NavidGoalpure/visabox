@@ -11,15 +11,15 @@ import {
   componentTitleStyle,
   textTitleColor,
 } from 'Styles/Theme/Component';
-import AccordionContent from './accordionContent';
-import { LanguageKeys, componentStatements } from './const';
-import UnitGroupCompoenent from './unitGroup';
+import AccordionContent from '../accordionContent';
+import { LanguageKeys, componentStatements } from '../const';
+import UnitGroupCompoenent from '../unitGroup';
 import { ConvertAnzscoCodeToTitle } from './utils';
 
 interface Props {
-  occupation: AnzscoSection;
+  anzscoSection: AnzscoSection;
 }
-const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
+const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt, dtArray } = useDynamicTranslation();
   return (
@@ -29,40 +29,42 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
           <Tr>
             <TdKey>{t(LanguageKeys.MajorGroup)} :</TdKey>
             <TdValue>
-              {`${occupation?.major_group} -${' '}
-              ${dt(ConvertAnzscoCodeToTitle(occupation?.major_group || 0))}`}
+              {`${anzscoSection?.major_group} -${' '}
+              ${dt(ConvertAnzscoCodeToTitle(anzscoSection?.major_group || 0))}`}
             </TdValue>
           </Tr>
           <Tr>
             <TdKey>{t(LanguageKeys.SubMajorGroup)} :</TdKey>
             <TdValue>
-              {`${occupation?.submajor_group} -${' '}
-              ${dt(ConvertAnzscoCodeToTitle(occupation?.submajor_group || 0))}`}
+              {`${anzscoSection?.submajor_group} -${' '}
+              ${dt(
+                ConvertAnzscoCodeToTitle(anzscoSection?.submajor_group || 0)
+              )}`}
             </TdValue>
           </Tr>
           <Tr>
             <TdKey>{t(LanguageKeys.MinorGroup)} :</TdKey>
             <TdValue>
-              {`${occupation?.minor_group} -${' '}
-              ${dt(ConvertAnzscoCodeToTitle(occupation?.minor_group || 0))}`}
+              {`${anzscoSection?.minor_group} -${' '}
+              ${dt(ConvertAnzscoCodeToTitle(anzscoSection?.minor_group || 0))}`}
             </TdValue>
           </Tr>
           <Tr>
             <TdKey>{t(LanguageKeys.UnitGroup)} :</TdKey>
             <TdValue>
-              {(occupation?.unit_group as UnitGroup)?.code} -
-              {dt((occupation?.unit_group as UnitGroup)?.title)}
+              {(anzscoSection?.unit_group as UnitGroup)?.code} -
+              {dt((anzscoSection?.unit_group as UnitGroup)?.title)}
             </TdValue>
           </Tr>
         </Table>
         <ContentTitle>{t(LanguageKeys.Description)}</ContentTitle>
-        <Description>{dt(occupation?.description)}</Description>
+        <Description>{dt(anzscoSection?.description)}</Description>
         <StyledAccordion
           backgroundTheme={'COMPONENT'}
           triggerContent={t(LanguageKeys.AlternativeTitles)}
           content={
             <AccordionContent
-              data={dtArray(occupation?.alternative_title)}
+              data={dtArray(anzscoSection?.alternative_title)}
               title={t(LanguageKeys.AlternativeTitles_title)}
               description={t(LanguageKeys.AlternativeTitles_description)}
               emptyMessage={t(LanguageKeys.alternativeTitles_empty)}
@@ -74,7 +76,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
           triggerContent={t(LanguageKeys.Specialisations)}
           content={
             <AccordionContent
-              data={dtArray(occupation?.specialisations)}
+              data={dtArray(anzscoSection?.specialisations)}
               emptyMessage={t(LanguageKeys.specialisations_empty)}
               title={t(LanguageKeys.specialisations_title)}
               description={t(LanguageKeys.specialisations_description)}
@@ -87,7 +89,7 @@ const AnzscoComponent: React.FC<Props> = ({ occupation }) => {
           content={"farzam"}
         /> */}
       </Wrapper>
-      <UnitGroupCompoenent occupation={occupation} />
+      <UnitGroupCompoenent anzscoSection={anzscoSection} />
     </>
   );
 };

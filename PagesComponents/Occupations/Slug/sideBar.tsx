@@ -11,7 +11,7 @@ import { VerticalScrollBox } from 'Elements/VerticalScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
-import AnzscoComponent from './anzscoTab';
+import AnzscoComponent from './AnzcoTab';
 import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
 import { componentTheme, componentTitleStyle } from 'Styles/Theme/Component';
@@ -62,7 +62,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             <Tabs.Content value='anzsco'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
-                <AnzscoComponent occupation={occupation.anzsco_section} />
+                <AnzscoComponent anzscoSection={occupation.anzsco_section} />
               </ContentWrapper>
             </Tabs.Content>
           ) : null}

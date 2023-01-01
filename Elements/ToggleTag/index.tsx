@@ -115,6 +115,7 @@ const ContentValue = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: bold;
 `;
 const CheckLogo = styled(BsCheckLg)`
   color: var(--color-primary6);

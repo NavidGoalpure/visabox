@@ -62,9 +62,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             <Tabs.Content value='anzsco'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
-                <VerticalScrollBox heightToRem={40}>
-                  <AnzscoComponent occupation={occupation.anzsco_section} />
-                </VerticalScrollBox>
+                <AnzscoComponent occupation={occupation.anzsco_section} />
               </ContentWrapper>
             </Tabs.Content>
           ) : null}
@@ -73,11 +71,9 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             <Tabs.Content value='backlog'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
-                <VerticalScrollBox heightToRem={40}>
-                  <BacklogComponent
-                    backlogSection={occupation?.backlog_section}
-                  />
-                </VerticalScrollBox>
+                <BacklogComponent
+                  backlogSection={occupation?.backlog_section}
+                />
               </ContentWrapper>
             </Tabs.Content>
           ) : null}

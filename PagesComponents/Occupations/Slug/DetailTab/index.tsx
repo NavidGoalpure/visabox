@@ -49,7 +49,7 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
           !isLaptop ? (
             <NoMobile>{t(LanguageKeys.NoMobile)}</NoMobile>
           ) : (
-            <VerticalScrollBox heightToRem={40}>
+            <>
               {getTerritories().map((territory) => {
                 const html = getHtml_decsBaseOnAbv({
                   territorySection: territorySection,
@@ -61,7 +61,7 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
                   </RadixTab.Content>
                 );
               })}
-            </VerticalScrollBox>
+            </>
           )
         }
       />

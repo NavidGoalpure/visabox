@@ -11,12 +11,22 @@ import useTheme from 'Hooks/useTheme';
 import Head from 'next/head';
 import ErrorBoundary from 'Components/errorBoundary';
 import Script from 'next/script';
+import { hotjar } from 'react-hotjar';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
   const { theme } = useTheme();
+  //
 
+  useEffect(() => {
+    hotjar.initialize(
+      Number(process.env.NEXT_PUBLIC_HJID),
+      Number(process.env.NEXT_PUBLIC_HJSV)
+    );
+  }, []);
+  //
   return (
     <>
       <NextNProgress height={2} />

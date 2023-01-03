@@ -17,7 +17,7 @@ const Subclass491Family: React.FC<Props> = ({ backlogSection }) => {
     <Container>
       <Title>
         {t(LanguageKeys.Title491FamilyTitleSection1)}
-        <span>491 (family)</span>
+        <span>491</span>
         <br />
         <br />
         {t(LanguageKeys.Title491FamilyTitleSection2)}
@@ -46,10 +46,18 @@ const Subclass491Family: React.FC<Props> = ({ backlogSection }) => {
                   backlogSection?.submited_491_family
                 )}
               />
-              <div>
-                <h5>Total:</h5>
-                <h6>{backlogSection?.total_submited_491_family}</h6>
-              </div>
+              {backlogSection?.total_submitted_491_family ? (
+                <BacklogTable
+                  titleKey=' '
+                  titleValue='EOI count'
+                  rows={[
+                    {
+                      rowKey: 'Total ',
+                      rowValue: backlogSection?.total_submitted_491_family,
+                    },
+                  ]}
+                />
+              ) : null}
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
               <BacklogTable
@@ -59,10 +67,18 @@ const Subclass491Family: React.FC<Props> = ({ backlogSection }) => {
                   backlogSection?.invited_491_family
                 )}
               />
-              <div>
-                <h5>Total:</h5>
-                <h6>{backlogSection?.total_invited_491_family}</h6>
-              </div>
+              {backlogSection?.total_invited_491_family ? (
+                <BacklogTable
+                  titleKey=' '
+                  titleValue='EOI count'
+                  rows={[
+                    {
+                      rowKey: 'Total ',
+                      rowValue: backlogSection?.total_invited_491_family,
+                    },
+                  ]}
+                />
+              ) : null}
             </RadixTab.Content>
           </>
         }

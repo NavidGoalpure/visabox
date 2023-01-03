@@ -47,6 +47,11 @@ export function getRowKeyValueBaseonBacklogPoints(
       rowKey: '105',
       rowValue: obj?.upper_than_105,
     });
+     if (obj?.upper_than_110)
+       res.push({
+         rowKey: '110',
+         rowValue: obj?.upper_than_110,
+       });
   return res;
 }
 export function getRowKeyValueBaseOn_ByState(

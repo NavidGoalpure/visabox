@@ -61,6 +61,14 @@ export const componentTextColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
+export const componentTextColor_small = theme('mode', {
+  light: css`
+     var(--color-gray4)
+  `,
+  dark: css`
+    var(--color-gray13)
+  `,
+});
 export const componentTextStyle = css`
   ${directionStyles}
   ${componentTextColor}

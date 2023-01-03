@@ -80,11 +80,12 @@ export const testOccupation: Occupation = {
       upper_than_80: '<20',
       upper_than_85: '<20',
       upper_than_95: '<20',
+      upper_than_100: '<20',
+      upper_than_105: '<20',
+      upper_than_110: '<20',
     },
     submited_491: {
       _type: 'backlog_numbers_obj',
-      upper_than_100: '<20',
-      upper_than_105: '<20',
       upper_than_65: '<20',
       upper_than_70: '<20',
       upper_than_75: '<20',
@@ -92,6 +93,9 @@ export const testOccupation: Occupation = {
       upper_than_85: '<20',
       upper_than_90: '<20',
       upper_than_95: '<20',
+      upper_than_100: '<20',
+      upper_than_105: '<20',
+      upper_than_110: '<20',
     },
     submited_by_state_190: [
       {

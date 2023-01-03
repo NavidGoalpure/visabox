@@ -16,17 +16,15 @@ export const Container = styled.div`
 `;
 export const Title = styled.h2`
   ${componentTextStyle}
-  ${componentBorderColor}
   width: 100%;
   height: 8rem;
   text-align: center;
   padding: 1.5rem 0.5rem;
   border-radius: 10px;
   margin-bottom: 0.5rem;
-  background: var(--color-primary1);
+  background: var(--color-gray5);
   span {
-    color: var(--color-primary1);
-    background: var(--color-primary6);
+    color: var(--color-primary5);
     border-radius: 50%;
     padding: 0.25rem;
     margin: 0.25rem;

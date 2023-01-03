@@ -18,12 +18,10 @@ const getDetailQuery = (): string => {
    backlog_section {
      invited_189,
      submited_189,
+     total_submitted_189,
+     total_invited_189,
      invited_190,
      submited_190,
-     invited_491,
-     submited_491,
-     invited_491f,
-     submited_491f,
      submited_by_state_190[]{
        eoi_count,
        territory->{
@@ -31,13 +29,19 @@ const getDetailQuery = (): string => {
        },
      },
      invited_by_state_190,
+     invited_491,
+     submited_491,
+     invited_by_state_491,
      submited_by_state_491[]{
        eoi_count,
        territory->{
          abv
        },
      },
-     invited_by_state_491,
+     invited_491_family,
+     submited_491_family,
+     total_invited_491_family,
+     total_submitted_491_family,
      
    },
    anzsco_section {...,

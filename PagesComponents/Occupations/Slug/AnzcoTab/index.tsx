@@ -58,7 +58,11 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           </Tr>
         </Table>
         <ContentTitle>{t(LanguageKeys.Description)}</ContentTitle>
-        <Description>{dt(anzscoSection?.description)}</Description>
+        <Description
+          dangerouslySetInnerHTML={{
+            __html: dt(anzscoSection?.description),
+          }}
+        ></Description>
         <StyledAccordion
           backgroundTheme={'COMPONENT'}
           triggerContent={t(LanguageKeys.AlternativeTitles)}

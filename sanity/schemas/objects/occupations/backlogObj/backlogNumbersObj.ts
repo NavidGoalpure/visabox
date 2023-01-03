@@ -56,6 +56,11 @@ export default {
       title: '> 105 ',
       type: 'string',
     },
+    {
+      name: 'upper_than_110',
+      title: '> 110 ',
+      type: 'string',
+    },
   ],
   //   preview: {
   //     select: {

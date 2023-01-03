@@ -38,7 +38,11 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
       </TitleWrapper>
       <Wrapper>
         <ContentTitle>{t(LanguageKeys.Description)} </ContentTitle>
-        <Description>{dt(occupationUnitGroup?.description)}</Description>
+        <Description
+          dangerouslySetInnerHTML={{
+            __html: dt(occupationUnitGroup?.description),
+          }}
+        ></Description>
         <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ''}>
           {t(LanguageKeys.IndicativeSkillLevel)}
         </SkillLevelTitle>

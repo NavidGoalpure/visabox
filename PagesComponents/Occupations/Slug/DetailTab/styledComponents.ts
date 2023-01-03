@@ -9,6 +9,7 @@ import {
   componentTextStyle,
   componentTitleColor,
   componentTitleStyle,
+  componentTextColor_small,
 } from 'Styles/Theme/Component';
 
 export const NoMobile = styled.div`
@@ -39,7 +40,7 @@ const vcColumnInner_Color = theme('mode', {
 });
 
 export const Details = styled.div`
-  padding: 0 1rem;
+  padding: 0 1rem 2rem;
   flex-direction: column;
   gap: 1rem;
   padding-top: 1rem;
@@ -176,7 +177,9 @@ export const Details = styled.div`
     ${componentSubtitleStyle}
   }
   //////////////////////////////////
-
+  .fa-check {
+    color: teal !important;
+  }
   .fa-check:before {
     content: '\f00c';
   }
@@ -357,10 +360,17 @@ export const Details = styled.div`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  .icon-default-style.extra-color-1 {
+  .fa-info-circle {
     color: var(--color-secondary3) !important;
   }
-
+  .badge {
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: ${componentTextColor_small} !important;
+    border: 1px solid ${componentTextColor_small} !important;
+    padding: 2px 10px;
+  }
   [class^='icon-']:before,
   [class*=' icon-']:before {
     text-decoration: inherit;

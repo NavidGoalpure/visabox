@@ -128,23 +128,23 @@ export interface BacklogSection {
   //
   submited_189?: BacklogPoints;
   invited_189?: BacklogPoints;
-  total_submited_189?: string;
+  total_submitted_189?: string;
   total_invited_189?: string;
   //
   submited_190?: BacklogPoints;
   invited_190?: BacklogPoints;
   //navid add this section to ui
-  submited_by_state_190: ByStateTable[];
-  submited_by_state_491: ByStateTable[];
-  invited_by_state_190: ByStateTable[];
-  invited_by_state_491: ByStateTable[];
+  submited_by_state_190?: ByStateTable[];
+  submited_by_state_491?: ByStateTable[];
+  invited_by_state_190?: ByStateTable[];
+  invited_by_state_491?: ByStateTable[];
   //
   submited_491?: BacklogPoints;
   invited_491?: BacklogPoints;
   //
   submited_491_family?: BacklogPoints;
   invited_491_family?: BacklogPoints;
-  total_submited_491_family?: string;
+  total_submitted_491_family?: string;
   total_invited_491_family?: string;
   //
 }
@@ -160,6 +160,7 @@ export interface BacklogPoints {
   upper_than_95?: string;
   upper_than_100?: string;
   upper_than_105?: string;
+  upper_than_110?: string;
 }
 
 export interface TerritorySection {

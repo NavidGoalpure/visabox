@@ -16,7 +16,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {
       {/* //////////189////////// */}
       {backlogSection?.submited_189 ||
       backlogSection?.invited_189 ||
-      backlogSection?.total_submited_189 ||
+      backlogSection?.total_submitted_189 ||
       backlogSection?.total_invited_189 ? (
         <Subclass189 backlogSection={backlogSection} />
       ) : null}
@@ -39,7 +39,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {
       {/* ////////////491-family//////////// */}
       {backlogSection?.submited_491_family ||
       backlogSection?.invited_491_family ||
-      backlogSection?.total_submited_491_family ||
+      backlogSection?.total_submitted_491_family ||
       backlogSection?.total_invited_491_family ? (
         <Subclass491Family backlogSection={backlogSection} />
       ) : null}

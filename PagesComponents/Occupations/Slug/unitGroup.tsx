@@ -25,10 +25,6 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
   const occupationUnitGroup = (anzscoSection as AnzscoSection)
     ?.unit_group as UnitGroup;
 
-  console.log(
-    'navid (anzscoSection as AnzscoSection)?.priority_list?.[0]?.year=',
-    (anzscoSection as AnzscoSection)?.priority_list?.[0]
-  );
   return (
     <Container>
       <TitleWrapper>

@@ -30,6 +30,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress height={2} />
+      <Head>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+        </style>
+      </Head>
       <Script
         strategy='afterInteractive'
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -57,12 +63,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           {/* @ts-ignore */}
           <Hydrate state={pageProps.dehydratedState}>
-            <Head>
-              <style>
-                @import
-                url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
-              </style>
-            </Head>
             <ErrorBoundary>
               <Component {...pageProps} />
             </ErrorBoundary>

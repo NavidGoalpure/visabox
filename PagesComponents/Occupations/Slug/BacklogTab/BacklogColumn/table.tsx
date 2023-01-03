@@ -25,8 +25,8 @@ export const BacklogTable: React.FC<Props> = ({
       </Thead>
       <Tbody id='body'>
         {rows && rows.length > 0 ? (
-          rows.map((row) => (
-            <Tr>
+          rows.map((row, i) => (
+            <Tr key={i}>
               <Td>{row.rowKey}</Td>
               <Td>{row.rowValue}</Td>
             </Tr>

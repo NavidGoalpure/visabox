@@ -39,7 +39,9 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
         <Wrapper>
           <Code>{code}</Code>
           <Title>{dt(title)}</Title>
-          <Description>{dt(description)}</Description>
+          <Description dangerouslySetInnerHTML={{ __html: dt(description) }}>
+            {}
+          </Description>
         </Wrapper>
       </Link>
 

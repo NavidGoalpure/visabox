@@ -10,6 +10,7 @@ import { useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import Head from 'next/head';
 import ErrorBoundary from 'Components/errorBoundary';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -19,6 +20,21 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress height={2} />
+      <Script
+        strategy='afterInteractive'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
+
+      <Script strategy='afterInteractive'>
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
       <ThemeProvider
         theme={{
           mode: theme,

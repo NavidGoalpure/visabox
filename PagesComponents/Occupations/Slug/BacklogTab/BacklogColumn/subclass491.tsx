@@ -13,8 +13,8 @@ import { BacklogTable } from './table';
 interface Props {
   backlogSection: BacklogSection;
 }
-
 const Subclass491: React.FC<Props> = ({ backlogSection }) => {
+  console.log('navid backlogSection=', backlogSection);
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
@@ -43,7 +43,7 @@ const Subclass491: React.FC<Props> = ({ backlogSection }) => {
           <>
             <RadixTab.Content value={t(LanguageKeys.Submitted)}>
               <BacklogTable
-                titleKey='By state'
+                titleKey='Points'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseonBacklogPoints(
                   backlogSection?.submited_491
@@ -59,7 +59,7 @@ const Subclass491: React.FC<Props> = ({ backlogSection }) => {
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
               <BacklogTable
-                titleKey='By state'
+                titleKey='Points'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseonBacklogPoints(
                   backlogSection?.invited_491

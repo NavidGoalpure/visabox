@@ -28,10 +28,20 @@ const getDetailQuery = (): string => {
          abv
        },
      },
-     invited_by_state_190,
+     invited_by_state_190[]{
+       eoi_count,
+       territory->{
+         abv
+       },
+     },
      invited_491,
      submited_491,
-     invited_by_state_491,
+     invited_by_state_491[]{
+       eoi_count,
+       territory->{
+         abv
+       },
+     },
      submited_by_state_491[]{
        eoi_count,
        territory->{

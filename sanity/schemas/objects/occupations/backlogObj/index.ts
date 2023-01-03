@@ -20,7 +20,7 @@ export default {
 
     //////Total Submitted////////////////
     {
-      name: 'total_submitted_189',
+      name: 'total_submited_189',
       title: 'Total Submitted 189',
       type: 'string',
     },
@@ -76,7 +76,7 @@ export default {
     },
     //////Total Submitted////////////////
     {
-      name: 'total_submitted_491_family',
+      name: 'total_submited_491_family',
       title: 'Total Submitted 491_family',
       type: 'string',
     },

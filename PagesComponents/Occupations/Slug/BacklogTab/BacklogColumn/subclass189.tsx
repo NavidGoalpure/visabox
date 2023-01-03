@@ -47,14 +47,14 @@ const Subclass189: React.FC<Props> = ({ backlogSection }) => {
                   backlogSection?.submited_189
                 )}
               />
-              {backlogSection?.total_submitted_189 ? (
+              {backlogSection?.total_submited_189 ? (
                 <BacklogTable
                   titleKey=' '
                   titleValue='EOI count'
                   rows={[
                     {
                       rowKey: 'Total ',
-                      rowValue: backlogSection?.total_submitted_189,
+                      rowValue: backlogSection?.total_submited_189,
                     },
                   ]}
                 />

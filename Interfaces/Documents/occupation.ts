@@ -128,7 +128,7 @@ export interface BacklogSection {
   //
   submited_189?: BacklogPoints;
   invited_189?: BacklogPoints;
-  total_submitted_189?: string;
+  total_submited_189?: string;
   total_invited_189?: string;
   //
   submited_190?: BacklogPoints;
@@ -144,7 +144,7 @@ export interface BacklogSection {
   //
   submited_491_family?: BacklogPoints;
   invited_491_family?: BacklogPoints;
-  total_submitted_491_family?: string;
+  total_submited_491_family?: string;
   total_invited_491_family?: string;
   //
 }

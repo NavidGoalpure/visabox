@@ -50,8 +50,7 @@ export const getStaticPaths = async ({ locales }: any) => {
   const allOccupation = await getAllOccupationSlugs();
   if (allOccupation?.length > 0)
     allOccupation?.map((occupation: Occupation) => {
-      // return locales.map((locale: Languages) => {
-      return [Languages.en].map((locale: Languages) => {
+      return locales.map((locale: Languages) => {
         if (occupation.slug)
           return paths.push({
             params: { slug: `${occupation.slug.current}` },

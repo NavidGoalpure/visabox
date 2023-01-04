@@ -40,23 +40,35 @@ const Content: React.FC<Props> = ({ occupation }) => {
       <ToggleContainer>
         <StyledToggleTag
           contentKey={'189'}
-          isOn={!!occupation?.backlog_section?.submited_189}
+          isOn={
+            !!occupation?.backlog_section?.submited_189 ||
+            !!occupation?.backlog_section?.invited_189
+          }
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
           contentKey={'190'}
-          isOn={!!occupation?.backlog_section?.submited_190}
+          isOn={
+            !!occupation?.backlog_section?.submited_190 ||
+            !!occupation?.backlog_section?.invited_190
+          }
           backgroundTheme='PAGE'
         />
 
         <StyledToggleTag
           contentKey={'491'}
-          isOn={!!occupation?.backlog_section?.submited_491}
+          isOn={
+            !!occupation?.backlog_section?.submited_491 ||
+            !!occupation?.backlog_section?.invited_491
+          }
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
           contentKey={t(LanguageKeys['491-family'])}
-          isOn={!!occupation?.backlog_section?.submited_491_family}
+          isOn={
+            !!occupation?.backlog_section?.submited_491_family ||
+            !!occupation?.backlog_section?.invited_491_family
+          }
           backgroundTheme='PAGE'
           style={{ marginInlineEnd: '0' }}
         />

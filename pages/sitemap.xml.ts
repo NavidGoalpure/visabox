@@ -4,7 +4,7 @@ import { getAllOccupationCodes } from 'Queries/sitemap';
 const OccupatopnsPage_EN = 'https://marabox.com/en/occupations';
 const OccupatopnsPage_FA = 'https://marabox.com/fa/occupations';
 
-function generateSiteMap(occupations: Pick<Occupation, 'code'>[]) {
+function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
@@ -16,13 +16,13 @@ function generateSiteMap(occupations: Pick<Occupation, 'code'>[]) {
      </url>
  
      ${occupations
-       .map(({ code }) => {
+       .map(({ slug }) => {
          return `
        <url>
-           <loc>${`${OccupatopnsPage_EN}/${code}`}</loc>
+           <loc>${`${OccupatopnsPage_EN}/${slug}`}</loc>
        </url>
         <url>
-           <loc>${`${OccupatopnsPage_FA}/${code}`}</loc>
+           <loc>${`${OccupatopnsPage_FA}/${slug}`}</loc>
        </url>
      `;
        })
@@ -37,7 +37,7 @@ function SiteMap() {
 
 export async function getServerSideProps({ res }: any) {
   // We make an API call to gather the URLs for our site
-  const allOccupationcodes: Pick<Occupation, 'code'>[] =
+  const allOccupationcodes: Pick<Occupation, 'slug'>[] =
     await getAllOccupationCodes();
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(allOccupationcodes);

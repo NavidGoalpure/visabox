@@ -11,7 +11,7 @@ import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/const';
  */
 const getAllOccupationCodesQuery = (): string => {
   const query = `*[_type=='occupation'] {
- code,
+ slug,
  }`;
   return query;
 };

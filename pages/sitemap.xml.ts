@@ -19,10 +19,10 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
        .map(({ slug }) => {
          return `
        <url>
-           <loc>${`${OccupatopnsPage_EN}/${slug}`}</loc>
+           <loc>${`${OccupatopnsPage_EN}/${slug?.current}`}</loc>
        </url>
         <url>
-           <loc>${`${OccupatopnsPage_FA}/${slug}`}</loc>
+           <loc>${`${OccupatopnsPage_FA}/${slug?.current}`}</loc>
        </url>
      `;
        })

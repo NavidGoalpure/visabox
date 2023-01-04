@@ -1,20 +1,28 @@
-const EXTERNAL_DATA_URL = 'https://jsonplaceholder.typicode.com/posts';
+import { Occupation } from 'Interfaces/Documents/occupation';
+import { getAllOccupationCodes } from 'Queries/sitemap';
 
-function generateSiteMap(posts) {
+const OccupatopnsPage_EN = 'https://marabox.com/en/occupations';
+const OccupatopnsPage_FA = 'https://marabox.com/fa/occupations';
+
+function generateSiteMap(occupations: Pick<Occupation, 'code'>[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
-       <loc>https://jsonplaceholder.typicode.com</loc>
+       <loc>${OccupatopnsPage_EN}</loc>
      </url>
      <url>
-       <loc>https://jsonplaceholder.typicode.com/guide</loc>
+       <loc>${OccupatopnsPage_FA}</loc>
      </url>
-     ${posts
-       .map(({ id }) => {
+ 
+     ${occupations
+       .map(({ code }) => {
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/${id}`}</loc>
+           <loc>${`${OccupatopnsPage_EN}/${code}`}</loc>
+       </url>
+        <url>
+           <loc>${`${OccupatopnsPage_FA}/${code}`}</loc>
        </url>
      `;
        })
@@ -27,13 +35,12 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({ res }) {
+export async function getServerSideProps({ res }: any) {
   // We make an API call to gather the URLs for our site
-  const request = await fetch(EXTERNAL_DATA_URL);
-  const posts = await request.json();
-
+  const allOccupationcodes: Pick<Occupation, 'code'>[] =
+    await getAllOccupationCodes();
   // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(posts);
+  const sitemap = generateSiteMap(allOccupationcodes);
 
   res.setHeader('Content-Type', 'text/xml');
   // we send the XML to the browser

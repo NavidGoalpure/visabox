@@ -10,7 +10,6 @@ interface Props {
 }
 
 const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {
-  console.log('navid backlogSection=', backlogSection);
   return (
     <ColumnWrappers>
       {/* //////////189////////// */}

@@ -133,7 +133,6 @@ export interface BacklogSection {
   //
   submited_190?: BacklogPoints;
   invited_190?: BacklogPoints;
-  //navid add this section to ui
   submited_by_state_190?: ByStateTable[];
   submited_by_state_491?: ByStateTable[];
   invited_by_state_190?: ByStateTable[];

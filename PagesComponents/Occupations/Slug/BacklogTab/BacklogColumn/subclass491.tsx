@@ -14,7 +14,6 @@ interface Props {
   backlogSection: BacklogSection;
 }
 const Subclass491: React.FC<Props> = ({ backlogSection }) => {
-  console.log('navid backlogSection=', backlogSection);
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>

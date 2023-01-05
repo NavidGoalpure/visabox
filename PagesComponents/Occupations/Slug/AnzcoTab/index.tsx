@@ -14,14 +14,22 @@ import {
 import AccordionContent from '../accordionContent';
 import { LanguageKeys, componentStatements } from '../const';
 import UnitGroupCompoenent from '../unitGroup';
-import { ConvertAnzscoCodeToTitle } from './utils';
+import {
+  ConvertAnzscoCodeToTitle,
+  mustShowNecAccupationSection,
+} from './utils';
 
 interface Props {
   anzscoSection: AnzscoSection;
 }
 const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
-  const { t } = useStaticTranslation(componentStatements);
   const { dt, dtArray } = useDynamicTranslation();
+  const { t } = useStaticTranslation(componentStatements);
+  console.log(
+    'navid dtArray(anzscoSection?.nec_occupation)=',
+    dtArray(anzscoSection?.nec_occupation)
+  );
+
   return (
     <>
       <Wrapper>
@@ -87,6 +95,22 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
             />
           }
         />
+        {mustShowNecAccupationSection({
+          nec_occupation: anzscoSection?.nec_occupation,
+          dtArray,
+        }) && (
+          <StyledAccordion
+            backgroundTheme={'COMPONENT'}
+            triggerContent={t(LanguageKeys.NecOccupation)}
+            content={
+              <AccordionContent
+                data={dtArray(anzscoSection?.nec_occupation)}
+                emptyMessage={t(LanguageKeys.NecOccupation)}
+                description={t(LanguageKeys.NecOccupation_description)}
+              />
+            }
+          />
+        )}
         {/* <StyledAccordion
           backgroundTheme={"COMPONENT"}
           triggerContent={t(LanguageKeys.SkillPriorityLists)}

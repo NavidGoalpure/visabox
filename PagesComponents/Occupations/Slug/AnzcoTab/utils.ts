@@ -1,5 +1,5 @@
 import { MAJOR_GROUP, Minor_GROUP, SUB_MAJOR_GROUP } from 'Consts/anszco';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
 import { LanguageKeys } from '../const';
 
 export const ConvertAnzscoCodeToTitle = (
@@ -57,4 +57,18 @@ export function getValueBaseOnAlias({
       return 'Regional Shortage';
   }
   return '';
+}
+//////////
+
+export function mustShowNecAccupationSection({
+  nec_occupation,
+  dtArray,
+}: {
+  nec_occupation: any;
+  dtArray: (statementObj: MultiLanguageTextArray | undefined) => string[];
+}): boolean {
+  if (!nec_occupation) return false;
+  if (dtArray(nec_occupation).length === 0) return false;
+  if (dtArray(nec_occupation)[0] === '') return false;
+  return true;
 }

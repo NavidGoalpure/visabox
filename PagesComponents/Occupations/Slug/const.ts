@@ -30,6 +30,8 @@ export enum LanguageKeys {
   specialisations_title = 'specialisations_title',
   specialisations_description = 'specialisations_description',
   specialisations_empty = 'specialisations_empty',
+  NecOccupation = 'NecOccupation',
+  NecOccupation_description = 'NecOccupation_description',
   IndicativeSkillLevel_1 = 'IndicativeSkillLevel_1',
   IndicativeSkillLevel_2 = 'IndicativeSkillLevel_2',
   IndicativeSkillLevel_3 = 'IndicativeSkillLevel_3',
@@ -103,6 +105,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Specialisations: {
     en: 'Specialisations',
     fa: 'تخصص ها',
+  },
+  NecOccupation: {
+    en: 'Occupation in NEC category',
+    fa: 'مشاغل زیرمجموعه این NEC',
+  },
+  NecOccupation_description: {
+    en: 'Not elsewhere classified (nec) categories are used for known, discrete occupations which are not separately identified in ANZSCO Version 1.3 because of their lack of numerical significance in Australia or New Zealand. The occupation titles listed under nec categories are illustrative of the scope and range of occupations included in the nec category',
+    fa: 'دسته‌های طبقه‌بندی‌شده (nec) در جای دیگر برای مشاغل شناخته‌شده و مجزا استفاده می‌شوند که به‌دلیل عدم اهمیت عددی آنها در استرالیا یا نیوزلند، به طور جداگانه در ANZSCO نسخه 1.3 شناسایی نشده‌اند. عناوین شغلی که در دسته‌های nec فهرست شده‌اند، گویای دامنه و دامنه مشاغل موجود در دسته‌بندی nec هستند.',
   },
   SkillPriorityLists: {
     en: '2022 Skill Priority Lists',

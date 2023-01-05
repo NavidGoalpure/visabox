@@ -1,4 +1,3 @@
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
 import styled from 'styled-components/macro';
 import { componentTextStyle } from 'Styles/Theme/Component';
 
@@ -52,6 +51,7 @@ const EmptyMessage = styled.h3`
 const AccordionDescription = styled.p`
   ${componentTextStyle};
   margin: 0;
+  margin-inline-start: -1rem;
   strong {
     font-weight: bold;
   }

@@ -1,5 +1,5 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import { componentStatements, LanguageKeys } from './const';
 import { Container, TabItem, TabRoot, Title } from './StyledComponents';

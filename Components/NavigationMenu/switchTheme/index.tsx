@@ -16,6 +16,7 @@ const SwitchTheme = () => {
   const isChecked = theme === ThemeModes.LIGHT;
   return (
     <SwitchRoot
+      aria-label={theme as string}
       defaultChecked={isChecked}
       onCheckedChange={() => {
         if (isClient) {

@@ -14,6 +14,7 @@ function Header() {
         <NavigationMenu.Item>
           <Link href={'/en/occupations'}>
             <Logo />
+            
           </Link>
         </NavigationMenu.Item>
         <SwitchTheme />

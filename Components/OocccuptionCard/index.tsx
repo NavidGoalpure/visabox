@@ -88,7 +88,7 @@ export const codeColor = theme('mode', {
   light: css`
     background: white;
     color: var(--color-gray8);
-    border: 2px solid var(--color-primary5);
+    border: 2px solid var(--color-primary3);
   `,
   dark: css`
     color: var(--color-primary6);
@@ -103,6 +103,7 @@ const Code = styled.h3`
   padding: 0.5rem;
   align-items: center;
   border-radius: 55px;
+  margin-bottom: 1rem;
 `;
 
 const Title = styled.h2`

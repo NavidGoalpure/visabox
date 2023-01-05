@@ -10,9 +10,9 @@ interface Props {
 }
 
 const CardsSection: React.FC<Props> = ({ occupations }) => {
+  console.log('navid occupations=', occupations);
   return (
     <Container>
-      
       {occupations?.pages?.map((occupationPage) =>
         occupationPage?.map((occupation: Occupation) => {
           return (
@@ -20,10 +20,7 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
               key={occupation._id}
               code={occupation?.code}
               title={occupation?.title}
-              description={
-                (occupation.anzsco_section?.unit_group as UnitGroup)
-                  ?.description
-              }
+              description={occupation?.anzsco_section?.description}
               slug={occupation.slug}
               tasks={
                 (occupation.anzsco_section?.unit_group as UnitGroup)?.tasks

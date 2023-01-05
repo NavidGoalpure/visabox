@@ -32,7 +32,7 @@ export const BacklogTable: React.FC<Props> = ({
             </Tr>
           ))
         ) : (
-          <NoData />
+          <NoData hasIcon={false} />
         )}
         {}
       </Tbody>

@@ -9,8 +9,13 @@ import { componentStatements, LanguageKeys } from './const';
 interface Props {
   messageComponent?: ReactNode;
   icon?: ReactNode;
+  hasIcon?: boolean;
 }
-const NoData: React.FC<Props> = ({ icon = <XLogo />, messageComponent }) => {
+const NoData: React.FC<Props> = ({
+  icon = <XLogo />,
+  messageComponent,
+  hasIcon = true,
+}) => {
   const { t } = useStaticTranslation(componentStatements);
 
   const smartMessageComponent = messageComponent ? (
@@ -20,7 +25,7 @@ const NoData: React.FC<Props> = ({ icon = <XLogo />, messageComponent }) => {
   );
   return (
     <Container>
-      {icon}
+      {hasIcon ? icon : null}
       {smartMessageComponent}
     </Container>
   );
@@ -37,17 +42,16 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 1rem;
-  color: var(--color-fail2);
+  color: var(--color-disable-light);
   text-align: center;
   border none;
 `;
 const XLogo = styled(HiXMark)`
-    background: var(--color-fail1);
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    color: var(--color-fail3);
-    padding:0.4rem;
-    margin-inline-end: 0.5rem;
-}
+  background: var(--color-disable-light);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: var(--color-fail3);
+  padding: 0.4rem;
+  margin-inline-end: 0.5rem;
 `;

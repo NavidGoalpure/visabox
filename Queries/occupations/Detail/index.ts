@@ -55,13 +55,14 @@ const getDetailQuery = (): string => {
      
    },
    anzsco_section {...,
+    description,
     major_group,
     submajor_group,
     minor_group,
     unit_group  ->{
+      description,
       skill_level,
       code,
-      description,
       title,
       tasks,
       }
@@ -81,9 +82,9 @@ const getDetailQuery = (): string => {
     code,
     title,
     anzsco_section{
-     unit_group->{
+      description,
+      unit_group->{
       tasks,
-      description
      },
     }
   }

@@ -7,7 +7,6 @@ import { TbListDetails } from 'react-icons/tb';
 import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
 import { VscRepoForked } from 'react-icons/vsc';
-import { VerticalScrollBox } from 'Elements/VerticalScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
@@ -16,7 +15,6 @@ import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
 import { componentTheme, componentTitleStyle } from 'Styles/Theme/Component';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
-import SimilarOccupations from './similarOccupations';
 
 interface Props {
   occupation: OccupationDetailRes;

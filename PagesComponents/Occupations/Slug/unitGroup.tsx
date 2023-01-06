@@ -49,7 +49,10 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
           backgroundTheme={'COMPONENT'}
           triggerContent={t(LanguageKeys.Tasks)}
           content={
-            <AccordionContent data={dtArray(occupationUnitGroup?.tasks)} />
+            <AccordionContent
+              data={dtArray(occupationUnitGroup?.tasks)}
+              emptyMessage={t(LanguageKeys.NoTask)}
+            />
           }
         />
         {(anzscoSection as AnzscoSection)?.priority_list?.[0]?.national ? (

@@ -31,7 +31,7 @@ const PopupContent: React.FC<Props> = ({
   setIsPopupOpen,
 }) => {
   const { t } = useStaticTranslation(componentStatements);
-  const { dtArray } = useDynamicTranslation();
+  const { dtArray, isMultiLanguageTextArrayIsEmpty } = useDynamicTranslation();
 
   const router = useRouter();
   const { locale } = useLocale();
@@ -47,14 +47,18 @@ const PopupContent: React.FC<Props> = ({
       />{' '}
       <StyledVerticalScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
         <Title>{t(LanguageKeys.Tasks)}</Title>
-        <ul>
-          {dtArray(tasks)?.map((task, i) => (
-            <>
-              <li key={i}>{task}</li>
-              <br />
-            </>
-          ))}
-        </ul>
+        {isMultiLanguageTextArrayIsEmpty(tasks) ? (
+          <ul>
+            {dtArray(tasks)?.map((task, i) => (
+              <>
+                <li key={i}>{task}</li>
+                <br />
+              </>
+            ))}
+          </ul>
+        ) : (
+          <p>{t(LanguageKeys.NoTask)}</p>
+        )}
         <StyledButton
           onClick={() => router.push(`/${locale}/occupations/${slug?.current}`)}
         >
@@ -144,7 +148,10 @@ const StyledVerticalScrollBox = styled(VerticalScrollBox)<{
     ${componentTextStyle}
     margin-bottom:1rem;
   }
-
+  p {
+    ${componentTextStyle}
+    margin-bottom:1rem;
+  }
   ${({ isPopupOpen }) =>
     isPopupOpen &&
     `

@@ -22,6 +22,7 @@ export enum LanguageKeys {
   Description = 'Description',
   IndicativeSkillLevel = 'IndicativeSkillLevel',
   Tasks = 'Tasks',
+  NoTask = 'NoTask',
   OccupationsinUnitGroup = 'OccupationsinUnitGroup',
   AverageSalary = 'AverageSalary',
   AlternativeTitles_title = 'AlternativeTitles_title',
@@ -129,6 +130,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Tasks: {
     en: 'Tasks',
     fa: 'وظایف',
+  },
+  NoTask: {
+    fa: 'شرح وظایفی برای این شغل وجود ندارد.',
+    en: 'There are no Tasks associated to this Unit Group.',
   },
   OccupationsinUnitGroup: {
     en: 'Occupations in This Unit Group',

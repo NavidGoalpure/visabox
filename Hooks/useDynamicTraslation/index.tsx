@@ -1,5 +1,9 @@
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
-import { translatedObject, translateDynamicArray } from './Utils';
+import {
+  isMultiLanguageTextArrayIsEmpty,
+  translatedObject,
+  translateDynamicArray,
+} from './Utils';
 
 ////////////////
 /**
@@ -14,5 +18,6 @@ export const useDynamicTranslation = () => {
       translatedObject({ statementObj }),
     dtArray: (statementObj: MultiLanguageTextArray | undefined) =>
       translateDynamicArray(statementObj),
+    isMultiLanguageTextArrayIsEmpty,
   };
 };

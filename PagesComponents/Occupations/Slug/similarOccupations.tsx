@@ -26,9 +26,7 @@ const similarOccupations: React.FC<Props> = ({
             key={occupation._id}
             code={occupation?.code}
             title={occupation?.title}
-            description={
-              (occupation.anzsco_section?.unit_group as UnitGroup)?.description
-            }
+            description={occupation?.anzsco_section?.description}
             slug={occupation.slug}
             tasks={(occupation.anzsco_section?.unit_group as UnitGroup)?.tasks}
           />

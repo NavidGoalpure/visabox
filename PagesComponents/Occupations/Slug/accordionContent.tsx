@@ -16,7 +16,7 @@ const AccordionContent: React.FC<Props> = ({
   return (
     <AccordionContentContainer>
       <AccordionContentWrapper>
-        {data?.[0] ? (
+        {data?.[0] && data?.[0] !== '' ? (
           data?.map((title, i) => <AccordionLi key={i}>{title}</AccordionLi>)
         ) : (
           <EmptyMessage>{emptyMessage}</EmptyMessage>

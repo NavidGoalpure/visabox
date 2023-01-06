@@ -23,12 +23,9 @@ interface Props {
   anzscoSection: AnzscoSection;
 }
 const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
-  const { dt, dtArray } = useDynamicTranslation();
+  const { dt, dtArray, isMultiLanguageTextArrayIsEmpty } =
+    useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
-  console.log(
-    'navid dtArray(anzscoSection?.nec_occupation)=',
-    dtArray(anzscoSection?.nec_occupation)
-  );
 
   return (
     <>
@@ -95,10 +92,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
             />
           }
         />
-        {mustShowNecAccupationSection({
-          nec_occupation: anzscoSection?.nec_occupation,
-          dtArray,
-        }) && (
+        {isMultiLanguageTextArrayIsEmpty(anzscoSection?.nec_occupation) && (
           <StyledAccordion
             backgroundTheme={'COMPONENT'}
             triggerContent={t(LanguageKeys.NecOccupation)}

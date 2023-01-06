@@ -3,6 +3,7 @@ import { MultiLanguageText } from 'Interfaces';
 export enum LanguageKeys {
   ReadMore = 'ReadMore',
   Tasks = 'Tasks',
+  NoTask = 'NoTask',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   ReadMore: {
@@ -12,6 +13,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Tasks: {
     fa: 'شرح وظایف',
     en: 'Tasks',
+  },
+  NoTask: {
+    fa: 'شرح وظایفی برای این شغل وجود ندارد.',
+    en: 'There are no Tasks associated to this Unit Group.',
   },
 };
 

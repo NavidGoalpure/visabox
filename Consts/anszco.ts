@@ -270,6 +270,13 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 139,
+    title: {
+      en: 'Miscellaneous Specialist Managers',
+      fa: 'مدیران متخصص متفرقه',
+    },
+  },
+  {
     code: 141,
     title: {
       en: 'Accommodation and Hospitality Managers',

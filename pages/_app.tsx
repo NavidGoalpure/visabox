@@ -13,8 +13,11 @@ import ErrorBoundary from 'Components/errorBoundary';
 import Script from 'next/script';
 import { hotjar } from 'react-hotjar';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import * as gtag from 'Utils/gtag';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
   const { theme } = useTheme();
@@ -27,8 +30,22 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
   }, []);
   //
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+  //
   return (
     <>
+      <Script
+        strategy='afterInteractive'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+      />
       <NextNProgress height={2} />
       <Head>
         <style>
@@ -36,10 +53,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
         </style>
       </Head>
-      <Script
-        strategy='afterInteractive'
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      />
 
       <Script strategy='afterInteractive'>
         {`

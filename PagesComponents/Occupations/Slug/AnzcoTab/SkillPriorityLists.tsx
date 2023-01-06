@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components/macro';
-import Accordion from 'Elements/Accordion';
-import ToggleTag from 'Elements/ToggleTag';
 import { componentSubtitleStyle } from 'Styles/Theme/Component';
 import { deviceMin } from 'Consts/device';
 import { PriorityList, Territories } from 'Interfaces/Documents/occupation';
-import { getValueBaseOnAlias } from './utils';
+import { getShortageStatusBaseOnAlias } from './utils';
 import ShortageTag from './shortageTag';
 import theme from 'styled-theming';
 
@@ -17,66 +15,57 @@ const SkillPriorityLists: React.FC<Props> = ({ priorityList }) => {
       <Tags>
         <StyledShortageTag
           contentKey={'National'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.national,
           })}
-          shortageStatus={priorityList?.national || ''}
         />
         <StyledShortageTag
           contentKey={'ACT'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.ACT],
           })}
-          shortageStatus={priorityList?.[Territories.ACT] || ''}
         />
         <StyledShortageTag
           contentKey={'NSW'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.NSW],
           })}
-          shortageStatus={priorityList?.[Territories.NSW] || ''}
         />
         <StyledShortageTag
           contentKey={'NT'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.NT],
           })}
-          shortageStatus={priorityList?.[Territories.NT] || ''}
         />
         <StyledShortageTag
           contentKey={'QLD'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.QLD],
           })}
-          shortageStatus={priorityList?.[Territories.QLD] || ''}
         />
         <StyledShortageTag
           contentKey={'SA'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.SA],
           })}
-          shortageStatus={priorityList?.[Territories.SA] || ''}
         />
         <StyledShortageTag
           contentKey={'TAS'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.TAS],
           })}
-          shortageStatus={priorityList?.[Territories.TAS] || ''}
         />
         <StyledShortageTag
           contentKey={'VIC'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.VIC],
           })}
-          shortageStatus={priorityList?.[Territories.VIC] || ''}
         />
         <StyledShortageTag
           contentKey={'WA'}
-          contentValue={getValueBaseOnAlias({
+          contentValue={getShortageStatusBaseOnAlias({
             alias: priorityList?.[Territories.WA],
           })}
-          shortageStatus={priorityList?.[Territories.VIC] || ''}
         />
       </Tags>
       <Text>

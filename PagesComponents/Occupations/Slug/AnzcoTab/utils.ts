@@ -1,6 +1,7 @@
 import { MAJOR_GROUP, Minor_GROUP, SUB_MAJOR_GROUP } from 'Consts/anszco';
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
 import { LanguageKeys } from '../const';
+import { ShortageStatus } from './interfaces';
 
 export const ConvertAnzscoCodeToTitle = (
   anzscoCode: number
@@ -41,22 +42,22 @@ export const SkillLevelDescription = (skillLevel: string) => {
       return '';
   }
 };
-export function getValueBaseOnAlias({
+export function getShortageStatusBaseOnAlias({
   alias,
 }: {
   alias: string | undefined;
-}): string {
+}): ShortageStatus {
   switch (alias) {
     case 'S':
-      return 'Shortage';
+      return ShortageStatus.Shortage;
     case 'NS':
-      return 'No Shortage';
+      return ShortageStatus.NoShortage;
     case 'M':
-      return 'Metropolitan Shortage';
+      return ShortageStatus.MetropolitanShortage;
     case 'R':
-      return 'Regional Shortage';
+      return ShortageStatus.RegionalShortage;
   }
-  return '';
+  return ShortageStatus.Unknown;
 }
 //////////
 

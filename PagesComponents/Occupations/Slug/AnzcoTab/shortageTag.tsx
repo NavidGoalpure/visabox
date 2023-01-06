@@ -2,20 +2,19 @@ import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { Headline6Style } from 'Styles/Typo';
 import { HTMLAttributes, ReactNode } from 'react';
+import { ShortageStatus } from './interfaces';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   contentKey: string;
-  contentValue?: ReactNode;
-  shortageStatus: string;
+  contentValue: ShortageStatus;
 }
 const ShortageTag: React.FC<Props> = ({
-  shortageStatus,
   contentKey,
   contentValue,
   ...props
 }) => {
   return (
-    <Container {...props} shortageStatus={shortageStatus}>
+    <Container {...props} contentValue={contentValue}>
       <ContentKey>{contentKey}</ContentKey>
       <ContentValue>{contentValue}</ContentValue>
     </Container>
@@ -34,17 +33,23 @@ const ContentKeytheme = theme('mode', {
 });
 
 const Container = styled.div<{
-  shortageStatus: string;
+  contentValue: ShortageStatus;
 }>`
-  ${({ shortageStatus }) =>
-    shortageStatus === 'NS' &&
+  ${({ contentValue }) =>
+    contentValue === ShortageStatus.NoShortage &&
     'background-color: var(--color-primary6); border: 3px solid var(--color-primary6);   color: var(--color-gray9);'}
-  ${({ shortageStatus }) =>
-    shortageStatus === 'M' &&
+  ${({ contentValue }) =>
+    contentValue === ShortageStatus.MetropolitanShortage &&
     'background-color: var(--color-primary5);border: 3px solid var(--color-primary5);'}
-    ${({ shortageStatus }) =>
-    shortageStatus === 'S' &&
+    ${({ contentValue }) =>
+    contentValue === ShortageStatus.Shortage &&
     'background-color: var(--color-primary3);border: 3px solid var(--color-primary3);'}
+     ${({ contentValue }) =>
+    contentValue === ShortageStatus.RegionalShortage &&
+    'background-color: var(--color-primary4);border: 3px solid var(--color-primary4);'}
+    ${({ contentValue }) =>
+    contentValue === ShortageStatus.Unknown &&
+    'background-color: var(--color-fail1);border: 3px solid var(--color-fail1);'}
   border-radius: 30px;
   width: fit-content;
   display: flex;

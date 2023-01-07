@@ -13,18 +13,25 @@ import { OccupationsQueryKeys } from 'Utils/query';
 import { getListQuery } from 'Queries/occupations/List';
 import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props {
   statusCode: number | null;
 }
 const OccupationList: NextPage<Props> = ({ statusCode }) => {
   const { t } = useStaticTranslation(componentStatements);
+  const locale = useLocale();
+
   //
   if (statusCode) <Error statusCode={statusCode} />;
   return (
     <PageLayout>
       <Head>
         <title>{t(LanguageKeys.SeoTitle)}</title>
+        <link
+          rel='canonical'
+          href={`https://www.marabox.com/${locale}/occupations/`}
+        ></link>
         <meta name='description' content={t(LanguageKeys.SeoTitle)} />
         <link rel='icon' href='/favicon.ico' />
       </Head>

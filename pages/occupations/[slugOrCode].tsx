@@ -26,11 +26,9 @@ interface Props {
   errorCode?: number;
 }
 const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
-  const router = useRouter();
   const locale = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   if (errorCode) return <Error statusCode={errorCode} />;
-  const isQuaryBaseOnCode = !isNaN(Number(router.query?.slugOrCode));
   return (
     <PageLayout>
       <Head>
@@ -41,12 +39,10 @@ const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
           ])}
         </title>
         {/* for preventing from dublicate pages with code and slug  */}
-        {isQuaryBaseOnCode && (
-          <link
-            rel='canonical'
-            href={`https://www.marabox.com/${locale}/occupations/${occupation?.slug?.current}`}
-          ></link>
-        )}
+        <link
+          rel='canonical'
+          href={`https://www.marabox.com/${locale}/occupations/${occupation?.slug?.current}`}
+        ></link>
         <meta
           name='description'
           content={

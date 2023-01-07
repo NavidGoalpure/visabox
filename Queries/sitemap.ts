@@ -1,7 +1,5 @@
 import { sanityClient } from 'Utils/sanity';
-
 import { Occupation } from 'Interfaces/Documents/occupation';
-import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/const';
 
 //////////////////////////
 ////////////////////////////

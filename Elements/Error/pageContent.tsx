@@ -77,7 +77,7 @@ export default function PageErrorContent() {
           <WireSvg />
         </Wire>
         <Title>Someone stepped on the wire</Title>
-        <Subtitle>Please check your vpn connection</Subtitle>
+        <Subtitle>Please check your connection</Subtitle>
         <Desc>{`there most be some problems in the servers please try again later`}</Desc>
         <Link href='/occupations'>
           <Button>Home</Button>
@@ -90,7 +90,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 9.5rem 0;
+  padding: 4.5rem 0;
   position: relative;
 `;
 

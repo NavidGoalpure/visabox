@@ -24,6 +24,7 @@ export default function NotFound() {
           <Title>404</Title>
           <Subtitle>Oops...</Subtitle>
           <Desc>You weren't supposed to be here</Desc>
+          <Desc>Maybe you need to use a proxy</Desc>
           <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
           <Link href='/occupations'>
             <Button>Home</Button>
@@ -37,7 +38,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 9.5rem 0;
+  padding: 4.5rem 0;
   position: relative;
 `;
 

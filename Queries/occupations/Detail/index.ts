@@ -134,4 +134,16 @@ const getAllOccupationSlugs = async (): Promise<Occupation[] | []> => {
     return [];
   }
 };
-export { getOccupationDetail, getAllOccupationSlugs };
+///////////////
+const getAllOccupationCodes = async (): Promise<Occupation[] | []> => {
+  const query = `*[_type=='occupation' && !(_id in path('drafts.**'))]{
+ code
+}`;
+  try {
+    const Occupations = await sanityClient.fetch(query);
+    return Occupations as Occupation[];
+  } catch (error) {
+    return [];
+  }
+};
+export { getOccupationDetail, getAllOccupationSlugs, getAllOccupationCodes };

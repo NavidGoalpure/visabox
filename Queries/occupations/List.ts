@@ -1,7 +1,7 @@
 import { sanityClient } from 'Utils/sanity';
 
 import { Occupation } from 'Interfaces/Documents/occupation';
-import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/const';
+import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/List/const';
 
 /**
  * این متد عبارتی که کاربر سرچ کرده رو به عنوان ورودی میگیره و فیلتر مناسب سنیتی رو تولید میکنه

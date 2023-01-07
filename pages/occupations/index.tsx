@@ -3,9 +3,9 @@ import Head from 'next/head';
 import {
   LanguageKeys,
   componentStatements,
-} from 'PagesComponents/Occupations/const';
+} from 'PagesComponents/Occupations/List/const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import Content from 'PagesComponents/Occupations';
+import Content from 'PagesComponents/Occupations/List';
 import PageLayout from 'Components/Layouts/PageContainer';
 import { sanityClient } from 'Utils/sanity';
 import { dehydrate, QueryClient } from 'react-query';

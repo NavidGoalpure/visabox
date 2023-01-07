@@ -9,8 +9,10 @@ import { OccupationDetailRes } from './interface';
  * @param  searchCondition عبارتی که یوزر در باکس سرچ تایپ کرده
  * @returns
  */
-const getDetailQuery = (): string => {
-  const query = `*[_type=='occupation' && slug.current == $slug] [0]
+const getDetailQuery = (baseOn: 'SLUG' | 'CODE'): string => {
+  const query = `*[_type=='occupation' && ${
+    baseOn === 'SLUG' ? 'slug.current == $slug' : 'code == $code'
+  }] [0]
    {
  _id,
  code,
@@ -99,13 +101,18 @@ const getDetailQuery = (): string => {
  * @param  {string} slug
  * @returns {Occupation}
  */
-const getOccupationDetail = async (
-  slug: string
-): Promise<OccupationDetailRes> => {
-  const params = { slug };
+const getOccupationDetail = async ({
+  slug,
+  code,
+}: {
+  slug?: string;
+  code?: number;
+}): Promise<OccupationDetailRes> => {
+  const params = slug ? { slug } : { code };
+  const baseOn: 'SLUG' | 'CODE' = slug ? 'SLUG' : 'CODE';
   try {
     const data = await sanityClient.fetch<OccupationDetailRes | ClientError>(
-      getDetailQuery(),
+      getDetailQuery(baseOn),
       params
     );
     return data as OccupationDetailRes;

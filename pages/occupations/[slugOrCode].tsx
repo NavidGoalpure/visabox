@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
-import Content from 'PagesComponents/Occupations/Slug';
+import Content from 'PagesComponents/Occupations/Detail';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 
@@ -14,7 +14,7 @@ import {
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Occupations/Slug/const';
+} from 'PagesComponents/Occupations/Detail/const';
 import Error from 'next/error';
 import { testOccupation } from 'Mock/occupation';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
@@ -46,14 +46,14 @@ const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
 export default OccupationPage;
 
 export const getStaticPaths = async ({ locales }: any) => {
-  let paths: { params: { slug: string }; locale: Languages }[] = [];
+  let paths: { params: { slugOrCode: string }; locale: Languages }[] = [];
   const allOccupation = await getAllOccupationSlugs();
   if (allOccupation?.length > 0)
     allOccupation?.map((occupation: Occupation) => {
       return locales.map((locale: Languages) => {
         if (occupation.slug)
           return paths.push({
-            params: { slug: `${occupation.slug.current}` },
+            params: { slugOrCode: `${occupation.slug.current}` },
             locale,
           });
       });
@@ -67,10 +67,9 @@ export const getStaticPaths = async ({ locales }: any) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    //navid chage comment lines
-    const occupation = await getOccupationDetail(
-      params?.slug?.toString() || ''
-    );
+    const occupation = await getOccupationDetail({
+      slug: params?.slugOrCode?.toString() || '',
+    });
     // const occupation = testOccupation;
 
     return {

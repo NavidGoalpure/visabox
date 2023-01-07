@@ -162,6 +162,8 @@ export interface BacklogPoints {
   upper_than_110?: string;
   upper_than_115?: string;
   upper_than_120?: string;
+  upper_than_125?: string;
+  upper_than_130?: string;
 }
 
 export interface TerritorySection {

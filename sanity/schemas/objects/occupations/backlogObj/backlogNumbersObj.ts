@@ -71,6 +71,16 @@ export default {
       title: '> 120 ',
       type: 'string',
     },
+    {
+      name: 'upper_than_125',
+      title: '> 125 ',
+      type: 'string',
+    },
+    {
+      name: 'upper_than_130',
+      title: '> 130 ',
+      type: 'string',
+    },
   ],
   //   preview: {
   //     select: {

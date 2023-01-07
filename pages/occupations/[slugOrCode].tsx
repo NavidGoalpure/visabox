@@ -19,6 +19,7 @@ import {
 import Error from 'next/error';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 import { getSmartparam } from 'PagesComponents/Occupations/Detail/utils';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props {
   occupation?: OccupationDetailRes;
@@ -26,6 +27,7 @@ interface Props {
 }
 const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
   const router = useRouter();
+  const locale = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   if (errorCode) return <Error statusCode={errorCode} />;
   const isQuaryBaseOnCode = !isNaN(Number(router.query?.slugOrCode));
@@ -40,7 +42,10 @@ const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
         </title>
         {/* for preventing from dublicate pages with code and slug  */}
         {isQuaryBaseOnCode && (
-          <meta name='robots' content='noindex,nofollow'></meta>
+          <link
+            rel='canonical'
+            href={`https://www.marabox.com/${locale}/occupations/${occupation?.slug?.current}`}
+          ></link>
         )}
         <meta
           name='description'

@@ -18,8 +18,7 @@ import {
 } from 'PagesComponents/Occupations/Detail/const';
 import Error from 'next/error';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
-import { getSmartparam } from './Utils';
-import Router from 'next/router';
+import { getSmartparam } from 'PagesComponents/Occupations/Detail/utils';
 
 interface Props {
   occupation?: OccupationDetailRes;

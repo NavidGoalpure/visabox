@@ -42,7 +42,13 @@ const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
         {isQuaryBaseOnCode && (
           <meta name='robots' content='noindex,nofollow'></meta>
         )}
-        <meta name='description' content={t(LanguageKeys.SeoDesc)} />
+        <meta
+          name='description'
+          content={
+            occupation?.anzsco_section?.description?.en ||
+            t(LanguageKeys.SeoDesc)
+          }
+        />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       {occupation ? <Content occupation={occupation} /> : null}

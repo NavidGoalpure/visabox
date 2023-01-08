@@ -1,12 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-
 import * as Tabs from '@radix-ui/react-tabs';
 import * as SideBar from 'Elements/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
 import { TbStack2 } from 'react-icons/tb';
 import { TbNumbers } from 'react-icons/tb';
-import { VscRepoForked } from 'react-icons/vsc';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
@@ -14,18 +12,19 @@ import AnzscoComponent from './AnzcoTab';
 import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
 import {
-  componentSubtitleColor,
   componentSubtitleStyle,
   componentTheme,
   componentTitleStyle,
 } from 'Styles/Theme/Component';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
+import NoData from 'Components/NoData';
 
 interface Props {
   occupation: OccupationDetailRes;
 }
 const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
+  console.log('navid occupation?.backlog_section=', occupation);
   return (
     <SideBarRoot
       defaultValue='backlog'
@@ -80,7 +79,9 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                 />
               </ContentWrapper>
             </Tabs.Content>
-          ) : null}
+          ) : (
+            <NoData context='PAGE' hasIcon={false} />
+          )}
           {/*  */}
         </>
       }

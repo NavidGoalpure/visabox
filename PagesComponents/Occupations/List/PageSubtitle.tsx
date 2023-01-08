@@ -34,8 +34,8 @@ const PageSubtitle: React.FC = () => {
   return (
     <SmartComponentBaseOnLocale
       compenents={{
-        fa: <Subtitle>{iranianSubtitle}</Subtitle>,
-        en: <Subtitle>{englishSubtitle}</Subtitle>,
+        fa: <Subtitle key='fa'>{iranianSubtitle}</Subtitle>,
+        en: <Subtitle key='en'>{englishSubtitle}</Subtitle>,
       }}
     />
   );

@@ -31,7 +31,7 @@ const TabsRoot = styled(Tabs.Root)`
   width: 100%;
 `;
 const HeadesWrapper = styled.div`
-  overflow: scroll;
+  overflow: auto;
   @media ${deviceMin.tabletS} {
     overflow: hidden;
   }

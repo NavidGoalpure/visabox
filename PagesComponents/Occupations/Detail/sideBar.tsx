@@ -13,7 +13,12 @@ import { deviceMin } from 'Consts/device';
 import AnzscoComponent from './AnzcoTab';
 import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
-import { componentTheme, componentTitleStyle } from 'Styles/Theme/Component';
+import {
+  componentSubtitleColor,
+  componentSubtitleStyle,
+  componentTheme,
+  componentTitleStyle,
+} from 'Styles/Theme/Component';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
 interface Props {
@@ -69,6 +74,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             <Tabs.Content value='backlog'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
+                <UpdateAt>Last update: 31/08/2022</UpdateAt>
                 <BacklogComponent
                   backlogSection={occupation?.backlog_section}
                 />
@@ -119,19 +125,17 @@ const Backlog = styled(TbStack2)`
   ${Icon}
 `;
 
-const SimilarIcon = styled(VscRepoForked)`
-  ${Icon}
-  transform: rotate(180deg);
-  @media ${deviceMin.tabletS} {
-    stroke-width: 1;
-  }
-`;
-
 //////////
 const Header = styled.header`
   width: 100%;
   padding: 1rem;
   ${componentTitleStyle}
+`;
+const UpdateAt = styled.h4`
+  ${componentSubtitleStyle}
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
 `;
 const ContentWrapper = styled.section`
   ${componentTheme}

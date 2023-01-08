@@ -150,5 +150,5 @@ const AccordionContent = styled(Accordion.Content)`
 `;
 const Content = styled.div`
   ${TextColor}
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
 `;

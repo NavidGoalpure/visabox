@@ -146,6 +146,13 @@ export const SUB_MAJOR_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 39,
+    title: {
+      en: 'Other Technicians and Trades Workers',
+      fa: 'سایر تکنسین ها و کارگران حرفه ای',
+    },
+  },
+  {
     code: 41,
     title: {
       en: 'Health and Welfare Support Workers',
@@ -463,6 +470,13 @@ export const Minor_GROUP: AnszcoGroup[] = [
     },
   },
   {
+    code: 321,
+    title: {
+      en: 'Automotive Electricians and Mechanics',
+      fa: 'برق و مکانیک خودرو',
+    },
+  },
+  {
     code: 323,
     title: {
       en: 'Mechanical Engineering Trades Workers',
@@ -531,7 +545,34 @@ export const Minor_GROUP: AnszcoGroup[] = [
       fa: 'کارگران صنایع باغبانی',
     },
   },
-
+  {
+    code: 391,
+    title: {
+      en: 'Hairdressers',
+      fa: 'آرایشگاه ها',
+    },
+  },
+  {
+    code: 392,
+    title: {
+      en: 'Printing Trades Workers',
+      fa: 'کارگران صنایع چاپ',
+    },
+  },
+  {
+    code: 393,
+    title: {
+      en: 'Textile, Clothing and Footwear Trades Workers',
+      fa: 'کارگران صنایع نساجی، پوشاک و کفش',
+    },
+  },
+  {
+    code: 394,
+    title: {
+      en: 'Wood Trades Workers',
+      fa: 'کارگران صنایع چوب',
+    },
+  },
   {
     code: 411,
     title: {

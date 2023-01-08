@@ -70,8 +70,8 @@ const SkillPriorityLists: React.FC<Props> = ({ priorityList }) => {
       </Tags>
       <Text>
         <FutureDemand>
-          National Future Demand :{' '}
-          <Demand>{priorityList?.future_demend}</Demand>
+          National Future Demand :
+          <Demand> {priorityList?.future_demend}</Demand>
         </FutureDemand>
       </Text>
     </Container>
@@ -85,7 +85,7 @@ const Tags = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media ${deviceMin.tabletL} {
+  @media ${deviceMin.tabletS} {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
@@ -95,6 +95,12 @@ const Tags = styled.div`
 
 const StyledShortageTag = styled(ShortageTag)`
   width: 100%;
+  height: 3rem;
+
+  @media ${deviceMin.tabletS} {
+    width: 48%;
+    height: max-content;
+  }
   @media ${deviceMin.tabletL} {
     width: 31%;
     height: max-content;
@@ -121,8 +127,9 @@ const DemandColor = theme('mode', {
     color: var(--color-primary5);
   `,
 });
-const Demand = styled.h3`
+const Demand = styled.span`
   ${componentSubtitleStyle}
   ${DemandColor}
   align-text: center;
+  margin-inline-start: 0.5rem;
 `;

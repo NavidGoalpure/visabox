@@ -11,6 +11,7 @@ import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components/macro';
 import { useState } from 'react';
+import NoData from 'Components/NoData';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
@@ -27,21 +28,28 @@ const Content: React.FC = () => {
   const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
   };
+  console.log('navid occupations=');
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
       <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
-      <ContentOrError
-        isError={isError}
-        content={<CardsSection occupations={occupations} />}
-      />
-      <SmartButton
-        isError={isError}
-        isFetching={isFetching}
-        hasNextPage={hasNextPage}
-        fetchNextPage={fetchNextPage}
-      />
+      {!occupations?.pages[0]?.length && !isFetching ? (
+        <NoData hasIcon={false} context='PAGE' />
+      ) : (
+        <>
+          <ContentOrError
+            isError={isError}
+            content={<CardsSection occupations={occupations} />}
+          />
+          <SmartButton
+            isError={isError}
+            isFetching={isFetching}
+            hasNextPage={hasNextPage}
+            fetchNextPage={fetchNextPage}
+          />
+        </>
+      )}
     </>
   );
 };

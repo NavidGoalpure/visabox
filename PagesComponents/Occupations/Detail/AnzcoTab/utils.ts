@@ -34,9 +34,11 @@ export const SkillLevelDescription = (skillLevel: string) => {
     case '2':
       return LanguageKeys.IndicativeSkillLevel_2;
     case '3':
-      LanguageKeys.IndicativeSkillLevel_3;
+      return LanguageKeys.IndicativeSkillLevel_3;
     case '4':
       return LanguageKeys.IndicativeSkillLevel_4;
+    case '5':
+      return LanguageKeys.IndicativeSkillLevel_5;
 
     default:
       return '';

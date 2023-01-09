@@ -24,7 +24,6 @@ interface Props {
 }
 const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
-  console.log('navid occupation?.backlog_section=', occupation);
   return (
     <SideBarRoot
       defaultValue='backlog'

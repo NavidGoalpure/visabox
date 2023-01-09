@@ -37,6 +37,7 @@ export enum LanguageKeys {
   IndicativeSkillLevel_2 = 'IndicativeSkillLevel_2',
   IndicativeSkillLevel_3 = 'IndicativeSkillLevel_3',
   IndicativeSkillLevel_4 = 'IndicativeSkillLevel_4',
+  IndicativeSkillLevel_5 = 'IndicativeSkillLevel_5',
   //backlog
   Backlog = 'Backlog',
   BacklogTitle = 'BacklogTitle',
@@ -161,26 +162,25 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   IndicativeSkillLevel_1: {
     en: `In Australia and New Zealand:
-Most occupations in this unit group have a level of skill commensurate with a bachelor degree or higher qualification (ANZSCO Skill Level 1).`,
+Most occupations in this unit group have a level of skill commensurate with a bachelor degree or higher qualification.`,
     fa: `در استرالیا و نیوزلند:
 
-     اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با مدرک لیسانس یا بالاتر (سطح مهارت ANZSCO 1) هستند.`,
+     اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با مدرک لیسانس یا بالاتر هستند.`,
   },
   IndicativeSkillLevel_2: {
     en: `In Australia:
 
-AQF Associate Degree, Advanced Diploma or Diploma (ANZSCO Skill Level 2)
+AQF Associate Degree, Advanced Diploma or Diploma 
 
 In New Zealand:
-NZQF Diploma (ANZSCO Skill Level 2)
+NZQF Diploma 
 
 At least three years of relevant experience may substitute for the formal qualifications listed above. In some instances relevant experience and/or on-the-job training may be required in addition to the formal qualification.`,
     fa: `در استرالیا:
-
-مدرک کاردانی AQF، دیپلم یا دیپلم پیشرفته (سطح مهارت ANZSCO)
+مدرک کاردانی AQF، دیپلم یا دیپلم پیشرفته 
 
 در نیوزلند:
-دیپلم NZQF (سطح مهارت ANZSCO)
+دیپلم NZQF 
 
 حداقل سه سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد تجربه مرتبط و/یا آموزش در حین کار ممکن است علاوه بر صلاحیت رسمی مورد نیاز باشد.`,
   },
@@ -189,29 +189,62 @@ At least three years of relevant experience may substitute for the formal qualif
 
 In Australia:
 
-AQF Certificate III including at least two years of on-the-job training, or AQF Certificate IV (ANZSCO Skill Level 3)
+AQF Certificate III including at least two years of on-the-job training, or AQF Certificate IV 
 
 In New Zealand:
-NZQF Level 4 qualification (ANZSCO Skill Level 3)
+NZQF Level 4 qualification 
 
 At least three years of relevant experience may substitute for the formal qualifications listed above. In some instances relevant experience and/or on-the-job training may be required in addition to the formal qualification.
 Registration or licensing may be required.`,
     fa: `اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با صلاحیت ها و تجربه های ذکر شده در زیر هستند.
 
 در استرالیا:
-
-گواهینامه AQF III شامل حداقل دو سال آموزش در محل کار، یا گواهینامه AQF IV (سطح مهارت ANZSCO)
+گواهینامه AQF III شامل حداقل دو سال آموزش در محل کار، یا گواهینامه AQF IV 
 
 در نیوزلند:
-مدرک NZQF سطح 4 (سطح مهارت ANZSCO)
+مدرک NZQF سطح 4 
 
 حداقل سه سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد تجربه مرتبط و/یا آموزش در حین کار ممکن است علاوه بر صلاحیت رسمی مورد نیاز باشد.
 ثبت یا پروانه ممکن است لازم باشد.`,
   },
   IndicativeSkillLevel_4: {
-    //navid
-    en: ``,
-    fa: ``,
+    en: `Most occupations in this unit group have a level of skill commensurate with the qualifications and experience outlined below.
+
+In Australia:
+AQF Certificate II or III
+
+In New Zealand:
+NZQF Level 2 or 3 qualification 
+
+At least one year of relevant experience may substitute for the formal qualifications listed above. In some instances relevant experience may be required in addition to the formal qualification.`,
+    fa: `اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با صلاحیت ها و تجربه های ذکر شده در زیر هستند.
+
+در استرالیا:
+AQF Certificate II or III
+
+در نیوزلند:
+NZQF Level 2 or 3 qualification 
+
+حداقل یک سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد ممکن است علاوه بر صلاحیت رسمی، به تجربه مرتبط نیز نیاز باشد.`,
+  },
+  IndicativeSkillLevel_5: {
+    en: `Most occupations in this unit group have a level of skill commensurate with the qualifications and experience outlined below.
+
+- NZ Register Level 1 qualification
+- AQF Certificate I or
+- compulsory secondary education.
+
+For some occupations a short period of on-the-job training may be required in addition to or instead of the formal qualification.
+
+In some instances, no formal qualification or on-the-job training may be required.`,
+
+    fa: `اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با صلاحیت ها و تجربه های ذکر شده در زیر هستند.
+
+- NZ Register Level 1 qualification
+- AQF Certificate I or
+- compulsory secondary education.
+
+برای برخی مشاغل ممکن است علاوه بر مدارک رسمی یا به جای آن، یک دوره کوتاه آموزش در حین کار لازم باشد.در برخی موارد، هیچ مدرک رسمی یا آموزش در حین کار ممکن است مورد نیاز نباشد.`,
   },
   alternativeTitles_empty: {
     en: `There are no Alternative Titles for this occupation.`,

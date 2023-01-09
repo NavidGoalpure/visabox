@@ -20,6 +20,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   //
   const assessing_authority = occupation?.assessing_authority;
+
   //
   return (
     <Container>
@@ -29,11 +30,16 @@ const Content: React.FC<Props> = ({ occupation }) => {
         </Title>
       </TitleContainer>
       <VetassesContainer>
-        <VetassesTitle>{t(LanguageKeys.AssessingAuthority)}</VetassesTitle>
+        <VetassesTitle>{t(LanguageKeys.AssessingAuthorityAbv)}</VetassesTitle>
         {assessing_authority ? (
           <TooltipTag
             content={assessing_authority.replaceAll('_', ' ')}
-            // popupContent='Vocational Education and Training Assessment Services'
+            popupContent={
+              <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
+                You can find more information about the Assessing Authorities
+                here
+              </a>
+            }
           />
         ) : null}
       </VetassesContainer>

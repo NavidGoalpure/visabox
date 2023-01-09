@@ -154,3 +154,21 @@ export const componentTheme = css`
     text-align: start;
   }
 `;
+//////////////
+export const KeyValue_Key = theme('mode', {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray10);
+  `,
+});
+//////////////
+export const KeyValue_Value = theme('mode', {
+  light: css`
+    color: var(--color-gray6);
+  `,
+  dark: css`
+    color: white;
+  `,
+});

@@ -1,5 +1,5 @@
 import {
-  AssessingAuthority,
+  AssessingAuthorityAbv,
   Occupation,
 } from 'Interfaces/Documents/occupation';
 
@@ -69,7 +69,7 @@ export const testOccupation: Occupation = {
       },
     },
   },
-  assessing_authority: 'VETASSESS_A' as AssessingAuthority,
+  assessing_authority: 'VETASSESS_A' as AssessingAuthorityAbv,
   backlog_section: {
     _type: 'backlog_obj',
     submited_190: {

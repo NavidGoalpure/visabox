@@ -1,4 +1,4 @@
-import OccupationCard from 'Components/OocccuptionCard';
+import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';

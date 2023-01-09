@@ -9,15 +9,14 @@ import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
   componentTitleStyle,
+  KeyValue_Key,
+  KeyValue_Value,
   textTitleColor,
 } from 'Styles/Theme/Component';
 import AccordionContent from '../accordionContent';
 import { LanguageKeys, componentStatements } from '../const';
 import UnitGroupCompoenent from '../unitGroup';
-import {
-  ConvertAnzscoCodeToTitle,
-  mustShowNecAccupationSection,
-} from './utils';
+import { ConvertAnzscoCodeToTitle } from './utils';
 
 interface Props {
   anzscoSection: AnzscoSection;
@@ -152,32 +151,15 @@ const Tr = styled.tr`
     flex-direction: row;
   }
 `;
-//////////////
-const tdValueColor = theme('mode', {
-  light: css`
-    color: var(--color-gray6);
-  `,
-  dark: css`
-    color: var(--color-gray13);
-  `,
-});
+
 const TdValue = styled.td`
   ${componentSubtitleStyle}
-  ${tdValueColor}
+  ${KeyValue_Value}
   margin:0;
 `;
 
-//////////////
-const tdKeyColor = theme('mode', {
-  light: css`
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    color: var(--color-gray11);
-  `,
-});
 const TdKey = styled(TdValue)`
-  ${tdKeyColor}
+  ${KeyValue_Key}
   margin-inline-end: 0.5rem;
 `;
 ////////////////

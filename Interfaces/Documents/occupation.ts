@@ -12,7 +12,7 @@ import { Slug } from '../Fields';
 import { UnitGroup } from './unitGroup';
 import { Territory } from './territory';
 
-export enum AssessingAuthority {
+export enum AssessingAuthorityAbv {
   'AACA' = 'AACA',
   'AASW' = 'AASW',
   'ACECQA' = 'ACECQA',
@@ -64,7 +64,7 @@ export interface Occupation {
   _type?: string;
   _updatedAt?: Date;
   anzsco_section?: AnzscoSection;
-  assessing_authority?: AssessingAuthority;
+  assessing_authority?: AssessingAuthorityAbv;
   backlog_section?: BacklogSection;
   code: number;
   slug?: Slug;

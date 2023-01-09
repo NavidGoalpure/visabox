@@ -1,11 +1,12 @@
 import * as Tooltip from '@radix-ui/react-tooltip';
+import { ReactNode } from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { BorderSvg } from './BorderSvg';
 
 interface Props {
   content: string;
-  popupContent?: string;
+  popupContent?: ReactNode;
   delayDuration?: number;
 }
 

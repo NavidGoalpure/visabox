@@ -1,3 +1,4 @@
+import { AssessingAuthorityAbv } from 'Interfaces/Documents/occupation';
 import { ParsedUrlQuery } from 'querystring';
 
 /**
@@ -19,3 +20,4 @@ export function getSmartparam(params: ParsedUrlQuery | undefined): {
     ? { slug: params?.slugOrCode?.toString() || '' }
     : { code: Number(params?.slugOrCode) };
 }
+///////////////////

@@ -1,77 +1,75 @@
-import { deviceMin } from 'Consts/device';
+import { device, deviceMin } from 'Consts/device';
 import { Button } from 'Elements/Button';
 import { VerticalScrollBox } from 'Elements/VerticalScrollBox';
-import { useLocale } from 'Hooks/useLocale';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { MultiLanguageTextArray } from 'Interfaces';
-import { Slug } from 'Interfaces/Fields';
-import { useRouter } from 'next/router';
-import React, { Dispatch, SetStateAction } from 'react';
-import styled, { css } from 'styled-components/macro';
+import { IoIosArrowDown } from 'react-icons/io';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import {
+  componentBodyTheme,
   componentSubtitleStyle,
-  componentTextColor,
+  componentTitleColor,
   componentTextStyle,
+  componentTextColor,
 } from 'Styles/Theme/Component';
-import { componentStatements, LanguageKeys } from './const';
-import { IoIosArrowDown } from 'react-icons/io';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 
-interface Props {
-  slug?: Slug;
-  tasks: MultiLanguageTextArray;
-  isPopupOpen: boolean;
-  setIsPopupOpen: Dispatch<SetStateAction<boolean>>;
-}
-const PopupContent: React.FC<Props> = ({
-  slug,
-  tasks,
-  isPopupOpen,
-  setIsPopupOpen,
-}) => {
-  const { t } = useStaticTranslation(componentStatements);
-  const { dtArray, isMultiLanguageTextArrayIsEmpty } = useDynamicTranslation();
+export const Container = styled.section`
+  ${componentBodyTheme}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  width: 19rem;
+  height: 19rem;
+  border-radius: 15px;
+  cursor: pointer;
+  max-width: 31%;
+  position: relative;
+  padding: 1rem 1rem 2rem 1rem;
 
-  const router = useRouter();
-  const { locale } = useLocale();
+  @media ${device.tabletL} {
+    max-width: unset;
+  }
+`;
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 100%;
+  overflow: hidden;
+`;
+export const codeColor = theme('mode', {
+  light: css`
+    background: white;
+    color: var(--color-gray8);
+    border: 2px solid var(--color-primary3);
+  `,
+  dark: css`
+    color: var(--color-primary6);
+    border: 2px solid var(--color-primary4);
+  `,
+});
 
-  return (
-    <Container isPopupOpen={isPopupOpen}>
-      <Arrow
-        isPopupOpen={isPopupOpen}
-        onClick={() => {
-          setIsPopupOpen((prevState) => !prevState);
-          return false;
-        }}
-      />{' '}
-      <StyledVerticalScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
-        <Title>{t(LanguageKeys.Tasks)}</Title>
-        {isMultiLanguageTextArrayIsEmpty(tasks) ? (
-          <ul>
-            {dtArray(tasks)?.map((task, i) => (
-              <>
-                <li key={i}>{task}</li>
-                <br />
-              </>
-            ))}
-          </ul>
-        ) : (
-          <p>{t(LanguageKeys.NoTask)}</p>
-        )}
-        <StyledButton
-          onClick={() => router.push(`/${locale}/occupations/${slug?.current}`)}
-        >
-          {t(LanguageKeys.ReadMore)}
-        </StyledButton>
-      </StyledVerticalScrollBox>
-    </Container>
-  );
-};
+export const Code = styled.h3`
+  ${componentSubtitleStyle}
+  ${codeColor}
+  width:min-content;
+  padding: 0.5rem;
+  align-items: center;
+  border-radius: 55px;
+  margin-bottom: 1rem;
+`;
 
-export default PopupContent;
+export const Title = styled.h2`
+  ${componentSubtitleStyle}
+  ${componentTitleColor}
+  margin-bottom:0.5rem;
+  text-align: center;
+`;
 
-const ContainerHoverColor = theme('mode', {
+//////popup///////
+export const ContainerHoverColor = theme('mode', {
   light: css`
     background-color: var(--color-gray13);
   `,
@@ -79,7 +77,7 @@ const ContainerHoverColor = theme('mode', {
     background-color: var(--color-gray8);
   `,
 });
-const ContainerHoverCss = css`
+export const ContainerHoverCss = css`
   ${ContainerHoverColor}
   transition-delay: 0s;
   padding-top: 1.5rem;
@@ -90,12 +88,12 @@ const ContainerHoverCss = css`
   border-radius: 15px;
 `;
 
-const PopupContentContainerHoverCss = css`
+export const PopupContentContainerHoverCss = css`
   transition-delay: 0.3s;
   transform: translateY(0);
   opacity: 1;
 `;
-const ContainerColor = theme('mode', {
+export const ContainerColor = theme('mode', {
   light: css`
     background-color: var(--color-gray12);
   `,
@@ -104,7 +102,7 @@ const ContainerColor = theme('mode', {
   `,
 });
 
-const Container = styled.div<{ isPopupOpen: boolean }>`
+export const PopupContainer = styled.div<{ isPopupOpen: boolean }>`
   ${ContainerColor}
   position: absolute;
   bottom: 0;
@@ -124,7 +122,7 @@ const Container = styled.div<{ isPopupOpen: boolean }>`
   ${({ isPopupOpen }) => isPopupOpen && ContainerHoverCss}
 `;
 
-const StyledVerticalScrollBox = styled(VerticalScrollBox)<{
+export const StyledVerticalScrollBox = styled(VerticalScrollBox)<{
   isPopupOpen: boolean;
 }>`
   opacity: 0;
@@ -139,7 +137,7 @@ const StyledVerticalScrollBox = styled(VerticalScrollBox)<{
   padding-inline-end: 1rem;
   pointer-events: none;
   @media ${deviceMin.tabletL} {
-    ${Container}:hover & {
+    ${PopupContainer}:hover & {
       ${PopupContentContainerHoverCss}
       pointer-events: all;
     }
@@ -159,11 +157,11 @@ const StyledVerticalScrollBox = styled(VerticalScrollBox)<{
     pointer-events: all;`}
 `;
 
-const ArrowHoverCss = css`
+export const ArrowHoverCss = css`
   transition-delay: 0s;
   transform: translateX(-50%) rotate(0deg);
 `;
-const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
+export const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
   position: absolute;
   top: -1.5rem;
   left: 50%;
@@ -186,18 +184,18 @@ const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
   @media ${deviceMin.tabletL} {
     top: -1rem;
     width: 2rem;
-    ${Container}:hover & {
+    ${PopupContainer}:hover & {
       ${ArrowHoverCss}
     }
   }
   ${({ isPopupOpen }) => isPopupOpen && ArrowHoverCss}
 `;
-const Title = styled.h3`
+export const PopupTitle = styled.h3`
   ${componentSubtitleStyle}
   ${componentTextColor}
     margin-bottom:1rem;
 `;
-const StyledButton = styled(Button)`
+export const StyledButton = styled(Button)`
   margin: 0 auto;
   margin-bottom: 2rem;
   width: auto;

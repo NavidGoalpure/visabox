@@ -33,7 +33,7 @@ const AccordionElement: React.FC<Props> = ({
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent>
-        <Content>{content}</Content>
+        <Content id='content'>{content}</Content>
       </AccordionContent>
     </AccordionItem>
   </AccordionRoot>

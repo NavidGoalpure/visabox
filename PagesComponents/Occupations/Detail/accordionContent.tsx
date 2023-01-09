@@ -30,7 +30,9 @@ const AccordionContent: React.FC<Props> = ({
 };
 export default AccordionContent;
 
-const AccordionContentContainer = styled.div``;
+const AccordionContentContainer = styled.div`
+  padding: 1rem 1rem;
+`;
 const AccordionContentWrapper = styled.ul`
   list-style: disc;
   margin-bottom: 1rem;

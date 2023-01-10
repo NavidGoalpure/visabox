@@ -21,8 +21,7 @@ interface Props {
 }
 const OccupationList: NextPage<Props> = ({ statusCode }) => {
   const { t } = useStaticTranslation(componentStatements);
-  const locale = useLocale();
-
+  const { locale } = useLocale();
   //
   if (statusCode) <Error statusCode={statusCode} />;
   return (

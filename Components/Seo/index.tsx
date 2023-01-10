@@ -22,7 +22,6 @@ function Seo({
   const smartTitle = titleProps || defaultTitle[locale];
   const smartDescription = descriptionProps || defaultDescription[locale];
   const smartImage = image || `/favicon.ico`;
-
   return (
     <Head>
       <title>{smartTitle}</title>

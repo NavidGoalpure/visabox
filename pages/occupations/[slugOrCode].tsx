@@ -85,11 +85,10 @@ export const getStaticPaths = async ({ locales }: any) => {
           });
       });
     });
-  //naviddd
-  //
+
   return {
     paths,
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 

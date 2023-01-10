@@ -11,6 +11,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 import SimilarOccupations from './similarOccupations';
 import Link from 'next/link';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -19,6 +20,7 @@ interface Props {
 const Content: React.FC<Props> = ({ occupation }) => {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
   //
   const assessing_authority = occupation?.assessing_authority;
 
@@ -33,7 +35,10 @@ const Content: React.FC<Props> = ({ occupation }) => {
       <VetassesContainer>
         <VetassesTitle>{t(LanguageKeys.AssessingAuthorityAbv)}</VetassesTitle>
         {assessing_authority ? (
-          <Link href={`/occupations/assssing-authorities`}>
+          <Link
+            href={`/${locale}/occupations/assssing-authorities`}
+            target='_blank'
+          >
             <TooltipTag
               content={assessing_authority.replaceAll('_', ' ')}
               // popupContent={

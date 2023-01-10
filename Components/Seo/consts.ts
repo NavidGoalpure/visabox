@@ -6,7 +6,7 @@ export const siteMetadata: Record<string, MultiLanguageText> = {
     fa: ` مارا باکس | مهاجرت آسان به استرالیا`,
   },
   defaultDescription: {
-    en: 'Find the best Australian visa options for you.',
+    en: 'Find the best Australian visa options for yourself.',
     fa: 'بهترین گزینه های ویزای استرالیا را برای خود پیدا کنید.',
   },
 };

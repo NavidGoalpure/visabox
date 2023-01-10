@@ -14,6 +14,7 @@ import { getListQuery } from 'Queries/occupations/List';
 import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
 import { useLocale } from 'Hooks/useLocale';
+import Seo from 'Components/Seo';
 
 interface Props {
   statusCode: number | null;
@@ -26,15 +27,11 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
   if (statusCode) <Error statusCode={statusCode} />;
   return (
     <PageLayout>
-      <Head>
-        <title>{t(LanguageKeys.SeoTitle)}</title>
-        <link
-          rel='canonical'
-          href={`https://www.marabox.com/${locale}/occupations/`}
-        ></link>
-        <meta name='description' content={t(LanguageKeys.SeoTitle)} />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <Seo
+        title={t(LanguageKeys.SeoTitle)}
+        description={t(LanguageKeys.SeoDesc)}
+        canonical={`https://www.marabox.com/${locale}/occupations/`}
+      />
       <Content />
     </PageLayout>
   );

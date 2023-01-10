@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   return (
     <PageLayout>
       <Head>
-        <title>Visa Box</title>
+        <title>Mara Box</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
     </PageLayout>

@@ -75,7 +75,6 @@ export const getStaticPaths = async ({ locales }: any) => {
           });
       });
     });
-  // navid
   return {
     paths,
     fallback: false,

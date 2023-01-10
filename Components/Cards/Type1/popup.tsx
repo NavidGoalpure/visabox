@@ -1,9 +1,5 @@
 import React, { Dispatch, ReactNode, SetStateAction } from 'react';
-import {
-  Arrow,
-  StyledVerticalScrollBox,
-  PopupContainer,
-} from './StyledComponents';
+import { Arrow, StyledScrollBox, PopupContainer } from './StyledComponents';
 
 interface Props {
   isPopupOpen: boolean;
@@ -20,9 +16,9 @@ const Popup: React.FC<Props> = ({ isPopupOpen, setIsPopupOpen, content }) => {
           return false;
         }}
       />{' '}
-      <StyledVerticalScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
+      <StyledScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
         {content}
-      </StyledVerticalScrollBox>
+      </StyledScrollBox>
     </PopupContainer>
   );
 };

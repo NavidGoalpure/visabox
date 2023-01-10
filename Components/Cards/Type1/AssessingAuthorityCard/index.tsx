@@ -1,19 +1,24 @@
 import { useLocale } from 'Hooks/useLocale';
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import PopupContent from './popupContent';
-import { Container, Wrapper, Code, Title } from '../StyledComponents';
+import {
+  Container,
+  Wrapper,
+  Code,
+  Title,
+  Key,
+  Value,
+} from '../StyledComponents';
 import Popup from '../popup';
 import { AssessingAuthorityAbv } from 'Interfaces/Documents/occupation';
-import {
-  componentSubtitleStyle,
-  componentTextStyle,
-  KeyValue_Key,
-  KeyValue_Value,
-} from 'Styles/Theme/Component';
+import { componentTextStyle } from 'Styles/Theme/Component';
 import styled from 'styled-components/macro';
 import { GoLinkExternal } from 'react-icons/go';
+import { scrollbarStyles } from 'Styles/Theme';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 interface Props {
   abv: AssessingAuthorityAbv;
@@ -29,7 +34,7 @@ function AssessingAuthorityCard({
   email,
   website,
 }: Props) {
-  const { dt } = useDynamicTranslation();
+  const { t } = useStaticTranslation(componentStatements);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
 
   return (
@@ -38,13 +43,9 @@ function AssessingAuthorityCard({
         <Code>{abv}</Code>
         <Title>{title.en}</Title>
         <Contacts>
-          <Column>
-            <Key>Email:</Key>
-            <Value>{email}</Value>
-          </Column>
           <LinkColumn href={website} target='_blank' rel='noopener noreferrer'>
             <Row>
-              <Key>Website:</Key>
+              <Key>{t(LanguageKeys.Website)}</Key>
               <GoLinkExternal />
             </Row>
             <Value>{website}</Value>
@@ -53,7 +54,7 @@ function AssessingAuthorityCard({
       </Wrapper>
 
       <Popup
-        content={<PopupContent address={address} />}
+        content={<PopupContent address={address} email={email} />}
         isPopupOpen={isPopupOpen}
         setIsPopupOpen={setIsPopupOpen}
       />
@@ -64,33 +65,26 @@ function AssessingAuthorityCard({
 export default AssessingAuthorityCard;
 const Contacts = styled.div`
   ${componentTextStyle}
-  width:100%;
+  ${scrollbarStyles}
+
+
+  width: 100%;
   text-align: center;
   margin: 0;
   overflow: hidden;
   text-align: start;
+  overflow: auto;
 `;
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-`;
+
 const LinkColumn = styled.a`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  position: absolute;
+  bottom: 3rem;
+  width: calc(100% - 2rem);
 `;
 const Row = styled.div`
   display: flex;
-`;
-const Value = styled.h5`
-  ${componentTextStyle}
-  ${KeyValue_Value}
-  margin:0;
-`;
-
-const Key = styled.h6`
-  ${componentTextStyle}
-  ${KeyValue_Key}
-  margin-inline-end: 0.5rem;
+}
 `;

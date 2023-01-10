@@ -10,6 +10,7 @@ import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 import SimilarOccupations from './similarOccupations';
+import Link from 'next/link';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -32,15 +33,16 @@ const Content: React.FC<Props> = ({ occupation }) => {
       <VetassesContainer>
         <VetassesTitle>{t(LanguageKeys.AssessingAuthorityAbv)}</VetassesTitle>
         {assessing_authority ? (
-          <TooltipTag
-            content={assessing_authority.replaceAll('_', ' ')}
-            popupContent={
-              <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
-                You can find more information about the Assessing Authorities
-                here
-              </a>
-            }
-          />
+          <Link href={`/occupations/assssing-authorities`}>
+            <TooltipTag
+              content={assessing_authority.replaceAll('_', ' ')}
+              // popupContent={
+              //   <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
+              //     {t(LanguageKeys.TooltipTagDesc)}
+              //   </a>
+              // }
+            />
+          </Link>
         ) : null}
       </VetassesContainer>
       <ToggleContainer>

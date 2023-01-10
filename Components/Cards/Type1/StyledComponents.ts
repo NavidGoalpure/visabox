@@ -1,6 +1,6 @@
 import { device, deviceMin } from 'Consts/device';
 import { Button } from 'Elements/Button';
-import { VerticalScrollBox } from 'Elements/VerticalScrollBox';
+import { ScrollBox } from 'Elements/ScrollBox';
 import { IoIosArrowDown } from 'react-icons/io';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
@@ -10,6 +10,8 @@ import {
   componentTitleColor,
   componentTextStyle,
   componentTextColor,
+  KeyValue_Key,
+  KeyValue_Value,
 } from 'Styles/Theme/Component';
 
 export const Container = styled.section`
@@ -122,7 +124,7 @@ export const PopupContainer = styled.div<{ isPopupOpen: boolean }>`
   ${({ isPopupOpen }) => isPopupOpen && ContainerHoverCss}
 `;
 
-export const StyledVerticalScrollBox = styled(VerticalScrollBox)<{
+export const StyledScrollBox = styled(ScrollBox)<{
   isPopupOpen: boolean;
 }>`
   opacity: 0;
@@ -199,4 +201,16 @@ export const StyledButton = styled(Button)`
   margin: 0 auto;
   margin-bottom: 2rem;
   width: auto;
+`;
+export const Value = styled.h5`
+  ${componentTextStyle}
+  ${KeyValue_Value}
+  margin:0;
+  overflow-wrap: anywhere;
+  width: initial;
+`;
+export const Key = styled.h6`
+  ${componentTextStyle}
+  ${KeyValue_Key}
+  margin-inline-end: 0.5rem;
 `;

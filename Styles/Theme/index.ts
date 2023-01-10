@@ -15,4 +15,21 @@ export const directionStyles = theme('languageDirection', {
     direction: rtl;
   `,
 });
-
+export const scrollbarStyles = theme('mode', {
+  light: css`
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px var(--color-gray12);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-gray10);
+    }
+  `,
+  dark: css`
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px var(--color-gray13);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-gray7);
+    }
+  `,
+});

@@ -28,10 +28,10 @@ function Seo({
       <link rel='canonical' href={canonical}></link>
       <link rel='icon' href='/favicon.ico' />
       <meta name='description' content={smartDescription} />
-      <meta name='og:title' content={smartTitle} />
-      <meta name='og:image' content={smartImage} />
-      <meta name='og:description' content={smartDescription} />
-      <meta name='og:type' content={type} />
+      <meta property='og:title' content={smartTitle} />
+      <meta property='og:image' content={smartImage} />
+      <meta property='og:description' content={smartDescription} />
+      <meta property='og:type' content={type} />
     </Head>
   );
 }

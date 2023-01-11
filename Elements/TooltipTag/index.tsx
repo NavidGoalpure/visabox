@@ -1,10 +1,11 @@
 import * as Tooltip from '@radix-ui/react-tooltip';
-import { ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
 import theme from 'styled-theming';
+import { TagTheme } from 'Styles/Theme';
 import { BorderSvg } from './BorderSvg';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   content: string;
   popupContent?: ReactNode;
   delayDuration?: number;
@@ -14,12 +15,13 @@ const TooltipTag: React.FC<Props> = ({
   content,
   popupContent,
   delayDuration = 0,
+  ...props
 }) => {
   return (
     <Tooltip.Provider delayDuration={delayDuration}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <ButtonContainer>
+          <ButtonContainer {...props}>
             <LeftBorder aria-hidden={true} />
             <Button>{content}</Button>
             <RightBorder aria-hidden={true} />
@@ -50,16 +52,6 @@ const FadeInAnimation = keyframes`
   }
 `;
 
-export const ButtonTheme = theme('mode', {
-  light: css`
-    background: var(--color-primary4);
-    color: var(--color-gray13);
-  `,
-  dark: css`
-    background: var(--color-primary6);
-    color: var(--color-gray4);
-  `,
-});
 export const ButtonBorderTheme = theme('mode', {
   light: css`
     fill: var(--color-primary4);
@@ -85,7 +77,7 @@ export const TooltipContentTheme = theme('mode', {
   `,
 });
 
-export const DirectionStyle = theme('languageDirection', {
+const DirectionStyle = theme('languageDirection', {
   ltr: css``,
   rtl: css`
     flex-direction: row-reverse;
@@ -98,7 +90,7 @@ const ButtonContainer = styled.div`
   width: max-content;
 `;
 const Button = styled.button`
-  ${ButtonTheme};
+  ${TagTheme};
   padding: 0.5rem 1rem;
   width: max-content;
   border-radius: 30px;

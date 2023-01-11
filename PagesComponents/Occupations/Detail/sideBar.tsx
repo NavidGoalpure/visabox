@@ -13,10 +13,14 @@ import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
 import {
   componentSubtitleStyle,
+  componentTextStyle,
   componentTheme,
   componentTitleStyle,
 } from 'Styles/Theme/Component';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
+import TooltipTag from 'Elements/TooltipTag';
+import { TagTheme } from 'Styles/Theme';
+import { MaraAccordion } from 'Elements/Accordion';
 import NoData from 'Components/NoData';
 
 interface Props {
@@ -72,10 +76,41 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             <Tabs.Content value='backlog'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
-                <UpdateAt>Last update: 31/08/2022</UpdateAt>
-                {/* <BacklogHint></BacklogHint> */}
-                <BacklogComponent
-                  backlogSection={occupation?.backlog_section}
+                {occupation?.backlog_section ? (
+                  <BacklogComponent
+                    backlogSection={occupation.backlog_section}
+                  />
+                ) : (
+                  <NoData
+                    hasIcon={false}
+                    messageComponent={t(LanguageKeys.NoDataMessage)}
+                  />
+                )}
+                <StyledAccordion
+                  backgroundTheme={'COMPONENT'}
+                  triggerContent={t(LanguageKeys.HintsTitle)}
+                  isOpen={true}
+                  content={
+                    <AccordionContentContainer>
+                      <HintItem>
+                        <Tag>Points</Tag>
+                        {t(LanguageKeys.HintPoints)}
+                      </HintItem>
+                      <HintItem>
+                        <Tag>Submitted</Tag>
+                        {t(LanguageKeys.HintSubmitted)}
+                      </HintItem>
+                      <HintItem>
+                        <Tag>Invited</Tag>
+                        {t(LanguageKeys.HintInvited)}
+                      </HintItem>
+                      <HintItem>
+                        <Tag>
+                          Last update:<span> 31/08/2022</span>
+                        </Tag>
+                      </HintItem>
+                    </AccordionContentContainer>
+                  }
                 />
               </ContentWrapper>
             </Tabs.Content>
@@ -130,17 +165,40 @@ const Header = styled.header`
   padding: 1rem;
   ${componentTitleStyle}
 `;
-const UpdateAt = styled.h4`
-  ${componentSubtitleStyle}
-  width: 100%;
-  text-align: center;
-  margin-top: 1rem;
-`;
+
 const ContentWrapper = styled.section`
   ${componentTheme}
   width: auto;
 `;
 ///////backlog section/////
-const BacklogHint = styled.div`
+const StyledAccordion = styled(MaraAccordion)`
+  width: auto;
+  margin: 1rem;
+`;
+const AccordionContentContainer = styled.ul`
   width: 100%;
+`;
+const HintsTitle = styled.h4`
+  ${componentSubtitleStyle}
+  width: 100%;
+  text-align: start;
+  margin-top: 1rem;
+  margin-inline-start: 0.5rem;
+`;
+const HintItem = styled.li`
+  ${componentTextStyle}
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2rem;
+`;
+const Tag = styled.h5`
+  ${TagTheme}
+  padding: 0.5rem 1rem;
+  width: max-content;
+  border-radius: 30px;
+  margin-bottom: 0.5rem;
+  span {
+    font-weight: bold;
+  }
 `;

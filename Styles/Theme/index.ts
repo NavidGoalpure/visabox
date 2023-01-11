@@ -33,3 +33,13 @@ export const scrollbarStyles = theme('mode', {
     }
   `,
 });
+export const TagTheme = theme('mode', {
+  light: css`
+    background: var(--color-primary4);
+    color: var(--color-gray13);
+  `,
+  dark: css`
+    background: var(--color-primary6);
+    color: var(--color-gray4);
+  `,
+});

@@ -13,7 +13,6 @@ export const BacklogTable: React.FC<Props> = ({
   titleValue,
   rows,
 }) => {
-  console.log('navid rows=', rows);
   return (
     <Table>
       <Thead id='header'>

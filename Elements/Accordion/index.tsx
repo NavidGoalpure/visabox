@@ -16,16 +16,23 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerContent: string;
   content: ReactNode;
   backgroundTheme: 'PAGE' | 'COMPONENT';
+  isOpen?: boolean;
 }
 
-const AccordionElement: React.FC<Props> = ({
+export const MaraAccordion: React.FC<Props> = ({
   triggerContent,
   content,
   backgroundTheme,
+  isOpen = false,
   ...props
 }) => (
-  <AccordionRoot {...props} type='single' defaultValue='item-1' collapsible>
-    <AccordionItem value='item-3'>
+  <AccordionRoot
+    {...props}
+    type='single'
+    defaultValue={isOpen ? 'item' : ''}
+    collapsible
+  >
+    <AccordionItem value='item'>
       <AccordionHeader backgroundTheme={backgroundTheme}>
         <AccordionTrigger>
           <PlusIcon />
@@ -39,7 +46,6 @@ const AccordionElement: React.FC<Props> = ({
   </AccordionRoot>
 );
 
-export default AccordionElement;
 const TextColor = theme('mode', {
   light: css`
     color: black;

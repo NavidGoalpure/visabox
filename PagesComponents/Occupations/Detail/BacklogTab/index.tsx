@@ -6,7 +6,7 @@ import Subclass491 from './BacklogColumn/subclass491';
 import Subclass491Family from './BacklogColumn/subclass491-family';
 
 interface Props {
-  backlogSection: BacklogSection | undefined;
+  backlogSection: BacklogSection;
 }
 
 const BacklogComponent: React.FC<Props> = ({ backlogSection }) => {

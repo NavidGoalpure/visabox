@@ -1,5 +1,5 @@
 import { deviceMin } from 'Consts/device';
-import Accordion from 'Elements/Accordion';
+import { MaraAccordion } from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { AnzscoSection } from 'Interfaces/Documents/occupation';
@@ -13,7 +13,7 @@ import {
   KeyValue_Value,
   textTitleColor,
 } from 'Styles/Theme/Component';
-import AccordionContent from '../accordionContent';
+import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from '../const';
 import UnitGroupCompoenent from '../unitGroup';
 import { ConvertAnzscoCodeToTitle } from './utils';
@@ -178,6 +178,6 @@ const Description = styled.p`
 
   border-radius: 5px;
 `;
-const StyledAccordion = styled(Accordion)`
+const StyledAccordion = styled(MaraAccordion)`
   margin-bottom: 1rem;
 `;

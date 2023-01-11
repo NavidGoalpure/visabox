@@ -1,4 +1,4 @@
-import Accordion from 'Elements/Accordion';
+import { MaraAccordion } from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { AnzscoSection, ReferenceType } from 'Interfaces/Documents/occupation';
@@ -11,7 +11,7 @@ import {
   componentTitleStyle,
   textTitleColor,
 } from 'Styles/Theme/Component';
-import AccordionContent from './accordionContent';
+import AccordionContent from './AnzcoTab/accordionContent';
 import { LanguageKeys, componentStatements } from './const';
 import SkillPriorityLists from './AnzcoTab/SkillPriorityLists';
 import { SkillLevelDescription } from './AnzcoTab/utils';
@@ -152,6 +152,6 @@ const SkillLevelDesc = styled.p`
   margin: 0;
   margin-bottom: 1.5rem;
 `;
-const StyledAccordion = styled(Accordion)`
+const StyledAccordion = styled(MaraAccordion)`
   margin-bottom: 1rem;
 `;

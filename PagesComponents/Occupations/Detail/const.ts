@@ -41,7 +41,12 @@ export enum LanguageKeys {
   IndicativeSkillLevel_5 = 'IndicativeSkillLevel_5',
   //backlog
   Backlog = 'Backlog',
+  NoDataMessage = 'NoDataMessage',
   BacklogTitle = 'BacklogTitle',
+  HintsTitle = 'HintsTitle',
+  HintPoints = 'HintPoints',
+  HintSubmitted = 'HintSubmitted',
+  HintInvited = 'HintInvited',
   //Similar
   Similars = 'Similars',
   SimilarOccupations = 'SimilarOccupations',
@@ -264,7 +269,26 @@ In some instances, no formal qualification or on-the-job training may be require
     en: 'Backlog & Invitations issued',
     fa: 'صف انتظار و دعوت نامه های صادر شده',
   },
-
+  NoDataMessage: {
+    en: 'Since there are no submissions or invitations registered  in the backlog of this anzsco code, there is no visa table in this visa subclasses. Any changes will be shown here as soon as the information is updated by the Department of Home Affairs.',
+    fa: 'از آنجایی که هیچ ارسال یا دعوت نامه ای در بک لاگ این کد anzsco ثبت نشده است، هیچ جدول ویزا در این زیر کلاس های ویزا وجود ندارد. هر گونه تغییر به محض به روز رسانی اطلاعات -توسط مراجع زیربط استرالیا- در اینجا نشان داده می شود.',
+  },
+  HintsTitle: {
+    en: 'Hints',
+    fa: 'راهنمایی استفاده',
+  },
+  HintPoints: {
+    en: `Points depend on factors such as applicant's age, work experience, knowledge of English and, if they have it, the documents of their partner. The minimum score required to submit an EOI and participate in the invitation rounds is 65 points, and cases below this score will not be considered during invitation rounds.`,
+    fa: 'امتیاز به عواملی مانند سن متقاضی، سابقه کار، دانش زبان انگلیسی و در صورت داشتن آن، مدارک شریک زندگی خود بستگی دارد. حداقل امتیاز لازم برای ارسال EOI و شرکت در دورهای دعوت 65 امتیاز است و موارد زیر این امتیاز در دورهای دعوت لحاظ نخواهد شد.',
+  },
+  HintSubmitted: {
+    en: 'You can submit an EOI with all fields completed, meeting all requirements for all visa subclasses you have selected. Once submitted, points will be assigned to the EOI based on the information provided. Submitted EOIs can be selected in the invitation rounds.',
+    fa: 'یک EOI که تمام شرایط مورد نیاز برای همه زیر کلاس‌های ویزا را برآورده می‌کند و تمام فیلدها را تکمیل می‌کند، می‌تواند ارسال شود. پس از ارسال، امتیازات بر اساس اطلاعات ارائه شده به EOI نسبت داده می شود. EOI های ارسال شده واجد شرایط انتخاب در یک دور دعوت هستند.',
+  },
+  HintInvited: {
+    en: 'Invitation letter for visa application has been issued.',
+    fa: 'دعوت نامه ای که برای درخواست ویزا صادر شده است.',
+  },
   //////Similars////////
   Similars: {
     en: 'Similars',

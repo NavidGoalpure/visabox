@@ -20,7 +20,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   //
   PageTitle: {
     fa: 'لیست موسسات ارزیابی مدارک و مهارت های استرالیا',
-    en: 'assessing authorities',
+    en: 'Assessing authorities',
   },
 };
 
@@ -208,18 +208,7 @@ Australia`,
     email: 'anmac@anmac.org.au',
     website: 'http://www.anmac.org.au',
   },
-  {
-    title: {
-      en: 'Australian Nursing and Midwifery Accreditation Council',
-    },
-    abv: AssessingAuthorityAbv.ANMAC,
-    address: `Australian Nursing and Midwifery Accreditation Council
-PO Box 400
-Canberra City ACT 2601
-Australia`,
-    email: 'anmac@anmac.org.au',
-    website: 'http://www.anmac.org.au',
-  },
+
   {
     title: {
       en: 'Australasian Osteopathic Accreditation Council',

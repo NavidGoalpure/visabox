@@ -9,7 +9,6 @@ const Content: React.FC = () => {
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
-      <Subtitle>{t(LanguageKeys.PageTitle)}</Subtitle>
       <CardsSection />
     </>
   );
@@ -17,8 +16,4 @@ const Content: React.FC = () => {
 export default Content;
 const PageTitle = styled.h1`
   ${PageTitleStyle}
-  margin-bottom: 1rem;
-`;
-const Subtitle = styled.h2`
-  ${PageSubtitleStyle}
 `;

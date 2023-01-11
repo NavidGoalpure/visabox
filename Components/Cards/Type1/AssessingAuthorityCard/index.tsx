@@ -1,6 +1,6 @@
 import { useLocale } from 'Hooks/useLocale';
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
-import { useState, useTransition } from 'react';
+import { HTMLAttributes, useState, useTransition } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import PopupContent from './popupContent';
 import {
@@ -20,28 +20,29 @@ import { scrollbarStyles } from 'Styles/Theme';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   abv: AssessingAuthorityAbv;
-  title: MultiLanguageText;
+  fullTitle: MultiLanguageText;
   address: string;
   email: string;
   website: string;
 }
 function AssessingAuthorityCard({
   abv,
-  title,
+  fullTitle,
   address,
   email,
   website,
+  ...props
 }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
 
   return (
-    <Container style={{ cursor: 'initial' }}>
+    <Container {...props} style={{ cursor: 'initial' }}>
       <Wrapper>
         <Code>{abv}</Code>
-        <Title>{title.en}</Title>
+        <Title>{fullTitle.en}</Title>
         <Contacts>
           <LinkColumn href={website} target='_blank' rel='noopener noreferrer'>
             <Row>

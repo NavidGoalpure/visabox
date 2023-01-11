@@ -42,8 +42,9 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <VetassesTitle>{t(LanguageKeys.AssessingAuthorityAbv)}</VetassesTitle>
         {assessing_authority ? (
           <Link
-            href={`/${locale}/occupations/assssing-authorities`}
+            href={`/${locale}/occupations/assssing-authorities/#${assessing_authority}`}
             target='_blank'
+            scroll={false}
           >
             <TooltipTag
               content={assessing_authority.replaceAll('_', ' ')}

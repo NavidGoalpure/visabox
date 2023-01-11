@@ -13,10 +13,11 @@ const CardsSection: React.FC = () => {
           <AssessingAuthorityCard
             key={assssingAuthority.abv}
             abv={assssingAuthority.abv}
-            title={assssingAuthority.title}
+            fullTitle={assssingAuthority.title}
             address={assssingAuthority.address}
             email={assssingAuthority.email}
             website={assssingAuthority.website}
+            id={assssingAuthority.abv}
           />
         );
       })}

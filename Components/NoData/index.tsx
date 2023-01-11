@@ -3,9 +3,8 @@ import { PageSubtitle } from 'PagesComponents/Occupations/List/PageSubtitle';
 import React, { ReactNode } from 'react';
 import { HiXMark } from 'react-icons/hi2';
 import styled from 'styled-components/macro';
-import { directionStyles } from 'Styles/Theme';
-import { componentBorderColor, componentTheme } from 'Styles/Theme/Component';
-import { pageBackground, PageSubtitleStyle } from 'Styles/Theme/Page';
+import { componentTheme } from 'Styles/Theme/Component';
+import { PageSubtitleStyle } from 'Styles/Theme/Page';
 import { componentStatements, LanguageKeys } from './const';
 
 interface Props {

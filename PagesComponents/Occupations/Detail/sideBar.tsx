@@ -12,7 +12,6 @@ import AnzscoComponent from './AnzcoTab';
 import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
 import {
-  componentSubtitleStyle,
   componentTextStyle,
   componentTheme,
   componentTitleStyle,
@@ -177,13 +176,6 @@ const StyledAccordion = styled(MaraAccordion)`
 `;
 const AccordionContentContainer = styled.ul`
   width: 100%;
-`;
-const HintsTitle = styled.h4`
-  ${componentSubtitleStyle}
-  width: 100%;
-  text-align: start;
-  margin-top: 1rem;
-  margin-inline-start: 0.5rem;
 `;
 const HintItem = styled.li`
   ${componentTextStyle}

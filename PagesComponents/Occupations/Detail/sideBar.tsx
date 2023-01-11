@@ -17,10 +17,10 @@ import {
   componentTitleStyle,
 } from 'Styles/Theme/Component';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
-import TooltipTag from 'Elements/TooltipTag';
 import { TagTheme } from 'Styles/Theme';
 import { MaraAccordion } from 'Elements/Accordion';
 import NoData from 'Components/NoData';
+import { hasAnyVisaOption } from './utils';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -75,7 +75,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             <Tabs.Content value='backlog'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
-                {occupation?.backlog_section ? (
+                {hasAnyVisaOption(occupation) ? (
                   <BacklogComponent
                     backlogSection={occupation.backlog_section}
                   />
@@ -177,7 +177,6 @@ const StyledAccordion = styled(MaraAccordion)`
 const AccordionContentContainer = styled.ul`
   width: 100%;
 `;
-
 const HintItem = styled.li`
   ${componentTextStyle}
   display: flex;

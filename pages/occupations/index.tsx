@@ -15,6 +15,7 @@ import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
+import { Languages } from 'Interfaces';
 
 interface Props {
   statusCode: number | null;
@@ -30,6 +31,8 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/occupations/`}
+        //navid temporari
+        isNoIndex={locale === Languages.fa}
       />
       <Content />
     </PageLayout>

@@ -10,10 +10,16 @@ import {
   billboardTextStyle,
 } from 'Styles/Theme/billboard';
 import Link from 'next/link';
+import Seo from 'Components/Seo';
 
 export default function NotFound() {
   return (
     <PageLayout>
+      <Seo
+        title={'Not Found'}
+        canonical={`https://www.marabox.com/404`}
+        isNoIndex={true}
+      />
       <Head>
         <title>Not Found</title>
         <link rel='icon' href='/favicon.ico' />

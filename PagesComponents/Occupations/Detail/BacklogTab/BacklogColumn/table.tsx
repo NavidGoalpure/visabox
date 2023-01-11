@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { componentTheme } from 'Styles/Theme/Component';
 import NoData from 'Components/NoData';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 interface Props {
   titleKey: string;
@@ -13,6 +15,7 @@ export const BacklogTable: React.FC<Props> = ({
   titleValue,
   rows,
 }) => {
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Table>
       <Thead id='header'>
@@ -30,7 +33,10 @@ export const BacklogTable: React.FC<Props> = ({
             </Tr>
           ))
         ) : (
-          <NoData hasIcon={false} />
+          <NoData
+            hasIcon={false}
+            messageComponent={t(LanguageKeys.NoDataMessage)}
+          />
         )}
       </Tbody>
     </Table>

@@ -8,6 +8,7 @@ interface Props {
   type?: string;
   image?: string;
   canonical: string;
+  isNoIndex?: boolean;
 }
 
 function Seo({
@@ -16,6 +17,7 @@ function Seo({
   title: titleProps,
   image,
   canonical,
+  isNoIndex = false,
 }: Props) {
   const { locale } = useLocale();
   const { defaultTitle, defaultDescription } = siteMetadata;
@@ -41,6 +43,8 @@ function Seo({
       <meta name='twitter:title' content={smartTitle} />
       <meta name='twitter:description' content={smartDescription} />
       <meta name='twitter:image' content={smartImage} />
+      {/*  */}
+      {isNoIndex && <meta name='robots' content='noindex' />}
     </Head>
   );
 }

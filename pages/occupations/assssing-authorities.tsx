@@ -10,6 +10,7 @@ import {
 import { useLocale } from 'Hooks/useLocale';
 import Content from 'PagesComponents/Occupations/AssssingAuthoritties/content';
 import Seo from 'Components/Seo';
+import { Languages } from 'Interfaces';
 
 const OccupationPage: NextPage = () => {
   const { locale } = useLocale();
@@ -20,6 +21,8 @@ const OccupationPage: NextPage = () => {
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/occupations/assssing-authorities`}
+        //navid temporari
+        isNoIndex={locale === Languages.fa}
       />
       <Content />
     </PageLayout>

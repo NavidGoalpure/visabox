@@ -12,7 +12,12 @@ import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 import SimilarOccupations from './similarOccupations';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
-import { isCodeIn_MLTSSL, isCodeIn_ROL, isCodeIn_STSOL } from './utils';
+import {
+  has189Visa,
+  has190Visa,
+  has491FamilyVisa,
+  has491StateVisa,
+} from './utils';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -54,29 +59,23 @@ const Content: React.FC<Props> = ({ occupation }) => {
       <ToggleContainer>
         <StyledToggleTag
           contentKey={'189'}
-          isOn={isCodeIn_MLTSSL(occupation.code)}
+          isOn={has189Visa(occupation.code)}
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
           contentKey={'190'}
-          isOn={
-            isCodeIn_MLTSSL(occupation.code) || isCodeIn_STSOL(occupation.code)
-          }
+          isOn={has190Visa(occupation.code)}
           backgroundTheme='PAGE'
         />
 
         <StyledToggleTag
           contentKey={'491'}
-          isOn={
-            isCodeIn_MLTSSL(occupation.code) ||
-            isCodeIn_STSOL(occupation.code) ||
-            isCodeIn_ROL(occupation.code)
-          }
+          isOn={has491StateVisa(occupation.code)}
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
           contentKey={t(LanguageKeys['491-family'])}
-          isOn={isCodeIn_MLTSSL(occupation.code)}
+          isOn={has491FamilyVisa(occupation.code)}
           backgroundTheme='PAGE'
           style={{ marginInlineEnd: '0' }}
         />

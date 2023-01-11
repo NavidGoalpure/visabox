@@ -19,7 +19,7 @@ const similarOccupations: React.FC<Props> = ({
   if (smartList.length === 0) return null;
   return (
     <Container>
-      <Title> Similar Occupations</Title>
+      <Title>Similar Occupations</Title>
       <CardsContainer>
         {smartList.map((occupation) => (
           <OccupationCard

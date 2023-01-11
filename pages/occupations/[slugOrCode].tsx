@@ -41,6 +41,8 @@ const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
           occupation?.anzsco_section?.description?.en || t(LanguageKeys.SeoDesc)
         }
         canonical={`https://www.marabox.com/${locale}/occupations/${occupation?.slug?.current}`}
+        //navid temporari
+        isNoIndex={locale === Languages.fa}
       />
       {occupation ? <Content occupation={occupation} /> : null}
     </PageLayout>

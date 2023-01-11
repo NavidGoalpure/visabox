@@ -270,7 +270,7 @@ In some instances, no formal qualification or on-the-job training may be require
     fa: 'صف انتظار و دعوت نامه های صادر شده',
   },
   NoDataMessage: {
-    en: 'Since there are no submissions or invitations registered  in the backlog of this anzsco code, there is no visa table in this visa subclasses. Any changes will be shown here as soon as the information is updated by the Department of Home Affairs.',
+    en: 'Since there are no submissions or invitations registered  in the backlog of this ANZSCO code, there is no visa table in these visa subclasses Any changes will be shown here as soon as the information is updated by the Department of Home Affairs.',
     fa: 'از آنجایی که هیچ ارسال یا دعوت نامه ای در بک لاگ این کد anzsco ثبت نشده است، هیچ جدول ویزا در این زیر کلاس های ویزا وجود ندارد. هر گونه تغییر به محض به روز رسانی اطلاعات -توسط مراجع زیربط استرالیا- در اینجا نشان داده می شود.',
   },
   HintsTitle: {

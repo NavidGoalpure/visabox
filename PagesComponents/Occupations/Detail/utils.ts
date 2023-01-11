@@ -1,4 +1,4 @@
-import { AssessingAuthorityAbv } from 'Interfaces/Documents/occupation';
+import { Occupation } from 'Interfaces/Documents/occupation';
 import { ParsedUrlQuery } from 'querystring';
 import { MLTSSL_LIST, ROL_LIST, STSOL_LIST } from './const';
 
@@ -22,14 +22,93 @@ export function getSmartparam(params: ParsedUrlQuery | undefined): {
     : { code: Number(params?.slugOrCode) };
 }
 ///////////////////
+/**
+ *مشخص میکنه که آیا این کد در لیست آر او ال وجود داره یا نه
+ * @export
+ * @param {number} code
+ * @return {*}  {boolean}
+ */
+
 export function isCodeIn_ROL(code: number): boolean {
   return ROL_LIST.includes(code);
 }
 /////////
+/**
+ *مشخص میکنه که آیا این کد در لیست اس تی اس او ال وجود داره یا نه
+ * @export
+ * @param {number} code
+ * @return {*}  {boolean}
+ */
+
 export function isCodeIn_STSOL(code: number): boolean {
   return STSOL_LIST.includes(code);
 }
+
 ////////////
+/**
+ *مشخص میکنه که آیا این کد در لیست ام ال تی اس اس ال وجود داره یا نه
+ * @export
+ * @param {number} code
+ * @return {*}  {boolean}
+ */
 export function isCodeIn_MLTSSL(code: number): boolean {
   return MLTSSL_LIST.includes(code);
+}
+///////
+/**
+ *مشخص میکنه که آیا ویزای ۱۸۹ ایالتی برای این آکیوپیشن تعریف شده یا نه
+ * @export
+ * @param {number} code
+ * @return {*}  {boolean}
+ */
+export function has189Visa(code: number): boolean {
+  return isCodeIn_MLTSSL(code);
+}
+
+/**
+ *مشخص میکنه که آیا ویزای ۱۹۰ ایالتی برای این آکیوپیشن تعریف شده یا نه
+ * @export
+ * @param {number} code
+ * @return {*}  {boolean}
+ */
+export function has190Visa(code: number): boolean {
+  return isCodeIn_MLTSSL(code) || isCodeIn_STSOL(code);
+}
+
+/**
+ *مشخص میکنه که آیا ویزای ۴۹۱ ایالتی برای این آکیوپیشن تعریف شده یا نه
+ * @export
+ * @param {number} code
+ * @return {*}  {boolean}
+ */
+export function has491StateVisa(code: number): boolean {
+  return isCodeIn_MLTSSL(code) || isCodeIn_STSOL(code) || isCodeIn_ROL(code);
+}
+
+/**
+ *مشخص میکنه که آیا ویزای ۴۹۱ فامیلی برای این آکیوپیشن تعریف شده یا نه
+ * @export
+ * @param {number} code
+ * @return {*}  {boolean}
+ */
+export function has491FamilyVisa(code: number): boolean {
+  return isCodeIn_MLTSSL(code);
+}
+
+/**
+ *مشخص میکنه که هیچکدام از ۴ نوع ویزای اسکیل ورکر برای این کد تعریف شده یا نه
+ * @export
+ * @param {Occupation} occupation
+ * @return {*}  {boolean}
+ */
+export function hasAnyVisaOption(occupation: Occupation): boolean {
+  if (
+    occupation?.backlog_section === undefined ||
+    (!has189Visa(occupation.code) &&
+      !has190Visa(occupation.code) &&
+      !has491StateVisa(occupation.code) &&
+      !has491FamilyVisa(occupation.code))
+  )
+    return false;
+  return true;
 }

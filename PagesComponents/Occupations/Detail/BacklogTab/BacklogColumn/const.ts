@@ -11,6 +11,8 @@ export enum LanguageKeys {
   Title491TitleSection2 = 'Title491TitleSection2',
   Title491FamilyTitleSection1 = 'Title491FamilyTitleSection1',
   Title491FamilyTitleSection2 = 'Title491FamilyTitleSection2',
+  //
+  NoDataMessage = 'NoDataMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Submitted: {
@@ -52,5 +54,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title491FamilyTitleSection2: {
     en: '( Family Sponsored )',
     fa: '( فامیلی )',
+  },
+  //
+  NoDataMessage: {
+    en: 'No EOI data',
+    fa: 'دیتایی برای نمایش وجود ندارد',
   },
 };

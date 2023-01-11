@@ -42,7 +42,9 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <VetassesTitle>{t(LanguageKeys.AssessingAuthorityAbv)}</VetassesTitle>
         {assessing_authority ? (
           <Link
-            href={`/${locale}/occupations/assssing-authorities/#${assessing_authority}`}
+            href={`/${locale}/occupations/assssing-authorities/#${
+              assessing_authority.split('_')[0]
+            }`}
             target='_blank'
             scroll={false}
           >

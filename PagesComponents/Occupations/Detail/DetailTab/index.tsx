@@ -21,13 +21,6 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
     <>
       {isLaptop ? (
         <Head>
-          {/* <link
-            rel='stylesheet'
-            href='https://www.anzscosearch.com/wp-content/themes/salient/css/font-awesome-legacy.min.css?ver=4.7.1'
-            integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN'
-            crossOrigin='anonymous'
-          /> */}
-
           <script src='https://use.fontawesome.com/5f46793e2e.js'></script>
         </Head>
       ) : null}

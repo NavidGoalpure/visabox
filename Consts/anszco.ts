@@ -307,7 +307,7 @@ export const Minor_GROUP: AnszcoGroup[] = [
   {
     code: 212,
     title: {
-      en: 'Arts and Media Professionals',
+      en: 'Media Professionals',
       fa: 'متخصصان رسانه',
     },
   },

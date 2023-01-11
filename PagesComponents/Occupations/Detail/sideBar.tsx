@@ -78,6 +78,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                 {hasAnyVisaOption(occupation) ? (
                   <BacklogComponent
                     backlogSection={occupation.backlog_section}
+                    code={occupation.code}
                   />
                 ) : (
                   <NoData

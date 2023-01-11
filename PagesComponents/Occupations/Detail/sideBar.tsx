@@ -68,19 +68,18 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             </Tabs.Content>
           ) : null}
           {/*  */}
-          {occupation?.backlog_section ? (
+          {
             <Tabs.Content value='backlog'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
                 <UpdateAt>Last update: 31/08/2022</UpdateAt>
+                {/* <BacklogHint></BacklogHint> */}
                 <BacklogComponent
                   backlogSection={occupation?.backlog_section}
                 />
               </ContentWrapper>
             </Tabs.Content>
-          ) : (
-            <NoData context='PAGE' hasIcon={false} />
-          )}
+          }
           {/*  */}
         </>
       }
@@ -140,4 +139,8 @@ const UpdateAt = styled.h4`
 const ContentWrapper = styled.section`
   ${componentTheme}
   width: auto;
+`;
+///////backlog section/////
+const BacklogHint = styled.div`
+  width: 100%;
 `;

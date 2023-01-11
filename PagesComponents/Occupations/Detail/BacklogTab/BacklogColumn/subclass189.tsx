@@ -8,7 +8,7 @@ import { getRowKeyValueBaseonBacklogPoints } from './utils';
 import { BacklogSection } from 'Interfaces/Documents/occupation';
 
 interface Props {
-  backlogSection: BacklogSection;
+  backlogSection: BacklogSection | undefined;
 }
 
 const Subclass189: React.FC<Props> = ({ backlogSection }) => {
@@ -47,18 +47,17 @@ const Subclass189: React.FC<Props> = ({ backlogSection }) => {
                   backlogSection?.submited_189
                 )}
               />
-              {backlogSection?.total_submited_189 ? (
-                <BacklogTable
-                  titleKey=' '
-                  titleValue='EOI count'
-                  rows={[
-                    {
-                      rowKey: 'Total ',
-                      rowValue: backlogSection?.total_submited_189,
-                    },
-                  ]}
-                />
-              ) : null}
+
+              <BacklogTable
+                titleKey=' '
+                titleValue='EOI count'
+                rows={[
+                  {
+                    rowKey: 'Total ',
+                    rowValue: backlogSection?.total_submited_189,
+                  },
+                ]}
+              />
             </RadixTab.Content>
             <RadixTab.Content value={t(LanguageKeys.Invited)}>
               <BacklogTable

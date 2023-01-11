@@ -11,7 +11,7 @@ import {
 import { BacklogTable } from './table';
 
 interface Props {
-  backlogSection: BacklogSection;
+  backlogSection: BacklogSection | undefined;
 }
 const Subclass491: React.FC<Props> = ({ backlogSection }) => {
   const { t } = useStaticTranslation(componentStatements);
@@ -52,7 +52,7 @@ const Subclass491: React.FC<Props> = ({ backlogSection }) => {
                 titleKey='By State'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseOn_ByState(
-                  backlogSection.submited_by_state_491
+                  backlogSection?.submited_by_state_491
                 )}
               />
             </RadixTab.Content>
@@ -68,7 +68,7 @@ const Subclass491: React.FC<Props> = ({ backlogSection }) => {
                 titleKey='By State'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseOn_ByState(
-                  backlogSection.invited_by_state_491
+                  backlogSection?.invited_by_state_491
                 )}
               />
             </RadixTab.Content>

@@ -6,15 +6,14 @@ import NoData from 'Components/NoData';
 interface Props {
   titleKey: string;
   titleValue: string;
-  rows: { rowKey: string; rowValue: string }[] | undefined;
+  rows: { rowKey: string; rowValue: string | undefined }[] | undefined;
 }
 export const BacklogTable: React.FC<Props> = ({
   titleKey,
   titleValue,
   rows,
 }) => {
-  // if (!rows || rows.length === 0) return <NoData />;
-
+  console.log('navid rows=', rows);
   return (
     <Table>
       <Thead id='header'>
@@ -24,7 +23,7 @@ export const BacklogTable: React.FC<Props> = ({
         </Tr>
       </Thead>
       <Tbody id='body'>
-        {rows && rows.length > 0 ? (
+        {rows?.[0]?.rowValue ? (
           rows.map((row, i) => (
             <Tr key={i}>
               <Td>{row.rowKey}</Td>
@@ -34,7 +33,6 @@ export const BacklogTable: React.FC<Props> = ({
         ) : (
           <NoData hasIcon={false} />
         )}
-        {}
       </Tbody>
     </Table>
   );

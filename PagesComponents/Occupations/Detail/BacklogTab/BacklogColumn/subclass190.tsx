@@ -11,7 +11,7 @@ import {
 } from './utils';
 
 interface Props {
-  backlogSection: BacklogSection;
+  backlogSection: BacklogSection | undefined;
 }
 
 const Subclass190: React.FC<Props> = ({ backlogSection }) => {
@@ -53,7 +53,7 @@ const Subclass190: React.FC<Props> = ({ backlogSection }) => {
                 titleKey='By State'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseOn_ByState(
-                  backlogSection.submited_by_state_190
+                  backlogSection?.submited_by_state_190
                 )}
               />
             </RadixTab.Content>
@@ -69,7 +69,7 @@ const Subclass190: React.FC<Props> = ({ backlogSection }) => {
                 titleKey='By State'
                 titleValue='EOI count'
                 rows={getRowKeyValueBaseOn_ByState(
-                  backlogSection.invited_by_state_190
+                  backlogSection?.invited_by_state_190
                 )}
               />
             </RadixTab.Content>

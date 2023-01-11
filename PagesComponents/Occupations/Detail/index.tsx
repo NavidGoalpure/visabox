@@ -12,6 +12,7 @@ import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 import SimilarOccupations from './similarOccupations';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
+import { isCodeIn_MLTSSL, isCodeIn_ROL, isCodeIn_STSOL } from './utils';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -53,17 +54,13 @@ const Content: React.FC<Props> = ({ occupation }) => {
       <ToggleContainer>
         <StyledToggleTag
           contentKey={'189'}
-          isOn={
-            !!occupation?.backlog_section?.submited_189 ||
-            !!occupation?.backlog_section?.invited_189
-          }
+          isOn={isCodeIn_MLTSSL(occupation.code)}
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
           contentKey={'190'}
           isOn={
-            !!occupation?.backlog_section?.submited_190 ||
-            !!occupation?.backlog_section?.invited_190
+            isCodeIn_MLTSSL(occupation.code) || isCodeIn_STSOL(occupation.code)
           }
           backgroundTheme='PAGE'
         />
@@ -71,17 +68,15 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <StyledToggleTag
           contentKey={'491'}
           isOn={
-            !!occupation?.backlog_section?.submited_491 ||
-            !!occupation?.backlog_section?.invited_491
+            isCodeIn_MLTSSL(occupation.code) ||
+            isCodeIn_STSOL(occupation.code) ||
+            isCodeIn_ROL(occupation.code)
           }
           backgroundTheme='PAGE'
         />
         <StyledToggleTag
           contentKey={t(LanguageKeys['491-family'])}
-          isOn={
-            !!occupation?.backlog_section?.submited_491_family ||
-            !!occupation?.backlog_section?.invited_491_family
-          }
+          isOn={isCodeIn_MLTSSL(occupation.code)}
           backgroundTheme='PAGE'
           style={{ marginInlineEnd: '0' }}
         />

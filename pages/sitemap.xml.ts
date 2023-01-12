@@ -11,16 +11,16 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
      <url>
        <loc>${OccupatopnsPage_EN}</loc>
      </url>
-     <url>
-       <loc>${OccupatopnsPage_FA}</loc>
-     </url>
+    //  <url>
+    //    <loc>${OccupatopnsPage_FA}</loc>
+    //  </url>
 
       <url>
        <loc>${OccupatopnsPage_EN}/assssing-authorities</loc>
      </url>
-     <url>
-       <loc>${OccupatopnsPage_FA}/assssing-authorities</loc>
-     </url>
+    //  <url>
+    //    <loc>${OccupatopnsPage_FA}/assssing-authorities</loc>
+    //  </url>
 
      
  
@@ -30,9 +30,9 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
        <url>
            <loc>${`${OccupatopnsPage_EN}/${slug?.current}`}</loc>
        </url>
-        <url>
-           <loc>${`${OccupatopnsPage_FA}/${slug?.current}`}</loc>
-       </url>
+      //   <url>
+      //      <loc>${`${OccupatopnsPage_FA}/${slug?.current}`}</loc>
+      //  </url>
      `;
        })
        .join('')}

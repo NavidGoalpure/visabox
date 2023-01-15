@@ -48,10 +48,16 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <NextNProgress height={2} />
       <Head>
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
-        </style>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='true'
+        />
+        <link
+          href='https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap'
+          rel='stylesheet'
+        />
       </Head>
 
       <Script strategy='afterInteractive'>

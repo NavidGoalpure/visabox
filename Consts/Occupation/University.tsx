@@ -1112,6 +1112,146 @@ const iran: [
         en: 'Esfahan',
         fa: 'اصفهان',
       },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Daneshvaran Higher Education Institute',
+        fa: 'موسسھ آموزش عالي دانشوران',
+      },
+      desc: {
+        en: 'Daneshvaran Non-profit Non-Governmental Higher Education Institute',
+      },
+      city: {
+        en: 'Tabriz',
+        fa: 'تبریز',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Deilaman Higher Education Institute',
+        fa: 'موسسھ آموزش عالي دیلمان',
+      },
+      desc: {
+        en: 'Deilaman Non-profit Non-Governmental Higher Education Institute',
+      },
+      city: {
+        en: 'Lahijan',
+        fa: 'لاهیجان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Dr Shariaty College',
+        fa: 'دانشکده فنی شریعتی',
+      },
+      desc: {
+        en: 'Dr Shariati College for Technical Teacher Training',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Erfan Higher Education Institute',
+        fa: 'موسسھ آموزش عالي عرفان',
+      },
+      desc: {
+        en: 'Erfan Non-profit Non-Governmental Higher Education Institute',
+      },
+      city: {
+        en: 'Kerman',
+        fa: 'کرمان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Ershad Damavand Higher Education Institute',
+        fa: 'موسسھ آموزش عالي ارشاد دماوند',
+      },
+      desc: {
+        en: 'Ershad Damavand Private Institute of Higher Education Ershad Damavand Non-profit Non-Governmental Higher Education Institute',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Eyvanakey Institute of Higher Education',
+        fa: 'موسسھ آموزش عالي ایوانكي',
+      },
+      desc: {
+        en: 'Eyvanakey Non-profit Non-Governmental Higher Education Institute',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Farabi College of Science and Technology',
+        fa: 'دانشكده علوم و فنون فارابي',
+      },
+      desc: {
+        en: 'Affiliated to the Iranian Army',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Farabi Higher Education Institute',
+        fa: 'موسسھ آموزش عالي فارابی',
+      },
+      desc: {
+        en: 'Farabi Non-profit Non-Governmental Higher Education Institute',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Farvardin Higher Education Institute',
+        fa: 'موسسھ آموزش عالي فروردین',
+      },
+      desc: {
+        en: 'Farvardin Non-profit Non-Governmental Higher Education Institute',
+      },
+      city: {
+        en: 'Qaemshahr',
+        fa: 'قائم‌شهر',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Fasa University of Medical Sciences',
+        fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی فسا',
+      },
+      desc: {
+        en: 'Private institution, founded in 1986',
+      },
+      city: {
+        en: 'Fasa',
+        fa: 'فسا',
+      },
       setion: 1,
     },
   ];

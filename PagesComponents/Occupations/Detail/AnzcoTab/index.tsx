@@ -68,8 +68,8 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }}
         ></Description>
         <StyledAccordion
-          backgroundTheme={'COMPONENT'}
-          triggerContent={t(LanguageKeys.AlternativeTitles)}
+          backgroundtheme={'COMPONENT'}
+          triggerText={t(LanguageKeys.AlternativeTitles)}
           content={
             <AccordionContent
               data={dtArray(anzscoSection?.alternative_title)}
@@ -80,8 +80,8 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }
         />
         <StyledAccordion
-          backgroundTheme={'COMPONENT'}
-          triggerContent={t(LanguageKeys.Specialisations)}
+          backgroundtheme={'COMPONENT'}
+          triggerText={t(LanguageKeys.Specialisations)}
           content={
             <AccordionContent
               data={dtArray(anzscoSection?.specialisations)}
@@ -93,8 +93,8 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {isMultiLanguageTextArrayIsEmpty(anzscoSection?.nec_occupation) && (
           <StyledAccordion
-            backgroundTheme={'COMPONENT'}
-            triggerContent={t(LanguageKeys.NecOccupation)}
+            backgroundtheme={'COMPONENT'}
+            triggerText={t(LanguageKeys.NecOccupation)}
             content={
               <AccordionContent
                 data={dtArray(anzscoSection?.nec_occupation)}
@@ -105,8 +105,8 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           />
         )}
         {/* <StyledAccordion
-          backgroundTheme={"COMPONENT"}
-          triggerContent={t(LanguageKeys.SkillPriorityLists)}
+          backgroundtheme={"COMPONENT"}
+          triggerText={t(LanguageKeys.SkillPriorityLists)}
           content={"farzam"}
         /> */}
       </Wrapper>

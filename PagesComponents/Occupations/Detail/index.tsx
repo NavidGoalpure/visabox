@@ -63,23 +63,23 @@ const Content: React.FC<Props> = ({ occupation }) => {
         <StyledToggleTag
           contentKey={'189'}
           isOn={has189Visa(occupation.code)}
-          backgroundTheme='PAGE'
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
           contentKey={'190'}
           isOn={has190Visa(occupation.code)}
-          backgroundTheme='PAGE'
+          backgroundtheme='PAGE'
         />
 
         <StyledToggleTag
           contentKey={'491'}
           isOn={has491StateVisa(occupation.code)}
-          backgroundTheme='PAGE'
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
           contentKey={t(LanguageKeys['491-family'])}
           isOn={has491FamilyVisa(occupation.code)}
-          backgroundTheme='PAGE'
+          backgroundtheme='PAGE'
           style={{ marginInlineEnd: '0' }}
         />
       </ToggleContainer>

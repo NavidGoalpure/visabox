@@ -87,8 +87,8 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                   />
                 )}
                 <StyledAccordion
-                  backgroundTheme={'COMPONENT'}
-                  triggerContent={t(LanguageKeys.HintsTitle)}
+                  backgroundtheme={'COMPONENT'}
+                  triggerText={t(LanguageKeys.HintsTitle)}
                   isOpen={true}
                   content={
                     <AccordionContentContainer>

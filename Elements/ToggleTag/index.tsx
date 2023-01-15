@@ -9,10 +9,10 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   contentKey: string;
   isOn?: boolean;
   contentValue?: ReactNode;
-  backgroundTheme?: 'PAGE' | 'COMPONENT';
+  backgroundtheme?: 'PAGE' | 'COMPONENT';
 }
 const ToggleTag: React.FC<Props> = ({
-  backgroundTheme = 'COMPONENT',
+  backgroundtheme = 'COMPONENT',
   contentKey,
   contentValue,
   isOn,
@@ -31,7 +31,7 @@ const ToggleTag: React.FC<Props> = ({
   }
   return (
     <Container isOn={isOn} {...props}>
-      <ContentKey isOn={isOn} backgroundTheme={backgroundTheme}>
+      <ContentKey isOn={isOn} backgroundtheme={backgroundtheme}>
         {contentKey}
       </ContentKey>
       <ContentValue>{getSmartContent({ contentValue, isOn })}</ContentValue>
@@ -98,10 +98,10 @@ const ContentKeyBackgroundColorComponent = theme('mode', {
 
 const ContentKey = styled.h3<{
   isOn?: boolean;
-  backgroundTheme: 'PAGE' | 'COMPONENT';
+  backgroundtheme: 'PAGE' | 'COMPONENT';
 }>`
-  ${({ backgroundTheme }) =>
-    backgroundTheme === 'COMPONENT'
+  ${({ backgroundtheme }) =>
+    backgroundtheme === 'COMPONENT'
       ? ContentKeyBackgroundColorComponent
       : ContentKeyBackgroundColorPage}
   ${Headline6Style}

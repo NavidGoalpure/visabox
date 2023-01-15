@@ -46,8 +46,8 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
           {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ''))}
         </SkillLevelDesc>
         <StyledAccordion
-          backgroundTheme={'COMPONENT'}
-          triggerContent={t(LanguageKeys.Tasks)}
+          backgroundtheme={'COMPONENT'}
+          triggerText={t(LanguageKeys.Tasks)}
           content={
             <AccordionContent
               data={dtArray(occupationUnitGroup?.tasks)}
@@ -57,8 +57,8 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {(anzscoSection as AnzscoSection)?.priority_list?.[0]?.national ? (
           <StyledAccordion
-            backgroundTheme={'COMPONENT'}
-            triggerContent={t(LanguageKeys.SkillPriorityLists)}
+            backgroundtheme={'COMPONENT'}
+            triggerText={t(LanguageKeys.SkillPriorityLists)}
             content={
               <div>
                 <SkillPriorityLists

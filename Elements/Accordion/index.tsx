@@ -13,16 +13,16 @@ import {
 import { deviceMin } from 'Consts/device';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  triggerContent: string;
+  triggerText: string;
   content: ReactNode;
-  backgroundTheme: 'PAGE' | 'COMPONENT';
+  backgroundtheme: 'PAGE' | 'COMPONENT';
   isOpen?: boolean;
 }
 
 export const MaraAccordion: React.FC<Props> = ({
-  triggerContent,
+  triggerText,
   content,
-  backgroundTheme,
+  backgroundtheme,
   isOpen = false,
   ...props
 }) => (
@@ -31,12 +31,13 @@ export const MaraAccordion: React.FC<Props> = ({
     type='single'
     defaultValue={isOpen ? 'item' : ''}
     collapsible
+    data-testid='Marabox-Accordion'
   >
     <AccordionItem value='item'>
-      <AccordionHeader backgroundTheme={backgroundTheme}>
+      <AccordionHeader backgroundtheme={backgroundtheme}>
         <AccordionTrigger>
           <PlusIcon />
-          {triggerContent}
+          {triggerText}
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent>
@@ -82,13 +83,13 @@ const AccordionItem = styled(Accordion.Item)`
   }
 `;
 const AccordionHeader = styled(Accordion.Header)<{
-  backgroundTheme: 'PAGE' | 'COMPONENT';
+  backgroundtheme: 'PAGE' | 'COMPONENT';
 }>`
   display: flex;
   position: relative;
   z-index: 11;
-  ${({ backgroundTheme }) =>
-    backgroundTheme === 'PAGE' ? pageBackground : componentBodyBackground}
+  ${({ backgroundtheme }) =>
+    backgroundtheme === 'PAGE' ? pageBackground : componentBodyBackground}
   border: none;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`

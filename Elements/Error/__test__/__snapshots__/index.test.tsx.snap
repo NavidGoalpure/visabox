@@ -32,34 +32,233 @@ exports[`ComponentError renders ComponentError correctly  1`] = `
 </div>
 `;
 
-exports[`ComponentError renders open accordin correctly  1`] = `
+exports[`ComponentError renders ComponentError correctly  2`] = `
 <div
-  className="componentContent__Container-sc-qkubvc-1 eBYLNH"
+  className="pageContent__Container-sc-x8q2bx-0 bqotdX"
 >
-  <svg
-    className="componentContent__ErrorIcon-sc-qkubvc-0 ixAFon"
-    fill="currentColor"
-    height="1em"
-    stroke="currentColor"
-    strokeWidth="0"
-    style={
-      {
-        "color": undefined,
-      }
-    }
-    viewBox="0 0 24 24"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
+  <span
+    aria-hidden={true}
+    className="Square1__Content-sc-v67u6q-0 ea-dGmq"
+  />
+  <span
+    aria-hidden={true}
+    className="Square2__Content-sc-jwp9r9-0 hOuKoQ"
+  />
+  <span
+    aria-hidden={true}
+    className="Circle1__Content-sc-4d336q-0 cHXNGI"
+  />
+  <span
+    aria-hidden={true}
+    className="Circle2__Content-sc-1c5y2wx-0 iHMPsw"
+  />
+  <span
+    aria-hidden={true}
+    className="Triangle1__Content-sc-cxcuzi-0 ievBCs"
   >
-    <path
-      d="M0 0h24v24H0z"
+    <svg
+      aria-hidden={true}
+      className="StyledComponents__StyledTriangleIcon-sc-1bhvx1q-0 bimkpX"
       fill="none"
-    />
-    <path
-      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
-    />
-  </svg>
-  <h3 />
-  <p />
+      height="66"
+      viewBox="0 0 69 66"
+      width="69"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
+        stroke="#1BADA1"
+        strokeWidth="6"
+      />
+    </svg>
+    <svg
+      aria-hidden={true}
+      className="StyledComponents__StyledTriangleIcon-sc-1bhvx1q-0 StyledComponents__TriangleShadow-sc-1bhvx1q-1 bimkpX bGggrH"
+      fill="none"
+      height="66"
+      viewBox="0 0 69 66"
+      width="69"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
+        stroke="#1BADA1"
+        strokeWidth="6"
+      />
+    </svg>
+     
+  </span>
+  <span
+    aria-hidden={true}
+    className="Triangle2__Content-sc-161fo2h-0 llFdTP"
+  >
+    <svg
+      aria-hidden={true}
+      className="StyledComponents__StyledTriangleIcon-sc-1bhvx1q-0 bimkpX"
+      fill="none"
+      height="66"
+      viewBox="0 0 69 66"
+      width="69"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
+        stroke="#1BADA1"
+        strokeWidth="6"
+      />
+    </svg>
+    <svg
+      aria-hidden={true}
+      className="StyledComponents__StyledTriangleIcon-sc-1bhvx1q-0 StyledComponents__TriangleShadow-sc-1bhvx1q-1 bimkpX bGggrH"
+      fill="none"
+      height="66"
+      viewBox="0 0 69 66"
+      width="69"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
+        stroke="#1BADA1"
+        strokeWidth="6"
+      />
+    </svg>
+     
+  </span>
+  <span
+    aria-hidden={true}
+    className="Triangle3__Content-sc-t32tf1-0 itoqRD"
+  >
+    <svg
+      aria-hidden={true}
+      className="StyledComponents__StyledTriangleIcon-sc-1bhvx1q-0 bimkpX"
+      fill="none"
+      height="66"
+      viewBox="0 0 69 66"
+      width="69"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
+        stroke="#1BADA1"
+        strokeWidth="6"
+      />
+    </svg>
+    <svg
+      aria-hidden={true}
+      className="StyledComponents__StyledTriangleIcon-sc-1bhvx1q-0 StyledComponents__TriangleShadow-sc-1bhvx1q-1 bimkpX bGggrH"
+      fill="none"
+      height="66"
+      viewBox="0 0 69 66"
+      width="69"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
+        stroke="#1BADA1"
+        strokeWidth="6"
+      />
+    </svg>
+     
+  </span>
+  <div
+    className="pageContent__TxtContainer-sc-x8q2bx-1 grcKnH"
+  >
+    <div
+      className="pageContent__Wire-sc-x8q2bx-2 bfIDVZ"
+    >
+      <svg
+        fill="none"
+        height="137"
+        viewBox="0 0 202 137"
+        width="202"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          clip-path="url(#clip0_737_4611)"
+        >
+          <rect
+            fill="#DDE2EB"
+            height="16"
+            rx="1.5"
+            stroke="#838383"
+            transform="rotate(-59.7307 179.684 41.4569)"
+            width="9"
+            x="179.684"
+            y="41.4569"
+          />
+          <rect
+            fill="#DDE2EB"
+            height="16"
+            rx="1.5"
+            stroke="#838383"
+            transform="rotate(-59.7307 169.684 59.4569)"
+            width="9"
+            x="169.684"
+            y="59.4569"
+          />
+          <path
+            d="M-51 -184.652H449V311.724H-51V-184.652ZM-51 311.724H449V-184.652H-51V311.724ZM155.15 28.0531C141.172 16.6701 124.287 7.16652 106.814 2.46881C93.947 -0.989947 80.096 -1.45356 67.792 4.2111C54.441 10.3582 43.396 24.5824 40.287 38.8324C34.067 67.3443 67.549 78.0759 85.835 91.1634C90.048 94.1794 93.96 97.6927 96.489 102.248C98 104.971 98.621 107.927 98.556 111.425C98.439 117.588 95.428 122.74 89.069 124.211C74.477 127.589 55.986 112.945 45.334 104.048C37.134 97.1974 29.72 91.6727 18.816 89.983C8.44899 88.3758 -2.457 89.8847 -11.028 96.2235C-17.151 100.751 -11.174 111.097 -4.972 106.51C2.186 101.216 11.011 100.128 19.584 102.25C29.254 104.646 35.45 111.585 43.094 117.469C54.83 126.503 68.963 135.796 84.323 136.439C104.046 137.264 115.242 117.73 108.648 100.265C104.525 89.3457 94.637 82.2773 84.996 76.3704C75.057 70.2798 62.538 65.1334 55.216 55.7231C47.516 45.8273 53.728 33.2422 60.713 24.6956C68.884 14.6995 80.577 10.803 93.266 11.9784C106.288 13.1826 118.82 18.9009 129.993 25.3587C134.332 27.8674 138.555 30.5776 142.637 33.4805C143.296 33.948 143.948 34.4265 144.602 34.9011C144.994 35.185 147.102 36.7913 145.407 35.4878C145.829 35.8124 146.251 36.14 146.665 36.4766C152.589 41.3023 161.127 32.9205 155.15 28.0531Z"
+            fill="#DDE2EB"
+          />
+          <path
+            d="M158.607 15.1472L178.727 25.8074L159.882 60.8605L139.761 50.2013C136.284 48.3578 134.957 44.0264 136.813 40.5736L148.909 18.0739C150.765 14.622 155.13 13.3057 158.607 15.1472Z"
+            fill="#707070"
+          />
+          <path
+            d="M158.607 15.1472L178.727 25.8074L159.882 60.8605L139.762 50.2013C136.285 48.3578 134.958 44.0264 136.814 40.5736L148.91 18.0739C150.766 14.622 155.13 13.3057 158.607 15.1472Z"
+            fill="#707070"
+          />
+          <path
+            d="M150.909 56.1098L159.883 60.8641L178.73 25.807L169.756 21.0527C169.053 21.5531 168.468 22.2133 168.037 23.0144L151.595 53.6002C151.164 54.4013 150.937 55.2501 150.909 56.1098Z"
+            fill="#282828"
+          />
+          <path
+            d="M178.838 22.0032L187.207 26.4378C189.937 27.8843 190.978 31.2845 189.521 33.9937L172.741 65.2078C171.284 67.9171 167.859 68.9505 165.13 67.5051L156.761 63.0704C154.031 61.624 152.99 58.2238 154.447 55.5146L171.227 24.3004C172.684 21.5912 176.109 20.5578 178.838 22.0032Z"
+            fill="#DDE2EB"
+          />
+        </g>
+        <defs>
+          <clipPath
+            id="clip0_737_4611"
+          >
+            <rect
+              fill="white"
+              height="137"
+              width="202"
+            />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <h1
+      className="pageContent__Title-sc-x8q2bx-3 kIPcye"
+    >
+      Someone stepped on the wire
+    </h1>
+    <h2
+      className="pageContent__Subtitle-sc-x8q2bx-4 cDyBgU"
+    >
+      Please check your connection
+    </h2>
+    <h3
+      className="pageContent__Desc-sc-x8q2bx-5 bjoyCd"
+    >
+      there most be some problems in the servers please try again later
+    </h3>
+    <a
+      href="/occupations"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onTouchStart={[Function]}
+    >
+      <button
+        className="Button__Container-sc-1bknf9u-0 cgssBM"
+        disabled={false}
+        type="button"
+      >
+        Home
+      </button>
+    </a>
+  </div>
 </div>
 `;

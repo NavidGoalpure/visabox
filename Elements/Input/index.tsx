@@ -2,7 +2,7 @@ import { InputHTMLAttributes, ReactNode, useEffect, useRef } from 'react';
 import { Container, InputContainer, StyledInput, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon: ReactNode;
+  icon?: ReactNode;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: any;
   type?: string;
@@ -39,7 +39,7 @@ export const Input = ({
   return (
     <Container className={className}>
       <InputContainer disabled={disabled}>
-        {icon}
+        {icon ? icon : null}
         <StyledInput
           type={type}
           onChange={onChange}
@@ -52,7 +52,7 @@ export const Input = ({
         ></StyledInput>
         {endElement && <span>{endElement}</span>}
       </InputContainer>
-      {errorMasage && <Error>{errorMasage}</Error>}
+      {errorMasage && <Error data-testid='error-input'>{errorMasage}</Error>}
     </Container>
   );
 };

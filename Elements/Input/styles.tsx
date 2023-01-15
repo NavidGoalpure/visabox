@@ -64,7 +64,7 @@ const StyledInput = styled.input`
   ${InputStyle}
 `;
 
-const Error = styled.h2`
+const Error = styled.h5`
   color: var(--color-error);
   margin-top: 0.5rem;
 `;

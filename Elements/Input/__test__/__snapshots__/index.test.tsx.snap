@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Elements/Input renders Input correctly  1`] = `
+<div
+  className="styles__Container-sc-1rp137i-0 kldsZO"
+>
+  <div
+    className="styles__InputContainer-sc-1rp137i-1 bGJlRB"
+    disabled={false}
+  >
+    <input
+      className="styles__StyledInput-sc-1rp137i-2 htqjrR"
+      disabled={false}
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Elements/Input renders Input correctly  2`] = `
+<div
+  className="styles__Container-sc-1rp137i-0 kldsZO"
+>
+  <div
+    className="styles__InputContainer-sc-1rp137i-1 bGJlRB"
+    disabled={false}
+  >
+    <input
+      className="styles__StyledInput-sc-1rp137i-2 htqjrR"
+      disabled={false}
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders close Accordin correctly  1`] = `
+<div
+  className="Accordion__AccordionRoot-sc-1tmszlt-0 isnXXG"
+  data-testid="Marabox-Accordion"
+  onKeyDown={[Function]}
+>
+  <div
+    className="Accordion__AccordionItem-sc-1tmszlt-1 dpejtB"
+    data-state="closed"
+  >
+    <h3
+      backgroundtheme="COMPONENT"
+      className="Accordion__AccordionHeader-sc-1tmszlt-2 haZCmW"
+      data-state="closed"
+    >
+      <button
+        aria-controls="radix-:r3:"
+        aria-expanded={false}
+        className="Accordion__AccordionTrigger-sc-1tmszlt-3 Cxhqk"
+        data-radix-collection-item=""
+        data-state="closed"
+        id="radix-:r2:"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          className="Accordion__PlusIcon-sc-1tmszlt-4 BZiEX"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            {
+              "color": undefined,
+            }
+          }
+          t="1551322312294"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z"
+          />
+          <path
+            d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z"
+          />
+        </svg>
+        Who is the best?
+      </button>
+    </h3>
+    <div
+      aria-labelledby="radix-:r2:"
+      className="Accordion__AccordionContent-sc-1tmszlt-5 dbRNTN"
+      data-state="closed"
+      hidden={true}
+      id="radix-:r3:"
+      role="region"
+      style={
+        {
+          "--radix-accordion-content-height": "var(--radix-collapsible-content-height)",
+          "--radix-accordion-content-width": "var(--radix-collapsible-content-width)",
+          "--radix-collapsible-content-height": undefined,
+          "--radix-collapsible-content-width": undefined,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`renders open accordin correctly  1`] = `
+<div
+  className="Accordion__AccordionRoot-sc-1tmszlt-0 isnXXG"
+  data-testid="Marabox-Accordion"
+  onKeyDown={[Function]}
+>
+  <div
+    className="Accordion__AccordionItem-sc-1tmszlt-1 dpejtB"
+    data-state="open"
+  >
+    <h3
+      backgroundtheme="COMPONENT"
+      className="Accordion__AccordionHeader-sc-1tmszlt-2 haZCmW"
+      data-state="open"
+    >
+      <button
+        aria-controls="radix-:r1:"
+        aria-expanded={true}
+        className="Accordion__AccordionTrigger-sc-1tmszlt-3 Cxhqk"
+        data-radix-collection-item=""
+        data-state="open"
+        id="radix-:r0:"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          className="Accordion__PlusIcon-sc-1tmszlt-4 BZiEX"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            {
+              "color": undefined,
+            }
+          }
+          t="1551322312294"
+          version="1.1"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z"
+          />
+          <path
+            d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z"
+          />
+        </svg>
+        Who is the best?
+      </button>
+    </h3>
+    <div
+      aria-labelledby="radix-:r0:"
+      className="Accordion__AccordionContent-sc-1tmszlt-5 dbRNTN"
+      data-state="open"
+      hidden={false}
+      id="radix-:r1:"
+      role="region"
+      style={
+        {
+          "--radix-accordion-content-height": "var(--radix-collapsible-content-height)",
+          "--radix-accordion-content-width": "var(--radix-collapsible-content-width)",
+          "--radix-collapsible-content-height": undefined,
+          "--radix-collapsible-content-width": undefined,
+        }
+      }
+    >
+      <div
+        className="Accordion__Content-sc-1tmszlt-6 kmfJoN"
+        id="content"
+      >
+        <p>
+           Kakashi is better than others
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

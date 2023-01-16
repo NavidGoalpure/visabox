@@ -5,11 +5,15 @@ interface Props extends HtmlHTMLAttributes<HTMLImageElement> {
   height?: number;
   width?: number;
 }
-const Logo: React.FC<Props> = ({
-  height = 60,
-  width = 60,
-  ...props
-}) => {
-  return <img {...props} height={height} width={width}  alt={'menu-logo'} src={darkLogo}></img>;
+const Logo: React.FC<Props> = ({ height = 60, width = 60, ...props }) => {
+  return (
+    <img
+      {...props}
+      height={height}
+      width={width}
+      alt={'marabox-logo'}
+      src={darkLogo}
+    ></img>
+  );
 };
 export { Logo };

@@ -1,12 +1,11 @@
 import { screen, render, fireEvent } from 'Utils/test-utils';
 import { Button } from '../index';
-import mockRouter from 'next-router-mock';
 import renderer from 'react-test-renderer';
+
 jest.mock('next/router', () => require('next-router-mock'));
 
-describe('Occupations', () => {
+describe('Elements/Button', () => {
   it('renders button element', () => {
-    const onClickMock = jest.fn();
     render(<Button>Naruto</Button>);
     const button = screen.getByText('Naruto');
     expect(button).toBeInTheDocument();

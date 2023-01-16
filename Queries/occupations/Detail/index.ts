@@ -16,6 +16,7 @@ const getDetailQuery = (baseOn: 'SLUG' | 'CODE'): string => {
    {
  _id,
  code,
+ slug,
    title,
    backlog_section {
      invited_189,

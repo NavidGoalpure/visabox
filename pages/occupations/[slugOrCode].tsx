@@ -1,9 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
 import Content from 'PagesComponents/Occupations/Detail';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { Languages } from 'Interfaces';

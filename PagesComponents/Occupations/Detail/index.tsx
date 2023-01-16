@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleTag from 'Elements/ToggleTag';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { SidebarPage } from './sideBar';
 import { PageSubtitleStyle, PageTitleStyle } from 'Styles/Theme/Page';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';

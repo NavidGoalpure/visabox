@@ -2,7 +2,7 @@ import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { PageTitleStyle } from 'Styles/Theme/Page';
 
 interface Props {

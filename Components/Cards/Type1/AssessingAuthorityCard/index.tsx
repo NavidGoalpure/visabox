@@ -1,7 +1,5 @@
-import { useLocale } from 'Hooks/useLocale';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
-import { HTMLAttributes, useState, useTransition } from 'react';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { MultiLanguageText } from 'Interfaces';
+import { HTMLAttributes, useState } from 'react';
 import PopupContent from './popupContent';
 import {
   Container,

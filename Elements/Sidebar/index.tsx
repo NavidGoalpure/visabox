@@ -1,3 +1,5 @@
 import { Root } from './Root';
-import { Item } from './Item';
-export { Root, Item };
+import { TabItem } from './TabItem';
+import { BodyItem } from './BodyItem';
+
+export { Root, TabItem, BodyItem };

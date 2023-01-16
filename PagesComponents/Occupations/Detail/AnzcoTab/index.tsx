@@ -30,36 +30,38 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
     <>
       <Wrapper>
         <Table>
-          <Tr>
-            <TdKey>{t(LanguageKeys.MajorGroup)} :</TdKey>
-            <TdValue>
-              {`${anzscoSection?.major_group} -${' '}
+          <tbody>
+            <Tr>
+              <TdKey>{t(LanguageKeys.MajorGroup)} :</TdKey>
+              <TdValue>
+                {`${anzscoSection?.major_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(anzscoSection?.major_group || 0))}`}
-            </TdValue>
-          </Tr>
-          <Tr>
-            <TdKey>{t(LanguageKeys.SubMajorGroup)} :</TdKey>
-            <TdValue>
-              {`${anzscoSection?.submajor_group} -${' '}
+              </TdValue>
+            </Tr>
+            <Tr>
+              <TdKey>{t(LanguageKeys.SubMajorGroup)} :</TdKey>
+              <TdValue>
+                {`${anzscoSection?.submajor_group} -${' '}
               ${dt(
                 ConvertAnzscoCodeToTitle(anzscoSection?.submajor_group || 0)
               )}`}
-            </TdValue>
-          </Tr>
-          <Tr>
-            <TdKey>{t(LanguageKeys.MinorGroup)} :</TdKey>
-            <TdValue>
-              {`${anzscoSection?.minor_group} -${' '}
+              </TdValue>
+            </Tr>
+            <Tr>
+              <TdKey>{t(LanguageKeys.MinorGroup)} :</TdKey>
+              <TdValue>
+                {`${anzscoSection?.minor_group} -${' '}
               ${dt(ConvertAnzscoCodeToTitle(anzscoSection?.minor_group || 0))}`}
-            </TdValue>
-          </Tr>
-          <Tr>
-            <TdKey>{t(LanguageKeys.UnitGroup)} :</TdKey>
-            <TdValue>
-              {(anzscoSection?.unit_group as UnitGroup)?.code} -
-              {dt((anzscoSection?.unit_group as UnitGroup)?.title)}
-            </TdValue>
-          </Tr>
+              </TdValue>
+            </Tr>
+            <Tr>
+              <TdKey>{t(LanguageKeys.UnitGroup)} :</TdKey>
+              <TdValue>
+                {(anzscoSection?.unit_group as UnitGroup)?.code} -
+                {dt((anzscoSection?.unit_group as UnitGroup)?.title)}
+              </TdValue>
+            </Tr>
+          </tbody>
         </Table>
         <ContentTitle>{t(LanguageKeys.Description)}</ContentTitle>
         <Description

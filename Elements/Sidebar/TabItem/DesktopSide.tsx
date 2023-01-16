@@ -10,14 +10,14 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   value: string;
   icon: ReactNode;
 }
-export const DesktopSide: React.FC<Props> = ({
+export const DesktopTabItem_Side: React.FC<Props> = ({
   title,
   value,
   icon,
   className,
 }) => {
   return (
-    <TabsTrigger value={value} className={className}>
+    <TabsTrigger value={value} className={className} data-testid='sidebar-head'>
       <ContentContainer>
         {icon}
         {title}

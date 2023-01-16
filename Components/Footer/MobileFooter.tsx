@@ -12,7 +12,7 @@ function MobileFooter() {
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <HeadItem>Pages</HeadItem>
+        <TabItem>Pages</TabItem>
         <Items href={'/en/occupations'}>Home</Items>
         <Items href={'/en/occupations'}>Skilled Occupation List</Items>
       </ItemsContainer>
@@ -89,7 +89,7 @@ const ItemsContainer = styled.div`
   gap: 2rem;
   text-align: center;
 `;
-const HeadItem = styled.h2`
+const TabItem = styled.h2`
   ${Headline5Style};
   ${TextColor};
   cursor: pointer;

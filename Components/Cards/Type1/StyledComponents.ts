@@ -105,7 +105,7 @@ export const ContainerColor = theme('mode', {
   `,
 });
 
-export const PopupContainer = styled.div<{ isPopupOpen: boolean }>`
+export const PopupContainer = styled.div<{ $isPopupOpen: boolean }>`
   ${ContainerColor}
   position: absolute;
   bottom: 0;
@@ -122,11 +122,11 @@ export const PopupContainer = styled.div<{ isPopupOpen: boolean }>`
     }
   }
 
-  ${({ isPopupOpen }) => isPopupOpen && ContainerHoverCss}
+  ${({ $isPopupOpen }) => $isPopupOpen && ContainerHoverCss}
 `;
 
 export const StyledScrollBox = styled(ScrollBox)<{
-  isPopupOpen: boolean;
+  $isPopupOpen: boolean;
 }>`
   opacity: 0;
   padding: 0;
@@ -153,8 +153,8 @@ export const StyledScrollBox = styled(ScrollBox)<{
     ${componentTextStyle}
     margin-bottom:1rem;
   }
-  ${({ isPopupOpen }) =>
-    isPopupOpen &&
+  ${({ $isPopupOpen }) =>
+    $isPopupOpen &&
     `
     ${PopupContentContainerHoverCss}
     pointer-events: all;`}
@@ -164,7 +164,7 @@ export const ArrowHoverCss = css`
   transition-delay: 0s;
   transform: translateX(-50%) rotate(0deg);
 `;
-export const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
+export const Arrow = styled(IoIosArrowDown)<{ $isPopupOpen: boolean }>`
   position: absolute;
   top: -1.5rem;
   left: 50%;
@@ -191,7 +191,7 @@ export const Arrow = styled(IoIosArrowDown)<{ isPopupOpen: boolean }>`
       ${ArrowHoverCss}
     }
   }
-  ${({ isPopupOpen }) => isPopupOpen && ArrowHoverCss}
+  ${({ $isPopupOpen }) => $isPopupOpen && ArrowHoverCss}
 `;
 export const PopupTitle = styled.h3`
   ${componentSubtitleStyle}

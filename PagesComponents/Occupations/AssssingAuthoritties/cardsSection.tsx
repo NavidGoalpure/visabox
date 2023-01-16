@@ -1,6 +1,6 @@
 import AssessingAuthorityCard from 'Components/Cards/Type1/AssessingAuthorityCard';
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { componentTextStyle } from 'Styles/Theme/Component';
 import { assssingAuthorities } from './const';
 import { AssssingAuthority } from './interfaces';

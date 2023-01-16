@@ -3,7 +3,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { MultiLanguageTextArray } from 'Interfaces';
 import { Slug } from 'Interfaces/Fields';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { componentStatements, LanguageKeys } from './const';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PopupTitle, StyledButton } from '../StyledComponents';
@@ -25,10 +25,10 @@ const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
       {isMultiLanguageTextArrayIsEmpty(tasks) ? (
         <ul>
           {dtArray(tasks)?.map((task, i) => (
-            <>
-              <li key={i}>{task}</li>
+            <Fragment key={i}>
+              <li>{task}</li>
               <br />
-            </>
+            </Fragment>
           ))}
         </ul>
       ) : (

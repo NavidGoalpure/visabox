@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { BsCheckLg } from 'react-icons/bs';
-import { HiXMark } from 'react-icons/hi2';
+import { IoMdClose } from 'react-icons/io';
 import { Headline6Style } from 'Styles/Typo';
 import { HTMLAttributes, ReactNode } from 'react';
 
@@ -119,7 +119,7 @@ const ContentValue = styled.div`
 const CheckLogo = styled(BsCheckLg)`
   color: var(--color-primary6);
 `;
-const XLogo = styled(HiXMark)`
+const XLogo = styled(IoMdClose)`
   color: var(--color-gray9);
   width: 1.3rem;
   height: auto;

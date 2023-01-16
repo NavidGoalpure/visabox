@@ -8,15 +8,15 @@ interface Props {
 }
 const Popup: React.FC<Props> = ({ isPopupOpen, setIsPopupOpen, content }) => {
   return (
-    <PopupContainer isPopupOpen={isPopupOpen}>
+    <PopupContainer $isPopupOpen={isPopupOpen}>
       <Arrow
-        isPopupOpen={isPopupOpen}
+        $isPopupOpen={isPopupOpen}
         onClick={() => {
           setIsPopupOpen((prevState) => !prevState);
           return false;
         }}
       />{' '}
-      <StyledScrollBox isPopupOpen={isPopupOpen} heightToRem={30}>
+      <StyledScrollBox $isPopupOpen={isPopupOpen} heightToRem={30}>
         {content}
       </StyledScrollBox>
     </PopupContainer>

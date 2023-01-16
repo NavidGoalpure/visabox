@@ -22,7 +22,12 @@ export const Root: React.FC<Props> = ({
 }) => {
   return (
     // @ts-ignore
-    <TabsRoot defaultValue={defaultValue} variant={variant} {...props}>
+    <TabsRoot
+      defaultValue={defaultValue}
+      variant={variant}
+      data-testid='sidebar-root'
+      {...props}
+    >
       <TabsList aria-label='sidebar' variant={variant}>
         {items}
       </TabsList>

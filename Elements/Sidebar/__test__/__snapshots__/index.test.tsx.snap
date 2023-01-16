@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Element/Root renders Root correctly  1`] = `
+<div
+  className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
+  data-orientation="horizontal"
+  dir="ltr"
+  heightToRem={3}
+  variant="SIDE_POSITION"
+>
+  <div
+    aria-label="sidebar"
+    aria-orientation="horizontal"
+    className="Root__TabsList-sc-ymugap-1 dliCBS"
+    data-orientation="horizontal"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    role="tablist"
+    style={
+      {
+        "outline": "none",
+      }
+    }
+    tabIndex={-1}
+    variant="SIDE_POSITION"
+  />
+  <div
+    className="Root__ContentsContainer-sc-ymugap-2 gMeavB"
+    id="contents-container"
+  />
+</div>
+`;
+
+exports[`Element/SRoot renders Root correctly  1`] = `
+<div
+  className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
+  data-orientation="horizontal"
+  dir="ltr"
+  heightToRem={3}
+  variant="SIDE_POSITION"
+>
+  <div
+    aria-label="sidebar"
+    aria-orientation="horizontal"
+    className="Root__TabsList-sc-ymugap-1 dliCBS"
+    data-orientation="horizontal"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    role="tablist"
+    style={
+      {
+        "outline": "none",
+      }
+    }
+    tabIndex={-1}
+    variant="SIDE_POSITION"
+  />
+  <div
+    className="Root__ContentsContainer-sc-ymugap-2 gMeavB"
+    id="contents-container"
+  />
+</div>
+`;
+
+exports[`Element/SideBar/Root renders Root correctly  1`] = `
+<div
+  className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
+  data-orientation="horizontal"
+  dir="ltr"
+  heightToRem={3}
+  variant="SIDE_POSITION"
+>
+  <div
+    aria-label="sidebar"
+    aria-orientation="horizontal"
+    className="Root__TabsList-sc-ymugap-1 dliCBS"
+    data-orientation="horizontal"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    role="tablist"
+    style={
+      {
+        "outline": "none",
+      }
+    }
+    tabIndex={-1}
+    variant="SIDE_POSITION"
+  />
+  <div
+    className="Root__ContentsContainer-sc-ymugap-2 gMeavB"
+    id="contents-container"
+  />
+</div>
+`;
+
+exports[`Element/Sidebar renders Root correctly  1`] = `
+<div
+  className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
+  data-orientation="horizontal"
+  dir="ltr"
+  heightToRem={3}
+  variant="SIDE_POSITION"
+>
+  <div
+    aria-label="sidebar"
+    aria-orientation="horizontal"
+    className="Root__TabsList-sc-ymugap-1 dliCBS"
+    data-orientation="horizontal"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    role="tablist"
+    style={
+      {
+        "outline": "none",
+      }
+    }
+    tabIndex={-1}
+    variant="SIDE_POSITION"
+  />
+  <div
+    className="Root__ContentsContainer-sc-ymugap-2 gMeavB"
+    id="contents-container"
+  />
+</div>
+`;

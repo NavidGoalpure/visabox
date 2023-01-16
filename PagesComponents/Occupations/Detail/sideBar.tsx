@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import * as Tabs from '@radix-ui/react-tabs';
 import * as SideBar from 'Elements/Sidebar';
 import { TbListDetails } from 'react-icons/tb';
 import { TbStack2 } from 'react-icons/tb';
@@ -33,17 +32,17 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       variant='UP_POSITION'
       items={
         <>
-          <SideBar.Item
+          <SideBar.TabItem
             title={t(LanguageKeys.Backlog)}
             value='backlog'
             icon={<Backlog />}
           />
-          <SideBar.Item
+          <SideBar.TabItem
             title={t(LanguageKeys.Details)}
             value='details'
             icon={<DetailsIcon />}
           />
-          <SideBar.Item
+          <SideBar.TabItem
             title={t(LanguageKeys.Anzsco)}
             value='anzsco'
             icon={<AnszcoIcon />}
@@ -53,26 +52,26 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       bodies={
         <>
           {occupation.territory_section ? (
-            <Tabs.Content value='details'>
+            <SideBar.BodyItem value='details'>
               <ContentWrapper>
                 <DetailComponent
                   territorySection={occupation.territory_section}
                 />
               </ContentWrapper>
-            </Tabs.Content>
+            </SideBar.BodyItem>
           ) : null}
           {/*  */}
           {occupation.anzsco_section ? (
-            <Tabs.Content value='anzsco'>
+            <SideBar.BodyItem value='anzsco'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
                 <AnzscoComponent anzscoSection={occupation.anzsco_section} />
               </ContentWrapper>
-            </Tabs.Content>
+            </SideBar.BodyItem>
           ) : null}
           {/*  */}
           {
-            <Tabs.Content value='backlog'>
+            <SideBar.BodyItem value='backlog'>
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
                 {hasAnyVisaOption(occupation) ? (
@@ -113,7 +112,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                   }
                 />
               </ContentWrapper>
-            </Tabs.Content>
+            </SideBar.BodyItem>
           }
           {/*  */}
         </>

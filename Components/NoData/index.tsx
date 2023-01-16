@@ -1,7 +1,7 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { PageSubtitle } from 'PagesComponents/Occupations/List/PageSubtitle';
 import React, { ReactNode } from 'react';
-import { HiXMark } from 'react-icons/hi2';
+import { IoMdClose } from 'react-icons/io';
 import styled from 'styled-components/macro';
 import { componentTheme } from 'Styles/Theme/Component';
 import { PageSubtitleStyle } from 'Styles/Theme/Page';
@@ -47,7 +47,7 @@ const Container = styled.div<{ context: 'PAGE' | 'COMP' }>`
   text-align: center;
   border none;
 `;
-const XLogo = styled(HiXMark)`
+const XLogo = styled(IoMdClose)`
   background: var(--color-disable-light);
   width: 2rem;
   height: 2rem;

@@ -2867,7 +2867,7 @@ const iran: [
     {
       title: {
         en: 'Islamic Azad University, Bardsir',
-        fa: 'دانشگاه آزاد اسلامی واحد 
+        fa: 'دانشگاه آزاد اسلامی واحد'
       },
       desc: {
         en: '',
@@ -3032,4 +3032,1366 @@ const iran: [
       },
       setion: 2,
     },
+    {
+      title: {
+        en: 'Islamic Azad University, Bouienzahra',
+        fa: 'دانشگاه آزاد اسلامی واحد بوئینزھرا',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Bouienzahra',
+        fa: 'بوئینزھرا',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Boukan',
+        fa: 'دانشگاه آزاد اسلامی واحد بوکان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Boukan',
+        fa: 'بوکان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Bushehr',
+        fa: 'دانشگاه آزاد اسلامی واحد بوشھر',
+      },
+      desc: {
+        en: 'Islamic Azad University, Boushehr',
+      },
+      city: {
+        en: 'Bushehr',
+        fa: 'بوشهر',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Central Tehran',
+        fa: 'دانشگاه آزاد اسلامی واحد تھران مرکزی',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Tehran',
+        fa: 'تهران',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Chabahar',
+        fa: 'دانشگاه آزاد اسلامی واحد چابھار',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Chalous',
+        fa: 'دانشگاه آزاد اسلامی واحد چالوس',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Damavand',
+        fa: 'دانشگاه آزاد اسلامی واحد دماوند',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Damavand',
+        fa: 'دماوند',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Damghan',
+        fa: 'دانشگاه آزاد اسلامی واحد دامغان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Damghan',
+        fa: 'دامغان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Darab',
+        fa: 'دانشگاه آزاد اسلامی واحد داراب',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Darab',
+        fa: 'داراب',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dargaz',
+        fa: 'دانشگاه آزاد اسلامی واحد درگز',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Darrehshar',
+        fa: 'دانشگاه آزاد اسلامی واحد دره شھر',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dashtestan',
+        fa: 'دانشگاه آزاد اسلامی واحد دشتستان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Dashtestan',
+        fa: 'دشتستان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dehaghan',
+        fa: 'دانشگاه آزاد اسلامی واحد دھاقان',
+      },
+      desc: {
+        en: 'Islamic Azad University, Dahaghan',
+      },
+      city: {
+        en: 'Dehaghan',
+        fa: 'دھاقان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dehdasht',
+        fa: 'دانشگاه آزاد اسلامی واحد دھدشت',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Dehdasht',
+        fa: 'دھدشت',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dehloran',
+        fa: 'دانشگاه آزاد اسلامی واحد دھلران',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Delijan',
+        fa: 'دانشگاه آزاد اسلامی واحد دلیجان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dentistry Branch, Tehran',
+        fa: 'دانشگاه آزاد اسلامی واحد دندانپزشكي',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Tehran',
+        fa: 'تهران',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dezful',
+        fa: 'دانشگاه آزاد اسلامی واحد دزفول',
+      },
+      desc: {
+        en: 'Islamic Azad University, Dezfoul',
+      },
+      city: {
+        en: 'Dezful',
+        fa: 'دزفول',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Doroud',
+        fa: 'دانشگاه آزاد اسلامی واحد دورود',
+      },
+      desc: {
+        en: 'Islamic Azad University, Doorood',
+      },
+      city: {
+        en: 'Doroud',
+        fa: 'دورود',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Dowlatabad',
+        fa: 'دانشگاه آزاد اسلامی واحد دولت آباد',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Dowlatabad',
+        fa: 'دولت آباد',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, E-Campus',
+        fa: 'دانشگاه آزاد اسلامی واحد الكترونیكي',
+      },
+      desc: {
+        en: 'Islamic Azad University, Electronics (Virtual)',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Eghlid',
+        fa: 'دانشگاه آزاد اسلامی واحد اقلید',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Eghlid',
+        fa: 'اقلید',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Esfarayin',
+        fa: 'دانشگاه آزاد اسلامی واحد اسفراین',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Estahban',
+        fa: 'دانشگاه آزاد اسلامی واحد استھبان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Estahban',
+        fa: 'استھبان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ezeh',
+        fa: 'دانشگاه آزاد اسلامی واحد ایذه',
+      },
+      desc: {
+        en: 'Islamic Azad University, Eizeh',
+      },
+      city: {
+        en: 'Ezeh',
+        fa: 'ایذه',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Falavarjan',
+        fa: 'دانشگاه آزاد اسلامی واحد فلاورجان',
+      },
+      desc: {
+        en: 'Islamic Azad University, Felavarjan',
+      },
+      city: {
+        en: 'Falavarjan',
+        fa: 'فلاورجان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Farahan',
+        fa: 'دانشگاه آزاد اسلامی واحد فراھان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Farahan',
+        fa: 'فراھان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Farashband',
+        fa: 'دانشگاه آزاد اسلامی واحد فراشبند',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Faridan',
+        fa: 'دانشگاه آزاد اسلامی واحد فریدن',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Farsan',
+        fa: 'دانشگاه آزاد اسلامی واحد فارسان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Fasa',
+        fa: 'دانشگاه آزاد اسلامی واحد فسا',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Fasa',
+        fa: 'فسا',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ferdows',
+        fa: 'دانشگاه آزاد اسلامی واحد فردوس',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ferdows',
+        fa: 'فردوس',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Firuzabad',
+        fa: 'دانشگاه آزاد اسلامی واحد فیروزآباد',
+      },
+      desc: {
+        en: 'Islamic Azad University, Firoozabad; Islamic Azad University, Firouzabad',
+      },
+      city: {
+        en: 'Firuzabad',
+        fa: 'فیروزآباد',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Firuzkuh',
+        fa: 'دانشگاه آزاد اسلامی واحد فیروزكوه',
+      },
+      desc: {
+        en: 'Islamic Azad University, Firoozkuh; Islamic Azad University, Firoozkouh',
+      },
+      city: {
+        en: 'Firuzkuh',
+        fa: 'فیروزكوه',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Fouman and Shaft',
+        fa: 'دانشگاه آزاد اسلامی واحد فومن و شفت',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gachsaran',
+        fa: 'دانشگاه آزاد اسلامی واحد گچساران',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Gachsaran',
+        fa: 'گچساران',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Garmi',
+        fa: 'دانشگاه آزاد اسلامی واحد گرمی',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Germi',
+        fa: 'گرمی',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Garmsar',
+        fa: 'دانشگاه آزاد اسلامی واحد گرمسار',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Garmsar',
+        fa: 'گرمسار',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gavbandi',
+        fa: 'دانشگاه آزاد اسلامی واحد گاوبندي',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Geneveh',
+        fa: 'دانشگاه آزاد اسلامی واحد گناوه',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ghaemshahr',
+        fa: 'قائم شھر',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ghaemshahr',
+        fa: 'دانشگاه آزاد اسلامی واحد قائم شھر',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ghaemshahr',
+        fa: 'قائم شھر',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ghaenat',
+        fa: 'دانشگاه آزاد اسلامی واحد قائنات',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ghaenat',
+        fa: 'قائنات',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ghasr-e-Shirin',
+        fa: 'دانشگاه آزاد اسلامی واحد قصرشیرین',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gheshm',
+        fa: 'دانشگاه آزاد اسلامی واحد قشم',
+      },
+      desc: {
+        en: 'Islamic Azad University, Qeshm',
+      },
+      city: {
+        en: 'Gheshm',
+        fa: 'قشم',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ghiamdasht',
+        fa: 'دانشگاه آزاد اسلامی واحد تھران شرق',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ghiamdasht',
+        fa: 'قیامدشت',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ghirokarzin',
+        fa: 'دانشگاه آزاد اسلامی واحد قیروکارزین',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ghorveh',
+        fa: 'دانشگاه آزاد اسلامی واحد قروه',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ghuchan',
+        fa: 'دانشگاه آزاد اسلامی واحد قوچان',
+      },
+      desc: {
+        en: 'Islamic Azad University, Ghoochan; Islamic Azad University, Gouchan; Islamic Azad University, Quchan',
+      },
+      city: {
+        en: 'Ghuchan',
+        fa: 'قوچان',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gilan',
+        fa: 'دانشگاه آزاد اسلامی واحد گیلان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Guilan',
+        fa: 'گیلان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gilan-e-Gharb',
+        fa: 'دانشگاه آزاد اسلامی واحد گیلانغرب',
+      },
+      desc: {
+        en: 'Islamic Azad University, Gilanegharb',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Golbahar',
+        fa: 'دانشگاه آزاد اسلامی واحد گلبھار',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Golpayegan',
+        fa: 'دانشگاه آزاد اسلامی واحد گلپایگان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Golpayegan',
+        fa: 'گلپایگان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gonabad',
+        fa: 'دانشگاه آزاد اسلامی واحد گناباد',
+      },
+      desc: {
+        en: 'Islamic Azad University, Gonabad',
+      },
+      city: {
+        en: 'Gonabad',
+        fa: 'گناباد',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gonbad-e-Kavous',
+        fa: 'دانشگاه آزاد اسلامی واحد گنبدکاووس',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Gorgan',
+        fa: 'دانشگاه آزاد اسلامی واحد گرگان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Gorgan',
+        fa: 'گرگان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hadishahr',
+        fa: 'دانشگاه آزاد اسلامی واحد ھادیشھر',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hadishahr',
+        fa: 'ھادیشھر',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hafshejan',
+        fa: 'دانشگاه آزاد اسلامی واحد ھفشجان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hafshejan',
+        fa: 'ھفشجان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hajiabad',
+        fa: 'دانشگاه آزاد اسلامی واحد حاجی آباد',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hajiabad',
+        fa: 'حاجی آباد',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hamedan',
+        fa: 'دانشگاه آزاد اسلامی واحد ھمدان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hamedan',
+        fa: 'ھمدان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Harand',
+        fa: 'دانشگاه آزاد اسلامی واحد ھرند',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Harand',
+        fa: 'ھرند',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Haris',
+        fa: 'دانشگاه آزاد اسلامی واحد ھریس',
+      },
+      desc: {
+        en: 'Islamic Azad University, Haris',
+      },
+      city: {
+        en: 'Haris',
+        fa: 'ھریس',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hashtgerd',
+        fa: 'دانشگاه آزاد اسلامی واحد ھشتگرد',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hashtgerd',
+        fa: 'ھشتگرد',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hashtroud',
+        fa: 'دانشگاه آزاد اسلامی واحد ھشترود',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hashtroud',
+        fa: 'ھشترود',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hidaj',
+        fa: 'دانشگاه آزاد اسلامی واحد ھیدج',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hidaj',
+        fa: 'ھیدج',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hormoz Island',
+        fa: 'دانشگاه آزاد اسلامی مرکز ھرمز',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hormoz',
+        fa: 'ھرمز',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Hourand',
+        fa: 'دانشگاه آزاد اسلامی واحد ھوراند',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Hourand',
+        fa: 'ھوراند',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ijroud',
+        fa: 'دانشگاه آزاد اسلامی واحد ایجرود',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ijroud',
+        fa: 'ایجرود',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ilam',
+        fa: 'دانشگاه آزاد اسلامی واحد ایلام',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ilam',
+        fa: 'ایلام',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ilkhchi',
+        fa: 'دانشگاه آزاد اسلامی واحد ایلخچی',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Ilkhchi',
+        fa: 'ایلخچی',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Iranshahr',
+        fa: 'دانشگاه آزاد اسلامی واحد ایرانشھر',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Iranshahr',
+        fa: 'ایرانشھر',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Isfahan',
+        fa: 'دانشگاه آزاد اسلامی واحد اصفھان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Iranshahr',
+        fa: 'ایرانشهر',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Islamabad-e-Gharb',
+        fa: 'دانشگاه آزاد اسلامی واحد اسلام آباد غرب',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Islamabad',
+        fa: 'اسلام آباد',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Islamshahr',
+        fa: 'دانشگاه آزاد اسلامی واحد اسلامشھر',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Islamshahr',
+        fa: 'اسلامشھر',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Ivan-e-Gharb',
+        fa: 'دانشگاه آزاد اسلامی واحد ایوان غرب',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Izeh',
+        fa: 'دانشگاه آزاد اسلامی واحد ایذه',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Izeh',
+        fa: 'ایذه',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Jahrom',
+        fa: 'دانشگاه آزاد اسلامی واحد جھرم',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Jahrom',
+        fa: 'جھرم',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Jajrom',
+        fa: 'دانشگاه آزاد اسلامی واحد جاجرم',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Jajrom',
+        fa: 'جاجرم',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Jasb',
+        fa: 'دانشگاه آزاد اسلامی واحد جاسب',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'جاسب',
+        fa: 'Jasb',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Jask',
+        fa: 'دانشگاه آزاد اسلامی واحد جاسک',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Jask',
+        fa: 'جاسک',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Jeeroft',
+        fa: 'دانشگاه آزاد اسلامی واحد جیرفت',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Jeeroft',
+        fa: 'جیرفت',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Jolfa',
+        fa: 'دانشگاه آزاد اسلامی واحد جلفا',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Jolfa',
+        fa: 'جلفا ',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Jouybar',
+        fa: 'دانشگاه آزاد اسلامی واحد جویبار',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Jouybar',
+        fa: 'جویبار',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kahnouj',
+        fa: 'دانشگاه آزاد اسلامی واحد کھنوج',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kahnouj',
+        fa: 'کھنوج',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kalaleh',
+        fa: 'دانشگاه آزاد اسلامی واحد کلالھ',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kalaleh',
+        fa: 'کلالھ',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kaleybar',
+        fa: 'دانشگاه آزاد اسلامی واحد کلیبر',
+      },
+      desc: {
+        en: 'Islamic Azad University, Kalibar',
+      },
+      city: {
+        en: 'Kaleybar',
+        fa: 'کلیبر',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kangavar',
+        fa: 'دانشگاه آزاد اسلامی واحد کنگاور',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kangavar',
+        fa: 'کنگاور',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Karaj',
+        fa: 'دانشگاه آزاد اسلامی واحد كرج',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Karaj',
+        fa: 'كرج',
+      },
+      setion: 1,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kashan',
+        fa: 'دانشگاه آزاد اسلامی واحد کاشان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kashan',
+        fa: 'کاشان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kashmar',
+        fa: 'دانشگاه آزاد اسلامی واحد كاشمر',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kashmar',
+        fa: 'كاشمر',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kazeroon',
+        fa: 'دانشگاه آزاد اسلامی واحد كازرون',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kazeroon',
+        fa: 'كازرون',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kerman',
+        fa: 'دانشگاه آزاد اسلامی واحد كرمان',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kerman',
+        fa: 'كرمان',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kermanshah',
+        fa: 'دانشگاه آزاد اسلامی واحد كرمانشاه',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kermanshah',
+        fa: 'كرمانشاه',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Khalkhal',
+        fa: 'دانشگاه آزاد اسلامی واحد خلخال',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Khalkhal',
+        fa: 'خلخال',
+      },
+      setion: 2,
+    },
+    {
+      title: {
+        en: 'Islamic Azad University, Kharg',
+        fa: 'دانشگاه آزاد اسلامی واحد خارگ',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kharg',
+        fa: 'خارگ',
+      },
+      setion: 2,
+    },
+
+    {
+      title: {
+        en: 'Islamic Azad University, Kharvana',
+        fa: 'دانشگاه آزاد اسلامی واحد خاروانا',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Kharvana',
+        fa: 'خاروانا',
+      },
+      setion: 2,
+    },
+
+    {
+      title: {
+        en: 'Islamic Azad University, Khash',
+        fa: 'دانشگاه آزاد اسلامی واحد خاش',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: 'Khash',
+        fa: 'خاش',
+      },
+      setion: 2,
+    },
+
+    {
+      title: {
+        en: '',
+        fa: '',
+      },
+      desc: {
+        en: '',
+      },
+      city: {
+        en: '',
+        fa: '',
+      },
+      setion: 2,
+    },
+
   ];

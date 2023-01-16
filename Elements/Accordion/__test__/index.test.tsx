@@ -1,6 +1,6 @@
 import { screen, render, fireEvent } from 'Utils/test-utils';
 import { MaraAccordion } from '../index';
-import mockRouter from 'next-router-mock';
+
 import renderer from 'react-test-renderer';
 jest.mock('next/router', () => require('next-router-mock'));
 

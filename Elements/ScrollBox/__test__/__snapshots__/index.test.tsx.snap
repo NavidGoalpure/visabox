@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Element/ScrollBox renders ScrollBox correctly  1`] = `
+<div
+  className="ScrollBox__ScrollAreaRoot-sc-1mfjfnm-0 hspoEc"
+  data-testid="scroll-area-root"
+  dir="ltr"
+  style={
+    {
+      "--radix-scroll-area-corner-height": "0px",
+      "--radix-scroll-area-corner-width": "0px",
+      "position": "relative",
+    }
+  }
+>
+  <style
+    dangerouslySetInnerHTML={
+      {
+        "__html": "[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}",
+      }
+    }
+  />
+  <div
+    className="ScrollBox__ScrollAreaViewport-sc-1mfjfnm-1 eOyLFY"
+    data-radix-scroll-area-viewport=""
+    style={
+      {
+        "overflowX": "scroll",
+        "overflowY": "scroll",
+      }
+    }
+  >
+    <div
+      style={
+        {
+          "display": "table",
+          "minWidth": "100%",
+        }
+      }
+    >
+      <p>
+        Kunuha ha a great school for ninjutsu
+      </p>
+      <p>
+        Kunuha ha a great school for ninjutsu
+      </p>
+      <p>
+        Kunuha ha a great school for ninjutsu
+      </p>
+      <p>
+        Kunuha ha a great school for ninjutsu
+      </p>
+      <p>
+        Kunuha ha a great school for ninjutsu
+      </p>
+    </div>
+  </div>
+</div>
+`;

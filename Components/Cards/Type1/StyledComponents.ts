@@ -39,6 +39,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: start;
   height: 100%;
+  width: 100%;
   overflow: hidden;
 `;
 export const codeColor = theme('mode', {

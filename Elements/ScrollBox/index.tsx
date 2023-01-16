@@ -15,7 +15,12 @@ const ScrollBox: React.FC<Props> = ({
   heightToRem,
 }) => {
   return (
-    <ScrollAreaRoot className={className} id={id} heightToRem={heightToRem}>
+    <ScrollAreaRoot
+      data-testid='scroll-area-root'
+      className={className}
+      id={id}
+      $heightToRem={heightToRem}
+    >
       <ScrollAreaViewport>{children}</ScrollAreaViewport>
       <ScrollAreaScrollbar id={'scroll-area-scrollbar'} orientation='vertical'>
         <ScrollAreaThumb />
@@ -33,10 +38,10 @@ const ScrollBox: React.FC<Props> = ({
 
 export { ScrollBox };
 
-const ScrollAreaRoot = styled(ScrollArea.Root)<{ heightToRem: number }>`
+const ScrollAreaRoot = styled(ScrollArea.Root)<{ $heightToRem: number }>`
   ${directionStyles}
   width: 100%;
-  height: ${({ heightToRem }) => `${heightToRem}rem`};
+  height: ${({ $heightToRem }) => `${$heightToRem}rem`};
   border-radius: 4px;
   overflow: hidden;
   --scrollbar-size: 0.5rem;

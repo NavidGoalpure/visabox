@@ -13,6 +13,7 @@ const PageSubtitle: React.FC = () => {
         href='https://www.legislation.gov.au/Details/F2022C00574'
         target='_blank'
         rel='noopener noreferrer'
+        key='a-tag-fa'
       >
         LIN 29/051
       </A>
@@ -26,6 +27,7 @@ const PageSubtitle: React.FC = () => {
         href='https://www.legislation.gov.au/Details/F2022C00574'
         target='_blank'
         rel='noopener noreferrer'
+        key='a-tag-en'
       >
         LIN 29/051
       </A>

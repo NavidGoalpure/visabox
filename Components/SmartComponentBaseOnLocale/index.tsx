@@ -1,6 +1,6 @@
 import { useLocale } from 'Hooks/useLocale';
 import { Languages } from 'Interfaces';
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 
 interface Props {
   compenents: {
@@ -11,6 +11,6 @@ interface Props {
 
 const SmartComponentBaseOnLocale: React.FC<Props> = ({ compenents }) => {
   const { locale } = useLocale();
-  return <>{compenents[locale]}</>;
+  return <Fragment>{compenents[locale]}</Fragment>;
 };
 export default SmartComponentBaseOnLocale;

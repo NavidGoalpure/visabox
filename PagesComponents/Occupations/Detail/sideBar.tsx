@@ -92,20 +92,21 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                   content={
                     <AccordionContentContainer>
                       <HintItem>
-                        <Tag>Points</Tag>
+                        <Tag>{t(LanguageKeys.Points)}</Tag>
                         {t(LanguageKeys.HintPoints)}
                       </HintItem>
                       <HintItem>
-                        <Tag>Submitted</Tag>
+                        <Tag>{t(LanguageKeys.Submitted)}</Tag>
                         {t(LanguageKeys.HintSubmitted)}
                       </HintItem>
                       <HintItem>
-                        <Tag>Invited</Tag>
+                        <Tag>{t(LanguageKeys.Invited)}</Tag>
                         {t(LanguageKeys.HintInvited)}
                       </HintItem>
                       <HintItem>
                         <Tag>
-                          Last update:<span> 31/08/2022</span>
+                          {t(LanguageKeys.LastUpdate)}
+                          <span> 31/08/2022</span>
                         </Tag>
                       </HintItem>
                     </AccordionContentContainer>

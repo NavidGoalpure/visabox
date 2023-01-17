@@ -1,11 +1,16 @@
 import { MultiLanguageText } from 'Interfaces';
 
 export enum LanguageKeys {
+  Pages = 'Pages',
   Home = 'Home',
   SkilledOccupationList = 'SkilledOccupationList',
   ContactUs = 'ContactUs',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  Pages: {
+    fa: 'صفحات',
+    en: 'Pages',
+  },
   Home: {
     fa: 'خانه',
     en: 'Home',

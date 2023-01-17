@@ -1,9 +1,11 @@
 import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';
 import styled from 'styled-components/macro';
 import { PageTitleStyle } from 'Styles/Theme/Page';
+import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
   similarOccupations: Occupation[];
@@ -13,13 +15,14 @@ const similarOccupations: React.FC<Props> = ({
   similarOccupations,
   currentCode,
 }) => {
+  const { t } = useStaticTranslation(componentStatements);
   const smartList = similarOccupations.filter(
     (occupation) => occupation?.code !== currentCode
   );
   if (smartList.length === 0) return null;
   return (
     <Container>
-      <Title>Similar Occupations</Title>
+      <Title>{t(LanguageKeys.SimilarOccupations)}</Title>
       <CardsContainer>
         {smartList.map((occupation) => (
           <OccupationCard

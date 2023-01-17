@@ -46,8 +46,10 @@ export const Details = styled.div`
   padding-top: 1rem;
   ${componentTitleStyle}
   ${componentTitleColor}
-    h4 {
+  direction: ltr;
+  h4 {
     ${componentSubtitleStyle}
+    direction: ltr;
     a {
       ${textTitleColor}
     }
@@ -55,6 +57,7 @@ export const Details = styled.div`
   h5 {
     ${componentTextStyle}
     ${componentTextColor}
+    direction: ltr;
     font-size: 16px;
     line-height: 26px;
     margin-bottom: 7px;
@@ -91,6 +94,7 @@ export const Details = styled.div`
   td {
     text-align: center;
     ${componentTextStyle}
+    direction: ltr;
     height: 2rem;
     padding: 0.5rem;
     line-height: 1.5rem;
@@ -99,6 +103,7 @@ export const Details = styled.div`
   th {
     ${componentHeaderBackground}
     ${componentTextStyle}
+    direction: ltr;
     text-align: center;
     border-left: medium none;
     border-style: none solid solid none;
@@ -139,7 +144,8 @@ export const Details = styled.div`
     p {
       ${componentTextStyle}
       ${componentTextColor}
-       padding-bottom: 10px;
+      direction: ltr;
+      padding-bottom: 10px;
       display: block;
       margin-block-start: 1em;
       margin-block-end: 1em;
@@ -150,6 +156,7 @@ export const Details = styled.div`
     ul {
       ${componentTextStyle}
       ${componentTextColor}
+      direction: ltr;
     }
   }
   ftab p {
@@ -175,6 +182,7 @@ export const Details = styled.div`
     line-height: 25px;
     font-weight: 700;
     ${componentSubtitleStyle}
+    direction: ltr;
   }
   //////////////////////////////////
   .fa-check {

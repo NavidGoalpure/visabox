@@ -6,15 +6,16 @@ import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { pageBackground } from 'Styles/Theme/Page';
 import SwitchTheme from './switchTheme';
+import { useLocale } from 'Hooks/useLocale';
 
 function Header() {
+  const { locale } = useLocale();
   return (
     <Container>
       <Wrapper>
         <NavigationMenu.Item>
-          <Link href={'/en/occupations'}>
+          <Link href={`/${locale}/occupations`}>
             <Logo />
-            
           </Link>
         </NavigationMenu.Item>
         <SwitchTheme />

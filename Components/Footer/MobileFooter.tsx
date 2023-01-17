@@ -3,21 +3,29 @@ import React from 'react';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { Headline5Style } from 'Styles/Typo';
-import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
+import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import Link from 'next/link';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useLocale } from 'Hooks/useLocale';
 
 function MobileFooter() {
+  const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
+
   return (
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <TabItem>Pages</TabItem>
-        <Items href={'/en/occupations'}>Home</Items>
-        <Items href={'/en/occupations'}>Skilled Occupation List</Items>
+        <TabItem>{t(LanguageKeys.Pages)}</TabItem>
+        <Items href={`/${locale}/occupations`}>{t(LanguageKeys.Home)}</Items>
+        <Items href={`/${locale}/occupations`}>
+          {t(LanguageKeys.SkilledOccupationList)}
+        </Items>
       </ItemsContainer>
       <ContactUsContainer>
-        <ContactUs>Contact us</ContactUs>
+        <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
           <TelegramLogo />
           <GmailLogo />
@@ -51,7 +59,7 @@ export const TextColor = theme('mode', {
   `,
 });
 
-const Container = styled.section`
+const Container = styled.footer`
   ${footerBackground};
   clip-path: polygon(50% 15%, 100% 0, 100% 100%, 0 100%, 0 0);
   padding-top: 18rem;

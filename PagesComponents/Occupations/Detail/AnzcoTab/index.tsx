@@ -75,9 +75,8 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           content={
             <AccordionContent
               data={dtArray(anzscoSection?.alternative_title)}
-              title={t(LanguageKeys.AlternativeTitles_title)}
               description={t(LanguageKeys.AlternativeTitles_description)}
-              emptyMessage={t(LanguageKeys.alternativeTitles_empty)}
+              emptyMessage={t(LanguageKeys.AlternativeTitles_empty)}
             />
           }
         />
@@ -88,12 +87,11 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
             <AccordionContent
               data={dtArray(anzscoSection?.specialisations)}
               emptyMessage={t(LanguageKeys.specialisations_empty)}
-              title={t(LanguageKeys.specialisations_title)}
               description={t(LanguageKeys.specialisations_description)}
             />
           }
         />
-        {isMultiLanguageTextArrayIsEmpty(anzscoSection?.nec_occupation) && (
+        {!isMultiLanguageTextArrayIsEmpty(anzscoSection?.nec_occupation) && (
           <StyledAccordion
             backgroundtheme={'COMPONENT'}
             triggerText={t(LanguageKeys.NecOccupation)}

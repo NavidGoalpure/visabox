@@ -13,5 +13,16 @@ const setThemeFromLocalStorage = (newTheme: ThemeModes) => {
   localStorage?.setItem(LocalStorageKeys.Theme, newTheme);
 };
 //
+function isItOnLive(location?: string): boolean {
+  const smartLocation = location || window.location.href;
 
-export { getThemeFromLocalStorage, setThemeFromLocalStorage };
+  if (
+    smartLocation.includes('https://marabox.com') ||
+    smartLocation.includes('http://marabox.com') ||
+    smartLocation.includes('https://www.marabox.com') ||
+    smartLocation.includes('http://www.marabox.com')
+  )
+    return true;
+  return false;
+}
+export { getThemeFromLocalStorage, setThemeFromLocalStorage, isItOnLive };

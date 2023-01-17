@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import SmartComponentBaseOnLocale from 'Components/SmartComponentBaseOnLocale';
+import SmartComponentBaseOnLocale from 'Components/Language/SmartComponentBaseOnLocale';
 import { componentStatements } from './const';
 import reactStringReplace from 'react-string-replace';
 import { PageSubtitleStyle, pageTitleColor } from 'Styles/Theme/Page';

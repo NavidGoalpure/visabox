@@ -18,6 +18,7 @@ import {
   has491FamilyVisa,
   has491StateVisa,
 } from './utils';
+import { LanguageHint } from 'Components/Language/LanguageHint';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -33,6 +34,9 @@ const Content: React.FC<Props> = ({ occupation }) => {
   //
   return (
     <Container>
+      <LanguageHint
+        gtagEventLabel={`/${locale}/occupations/${occupation.code}`}
+      />
       <TitleContainer>
         <Title>
           {occupation?.code}: {dt(occupation?.title)}
@@ -83,7 +87,6 @@ const Content: React.FC<Props> = ({ occupation }) => {
           style={{ marginInlineEnd: '0' }}
         />
       </ToggleContainer>
-
       {/*  */}
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}

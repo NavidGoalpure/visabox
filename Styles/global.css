@@ -41,6 +41,8 @@
   --color-fail1: #fc8181;
   --color-fail2: #e4b8b8;
   --color-fail3: #ffdede;
+  --color-warning: var(--color-secondary2);
+  /*  */
   --color-disable-light: var(--color-gray11);
   --color-disable-dark: var(--color-primary1);
   /* // */

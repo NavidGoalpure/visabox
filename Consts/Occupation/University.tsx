@@ -7956,7 +7956,7 @@ Mashhad`,
       fa: "موسسھ آموزش عالي پیام گلپایگان",
     },
     desc: {
-      en: "Payame Golpayegan Non-profit Non-Governmental Higher Education Institute
+      en: "Payame Golpayegan Non-profit Non-Governmental Higher Education Institute"
     },
     city: {
       en: "",

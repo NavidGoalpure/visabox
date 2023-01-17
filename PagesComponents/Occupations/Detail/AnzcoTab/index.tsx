@@ -19,7 +19,7 @@ import UnitGroupCompoenent from '../unitGroup';
 import { ConvertAnzscoCodeToTitle } from './utils';
 
 interface Props {
-  anzscoSection: AnzscoSection;
+  anzscoSection: AnzscoSection | undefined;
 }
 const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
   const { dt, dtArray, isMultiLanguageTextArrayIsEmpty } =

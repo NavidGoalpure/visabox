@@ -14,7 +14,7 @@ import Script from 'next/script';
 import { hotjar } from 'react-hotjar';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import * as gtag from 'Utils/gtag';
+import * as gtag from 'Utils/Gtags';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

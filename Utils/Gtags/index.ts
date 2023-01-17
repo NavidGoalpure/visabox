@@ -4,7 +4,7 @@ import { GtagEvents } from './interface';
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-export const pageview = (url: URL) => {
+export const pageview = (url: string) => {
   if (!isItOnLive) return;
   // @ts-ignore
   window.gtag('config', GA_TRACKING_ID, {

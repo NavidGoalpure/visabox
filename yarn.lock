@@ -6093,6 +6093,11 @@ v8-to-istanbul@^9.0.1:
     "@types/istanbul-lib-coverage" "^2.0.1"
     convert-source-map "^1.6.0"
 
+vazirmatn@^33.0.3:
+  version "33.0.3"
+  resolved "https://registry.yarnpkg.com/vazirmatn/-/vazirmatn-33.0.3.tgz#d4617dfb0fa97c6aaeb35ab19fa713f0a04ffc21"
+  integrity sha512-fbjNc0CMjazZpIegWzz9OHGzI1APFboT+x7ZecXlUCtDe/nkyx7gtCTZnWS/+eeXG7fbfXymCPKJI8EsnM3iqw==
+
 w3c-hr-time@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/w3c-hr-time/-/w3c-hr-time-1.0.2.tgz#0a89cdf5cc15822df9c360543676963e0cc308cd"

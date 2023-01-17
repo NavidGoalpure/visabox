@@ -51,7 +51,6 @@ const InputStyle = css<{
   height: inherit;
 
   ::placeholder {
-    // font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

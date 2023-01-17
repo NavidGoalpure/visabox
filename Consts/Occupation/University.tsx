@@ -7210,8 +7210,246 @@ Mashhad`,
   },
   {
     title: {
+      en: "Khazar Higher Education Institute",
+      fa: "موسسھ آموزش عالي خزر",
+    },
+    desc: {
+      en: "Khazar Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Mahmoudabad",
+      fa: "محمودآباد",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Khorasan Higher Education Institute",
+      fa: "موسسھ آموزش عالي خراسان",
+    },
+    desc: {
+      en: "Khorasan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Khorasan",
+      fa: "خراسان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Khorramshahr University of Marine Science",
+      fa: "دانشگاه علوم و فنون دریایي خرمشھر",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "Khorramshahr",
+      fa: "خرمشھر",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Khouzestan Higher Education Institute",
+      fa: "موسسھ آموزش عالي خوزستان",
+    },
+    desc: {
+      en: "Khouzestan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Ahwaz",
+      fa: "اهواز",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Khouzestan University of Jihad Higher Education Institute",
+      fa: "موسسھ آموزش عالي جھاد دانشگاھي خوزستان",
+    },
+    desc: {
+      en: "Khouzestan University of Jihad Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Ahwaz",
+      fa: "اهواز",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Kish Higher Education Institution",
+      fa: "موسسھ آموزش عالي كیش",
+    },
+    desc: {
+      en: "Kish University Private institution established by the Kish Free Trade Organization, founded in 1996",
+    },
+    city: {
+      en: "Kish",
+      fa: "کیش",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "KN Toosi University of Technology",
+      fa: "دانشگاه صنعتي خواجھ نصیر الدین طوسي",
+    },
+    desc: {
+      en: "Khajeh Nasir Al-Din Tusi University University of Engineering and Technology Public institution, founded in 1928, achieved university status in 1984",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Kumesh Higher Education Institute",
+      fa: "موسسھ آموزش عالي كومش",
+    },
+    desc: {
+      en: "Kumesh Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Semnan",
+      fa: "سمنان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Kurdistan University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی کردستان",
+    },
+    desc: {
+      en: "Public institution, founded in 1986, achieved university status in 1992",
+    },
+    city: {
+      en: "Sanandaj",
+      fa: "سنندج",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Lahijan Higher Education Institute",
+      fa: "موسسھ آموزش عالي لاھیجان",
+    },
+    desc: {
+      en: "Lahijan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
       en: "",
       fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Lamy Gorgani Higher Education Institute",
+      fa: "موسسھ آموزش عالي لامعی گرگانی",
+    },
+    desc: {
+      en: "Lamy Gorgani Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Laser Research Institute",
+      fa: "پژوھشگاه لیزر",
+    },
+    desc: {
+      en: "Affiliated to the Atomic Energey Organisation of Iran",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Lorestan University",
+      fa: "دانشگاه لرستان",
+    },
+    desc: {
+      en: "Public institution, founded in 1977",
+    },
+    city: {
+      en: "Khoramabad",
+      fa: "خرمآباد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Lorestan University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی لرستان",
+    },
+    desc: {
+      en: "Public institution, founded in 1991",
+    },
+    city: {
+      en: "Khoramabad",
+      fa: "خرمآباد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Malak Ashtar University of Technology",
+      fa: "دانشگاه صنعتي مالک اشتر",
+    },
+    desc: {
+      en: "Malak-Ashtar Industrial University Public institution, founded in 1984, affiliated to the Defence Industries Organisation",
+    },
+    city: {
+      en: "Isfahan",
+      fa: "اصفهان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Malayer University",
+      fa: "دانشگاه ملایر",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "Malayer",
+      fa: "ملایر",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Maragheh Industrial Higher Education Institute",
+      fa: "موسسھ آموزش عالي صنعتي مراغھ",
+    },
+    desc: {
+      en: "Maragheh Industrial Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Maragheh Research Centre for Astronomy and Astrophysics",
+      fa: "مركز تحقیقات نجوم و اختر فیزیك مراغھ",
     },
     desc: {
       en: "",
@@ -7219,6 +7457,1112 @@ Mashhad`,
     city: {
       en: "",
       fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Marlik Higher Education Institute",
+      fa: "موسسھ آموزش عالي مارلیک",
+    },
+    desc: {
+      en: "Marlik Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Nowshahr",
+      fa: "نوشهر",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mashhad Institute of Technology",
+      fa: "آموزشكده فني مشھد",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "Mashhad",
+      fa: "مشھد",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mashhad University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی مشھد",
+    },
+    desc: {
+      en: "University of Medical Sciences Public institution, founded in 1949",
+    },
+    city: {
+      en: "Mashhad",
+      fa: "مشھد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Masoomieh Higher Education Institute",
+      fa: "موسسھ آموزش عالي معصومیھ",
+    },
+    desc: {
+      en: "Masoomiya Non-Profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Qom",
+      fa: "قم",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mazaheb Islamic University",
+      fa: "دانشگاه مذاھب اسلامي",
+    },
+    desc: {
+      en: "Affiliated to the Majlis",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Mazandaran Industrial Higher Education Institute",
+      fa: "موسسھ آموزش عالي صنعتي مازندران",
+    },
+    desc: {
+      en: "Mazandaran Industrial Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mazandaran University",
+      fa: "دانشگاه مازندران",
+    },
+    desc: {
+      en: "University of Mazandaran Public institution, founded in 1979",
+    },
+    city: {
+      en: "Babolsar",
+      fa: "بابلسر",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Mazandaran University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی مازندران",
+    },
+    desc: {
+      en: "Public institution, founded in 1985, achieved university status in 1995",
+    },
+    city: {
+      en: "Babol",
+      fa: "بابل",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Mazandaran University of Science and Technology",
+      fa: "دانشگاه علوم و فنون مازندران",
+    },
+    desc: {
+      en: "Mazandaran Non-Governmental Non-Profit University of Science and Technology Private institution, founded in 1989",
+    },
+    city: {
+      en: "Babol",
+      fa: "بابل",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Maziar Higher Education Institute",
+      fa: "موسسھ آموزش عالي مازیار",
+    },
+    desc: {
+      en: "Maziar Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mehrastan Higher Education Institute",
+      fa: "موسسھ آموزش عالي مھرآستان",
+    },
+    desc: {
+      en: "Mehrastan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mehrgan Higher Education Institute",
+      fa: "موسسھ آموزش عالي مھرگان",
+    },
+    desc: {
+      en: "Mehrgan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Microelectronics Research Institute",
+      fa: "پژوھشكده میكرو الكترونیک",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mirdamad Higher Education Institute",
+      fa: "موسسھ آموزش عالي میرداماد",
+    },
+    desc: {
+      en: "Mirdamad Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Miremad Higher Education Institute",
+      fa: "موسسھ آموزش عالي میرعماد",
+    },
+    desc: {
+      en: "Miremad Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Qazvin",
+      fa: "قزوین",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mofid University",
+      fa: "دانشگاه مفید",
+    },
+    desc: {
+      en: "Private institution, founded in 1989",
+    },
+    city: {
+      en: "Qom",
+      fa: "قم",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Moghadas Ardabili Higher Education Institute",
+      fa: "موسسھ آموزش عالي مقدس اردبیلي",
+    },
+    desc: {
+      en: "Moghadas Ardabili Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Mohaghegh Ardabili University",
+      fa: "دانشگاه محقق اردبیلي",
+    },
+    desc: {
+      en: "Public institution, founded in 1978, achieved university status in 1996",
+    },
+    city: {
+      en: "Ardabil",
+      fa: "اردبیل",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Molana Higher Education Institute",
+      fa: "موسسھ آموزش عالي مولانا",
+    },
+    desc: {
+      en: "Rumi Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Abyek",
+      fa: "آبیک",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Molavi Higher Education Institute",
+      fa: "موسسھ آموزش عالي مولوي",
+    },
+    desc: {
+      en: "Molavi Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Eyvanakey",
+      fa: "ایوانکی",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Motahar Higher Education Institute",
+      fa: "موسسھ آموزش عالي مطھر",
+    },
+    desc: {
+      en: "Motahar Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Mashhad",
+      fa: "مشهد",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Nahavand Higher Education Institute",
+      fa: "موسسھ آموزش عالي نھاوند",
+    },
+    desc: {
+      en: "Nahavand Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Najafabad Higher Education Institute",
+      fa: "موسسھ آموزش عالي نجف آباد",
+    },
+    desc: {
+      en: "Najafabad Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "National Centre for Oceanography",
+      fa: "مركز مل ّي اقیانوس شناسي",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "National Research Centre for Genetic Engineering and Biotechnology",
+      fa: "مركز مل ّي تحقیقات مھندسي ژنتیك و تكنولوژي زیستي",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Nima Higher Education Institute",
+      fa: "موسسھ آموزش عالي نیما",
+    },
+    desc: {
+      en: "Nima Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Nooretouba Higher Education Institute",
+      fa: "موسسھ آموزش عالي مجازي نور طوبي",
+    },
+    desc: {
+      en: "Nooretouba Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "North Khorassan University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی خراسان شمالی",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Officer and Staff College",
+      fa: "دانشكده فرماندھي و ستاد",
+    },
+    desc: {
+      en: "Affiliated to the Iranian Army and the Iranian Revolutionary Guards of the Islamic Revolution",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Organisation for Researching and Compiling University Textbooks in the Humanities",
+      fa: "سازمان مطالعھ و تدوین كتب علوم انساني دانشگاه ھا",
+    },
+    desc: {
+      en: "SAMT",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Osool-e-Din College",
+      fa: "دانشكده اصول الدین",
+    },
+    desc: {
+      en: "Usul-e-Din College",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Pars Higher Education Institute",
+      fa: "موسسھ آموزش عال پارس",
+    },
+    desc: {
+      en: "Pars Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Parsa Higher Education Institute",
+      fa: "موسسھ آموزش عالي پارسا",
+    },
+    desc: {
+      en: "Parsa Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Babolsar",
+      fa: "بابلسر",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Parsmehr Higher Education Institute",
+      fa: "موسسھ آموزش عالي پارس مھر",
+    },
+    desc: {
+      en: "Parsmehr Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Fars",
+      fa: "فارس",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Pasargadae Higher Education Institute",
+      fa: "موسسھ آموزش عالي پاسارگاد",
+    },
+    desc: {
+      en: "Pasargadae Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Shiraz",
+      fa: "شیراز",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Payame Golpayegan Higher Education Institute",
+      fa: "موسسھ آموزش عالي پیام گلپایگان",
+    },
+    desc: {
+      en: "Payame Golpayegan Non-profit Non-Governmental Higher Education Institute
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Payam-e-Noor University",
+      fa: "دانشگاه پیام نور",
+    },
+    desc: {
+      en: "Payame Noor University, Distance Education University Public institution, founded in 1988",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Persian Gulf University",
+      fa: "دانشگاه خلیج فارس",
+    },
+    desc: {
+      en: "Khaleej Fars University Public institution, founded in 1992",
+    },
+    city: {
+      en: "Bushehr",
+      fa: "بوشهر",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Petroleum University of Technology",
+      fa: "دانشگاه صنعت نفت",
+    },
+    desc: {
+      en: "College of Petroleum Abadan Institute of Technology Abadan College of Petroleum Public institution, founded in 1939",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Police University",
+      fa: "دانشگاه علوم انتظامي",
+    },
+    desc: {
+      en: "Public institution, founded in 1953, achieved university status in 1979",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Power and Water University of Technology",
+      fa: "دانشگاه صنعت آب و برق شھید عباسپور",
+    },
+    desc: {
+      en: "Shahid Abbaspour College of Water and Power Private institution, founded in 1986",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Qazvin University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی قزوین",
+    },
+    desc: {
+      en: "Ghazvin University of Medical Sciences Public institution, founded in 1983, achieved university status in 1991",
+    },
+    city: {
+      en: "Qazvin",
+      fa: "قزوین",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Qeshm Higher Education Institute",
+      fa: "موسسھ آموزش عالي قشم",
+    },
+    desc: {
+      en: "Qeshm Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Qeshm",
+      fa: "قشم",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Qom University",
+      fa: "دانشگاه قم",
+    },
+    desc: {
+      en: "Private institution, founded in 1980",
+    },
+    city: {
+      en: "Qom",
+      fa: "قم",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Qom University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی قم",
+    },
+    desc: {
+      en: "Fatemiyeh Qom University of Medical Sciences Private institution, founded in 1996",
+    },
+    city: {
+      en: "Qom",
+      fa: "قم",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Rafsanjan Higher Education Institute",
+      fa: "موسسھ آموزش عالي رفسنجان",
+    },
+    desc: {
+      en: "Rafsanjan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Rafsanjan University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی رفسنجان",
+    },
+    desc: {
+      en: "Public institution, founded in 1986, achieved university status in 1993",
+    },
+    city: {
+      en: "Rafsanjan",
+      fa: "رفسنجان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Ragheb Esfahani Higher Education Institute",
+      fa: "موسسھ آموزش عالي راغب اصفھاني",
+    },
+    desc: {
+      en: "Ragheb Esfahani Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Rahedanesh Higher Education Institute",
+      fa: "موسسھ آموزش عالي راه دانش",
+    },
+    desc: {
+      en: "Rahedanesh Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Babol",
+      fa: "بابل",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Rahman Higher Education Institute",
+      fa: "موسسھ آموزش عالي رحمان",
+    },
+    desc: {
+      en: "Rahman Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Rahyan Noor Higher Education Institute",
+      fa: "موسسھ آموزش عالي راھیان نور",
+    },
+    desc: {
+      en: "Rahyan Noor Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Sari",
+      fa: "ساری",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Raja Higher Education Centre",
+      fa: "موسسھ آموزش عالي غیرانتفاعي- غیردولتي رجاء",
+    },
+    desc: {
+      en: "Raja Non-Profit Non-Governmental Higher Education Institute Private institution, founded in 1995",
+    },
+    city: {
+      en: "Qazvin",
+      fa: "قزوین",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Ramin University of Agriculture and Natural Resources",
+      fa: "دانشگاه كشاورزي و منابع طبیعي رامین",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "Khouzestan",
+      fa: "خوزستان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Rasht University of Jihad Higher Education Institute",
+      fa: "موسسھ آموزش عالي جھاد دانشگاھي رشت",
+    },
+    desc: {
+      en: "Rasht University of Jihad Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Rayanee Higher Education Institute",
+      fa: "موسسھ آموزش عالي رایانھ اي",
+    },
+    desc: {
+      en: "Rayanee Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Razavi Islamic Sciences University",
+      fa: "دانشگاه علوم اسلامي رضوي",
+    },
+    desc: {
+      en: "Razavi University of Islamic Sciences Private institution, founded in 1984",
+    },
+    city: {
+      en: "Mashhad",
+      fa: "مشهد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Razi University",
+      fa: " دانشگاه رازي",
+    },
+    desc: {
+      en: "Public institution, founded in 1972",
+    },
+    city: {
+      en: "Kermanshah",
+      fa: "کرمانشاه",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Research Institute for Islamic Studies and Social Sciences",
+      fa: "پژوھشكده حوزه و دانشگاه",
+    },
+    desc: {
+      en: "Research Institute for Hawzah and University",
+    },
+    city: {
+      en: "RIHU",
+      fa: "ریهو",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Research Institute for Materials and Energy",
+      fa: "پژوھشگاه مواد و انرژي",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Research Institute for the Petroleum Industry",
+      fa: "پژوھشكده صنعت نفت",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Research Institute of Art",
+      fa: "پژوھشكده ھنر",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Research Institute of Imam Khomeini and the Islamic Revolution",
+      fa: "پژوھشكده امام خمیني و انقلاب اسلامي",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Roozbahan Higher Education Institute",
+      fa: "موسسھ آموزش عالي روزبھان",
+    },
+    desc: {
+      en: "Roozbahan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Sari",
+      fa: "ساری",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Roozbeh Higher Education Institute",
+      fa: "موسسھ آموزش عالي روزبھ",
+    },
+    desc: {
+      en: "Roozbeh Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Zanjan",
+      fa: "زنجان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Roshdedanesh Higher Education Institute",
+      fa: "موسسھ آموزش عالي رشد دانش",
+    },
+    desc: {
+      en: "Roshdedanesh Non-profit Non-Governmental Higher Education",
+    },
+    city: {
+      en: "Semnan",
+      fa: "سمنان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Roudaki Higher Education Institute",
+      fa: "موسسھ آموزش عالي رودكي",
+    },
+    desc: {
+      en: "Roudaki Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Tonekabon",
+      fa: "تنکابن",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sabalan Higher Education Institute",
+      fa: "موسسھ آموزش عالي سبلان",
+    },
+    desc: {
+      en: "Sabalan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Sabalan",
+      fa: "سبلان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sabz Higher Education Institute",
+      fa: "موسسھ آموزش عالي سبز",
+    },
+    desc: {
+      en: "Sabz Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Amol",
+      fa: "آمل",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sabzevar Teacher Training University",
+      fa: "دانشگاه تربیت معلم سبزوار",
+    },
+    desc: {
+      en: "Tarbiat Moallem University of Sabzevar Public institution, founded in 1986",
+    },
+    city: {
+      en: "Sahedazaman",
+      fa: "",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Sabzevar University of Medical and Health Services",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی سبزوار",
+    },
+    desc: {
+      en: "Public institution, founded in 1986, achieved university status in 1993",
+    },
+    city: {
+      en: "Sabzevar",
+      fa: "سبزوار",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Sadjad Higher Education Institution",
+      fa: "موسسھ آموزش عالي سجاد",
+    },
+    desc: {
+      en: "Sajjad Non-Profit Non-Governmental Higher Education Institute Private institution, founded in 1996",
+    },
+    city: {
+      en: "Mashhad",
+      fa: "مشهد",
+    },
+    setion: 2 ,
+  },
+  {
+    title: {
+      en: "Sadra Institute of Higher Education",
+      fa: "موسسھ آموزش عالي صدر",
+    },
+    desc: {
+      en: "Sadra Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Safahan Higher Education Institute",
+      fa: "موسسھ آموزش عالي صفاھان",
+    },
+    desc: {
+      en: "Safahan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sahand University of Technology",
+      fa: "دانشگاه صنعتي سھند",
+    },
+    desc: {
+      en: "Public institution, founded in 1989",
+    },
+    city: {
+      en: "Sahand",
+      fa: "سھند",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Salman Higher Education Institute",
+      fa: "موسسھ آموزش عالي سلمان",
+    },
+    desc: {
+      en: "Salman Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Mashhad",
+      fa: "مشهد",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Samangan Higher Education Institute",
+      fa: "موسسھ آموزش عالي سمنگان",
+    },
+    desc: {
+      en: "Samangan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sari Higher Education Institute",
+      fa: "موسسھ آموزش عالي",
+    },
+    desc: {
+      en: "Sari Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sariyan Higher Education Institute",
+      fa: "موسسھ آموزش عالي ساریان",
+    },
+    desc: {
+      en: "Sariyan Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sarooye Higher Education Institute",
+      fa: "موسسھ آموزش عالي سارویھ",
+    },
+    desc: {
+      en: "Sarooye Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Sari",
+      fa: "ساری",
     },
     setion: 2,
   },
@@ -7628,60 +8972,5 @@ Mashhad`,
     },
     setion: 2,
   },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
+  
 ];

@@ -13,7 +13,7 @@ import {
 } from 'Styles/Theme/Component';
 import AccordionContent from './AnzcoTab/accordionContent';
 import { LanguageKeys, componentStatements } from './const';
-import SkillPriorityLists from './AnzcoTab/SkillPriorityLists';
+import SkillPriorityLists from './AnzcoTab/skillPriorityLists';
 import { SkillLevelDescription } from './AnzcoTab/utils';
 
 interface Props {

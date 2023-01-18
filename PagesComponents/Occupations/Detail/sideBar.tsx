@@ -143,7 +143,6 @@ const Icon = css`
   margin-bottom: 0.25rem;
   stroke-width: 1;
   @media ${deviceMin.tabletS} {
-    margin-inline-end: 1rem;
     width: 1.5rem;
     height: 1.5rem;
     stroke-width: 2;

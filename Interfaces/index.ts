@@ -13,6 +13,7 @@ enum LanguageDirection {
 
 enum LocalStorageKeys {
   Theme = 'Theme',
+  HasBeenAnswered = 'HasBeenAnswered',
 }
 interface MultiLanguageText {
   [Languages.en]: string;

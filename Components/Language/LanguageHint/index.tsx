@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
-import { IoIosWarning } from 'react-icons/io';
 import {
-  componentBodyTheme_NoBorder,
   componentTextStyle,
+  componentWarningTheme,
 } from 'Styles/Theme/Component';
 import { directionStyles } from 'Styles/Theme';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -13,38 +12,60 @@ import {
   GtagEvents_Action,
   GtagEvents_FeedbackCategory,
 } from 'Utils/Gtags/interface';
+import { SecondaryButton } from 'Elements/Button/Secondary';
+import { setLocalStorage } from 'Utils';
+import { LocalStorageKeys } from 'Interfaces';
 
 interface Props {
   gtagEventLabel: string;
 }
 export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
   const { t } = useStaticTranslation(componentStatements);
+  const [isSelected, setIsSelected] = useState<boolean>(false);
+  //
+  useEffect(() => {
+    fireGtagEvent({
+      action: GtagEvents_Action.Feedback,
+      category: GtagEvents_FeedbackCategory.Shown,
+      label: gtagEventLabel,
+    });
+  }, []);
+  //
+  if (isSelected) return null;
   return (
     <Container>
-      <Row>
-        <WarningIcon />
-        <Desc>{t(LanguageKeys.Desc)}</Desc>
-      </Row>
+      <Desc>{t(LanguageKeys.Desc).split('/n')?.[0]}</Desc>
+      <Desc>{t(LanguageKeys.Desc).split('/n')?.[1]}</Desc>
       <Row2>
         <StyledButton
-          onClick={() =>
+          onClick={() => {
             fireGtagEvent({
               action: GtagEvents_Action.Feedback,
               category: GtagEvents_FeedbackCategory.TranslateIt,
               label: gtagEventLabel,
-            })
-          }
+            });
+            setLocalStorage({
+              key: LocalStorageKeys.HasBeenAnswered,
+              value: 'OccupationDetailPage',
+            });
+            setIsSelected(true);
+          }}
         >
           {t(LanguageKeys.TranslateIt)}
         </StyledButton>
         <StyledButton
-          onClick={() =>
+          onClick={() => {
             fireGtagEvent({
               action: GtagEvents_Action.Feedback,
               category: GtagEvents_FeedbackCategory.DoNotTranslate,
               label: gtagEventLabel,
-            })
-          }
+            });
+            setLocalStorage({
+              key: LocalStorageKeys.HasBeenAnswered,
+              value: 'OccupationDetailPage',
+            });
+            setIsSelected(true);
+          }}
         >
           {t(LanguageKeys.DontTranslateIt)}
         </StyledButton>
@@ -54,7 +75,7 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
 };
 const Container = styled.section`
   ${directionStyles}
-  ${componentBodyTheme_NoBorder}
+  ${componentWarningTheme}
   border-radius: 15px;
   width: 100%;
   padding: 1rem;
@@ -67,27 +88,12 @@ const Row = styled.div`
 const Row2 = styled(Row)`
   justify-content: center;
 `;
-const WarningIcon = styled(IoIosWarning)`
-  fill: var(--color-warning);
-  flex-shrink: 0;
-  margin-inline-end: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
-`;
+
 const Desc = styled.p`
   ${componentTextStyle}
   margin-bottom: 1rem;
+  white-space: pre-line;
 `;
-const StyledButton = styled.h3`
-  color: var(--color-secondary4);
-  cursor: pointer;
-  border: 1px solid var(--color-secondary4);
+const StyledButton = styled(SecondaryButton)`
   margin-inline-end: 2rem;
-  padding: 0.5rem;
-  border-radius: 15px;
-  transition: all 0.3s linear;
-  &:hover {
-    background-color: var(--color-secondary4);
-    color: var(--color-gray3);
-  }
 `;

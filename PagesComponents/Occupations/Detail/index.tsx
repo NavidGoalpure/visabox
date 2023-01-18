@@ -19,6 +19,8 @@ import {
   has491StateVisa,
 } from './utils';
 import { LanguageHint } from 'Components/Language/LanguageHint';
+import { Languages, LocalStorageKeys } from 'Interfaces';
+import { getLocalStorage } from 'Utils';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -30,13 +32,13 @@ const Content: React.FC<Props> = ({ occupation }) => {
   const { locale } = useLocale();
   //
   const assessing_authority = occupation?.assessing_authority;
-
+  const fragmentUrl = `/${locale}/occupations/${occupation.code}`;
+  const mustShowFeedbackWindow =
+    locale !== Languages.en &&
+    getLocalStorage(LocalStorageKeys.HasBeenAnswered) !== 'OccupationDetailPage';
   //
   return (
     <Container>
-      <LanguageHint
-        gtagEventLabel={`/${locale}/occupations/${occupation.code}`}
-      />
       <TitleContainer>
         <Title>
           {occupation?.code}: {dt(occupation?.title)}
@@ -90,6 +92,8 @@ const Content: React.FC<Props> = ({ occupation }) => {
       {/*  */}
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
+      {/**********Language feedback ***** */}
+      {mustShowFeedbackWindow && <LanguageHint gtagEventLabel={fragmentUrl} />}
       {/**********Similar Occupation***** */}
       {occupation.similarOccupations && (
         <SimilarOccupations

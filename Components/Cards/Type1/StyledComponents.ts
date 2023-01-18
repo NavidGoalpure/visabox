@@ -1,5 +1,5 @@
 import { device, deviceMin } from 'Consts/device';
-import { Button } from 'Elements/Button';
+import { PrimaryButton } from 'Elements/Button/Primary';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { IoIosArrowDown } from 'react-icons/io';
 import styled, { css } from 'styled-components';
@@ -198,7 +198,7 @@ export const PopupTitle = styled.h3`
   ${componentTextColor}
     margin-bottom:1rem;
 `;
-export const StyledButton = styled(Button)`
+export const StyledButton = styled(PrimaryButton)`
   margin: 0 auto;
   margin-bottom: 2rem;
   width: auto;

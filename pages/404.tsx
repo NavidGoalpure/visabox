@@ -1,5 +1,5 @@
 import AnimationComponent from 'Components/AnimationComponent';
-import { Button } from 'Elements/Button';
+import { PrimaryButton } from 'Elements/Button/Primary';
 import PageLayout from 'Components/Layouts/PageContainer';
 import Head from 'next/head';
 import React from 'react';
@@ -33,7 +33,7 @@ export default function NotFound() {
           <Desc>Maybe you need to use a proxy</Desc>
           <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
           <Link href='/occupations'>
-            <Button>Home</Button>
+            <PrimaryButton>Home</PrimaryButton>
           </Link>
         </TxtContainer>
       </Container>

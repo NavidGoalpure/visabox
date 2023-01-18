@@ -1,5 +1,6 @@
 import { LocalStorageKeys, ThemeModes } from 'Interfaces';
 import { useState } from 'react';
+import { setLocalStorage } from 'Utils';
 
 export default function useTheme<ThemeModes>() {
   // State to store our value
@@ -26,13 +27,11 @@ export default function useTheme<ThemeModes>() {
       // Save state
       setThemeState(value);
       // Save to local storage
-      if (typeof window !== 'undefined') {
-        window.localStorage.setItem(
-          LocalStorageKeys.Theme,
-          value as unknown as string
-        );
-        window.location.reload();
-      }
+      setLocalStorage({
+        key: LocalStorageKeys.Theme,
+        value: value as unknown as string,
+        isReloadPage: true,
+      });
     } catch (error) {
       // A more advanced implementation would handle the error case
       console.log(error);

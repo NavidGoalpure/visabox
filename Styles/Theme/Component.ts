@@ -172,3 +172,14 @@ export const KeyValue_Value = theme('mode', {
     color: white;
   `,
 });
+////////////
+export const componentWarningTheme = theme('mode', {
+  light: css`
+    background: var(--color-gray12);
+    color: var(--color-gray4);
+  `,
+  dark: css`
+    background: var(--color-gray6);
+    color: var(--color-gray13);
+  `,
+});

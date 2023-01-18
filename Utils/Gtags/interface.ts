@@ -4,6 +4,7 @@ export enum GtagEvents_Action {
 export enum GtagEvents_FeedbackCategory {
   TranslateIt = 'translate-it',
   DoNotTranslate = 'do-not-translate',
+  Shown = 'shown',
 }
 
 export interface GtagEvents {

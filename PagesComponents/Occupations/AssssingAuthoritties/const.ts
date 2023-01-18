@@ -51,6 +51,17 @@ Australia`,
   },
   {
     title: {
+      en: 'Australian Children’s Education and Care Quality Authority',
+    },
+    abv: AssessingAuthorityAbv.ACECQA,
+    address: `6/175 Liverpool St
+     Sydney NSW 2000
+    Australia`,
+    email: 'info@acecqa.gov.au',
+    website: 'https://www.acecqa.gov.au',
+  },
+  {
+    title: {
       en: 'Australasian College of Physical Scientists and Engineers in Medicine',
     },
     abv: AssessingAuthorityAbv.ACPSEM,

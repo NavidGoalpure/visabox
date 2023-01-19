@@ -1,5 +1,5 @@
 import { ClientError } from '@sanity/client';
-import { Button } from 'Elements/Button';
+import { PrimaryButton } from 'Elements/Button/Primary';
 import { Loading } from 'Elements/Loading';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
@@ -26,9 +26,12 @@ export const SmartButton: React.FC<Props> = ({
   if (isFetching) return <Loading />;
   if (hasNextPage)
     return (
-      <Button style={{ margin: '0 auto' }} onClick={() => fetchNextPage()}>
+      <PrimaryButton
+        style={{ margin: '0 auto' }}
+        onClick={() => fetchNextPage()}
+      >
         {t(LanguageKeys.LoadMore)}
-      </Button>
+      </PrimaryButton>
     );
   return null;
 };

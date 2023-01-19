@@ -11,7 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   isLoading?: boolean;
 }
-export const Button = ({
+export const PrimaryButton = ({
   children,
   disabled = false,
   isLoading = false,

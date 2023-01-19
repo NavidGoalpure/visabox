@@ -26,9 +26,8 @@ export enum LanguageKeys {
   NoTask = 'NoTask',
   OccupationsinUnitGroup = 'OccupationsinUnitGroup',
   AverageSalary = 'AverageSalary',
-  AlternativeTitles_title = 'AlternativeTitles_title',
   AlternativeTitles_description = 'AlternativeTitles_description',
-  alternativeTitles_empty = 'alternativeTitles_empty',
+  AlternativeTitles_empty = 'AlternativeTitles_empty',
   specialisations_title = 'specialisations_title',
   specialisations_description = 'specialisations_description',
   specialisations_empty = 'specialisations_empty',
@@ -48,8 +47,11 @@ export enum LanguageKeys {
   HintSubmitted = 'HintSubmitted',
   HintInvited = 'HintInvited',
   //Similar
-  Similars = 'Similars',
   SimilarOccupations = 'SimilarOccupations',
+  Points = 'Points',
+  Submitted = 'Submitted',
+  Invited = 'Invited',
+  LastUpdate = 'LastUpdate',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -123,8 +125,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'مشاغل زیرمجموعه این NEC',
   },
   NecOccupation_description: {
-    en: 'Not elsewhere classified (nec) categories are used for known, discrete occupations which are not separately identified in ANZSCO Version 1.3 because of their lack of numerical significance in Australia or New Zealand. The occupation titles listed under nec categories are illustrative of the scope and range of occupations included in the nec category',
-    fa: 'دسته‌های طبقه‌بندی‌شده (nec) در جای دیگر برای مشاغل شناخته‌شده و مجزا استفاده می‌شوند که به‌دلیل عدم اهمیت عددی آنها در استرالیا یا نیوزلند، به طور جداگانه در ANZSCO نسخه 1.3 شناسایی نشده‌اند. عناوین شغلی که در دسته‌های nec فهرست شده‌اند، گویای دامنه و دامنه مشاغل موجود در دسته‌بندی nec هستند.',
+    en: `"Not elsewhere classified (nec)" categories are used for known, discrete occupations which are not separately identified in ANZSCO Version 1.3 because of their lack of numerical significance in Australia or New Zealand. The occupation titles listed under nec categories are illustrative of the scope and range of occupations included in the nec category.`,
+    fa: 'دسته‌های طبقه‌بندی‌شده (nec) در جای دیگر برای مشاغل شناخته‌شده و مجزا استفاده می‌شوند که به‌دلیل عدم اهمیت عددی آنها در استرالیا یا نیوزلند، به طور جداگانه در ANZSCO نسخه 1.3 شناسایی نشده‌اند. عناوین شغلی که در زیر دسته‌های nec فهرست شده‌اند، گویای دامنه و دامنه مشاغل موجود در دسته‌بندی nec هستند.',
   },
   SkillPriorityLists: {
     en: '2022 Skill Priority Lists',
@@ -154,21 +156,18 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Average Salary 2021',
     fa: 'میانگین حقوق ۲۰۲۱',
   },
-  AlternativeTitles_title: {
-    en: 'Alternative titles',
-    fa: 'عنوان جایگزین',
-  },
+
   AlternativeTitles_description: {
-    en: 'are any commonly used alternative title (or titles) for the occupation. These alternative titles have the same meaning as the principal title but may be less commonly used.',
-    fa: 'هر جایگزین رایج استفاده می شود عنوان (یا عناوین) برای شغل. این عناوین جایگزین دارند  همان معنای عنوان اصلی است اما ممکن است کمتر مورد استفاده قرار گیرد.',
+    en: 'Alternative titles are any commonly used alternative title (or titles) for the occupation. These alternative titles have the same meaning as the principal title but may be less commonly used.',
+    fa: 'عناوین جایگزین، هر عنوان جایگزین رایج مورد استفاده برای شغل را نشان می‌دهد. این عناوین جایگزین همان معنای عنوان اصلی را دارند اما ممکن است کمتر مورد استفاده قرار گیرند.',
   },
   specialisations_title: {
     en: 'specialisations title',
     fa: 'عنوان تخصص ها',
   },
   specialisations_description: {
-    en: 'are any commonly used titles which refer to a subset of jobs belonging to the occupation designated in the principal title. These jobs involve the performance of specialised tasks rather than the broader range of tasks usually performed in the occupation.',
-    fa: 'عناوین رایجی هستند که به زیرمجموعه ای از مشاغل متعلق به شغل تعیین شده در عنوان اصلی اشاره می کنند. این مشاغل شامل انجام وظایف تخصصی به جای گستره وسیع تری از وظایفی است که معمولاً در شغل انجام می شود.',
+    en: 'specialisations are any commonly used titles which refer to a subset of jobs belonging to the occupation designated in the principal title. These jobs involve the performance of specialised tasks rather than the broader range of tasks usually performed in the occupation.',
+    fa: 'تخصص‌ها، عناوین رایجی هستند که به زیرمجموعه ای از مشاغل متعلق به شغل تعیین شده در عنوان اصلی اشاره می کنند. این مشاغل شامل انجام وظایف تخصصی به جای گستره وسیع تری از وظایفی است که معمولاً در شغل انجام می شود.',
   },
   IndicativeSkillLevel_1: {
     en: `In Australia and New Zealand:
@@ -256,7 +255,7 @@ In some instances, no formal qualification or on-the-job training may be require
 
 برای برخی مشاغل ممکن است علاوه بر مدارک رسمی یا به جای آن، یک دوره کوتاه آموزش در حین کار لازم باشد.در برخی موارد، هیچ مدرک رسمی یا آموزش در حین کار ممکن است مورد نیاز نباشد.`,
   },
-  alternativeTitles_empty: {
+  AlternativeTitles_empty: {
     en: `There are no Alternative Titles for this occupation.`,
     fa: `هیچ عنوان جایگزینی برای این شغل وجود ندارد.`,
   },
@@ -289,11 +288,10 @@ In some instances, no formal qualification or on-the-job training may be require
     en: 'Invitation letter for visa application has been issued.',
     fa: 'دعوت نامه ای که برای درخواست ویزا صادر شده است.',
   },
-  //////Similars////////
-  Similars: {
-    en: 'Similars',
-    fa: 'مشاغل مشابه',
-  },
+  Points: { en: 'Points', fa: 'امتیازات' },
+  Submitted: { en: 'Submitted', fa: 'ثبت شده‌ها' },
+  Invited: { en: 'Invited', fa: 'دعوت شده‌ها' },
+  LastUpdate: { en: 'LastUpdate:', fa: 'آخرین آپدیت: ' },
 };
 
 //////

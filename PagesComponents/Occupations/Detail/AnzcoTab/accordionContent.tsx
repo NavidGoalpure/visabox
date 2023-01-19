@@ -3,13 +3,11 @@ import { componentTextStyle } from 'Styles/Theme/Component';
 
 interface Props {
   data: string[] | undefined;
-  title?: string;
   description?: string;
   emptyMessage?: string;
 }
 const AccordionContent: React.FC<Props> = ({
   data,
-  title,
   description,
   emptyMessage,
 }) => {
@@ -22,9 +20,7 @@ const AccordionContent: React.FC<Props> = ({
           <EmptyMessage>{emptyMessage}</EmptyMessage>
         )}
       </AccordionContentWrapper>
-      <AccordionDescription>
-        <strong> {title}</strong> {description}
-      </AccordionDescription>
+      <AccordionDescription>{description}</AccordionDescription>
     </AccordionContentContainer>
   );
 };

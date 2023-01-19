@@ -49,8 +49,9 @@ export const translateDynamicArray = (
 ////////////////////////
 
 export function isMultiLanguageTextArrayIsEmpty(
-  multiLanguageText: MultiLanguageTextArray
-): boolean {
+  multiLanguageText: MultiLanguageTextArray | undefined
+): boolean | undefined {
+  if (typeof multiLanguageText === 'undefined') return undefined;
   const { locale } = useLocale();
   if (
     multiLanguageText?.[locale]?.[0] !== undefined &&

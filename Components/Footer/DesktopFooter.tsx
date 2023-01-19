@@ -9,19 +9,21 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import Link from 'next/link';
+import { useLocale } from 'Hooks/useLocale';
 
 function DesktopFooter() {
+  const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <Items href={'/en/occupations'} data-name={t(LanguageKeys.Home)}>
+        <Items href={`/${locale}/occupations`} data-name={t(LanguageKeys.Home)}>
           {t(LanguageKeys.Home)}
         </Items>
         <Items
-          href={'/en/occupations'}
+          href={`/${locale}/occupations`}
           data-name={t(LanguageKeys.SkilledOccupationList)}
         >
           {t(LanguageKeys.SkilledOccupationList)}
@@ -74,7 +76,7 @@ export const LogoHover = theme('mode', {
   `,
 });
 
-const Container = styled.section`
+const Container = styled.footer`
   ${footerBackground};
   clip-path: polygon(20% 17.5%, 80% 17.5%, 100% 0, 100% 100%, 0 100%, 0 0);
   width: 100%;

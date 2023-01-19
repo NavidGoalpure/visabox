@@ -1,5 +1,5 @@
 import AnimationComponent from 'Components/AnimationComponent';
-import { Button } from 'Elements/Button';
+import { PrimaryButton } from 'Elements/Button/Primary';
 import React from 'react';
 import styled from 'styled-components/macro';
 import {
@@ -80,7 +80,7 @@ export default function PageErrorContent() {
         <Subtitle>Please check your connection</Subtitle>
         <Desc>{`there most be some problems in the servers please try again later`}</Desc>
         <Link href='/occupations'>
-          <Button>Home</Button>
+          <PrimaryButton>Home</PrimaryButton>
         </Link>
       </TxtContainer>
     </Container>

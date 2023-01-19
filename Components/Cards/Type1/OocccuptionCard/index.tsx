@@ -49,6 +49,7 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
 export default OccupationCard;
 const Description = styled.p`
   ${componentTextStyle}
+  direction: ltr;
   text-align: center;
   margin: 0;
   overflow: hidden;

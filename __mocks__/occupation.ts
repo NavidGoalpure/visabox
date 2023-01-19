@@ -2,8 +2,9 @@ import {
   AssessingAuthorityAbv,
   Occupation,
 } from 'Interfaces/Documents/occupation';
+import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
-export const testOccupation: Occupation = {
+export const testOccupation: OccupationDetailRes = {
   _id: '4c03f4c5500949d8be9fade2d4b6d7a6',
   anzsco_section: {
     _type: 'anzsco_obj',
@@ -452,6 +453,40 @@ export const testOccupation: Occupation = {
         _ref: 'cfecdb276f634854f3ef915e2e980c31',
         _type: 'reference',
         _weak: true,
+      },
+    },
+  ],
+  similarOccupations: [
+    {
+      _id: '17fbbc714d6f29ee94b7f4918be475b2',
+      anzsco_section: {
+        description: {
+          en: 'Plans, organises, controls, coordinates and performs farming operations to breed and raise fish and other aquatic stock.',
+        },
+        unit_group: {
+          tasks: {
+            en: [
+              'Planning and coordinating the operation of hatcheries to produce fish fry, seed oysters, crayfish, marron and prawns taking into account environmental and market factors',
+              'Monitoring the environment to maintain optimal growing conditions',
+              'Identifying and controlling environmental toxins and diseases',
+              'Monitoring stock growth rates to determine when to harvest',
+              'Transporting fish, crayfish, marron, prawns and sticks of seed oysters to new tanks, ponds, cages and floating net pens',
+              'Directing and overseeing the harvesting, grading and packaging of fish, oysters and other aquatic stock',
+              'Organising the sale, purchase and transportation of fish stock',
+              'Maintaining and evaluating records of farming activities, monitoring market activity and planning production accordingly',
+              'Managing business capital including budgeting, taxation, debt and loan management',
+              'May select, train and supervise staff and contractors',
+            ],
+          },
+        },
+      },
+      code: 121111,
+      slug: {
+        _type: 'slug',
+        current: 'aquaculture-farmer',
+      },
+      title: {
+        en: 'Aquaculture Farmer ',
       },
     },
   ],

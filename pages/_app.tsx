@@ -3,18 +3,18 @@ import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import { ThemeProvider } from 'styled-components/macro';
 import '../Styles/global.css';
+import 'vazirmatn/Vazirmatn-font-face.css';
 import { LanguageDirection, Languages } from 'Interfaces';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';
 import useTheme from 'Hooks/useTheme';
-import Head from 'next/head';
 import ErrorBoundary from 'Components/errorBoundary';
 import Script from 'next/script';
 import { hotjar } from 'react-hotjar';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import * as gtag from 'Utils/gtag';
+import * as gtag from 'Utils/Gtags';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -47,7 +47,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
       <NextNProgress height={2} />
-   
 
       <Script strategy='afterInteractive'>
         {`

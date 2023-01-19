@@ -5,7 +5,7 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   NoMobile: {
-    en: 'This content cannot be viewed on mobile. To see it, please use a larger screen like a laptop.',
-    fa: 'این محتوا در موبایل قابل دیدن نمی باشد. برای دیدن آن لطفا از یک اسکرین بزرگتر مثل لپتاپ استفاده کنید.',
+    en: 'Due to having a table, this content may not be displayed well on small devices such as mobile phones. Use a laptop to display it better.',
+    fa: 'این محتوا به علت داشتن جدول، ممکن است در دستگاه های کوچک مانند موبایل به خوبی نمایش داده نشود. برای نمایش بهتر آن از لپتاپ استفاده کنید.',
   },
 };

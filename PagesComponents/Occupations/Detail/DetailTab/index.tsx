@@ -34,23 +34,22 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
           </>
         }
         bodies={
-          !isLaptop ? (
-            <NoMobile>{t(LanguageKeys.NoMobile)}</NoMobile>
-          ) : (
-            <>
-              {getTerritories().map((territory) => {
-                const html = getHtml_decsBaseOnAbv({
-                  territorySection: territorySection,
-                  currentTerritoryAbv: territory,
-                });
-                return (
-                  <RadixTab.Content key={territory} value={territory}>
-                    <Details dangerouslySetInnerHTML={{ __html: html }} />
-                  </RadixTab.Content>
-                );
-              })}
-            </>
-          )
+          <>
+            {getTerritories().map((territory) => {
+              const html = getHtml_decsBaseOnAbv({
+                territorySection: territorySection,
+                currentTerritoryAbv: territory,
+              });
+              return (
+                <RadixTab.Content key={territory} value={territory}>
+                  {!isLaptop ? (
+                    <NoMobile>{t(LanguageKeys.NoMobile)}</NoMobile>
+                  ) : null}
+                  <Details dangerouslySetInnerHTML={{ __html: html }} />
+                </RadixTab.Content>
+              );
+            })}
+          </>
         }
       />
     </>

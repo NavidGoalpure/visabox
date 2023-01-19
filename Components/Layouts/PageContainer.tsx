@@ -1,5 +1,7 @@
 import Footer from 'Components/Footer';
 import { deviceMin } from 'Consts/device';
+import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components/macro';
 import { directionStyles } from 'Styles/Theme';
@@ -11,8 +13,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 const PageContainer: React.FC<Props> = ({ children, ...props }) => {
+  const { locale } = useLocale();
   return (
-    <Container {...props}>
+    <Container {...props} $locale={locale}>
       <Header />
       <Content>{children}</Content>
       <Footer />
@@ -20,9 +23,13 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
   );
 };
 export default PageContainer;
-export const Container = styled.main`
+export const Container = styled.main<{ $locale: Languages }>`
   ${pageBackground}
   ${directionStyles}
+  font-family:${({ $locale }) =>
+    $locale === Languages.fa
+      ? 'var(--font-family__fa)'
+      : 'var(--font-family__en)'};
   display: flex;
   justify-content: center;
   align-items: flex-start;

@@ -1,4 +1,8 @@
-import { MAJOR_GROUP, Minor_GROUP, SUB_MAJOR_GROUP } from 'Consts/anszco';
+import {
+  MAJOR_GROUP,
+  Minor_GROUP,
+  SUB_MAJOR_GROUP,
+} from 'Consts/Occupations/anszco';
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
 import { LanguageKeys } from '../const';
 import { ShortageStatus } from './interfaces';

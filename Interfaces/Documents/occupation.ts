@@ -87,10 +87,10 @@ export interface AnzscoSection {
   priority_list?: PriorityList[];
   specialisations?: MultiLanguageTextArray;
   unit_group?: ReferenceType | UnitGroup;
-  major_group: number;
-  submajor_group: number;
-  minor_group: number;
-  nec_occupation: MultiLanguageTextArray;
+  major_group?: number;
+  submajor_group?: number;
+  minor_group?: number;
+  nec_occupation?: MultiLanguageTextArray;
 }
 
 export enum Territories {

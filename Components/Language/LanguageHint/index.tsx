@@ -36,7 +36,7 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
     <Container>
       <Desc>{t(LanguageKeys.Desc).split('/n')?.[0]}</Desc>
       <Desc>{t(LanguageKeys.Desc).split('/n')?.[1]}</Desc>
-      <Row2>
+      <Row>
         <StyledButton
           onClick={() => {
             fireGtagEvent({
@@ -69,7 +69,7 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
         >
           {t(LanguageKeys.DontTranslateIt)}
         </StyledButton>
-      </Row2>
+      </Row>
     </Container>
   );
 };
@@ -81,11 +81,10 @@ const Container = styled.section`
   padding: 1rem;
   margin-bottom: 4rem;
 `;
+
 const Row = styled.div`
   display: flex;
   align-items: center;
-`;
-const Row2 = styled(Row)`
   justify-content: center;
 `;
 

@@ -8568,8 +8568,64 @@ Mashhad`,
   },
   {
     title: {
+      en: "School of Economic Sciences",
+      fa: "دانشكده علوم اقتصادي",
+    },
+    desc: {
+      en: "College of Economic Sciences",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "School of International Relations",
+      fa: "دانشكده روابط بین الملل",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Foreign Affairs",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "School of Quranic Science",
+      fa: "دانشكده معارف قرآني",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "Isfahan",
+      fa: "اصفهان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Science and Technology Higher Education Institute",
+      fa: "موسسھ آموزش عالي علم و فن",
+    },
+    desc: {
+      en: "Science and Technology Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
       en: "",
       fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Semnan College of Technology",
+      fa: "Public institution, located in Semnan, founded in 1973",
     },
     desc: {
       en: "",
@@ -8582,8 +8638,680 @@ Mashhad`,
   },
   {
     title: {
+      en: "Semnan University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی سمنان",
+    },
+    desc: {
+      en: "Public institution, founded in 1988",
+    },
+    city: {
+      en: "Semnan",
+      fa: "سمنان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Sepahan Higher Education Institute of Science and Technology",
+      fa: "موسسھ آموزش علوم و فن آوري سپاھان",
+    },
+    desc: {
+      en: "Sepahan Science and Technology Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Esfahan",
+      fa: "اصفهان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sepahan Science and Technology Higher Education Institute",
+      fa: "موسسھ آموزش عالي علوم و فنون سپاھان",
+    },
+    desc: {
+      en: "Sepahan Science and Technology Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
       en: "",
       fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sepehr Higher Education Institute",
+      fa: "موسسھ آموزش عالي سپھر",
+    },
+    desc: {
+      en: "Sepehr Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Esfahan",
+      fa: "اصفهان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Seraj Higher Education Institute",
+      fa: "موسسھ آموزش عالي سراج",
+    },
+    desc: {
+      en: "Seraj Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Tabriz",
+      fa: "تبریز",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shafagh Higher Education Institute",
+      fa: "موسسھ آموزش عالي شفق",
+    },
+    desc: {
+      en: "Shafagh Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Tonekabon",
+      fa: "تنکابن",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shahab Danesh Higher Education Institute",
+      fa: "موسسھ آموزش عالي شھاب دانش",
+    },
+    desc: {
+      en: "Shahab Danesh Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Qom",
+      fa: "قم",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shahed University",
+      fa: "دانشگاه شاھد",
+    },
+    desc: {
+      en: "Public institution, founded in 1990, achieved university status in 1996",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shahid Ashrafi Esfahani Higher Education Institute",
+      fa: "موسسھ آموزش عالي شھید اشرفي اصفھاني",
+    },
+    desc: {
+      en: "Shahid Ashrafi Esfahani Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shahid Bahonar University of Kerman",
+      fa: "دانشگاه شھید باھنر كرمان",
+    },
+    desc: {
+      en: "University of Shahid Bahonar Shahid Bahonar University Kerman University Public institution, founded in 1975, achieved university status in 1978",
+    },
+    city: {
+      en: "Kerman",
+      fa: "کرمان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahid Beheshti Electronics and Telecommunications Research Institute",
+      fa: "پژوھشكده الكترونیك و مخابرات شھید بھشتي",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Defense and Armed Forces Logistics",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shahid Beheshti University",
+      fa: "دانشگاه شھید بھشتي",
+    },
+    desc: {
+      en: "Shahid Beheshti University National Melli University of Iran Public institution, founded in 1959, achieved university status in 1975",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahid Beheshti University of Medical Sciences and Health Services",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شھید بھشتی",
+    },
+    desc: {
+      en: "Shaheed Beheshti University of Medical Sciences \Public institution, founded in 1960, achieved university status in 1986",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahid Chamran University",
+      fa: "دانشگاه شھید چمران",
+    },
+    desc: {
+      en: "Shahid Chamran University, Chamran University of Ahwaz Jundi Shapur University Ahwaz University Public institution, founded in 1955, achieved university status in 1981",
+    },
+    city: {
+      en: "Ahwaz",
+      fa: "اهواز",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahid Rajaee Teacher Training University",
+      fa: "دانشگاه تربیت دبیر شھید رجائی",
+    },
+    desc: {
+      en: "Public institution, founded in 1980",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahid Rezaee Higher Education Institute",
+      fa: ":موسسھ آموزش عالي شھید رضایي",
+    },
+    desc: {
+      en: "Shahid Rezaee Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Kermanshah",
+      fa: "کرمانشاه",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shahid Sadoughi University of Medical Sciences and Health Services",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شھید صدوقی یزد",
+    },
+    desc: {
+      en: "Public institution, founded in 1989, achieved university status in 1994",
+    },
+    city: {
+      en: "Yazd",
+      fa: "یزد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahid Sattari Aviation University",
+      fa: "دانشگاه علوم و فنون ھوایي شھید ستاري",
+    },
+    desc: {
+      en: "Shahid Sattari Air University of Science and Technology Public institution, founded in 1986 Affiliated to the Iran Air Force",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahrekord University",
+      fa: "دانشگاه شھركرد",
+    },
+    desc: {
+      en: "Public institution, founded in 1927, accorded university status in 2004",
+    },
+    city: {
+      en: "Shahrekord",
+      fa: "شھركرد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahrekord University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شھرکرد",
+    },
+    desc: {
+      en: "Public institution, founded in 1986",
+    },
+    city: {
+      en: "Shahrekord",
+      fa: "شھرکرد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahrood Higher Education Institute",
+      fa: "موسسھ آموزش عالي شاھرود",
+    },
+    desc: {
+      en: "Shahrood Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shahrood University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شاھرود",
+    },
+    desc: {
+      en: "Private institution, founded in 1971",
+    },
+    city: {
+      en: "Shahrood",
+      fa: "شاھرود",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shahrood University of Technology",
+      fa: "دانشگاه صنعتي شاھرود",
+    },
+    desc: {
+      en: "Public institution, founded in 1974, achieved university status in 2002",
+    },
+    city: {
+      en: "Shahrood",
+      fa: "شاھرود",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shams Higher Education Institute",
+      fa: "موسسھ آموزش عالي شمس",
+    },
+    desc: {
+      en: "Shams Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Gonabad",
+      fa: "گناباد",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shargh Higher Education Institute",
+      fa: "موسسھ آموزش عالي شرق",
+    },
+    desc: {
+      en: "Shargh Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sharif University of Technology",
+      fa: "دانشگاه صنعتي شریف",
+    },
+    desc: {
+      en: "Sharif Industrial University Arya Mehr University of Technology Public institution, founded in 1965, achieved university status in 1979",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Sheik Baha’i University",
+      fa: "دانشگاه غیرانتفاعي- غیردولتي شیخ بھائي",
+    },
+    desc: {
+      en: "Sheikh Bahaee Private University, Sheikh Baha'i Non-Government Non-Profit University Sheikh Baha'i Higher Education Institution Private institution, founded in 1996",
+    },
+    city: {
+      en: "Isfahan",
+      fa: "اصفهان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shiraz Technical Institute for Electrical Engineering",
+      fa: "آموزشكده فني الكترونیك شیراز",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Defense and Armed Forces Logistics",
+    },
+    city: {
+      en: "Shiraz",
+      fa: "شیراز",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Shiraz University",
+      fa: "دانشگاه شیراز",
+    },
+    desc: {
+      en: "University of Shiraz Pahlavi University Public institution, founded in 1946",
+    },
+    city: {
+      en: "Shiraz",
+      fa: "شیراز",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shiraz University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شیراز",
+    },
+    desc: {
+      en: "University of Medical Sciences; Shiraz Public institution, founded in 1946, achieved university status in 1994",
+    },
+    city: {
+      en: "Shiraz",
+      fa: "شیراز",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shiraz University of Technology",
+      fa: "دانشگاه صنعتي شیراز",
+    },
+    desc: {
+      en: "Public institution, founded in 2004",
+    },
+    city: {
+      en: "Shiraz",
+      fa: "شیراز",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Shomal Higher Education Institute",
+      fa: "موسسھ آموزش عالي غیرانتفاعي- غیردولتي شمال",
+    },
+    desc: {
+      en: "Shomal University Shomal Non-profit Non-Governmental Higher Education Institute, North Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Amol",
+      fa: "آمل",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Sina Higher Education Institute",
+      fa: "موسسھ آموزش عالي سینا",
+    },
+    desc: {
+      en: "Sina Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Kashan, Sari",
+      fa: "کاشان ,ساری",
+    },
+    setion: 2,
+  },
+   {
+    title: {
+      en: "Soore University",
+      fa: "دانشگاه سوره",
+    },
+    desc: {
+      en: "Mirza Koochak Khan Teacher Training University, Soureh Higher Education Institution Sureh Higher Education Institution Private institution, founded in 1993",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Sooreh Shiraz Higher Education Institute",
+      fa: "موسسھ آموزش عالي سوره شیراز",
+    },
+    desc: {
+      en: "Surah Shiraz Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Soureh Higher Education Institute",
+      fa: "موسسھ آموزش عالي سوره",
+    },
+    desc: {
+      en: "Soureh Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Soureh",
+      fa: "سوره",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Steel Industry Non-profit Non-Governmental Higher Education Institute",
+      fa: "موسسھ آموزش عالي غیرانتفاعي- غیردولتي صنعتي فولاد",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "Esfahan",
+      fa: "اصفهان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Supreme National Defence University",
+      fa: "دانشگاه عالي دفاع ملي",
+    },
+    desc: {
+      en: "Affiliated to the Iranian Army",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Tabaran Higher Education Institute",
+      fa: "موسسھ آموزش عالي تابران",
+    },
+    desc: {
+      en: "Tabaran Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Mashhad",
+      fa: "مشهد",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Tabari Babol Higher Education Institute",
+      fa: "موسسھ آموزش عالي طبري بابل",
+    },
+    desc: {
+      en: "Tabari Babol Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Taberestan Higher Education Institution",
+      fa: "موسسھ آموزش عالي غیرانتفاعي- غیردولتي طبرستان",
+    },
+    desc: {
+      en: "Taberestan Non-Profit Non-Government Higher Education Institution Private institution, founded in 1994",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Tabnak Higher Education Institute",
+      fa: "موسسھ آموزش عالي تابناک",
+    },
+    desc: {
+      en: "Tabnak Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Tabriz University of Art",
+      fa: "دانشگاه ھنر تبریز",
+    },
+    desc: {
+      en: "Tabriz Islamic Art University",
+    },
+    city: {
+      en: "Tabriz",
+      fa: "تبریز",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Tabriz University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی تبریز",
+    },
+    desc: {
+      en: "University of Medical Sciences; Tabriz Public institution, founded in 1947, achieved university status in 1986",
+    },
+    city: {
+      en: "Tabriz",
+      fa: "تبریز",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Tafresh University",
+      fa: "دانشگاه تفرش",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "Tafresh",
+      fa: "تفرش",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Tarbiat Modarres University",
+      fa: "دانشگاه تربیت مدرس",
+    },
+    desc: {
+      en: "Public institution, founded in 1981, achieved university status in 1986",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Teacher Training University of Tehran",
+      fa: "دانشگاه تربیت معلم تھران",
+    },
+    desc: {
+      en: "Tarbiat Moallem University Public institution, founded in 1919, achieved university status in 1974",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تھران",
+    },
+    setion: 1,
+  },
+   {
+    title: {
+      en: "Technical College of Heavy and Light Industries",
+      fa: "آموزشكده ھاي فني صنایع سنگین و سبک",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Industry Tehran, Arak, Karaj, Lalejin, Mashhad",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Technical Institute for Environmental Protection",
+      fa: "آموزشكده حفاظت محیط زیست",
     },
     desc: {
       en: "",
@@ -8596,8 +9324,120 @@ Mashhad`,
   },
   {
     title: {
+      en: "Technical Institute for Physical Education",
+      fa: "آموزشكده تربیت بدني",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
       en: "",
       fa: "",
+    },
+    setion: 2,
+  },
+   {
+    title: {
+      en: "Technical Institute for Statistics and Informatics",
+      fa: "آموزشكده آمار و انفورماتیک",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Health",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Technical Institute for Weapons Development",
+      fa: "آموزشكده فني جنگ افزار سازي",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Defense and Armed Forces Logistics",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Technical Institute of Agriculture",
+      fa: "آموزشكده كشاورزي",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Agriculture",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Technical Institute of Geomatics",
+      fa: "آموزشكده فني نقشھ برداري",
+    },
+    desc: {
+      en: "",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+   {
+    title: {
+      en: "Tehran University of Medical Sciences and Health Services",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی تھران",
+    },
+    desc: {
+      en: "Public institution, founded in 1934, achieved university status in 1985",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تھران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Toos Higher Education Institute",
+      fa: "موسسھ آموزش عالي توس",
+    },
+    desc: {
+      en: "Toos Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Torbat Heydarieh Junior College",
+      fa: "آموزشكده فني تربت حیدریھ",
+    },
+    desc: {
+      en: "Torbat Heydarieh Technical and Engineering Faculty",
+    },
+    city: {
+      en: "",
+      fa: "",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "Transport Research Institute",
+      fa: "پژوھشكده حمل و نقل",
     },
     desc: {
       en: "",
@@ -8610,11 +9450,333 @@ Mashhad`,
   },
   {
     title: {
-      en: "",
+      en: "Unity Technical Institute Isfahan",
+      fa: "آموزشكده فني توحید اصفھان",
+    },
+    desc: {
+      en: "Affiliated to the Ministry of Mines and Metals",
+    },
+    city: {
+      en: "Isfahan",
+      fa: "اصفهان",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "University College of Nabi Akram",
+      fa: "موسسھ آموزش عالي غیرانتفاعي- غیردولتي نبي اكرم",
+    },
+    desc: {
+      en: "Nabi Akran Non-Profit Non-Governmental Higher Education Institution Private institution, founded in 1996",
+    },
+    city: {
+      en: "Tabriz",
+      fa: "تبریز",
+    },
+    setion: 2,
+  },
+  {
+    title: {
+      en: "University of Applied Science and Technology",
+      fa: "دانشگاه جامع علمي- كاربردي",
+    },
+    desc: {
+      en: "Jaame Elmi-Karbordi University Public institution, founded in 1992",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Art",
+      fa: "دانشگاه ھنر",
+    },
+    desc: {
+      en: "University of Arts, Tehran Public institution, founded 1980 following the amalgamation of the Conservatory of Music, College of National Music, College of Decorative Arts, College of Dramatic Arts and Farabi University",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+    {
+    title: {
+      en: "University of Birjand",
+      fa: "دانشگاه بیرجند",
+    },
+    desc: {
+      en: "Public institution, founded in 1975, achieved university status in 1991",
+    },
+    city: {
+      en: "Birjand",
+      fa: "بیرجند",
+    },
+    setion: 1,
+  },
+    {
+    title: {
+      en: "University of Defence Industries and Sciences",
       fa: "",
     },
     desc: {
+      en: "Public institution, founded in 1986",
+    },
+    city: {
+      en: "Isfahan",
+      fa: "اصفهان",
+    },
+    setion: 1,
+  },
+    {
+    title: {
+      en: "University of Emam Hussein",
+      fa: "دانشگاه امـام حسین",
+    },
+    desc: {
+      en: "University of Imam Hussein, Imam Hossein University Public institution, founded in 1986 Affiliated to the Iranian Revolutionary Guards of the Islamic Revolution",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Isfahan",
+      fa: "دانشگاه اصفھان",
+    },
+    desc: {
+      en: "University of Esfahan, Esfahan University, Isfahan University Public institution, founded in 1946, achieved university status in 1958",
+    },
+    city: {
+      en: "Isfahan",
+      fa: "اصفھان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Kashan",
+      fa: "دانشگاه كاشان",
+    },
+    desc: {
+      en: "Public institution, founded in 1973, achieved university status in 1994",
+    },
+    city: {
+      en: "Kashan",
+      fa: "كاشان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Kurdistan",
+      fa: "دانشگاه كردستان",
+    },
+    desc: {
+      en: "Public institution, founded in 1974, achieved university status in 1991",
+    },
+    city: {
+      en: "Sanandaj",
+      fa: "سنندج",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Science and Culture",
+      fa: "دانشگاه غیرانتفاعي- غیردولتي علم و فرھنگ",
+    },
+    desc: {
+      en: "Elm va Farhang University University of Jihad, Daneshgahi Jahad Higher Education Institution, Jihad University Higher Education Institute Private institution",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Semnan",
+      fa: "دانشگاه سمنان",
+    },
+    desc: {
+      en: "Public institution, founded in 1974, achieved university status in 1993",
+    },
+    city: {
+      en: "Semnan",
+      fa: "سمنان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Sistan and Baluchistan",
+      fa: "دانشگاه سیستان و بلوچستان",
+    },
+    desc: {
+      en: "Sistan and Baluchistan University Public institution, founded in 1974",
+    },
+    city: {
+      en: "Zahedan",
+      fa: "زاهدان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Social Welfare and Rehabilitation Sciences",
+      fa: "دانشگاه علوم بھزیستي و توانبخشي",
+    },
+    desc: {
+      en: "Public institution, founded in 1993",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تهران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Tabriz",
+      fa: "دانشگاه تبریز",
+    },
+    desc: {
+      en: "Tabriz University Azarabadegan University Public institution, founded in 1947, achieved university status in 1979",
+    },
+    city: {
+      en: "Tabriz",
+      fa: "تبریز",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Tehran",
+      fa: "دانشگاه تھران",
+    },
+    desc: {
+      en: "Tehran University Public institution, founded in 1934, achieved university status in 1941",
+    },
+    city: {
+      en: "Tehran",
+      fa: "تھران",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "University of Zabol",
+      fa: "دانشگاه زابل",
+    },
+    desc: {
+      en: "Public institution, founded in 1999",
+    },
+    city: {
+      en: "Zabol",
+      fa: "زابل",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Urmia University",
+      fa: "دانشگاه ارومیھ",
+    },
+    desc: {
+      en: "Rezaieh University of Agriculture and Animal Husbandry Public institution, founded in 1965, achieved university status in 1976",
+    },
+    city: {
+      en: "Urmia",
+      fa: "ارومیھ",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Urmia University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی ارومیھ",
+    },
+    desc: {
+      en: "Oromieh University of Medical Sciences Public institution, founded in 1977",
+    },
+    city: {
+      en: "Urmia",
+      fa: "ارومیھ",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Urmia University of Technology",
+      fa: "دانشگاه صنعتي ارومیھ",
+    },
+    desc: {
       en: "",
+    },
+    city: {
+      en: "Urmia",
+      fa: "ارومیھ",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Vali-e-Asr University",
+      fa: "دانشگاه ولي عصر رفسنجان",
+    },
+    desc: {
+      en: "Vali-e-Asr University of Rafsanjan Public institution, founded in 1991",
+    },
+    city: {
+      en: "Rafsanjan",
+      fa: "رفسنجان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Yasuj University",
+      fa: "دانشگاه یاسوج",
+    },
+    desc: {
+      en: "Private institution, founded in 1983, achieved university status in 1996",
+    },
+    city: {
+      en: "Yasuj",
+      fa: "یاسوج",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Yasuj University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی یاسوج",
+    },
+    desc: {
+      en: "Public institution, founded in 1993",
+    },
+    city: {
+      en: "Yasuj",
+      fa: "یاسوج",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Yazd Province University of Jihad Higher Education Institute",
+      fa: "موسسھ آموزش عالي جھاد دانشگاھي استان یزد",
+    },
+    desc: {
+      en: "Yazd Province University of Jihad Non-profit Non-Governmental Higher Education Institute",
     },
     city: {
       en: "",
@@ -8624,347 +9786,109 @@ Mashhad`,
   },
   {
     title: {
-      en: "",
-      fa: "",
+      en: "Yazd University",
+      fa: "دانشگاه یزد",
     },
     desc: {
-      en: "",
+      en: "Public institution, founded in 1987",
     },
     city: {
-      en: "",
-      fa: "",
+      en: "Yazd",
+      fa: "یزد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Yazd University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی یزد",
+    },
+    desc: {
+      en: "Public institution, founded in 1983, achieved university status in 1986",
+    },
+    city: {
+      en: "Yazd",
+      fa: "یزد",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Zabol University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی زابل",
+    },
+    desc: {
+      en: "Public institution",
+    },
+    city: {
+      en: "Zabol",
+      fa: "زابل",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Zahedan University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی زاھدان",
+    },
+    desc: {
+      en: "Public institution, founded in 1986",
+    },
+    city: {
+      en: "Zahedan",
+      fa: "زاھدان",
+    },
+    setion: 1,
+  },
+  {
+    title: {
+      en: "Zand Higher Education Institute",
+      fa: "موسسھ آموزش عالي",
+    },
+    desc: {
+      en: "Zand Non-profit Non-Governmental Higher Education Institute",
+    },
+    city: {
+      en: "Shiraz",
+      fa: "شیراز",
     },
     setion: 2,
   },
   {
     title: {
-      en: "",
-      fa: "",
+      en: "Zanjan University",
+      fa: "دانشگاه زنجان",
     },
     desc: {
-      en: "",
+      en: "Public institution, founded in 1975, achieved university status in 1991",
     },
     city: {
-      en: "",
-      fa: "",
+      en: "Zanjan",
+      fa: "زنجان",
     },
-    setion: 2,
+    setion: 1,
   },
   {
     title: {
-      en: "",
-      fa: "",
+      en: "Zanjan University of Medical Sciences",
+      fa: "دانشگاه علوم پزشکی و خدمات بھداشتی درمانی زنجان",
     },
     desc: {
-      en: "",
+      en: "Public institution, founded in 1987, achieved university status in 1988",
     },
     city: {
-      en: "",
-      fa: "",
+      en: "Zanjan",
+      fa: "زنجان",
     },
-    setion: 2,
+    setion: 1,
   },
   {
     title: {
-      en: "",
-      fa: "",
+      en: "Zarandieh Higher Education Institute",
+      fa: "موسسھ آموزش عالي زرندیھ",
     },
     desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
-    },
-    city: {
-      en: "",
-      fa: "",
-    },
-    setion: 2,
-  },
-  {
-    title: {
-      en: "",
-      fa: "",
-    },
-    desc: {
-      en: "",
+      en: "Zarandieh Non-profit Non-Governmental Higher Education Institute",
     },
     city: {
       en: "",

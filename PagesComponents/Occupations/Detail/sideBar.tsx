@@ -10,16 +10,12 @@ import { deviceMin } from 'Consts/device';
 import AnzscoComponent from './AnzcoTab';
 import BacklogComponent from './BacklogTab';
 import DetailComponent from './DetailTab';
-import {
-  componentTextStyle,
-  componentTheme,
-  componentTitleStyle,
-} from 'Styles/Theme/Component';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 import { TagTheme } from 'Styles/Theme';
 import { MaraAccordion } from 'Elements/Accordion';
 import NoData from 'Components/NoData';
 import { hasAnyVisaOption } from './utils';
+import { layer2A_style, layer2A_TitleStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -162,11 +158,11 @@ const Backlog = styled(TbStack2)`
 const Header = styled.header`
   width: 100%;
   padding: 1rem;
-  ${componentTitleStyle}
+  ${layer2A_TitleStyle}
 `;
 
 const ContentWrapper = styled.section`
-  ${componentTheme}
+  ${layer2A_style}
   width: auto;
 `;
 ///////backlog section/////
@@ -178,7 +174,7 @@ const AccordionContentContainer = styled.ul`
   width: 100%;
 `;
 const HintItem = styled.li`
-  ${componentTextStyle}
+  ${layer2A_TitleStyle}
   display: flex;
   flex-direction: column;
   width: 100%;

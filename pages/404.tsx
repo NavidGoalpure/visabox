@@ -4,13 +4,11 @@ import PageLayout from 'Components/Layouts/PageContainer';
 import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components/macro';
-import {
-  billboardTitleStyle,
-  billboardSubtitleStyle,
-  billboardTextStyle,
-} from 'Styles/Theme/billboard';
+
 import Link from 'next/link';
 import Seo from 'Components/Seo';
+import { Layer1_TextStyle } from 'Styles/Theme/Layers/style';
+import { layer1_TextColor, layer1_SubtitleColor } from 'Styles/Theme/Layers/theme';
 
 export default function NotFound() {
   return (
@@ -57,11 +55,11 @@ const TxtContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  ${billboardTitleStyle}
+  ${layer1_TextColor}
 `;
 const Subtitle = styled.h2`
-  ${billboardSubtitleStyle}
+  ${layer1_SubtitleColor}
 `;
 const Desc = styled.h3`
-  ${billboardTextStyle}
+  ${Layer1_TextStyle}
 `;

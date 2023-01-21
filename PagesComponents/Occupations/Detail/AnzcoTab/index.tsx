@@ -9,8 +9,8 @@ import theme from 'styled-theming';
 import {
   componentSubtitleStyle,
   componentTitleStyle,
-  KeyValue_Key,
-  KeyValue_Value,
+  layer2A_Key,
+  layer2A__Value,
   textTitleColor,
 } from 'Styles/Theme/Component';
 import AccordionContent from './accordionContent';
@@ -154,12 +154,12 @@ const Tr = styled.tr`
 
 const TdValue = styled.td`
   ${componentSubtitleStyle}
-  ${KeyValue_Value}
+  ${layer2A__Value}
   margin:0;
 `;
 
 const TdKey = styled(TdValue)`
-  ${KeyValue_Key}
+  ${layer2A_Key}
   margin-inline-end: 0.5rem;
 `;
 ////////////////

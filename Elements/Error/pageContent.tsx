@@ -2,12 +2,13 @@ import AnimationComponent from 'Components/AnimationComponent';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import React from 'react';
 import styled from 'styled-components/macro';
-import {
-  billboardTitleStyle,
-  billboardSubtitleStyle,
-  billboardTextStyle,
-} from 'Styles/Theme/billboard';
+
 import Link from 'next/link';
+import {
+  layer1_SubtitleColor,
+  layer1_TextColor,
+} from 'Styles/Theme/Layers/theme';
+import { Layer1_TextStyle } from 'Styles/Theme/Layers/style';
 
 const WireSvg = () => {
   return (
@@ -108,11 +109,11 @@ const Wire = styled.div`
 `;
 
 const Title = styled.h1`
-  ${billboardTitleStyle}
+  ${layer1_TextColor}
 `;
 const Subtitle = styled.h2`
-  ${billboardSubtitleStyle}
+  ${layer1_SubtitleColor}
 `;
 const Desc = styled.h3`
-  ${billboardTextStyle}
+  ${Layer1_TextStyle}
 `;

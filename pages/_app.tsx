@@ -15,6 +15,12 @@ import { hotjar } from 'react-hotjar';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as gtag from 'Utils/Gtags';
+import { createGlobalStyle } from 'styled-components';
+import { publiStyles } from 'Styles/Theme/Layers/theme';
+
+const GlobalStyle = createGlobalStyle`
+ ${publiStyles}
+`;
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -67,6 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               : LanguageDirection.LTR,
         }}
       >
+        <GlobalStyle />
         <QueryClientProvider client={queryClient}>
           {/* @ts-ignore */}
           <Hydrate state={pageProps.dehydratedState}>

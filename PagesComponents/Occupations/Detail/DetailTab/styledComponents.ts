@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import {
-  componentBorderColor,
   componentHeaderBackground,
   textTitleColor,
   componentSubtitleStyle,
@@ -10,6 +9,7 @@ import {
   componentTitleColor,
   componentTitleStyle,
   componentTextColor_small,
+  componentBorderColor,
 } from 'Styles/Theme/Component';
 
 export const NoMobile = styled.div`
@@ -73,7 +73,6 @@ export const Details = styled.div`
     font-weight: 700;
   }
   table {
-    ${componentBorderColor};
     border-radius: 64px;
     overflow: hidden;
     margin-bottom: 1rem;

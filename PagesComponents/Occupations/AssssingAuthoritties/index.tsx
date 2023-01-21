@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import CardsSection from './cardsSection';
-import { PageSubtitleStyle, PageTitleStyle } from 'Styles/Theme/Page';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/style';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
@@ -15,5 +15,5 @@ const Content: React.FC = () => {
 };
 export default Content;
 const PageTitle = styled.h1`
-  ${PageTitleStyle}
+  ${Layer1_TitleStyle}
 `;

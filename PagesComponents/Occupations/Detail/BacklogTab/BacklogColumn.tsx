@@ -3,12 +3,9 @@ import React, { ReactNode } from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
 import styled from 'styled-components/macro';
-import {
-  componentBorderColor,
-  componentTextStyle,
-} from 'Styles/Theme/Component';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   title: string;
@@ -63,8 +60,7 @@ const Container = styled.div`
   }
 `;
 const Title = styled.h2`
-  ${componentTextStyle}
-  ${componentBorderColor}
+  ${layer2A_TextStyle}
   width: 100%;
   height: max-content;
   text-align: center;

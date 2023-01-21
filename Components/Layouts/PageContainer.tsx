@@ -5,7 +5,7 @@ import { Languages } from 'Interfaces';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components/macro';
 import { directionStyles } from 'Styles/Theme';
-import { pageBackground } from 'Styles/Theme/Page';
+import { layer1_BGColor } from 'Styles/Theme/Layers/theme';
 import { Header } from '../NavigationMenu';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -24,7 +24,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
 };
 export default PageContainer;
 export const Container = styled.main<{ $locale: Languages }>`
-  ${pageBackground}
+  ${layer1_BGColor}
   ${directionStyles}
   font-family:${({ $locale }) =>
     $locale === Languages.fa

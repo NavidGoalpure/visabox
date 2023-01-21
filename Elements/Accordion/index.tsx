@@ -4,13 +4,13 @@ import styled, { css, keyframes } from 'styled-components/macro';
 import { Headline5Style, Headline7Style } from 'Styles/Typo';
 import { AiOutlinePlus } from 'react-icons/ai';
 import theme from 'styled-theming';
-import { pageBackground } from 'Styles/Theme/Page';
-import {
-  componentBodyBackground,
-  componentSubtitleStyle,
-  componentTextStyle,
-} from 'Styles/Theme/Component';
+import { componentBodyBackground } from 'Styles/Theme/Component';
 import { deviceMin } from 'Consts/device';
+import { layer1_BGColor } from 'Styles/Theme/Layers/theme';
+import {
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+} from 'Styles/Theme/Layers/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerText: string;
@@ -82,6 +82,7 @@ const AccordionItem = styled(Accordion.Item)`
     box-shadow: 0 0 0 2px var(--mauve12);
   }
 `;
+//navid chanage  page!component
 const AccordionHeader = styled(Accordion.Header)<{
   backgroundtheme: 'PAGE' | 'COMPONENT';
 }>`
@@ -89,11 +90,11 @@ const AccordionHeader = styled(Accordion.Header)<{
   position: relative;
   z-index: 11;
   ${({ backgroundtheme }) =>
-    backgroundtheme === 'PAGE' ? pageBackground : componentBodyBackground}
+    backgroundtheme === 'PAGE' ? layer1_BGColor : componentBodyBackground}
   border: none;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   margin: 0;
   position: relative;
   z-index: 10;
@@ -109,7 +110,7 @@ const AccordionTrigger = styled(Accordion.Trigger)`
   background-color: var(--color-primary3);
   cursor: pointer;
   @media ${deviceMin.mobileL} {
-    ${componentSubtitleStyle};
+    ${layer2A_SubtitleStyle};
     margin: 0;
     color: white;
   }

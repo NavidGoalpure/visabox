@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { componentTheme } from 'Styles/Theme/Component';
+
 import NoData from 'Components/NoData';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { layer2A_style } from 'Styles/Theme/Layers/style';
 
 interface Props {
   titleKey: string;
@@ -45,7 +46,7 @@ export const BacklogTable: React.FC<Props> = ({
 
 const Table = styled.table`
   width: 100%;
-  ${componentTheme}
+  ${layer2A_style}
   margin-bottom:1rem;
 `;
 const Thead = styled.thead`

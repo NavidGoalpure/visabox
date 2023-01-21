@@ -1,6 +1,14 @@
-import { Occupation } from 'Interfaces/Documents/occupation';
-import { ParsedUrlQuery } from 'querystring';
-import { MLTSSL_LIST, ROL_LIST, STSOL_LIST } from './const';
+import {
+  AssessingAuthorityAbv,
+  Occupation,
+} from "Interfaces/Documents/occupation";
+import { ParsedUrlQuery } from "querystring";
+import {
+  MLTSSL_LIST,
+  multiAssessingAuthority,
+  ROL_LIST,
+  STSOL_LIST,
+} from "./const";
 
 /**
  *این فاننکشن پارامز ها رو از یوآرال میگیره و بر اساس اون فیلتر کوئری رو میسازه
@@ -18,7 +26,7 @@ export function getSmartparam(params: ParsedUrlQuery | undefined): {
 } {
   const numberParam = Number(params?.slugOrCode);
   return isNaN(numberParam) === true
-    ? { slug: params?.slugOrCode?.toString() || '' }
+    ? { slug: params?.slugOrCode?.toString() || "" }
     : { code: Number(params?.slugOrCode) };
 }
 ///////////////////
@@ -111,4 +119,17 @@ export function hasAnyVisaOption(occupation: Occupation): boolean {
   )
     return false;
   return true;
+}
+export function getSmartAssessingAuthorities({
+  code,
+  assessing_authority,
+}: {
+  code: number;
+  assessing_authority: AssessingAuthorityAbv;
+}): AssessingAuthorityAbv[] {
+  let res = [assessing_authority];
+  multiAssessingAuthority.map((assess) => {
+    if (assess?.code === code) res = [...assess?.assessingAuthority_abv];
+  });
+  return res;
 }

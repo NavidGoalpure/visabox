@@ -36,7 +36,6 @@ export enum AssessingAuthorityAbv {
   'ASMIRT' = 'ASMIRT',
   'AVBC' = 'AVBC',
   'CASA' = 'CASA',
-  'CA' = 'CA',
   'CCEA' = 'CCEA',
   'CMBA' = 'CMBA',
   'CPAA' = 'CPAA',

@@ -49,13 +49,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
       <VetassesContainer>
         <VetassesTitle>{t(LanguageKeys.AssessingAuthorityAbv)}</VetassesTitle>
         {assessing_authority ? (
-          <AssessContainer
-            href={`/${locale}/occupations/assssing-authorities/#${
-              assessing_authority.split("_")[0]
-            }`}
-            target="_blank"
-            scroll={false}
-          >
+          <AssessContainer>
             {getSmartAssessingAuthorities({
               code: occupation?.code,
               assessing_authority: assessing_authority,
@@ -164,7 +158,7 @@ const AssessContainer = styled.div`
   gap: 0.5rem;
   flex-wrap:wrap;
   justify-content:center;
-  
+
 `;
 const TitleContainer = styled.div`
   display: flex;

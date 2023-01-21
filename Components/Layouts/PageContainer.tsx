@@ -46,9 +46,9 @@ const Content = styled.article`
   max-width: var(--max-width-page);
   margin: 0 auto;
   flex: auto;
-  padding: 1rem;
+  padding: 0.5rem;
 
   @media ${deviceMin.tabletS} {
-    padding: 1rem 0;
+    padding: 1rem;
   }
 `;

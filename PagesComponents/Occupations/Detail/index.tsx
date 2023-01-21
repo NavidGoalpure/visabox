@@ -162,6 +162,9 @@ const VetassesTitle = styled.h1`
 const AssessContainer = styled.div`
   display: flex;
   gap: 0.5rem;
+  flex-wrap:wrap;
+  justify-content:center;
+  
 `;
 const TitleContainer = styled.div`
   display: flex;

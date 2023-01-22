@@ -1,4 +1,11 @@
+import { assssingAuthorities } from "./const";
+
 function Content() {
-  return <div>farzam is better than navid</div>;
+  const foo = assssingAuthorities;
+  return (
+    <div>
+      <img src={foo?.[0]?.avatar} alt="" />
+    </div>
+  );
 }
 export default Content;

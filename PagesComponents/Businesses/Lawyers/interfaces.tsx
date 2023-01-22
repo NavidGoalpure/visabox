@@ -8,7 +8,7 @@ import {
 export interface Lawyer {
   slug: string;
   name: MultiLanguageText;
-  website: string;
+  website?: string;
   contact: {
     email?: string;
     phone?: string[];
@@ -17,11 +17,10 @@ export interface Lawyer {
     instagram?: string;
     linkedin?: string;
   };
-  avatar: string;
   //what countries they work in
   locations: Locations[];
   desc?: MultiLanguageText;
   qualifications?: MultiLanguageTextArray;
-  maraNumber?: string;
+  maraNumber: string;
   isFeatured: boolean;
 }

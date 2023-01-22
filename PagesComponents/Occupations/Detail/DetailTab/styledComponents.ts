@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
+import { borderTheme } from 'Styles/Theme';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
@@ -73,6 +74,7 @@ export const Details = styled.div`
     font-weight: 700;
   }
   table {
+    ${borderTheme}
     border-radius: 64px;
     overflow: hidden;
     margin-bottom: 1rem;

@@ -213,6 +213,7 @@ export const Details = styled.div`
   }
   .wpb_column.boxed > .vc_column-inner {
     ${layer2A_BorderColor}
+    ${borderTheme}
     border-radius: 15px;
     box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
     padding: 25px 15px 15px;

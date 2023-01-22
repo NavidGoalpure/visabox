@@ -43,3 +43,13 @@ export const TagTheme = theme('mode', {
     color: var(--color-gray4);
   `,
 });
+export const warningTheme = theme('mode', {
+  light: css`
+    background: var(--color-gray12);
+    color: var(--color-gray4);
+  `,
+  dark: css`
+    background: var(--color-gray6);
+    color: var(--color-gray13);
+  `,
+});

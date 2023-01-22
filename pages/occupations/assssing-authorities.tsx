@@ -8,7 +8,7 @@ import {
   LanguageKeys,
 } from 'PagesComponents/Occupations/AssssingAuthoritties/const';
 import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Occupations/AssssingAuthoritties/content';
+import Content from 'PagesComponents/Occupations/AssssingAuthoritties';
 import Seo from 'Components/Seo';
 import { Languages } from 'Interfaces';
 

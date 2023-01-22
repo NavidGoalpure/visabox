@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components/macro";
-import {
-  componentTextStyle,
-  componentWarningTheme,
-} from "Styles/Theme/Component";
-import { directionStyles } from "Styles/Theme";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { fireGtagEvent } from "Utils/Gtags";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components/macro';
+
+import { directionStyles, warningTheme } from 'Styles/Theme';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { fireGtagEvent } from 'Utils/Gtags';
 import {
   GtagEvents_Action,
   GtagEvents_FeedbackCategory,
-} from "Utils/Gtags/interface";
-import { SecondaryButton } from "Elements/Button/Secondary";
-import { setLocalStorage } from "Utils";
-import { LocalStorageKeys } from "Interfaces";
-import { deviceMin } from "Consts/device";
+} from 'Utils/Gtags/interface';
+import { SecondaryButton } from 'Elements/Button/Secondary';
+import { setLocalStorage } from 'Utils';
+import { LocalStorageKeys } from 'Interfaces';
+import { deviceMin } from 'Consts/device';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   gtagEventLabel: string;
@@ -35,8 +33,8 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
   if (isSelected) return null;
   return (
     <Container>
-      <Desc>{t(LanguageKeys.Desc).split("/n")?.[0]}</Desc>
-      <Desc>{t(LanguageKeys.Desc).split("/n")?.[1]}</Desc>
+      <Desc>{t(LanguageKeys.Desc).split('/n')?.[0]}</Desc>
+      <Desc>{t(LanguageKeys.Desc).split('/n')?.[1]}</Desc>
       <Row>
         <StyledButton
           onClick={() => {
@@ -47,7 +45,7 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
             });
             setLocalStorage({
               key: LocalStorageKeys.HasBeenAnswered,
-              value: "OccupationDetailPage",
+              value: 'OccupationDetailPage',
             });
             setIsSelected(true);
           }}
@@ -63,7 +61,7 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
             });
             setLocalStorage({
               key: LocalStorageKeys.HasBeenAnswered,
-              value: "OccupationDetailPage",
+              value: 'OccupationDetailPage',
             });
             setIsSelected(true);
           }}
@@ -76,7 +74,7 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
 };
 const Container = styled.section`
   ${directionStyles}
-  ${componentWarningTheme}
+  ${warningTheme}
   border-radius: 15px;
   width: 100%;
   padding: 1rem 0.5rem;
@@ -91,16 +89,16 @@ const Row = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap:0.5rem;
+  gap: 0.5rem;
 `;
 
 const Desc = styled.p`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   margin-bottom: 1rem;
   white-space: pre-line;
 `;
 const StyledButton = styled(SecondaryButton)`
-@media ${deviceMin.tabletS}{
+  @media ${deviceMin.tabletS} {
     margin-inline-end: 2rem;
   }
 `;

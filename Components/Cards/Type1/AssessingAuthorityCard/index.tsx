@@ -11,12 +11,13 @@ import {
 } from '../StyledComponents';
 import Popup from '../popup';
 import { AssessingAuthorityAbv } from 'Interfaces/Documents/occupation';
-import { componentTextStyle } from 'Styles/Theme/Component';
+
 import styled from 'styled-components/macro';
 import { GoLinkExternal } from 'react-icons/go';
 import { scrollbarStyles } from 'Styles/Theme';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   abv: AssessingAuthorityAbv;
@@ -63,7 +64,7 @@ function AssessingAuthorityCard({
 
 export default AssessingAuthorityCard;
 const Contacts = styled.div`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   ${scrollbarStyles}
 
 

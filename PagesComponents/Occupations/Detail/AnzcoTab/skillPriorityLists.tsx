@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components/macro';
-import { componentSubtitleStyle } from 'Styles/Theme/Component';
+
 import { deviceMin } from 'Consts/device';
 import { PriorityList, Territories } from 'Interfaces/Documents/occupation';
 import { getShortageStatusBaseOnAlias } from './utils';
 import ShortageTag from './shortageTag';
 import theme from 'styled-theming';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   priorityList: PriorityList | undefined;
@@ -113,7 +114,7 @@ const Text = styled.div`
 `;
 
 const FutureDemand = styled.h3`
-  ${componentSubtitleStyle}
+  ${layer2A_SubtitleStyle}
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -128,7 +129,7 @@ const DemandColor = theme('mode', {
   `,
 });
 const Demand = styled.span`
-  ${componentSubtitleStyle}
+  ${layer2A_SubtitleStyle}
   ${DemandColor}
   align-text: center;
   margin-inline-start: 0.5rem;

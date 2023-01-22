@@ -6,7 +6,7 @@ import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import SwitchTheme from './switchTheme';
 import { useLocale } from 'Hooks/useLocale';
-import { layer1_BGColor } from 'Styles/Theme/Layers/theme';
+import { layer1_BG } from 'Styles/Theme/Layers/theme';
 
 function Header() {
   const { locale } = useLocale();
@@ -34,7 +34,7 @@ function Header() {
 export { Header };
 
 const Container = styled(NavigationMenu.Root)`
-  ${layer1_BGColor}
+  ${layer1_BG}
   ${directionStyles}
   ${boxShadow};
 

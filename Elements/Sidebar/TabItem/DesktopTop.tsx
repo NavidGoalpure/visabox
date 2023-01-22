@@ -4,8 +4,9 @@ import styled, { css } from 'styled-components/macro';
 import * as Tabs from '@radix-ui/react-tabs';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
-import { componentTextStyle } from 'Styles/Theme/Component';
+
 import theme from 'styled-theming';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -59,7 +60,7 @@ const TabsTriggerhover = theme('mode', {
   `,
 });
 const TabsTrigger = styled(Tabs.Trigger)`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   margin-bottom: 0rem;
   //
   ${directionStyles}

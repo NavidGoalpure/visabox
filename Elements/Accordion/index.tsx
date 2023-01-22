@@ -1,12 +1,13 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
-import { Headline5Style, Headline7Style } from 'Styles/Typo';
+import { Headline7Style } from 'Styles/Typo';
+import { getSmartBgBaseOnLevel } from 'Styles/utils';
+
 import { AiOutlinePlus } from 'react-icons/ai';
 import theme from 'styled-theming';
-import { componentBodyBackground } from 'Styles/Theme/Component';
 import { deviceMin } from 'Consts/device';
-import { layer1_BGColor } from 'Styles/Theme/Layers/theme';
+import { layer1_BG } from 'Styles/Theme/Layers/theme';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
@@ -15,14 +16,14 @@ import {
 interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerText: string;
   content: ReactNode;
-  backgroundtheme: 'PAGE' | 'COMPONENT';
+  backgroundLayer: '1' | '2A' | '2B' | '3';
   isOpen?: boolean;
 }
 
 export const MaraAccordion: React.FC<Props> = ({
   triggerText,
   content,
-  backgroundtheme,
+  backgroundLayer,
   isOpen = false,
   ...props
 }) => (
@@ -34,7 +35,7 @@ export const MaraAccordion: React.FC<Props> = ({
     data-testid='Marabox-Accordion'
   >
     <AccordionItem value='item'>
-      <AccordionHeader backgroundtheme={backgroundtheme}>
+      <AccordionHeader backgroundLayer={backgroundLayer}>
         <AccordionTrigger>
           <PlusIcon />
           {triggerText}
@@ -82,15 +83,13 @@ const AccordionItem = styled(Accordion.Item)`
     box-shadow: 0 0 0 2px var(--mauve12);
   }
 `;
-//navid chanage  page!component
 const AccordionHeader = styled(Accordion.Header)<{
-  backgroundtheme: 'PAGE' | 'COMPONENT';
+  backgroundLayer: '1' | '2A' | '2B' | '3';
 }>`
   display: flex;
   position: relative;
   z-index: 11;
-  ${({ backgroundtheme }) =>
-    backgroundtheme === 'PAGE' ? layer1_BGColor : componentBodyBackground}
+  ${({ backgroundLayer }) => getSmartBgBaseOnLevel(backgroundLayer)}
   border: none;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`

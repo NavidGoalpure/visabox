@@ -1,10 +1,7 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { PageSubtitle } from 'PagesComponents/Occupations/List/PageSubtitle';
 import React, { ReactNode } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import styled from 'styled-components/macro';
-import { ThemeSet } from 'styled-theming';
-import { layer1_BGColor, layer3_BGColor } from 'Styles/Theme/Layers/theme';
 import { getSmartBgBaseOnLevel } from 'Styles/utils';
 import { componentStatements, LanguageKeys } from './const';
 
@@ -12,7 +9,7 @@ interface Props {
   messageComponent?: ReactNode;
   icon?: ReactNode;
   hasIcon?: boolean;
-  themeLayer?: '1' | '2' | '3';
+  themeLayer?: '1' | '2A' | '2B' | '3';
 }
 const NoData: React.FC<Props> = ({
   icon = <XLogo />,
@@ -37,7 +34,7 @@ const NoData: React.FC<Props> = ({
 
 export default NoData;
 
-const Container = styled.div<{ themeLayer: '1' | '2' | '3' }>`
+const Container = styled.div<{ themeLayer: '1' | '2A' | '2B' | '3' }>`
   ${({ themeLayer }) => getSmartBgBaseOnLevel(themeLayer)}
   display: flex;
   justify-content: center;

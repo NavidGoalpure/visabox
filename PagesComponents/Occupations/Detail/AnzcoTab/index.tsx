@@ -6,17 +6,13 @@ import { AnzscoSection } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
-import {
-  componentSubtitleStyle,
-  componentTitleStyle,
-  layer2A_Key,
-  layer2A__Value,
-  textTitleColor,
-} from 'Styles/Theme/Component';
+
 import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from '../const';
 import UnitGroupCompoenent from '../unitGroup';
 import { ConvertAnzscoCodeToTitle } from './utils';
+import { layer2A_Key, layer2A_TextColor, layer2A_Value } from 'Styles/Theme/Layers/theme';
+import { layer2A_SubtitleStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   anzscoSection: AnzscoSection | undefined;
@@ -70,7 +66,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }}
         ></Description>
         <StyledAccordion
-          backgroundtheme={'COMPONENT'}
+          backgroundLayer='2A'
           triggerText={t(LanguageKeys.AlternativeTitles)}
           content={
             <AccordionContent
@@ -81,7 +77,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }
         />
         <StyledAccordion
-          backgroundtheme={'COMPONENT'}
+          backgroundLayer='2A'
           triggerText={t(LanguageKeys.Specialisations)}
           content={
             <AccordionContent
@@ -93,7 +89,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {!isMultiLanguageTextArrayIsEmpty(anzscoSection?.nec_occupation) && (
           <StyledAccordion
-            backgroundtheme={'COMPONENT'}
+            backgroundLayer='2A'
             triggerText={t(LanguageKeys.NecOccupation)}
             content={
               <AccordionContent
@@ -153,8 +149,8 @@ const Tr = styled.tr`
 `;
 
 const TdValue = styled.td`
-  ${componentSubtitleStyle}
-  ${layer2A__Value}
+  ${layer2A_SubtitleStyle}
+  ${layer2A_Value}
   margin:0;
 `;
 
@@ -165,13 +161,13 @@ const TdKey = styled(TdValue)`
 ////////////////
 
 const ContentTitle = styled.h2`
-  ${componentTitleStyle}
-  ${textTitleColor}
+  ${layer2A_TitleStyle}
+  ${layer2A_TextColor}
   margin-bottom:1.5rem;
 `;
 const Description = styled.p`
   ${BorderColor};
-  ${componentSubtitleStyle};
+  ${layer2A_SubtitleStyle};
   margin: 0;
   margin-bottom: 2rem;
   padding: 2rem 1.75rem;

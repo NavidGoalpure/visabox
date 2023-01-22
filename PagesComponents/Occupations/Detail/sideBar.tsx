@@ -15,7 +15,11 @@ import { TagTheme } from 'Styles/Theme';
 import { MaraAccordion } from 'Elements/Accordion';
 import NoData from 'Components/NoData';
 import { hasAnyVisaOption } from './utils';
-import { layer2A_style, layer2A_TitleStyle } from 'Styles/Theme/Layers/style';
+import {
+  layer2A_style,
+  layer2A_TextStyle,
+  layer2A_TitleStyle,
+} from 'Styles/Theme/Layers/style';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -82,7 +86,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                   />
                 )}
                 <StyledAccordion
-                  backgroundtheme={'COMPONENT'}
+                  backgroundLayer='2A'
                   triggerText={t(LanguageKeys.HintsTitle)}
                   isOpen={true}
                   content={
@@ -174,7 +178,7 @@ const AccordionContentContainer = styled.ul`
   width: 100%;
 `;
 const HintItem = styled.li`
-  ${layer2A_TitleStyle}
+  ${layer2A_TextStyle}
   display: flex;
   flex-direction: column;
   width: 100%;

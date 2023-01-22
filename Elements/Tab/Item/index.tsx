@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components/macro';
 import * as Tabs from '@radix-ui/react-tabs';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
-import { componentSubtitleStyle } from 'Styles/Theme/Component';
 import theme from 'styled-theming';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -43,7 +43,7 @@ const ColorTriggerActiveStyle = theme('mode', {
 });
 const TabsTrigger = styled(Tabs.Trigger)`
   ${ColorTriggerInactiveStyle}
-  ${componentSubtitleStyle}
+  ${layer2A_SubtitleStyle}
 ${directionStyles}
   position: relative;
   overflow: hidden;

@@ -1,19 +1,19 @@
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import {
-  componentHeaderBackground,
-  textTitleColor,
-  componentSubtitleStyle,
-  componentTextColor,
-  componentTextStyle,
-  componentTitleColor,
-  componentTitleStyle,
-  componentTextColor_small,
-  componentBorderColor,
-} from 'Styles/Theme/Component';
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+  layer2A_TitleStyle,
+} from 'Styles/Theme/Layers/style';
+import {
+  layer2A_BorderColor,
+  layer2A_HeaderBG,
+  layer2A_TextColor,
+  layer2A_TitleColor,
+} from 'Styles/Theme/Layers/theme';
 
 export const NoMobile = styled.div`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   padding: 0.5rem;
   display: flex;
   align-items: center;
@@ -44,19 +44,19 @@ export const Details = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding-top: 1rem;
-  ${componentTitleStyle}
-  ${componentTitleColor}
+  ${layer2A_TitleStyle}
   direction: ltr;
   h4 {
-    ${componentSubtitleStyle}
+    ${layer2A_SubtitleStyle}
     direction: ltr;
-    a {
-      ${textTitleColor}
-    }
+    //navid
+    // a {
+    //   ${layer2A_TitleColor}
+    // }
   }
   h5 {
-    ${componentTextStyle}
-    ${componentTextColor}
+    ${layer2A_TextStyle}
+    ${layer2A_TextColor}
     direction: ltr;
     font-size: 16px;
     line-height: 26px;
@@ -92,7 +92,7 @@ export const Details = styled.div`
   }
   td {
     text-align: center;
-    ${componentTextStyle}
+    ${layer2A_TextStyle}
     direction: ltr;
     height: 2rem;
     padding: 0.5rem;
@@ -100,8 +100,8 @@ export const Details = styled.div`
   }
 
   th {
-    ${componentHeaderBackground}
-    ${componentTextStyle}
+    ${layer2A_HeaderBG}
+    ${layer2A_TextStyle}
     direction: ltr;
     text-align: center;
     border-left: medium none;
@@ -141,8 +141,8 @@ export const Details = styled.div`
   }
   div {
     p {
-      ${componentTextStyle}
-      ${componentTextColor}
+      ${layer2A_TextStyle}
+      ${layer2A_TextColor}
       direction: ltr;
       padding-bottom: 10px;
       display: block;
@@ -153,8 +153,8 @@ export const Details = styled.div`
       line-height: 1.5rem;
     }
     ul {
-      ${componentTextStyle}
-      ${componentTextColor}
+      ${layer2A_TextStyle}
+      ${layer2A_TextColor}
       direction: ltr;
     }
   }
@@ -180,7 +180,7 @@ export const Details = styled.div`
     font-size: 14px;
     line-height: 25px;
     font-weight: 700;
-    ${componentSubtitleStyle}
+    ${layer2A_SubtitleStyle}
     direction: ltr;
   }
   //////////////////////////////////
@@ -210,7 +210,7 @@ export const Details = styled.div`
     box-shadow: none;
   }
   .wpb_column.boxed > .vc_column-inner {
-    ${componentBorderColor}
+    ${layer2A_BorderColor}
     border-radius: 15px;
     box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
     padding: 25px 15px 15px;
@@ -374,8 +374,8 @@ export const Details = styled.div`
     border-radius: 20px;
     padding: 4px 10px;
     font-size: 12px;
-    color: ${componentTextColor_small} !important;
-    border: 1px solid ${componentTextColor_small} !important;
+    color: ${layer2A_TextColor} !important;
+    border: 1px solid ${layer2A_TextColor} !important;
     padding: 2px 10px;
   }
   [class^='icon-']:before,

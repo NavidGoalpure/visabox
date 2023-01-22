@@ -14,7 +14,7 @@ export const publiStyles = theme('mode', {
   `,
 });
 //////////LAYER1/////////
-export const layer1_BGColor = theme('mode', {
+export const layer1_BG = theme('mode', {
   light: css`
     background-color: white;
   `,
@@ -114,8 +114,16 @@ export const layer2A_Value = theme('mode', {
     color: white;
   `,
 });
+export const layer2A_BorderColor = theme('mode', {
+  light: css`
+    border: 2px solid var(--color-gray11);
+  `,
+  dark: css`
+    border: 1px solid var(--color-gray13);
+  `,
+});
 //////////LAYER2B/////////
-export const layer2B_BGColor = theme('mode', {
+export const layer2B_BG = theme('mode', {
   light: css`
     background-color: var(--color-gray8);
   `,
@@ -147,8 +155,16 @@ export const layer2B_TextColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
+export const layer2B_BorderColor = theme('mode', {
+  light: css`
+    border: 2px solid var(--color-gray11);
+  `,
+  dark: css`
+    border: 1px solid var(--color-gray13);
+  `,
+});
 //////////LAYER3/////////
-export const layer3_BGColor = theme('mode', {
+export const layer3_BG = theme('mode', {
   light: css`
     background-color: var(--color-gray12);
   `,

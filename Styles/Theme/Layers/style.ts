@@ -6,7 +6,7 @@ import {
   Headline6Style,
   Headline7Style,
 } from 'Styles/Typo';
-import { directionStyles } from '..';
+import { borderTheme, directionStyles } from '..';
 import {
   layer1_SubtitleColor,
   layer1_TextColor,
@@ -104,5 +104,42 @@ export const layer2A_style = css`
   /////////////
   p {
     text-align: start;
+  }
+`;
+export const layer2A_TableStyle = css`
+  ${borderTheme}
+  ${layer2A_style}
+  width: 100%;
+  margin-bottom: 1rem;
+
+  thead {
+    display: block;
+    background-color: transparent !important;
+    padding: 0.5rem 0 !important;
+    ${borderTheme}
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  tbody {
+    text-align: center;
+    padding: 1rem 0 !important;
+    display: block;
+  }
+  tr {
+    width: 100%;
+    font-weight: 500;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 1rem;
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+  td {
+      margin: 0;
+      font-weight: 500;
+    }
   }
 `;

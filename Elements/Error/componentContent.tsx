@@ -3,11 +3,12 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 import React, { ReactElement } from 'react';
 import styled from 'styled-components/macro';
-import {
-  componentSubtitleStyle,
-  componentTitleStyle,
-} from 'Styles/Theme/Component';
+
 import { MdError } from 'react-icons/md';
+import {
+  layer2A_TitleStyle,
+  layer2A_SubtitleStyle,
+} from 'Styles/Theme/Layers/style';
 
 export const ComponentError: React.FC = () => {
   const { t } = useStaticTranslation(globalComponentStatements);
@@ -32,9 +33,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   h3 {
-    ${componentTitleStyle}
+    ${layer2A_TitleStyle}
   }
   p {
-    ${componentSubtitleStyle}
+    ${layer2A_SubtitleStyle}
   }
 `;

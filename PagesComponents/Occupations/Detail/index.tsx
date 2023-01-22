@@ -1,27 +1,30 @@
-import React from "react";
-import ToggleTag from "Elements/ToggleTag";
-import styled from "styled-components/macro";
-import { SidebarPage } from "./sideBar";
-import { PageSubtitleStyle, PageTitleStyle } from "Styles/Theme/Page";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import TooltipTag from "Elements/TooltipTag";
-import { deviceMin } from "Consts/device";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { OccupationDetailRes } from "Queries/occupations/Detail/interface";
-import SimilarOccupations from "./similarOccupations";
-import Link from "next/link";
-import { useLocale } from "Hooks/useLocale";
+import React from 'react';
+import ToggleTag from 'Elements/ToggleTag';
+import styled from 'styled-components/macro';
+import { SidebarPage } from './sideBar';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import TooltipTag from 'Elements/TooltipTag';
+import { deviceMin } from 'Consts/device';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
+import SimilarOccupations from './similarOccupations';
+import Link from 'next/link';
+import { useLocale } from 'Hooks/useLocale';
 import {
   getSmartAssessingAuthorities,
   has189Visa,
   has190Visa,
   has491FamilyVisa,
   has491StateVisa,
-} from "./utils";
-import { LanguageHint } from "Components/Language/LanguageHint";
-import { Languages, LocalStorageKeys } from "Interfaces";
-import { getLocalStorage } from "Utils";
+} from './utils';
+import { LanguageHint } from 'Components/Language/LanguageHint';
+import { Languages, LocalStorageKeys } from 'Interfaces';
+import { getLocalStorage } from 'Utils';
+import {
+  Layer1_SubtitleStyle,
+  Layer1_TextStyle,
+} from 'Styles/Theme/Layers/style';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -37,7 +40,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
   const mustShowFeedbackWindow =
     locale !== Languages.en &&
     getLocalStorage(LocalStorageKeys.HasBeenAnswered) !==
-      "OccupationDetailPage";
+      'OccupationDetailPage';
   //
   return (
     <Container>
@@ -56,13 +59,13 @@ const Content: React.FC<Props> = ({ occupation }) => {
             }).map((assess) => (
               <Link
                 href={`/${locale}/occupations/assssing-authorities/#${
-                  assess.split("_")[0]
+                  assess.split('_')[0]
                 }`}
-                target="_blank"
+                target='_blank'
                 scroll={false}
               >
                 <TooltipTag
-                  content={assess.replaceAll("_", " ")}
+                  content={assess.replaceAll('_', ' ')}
                   // popupContent={
                   //   <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
                   //     {t(LanguageKeys.TooltipTagDesc)}
@@ -76,26 +79,26 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag
-          contentKey={"189"}
+          contentKey={'189'}
           isOn={has189Visa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={"190"}
+          contentKey={'190'}
           isOn={has190Visa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
 
         <StyledToggleTag
-          contentKey={"491"}
+          contentKey={'491'}
           isOn={has491StateVisa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={t(LanguageKeys["491-family"])}
+          contentKey={t(LanguageKeys['491-family'])}
           isOn={has491FamilyVisa(occupation.code)}
-          backgroundtheme="PAGE"
-          style={{ marginInlineEnd: "0" }}
+          backgroundtheme='PAGE'
+          style={{ marginInlineEnd: '0' }}
         />
       </ToggleContainer>
       {/*  */}
@@ -124,7 +127,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  ${PageTitleStyle};
+  ${Layer1_TextStyle};
   margin-bottom: 1rem;
   text-align: center;
 `;
@@ -145,7 +148,7 @@ const VetassesContainer = styled.div`
   }
 `;
 const VetassesTitle = styled.h1`
-  ${PageSubtitleStyle};
+  ${Layer1_SubtitleStyle};
   margin-bottom: 1rem;
   text-align: center;
   font-weight: 400;
@@ -156,9 +159,8 @@ const VetassesTitle = styled.h1`
 const AssessContainer = styled.div`
   display: flex;
   gap: 0.5rem;
-  flex-wrap:wrap;
-  justify-content:center;
-
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 const TitleContainer = styled.div`
   display: flex;

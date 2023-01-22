@@ -5,16 +5,16 @@ import { AnzscoSection, ReferenceType } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
-import {
-  componentSubtitleStyle,
-  componentTextStyle,
-  componentTitleStyle,
-  textTitleColor,
-} from 'Styles/Theme/Component';
 import AccordionContent from './AnzcoTab/accordionContent';
 import { LanguageKeys, componentStatements } from './const';
 import SkillPriorityLists from './AnzcoTab/skillPriorityLists';
 import { SkillLevelDescription } from './AnzcoTab/utils';
+import {
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+  layer2A_TitleStyle,
+} from 'Styles/Theme/Layers/style';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/theme';
 
 interface Props {
   anzscoSection: ReferenceType | AnzscoSection | undefined;
@@ -46,7 +46,7 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
           {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ''))}
         </SkillLevelDesc>
         <StyledAccordion
-          backgroundtheme={'COMPONENT'}
+          backgroundLayer='2A'
           triggerText={t(LanguageKeys.Tasks)}
           content={
             <AccordionContent
@@ -57,7 +57,7 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {(anzscoSection as AnzscoSection)?.priority_list?.[0]?.national ? (
           <StyledAccordion
-            backgroundtheme={'COMPONENT'}
+            backgroundLayer='2A'
             triggerText={t(LanguageKeys.SkillPriorityLists)}
             content={
               <div>
@@ -101,7 +101,7 @@ const TitleWrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  ${componentSubtitleStyle}
+  ${layer2A_SubtitleStyle}
   margin:0;
   text-align: center;
 `;
@@ -111,12 +111,12 @@ const Wrapper = styled.div`
 `;
 
 const ContentTitle = styled.h2`
-  ${componentTitleStyle}
-  ${textTitleColor}
+  ${layer2A_TitleStyle}
+  ${layer2A_TextColor}
   margin-bottom:1.5rem;
 `;
 const Description = styled.p`
-  ${componentSubtitleStyle};
+  ${layer2A_SubtitleStyle};
   ${BorderColor};
   margin: 0;
   margin-bottom: 2rem;
@@ -132,7 +132,7 @@ const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
 
   :after {
     content: '${({ skillLevel }) => skillLevel}';
-    ${componentTextStyle};
+    ${layer2A_TextStyle};
     margin: 0;
     padding: 0.1rem 0.5rem;
     height: 90%;
@@ -143,7 +143,7 @@ const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
 `;
 
 const SkillLevelDesc = styled.p`
-  ${componentSubtitleStyle}
+  ${layer2A_SubtitleStyle}
   padding: 2rem 1rem;
   background-color: var(--color-gray7);
   border-radius: 40px;

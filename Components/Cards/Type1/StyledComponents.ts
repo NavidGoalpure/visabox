@@ -5,17 +5,20 @@ import { IoIosArrowDown } from 'react-icons/io';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import {
-  componentBodyTheme,
-  componentSubtitleStyle,
-  componentTitleColor,
-  componentTextStyle,
-  componentTextColor,
-  KeyValue_Key,
-  KeyValue_Value,
-} from 'Styles/Theme/Component';
+  layer2A_BodyStyle,
+  layer2A_style,
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+} from 'Styles/Theme/Layers/style';
+import {
+  layer2A_Key,
+  layer2A_TextColor,
+  layer2A_TitleColor,
+  layer2A_Value,
+} from 'Styles/Theme/Layers/theme';
 
 export const Container = styled.section`
-  ${componentBodyTheme}
+  ${layer2A_BodyStyle}
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,7 +58,7 @@ export const codeColor = theme('mode', {
 });
 
 export const Code = styled.h3`
-  ${componentSubtitleStyle}
+  ${layer2A_SubtitleStyle}
   ${codeColor}
   width:min-content;
   padding: 0.5rem;
@@ -65,8 +68,8 @@ export const Code = styled.h3`
 `;
 
 export const Title = styled.h2`
-  ${componentSubtitleStyle}
-  ${componentTitleColor}
+  ${layer2A_SubtitleStyle}
+  ${layer2A_TitleColor}
   margin-bottom:0.5rem;
   text-align: center;
 `;
@@ -146,11 +149,11 @@ export const StyledScrollBox = styled(ScrollBox)<{
     }
   }
   ul {
-    ${componentTextStyle}
+    ${layer2A_TextStyle}
     margin-bottom:1rem;
   }
   p {
-    ${componentTextStyle}
+    ${layer2A_TextStyle}
     margin-bottom:1rem;
   }
   ${({ $isPopupOpen }) =>
@@ -194,8 +197,8 @@ export const Arrow = styled(IoIosArrowDown)<{ $isPopupOpen: boolean }>`
   ${({ $isPopupOpen }) => $isPopupOpen && ArrowHoverCss}
 `;
 export const PopupTitle = styled.h3`
-  ${componentSubtitleStyle}
-  ${componentTextColor}
+  ${layer2A_SubtitleStyle}
+  ${layer2A_TextColor}
     margin-bottom:1rem;
 `;
 export const StyledButton = styled(PrimaryButton)`
@@ -204,14 +207,14 @@ export const StyledButton = styled(PrimaryButton)`
   width: auto;
 `;
 export const Value = styled.h5`
-  ${componentTextStyle}
-  ${KeyValue_Value}
+  ${layer2A_TextStyle}
+  ${layer2A_Value}
   margin:0;
   overflow-wrap: anywhere;
   width: initial;
 `;
 export const Key = styled.h6`
-  ${componentTextStyle}
-  ${KeyValue_Key}
+  ${layer2A_TextStyle}
+  ${layer2A_Key}
   margin-inline-end: 0.5rem;
 `;

@@ -2,35 +2,36 @@ import styled from 'styled-components/macro';
 import SmartComponentBaseOnLocale from 'Components/Language/SmartComponentBaseOnLocale';
 import { componentStatements } from './const';
 import reactStringReplace from 'react-string-replace';
-import { PageSubtitleStyle, pageTitleColor } from 'Styles/Theme/Page';
+import { layer1_SubtitleColor } from 'Styles/Theme/Layers/theme';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/style';
 
 const PageSubtitle: React.FC = () => {
   const iranianSubtitle = reactStringReplace(
     componentStatements.PageSubtitle.fa,
     '{{تگ}}',
     () => (
-      <A
+      <a
         href='https://www.legislation.gov.au/Details/F2022C00574'
         target='_blank'
         rel='noopener noreferrer'
         key='a-tag-fa'
       >
         LIN 29/051
-      </A>
+      </a>
     )
   );
   const englishSubtitle = reactStringReplace(
     componentStatements.PageSubtitle.en,
     '{{tag}}',
     () => (
-      <A
+      <a
         href='https://www.legislation.gov.au/Details/F2022C00574'
         target='_blank'
         rel='noopener noreferrer'
         key='a-tag-en'
       >
         LIN 29/051
-      </A>
+      </a>
     )
   );
   return (
@@ -45,8 +46,5 @@ const PageSubtitle: React.FC = () => {
 export { PageSubtitle };
 
 const Subtitle = styled.h2`
-  ${PageSubtitleStyle}
-`;
-const A = styled.a`
-  ${pageTitleColor}
+  ${Layer1_SubtitleStyle}
 `;

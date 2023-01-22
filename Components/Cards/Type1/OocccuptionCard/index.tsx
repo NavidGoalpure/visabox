@@ -7,8 +7,8 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import PopupContent from './popupContent';
 import { Container, Wrapper, Code, Title } from '../StyledComponents';
 import Popup from '../popup';
-import { componentTextStyle } from 'Styles/Theme/Component';
 import styled from 'styled-components/macro';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   code?: number;
@@ -48,7 +48,7 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
 
 export default OccupationCard;
 const Description = styled.p`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   direction: ltr;
   text-align: center;
   margin: 0;

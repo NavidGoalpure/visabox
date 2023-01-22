@@ -1,23 +1,21 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { PageSubtitle } from 'PagesComponents/Occupations/List/PageSubtitle';
 import React, { ReactNode } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import styled from 'styled-components/macro';
-import { componentTheme } from 'Styles/Theme/Component';
-import { PageSubtitleStyle } from 'Styles/Theme/Page';
+import { getSmartBgBaseOnLevel } from 'Styles/utils';
 import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
   messageComponent?: ReactNode;
   icon?: ReactNode;
   hasIcon?: boolean;
-  context?: 'PAGE' | 'COMP';
+  themeLayer?: '1' | '2A' | '2B' | '3';
 }
 const NoData: React.FC<Props> = ({
   icon = <XLogo />,
   messageComponent,
   hasIcon = true,
-  context = 'COMP',
+  themeLayer = '1',
 }) => {
   const { t } = useStaticTranslation(componentStatements);
 
@@ -27,7 +25,7 @@ const NoData: React.FC<Props> = ({
     <p>{t(LanguageKeys.NoData)}</p>
   );
   return (
-    <Container context={context}>
+    <Container themeLayer={themeLayer}>
       {hasIcon ? icon : null}
       {smartMessageComponent}
     </Container>
@@ -36,8 +34,8 @@ const NoData: React.FC<Props> = ({
 
 export default NoData;
 
-const Container = styled.div<{ context: 'PAGE' | 'COMP' }>`
-  ${({ context }) => (context === 'COMP' ? componentTheme : PageSubtitleStyle)}
+const Container = styled.div<{ themeLayer: '1' | '2A' | '2B' | '3' }>`
+  ${({ themeLayer }) => getSmartBgBaseOnLevel(themeLayer)}
   display: flex;
   justify-content: center;
   align-items: center;

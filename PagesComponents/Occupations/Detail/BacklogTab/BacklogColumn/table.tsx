@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { componentTheme } from 'Styles/Theme/Component';
+
 import NoData from 'Components/NoData';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { layer2A_TableStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   titleKey: string;
@@ -18,19 +19,19 @@ export const BacklogTable: React.FC<Props> = ({
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Table>
-      <Thead id='header'>
-        <Tr>
+      <thead id='header'>
+        <tr>
           <th>{titleKey}</th>
           <th>{titleValue}</th>
-        </Tr>
-      </Thead>
-      <Tbody id='body'>
+        </tr>
+      </thead>
+      <tbody id='body'>
         {rows?.[0]?.rowValue ? (
           rows.map((row, i) => (
-            <Tr key={i}>
-              <Td>{row.rowKey}</Td>
-              <Td>{row.rowValue}</Td>
-            </Tr>
+            <tr key={i}>
+              <td>{row.rowKey}</td>
+              <td>{row.rowValue}</td>
+            </tr>
           ))
         ) : (
           <NoData
@@ -38,38 +39,11 @@ export const BacklogTable: React.FC<Props> = ({
             messageComponent={t(LanguageKeys.NoDataMessage)}
           />
         )}
-      </Tbody>
+      </tbody>
     </Table>
   );
 };
 
 const Table = styled.table`
-  width: 100%;
-  ${componentTheme}
-  margin-bottom:1rem;
-`;
-const Thead = styled.thead`
-  display: block;
-  background-color: transparent !important;
-  padding: 0.5rem 0 !important;
-`;
-
-const Tbody = styled.tbody`
-  text-align: center;
-  padding: 1rem 0 !important;
-  display: block;
-`;
-const Tr = styled.tr`
-  width: 100%;
-  font-weight: 500;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  margin-bottom: 1rem;
-  :last-child {
-    margin-bottom: 0;
-  }
-`;
-const Td = styled.td`
-  margin: 0;
-  font-weight: 500;
+  ${layer2A_TableStyle}
 `;

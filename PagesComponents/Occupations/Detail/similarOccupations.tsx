@@ -4,7 +4,7 @@ import { Occupation } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';
 import styled from 'styled-components/macro';
-import { PageTitleStyle } from 'Styles/Theme/Page';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/style';
 import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
@@ -44,7 +44,7 @@ const Container = styled.section`
   width: 100%;
 `;
 const Title = styled.h2`
-  ${PageTitleStyle}
+  ${Layer1_TitleStyle}
   width: 100%;
   text-align: center;
 `;

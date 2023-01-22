@@ -4,9 +4,9 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { pageBackground } from 'Styles/Theme/Page';
 import SwitchTheme from './switchTheme';
 import { useLocale } from 'Hooks/useLocale';
+import { layer1_BG } from 'Styles/Theme/Layers/theme';
 
 function Header() {
   const { locale } = useLocale();
@@ -34,7 +34,7 @@ function Header() {
 export { Header };
 
 const Container = styled(NavigationMenu.Root)`
-  ${pageBackground}
+  ${layer1_BG}
   ${directionStyles}
   ${boxShadow};
 

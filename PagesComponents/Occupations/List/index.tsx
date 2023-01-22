@@ -3,7 +3,6 @@ import { componentStatements, LanguageKeys } from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
-import { PageTitleStyle } from 'Styles/Theme/Page';
 import { useListData } from './useListData';
 import { useLastOccupationData } from './useLastOccupationData';
 import { getHasNextPage, getLastFechedOccupation } from './utils';
@@ -12,6 +11,8 @@ import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components/macro';
 import { useState } from 'react';
 import NoData from 'Components/NoData';
+import { layer1_TitleColor } from 'Styles/Theme/Layers/theme';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/style';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
@@ -34,7 +35,7 @@ const Content: React.FC = () => {
       <PageSubtitle />
       <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
       {!occupations?.pages[0]?.length && !isFetching ? (
-        <NoData hasIcon={false} context='PAGE' />
+        <NoData hasIcon={false} themeLayer='1' />
       ) : (
         <>
           <ContentOrError
@@ -54,5 +55,5 @@ const Content: React.FC = () => {
 };
 export default Content;
 const PageTitle = styled.h1`
-  ${PageTitleStyle}
+  ${Layer1_TitleStyle}
 `;

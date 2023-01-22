@@ -1,7 +1,8 @@
 import AssessingAuthorityCard from 'Components/Cards/Type1/AssessingAuthorityCard';
 import React from 'react';
 import styled from 'styled-components/macro';
-import { componentTextStyle } from 'Styles/Theme/Component';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+
 import { assssingAuthorities } from './const';
 import { AssssingAuthority } from './interfaces';
 
@@ -39,7 +40,7 @@ const Container = styled.section`
   margin-bottom: 2rem;
 `;
 const Description = styled.p`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   text-align: center;
   margin: 0;
   overflow: hidden;

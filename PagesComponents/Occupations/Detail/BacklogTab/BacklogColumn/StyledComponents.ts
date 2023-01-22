@@ -1,10 +1,6 @@
 import { deviceMin } from 'Consts/device';
 import styled, { css } from 'styled-components/macro';
 import * as Tab from 'Elements/Tab';
-import {
-  componentTextStyle,
-  componentBorderColor,
-} from 'Styles/Theme/Component';
 import theme from 'styled-theming';
 
 export const Container = styled.div`
@@ -16,22 +12,22 @@ export const Container = styled.div`
   }
 `;
 ///////////////
- const TextColor = theme('mode', {
-   light: css`
-     color: var(--color-gray9);
-     border: 2px solid var(--color-gray12);
-     span {
-       color: var(--color-primary3);
-     }
-   `,
-   dark: css`
-     color: var(--color-gray11);
-     background: var(--color-gray5);
-     span {
-       color: var(--color-primary5);
-     }
-   `,
- });
+const TextColor = theme('mode', {
+  light: css`
+    color: var(--color-gray9);
+    border: 2px solid var(--color-gray12);
+    span {
+      color: var(--color-primary3);
+    }
+  `,
+  dark: css`
+    color: var(--color-gray11);
+    background: var(--color-gray5);
+    span {
+      color: var(--color-primary5);
+    }
+  `,
+});
 export const Title = styled.h2`
   ${TextColor}
   width: 100%;

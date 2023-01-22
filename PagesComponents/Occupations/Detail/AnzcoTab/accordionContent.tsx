@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { componentTextStyle } from 'Styles/Theme/Component';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
 
 interface Props {
   data: string[] | undefined;
@@ -34,20 +34,20 @@ const AccordionContentWrapper = styled.ul`
   margin-bottom: 1rem;
 `;
 const AccordionLi = styled.li`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   margin-bottom: 0.5rem;
   :last-child {
     margin: 0;
   }
 `;
 const EmptyMessage = styled.h3`
-  ${componentTextStyle};
+  ${layer2A_TextStyle};
   margin: 0;
   text-align: center;
   font-style: italic;
 `;
 const AccordionDescription = styled.p`
-  ${componentTextStyle};
+  ${layer2A_TextStyle};
   margin: 0;
   margin-inline-start: -1rem;
   strong {

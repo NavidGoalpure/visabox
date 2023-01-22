@@ -1,28 +1,29 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import React, { HTMLAttributes, ReactNode } from 'react';
 import styled, { css, keyframes } from 'styled-components/macro';
-import { Headline5Style, Headline7Style } from 'Styles/Typo';
+import { Headline7Style } from 'Styles/Typo';
+import { getSmartBgBaseOnLevel } from 'Styles/utils';
+
 import { AiOutlinePlus } from 'react-icons/ai';
 import theme from 'styled-theming';
-import { pageBackground } from 'Styles/Theme/Page';
-import {
-  componentBodyBackground,
-  componentSubtitleStyle,
-  componentTextStyle,
-} from 'Styles/Theme/Component';
 import { deviceMin } from 'Consts/device';
+import { layer1_BG } from 'Styles/Theme/Layers/theme';
+import {
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+} from 'Styles/Theme/Layers/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerText: string;
   content: ReactNode;
-  backgroundtheme: 'PAGE' | 'COMPONENT';
+  backgroundLayer: '1' | '2A' | '2B' | '3';
   isOpen?: boolean;
 }
 
 export const MaraAccordion: React.FC<Props> = ({
   triggerText,
   content,
-  backgroundtheme,
+  backgroundLayer,
   isOpen = false,
   ...props
 }) => (
@@ -34,7 +35,7 @@ export const MaraAccordion: React.FC<Props> = ({
     data-testid='Marabox-Accordion'
   >
     <AccordionItem value='item'>
-      <AccordionHeader backgroundtheme={backgroundtheme}>
+      <AccordionHeader backgroundLayer={backgroundLayer}>
         <AccordionTrigger>
           <PlusIcon />
           {triggerText}
@@ -83,17 +84,16 @@ const AccordionItem = styled(Accordion.Item)`
   }
 `;
 const AccordionHeader = styled(Accordion.Header)<{
-  backgroundtheme: 'PAGE' | 'COMPONENT';
+  backgroundLayer: '1' | '2A' | '2B' | '3';
 }>`
   display: flex;
   position: relative;
   z-index: 11;
-  ${({ backgroundtheme }) =>
-    backgroundtheme === 'PAGE' ? pageBackground : componentBodyBackground}
+  ${({ backgroundLayer }) => getSmartBgBaseOnLevel(backgroundLayer)}
   border: none;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`
-  ${componentTextStyle}
+  ${layer2A_TextStyle}
   margin: 0;
   position: relative;
   z-index: 10;
@@ -109,7 +109,7 @@ const AccordionTrigger = styled(Accordion.Trigger)`
   background-color: var(--color-primary3);
   cursor: pointer;
   @media ${deviceMin.mobileL} {
-    ${componentSubtitleStyle};
+    ${layer2A_SubtitleStyle};
     margin: 0;
     color: white;
   }

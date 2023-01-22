@@ -10,7 +10,7 @@ describe('Accordin', () => {
       <MaraAccordion
         triggerText='Who is the best?'
         isOpen={false}
-        backgroundtheme='COMPONENT'
+        backgroundLayer='2A'
         content={<p> Kakashi is better than others</p>}
       />
     );
@@ -23,7 +23,7 @@ describe('Accordin', () => {
       <MaraAccordion
         triggerText='Who is the best?'
         isOpen={false}
-        backgroundtheme='COMPONENT'
+        backgroundLayer='2A'
         content={<p> Kakashi is better than others</p>}
       />
     );
@@ -51,7 +51,7 @@ describe('Accordin', () => {
       <MaraAccordion
         triggerText='Who is the best?'
         isOpen={true}
-        backgroundtheme='COMPONENT'
+        backgroundLayer='2A'
         content={<p> Kakashi is better than others</p>}
       />
     );
@@ -81,7 +81,7 @@ it('renders open accordin correctly ', () => {
       <MaraAccordion
         triggerText='Who is the best?'
         isOpen={true}
-        backgroundtheme='COMPONENT'
+        backgroundLayer='2A'
         content={<p> Kakashi is better than others</p>}
       />
     )
@@ -95,7 +95,7 @@ it('renders close Accordin correctly ', () => {
       <MaraAccordion
         triggerText='Who is the best?'
         isOpen={false}
-        backgroundtheme='COMPONENT'
+        backgroundLayer='2A'
         content={<p> Kakashi is better than others</p>}
       />
     )

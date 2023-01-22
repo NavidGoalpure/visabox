@@ -92,6 +92,7 @@ const ContentContainer = styled.div`
   border-left: 1px solid var(--color-gray9);
   text-align: center;
   font-weight: 500;
+
   @media ${deviceMin.tabletS} {
     flex-direction: row;
   }

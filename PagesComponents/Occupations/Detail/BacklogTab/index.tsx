@@ -1,3 +1,4 @@
+import { deviceMin } from 'Consts/device';
 import { BacklogSection } from 'Interfaces/Documents/occupation';
 import styled from 'styled-components/macro';
 import {
@@ -42,5 +43,8 @@ const ColumnWrappers = styled.article`
   }
   & > :last-child {
     margin-inline-end: auto;
+  }
+  @media ${deviceMin.tabletS} {
+    padding: 0 1rem;
   }
 `;

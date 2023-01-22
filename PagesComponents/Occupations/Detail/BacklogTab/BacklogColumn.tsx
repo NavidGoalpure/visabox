@@ -70,9 +70,7 @@ const Title = styled.h2`
   border-radius: 10px;
   margin-bottom: 1rem;
   background: var(--color-primary1);
-  span {
-    color: red;
-  }
+  
 `;
 const TabRoot = styled(Tab.Root)`
   width: 100%;

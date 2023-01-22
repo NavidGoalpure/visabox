@@ -121,7 +121,7 @@ const Description = styled.p`
   margin: 0;
   margin-bottom: 2rem;
   padding: 2rem 1.75rem;
-  border-radius: 5px;
+  border-radius: 15px;
 `;
 const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
   position: relative;
@@ -146,7 +146,7 @@ const SkillLevelDesc = styled.p`
   ${layer2A_SubtitleStyle}
   padding: 2rem 1rem;
   background-color: var(--color-gray7);
-  border-radius: 40px;
+  border-radius: 15px;
   color: white;
   white-space: break-spaces;
   margin: 0;

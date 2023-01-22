@@ -9,13 +9,14 @@ import useDevice from 'Hooks/useDevice';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { Details, NoMobile } from './styledComponents';
+import styled from 'styled-components/macro';
 
 interface Props {
   territorySection: TerritorySection[];
 }
 
 const DetailComponent: React.FC<Props> = ({ territorySection }) => {
-  const { isLaptop } = useDevice();
+  const { isLaptop, isMobile } = useDevice();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <>
@@ -24,7 +25,7 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
           <script src='https://use.fontawesome.com/5f46793e2e.js'></script>
         </Head>
       ) : null}
-      <Tab.Root
+      <DetailTab
         defaultValue={Territories.ACT}
         heads={
           <>
@@ -42,7 +43,7 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
               });
               return (
                 <RadixTab.Content key={territory} value={territory}>
-                  {!isLaptop ? (
+                  {isMobile ? (
                     <NoMobile>{t(LanguageKeys.NoMobile)}</NoMobile>
                   ) : null}
                   <Details dangerouslySetInnerHTML={{ __html: html }} />
@@ -57,3 +58,6 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
 };
 
 export default DetailComponent;
+const DetailTab = styled(Tab.Root)`
+  margin: 0;
+`;

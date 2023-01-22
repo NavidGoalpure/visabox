@@ -130,9 +130,10 @@ const SideBarRoot = styled(SideBar.Root)`
       margin-left: -1rem;
       margin-right: -1rem;
       width: auto;
-      @media ${deviceMin.laptopS} {
+      @media ${deviceMin.tabletS} {
         margin-left: 0;
         margin-right: 0;
+        border-radius: 15px;
       }
     }
   }

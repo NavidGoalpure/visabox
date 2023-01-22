@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 import theme from 'styled-theming';
-import { borderTheme } from 'Styles/Theme';
+import { borderTheme, warningTheme } from 'Styles/Theme';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
@@ -14,6 +14,7 @@ import {
 } from 'Styles/Theme/Layers/theme';
 
 export const NoMobile = styled.div`
+  ${warningTheme}
   ${layer2A_TextStyle}
   padding: 0.5rem;
   display: flex;

@@ -11,8 +11,15 @@ import AccordionContent from './accordionContent';
 import { LanguageKeys, componentStatements } from '../const';
 import UnitGroupCompoenent from '../unitGroup';
 import { ConvertAnzscoCodeToTitle } from './utils';
-import { layer2A_Key, layer2A_TextColor, layer2A_Value } from 'Styles/Theme/Layers/theme';
-import { layer2A_SubtitleStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/style';
+import {
+  layer2A_Key,
+  layer2A_TextColor,
+  layer2A_Value,
+} from 'Styles/Theme/Layers/theme';
+import {
+  layer2A_SubtitleStyle,
+  layer2A_TitleStyle,
+} from 'Styles/Theme/Layers/style';
 
 interface Props {
   anzscoSection: AnzscoSection | undefined;
@@ -130,7 +137,7 @@ const Table = styled.table`
   ${BorderColor};
   width: 100%;
   padding: 1.5rem;
-  border-radius: 5px;
+  border-radius: 15px;
   margin-bottom: 1.5rem;
 `;
 ////////////
@@ -157,6 +164,7 @@ const TdValue = styled.td`
 const TdKey = styled(TdValue)`
   ${layer2A_Key}
   margin-inline-end: 0.5rem;
+  white-space: nowrap;
 `;
 ////////////////
 
@@ -172,7 +180,7 @@ const Description = styled.p`
   margin-bottom: 2rem;
   padding: 2rem 1.75rem;
 
-  border-radius: 5px;
+  border-radius: 15px;
 `;
 const StyledAccordion = styled(MaraAccordion)`
   margin-bottom: 1rem;

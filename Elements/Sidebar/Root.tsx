@@ -54,6 +54,7 @@ const TabsRoot = styled(Tabs.Root)<{
   justify-content: flex-start;
   width: 100%;
   margin-bottom: 5rem;
+
   @media ${deviceMin.laptopS} {
     ${({ variant }) => variant === 'SIDE_POSITION' && 'flex-direction: row;'}
   }
@@ -94,6 +95,11 @@ const TabsList = styled(Tabs.TabsList)<{
 `;
 
 const ContentsContainer = styled.div`
-  width: 100%;
+  width: auto;
   height: 100%;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  @media ${deviceMin.tabletS} {
+    margin: 0;
+  }
 `;

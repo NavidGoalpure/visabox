@@ -5,10 +5,15 @@ import theme from 'styled-theming';
 
 export const Container = styled.div`
   width: 100%;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+
   @media ${deviceMin.tabletS} {
     flex: 1;
     max-width: 48%;
+    min-width: 40%;
+  }
+  @media ${deviceMin.laptopXS} {
+    min-width: 23%;
   }
 `;
 ///////////////
@@ -30,13 +35,19 @@ const TextColor = theme('mode', {
 });
 export const Title = styled.h2`
   ${TextColor}
-  width: 100%;
+  width: auto;
   height: 8rem;
   text-align: center;
   padding: 1.5rem 0.5rem;
   border-radius: 10px;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  @media ${deviceMin.tabletS} {
+    margin-left: 0;
+    margin-right: 0;
+  }
   span {
     border-radius: 50%;
     padding: 0.25rem;
@@ -45,7 +56,7 @@ export const Title = styled.h2`
   }
 `;
 export const TabRoot = styled(Tab.Root)`
-  width: 100%;
+  width: auto;
   div {
     &[aria-label='tabs'] {
       border-radius: 15px;

@@ -28,12 +28,20 @@ export default Root;
 const TabsRoot = styled(Tabs.Root)`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: auto;
+  margin: 0 1rem;
+  @media ${deviceMin.tabletS} {
+    margin: 0;
+  }
 `;
 const HeadesWrapper = styled.div`
   overflow: auto;
-  @media ${deviceMin.tabletS} {
+
+  @media ${deviceMin.tabletL} {
     overflow: hidden;
+  }
+  button {
+    padding: 0 0.5rem;
   }
 `;
 export const backgroundHeadsList = theme('mode', {

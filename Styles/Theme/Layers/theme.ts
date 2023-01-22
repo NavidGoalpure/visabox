@@ -155,14 +155,7 @@ export const layer2B_TextColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
-export const layer2B_BorderColor = theme('mode', {
-  light: css`
-    border: 2px solid var(--color-gray11);
-  `,
-  dark: css`
-    border: 1px solid var(--color-gray13);
-  `,
-});
+
 //////////LAYER3/////////
 export const layer3_BG = theme('mode', {
   light: css`

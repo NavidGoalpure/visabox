@@ -53,3 +53,11 @@ export const warningTheme = theme('mode', {
     color: var(--color-gray13);
   `,
 });
+export const borderTheme = theme('mode', {
+  light: css`
+    border: 2px solid var(--color-gray11);
+  `,
+  dark: css`
+    border: 1px solid var(--color-gray13);
+  `,
+});

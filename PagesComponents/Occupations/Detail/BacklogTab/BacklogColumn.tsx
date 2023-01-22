@@ -6,6 +6,7 @@ import styled from 'styled-components/macro';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+import { borderTheme } from 'Styles/Theme';
 
 interface Props {
   title: string;
@@ -61,6 +62,7 @@ const Container = styled.div`
 `;
 const Title = styled.h2`
   ${layer2A_TextStyle}
+  ${borderTheme}
   width: 100%;
   height: max-content;
   text-align: center;

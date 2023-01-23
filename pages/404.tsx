@@ -7,11 +7,11 @@ import styled from 'styled-components/macro';
 
 import Link from 'next/link';
 import Seo from 'Components/Seo';
-import { Layer1_TextStyle } from 'Styles/Theme/Layers/layer1/style';
 import {
-  layer1_TextColor,
-  layer1_SubtitleColor,
-} from 'Styles/Theme/Layers/layer1/theme';
+  Layer1_SubtitleStyle,
+  Layer1_TextStyle,
+  Layer1_TitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
 
 export default function NotFound() {
   return (
@@ -58,10 +58,10 @@ const TxtContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  ${layer1_TextColor}
+  ${Layer1_TitleStyle}
 `;
 const Subtitle = styled.h2`
-  ${layer1_SubtitleColor}
+  ${Layer1_SubtitleStyle}
 `;
 const Desc = styled.h3`
   ${Layer1_TextStyle}

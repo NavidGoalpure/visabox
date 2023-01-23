@@ -62,10 +62,6 @@ export const layer2A_style = css`
     ${layer2A_HeaderBG}
     text-align: center;
   }
-  ////////////
-  article {
-    ${layer2A_Bg}
-  }
 
   /////////////
   p {

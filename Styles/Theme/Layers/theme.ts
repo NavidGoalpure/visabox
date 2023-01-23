@@ -47,14 +47,7 @@ export const layer1_TextColor = theme('mode', {
   `,
 });
 //////////LAYER2_A/////////
-export const layer2A_BG = theme('mode', {
-  light: css`
-    background-color: var(--color-gray6);
-  `,
-  dark: css`
-    background-color: var(--color-gray6);
-  `,
-});
+
 export const layer2A_HeaderBG = theme('mode', {
   light: css`
     background-color: var(--color-gray12);
@@ -63,10 +56,10 @@ export const layer2A_HeaderBG = theme('mode', {
     background-color: var(--color-gray7);
   `,
 });
-export const layer2A_BodyBg = theme('mode', {
+export const layer2A_Bg = theme('mode', {
   light: css`
     background: #ffffff;
-    border: 1px solid var(--color-gray11);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   `,
   dark: css`
     background: var(--color-gray6);

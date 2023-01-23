@@ -11,11 +11,12 @@ import {
   layer1_SubtitleColor,
   layer1_TextColor,
   layer1_TitleColor,
-  layer2A_BG,
-  layer2A_BodyBg,
+  layer2A_Bg,
   layer2A_HeaderBG,
   layer2A_SubtitleColor,
   layer2A_TextColor,
+  layer3_SubtitleColor,
+  layer3_TextColor,
 } from './theme';
 
 ///////////////layer1//////////////////
@@ -76,12 +77,12 @@ export const layer2A_HeaderStyle = css`
   border-left: none;
 `;
 export const layer2A_BodyStyle = css`
-  ${layer2A_BodyBg}
+  ${layer2A_Bg}
   padding: 2rem 1rem;
   border-radius: 0 0 15px 15px;
 `;
 export const layer2A_style = css`
-  ${layer2A_BG}
+  ${layer2A_Bg}
   ${directionStyles}
   border-radius: 15px;
   overflow: hidden;
@@ -96,11 +97,9 @@ export const layer2A_style = css`
   }
   ////////////
   article {
-    ${layer2A_BG}
+    ${layer2A_Bg}
   }
-  #body {
-    ${layer2A_BG}
-  }
+
   /////////////
   p {
     text-align: start;
@@ -142,4 +141,39 @@ export const layer2A_TableStyle = css`
       font-weight: 500;
     }
   }
+`;
+/////////
+///////////////layer3/////////////
+export const layer3_TitleStyle = css`
+  ${directionStyles}
+  ${layer3_TextColor}
+  ${Headline5Style}
+`;
+export const layer3_SubtitleStyle = css`
+  ${directionStyles}
+  ${layer3_SubtitleColor}
+  ${Headline6Style}
+`;
+export const layer3_TextStyle = css`
+  ${directionStyles}
+  ${layer3_TextColor}
+  ${Headline7Style}
+`;
+
+export const layer3_HeaderBg = theme('mode', {
+  light: css`
+    background: var(--color-gray13);
+  `,
+  dark: css`
+    background: var(--color-gray7);
+  `,
+});
+
+export const layer3_HeaderStyle = css`
+  ${layer3_HeaderBg}
+  padding: 1rem 2rem;
+  border-radius: 15px 15px 0 0;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 `;

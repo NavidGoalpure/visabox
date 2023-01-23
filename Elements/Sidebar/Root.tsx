@@ -5,7 +5,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
-import { layer2A_BodyBg } from 'Styles/Theme/Layers/theme';
+import { layer2A_Bg } from 'Styles/Theme/Layers/theme';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
@@ -71,7 +71,7 @@ const TabsList = styled(Tabs.TabsList)<{
   variant: 'UP_POSITION' | 'SIDE_POSITION';
 }>`
   ${directionStyles}
-  ${layer2A_BodyBg}
+  ${layer2A_Bg}
   ${boxShadow}
   //
   display: flex;

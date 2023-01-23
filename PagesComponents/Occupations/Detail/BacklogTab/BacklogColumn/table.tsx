@@ -5,6 +5,7 @@ import NoData from 'Components/NoData';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { layer2A_TableStyle } from 'Styles/Theme/Layers/layer2/style';
+import { layer3_TableStyle } from 'Styles/Theme/Layers/layer3/style';
 
 interface Props {
   titleKey: string;
@@ -45,5 +46,5 @@ export const BacklogTable: React.FC<Props> = ({
 };
 
 const Table = styled.table`
-  ${layer2A_TableStyle}
+  ${layer3_TableStyle}
 `;

@@ -81,7 +81,7 @@ export const iran: [
   {
     title: {
       en: 'Aerospace Research Institute',
-      fa: 'پژوھشگاه ھوا و فضا',
+      fa: 'پژوهشگاه هوا و فضا',
     },
     desc: {
       en: '',
@@ -109,7 +109,7 @@ export const iran: [
   {
     title: {
       en: 'Ahlul Bayt Higher Education Centre',
-      fa: 'مركز آموزش عالی اھل بیت',
+      fa: 'مركز آموزش عالی اهل بیت',
     },
     desc: {
       en: 'Ahlul Bayt Non-Profit Non-Governmental Higher Education Centre',
@@ -123,7 +123,7 @@ export const iran: [
   {
     title: {
       en: 'Ahwaz University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی اھواز',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی اهواز',
     },
     desc: {
       en: 'Ahwaz Jundishapur University of Medical Sciences Shahid Chamran University of Medical Sciences, Faculty of Medicine of Shahid Chamran University Public institution, founded in 1956',
@@ -151,7 +151,7 @@ export const iran: [
   {
     title: {
       en: 'Alaodoleh Semnani Institute of Higher Education',
-      fa: 'موسسه آموزش عالی علاءالدولھ سمنانی',
+      fa: 'موسسه آموزش عالی علاءالدوله سمنانی',
     },
     desc: {
       en: 'Alaodoleh Semnani Non-profit Non-Governmental Higher Education Institute',
@@ -165,7 +165,7 @@ export const iran: [
   {
     title: {
       en: 'Allameh Amini Higher Education Institute',
-      fa: 'موسسه آموزش عالی علامھ امینی',
+      fa: 'موسسه آموزش عالی علامه امینی',
     },
     desc: {
       en: 'Allameh Amini Non-profit Non-Governmental Higher Education Institute, Allameh Amini High Educational Institute of Babolsar',
@@ -179,7 +179,7 @@ export const iran: [
   {
     title: {
       en: 'Allameh Faiz Kashani Higher Education Institute',
-      fa: 'موسسه آموزش عالی علامھ فیض كاشانی',
+      fa: 'موسسه آموزش عالی علامه فیض كاشانی',
     },
     desc: {
       en: 'Allameh Faiz Kashani Non-profit Non-Governmental Higher Education Institute',
@@ -193,7 +193,7 @@ export const iran: [
   {
     title: {
       en: 'Allameh Ghazvini Higher Education Institute',
-      fa: 'موسسه آموزش عالی علامھ قزوینی',
+      fa: 'موسسه آموزش عالی علامه قزوینی',
     },
     desc: {
       en: 'Allameh Ghazvini Non-profit Non-Governmental Higher Education Institute',
@@ -207,7 +207,7 @@ export const iran: [
   {
     title: {
       en: 'Allameh Jafari Higher Education Institute',
-      fa: 'موسسه آموزش عالی علامھ جعفری',
+      fa: 'موسسه آموزش عالی علامه جعفری',
     },
     desc: {
       en: 'Allameh Jafari Non-profit Non-Governmental Higher Education Institute',
@@ -221,7 +221,7 @@ export const iran: [
   {
     title: {
       en: 'Allameh Mohaddes Noori Institute of Higher Education',
-      fa: 'موسسه آموزش عالی علامھ محدث نوری',
+      fa: 'موسسه آموزش عالی علامه محدث نوری',
     },
     desc: {
       en: 'Private institution, founded in 1996',
@@ -235,7 +235,7 @@ export const iran: [
   {
     title: {
       en: 'Allameh Rafiei Higher Education Institute',
-      fa: 'موسسه آموزش عالی علامھ رفیعی',
+      fa: 'موسسه آموزش عالی علامه رفیعی',
     },
     desc: {
       en: 'Allameh Rafiei Non-profit Non-Governmental Higher Education Institute',
@@ -249,7 +249,7 @@ export const iran: [
   {
     title: {
       en: 'Allameh Tabatabai University',
-      fa: 'دانشگاه علامھ طباطبایی',
+      fa: 'دانشگاه علامه طباطبایی',
     },
     desc: {
       en: 'Public institution, founded in 1984',
@@ -263,7 +263,7 @@ export const iran: [
   {
     title: {
       en: 'Al-Mahdi Higher Education Institute',
-      fa: 'موسسه آموزش عالی المھدی',
+      fa: 'موسسه آموزش عالی المهدی',
     },
     desc: {
       en: 'Al Mahdi University, Al-Mahdi Non-profit Non-Governmental Higher Education Institute',
@@ -291,7 +291,7 @@ export const iran: [
   {
     title: {
       en: 'Al-Zahra University',
-      fa: 'دانشگاه الزھراء',
+      fa: 'دانشگاه الزهراء',
     },
     desc: {
       en: 'Alzahra University Farah Pahlavi University Mahbubeh Motahedin University Public institution, founded in 1975',
@@ -333,7 +333,7 @@ export const iran: [
   {
     title: {
       en: 'Andisheh Higher Education Institute',
-      fa: 'موسسه آموزش عالی اندیشھ',
+      fa: 'موسسه آموزش عالی اندیشه',
     },
     desc: {
       en: 'Andisheh Non-profit Non-Governmental Higher Education Institute',
@@ -389,7 +389,7 @@ export const iran: [
   {
     title: {
       en: 'Arak University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی اراک',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی اراک',
     },
     desc: {
       en: 'Public institution, founded in 1986, achieved university status in 1990',
@@ -431,7 +431,7 @@ export const iran: [
   {
     title: {
       en: 'Archives Research Institute',
-      fa: 'پژوھشكده اسناد',
+      fa: 'پژوهشكده اسناد',
     },
     desc: {
       en: 'Affiliated to the National Library and Archives of Iran',
@@ -459,7 +459,7 @@ export const iran: [
   {
     title: {
       en: 'Ardabil University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی اردبیل',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی اردبیل',
     },
     desc: {
       en: 'Public institution, founded in 1993',
@@ -515,7 +515,7 @@ export const iran: [
   {
     title: {
       en: 'Asiroden Abhari Higher Education Institute',
-      fa: 'موسسه آموزش عالی اثیرالدین ابھری',
+      fa: 'موسسه آموزش عالی اثیرالدین ابهری',
     },
     desc: {
       en: 'Asiroden Abhari Non-profit Non-Governmental Higher Education Institute',
@@ -641,7 +641,7 @@ export const iran: [
   {
     title: {
       en: 'Babol University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی بابل',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی بابل',
     },
     desc: {
       en: 'Public institution, founded in 1983, achieved university status in 1986',
@@ -669,7 +669,7 @@ export const iran: [
   {
     title: {
       en: 'Bahar Institute of Higher Education',
-      fa: 'موسسه آموزش عالی بھار',
+      fa: 'موسسه آموزش عالی بهار',
     },
     desc: {
       en: 'Bahar Non-profit Non-Governmental Higher Education Institute',
@@ -697,7 +697,7 @@ export const iran: [
   {
     title: {
       en: 'Baqiyatallah Medical Sciences University',
-      fa: 'دانشگاه علوم پزشکی بقیھ ا',
+      fa: 'دانشگاه علوم پزشکی بقیه الله',
     },
     desc: {
       en: 'Baghyatoolah Medical Sciences University Public institution, founded in 1991',
@@ -753,7 +753,7 @@ export const iran: [
   {
     title: {
       en: 'Birjand University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی بیرجند',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی بیرجند',
     },
     desc: {
       en: 'Public institution, founded in 1986, achieved university status in 1993',
@@ -767,14 +767,14 @@ export const iran: [
   {
     title: {
       en: 'Bojnourd College of Engineering',
-      fa: 'دانشكده فنی و مھندسی بجنورد',
+      fa: 'دانشكده فنی و مهندسی بجنورد',
     },
     desc: {
       en: 'Bojnourd Technical and Engineering Faculty',
     },
     city: {
       en: 'Bojnourd',
-      fa: 'بوجنورد',
+      fa: 'بجنورد',
     },
     setion: 1,
   },
@@ -787,8 +787,8 @@ export const iran: [
       en: 'Bojnourd Non-profit Non-Governmental Higher Education Institute',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Bojnourd',
+      fa: 'بجنورد',
     },
     setion: 2,
   },
@@ -802,7 +802,7 @@ export const iran: [
     },
     city: {
       en: 'Bojnourd',
-      fa: 'بوجنورد',
+      fa: 'بجنورد',
     },
     setion: 1,
   },
@@ -815,8 +815,8 @@ export const iran: [
       en: '',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Bonab',
+      fa: 'بناب',
     },
     setion: 2,
   },
@@ -829,15 +829,15 @@ export const iran: [
       en: 'Boroujerd Non-profit Non-Governmental Higher Education Institute',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Bojnourd',
+      fa: 'بجنورد',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Bozorgmehr Higher Education Institute',
-      fa: 'موسسه آموزش عالی بزرگمھر',
+      fa: 'موسسه آموزش عالی بزرگمهر',
     },
     desc: {
       en: 'Bozorgmehr Non-profit Non-Governmental Higher Education Institute',
@@ -851,7 +851,7 @@ export const iran: [
   {
     title: {
       en: 'Bu-Ali Sina University',
-      fa: 'دانشگاه بوعلی سینا ھمدان',
+      fa: 'دانشگاه بوعلی سینا همدان',
     },
     desc: {
       en: 'Hamadan University Public institution, founded in 1973, achieved university status in 1983',
@@ -865,7 +865,7 @@ export const iran: [
   {
     title: {
       en: 'Bushehr Technical Institute for Nuclear Energy',
-      fa: 'آموزشكده فنی انرژی ھستھ ای بوشھر',
+      fa: 'آموزشكده فنی انرژی هسته ای بوشهر',
     },
     desc: {
       en: 'Affiliated to the Atomic Energy Organisation',
@@ -879,7 +879,7 @@ export const iran: [
   {
     title: {
       en: 'Bushehr University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی بوشھر',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی بوشهر',
     },
     desc: {
       en: 'Public institution, founded in 1983, achieved university status in 1995',
@@ -893,7 +893,7 @@ export const iran: [
   {
     title: {
       en: 'Business Studies and Research Higher Education Institute',
-      fa: 'موسسه آموزش عالی مطالعات و پژوھشھای بازرگانی',
+      fa: 'موسسه آموزش عالی مطالعات و پژوهشهای بازرگانی',
     },
     desc: {
       en: 'Business Studies and Research Non-profit Non-Governmental Higher Education Institute',
@@ -913,22 +913,22 @@ export const iran: [
       en: 'Chaloos Non-profit Non-Governmental Higher Education Institute',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Chaloos',
+      fa: 'چالوس',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Chemical Engineering Research Centre of Iran',
-      fa: 'مركز پژوھشھای شیمی و مھندسی شیمی ایران',
+      fa: 'مركز پژوهشهای شیمی و مهندسی شیمی ایران',
     },
     desc: {
       en: '',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Chaloos',
+      fa: 'چالوس',
     },
     setion: 2,
   },
@@ -949,7 +949,7 @@ export const iran: [
   {
     title: {
       en: 'College of Aviation Technology',
-      fa: 'دانشكده صنعت ھواپیمایی كشوری',
+      fa: 'دانشكده صنعت هواپیمایی كشوری',
     },
     desc: {
       en: 'Affiliated to the Civil Aviation Organisation',
@@ -991,7 +991,7 @@ export const iran: [
   {
     title: {
       en: 'College of Islamic Theology and Principles',
-      fa: 'دانشكده الھیات و معارف اسلامی',
+      fa: 'دانشكده الهیات و معارف اسلامی',
     },
     desc: {
       en: '',
@@ -1033,7 +1033,7 @@ export const iran: [
   {
     title: {
       en: 'College of Occupational Health and Safety',
-      fa: 'دانشكده حفاظت و بھداشت كار',
+      fa: 'دانشكده حفاظت و بهداشت كار',
     },
     desc: {
       en: 'Affiliated to Ministry of Labour and Social Welfare',
@@ -1061,7 +1061,7 @@ export const iran: [
   {
     title: {
       en: 'College of Shahid Motahari',
-      fa: 'مدرسھ عالی شھید مطھری',
+      fa: 'مدرسه عالی شهید مطهری',
     },
     desc: {
       en: 'Sepahsalar College Founded in 1969',
@@ -1089,7 +1089,7 @@ export const iran: [
   {
     title: {
       en: 'Damghan University of Basic Sciences',
-      fa: 'دانشگاه علوم پایھ دامغان',
+      fa: 'دانشگاه علوم پایه دامغان',
     },
     desc: {
       en: 'Public institution, founded in 1988',
@@ -1103,7 +1103,7 @@ export const iran: [
   {
     title: {
       en: 'Daneshpajoohan Sepahan Higher Education Institute',
-      fa: 'موسسه آموزش عالی دانش پژوھان سپاھان',
+      fa: 'موسسه آموزش عالی دانش پژوهان سپاهان',
     },
     desc: {
       en: 'Daneshpajoohan Sepahan Non-profit Non-Governmental Higher Education Institute',
@@ -1179,8 +1179,8 @@ export const iran: [
       en: 'Ershad Damavand Private Institute of Higher Education Ershad Damavand Non-profit Non-Governmental Higher Education Institute',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Damavand',
+      fa: 'دماوند',
     },
     setion: 2,
   },
@@ -1193,8 +1193,8 @@ export const iran: [
       en: 'Eyvanakey Non-profit Non-Governmental Higher Education Institute',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Eyvanakey',
+      fa: 'ایوانکی',
     },
     setion: 2,
   },
@@ -1243,7 +1243,7 @@ export const iran: [
   {
     title: {
       en: 'Fasa University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی فسا',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی فسا',
     },
     desc: {
       en: 'Private institution, founded in 1986',
@@ -1285,7 +1285,7 @@ export const iran: [
   {
     title: {
       en: 'Ferdowsi University of Mashhad',
-      fa: 'دانشگاه فردوسی مشھد',
+      fa: 'دانشگاه فردوسی مشهد',
     },
     desc: {
       en: 'University of Mashhad, Ferdowsi University Public institution, founded in 1949',
@@ -1299,7 +1299,7 @@ export const iran: [
   {
     title: {
       en: 'Ganjnameh Higher Education Institute',
-      fa: 'موسسه آموزش عالی گنجنامھ ھمدان',
+      fa: 'موسسه آموزش عالی گنجنامه همدان',
     },
     desc: {
       en: 'Ganjnameh Non-profit Non-Governmental Higher Education Institute',
@@ -1313,7 +1313,7 @@ export const iran: [
   {
     title: {
       en: 'Geology Research Institute',
-      fa: 'پژوھشكده علوم زمین',
+      fa: 'پژوهشكده علوم زمین',
     },
     desc: {
       en: 'Affiliated to the Geological Survey of Iran',
@@ -1355,21 +1355,21 @@ export const iran: [
   {
     title: {
       en: 'Golestan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی گلستان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی گلستان',
     },
     desc: {
       en: 'Gorgan University of Medical Sciences Public institution, founded in 1967',
     },
     city: {
-      en: '',
-      fa: '',
+      en: 'Gorgan',
+      fa: 'گرگان',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Golestan University of Medical Sciences',
-      fa: 'دانشكده فنی و مھندسی گلپایگان',
+      fa: 'دانشكده فنی و مهندسی گلپایگان',
     },
     desc: {
       en: 'Golpayegan University of Technology Golpayegan Technical and Engineering Faculty',
@@ -1383,7 +1383,7 @@ export const iran: [
   {
     title: {
       en: 'Gonabad University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی گناباد',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی گناباد',
     },
     desc: {
       en: 'Private institution, founded in 1986',
@@ -1425,7 +1425,7 @@ export const iran: [
   {
     title: {
       en: 'Guilan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی گیلان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی گیلان',
     },
     desc: {
       en: 'Gilan University of Medical Sciences Public institution, founded in 1985',
@@ -1439,7 +1439,7 @@ export const iran: [
   {
     title: {
       en: 'Hadaf Higher Education Institute',
-      fa: 'موسسه آموزش عالی ھدف',
+      fa: 'موسسه آموزش عالی هدف',
     },
     desc: {
       en: 'Hadaf Non-profit Non-Governmental Higher Education Institute',
@@ -1495,7 +1495,7 @@ export const iran: [
   {
     title: {
       en: 'Hamadan University of Medical Sciences and Health Services',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی ھمدان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی همدان',
     },
     desc: {
       en: 'Bu-Ali Sina University of Medical Sciences Public institution, founded in 1986',
@@ -1509,7 +1509,7 @@ export const iran: [
   {
     title: {
       en: 'Haraz Higher Education Institute',
-      fa: 'موسسه آموزش عالی ھراز',
+      fa: 'موسسه آموزش عالی هراز',
     },
     desc: {
       en: 'Haraz Non-profit Non-Governmental Higher Education Institute',
@@ -1523,7 +1523,7 @@ export const iran: [
   {
     title: {
       en: 'Hasrat-e Masoumeh University',
-      fa: 'دانشگاه حضرت معصومھ',
+      fa: 'دانشگاه حضرت معصومه',
     },
     desc: {
       en: '',
@@ -1537,7 +1537,7 @@ export const iran: [
   {
     title: {
       en: 'Hatef Higher Education Institute',
-      fa: 'موسسه آموزش عالی ھاتف',
+      fa: 'موسسه آموزش عالی هاتف',
     },
     desc: {
       en: 'Hatef Non-profit Non-Governmental Higher Education Institute',
@@ -1593,7 +1593,7 @@ export const iran: [
   {
     title: {
       en: 'Higher Education Centre for Cultural Legacy',
-      fa: 'مركز آموزش عالی میراث فرھنگی',
+      fa: 'مركز آموزش عالی میراث فرهنگی',
     },
     desc: {
       en: 'Higher Education Centre for Cultural Heritage Private institution, located in Tehran, founded in 1987',
@@ -1733,7 +1733,7 @@ export const iran: [
   {
     title: {
       en: 'Higher Education Institute for Development and Rural Development',
-      fa: 'موسسه آموزش عالی آبادانی و توسعھ روستاھا',
+      fa: 'موسسه آموزش عالی آبادانی و توسعه روستاها',
     },
     desc: {
       en: 'Non-profit Non-Governmental Higher Education Institute for Development and Rural Development, Village Construction and Development Higher Education Institute',
@@ -1775,7 +1775,7 @@ export const iran: [
   {
     title: {
       en: 'Higher Institute of Research and Planning',
-      fa: 'موسسه عالی پژوھش و برنامھ ریزی',
+      fa: 'موسسه عالی پژوهش و برنامه ریزی',
     },
     desc: {
       en: 'Affiliated to the Management and Planning Organisation',
@@ -1789,7 +1789,7 @@ export const iran: [
   {
     title: {
       en: 'Hormozgan University',
-      fa: 'دانشگاه ھرمزگان',
+      fa: 'دانشگاه هرمزگان',
     },
     desc: {
       en: 'Private institution, founded in 1984 Bandar Abbas',
@@ -1803,7 +1803,7 @@ export const iran: [
   {
     title: {
       en: 'Hormozgan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی ھرمزگان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی هرمزگان',
     },
     desc: {
       en: 'Public institution, founded in 1983 Bandar Abbas',
@@ -1817,7 +1817,7 @@ export const iran: [
   {
     title: {
       en: 'Hotel and Tourism Applied-Science Higher Education Institute',
-      fa: 'موسسه آموزش عالی علمی – كاربردی ھتلداری و جھانگردی',
+      fa: 'موسسه آموزش عالی علمی – كاربردی هتلداری و جهانگردی',
     },
     desc: {
       en: 'Hotel and Tourism Applied-Science Non-profit Non-Governmental Higher Education Institute',
@@ -1845,7 +1845,7 @@ export const iran: [
   {
     title: {
       en: 'Ilam University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی ایلام',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی ایلام',
     },
     desc: {
       en: 'Public institution, founded in 1990, achieved university status in 1995',
@@ -1901,7 +1901,7 @@ export const iran: [
   {
     title: {
       en: 'Imam Khomeini Education and Research Institute',
-      fa: 'موسسه آموزشی و پژوھشی امام خمینی',
+      fa: 'موسسه آموزشی و پژوهشی امام خمینی',
     },
     desc: {
       en: '',
@@ -1985,7 +1985,7 @@ export const iran: [
   {
     title: {
       en: 'Institute for Advanced Studies in Basic Sciences',
-      fa: 'مركز تحصیلات تكمیلی درعلوم پایھ زنجان',
+      fa: 'مركز تحصیلات تكمیلی درعلوم پایه زنجان',
     },
     desc: {
       en: 'Private institution, founded in 1993',
@@ -1999,7 +1999,7 @@ export const iran: [
   {
     title: {
       en: 'Institute for Cognitive Science Studies',
-      fa: 'پژوھشكده علوم شناختی',
+      fa: 'پژوهشكده علوم شناختی',
     },
     desc: {
       en: 'Research Institute for Cognitive Science',
@@ -2013,7 +2013,7 @@ export const iran: [
   {
     title: {
       en: 'Institute for Research in Fundamental Sciences',
-      fa: 'پژوھشگاه دانشھای بنیادی',
+      fa: 'پژوهشگاه دانشهای بنیادی',
     },
     desc: {
       en: 'IPM, Institute for Studies in Theoretical Physics and Mathematics',
@@ -2027,7 +2027,7 @@ export const iran: [
   {
     title: {
       en: 'Institute of Building and Housing',
-      fa: 'پژوھشكده ساختمان و مسكن',
+      fa: 'پژوهشكده ساختمان و مسكن',
     },
     desc: {
       en: 'Building and Housing Research Centre',
@@ -2041,7 +2041,7 @@ export const iran: [
   {
     title: {
       en: 'Institute of Humanities and Cultural Studies',
-      fa: 'پژوھشگاه علوم انسانی و مطالعات فرھنگی',
+      fa: 'پژوهشگاه علوم انسانی و مطالعات فرهنگی',
     },
     desc: {
       en: '',
@@ -2055,7 +2055,7 @@ export const iran: [
   {
     title: {
       en: 'Insurance Research Centre',
-      fa: 'پژوھشكده بیمھ',
+      fa: 'پژوهشكده بیمه',
     },
     desc: {
       en: '',
@@ -2069,7 +2069,7 @@ export const iran: [
   {
     title: {
       en: 'International Centre for Islamic Sciences',
-      fa: 'مركز جھانی علوم اسلامی',
+      fa: 'مركز جهانی علوم اسلامی',
     },
     desc: {
       en: '',
@@ -2097,7 +2097,7 @@ export const iran: [
   {
     title: {
       en: 'International Institute of Seismology and Earthquake Engineering',
-      fa: 'پژوھشگاه بین المللی زلزلھ شناسی و مھندسی زلزلھ',
+      fa: 'پژوهشگاه بین المللی زلزله شناسی و مهندسی زلزله',
     },
     desc: {
       en: '',
@@ -2139,7 +2139,7 @@ export const iran: [
   {
     title: {
       en: 'Iran Industries Research Higher Education Institute',
-      fa: 'موسسه آموزش عالی غیرانتفاعی- غیردولتی پژوھش صنایع ایران',
+      fa: 'موسسه آموزش عالی غیرانتفاعی- غیردولتی پژوهش صنایع ایران',
     },
     desc: {
       en: 'Higher Education Institution for Iranian Industries Research, IIR Institute, Iran Industrial Research Non-profit Non-Governmental Higher Education Institute Private institution, founded in 1995',
@@ -2153,7 +2153,7 @@ export const iran: [
   {
     title: {
       en: 'Iran Institute of Knowledge and Research',
-      fa: 'موسسه توسعھ دانش و پژوھش ایران',
+      fa: 'موسسه توسعه دانش و پژوهش ایران',
     },
     desc: {
       en: '',
@@ -2167,7 +2167,7 @@ export const iran: [
   {
     title: {
       en: 'Iran Polymer Institute',
-      fa: 'پژوھشگاه پلیمر ایران',
+      fa: 'پژوهشگاه پلیمر ایران',
     },
     desc: {
       en: 'Iran Petrochemical and Polymer Research Centre',
@@ -2209,7 +2209,7 @@ export const iran: [
   {
     title: {
       en: 'Iran University of Medical Sciences and Health Services',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی ایران',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی ایران',
     },
     desc: {
       en: 'Public institution, founded in 1974, achieved university status in 1989',
@@ -2237,7 +2237,7 @@ export const iran: [
   {
     title: {
       en: 'Iranian Institute of Philosophy',
-      fa: 'موسسه پژوھشی حكمت و فلسفھ',
+      fa: 'موسسه پژوهشی حكمت و فلسفه',
     },
     desc: {
       en: 'IRIP, Research Institute of Philosophy',
@@ -2251,7 +2251,7 @@ export const iran: [
   {
     title: {
       en: 'Iranian Research Organisation for Science and Technology',
-      fa: 'سازمان پژوھشھای علمی و صنعتی ایران',
+      fa: 'سازمان پژوهشهای علمی و صنعتی ایران',
     },
     desc: {
       en: 'IROST',
@@ -2265,7 +2265,7 @@ export const iran: [
   {
     title: {
       en: 'Isfahan University of Arts',
-      fa: 'دانشگاه ھنر اصفھان',
+      fa: 'دانشگاه هنر اصفهان',
     },
     desc: {
       en: 'Esfahan University of Arts Public institution',
@@ -2279,7 +2279,7 @@ export const iran: [
   {
     title: {
       en: 'Isfahan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی اصفھان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی اصفهان',
     },
     desc: {
       en: 'Esfahan University of Medical Sciences Public institution, founded in 1946, achieved university status in 1986',
@@ -2293,7 +2293,7 @@ export const iran: [
   {
     title: {
       en: 'Isfahan University of Technology',
-      fa: 'دانشگاه صنعتی اصفھان',
+      fa: 'دانشگاه صنعتی اصفهان',
     },
     desc: {
       en: 'Esfahan University of Technology Public institution, founded in 1977',
@@ -2307,7 +2307,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Abadan and Khorramshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد واحد آبادان و خرمشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد واحد آبادان و خرمشهر',
     },
     desc: {
       en: '',
@@ -2349,7 +2349,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Abhar',
-      fa: 'دانشگاه آزاد اسلامی واحد واحد ابھر',
+      fa: 'دانشگاه آزاد اسلامی واحد واحد ابهر',
     },
     desc: {
       en: '',
@@ -2363,7 +2363,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Ahar',
-      fa: 'دانشگاه آزاد اسلامی واحد واحد اھر',
+      fa: 'دانشگاه آزاد اسلامی واحد واحد اهر',
     },
     desc: {
       en: '',
@@ -2377,7 +2377,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Ahwaz',
-      fa: 'دانشگاه آزاد اسلامی واحد اھواز',
+      fa: 'دانشگاه آزاد اسلامی واحد اهواز',
     },
     desc: {
       en: '',
@@ -2587,7 +2587,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Astaneh Ashrafieh',
-      fa: 'دانشگاه آزاد اسلامی واحد آستانھ اشرفیھ',
+      fa: 'دانشگاه آزاد اسلامی واحد آستانه اشرفیه',
     },
     desc: {
       en: '',
@@ -2615,7 +2615,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Ayatollah Amoli',
-      fa: 'دانشگاه آزاد اسلامی واحد آیت الھ آملی',
+      fa: 'دانشگاه آزاد اسلامی واحد آیت اله آملی',
     },
     desc: {
       en: '',
@@ -2629,7 +2629,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Azadshar',
-      fa: 'دانشگاه آزاد اسلامی واحد آزادشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد آزادشهر',
     },
     desc: {
       en: 'Islamic Azad University, Azadshahr',
@@ -2643,7 +2643,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Azarshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد آذر شھر',
+      fa: 'دانشگاه آزاد اسلامی واحد آذر شهر',
     },
     desc: {
       en: '',
@@ -2727,7 +2727,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Bahraman',
-      fa: 'دانشگاه آزاد اسلامی واحد بھرمان',
+      fa: 'دانشگاه آزاد اسلامی واحد بهرمان',
     },
     desc: {
       en: '',
@@ -2783,7 +2783,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Bandar Lengeh',
-      fa: 'دانشگاه آزاد اسلامی واحد بندرلنگھ',
+      fa: 'دانشگاه آزاد اسلامی واحد بندرلنگه',
     },
     desc: {
       en: '',
@@ -2881,7 +2881,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Behbahan',
-      fa: 'دانشگاه آزاد اسلامی واحد بھبھان',
+      fa: 'دانشگاه آزاد اسلامی واحد بهبهان',
     },
     desc: {
       en: '',
@@ -2895,7 +2895,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Behshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد بھشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد بهشهر',
     },
     desc: {
       en: '',
@@ -2937,7 +2937,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Bileh Savar Moghan',
-      fa: 'دانشگاه آزاد اسلامی واحد بیلھ سوار مغان',
+      fa: 'دانشگاه آزاد اسلامی واحد بیله سوار مغان',
     },
     desc: {
       en: '',
@@ -2972,7 +2972,7 @@ export const iran: [
     },
     city: {
       en: 'Bojnourd',
-      fa: 'بوجنورد',
+      fa: 'بجنورد',
     },
     setion: 2,
   },
@@ -3035,14 +3035,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Bouienzahra',
-      fa: 'دانشگاه آزاد اسلامی واحد بوئینزھرا',
+      fa: 'دانشگاه آزاد اسلامی واحد بوئینزهرا',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Bouienzahra',
-      fa: 'بوئینزھرا',
+      fa: 'بوئینزهرا',
     },
     setion: 2,
   },
@@ -3063,7 +3063,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Bushehr',
-      fa: 'دانشگاه آزاد اسلامی واحد بوشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد بوشهر',
     },
     desc: {
       en: 'Islamic Azad University, Boushehr',
@@ -3077,7 +3077,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Central Tehran',
-      fa: 'دانشگاه آزاد اسلامی واحد تھران مرکزی',
+      fa: 'دانشگاه آزاد اسلامی واحد تهران مرکزی',
     },
     desc: {
       en: '',
@@ -3091,7 +3091,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Chabahar',
-      fa: 'دانشگاه آزاد اسلامی واحد چابھار',
+      fa: 'دانشگاه آزاد اسلامی واحد چابهار',
     },
     desc: {
       en: '',
@@ -3175,7 +3175,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Darrehshar',
-      fa: 'دانشگاه آزاد اسلامی واحد دره شھر',
+      fa: 'دانشگاه آزاد اسلامی واحد دره شهر',
     },
     desc: {
       en: '',
@@ -3203,35 +3203,35 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Dehaghan',
-      fa: 'دانشگاه آزاد اسلامی واحد دھاقان',
+      fa: 'دانشگاه آزاد اسلامی واحد دهاقان',
     },
     desc: {
       en: 'Islamic Azad University, Dahaghan',
     },
     city: {
       en: 'Dehaghan',
-      fa: 'دھاقان',
+      fa: 'دهاقان',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Dehdasht',
-      fa: 'دانشگاه آزاد اسلامی واحد دھدشت',
+      fa: 'دانشگاه آزاد اسلامی واحد دهدشت',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Dehdasht',
-      fa: 'دھدشت',
+      fa: 'دهدشت',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Dehloran',
-      fa: 'دانشگاه آزاد اسلامی واحد دھلران',
+      fa: 'دانشگاه آزاد اسلامی واحد دهلران',
     },
     desc: {
       en: '',
@@ -3357,14 +3357,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Estahban',
-      fa: 'دانشگاه آزاد اسلامی واحد استھبان',
+      fa: 'دانشگاه آزاد اسلامی واحد استهبان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Estahban',
-      fa: 'استھبان',
+      fa: 'استهبان',
     },
     setion: 2,
   },
@@ -3399,14 +3399,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Farahan',
-      fa: 'دانشگاه آزاد اسلامی واحد فراھان',
+      fa: 'دانشگاه آزاد اسلامی واحد فراهان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Farahan',
-      fa: 'فراھان',
+      fa: 'فراهان',
     },
     setion: 2,
   },
@@ -3588,21 +3588,21 @@ export const iran: [
     },
     city: {
       en: 'Ghaemshahr',
-      fa: 'قائم شھر',
+      fa: 'قائم شهر',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Islamic Azad University, Ghaemshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد قائم شھر',
+      fa: 'دانشگاه آزاد اسلامی واحد قائم شهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Ghaemshahr',
-      fa: 'قائم شھر',
+      fa: 'قائم شهر',
     },
     setion: 1,
   },
@@ -3651,7 +3651,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Ghiamdasht',
-      fa: 'دانشگاه آزاد اسلامی واحد تھران شرق',
+      fa: 'دانشگاه آزاد اسلامی واحد تهران شرق',
     },
     desc: {
       en: '',
@@ -3735,7 +3735,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Golbahar',
-      fa: 'دانشگاه آزاد اسلامی واحد گلبھار',
+      fa: 'دانشگاه آزاد اسلامی واحد گلبهار',
     },
     desc: {
       en: '',
@@ -3805,28 +3805,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Hadishahr',
-      fa: 'دانشگاه آزاد اسلامی واحد ھادیشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد هادیشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hadishahr',
-      fa: 'ھادیشھر',
+      fa: 'هادیشهر',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Hafshejan',
-      fa: 'دانشگاه آزاد اسلامی واحد ھفشجان',
+      fa: 'دانشگاه آزاد اسلامی واحد هفشجان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hafshejan',
-      fa: 'ھفشجان',
+      fa: 'هفشجان',
     },
     setion: 2,
   },
@@ -3847,112 +3847,112 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Hamedan',
-      fa: 'دانشگاه آزاد اسلامی واحد ھمدان',
+      fa: 'دانشگاه آزاد اسلامی واحد همدان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hamedan',
-      fa: 'ھمدان',
+      fa: 'همدان',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Harand',
-      fa: 'دانشگاه آزاد اسلامی واحد ھرند',
+      fa: 'دانشگاه آزاد اسلامی واحد هرند',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Harand',
-      fa: 'ھرند',
+      fa: 'هرند',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Haris',
-      fa: 'دانشگاه آزاد اسلامی واحد ھریس',
+      fa: 'دانشگاه آزاد اسلامی واحد هریس',
     },
     desc: {
       en: 'Islamic Azad University, Haris',
     },
     city: {
       en: 'Haris',
-      fa: 'ھریس',
+      fa: 'هریس',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Hashtgerd',
-      fa: 'دانشگاه آزاد اسلامی واحد ھشتگرد',
+      fa: 'دانشگاه آزاد اسلامی واحد هشتگرد',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hashtgerd',
-      fa: 'ھشتگرد',
+      fa: 'هشتگرد',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Hashtroud',
-      fa: 'دانشگاه آزاد اسلامی واحد ھشترود',
+      fa: 'دانشگاه آزاد اسلامی واحد هشترود',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hashtroud',
-      fa: 'ھشترود',
+      fa: 'هشترود',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Hidaj',
-      fa: 'دانشگاه آزاد اسلامی واحد ھیدج',
+      fa: 'دانشگاه آزاد اسلامی واحد هیدج',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hidaj',
-      fa: 'ھیدج',
+      fa: 'هیدج',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Hormoz Island',
-      fa: 'دانشگاه آزاد اسلامی مرکز ھرمز',
+      fa: 'دانشگاه آزاد اسلامی مرکز هرمز',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hormoz',
-      fa: 'ھرمز',
+      fa: 'هرمز',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Hourand',
-      fa: 'دانشگاه آزاد اسلامی واحد ھوراند',
+      fa: 'دانشگاه آزاد اسلامی واحد هوراند',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hourand',
-      fa: 'ھوراند',
+      fa: 'هوراند',
     },
     setion: 2,
   },
@@ -4001,21 +4001,21 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Iranshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد ایرانشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد ایرانشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Iranshahr',
-      fa: 'ایرانشھر',
+      fa: 'ایرانشهر',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Isfahan',
-      fa: 'دانشگاه آزاد اسلامی واحد اصفھان',
+      fa: 'دانشگاه آزاد اسلامی واحد اصفهان',
     },
     desc: {
       en: '',
@@ -4043,14 +4043,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Islamshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد اسلامشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد اسلامشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Islamshahr',
-      fa: 'اسلامشھر',
+      fa: 'اسلامشهر',
     },
     setion: 2,
   },
@@ -4085,14 +4085,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Jahrom',
-      fa: 'دانشگاه آزاد اسلامی واحد جھرم',
+      fa: 'دانشگاه آزاد اسلامی واحد جهرم',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Jahrom',
-      fa: 'جھرم',
+      fa: 'جهرم',
     },
     setion: 2,
   },
@@ -4183,28 +4183,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Kahnouj',
-      fa: 'دانشگاه آزاد اسلامی واحد کھنوج',
+      fa: 'دانشگاه آزاد اسلامی واحد کهنوج',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Kahnouj',
-      fa: 'کھنوج',
+      fa: 'کهنوج',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Kalaleh',
-      fa: 'دانشگاه آزاد اسلامی واحد کلالھ',
+      fa: 'دانشگاه آزاد اسلامی واحد کلاله',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Kalaleh',
-      fa: 'کلالھ',
+      fa: 'کلاله',
     },
     setion: 2,
   },
@@ -4441,14 +4441,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Khomeinishar',
-      fa: 'دانشگاه آزاد اسلامی واحد خمینی شھر',
+      fa: 'دانشگاه آزاد اسلامی واحد خمینی شهر',
     },
     desc: {
       en: 'Islamic Azad University, Khomeinshahr',
     },
     city: {
       en: 'Khomeinishar',
-      fa: 'خمینی شھر',
+      fa: 'خمینی شهر',
     },
     setion: 2,
   },
@@ -4486,14 +4486,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Khoramshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد خرمشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد خرمشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Khorramshahr',
-      fa: 'خرمشھر',
+      fa: 'خرمشهر',
     },
     setion: 2,
   },
@@ -4575,42 +4575,42 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Kouhbanan',
-      fa: 'دانشگاه آزاد اسلامی واحد کوھبنان',
+      fa: 'دانشگاه آزاد اسلامی واحد کوهبنان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Kouhbanan',
-      fa: 'کوھبنان',
+      fa: 'کوهبنان',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Kouhdasht',
-      fa: 'دانشگاه آزاد اسلامی واحد كوھدشت',
+      fa: 'دانشگاه آزاد اسلامی واحد كوهدشت',
     },
     desc: {
       en: 'Islamic Azad University, Koohdasht',
     },
     city: {
       en: 'Kouhdasht',
-      fa: 'كوھدشت',
+      fa: 'كوهدشت',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Lahijan',
-      fa: 'دانشگاه آزاد اسلامی واحد لاھیجان',
+      fa: 'دانشگاه آزاد اسلامی واحد لاهیجان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Lahijan',
-      fa: 'لاھیجان',
+      fa: 'لاهیجان',
     },
     setion: 2,
   },
@@ -4673,14 +4673,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Mahabad',
-      fa: 'دانشگاه آزاد اسلامی واحد مھاباد',
+      fa: 'دانشگاه آزاد اسلامی واحد مهاباد',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mahabad',
-      fa: 'مھاباد',
+      fa: 'مهاباد',
     },
     setion: 2,
   },
@@ -4701,14 +4701,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Mahdishahr',
-      fa: 'دانشگاه آزاد اسلامی واحد مھدیشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد مهدیشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mahdishahr',
-      fa: 'مھدیشھر',
+      fa: 'مهدیشهر',
     },
     setion: 2,
   },
@@ -4729,28 +4729,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Mahneshan',
-      fa: 'دانشگاه آزاد اسلامی واحد ماھنشان',
+      fa: 'دانشگاه آزاد اسلامی واحد ماهنشان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mahneshan',
-      fa: 'ماھنشان',
+      fa: 'ماهنشان',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Mahshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد ماھشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد ماهشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mahshahr',
-      fa: 'ماھشھر',
+      fa: 'ماهشهر',
     },
     setion: 2,
   },
@@ -4827,14 +4827,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Maragheh',
-      fa: 'دانشگاه آزاد اسلامی واحد مراغھ',
+      fa: 'دانشگاه آزاد اسلامی واحد مراغه',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Maragheh',
-      fa: 'مراغھ',
+      fa: 'مراغه',
     },
     setion: 2,
   },
@@ -4897,14 +4897,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Mashhad',
-      fa: 'دانشگاه آزاد اسلامی واحد مشھد',
+      fa: 'دانشگاه آزاد اسلامی واحد مشهد',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mashhad',
-      fa: 'مشھد',
+      fa: 'مشهد',
     },
     setion: 1,
   },
@@ -4939,56 +4939,56 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Medical Branch, Tehran',
-      fa: 'دانشگاه آزاد اسلامی واحد واحد علوم پزشکی تھران',
+      fa: 'دانشگاه آزاد اسلامی واحد واحد علوم پزشکی تهران',
     },
     desc: {
       en: 'Private institution, located in Tehran, founded in 1985',
     },
     city: {
       en: 'Tehran',
-      fa: 'تھران',
+      fa: 'تهران',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Islamic Azad University, Mehriz',
-      fa: 'دانشگاه آزاد اسلامی واحد مھریز',
+      fa: 'دانشگاه آزاد اسلامی واحد مهریز',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mehriz',
-      fa: 'مھریز',
+      fa: 'مهریز',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Meshkinshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد مشکین شھر',
+      fa: 'دانشگاه آزاد اسلامی واحد مشکین شهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Meshkinshahr',
-      fa: 'مشکین شھر',
+      fa: 'مشکین شهر',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Meymeh',
-      fa: 'دانشگاه آزاد اسلامی واحد میمھ',
+      fa: 'دانشگاه آزاد اسلامی واحد میمه',
     },
     desc: {
       en: 'Islamic Azad University, Meimeh',
     },
     city: {
       en: 'Meymeh',
-      fa: 'میمھ',
+      fa: 'میمه',
     },
     setion: 2,
   },
@@ -5009,14 +5009,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Mianeh',
-      fa: 'دانشگاه آزاد اسلامی واحد میانھ',
+      fa: 'دانشگاه آزاد اسلامی واحد میانه',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mianeh',
-      fa: 'میانھ',
+      fa: 'میانه',
     },
     setion: 2,
   },
@@ -5065,28 +5065,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Mobarakeh',
-      fa: 'دانشگاه آزاد اسلامی واحد مباركھ',
+      fa: 'دانشگاه آزاد اسلامی واحد مباركه',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mobarakeh',
-      fa: 'مباركھ',
+      fa: 'مباركه',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Mohajeran',
-      fa: 'دانشگاه آزاد اسلامی واحد مھاجران',
+      fa: 'دانشگاه آزاد اسلامی واحد مهاجران',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mohajeran',
-      fa: 'مھاجران',
+      fa: 'مهاجران',
     },
     setion: 2,
   },
@@ -5177,14 +5177,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Nekshahr',
-      fa: 'دانشگاه آزاد اسلامی واحد نیكشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد نیكشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Nekshahr',
-      fa: 'نیكشھر',
+      fa: 'نیكشهر',
     },
     setion: 2,
   },
@@ -5233,28 +5233,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, North Tehran',
-      fa: 'دانشگاه آزاد اسلامی واحد تھران شمال',
+      fa: 'دانشگاه آزاد اسلامی واحد تهران شمال',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Tehran',
-      fa: 'تھران',
+      fa: 'تهران',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Islamic Azad University, Noshahr and Chaloos',
-      fa: 'دانشگاه آزاد اسلامی واحد نوشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد نوشهر',
     },
     desc: {
       en: 'Islamic Azad University, Nowshahr and Chalous',
     },
     city: {
       en: 'Noshahr',
-      fa: 'نوشھر',
+      fa: 'نوشهر',
     },
     setion: 2,
   },
@@ -5275,28 +5275,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Omidieh',
-      fa: 'دانشگاه آزاد اسلامی واحد امیدیھ',
+      fa: 'دانشگاه آزاد اسلامی واحد امیدیه',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Omidieh',
-      fa: 'امیدیھ',
+      fa: 'امیدیه',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Orumieh',
-      fa: 'دانشگاه آزاد اسلامی واحد ارومیھ',
+      fa: 'دانشگاه آزاد اسلامی واحد ارومیه',
     },
     desc: {
       en: 'Islamic Azad University, Oroomieh, Islamic Azad University, Urmia',
     },
     city: {
       en: 'Urmia',
-      fa: 'ارومیھ',
+      fa: 'ارومیه',
     },
     setion: 2,
   },
@@ -5429,14 +5429,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Ramhormoz',
-      fa: 'دانشگاه آزاد اسلامی واحد رامھرمز',
+      fa: 'دانشگاه آزاد اسلامی واحد رامهرمز',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Ramhormoz',
-      fa: 'رامھرمز',
+      fa: 'رامهرمز',
     },
     setion: 2,
   },
@@ -5485,7 +5485,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Region One',
-      fa: 'دانشگاه آزاد اسلامی واحد منطقھ یک',
+      fa: 'دانشگاه آزاد اسلامی واحد منطقه یک',
     },
     desc: {
       en: '',
@@ -5499,14 +5499,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Roodehen',
-      fa: 'دانشگاه آزاد اسلامی واحد رودھن',
+      fa: 'دانشگاه آزاد اسلامی واحد رودهن',
     },
     desc: {
       en: 'Islamic Azad University, Roudehen',
     },
     city: {
       en: 'Roodehen',
-      fa: 'رودھن',
+      fa: 'رودهن',
     },
     setion: 2,
   },
@@ -5583,14 +5583,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Safashahr',
-      fa: 'دانشگاه آزاد اسلامی واحد صفاشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد صفاشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Safashahr',
-      fa: 'صفاشھر',
+      fa: 'صفاشهر',
     },
     setion: 2,
   },
@@ -5611,14 +5611,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Sahneh',
-      fa: 'دانشگاه آزاد اسلامی واحد صحنھ',
+      fa: 'دانشگاه آزاد اسلامی واحد صحنه',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Sahneh',
-      fa: 'صحنھ',
+      fa: 'صحنه',
     },
     setion: 2,
   },
@@ -5737,14 +5737,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Savojbolagh-Hashtgerd',
-      fa: 'دانشگاه آزاد اسلامی واحد ساوجبلاغ ھشتگرد',
+      fa: 'دانشگاه آزاد اسلامی واحد ساوجبلاغ هشتگرد',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Savojbolagh-Hashtgerd',
-      fa: 'ھشتگرد',
+      fa: 'هشتگرد',
     },
     setion: 2,
   },
@@ -5779,14 +5779,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Science and Research Branch, Bushehr',
-      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات بوشھر',
+      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات بوشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Bushehr',
-      fa: 'بوشھر',
+      fa: 'بوشهر',
     },
     setion: 2,
   },
@@ -5821,14 +5821,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Science and Research Branch, Esfahan',
-      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات اصفھان',
+      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات اصفهان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Esfahan',
-      fa: 'اصفھان',
+      fa: 'اصفهان',
     },
     setion: 2,
   },
@@ -5877,28 +5877,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Science and Research Branch, Hamedan',
-      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات ھمدان',
+      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات همدان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hamedan',
-      fa: 'ھمدان',
+      fa: 'همدان',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Science and Research Branch, Hormozgan',
-      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات ھرمزگان        ',
+      fa: 'دانشگاه آزاد اسلامی واحد علوم و تحقیقات هرمزگان        ',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Hormozgan',
-      fa: 'ھرمزگان',
+      fa: 'هرمزگان',
     },
     setion: 2,
   },
@@ -6255,28 +6255,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Shahindezh',
-      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺷﺎھﯾن دژ',
+      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺷﺎهﯾن دژ',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Shahindezh',
-      fa: 'ﺷﺎھﯾن دژ',
+      fa: 'ﺷﺎهﯾن دژ',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Shahinshahr',
-      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺷﺎھﯾﻧﺷﮭر',
+      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺷﺎهﯾﻧﺷﮭر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Shahinshahr',
-      fa: 'ﺷﺎھﯾﻧﺷﮭر',
+      fa: 'ﺷﺎهﯾﻧﺷﮭر',
     },
     setion: 2,
   },
@@ -6381,14 +6381,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Shahrood',
-      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺷﺎھرود',
+      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺷﺎهرود',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Shahrood',
-      fa: 'ﺷﺎھرود',
+      fa: 'ﺷﺎهرود',
     },
     setion: 2,
   },
@@ -6493,14 +6493,14 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Siyahkal',
-      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺳﯾﺎھﮑل',
+      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد ﺳﯾﺎهﮑل',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Siyahkal',
-      fa: 'ﺳﯾﺎھﮑل',
+      fa: 'ﺳﯾﺎهﮑل',
     },
     setion: 2,
   },
@@ -6844,28 +6844,28 @@ export const iran: [
   {
     title: {
       en: 'Islamic Azad University, Zahedan',
-      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد زاھدان',
+      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد زاهدان',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Zahedan',
-      fa: 'زاھدان',
+      fa: 'زاهدان',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Islamic Azad University, Zahedshahr',
-      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد زاھدﺷﮭر',
+      fa: 'داﻧﺷﮕﺎه آزاد اﺳﻼﻣﯽ واﺣد زاهدﺷﮭر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Zahedshahr',
-      fa: 'زاھدﺷﮭر',
+      fa: 'زاهدﺷﮭر',
     },
     setion: 2,
   },
@@ -6970,7 +6970,7 @@ export const iran: [
   {
     title: {
       en: 'Islamic Culture and Art Research Centre',
-      fa: 'ﭘژوھﺷﻛده ﻓرھﻧﮓ و ھﻧر اﺳﻼﻣﻲ',
+      fa: 'ﭘژوهﺷﻛده ﻓرهﻧﮓ و هﻧر اﺳﻼﻣﻲ',
     },
     desc: {
       en: '',
@@ -7239,14 +7239,14 @@ Mashhad`,
   {
     title: {
       en: 'Khorramshahr University of Marine Science',
-      fa: 'دانشگاه علوم و فنون دریایی خرمشھر',
+      fa: 'دانشگاه علوم و فنون دریایی خرمشهر',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Khorramshahr',
-      fa: 'خرمشھر',
+      fa: 'خرمشهر',
     },
     setion: 1,
   },
@@ -7267,7 +7267,7 @@ Mashhad`,
   {
     title: {
       en: 'Khouzestan University of Jihad Higher Education Institute',
-      fa: 'موسسه آموزش عالی جھاد دانشگاھی خوزستان',
+      fa: 'موسسه آموزش عالی جهاد دانشگاهی خوزستان',
     },
     desc: {
       en: 'Khouzestan University of Jihad Non-profit Non-Governmental Higher Education Institute',
@@ -7295,7 +7295,7 @@ Mashhad`,
   {
     title: {
       en: 'KN Toosi University of Technology',
-      fa: 'دانشگاه صنعتی خواجھ نصیر الدین طوسی',
+      fa: 'دانشگاه صنعتی خواجه نصیر الدین طوسی',
     },
     desc: {
       en: 'Khajeh Nasir Al-Din Tusi University University of Engineering and Technology Public institution, founded in 1928, achieved university status in 1984',
@@ -7323,7 +7323,7 @@ Mashhad`,
   {
     title: {
       en: 'Kurdistan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی کردستان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی کردستان',
     },
     desc: {
       en: 'Public institution, founded in 1986, achieved university status in 1992',
@@ -7337,7 +7337,7 @@ Mashhad`,
   {
     title: {
       en: 'Lahijan Higher Education Institute',
-      fa: 'موسسه آموزش عالی لاھیجان',
+      fa: 'موسسه آموزش عالی لاهیجان',
     },
     desc: {
       en: 'Lahijan Non-profit Non-Governmental Higher Education Institute',
@@ -7365,7 +7365,7 @@ Mashhad`,
   {
     title: {
       en: 'Laser Research Institute',
-      fa: 'پژوھشگاه لیزر',
+      fa: 'پژوهشگاه لیزر',
     },
     desc: {
       en: 'Affiliated to the Atomic Energey Organisation of Iran',
@@ -7393,7 +7393,7 @@ Mashhad`,
   {
     title: {
       en: 'Lorestan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی لرستان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی لرستان',
     },
     desc: {
       en: 'Public institution, founded in 1991',
@@ -7435,7 +7435,7 @@ Mashhad`,
   {
     title: {
       en: 'Maragheh Industrial Higher Education Institute',
-      fa: 'موسسه آموزش عالی صنعتی مراغھ',
+      fa: 'موسسه آموزش عالی صنعتی مراغه',
     },
     desc: {
       en: 'Maragheh Industrial Non-profit Non-Governmental Higher Education Institute',
@@ -7449,7 +7449,7 @@ Mashhad`,
   {
     title: {
       en: 'Maragheh Research Centre for Astronomy and Astrophysics',
-      fa: 'مركز تحقیقات نجوم و اختر فیزیك مراغھ',
+      fa: 'مركز تحقیقات نجوم و اختر فیزیك مراغه',
     },
     desc: {
       en: '',
@@ -7477,35 +7477,35 @@ Mashhad`,
   {
     title: {
       en: 'Mashhad Institute of Technology',
-      fa: 'آموزشكده فنی مشھد',
+      fa: 'آموزشكده فنی مشهد',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Mashhad',
-      fa: 'مشھد',
+      fa: 'مشهد',
     },
     setion: 2,
   },
   {
     title: {
       en: 'Mashhad University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی مشھد',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی مشهد',
     },
     desc: {
       en: 'University of Medical Sciences Public institution, founded in 1949',
     },
     city: {
       en: 'Mashhad',
-      fa: 'مشھد',
+      fa: 'مشهد',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Masoomieh Higher Education Institute',
-      fa: 'موسسه آموزش عالی معصومیھ',
+      fa: 'موسسه آموزش عالی معصومیه',
     },
     desc: {
       en: 'Masoomiya Non-Profit Non-Governmental Higher Education Institute',
@@ -7519,7 +7519,7 @@ Mashhad`,
   {
     title: {
       en: 'Mazaheb Islamic University',
-      fa: 'دانشگاه مذاھب اسلامی',
+      fa: 'دانشگاه مذاهب اسلامی',
     },
     desc: {
       en: 'Affiliated to the Majlis',
@@ -7561,7 +7561,7 @@ Mashhad`,
   {
     title: {
       en: 'Mazandaran University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی مازندران',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی مازندران',
     },
     desc: {
       en: 'Public institution, founded in 1985, achieved university status in 1995',
@@ -7603,7 +7603,7 @@ Mashhad`,
   {
     title: {
       en: 'Mehrastan Higher Education Institute',
-      fa: 'موسسه آموزش عالی مھرآستان',
+      fa: 'موسسه آموزش عالی مهرآستان',
     },
     desc: {
       en: 'Mehrastan Non-profit Non-Governmental Higher Education Institute',
@@ -7617,7 +7617,7 @@ Mashhad`,
   {
     title: {
       en: 'Mehrgan Higher Education Institute',
-      fa: 'موسسه آموزش عالی مھرگان',
+      fa: 'موسسه آموزش عالی مهرگان',
     },
     desc: {
       en: 'Mehrgan Non-profit Non-Governmental Higher Education Institute',
@@ -7631,7 +7631,7 @@ Mashhad`,
   {
     title: {
       en: 'Microelectronics Research Institute',
-      fa: 'پژوھشكده میكرو الكترونیک',
+      fa: 'پژوهشكده میكرو الكترونیک',
     },
     desc: {
       en: '',
@@ -7743,7 +7743,7 @@ Mashhad`,
   {
     title: {
       en: 'Motahar Higher Education Institute',
-      fa: 'موسسه آموزش عالی مطھر',
+      fa: 'موسسه آموزش عالی مطهر',
     },
     desc: {
       en: 'Motahar Non-profit Non-Governmental Higher Education Institute',
@@ -7757,7 +7757,7 @@ Mashhad`,
   {
     title: {
       en: 'Nahavand Higher Education Institute',
-      fa: 'موسسه آموزش عالی نھاوند',
+      fa: 'موسسه آموزش عالی نهاوند',
     },
     desc: {
       en: 'Nahavand Non-profit Non-Governmental Higher Education Institute',
@@ -7799,7 +7799,7 @@ Mashhad`,
   {
     title: {
       en: 'National Research Centre for Genetic Engineering and Biotechnology',
-      fa: 'مركز مل ّی تحقیقات مھندسی ژنتیك و تكنولوژی زیستی',
+      fa: 'مركز مل ّی تحقیقات مهندسی ژنتیك و تكنولوژی زیستی',
     },
     desc: {
       en: '',
@@ -7841,7 +7841,7 @@ Mashhad`,
   {
     title: {
       en: 'North Khorassan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی خراسان شمالی',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی خراسان شمالی',
     },
     desc: {
       en: '',
@@ -7855,7 +7855,7 @@ Mashhad`,
   {
     title: {
       en: 'Officer and Staff College',
-      fa: 'دانشكده فرماندھی و ستاد',
+      fa: 'دانشكده فرماندهی و ستاد',
     },
     desc: {
       en: 'Affiliated to the Iranian Army and the Iranian Revolutionary Guards of the Islamic Revolution',
@@ -7869,7 +7869,7 @@ Mashhad`,
   {
     title: {
       en: 'Organisation for Researching and Compiling University Textbooks in the Humanities',
-      fa: 'سازمان مطالعھ و تدوین كتب علوم انسانی دانشگاه ھا',
+      fa: 'سازمان مطالعه و تدوین كتب علوم انسانی دانشگاه ها',
     },
     desc: {
       en: 'SAMT',
@@ -7925,7 +7925,7 @@ Mashhad`,
   {
     title: {
       en: 'Parsmehr Higher Education Institute',
-      fa: 'موسسه آموزش عالی پارس مھر',
+      fa: 'موسسه آموزش عالی پارس مهر',
     },
     desc: {
       en: 'Parsmehr Non-profit Non-Governmental Higher Education Institute',
@@ -8023,7 +8023,7 @@ Mashhad`,
   {
     title: {
       en: 'Power and Water University of Technology',
-      fa: 'دانشگاه صنعت آب و برق شھید عباسپور',
+      fa: 'دانشگاه صنعت آب و برق شهید عباسپور',
     },
     desc: {
       en: 'Shahid Abbaspour College of Water and Power Private institution, founded in 1986',
@@ -8037,7 +8037,7 @@ Mashhad`,
   {
     title: {
       en: 'Qazvin University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی قزوین',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی قزوین',
     },
     desc: {
       en: 'Ghazvin University of Medical Sciences Public institution, founded in 1983, achieved university status in 1991',
@@ -8079,7 +8079,7 @@ Mashhad`,
   {
     title: {
       en: 'Qom University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی قم',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی قم',
     },
     desc: {
       en: 'Fatemiyeh Qom University of Medical Sciences Private institution, founded in 1996',
@@ -8107,7 +8107,7 @@ Mashhad`,
   {
     title: {
       en: 'Rafsanjan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی رفسنجان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی رفسنجان',
     },
     desc: {
       en: 'Public institution, founded in 1986, achieved university status in 1993',
@@ -8121,7 +8121,7 @@ Mashhad`,
   {
     title: {
       en: 'Ragheb Esfahani Higher Education Institute',
-      fa: 'موسسه آموزش عالی راغب اصفھانی',
+      fa: 'موسسه آموزش عالی راغب اصفهانی',
     },
     desc: {
       en: 'Ragheb Esfahani Non-profit Non-Governmental Higher Education Institute',
@@ -8163,7 +8163,7 @@ Mashhad`,
   {
     title: {
       en: 'Rahyan Noor Higher Education Institute',
-      fa: 'موسسه آموزش عالی راھیان نور',
+      fa: 'موسسه آموزش عالی راهیان نور',
     },
     desc: {
       en: 'Rahyan Noor Non-profit Non-Governmental Higher Education Institute',
@@ -8205,7 +8205,7 @@ Mashhad`,
   {
     title: {
       en: 'Rasht University of Jihad Higher Education Institute',
-      fa: 'موسسه آموزش عالی جھاد دانشگاھی رشت',
+      fa: 'موسسه آموزش عالی جهاد دانشگاهی رشت',
     },
     desc: {
       en: 'Rasht University of Jihad Non-profit Non-Governmental Higher Education Institute',
@@ -8219,7 +8219,7 @@ Mashhad`,
   {
     title: {
       en: 'Rayanee Higher Education Institute',
-      fa: 'موسسه آموزش عالی رایانھ ای',
+      fa: 'موسسه آموزش عالی رایانه ای',
     },
     desc: {
       en: 'Rayanee Non-profit Non-Governmental Higher Education Institute',
@@ -8261,7 +8261,7 @@ Mashhad`,
   {
     title: {
       en: 'Research Institute for Islamic Studies and Social Sciences',
-      fa: 'پژوھشكده حوزه و دانشگاه',
+      fa: 'پژوهشكده حوزه و دانشگاه',
     },
     desc: {
       en: 'Research Institute for Hawzah and University',
@@ -8275,7 +8275,7 @@ Mashhad`,
   {
     title: {
       en: 'Research Institute for Materials and Energy',
-      fa: 'پژوھشگاه مواد و انرژی',
+      fa: 'پژوهشگاه مواد و انرژی',
     },
     desc: {
       en: '',
@@ -8289,7 +8289,7 @@ Mashhad`,
   {
     title: {
       en: 'Research Institute for the Petroleum Industry',
-      fa: 'پژوھشكده صنعت نفت',
+      fa: 'پژوهشكده صنعت نفت',
     },
     desc: {
       en: '',
@@ -8303,7 +8303,7 @@ Mashhad`,
   {
     title: {
       en: 'Research Institute of Art',
-      fa: 'پژوھشكده ھنر',
+      fa: 'پژوهشكده هنر',
     },
     desc: {
       en: '',
@@ -8317,7 +8317,7 @@ Mashhad`,
   {
     title: {
       en: 'Research Institute of Imam Khomeini and the Islamic Revolution',
-      fa: 'پژوھشكده امام خمینی و انقلاب اسلامی',
+      fa: 'پژوهشكده امام خمینی و انقلاب اسلامی',
     },
     desc: {
       en: '',
@@ -8331,7 +8331,7 @@ Mashhad`,
   {
     title: {
       en: 'Roozbahan Higher Education Institute',
-      fa: 'موسسه آموزش عالی روزبھان',
+      fa: 'موسسه آموزش عالی روزبهان',
     },
     desc: {
       en: 'Roozbahan Non-profit Non-Governmental Higher Education Institute',
@@ -8345,7 +8345,7 @@ Mashhad`,
   {
     title: {
       en: 'Roozbeh Higher Education Institute',
-      fa: 'موسسه آموزش عالی روزبھ',
+      fa: 'موسسه آموزش عالی روزبه',
     },
     desc: {
       en: 'Roozbeh Non-profit Non-Governmental Higher Education Institute',
@@ -8429,7 +8429,7 @@ Mashhad`,
   {
     title: {
       en: 'Sabzevar University of Medical and Health Services',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی سبزوار',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی سبزوار',
     },
     desc: {
       en: 'Public institution, founded in 1986, achieved university status in 1993',
@@ -8471,7 +8471,7 @@ Mashhad`,
   {
     title: {
       en: 'Safahan Higher Education Institute',
-      fa: 'موسسه آموزش عالی صفاھان',
+      fa: 'موسسه آموزش عالی صفاهان',
     },
     desc: {
       en: 'Safahan Non-profit Non-Governmental Higher Education Institute',
@@ -8485,14 +8485,14 @@ Mashhad`,
   {
     title: {
       en: 'Sahand University of Technology',
-      fa: 'دانشگاه صنعتی سھند',
+      fa: 'دانشگاه صنعتی سهند',
     },
     desc: {
       en: 'Public institution, founded in 1989',
     },
     city: {
       en: 'Sahand',
-      fa: 'سھند',
+      fa: 'سهند',
     },
     setion: 1,
   },
@@ -8555,7 +8555,7 @@ Mashhad`,
   {
     title: {
       en: 'Sarooye Higher Education Institute',
-      fa: 'موسسه آموزش عالی سارویھ',
+      fa: 'موسسه آموزش عالی سارویه',
     },
     desc: {
       en: 'Sarooye Non-profit Non-Governmental Higher Education Institute',
@@ -8639,7 +8639,7 @@ Mashhad`,
   {
     title: {
       en: 'Semnan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی سمنان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی سمنان',
     },
     desc: {
       en: 'Public institution, founded in 1988',
@@ -8653,7 +8653,7 @@ Mashhad`,
   {
     title: {
       en: 'Sepahan Higher Education Institute of Science and Technology',
-      fa: 'موسسه آموزش علوم و فن آوری سپاھان',
+      fa: 'موسسه آموزش علوم و فن آوری سپاهان',
     },
     desc: {
       en: 'Sepahan Science and Technology Non-profit Non-Governmental Higher Education Institute',
@@ -8667,7 +8667,7 @@ Mashhad`,
   {
     title: {
       en: 'Sepahan Science and Technology Higher Education Institute',
-      fa: 'موسسه آموزش عالی علوم و فنون سپاھان',
+      fa: 'موسسه آموزش عالی علوم و فنون سپاهان',
     },
     desc: {
       en: 'Sepahan Science and Technology Non-profit Non-Governmental Higher Education Institute',
@@ -8681,7 +8681,7 @@ Mashhad`,
   {
     title: {
       en: 'Sepehr Higher Education Institute',
-      fa: 'موسسه آموزش عالی سپھر',
+      fa: 'موسسه آموزش عالی سپهر',
     },
     desc: {
       en: 'Sepehr Non-profit Non-Governmental Higher Education Institute',
@@ -8723,7 +8723,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahab Danesh Higher Education Institute',
-      fa: 'موسسه آموزش عالی شھاب دانش',
+      fa: 'موسسه آموزش عالی شهاب دانش',
     },
     desc: {
       en: 'Shahab Danesh Non-profit Non-Governmental Higher Education Institute',
@@ -8737,7 +8737,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahed University',
-      fa: 'دانشگاه شاھد',
+      fa: 'دانشگاه شاهد',
     },
     desc: {
       en: 'Public institution, founded in 1990, achieved university status in 1996',
@@ -8751,7 +8751,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Ashrafi Esfahani Higher Education Institute',
-      fa: 'موسسه آموزش عالی شھید اشرفی اصفھانی',
+      fa: 'موسسه آموزش عالی شهید اشرفی اصفهانی',
     },
     desc: {
       en: 'Shahid Ashrafi Esfahani Non-profit Non-Governmental Higher Education Institute',
@@ -8765,7 +8765,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Bahonar University of Kerman',
-      fa: 'دانشگاه شھید باھنر كرمان',
+      fa: 'دانشگاه شهید باهنر كرمان',
     },
     desc: {
       en: 'University of Shahid Bahonar Shahid Bahonar University Kerman University Public institution, founded in 1975, achieved university status in 1978',
@@ -8779,7 +8779,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Beheshti Electronics and Telecommunications Research Institute',
-      fa: 'پژوھشكده الكترونیك و مخابرات شھید بھشتی',
+      fa: 'پژوهشكده الكترونیك و مخابرات شهید بهشتی',
     },
     desc: {
       en: 'Affiliated to the Ministry of Defense and Armed Forces Logistics',
@@ -8793,7 +8793,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Beheshti University',
-      fa: 'دانشگاه شھید بھشتی',
+      fa: 'دانشگاه شهید بهشتی',
     },
     desc: {
       en: 'Shahid Beheshti University National Melli University of Iran Public institution, founded in 1959, achieved university status in 1975',
@@ -8807,7 +8807,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Beheshti University of Medical Sciences and Health Services',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شھید بھشتی',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی شهید بهشتی',
     },
     desc: {
       en: 'Shaheed Beheshti University of Medical Sciences Public institution, founded in 1960, achieved university status in 1986',
@@ -8821,7 +8821,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Chamran University',
-      fa: 'دانشگاه شھید چمران',
+      fa: 'دانشگاه شهید چمران',
     },
     desc: {
       en: 'Shahid Chamran University, Chamran University of Ahwaz Jundi Shapur University Ahwaz University Public institution, founded in 1955, achieved university status in 1981',
@@ -8835,7 +8835,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Rajaee Teacher Training University',
-      fa: 'دانشگاه تربیت دبیر شھید رجائی',
+      fa: 'دانشگاه تربیت دبیر شهید رجائی',
     },
     desc: {
       en: 'Public institution, founded in 1980',
@@ -8849,7 +8849,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Rezaee Higher Education Institute',
-      fa: ':موسسه آموزش عالی شھید رضایی',
+      fa: ':موسسه آموزش عالی شهید رضایی',
     },
     desc: {
       en: 'Shahid Rezaee Non-profit Non-Governmental Higher Education Institute',
@@ -8863,7 +8863,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Sadoughi University of Medical Sciences and Health Services',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شھید صدوقی یزد',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی شهید صدوقی یزد',
     },
     desc: {
       en: 'Public institution, founded in 1989, achieved university status in 1994',
@@ -8877,7 +8877,7 @@ Mashhad`,
   {
     title: {
       en: 'Shahid Sattari Aviation University',
-      fa: 'دانشگاه علوم و فنون ھوایی شھید ستاری',
+      fa: 'دانشگاه علوم و فنون هوایی شهید ستاری',
     },
     desc: {
       en: 'Shahid Sattari Air University of Science and Technology Public institution, founded in 1986 Affiliated to the Iran Air Force',
@@ -8891,35 +8891,35 @@ Mashhad`,
   {
     title: {
       en: 'Shahrekord University',
-      fa: 'دانشگاه شھركرد',
+      fa: 'دانشگاه شهركرد',
     },
     desc: {
       en: 'Public institution, founded in 1927, accorded university status in 2004',
     },
     city: {
       en: 'Shahrekord',
-      fa: 'شھركرد',
+      fa: 'شهركرد',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Shahrekord University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شھرکرد',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی شهرکرد',
     },
     desc: {
       en: 'Public institution, founded in 1986',
     },
     city: {
       en: 'Shahrekord',
-      fa: 'شھرکرد',
+      fa: 'شهرکرد',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Shahrood Higher Education Institute',
-      fa: 'موسسه آموزش عالی شاھرود',
+      fa: 'موسسه آموزش عالی شاهرود',
     },
     desc: {
       en: 'Shahrood Non-profit Non-Governmental Higher Education Institute',
@@ -8933,28 +8933,28 @@ Mashhad`,
   {
     title: {
       en: 'Shahrood University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شاھرود',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی شاهرود',
     },
     desc: {
       en: 'Private institution, founded in 1971',
     },
     city: {
       en: 'Shahrood',
-      fa: 'شاھرود',
+      fa: 'شاهرود',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Shahrood University of Technology',
-      fa: 'دانشگاه صنعتی شاھرود',
+      fa: 'دانشگاه صنعتی شاهرود',
     },
     desc: {
       en: 'Public institution, founded in 1974, achieved university status in 2002',
     },
     city: {
       en: 'Shahrood',
-      fa: 'شاھرود',
+      fa: 'شاهرود',
     },
     setion: 1,
   },
@@ -9003,7 +9003,7 @@ Mashhad`,
   {
     title: {
       en: 'Sheik Baha’i University',
-      fa: 'دانشگاه غیرانتفاعی- غیردولتی شیخ بھائی',
+      fa: 'دانشگاه غیرانتفاعی- غیردولتی شیخ بهائی',
     },
     desc: {
       en: "Sheikh Bahaee Private University, Sheikh Baha'i Non-Government Non-Profit University Sheikh Baha'i Higher Education Institution Private institution, founded in 1996",
@@ -9045,7 +9045,7 @@ Mashhad`,
   {
     title: {
       en: 'Shiraz University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی شیراز',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی شیراز',
     },
     desc: {
       en: 'University of Medical Sciences; Shiraz Public institution, founded in 1946, achieved university status in 1994',
@@ -9227,7 +9227,7 @@ Mashhad`,
   {
     title: {
       en: 'Tabriz University of Art',
-      fa: 'دانشگاه ھنر تبریز',
+      fa: 'دانشگاه هنر تبریز',
     },
     desc: {
       en: 'Tabriz Islamic Art University',
@@ -9241,7 +9241,7 @@ Mashhad`,
   {
     title: {
       en: 'Tabriz University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی تبریز',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی تبریز',
     },
     desc: {
       en: 'University of Medical Sciences; Tabriz Public institution, founded in 1947, achieved university status in 1986',
@@ -9283,21 +9283,21 @@ Mashhad`,
   {
     title: {
       en: 'Teacher Training University of Tehran',
-      fa: 'دانشگاه تربیت معلم تھران',
+      fa: 'دانشگاه تربیت معلم تهران',
     },
     desc: {
       en: 'Tarbiat Moallem University Public institution, founded in 1919, achieved university status in 1974',
     },
     city: {
       en: 'Tehran',
-      fa: 'تھران',
+      fa: 'تهران',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Technical College of Heavy and Light Industries',
-      fa: 'آموزشكده ھای فنی صنایع سنگین و سبک',
+      fa: 'آموزشكده های فنی صنایع سنگین و سبک',
     },
     desc: {
       en: 'Affiliated to the Ministry of Industry Tehran, Arak, Karaj, Lalejin, Mashhad',
@@ -9381,7 +9381,7 @@ Mashhad`,
   {
     title: {
       en: 'Technical Institute of Geomatics',
-      fa: 'آموزشكده فنی نقشھ برداری',
+      fa: 'آموزشكده فنی نقشه برداری',
     },
     desc: {
       en: '',
@@ -9395,14 +9395,14 @@ Mashhad`,
   {
     title: {
       en: 'Tehran University of Medical Sciences and Health Services',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی تھران',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی تهران',
     },
     desc: {
       en: 'Public institution, founded in 1934, achieved university status in 1985',
     },
     city: {
       en: 'Tehran',
-      fa: 'تھران',
+      fa: 'تهران',
     },
     setion: 1,
   },
@@ -9423,7 +9423,7 @@ Mashhad`,
   {
     title: {
       en: 'Torbat Heydarieh Junior College',
-      fa: 'آموزشكده فنی تربت حیدریھ',
+      fa: 'آموزشكده فنی تربت حیدریه',
     },
     desc: {
       en: 'Torbat Heydarieh Technical and Engineering Faculty',
@@ -9437,7 +9437,7 @@ Mashhad`,
   {
     title: {
       en: 'Transport Research Institute',
-      fa: 'پژوھشكده حمل و نقل',
+      fa: 'پژوهشكده حمل و نقل',
     },
     desc: {
       en: '',
@@ -9451,7 +9451,7 @@ Mashhad`,
   {
     title: {
       en: 'Unity Technical Institute Isfahan',
-      fa: 'آموزشكده فنی توحید اصفھان',
+      fa: 'آموزشكده فنی توحید اصفهان',
     },
     desc: {
       en: 'Affiliated to the Ministry of Mines and Metals',
@@ -9493,7 +9493,7 @@ Mashhad`,
   {
     title: {
       en: 'University of Art',
-      fa: 'دانشگاه ھنر',
+      fa: 'دانشگاه هنر',
     },
     desc: {
       en: 'University of Arts, Tehran Public institution, founded 1980 following the amalgamation of the Conservatory of Music, College of National Music, College of Decorative Arts, College of Dramatic Arts and Farabi University',
@@ -9549,14 +9549,14 @@ Mashhad`,
   {
     title: {
       en: 'University of Isfahan',
-      fa: 'دانشگاه اصفھان',
+      fa: 'دانشگاه اصفهان',
     },
     desc: {
       en: 'University of Esfahan, Esfahan University, Isfahan University Public institution, founded in 1946, achieved university status in 1958',
     },
     city: {
       en: 'Isfahan',
-      fa: 'اصفھان',
+      fa: 'اصفهان',
     },
     setion: 1,
   },
@@ -9591,7 +9591,7 @@ Mashhad`,
   {
     title: {
       en: 'University of Science and Culture',
-      fa: 'دانشگاه غیرانتفاعی- غیردولتی علم و فرھنگ',
+      fa: 'دانشگاه غیرانتفاعی- غیردولتی علم و فرهنگ',
     },
     desc: {
       en: 'Elm va Farhang University University of Jihad, Daneshgahi Jahad Higher Education Institution, Jihad University Higher Education Institute Private institution',
@@ -9633,7 +9633,7 @@ Mashhad`,
   {
     title: {
       en: 'University of Social Welfare and Rehabilitation Sciences',
-      fa: 'دانشگاه علوم بھزیستی و توانبخشی',
+      fa: 'دانشگاه علوم بهزیستی و توانبخشی',
     },
     desc: {
       en: 'Public institution, founded in 1993',
@@ -9661,14 +9661,14 @@ Mashhad`,
   {
     title: {
       en: 'University of Tehran',
-      fa: 'دانشگاه تھران',
+      fa: 'دانشگاه تهران',
     },
     desc: {
       en: 'Tehran University Public institution, founded in 1934, achieved university status in 1941',
     },
     city: {
       en: 'Tehran',
-      fa: 'تھران',
+      fa: 'تهران',
     },
     setion: 1,
   },
@@ -9689,42 +9689,42 @@ Mashhad`,
   {
     title: {
       en: 'Urmia University',
-      fa: 'دانشگاه ارومیھ',
+      fa: 'دانشگاه ارومیه',
     },
     desc: {
       en: 'Rezaieh University of Agriculture and Animal Husbandry Public institution, founded in 1965, achieved university status in 1976',
     },
     city: {
       en: 'Urmia',
-      fa: 'ارومیھ',
+      fa: 'ارومیه',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Urmia University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی ارومیھ',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی ارومیه',
     },
     desc: {
       en: 'Oromieh University of Medical Sciences Public institution, founded in 1977',
     },
     city: {
       en: 'Urmia',
-      fa: 'ارومیھ',
+      fa: 'ارومیه',
     },
     setion: 1,
   },
   {
     title: {
       en: 'Urmia University of Technology',
-      fa: 'دانشگاه صنعتی ارومیھ',
+      fa: 'دانشگاه صنعتی ارومیه',
     },
     desc: {
       en: '',
     },
     city: {
       en: 'Urmia',
-      fa: 'ارومیھ',
+      fa: 'ارومیه',
     },
     setion: 1,
   },
@@ -9759,7 +9759,7 @@ Mashhad`,
   {
     title: {
       en: 'Yasuj University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی یاسوج',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی یاسوج',
     },
     desc: {
       en: 'Public institution, founded in 1993',
@@ -9773,7 +9773,7 @@ Mashhad`,
   {
     title: {
       en: 'Yazd Province University of Jihad Higher Education Institute',
-      fa: 'موسسه آموزش عالی جھاد دانشگاھی استان یزد',
+      fa: 'موسسه آموزش عالی جهاد دانشگاهی استان یزد',
     },
     desc: {
       en: 'Yazd Province University of Jihad Non-profit Non-Governmental Higher Education Institute',
@@ -9801,7 +9801,7 @@ Mashhad`,
   {
     title: {
       en: 'Yazd University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی یزد',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی یزد',
     },
     desc: {
       en: 'Public institution, founded in 1983, achieved university status in 1986',
@@ -9815,7 +9815,7 @@ Mashhad`,
   {
     title: {
       en: 'Zabol University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی زابل',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی زابل',
     },
     desc: {
       en: 'Public institution',
@@ -9829,14 +9829,14 @@ Mashhad`,
   {
     title: {
       en: 'Zahedan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی زاھدان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی زاهدان',
     },
     desc: {
       en: 'Public institution, founded in 1986',
     },
     city: {
       en: 'Zahedan',
-      fa: 'زاھدان',
+      fa: 'زاهدان',
     },
     setion: 1,
   },
@@ -9871,7 +9871,7 @@ Mashhad`,
   {
     title: {
       en: 'Zanjan University of Medical Sciences',
-      fa: 'دانشگاه علوم پزشکی و خدمات بھداشتی درمانی زنجان',
+      fa: 'دانشگاه علوم پزشکی و خدمات بهداشتی درمانی زنجان',
     },
     desc: {
       en: 'Public institution, founded in 1987, achieved university status in 1988',
@@ -9885,7 +9885,7 @@ Mashhad`,
   {
     title: {
       en: 'Zarandieh Higher Education Institute',
-      fa: 'موسسه آموزش عالی زرندیھ',
+      fa: 'موسسه آموزش عالی زرندیه',
     },
     desc: {
       en: 'Zarandieh Non-profit Non-Governmental Higher Education Institute',

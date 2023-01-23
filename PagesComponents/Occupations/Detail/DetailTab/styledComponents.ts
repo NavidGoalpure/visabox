@@ -5,13 +5,13 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 import {
   layer2A_BorderColor,
   layer2A_HeaderBG,
   layer2A_TextColor,
   layer2A_TitleColor,
-} from 'Styles/Theme/Layers/theme';
+} from 'Styles/Theme/Layers/layer2/theme';
 
 export const NoMobile = styled.div`
   ${warningTheme}

@@ -13,8 +13,8 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/style';
-import { layer2A_TextColor } from 'Styles/Theme/Layers/theme';
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 
 interface Props {
   anzscoSection: ReferenceType | AnzscoSection | undefined;

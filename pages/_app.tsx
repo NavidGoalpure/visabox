@@ -16,10 +16,10 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as gtag from 'Utils/Gtags';
 import { createGlobalStyle } from 'styled-components';
-import { publiStyles } from 'Styles/Theme/Layers/theme';
+import { globalStyles } from 'Styles/Theme';
 
 const GlobalStyle = createGlobalStyle`
- ${publiStyles}
+ ${globalStyles}
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {

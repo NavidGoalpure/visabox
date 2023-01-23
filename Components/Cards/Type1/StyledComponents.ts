@@ -6,16 +6,15 @@ import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import {
   layer2A_BodyStyle,
-  layer2A_style,
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 import {
   layer2A_Key,
   layer2A_TextColor,
   layer2A_TitleColor,
   layer2A_Value,
-} from 'Styles/Theme/Layers/theme';
+} from 'Styles/Theme/Layers/layer2/theme';
 
 export const Container = styled.section`
   ${layer2A_BodyStyle}

@@ -6,7 +6,7 @@ import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import SwitchTheme from './switchTheme';
 import { useLocale } from 'Hooks/useLocale';
-import { layer1_BG } from 'Styles/Theme/Layers/theme';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 
 function Header() {
   const { locale } = useLocale();

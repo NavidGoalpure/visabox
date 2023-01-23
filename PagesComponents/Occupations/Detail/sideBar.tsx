@@ -19,7 +19,7 @@ import {
   layer2A_style,
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 
 interface Props {
   occupation: OccupationDetailRes;

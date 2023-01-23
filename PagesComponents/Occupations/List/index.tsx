@@ -11,8 +11,7 @@ import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components/macro';
 import { useState } from 'react';
 import NoData from 'Components/NoData';
-import { layer1_TitleColor } from 'Styles/Theme/Layers/theme';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/style';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);

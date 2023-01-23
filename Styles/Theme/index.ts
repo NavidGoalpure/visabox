@@ -1,6 +1,19 @@
 import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 
+export const globalStyles = theme('mode', {
+  light: css`
+    a {
+      color: var(--color-primary4);
+    }
+  `,
+  dark: css`
+    a {
+      color: var(--color-primary6);
+    }
+  `,
+});
+
 //// فعلا فقط توی منو استفاده شده
 export const boxShadow = theme('mode', {
   light: 'box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);',

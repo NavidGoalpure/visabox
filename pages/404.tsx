@@ -7,8 +7,11 @@ import styled from 'styled-components/macro';
 
 import Link from 'next/link';
 import Seo from 'Components/Seo';
-import { Layer1_TextStyle } from 'Styles/Theme/Layers/style';
-import { layer1_TextColor, layer1_SubtitleColor } from 'Styles/Theme/Layers/theme';
+import { Layer1_TextStyle } from 'Styles/Theme/Layers/layer1/style';
+import {
+  layer1_TextColor,
+  layer1_SubtitleColor,
+} from 'Styles/Theme/Layers/layer1/theme';
 
 export default function NotFound() {
   return (

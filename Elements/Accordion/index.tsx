@@ -144,7 +144,7 @@ const AccordionContent = styled(Accordion.Content)`
   font-size: 15px;
   color: white;
   background-color: transparent;
-  border: 2px solid var(--color-gray10);
+  border: 2px solid var(--color-gray12);
   border-top: unset;
   border-radius: 0px 0px 30px 30px;
   &[data-state='open'] {

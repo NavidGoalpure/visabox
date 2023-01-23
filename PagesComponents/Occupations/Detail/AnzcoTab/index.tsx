@@ -127,7 +127,7 @@ const Wrapper = styled.div`
 /////////
 const BorderColor = theme('mode', {
   light: css`
-    border: 2px solid var(--color-gray11);
+    border: 2px solid var(--color-gray12);
   `,
   dark: css`
     border: 1px solid var(--color-primary7);

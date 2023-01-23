@@ -47,7 +47,7 @@ const HeadesWrapper = styled.div`
 export const backgroundHeadsList = theme('mode', {
   light: css`
     background: var(--color-gray13);
-    border: 2px solid var(--color-gray11);
+    border: 2px solid var(--color-gray12);
   `,
   dark: css`
     background: var(--color-gray7);

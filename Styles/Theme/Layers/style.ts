@@ -27,6 +27,7 @@ export const Layer1_TitleStyle = css<{
   ${layer1_TitleColor}
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
+  font-weight: bold;
 `;
 export const Layer1_SubtitleStyle = css<{
   color?: string;
@@ -95,10 +96,7 @@ export const layer2A_style = css`
     ${layer2A_HeaderBG}
     text-align: center;
   }
-  ////////////
-  article {
-    ${layer2A_Bg}
-  }
+  
 
   /////////////
   p {

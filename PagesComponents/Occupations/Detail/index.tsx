@@ -24,7 +24,7 @@ import { getLocalStorage } from 'Utils';
 import {
   Layer1_SubtitleStyle,
   Layer1_TextStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer1/style';
 
 interface Props {
   occupation: OccupationDetailRes;

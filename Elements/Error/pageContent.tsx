@@ -7,8 +7,8 @@ import Link from 'next/link';
 import {
   layer1_SubtitleColor,
   layer1_TextColor,
-} from 'Styles/Theme/Layers/theme';
-import { Layer1_TextStyle } from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer1/theme';
+import { Layer1_TextStyle } from 'Styles/Theme/Layers/layer1/style';
 
 const WireSvg = () => {
   return (

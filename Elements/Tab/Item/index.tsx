@@ -5,7 +5,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
 import theme from 'styled-theming';
-import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;

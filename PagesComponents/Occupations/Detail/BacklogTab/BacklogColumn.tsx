@@ -5,7 +5,7 @@ import * as Tab from 'Elements/Tab';
 import styled from 'styled-components/macro';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { borderTheme } from 'Styles/Theme';
 
 interface Props {

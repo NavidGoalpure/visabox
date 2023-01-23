@@ -15,11 +15,11 @@ import {
   layer2A_Key,
   layer2A_TextColor,
   layer2A_Value,
-} from 'Styles/Theme/Layers/theme';
+} from 'Styles/Theme/Layers/layer2/theme';
 import {
   layer2A_SubtitleStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 
 interface Props {
   anzscoSection: AnzscoSection | undefined;

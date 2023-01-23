@@ -7,11 +7,10 @@ import { getSmartBgBaseOnLevel } from 'Styles/utils';
 import { AiOutlinePlus } from 'react-icons/ai';
 import theme from 'styled-theming';
 import { deviceMin } from 'Consts/device';
-import { layer1_BG } from 'Styles/Theme/Layers/theme';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerText: string;

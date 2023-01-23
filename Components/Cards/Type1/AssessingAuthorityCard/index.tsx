@@ -17,7 +17,7 @@ import { GoLinkExternal } from 'react-icons/go';
 import { scrollbarStyles } from 'Styles/Theme';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   abv: AssessingAuthorityAbv;

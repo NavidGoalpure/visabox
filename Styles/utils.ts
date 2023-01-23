@@ -1,10 +1,8 @@
 import { ThemeSet } from 'styled-theming';
-import {
-  layer1_BG,
-  layer2A_Bg,
-  layer2B_BG,
-  layer3_BG,
-} from './Theme/Layers/theme';
+import { layer1_BG } from './Theme/Layers/layer1/theme';
+import { layer2A_Bg, layer2B_BG } from './Theme/Layers/layer2/theme';
+import { layer3_BG } from './Theme/Layers/layer3/theme';
+
 
 function getSmartBgBaseOnLevel(themeLayer: '1' | '2A' | '2B' | '3'): ThemeSet {
   switch (themeLayer) {

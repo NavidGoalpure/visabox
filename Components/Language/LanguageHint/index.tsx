@@ -13,7 +13,7 @@ import { SecondaryButton } from 'Elements/Button/Secondary';
 import { setLocalStorage } from 'Utils';
 import { LocalStorageKeys } from 'Interfaces';
 import { deviceMin } from 'Consts/device';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props {
   gtagEventLabel: string;

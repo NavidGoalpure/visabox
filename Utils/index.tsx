@@ -11,8 +11,9 @@ const getThemeFromLocalStorage = (): ThemeModes => {
 //
 
 //
-function isItOnLive(location?: string): boolean {
-  const smartLocation = location || window.location.href;
+function isItOnLive(): boolean {
+  const smartLocation =
+    typeof window === 'undefined' ? '' : window?.location?.href;
   if (
     smartLocation.includes('https://marabox.com') ||
     smartLocation.includes('http://marabox.com') ||

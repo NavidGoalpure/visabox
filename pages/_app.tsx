@@ -11,9 +11,7 @@ import { useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
 import Script from 'next/script';
-import { hotjar } from 'react-hotjar';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+// import { hotjar } from 'react-hotjar';
 import { createGlobalStyle } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
 import { isItOnLive } from 'Utils';
@@ -23,18 +21,17 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
 
-  useEffect(() => {
-    hotjar.initialize(
-      Number(process.env.NEXT_PUBLIC_HJID),
-      Number(process.env.NEXT_PUBLIC_HJSV)
-    );
-  }, []);
+  // useEffect(() => {
+  //   hotjar.initialize(
+  //     Number(process.env.NEXT_PUBLIC_HJID),
+  //     Number(process.env.NEXT_PUBLIC_HJSV)
+  //   );
+  // }, []);
   //
   return (
     <>

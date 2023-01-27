@@ -1,3 +1,5 @@
+const { withSentryConfig } = require('@sentry/nextjs');
+
 const withImages = require('next-images');
 /** @type {import('next').NextConfig} */
 const config = {
@@ -12,6 +14,21 @@ const config = {
     defaultLocale: 'en',
     localeDetection: false,
   },
+  sentry: {
+    // See the sections below for information on the following options:
+    //   'Configure Source Maps':
+    //     - disableServerWebpackPlugin
+    //     - disableClientWebpackPlugin
+    //     - hideSourceMaps
+    //     - widenClientFileUpload
+    //   'Configure Legacy Browser Support':
+    //     - transpileClientSDK
+    //   'Configure Serverside Auto-instrumentation':
+    //     - autoInstrumentServerFunctions
+    //     - excludeServerRoutes
+    //   'Configure Tunneling to avoid Ad-Blockers':
+    //     - tunnelRoute
+  },
   async redirects() {
     return [
       {
@@ -22,5 +39,19 @@ const config = {
     ];
   },
 };
+const sentryWebpackPluginOptions = {
+  // Additional config options for the Sentry Webpack plugin. Keep in mind that
+  // the following options are set automatically, and overriding them is not
+  // recommended:
+  //   release, url, org, project, authToken, configFile, stripPrefix,
+  //   urlPrefix, include, ignore
 
-module.exports = withImages(config);
+  silent: true, // Suppresses all logs
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options.
+};
+
+module.exports = withSentryConfig(
+  withImages(config),
+  sentryWebpackPluginOptions
+);

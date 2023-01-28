@@ -37,6 +37,7 @@ export const BacklogTable: React.FC<Props> = ({
           <NoData
             hasIcon={false}
             messageComponent={t(LanguageKeys.NoDataMessage)}
+            themeLayer='2A'
           />
         )}
       </tbody>

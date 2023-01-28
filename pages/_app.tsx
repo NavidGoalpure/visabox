@@ -11,59 +11,42 @@ import { useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
 import Script from 'next/script';
-import { hotjar } from 'react-hotjar';
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import * as gtag from 'Utils/Gtags';
+// import { hotjar } from 'react-hotjar';
 import { createGlobalStyle } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
+import { isItOnLive } from 'Utils';
 
 const GlobalStyle = createGlobalStyle`
  ${globalStyles}
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
 
-  useEffect(() => {
-    hotjar.initialize(
-      Number(process.env.NEXT_PUBLIC_HJID),
-      Number(process.env.NEXT_PUBLIC_HJSV)
-    );
-  }, []);
-  //
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
+  // useEffect(() => {
+  //   hotjar.initialize(
+  //     Number(process.env.NEXT_PUBLIC_HJID),
+  //     Number(process.env.NEXT_PUBLIC_HJSV)
+  //   );
+  // }, []);
   //
   return (
     <>
-      <Script
-        strategy='afterInteractive'
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-      />
       <NextNProgress height={2} />
-
-      <Script strategy='afterInteractive'>
-        {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-                    page_path: window.location.pathname,
-                    });
-                `}
-      </Script>
+      {isItOnLive() && (
+        <Script id='google-tag-manager' strategy='afterInteractive'>
+          {`
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
+      `}
+        </Script>
+      )}
       <ThemeProvider
         theme={{
           mode: theme,

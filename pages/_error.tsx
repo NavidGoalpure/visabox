@@ -7,7 +7,7 @@ import PageLayout from 'Components/Layouts/PageContainer';
 import Head from 'next/head';
 import PageErrorContent from 'Elements/Error/pageContent';
 
-const CustomErrorComponent: NextPage<ErrorProps> = (props) => {
+const CustomErrorComponent: NextPage<ErrorProps> = () => {
   // If you're using a Nextjs version prior to 12.2.1, uncomment this to
   // compensate for https://github.com/vercel/next.js/issues/8592
   // Sentry.captureUnderscoreErrorException(props);

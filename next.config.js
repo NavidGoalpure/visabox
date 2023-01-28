@@ -1,4 +1,4 @@
-const withImages = require('next-images');
+const withImages = require("next-images");
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -7,16 +7,19 @@ const config = {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
+  build: {
+    transpile: ["gsap"],
+  },
   i18n: {
-    locales: ['en', 'fa'],
-    defaultLocale: 'en',
+    locales: ["en", "fa"],
+    defaultLocale: "en",
     localeDetection: false,
   },
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/occupations',
+        source: "/",
+        destination: "/occupations",
         permanent: false,
       },
     ];

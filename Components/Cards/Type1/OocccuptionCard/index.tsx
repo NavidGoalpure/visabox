@@ -1,31 +1,53 @@
-import { useLocale } from 'Hooks/useLocale';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
-import { Slug } from 'Interfaces/Fields';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import PopupContent from './popupContent';
-import { Container, Wrapper, Code, Title } from '../StyledComponents';
-import Popup from '../popup';
-import styled from 'styled-components/macro';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-
+import { useLocale } from "Hooks/useLocale";
+import { MultiLanguageText, MultiLanguageTextArray } from "Interfaces";
+import { Slug } from "Interfaces/Fields";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import PopupContent from "./popupContent";
+import { Container, Wrapper, Code, Title } from "../StyledComponents";
+import Popup from "../popup";
+import styled from "styled-components/macro";
+import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
+import gsap from "gsap";
+//@ts-ignore
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 interface Props {
   code?: number;
   title?: MultiLanguageText;
   description?: MultiLanguageText;
   slug?: Slug;
   tasks: MultiLanguageTextArray;
+  id?: number;
 }
-function OccupationCard({ code, title, description, slug, tasks }: Props) {
+function OccupationCard({ code, title, description, slug, tasks, id }: Props) {
   const { dt } = useDynamicTranslation();
   const { locale } = useLocale();
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      `.c${id}`,
+      {
+        opacity: 0,
+        y: 40,
+      },
+      {
+        scrollTrigger: {
+          trigger: `.c${id}`,
+          start: "-10 bottom",
+          toggleActions: "play none none none",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+      }
+    );
+  },[]);
   return (
-    <Container>
+    <Container className={`c${id}`}>
       <Link
-        style={{ height: '100%' }}
+        style={{ height: "100%" }}
         key={code}
         href={{ pathname: `/${locale}/occupations/${slug?.current}` }}
         prefetch={false}

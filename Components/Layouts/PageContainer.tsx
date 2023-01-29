@@ -3,7 +3,7 @@ import { deviceMin } from 'Consts/device';
 import { useLocale } from 'Hooks/useLocale';
 import { Languages } from 'Interfaces';
 import React, { HTMLAttributes, ReactNode } from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import { Header } from '../NavigationMenu';

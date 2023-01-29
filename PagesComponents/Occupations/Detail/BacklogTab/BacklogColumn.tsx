@@ -2,7 +2,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import React, { ReactNode } from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
@@ -70,7 +70,6 @@ const Title = styled.h2`
   border-radius: 10px;
   margin-bottom: 1rem;
   background: var(--color-primary1);
-  
 `;
 const TabRoot = styled(Tab.Root)`
   width: 100%;

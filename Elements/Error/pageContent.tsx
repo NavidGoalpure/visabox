@@ -1,7 +1,7 @@
 import AnimationComponent from 'Components/AnimationComponent';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import Link from 'next/link';
 import {
   Layer1_SubtitleStyle,

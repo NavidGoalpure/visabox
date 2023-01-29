@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import { deviceMin } from 'Consts/device';
 import theme from 'styled-theming';
 

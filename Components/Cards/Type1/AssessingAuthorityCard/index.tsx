@@ -12,7 +12,7 @@ import {
 import Popup from '../popup';
 import { AssessingAuthorityAbv } from 'Interfaces/Documents/occupation';
 
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { GoLinkExternal } from 'react-icons/go';
 import { scrollbarStyles } from 'Styles/Theme';
 import { componentStatements, LanguageKeys } from './const';

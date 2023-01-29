@@ -9,6 +9,7 @@
     "lint": "npx tsc --noEmit"
   },
   "dependencies": {
+    "@next/font": "^13.1.6",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-accordion": "^1.0.1",
     "@radix-ui/react-navigation-menu": "^1.1.1",
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
+    "@builder.io/partytown": "^0.7.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "14.2.0",

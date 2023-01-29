@@ -19,6 +19,7 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
               key={occupation._id}
               code={occupation?.code}
               title={occupation?.title}
+
               id={occupation._id}
               description={occupation?.anzsco_section?.description}
               slug={occupation.slug}

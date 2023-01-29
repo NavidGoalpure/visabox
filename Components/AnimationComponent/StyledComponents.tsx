@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components/macro";
-import theme from "styled-theming";
-import { TriangleIcon } from "./TriangleIcon";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { TriangleIcon } from './TriangleIcon';
 
-export const borderColorContent = theme("mode", {
+export const borderColorContent = theme('mode', {
   light: css`
     border: 6px solid var(--color-gray10);
   `,
@@ -20,7 +20,7 @@ export const CircleCss = css`
   border-radius: 50%;
   position: absolute;
   :before {
-    content: "";
+    content: '';
     border-radius: 50%;
     position: absolute;
     width: 5rem;
@@ -54,7 +54,7 @@ export const TriangleCss = css`
   transform: rotate(45deg);
   position: absolute;
 `;
-export const ShadowColor = theme("mode", {
+export const ShadowColor = theme('mode', {
   light: css`
     stroke: var(--color-gray10);
   `,

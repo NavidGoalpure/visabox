@@ -5,6 +5,22 @@ const withImages = require('next-images');
 const config = {
   reactStrictMode: true,
   swcMinify: true,
+  //
+  webpack: (config, { webpack }) => {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        __SENTRY_DEBUG__: false,
+        __SENTRY_TRACING__: false,
+      })
+    );
+
+    return config;
+  },
+  //
+  experimental: {
+    nextScriptWorkers: true,
+    
+  },
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
@@ -22,7 +38,7 @@ const config = {
     //   'Configure Source Maps':
     //     - disableServerWebpackPlugin
     //     - disableClientWebpackPlugin
-    //     - hideSourceMaps
+    hideSourceMaps: true,
     //     - widenClientFileUpload
     //   'Configure Legacy Browser Support':
     //     - transpileClientSDK
@@ -32,6 +48,7 @@ const config = {
     //   'Configure Tunneling to avoid Ad-Blockers':
     //     - tunnelRoute
   },
+
   async redirects() {
     return [
       {

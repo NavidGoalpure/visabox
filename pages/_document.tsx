@@ -45,18 +45,6 @@ export default class MyDocument extends Document {
             href='https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap'
             rel='stylesheet'
           />
-          <script
-            data-partytown-config
-            dangerouslySetInnerHTML={{
-              __html: `
-            partytown = {
-              lib: '/_next/static/~partytown/',
-              debug: true,
-              forward: ['dataLayer.push']
-            };
-          `,
-            }}
-          />
         </Head>
         <body>
           <Main />

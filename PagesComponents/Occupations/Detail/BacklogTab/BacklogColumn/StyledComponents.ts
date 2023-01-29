@@ -21,6 +21,7 @@ const TextColor = theme('mode', {
   light: css`
     color: var(--color-gray9);
     border: 2px solid var(--color-gray12);
+    background: white;
     span {
       color: var(--color-primary3);
     }

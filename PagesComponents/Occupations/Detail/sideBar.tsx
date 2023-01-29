@@ -87,7 +87,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                   />
                 )}
                 <StyledAccordion
-                  backgroundLayer='2A'
+                  backgroundLayer='3'
                   triggerText={t(LanguageKeys.HintsTitle)}
                   isOpen={true}
                   content={

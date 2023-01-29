@@ -20,6 +20,7 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
+import { layer3_style } from 'Styles/Theme/Layers/layer3/style';
 
 interface Props {
   anzscoSection: AnzscoSection | undefined;
@@ -73,7 +74,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }}
         ></Description>
         <StyledAccordion
-          backgroundLayer='2A'
+          backgroundLayer='3'
           triggerText={t(LanguageKeys.AlternativeTitles)}
           content={
             <AccordionContent
@@ -84,7 +85,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }
         />
         <StyledAccordion
-          backgroundLayer='2A'
+          backgroundLayer='3'
           triggerText={t(LanguageKeys.Specialisations)}
           content={
             <AccordionContent
@@ -96,7 +97,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {!isMultiLanguageTextArrayIsEmpty(anzscoSection?.nec_occupation) && (
           <StyledAccordion
-            backgroundLayer='2A'
+            backgroundLayer='3'
             triggerText={t(LanguageKeys.NecOccupation)}
             content={
               <AccordionContent
@@ -134,7 +135,7 @@ const BorderColor = theme('mode', {
   `,
 });
 const Table = styled.table`
-  ${BorderColor};
+  ${layer3_style}
   width: 100%;
   padding: 1.5rem;
   border-radius: 15px;
@@ -175,7 +176,7 @@ const ContentTitle = styled.h2`
 `;
 const Description = styled.p`
   ${BorderColor};
-  ${layer2A_SubtitleStyle};
+  ${layer3_style};
   margin: 0;
   margin-bottom: 2rem;
   padding: 2rem 1.75rem;

@@ -1,8 +1,8 @@
 import { css } from 'styled-components/macro';
 import theme from 'styled-theming';
 import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
-import { directionStyles } from '../..';
-import { layer3_SubtitleColor, layer3_TextColor } from './theme';
+import { borderTheme, directionStyles } from '../..';
+import { layer3_BG, layer3_SubtitleColor, layer3_TextColor } from './theme';
 
 ///////////////layer3/////////////
 export const layer3_TitleStyle = css`
@@ -37,4 +37,63 @@ export const layer3_HeaderStyle = css`
   border-top: none;
   border-right: none;
   border-left: none;
+`;
+export const layer3_style = css`
+  ${layer3_BG}
+  ${directionStyles}
+  border-radius: 15px;
+  overflow: hidden;
+  /////////////
+  header {
+    ${layer3_HeaderBg}
+    text-align: center;
+  }
+  #header {
+    ${layer3_HeaderBg}
+    text-align: center;
+  }
+
+  /////////////
+  p {
+    text-align: start;
+  }
+`;
+
+export const layer3_TableStyle = css`
+  ${borderTheme}
+  ${layer3_style}
+  box-shadow: none;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  thead {
+    display: block;
+    background-color: transparent !important;
+    padding: 0.5rem 0 !important;
+    ${borderTheme}
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  tbody {
+    text-align: center;
+    padding: 1rem 0 !important;
+    display: block;
+  }
+  tr {
+    width: 100%;
+    font-weight: 500;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 1rem;
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+  td {
+      margin: 0;
+      font-weight: 500;
+    }
+  }
 `;

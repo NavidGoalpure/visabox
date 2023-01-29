@@ -15,6 +15,7 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
+import { layer3_style, layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 
 interface Props {
   anzscoSection: ReferenceType | AnzscoSection | undefined;
@@ -46,7 +47,7 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
           {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ''))}
         </SkillLevelDesc>
         <StyledAccordion
-          backgroundLayer='2A'
+          backgroundLayer='3'
           triggerText={t(LanguageKeys.Tasks)}
           content={
             <AccordionContent
@@ -116,7 +117,8 @@ const ContentTitle = styled.h2`
   margin-bottom:1.5rem;
 `;
 const Description = styled.p`
-  ${layer2A_SubtitleStyle};
+  ${layer3_style}
+  ${layer3_SubtitleStyle};
   ${BorderColor};
   margin: 0;
   margin-bottom: 2rem;

@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components/macro';
+import styled, { css, keyframes } from 'styled-components';
 import theme from 'styled-theming';
 import { SquareCss } from './StyledComponents';
 
@@ -32,11 +32,9 @@ left:30%;
 }
 `;
 
-
 const Content = styled.span`
-${SquareCss}
+  ${SquareCss}
   top: 10%;
   left: 15%;
   animation: ${MovingAnimation} 15s infinite ease;
-  
 `;

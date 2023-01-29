@@ -3,7 +3,7 @@ import { PrimaryButton } from 'Elements/Button/Primary';
 import PageLayout from 'Components/Layouts/PageContainer';
 import Head from 'next/head';
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import Link from 'next/link';
 import Seo from 'Components/Seo';

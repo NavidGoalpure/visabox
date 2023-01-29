@@ -1,5 +1,5 @@
 import { deviceMin } from 'Consts/device';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import * as Tab from 'Elements/Tab';
 import theme from 'styled-theming';
 

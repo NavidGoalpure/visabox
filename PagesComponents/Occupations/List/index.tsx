@@ -8,7 +8,7 @@ import { useLastOccupationData } from './useLastOccupationData';
 import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { useState } from 'react';
 import NoData from 'Components/NoData';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';

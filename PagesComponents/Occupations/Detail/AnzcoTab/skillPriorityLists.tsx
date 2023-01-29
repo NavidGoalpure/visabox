@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 
 import { deviceMin } from 'Consts/device';
 import { PriorityList, Territories } from 'Interfaces/Documents/occupation';

@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from "styled-components/macro";
-import theme from "styled-theming";
-import { SquareCss } from "./StyledComponents";
+import styled, { css, keyframes } from 'styled-components';
+import theme from 'styled-theming';
+import { SquareCss } from './StyledComponents';
 
 const Square2 = () => {
   return <Content aria-hidden={true} />;
@@ -32,7 +32,7 @@ left:85%;
 }
 `;
 
-export const borderColorContent = theme("mode", {
+export const borderColorContent = theme('mode', {
   light: css`
     border: 6px solid var(--color-gray10);
   `,

@@ -1,12 +1,16 @@
-import styled, { css, keyframes } from "styled-components/macro";
-import theme from "styled-theming";
-import { StyledTriangleIcon, TriangleCss, TriangleShadow } from "./StyledComponents";
+import styled, { css, keyframes } from 'styled-components';
+import theme from 'styled-theming';
+import {
+  StyledTriangleIcon,
+  TriangleCss,
+  TriangleShadow,
+} from './StyledComponents';
 
 const Triangle1 = () => {
   return (
     <Content aria-hidden={true}>
       <StyledTriangleIcon aria-hidden={true} />
-      <TriangleShadow aria-hidden={true} />{" "}
+      <TriangleShadow aria-hidden={true} />{' '}
     </Content>
   );
 };
@@ -37,7 +41,6 @@ left:20%;
   left: 10%;
 }
 `;
-
 
 const Content = styled.span`
   ${TriangleCss}

@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleTag from 'Elements/ToggleTag';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { SidebarPage } from './sideBar';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import TooltipTag from 'Elements/TooltipTag';

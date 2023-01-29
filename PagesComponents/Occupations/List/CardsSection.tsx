@@ -3,7 +3,7 @@ import { Occupation } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';
 import { InfiniteData } from 'react-query';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 interface Props {
   occupations: InfiniteData<Occupation[]> | undefined;

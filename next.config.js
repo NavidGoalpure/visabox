@@ -19,6 +19,7 @@ const config = {
   //
   experimental: {
     nextScriptWorkers: true,
+    
   },
   compiler: {
     // Enables the styled-components SWC transform

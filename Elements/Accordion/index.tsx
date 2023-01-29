@@ -1,6 +1,6 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import React, { HTMLAttributes, ReactNode } from 'react';
-import styled, { css, keyframes } from 'styled-components/macro';
+import styled, { css, keyframes } from 'styled-components';
 import { Headline7Style } from 'Styles/Typo';
 import { getSmartBgBaseOnLevel } from 'Styles/utils';
 

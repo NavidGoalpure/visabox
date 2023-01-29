@@ -13,43 +13,76 @@ import {
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
+  layer2A_TextColor,
   layer2B_BG,
 } from "Styles/Theme/Layers/layer2/theme";
 import {
   layer3_TextStyle,
   layer3_TitleStyle,
 } from "Styles/Theme/Layers/layer3/style";
-import { Headline7Style } from "Styles/Typo";
+import { Headline6Style, Headline7Style } from "Styles/Typo";
 import { AiFillStar } from "react-icons/ai";
+import { HTMLAttributes, useEffect } from "react";
+import gsap from "gsap";
+//@ts-ignore
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { MultiLanguageText } from "Interfaces";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
 
-function LawyerCard() {
-     const copyContent = async (text:string) => {
-       try {
-         await navigator.clipboard.writeText(text);
-         console.log("navid Content copied to clipboard");
-       } catch (err) {
-         console.error("navid Failed to copy: ", err);
-       }
-     };
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  name: MultiLanguageText;
+  email: string | undefined;
+  website: string | undefined;
+  phone: string[] | undefined;
+  slug: string;
+}
+function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
+  const { dt } = useDynamicTranslation();
+  const copyContent = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log("navid Content copied to clipboard");
+    } catch (err) {
+      console.error("navid Failed to copy: ", err);
+    }
+  };
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.fromTo(
+      `.${slug}`,
+      {
+        y: 40,
+      },
+      {
+        scrollTrigger: {
+          trigger: `.${slug}`,
+          start: "-10 bottom",
+          toggleActions: "play none none none",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+      }
+    );
+  });
   return (
-    <Container>
+    <Container className={slug} {...props}>
       <Wrapper>
-        <Title>saul goodman</Title>
+        <Title>{dt(name)}</Title>
         <Socials>
-          {/* <TelegramWrapper>
-            <TelegramTitle>Telegram</TelegramTitle>
-          </TelegramWrapper> */}
           <EmailWrapper>
             <EmailTitle>Email:</EmailTitle>
-            <EmailUrl onClick={() =>copyContent("azimi@shada.com.au")}>azimi@shada.com.au</EmailUrl>
+            <EmailUrl onClick={() => copyContent(email||"")}>{email}</EmailUrl>
           </EmailWrapper>
           <PhoneWrapper>
             <PhoneTitle>Phone:</PhoneTitle>
-            <EmailUrl onClick={() =>copyContent("azimi@shada.com.au")}>azimi@shada.com.au</EmailUrl>
+            <PhoneUrl onClick={() => copyContent(phone?.[0]||"")}>
+              {phone?.[0]}
+            </PhoneUrl>
           </PhoneWrapper>
           <WebsiteWrapper>
             <WebsiteTitle>Website:</WebsiteTitle>
-            <EmailUrl>azimi@shada.com.au</EmailUrl>
+            <EmailUrl>{website}</EmailUrl>
           </WebsiteWrapper>
         </Socials>
         <LawyerElement>Lawyer</LawyerElement>
@@ -120,7 +153,8 @@ const Socials = styled.div`
   width: 100%;
   gap: 1.5rem;
 `;
-const TelegramWrapper = styled.div`
+
+const EmailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -129,24 +163,21 @@ const TelegramWrapper = styled.div`
   cursor: pointer;
 `;
 
-const TelegramTitle = styled.h4`
+const EmailTitle = styled.h4`
   ${LinksTheme}
   ${Headline7Style}
   transition: 0.3s all ease;
-  ${TelegramWrapper}:hover & {
-    color: var(--color-primary5);
-  }
 `;
-const EmailWrapper = styled(TelegramWrapper)``;
-
-const EmailTitle = styled(TelegramTitle)``;
-const EmailUrl = styled.h4``;
-const PhoneWrapper = styled(TelegramWrapper)``;
-
-const PhoneTitle = styled(TelegramTitle)``;
-const WebsiteWrapper = styled(TelegramWrapper)``;
-
-const WebsiteTitle = styled(TelegramTitle)``;
+const EmailUrl = styled.h4`
+  ${layer2A_TextColor};
+  ${Headline6Style};
+`;
+const PhoneWrapper = styled(EmailWrapper)``;
+const PhoneTitle = styled(EmailTitle)``;
+const PhoneUrl = styled(EmailUrl)``;
+const WebsiteWrapper = styled(EmailWrapper)``;
+const WebsiteUrl = styled.a``;
+const WebsiteTitle = styled(EmailTitle)``;
 const LawyerElement = styled.h3`
   ${layer3_TextStyle}
   ${layer2A_Bg}
@@ -155,9 +186,9 @@ const LawyerElement = styled.h3`
   justify-content: space-between;
   gap: 0.5rem;
   position: absolute;
-  bottom: -20%;
-  right: 15%;
-  transform: rotate(3deg);
+  bottom: 0;
+  right: 0;
+  transform: rotate(3deg) translate(-50%, 70%);
   padding: 1rem 1.5rem;
   border-radius: 10px;
   box-shadow: unset;
@@ -166,9 +197,9 @@ const MaraElement = styled.h3`
   ${layer3_TextStyle}
   ${MaraTheme}
   position:absolute;
-  bottom: -20%;
-  left: 15%;
-  transform: rotate(-3deg);
+  bottom: 0;
+  left: 0;
+  transform: rotate(-3deg) translate(50%, 70%);
   padding: 1rem 1.5rem;
   border-radius: 10px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);

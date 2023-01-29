@@ -83,6 +83,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                   <NoData
                     hasIcon={false}
                     messageComponent={t(LanguageKeys.NoDataMessage)}
+                    themeLayer='2A'
                   />
                 )}
                 <StyledAccordion

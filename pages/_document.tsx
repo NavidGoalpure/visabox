@@ -1,6 +1,7 @@
 import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { Html, Head, Main, NextScript } from 'next/document';
+import { isItOnLive } from 'Utils';
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -48,6 +49,13 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          {isItOnLive() && (
+            <noscript
+              dangerouslySetInnerHTML={{
+                __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}" height="0" width="0" style="display: none; visibility: hidden;" />`,
+              }}
+            />
+          )}
         </body>
       </Html>
     );

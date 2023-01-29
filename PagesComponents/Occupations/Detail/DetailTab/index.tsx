@@ -16,15 +16,13 @@ interface Props {
 }
 
 const DetailComponent: React.FC<Props> = ({ territorySection }) => {
-  const { isLaptop, isMobile } = useDevice();
+  const { isMobile } = useDevice();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <>
-      {isLaptop ? (
-        <Head>
-          <script src='https://use.fontawesome.com/5f46793e2e.js'></script>
-        </Head>
-      ) : null}
+      <Head>
+        <script src='https://use.fontawesome.com/5f46793e2e.js'></script>
+      </Head>
       <DetailTab
         defaultValue={Territories.ACT}
         heads={

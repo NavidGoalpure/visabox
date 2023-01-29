@@ -105,7 +105,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
       {/**********Language feedback ***** */}
-      {mustShowFeedbackWindow && <LanguageHint gtagEventLabel={fragmentUrl} />}
+      {mustShowFeedbackWindow && <LanguageHint />}
       {/**********Similar Occupation***** */}
       {occupation.similarOccupations && (
         <SimilarOccupations

@@ -1,8 +1,11 @@
 import { css } from 'styled-components/macro';
 import { Headline4Style, Headline5Style } from 'Styles/Typo';
 import { directionStyles } from '../..';
-import { layer1_TitleColor, layer1_SubtitleColor, layer1_TextColor } from './theme';
-
+import {
+  layer1_TitleColor,
+  layer1_SubtitleColor,
+  layer1_TextColor,
+} from './theme';
 
 ///////////////layer1//////////////////
 export const Layer1_TitleStyle = css<{
@@ -12,6 +15,7 @@ export const Layer1_TitleStyle = css<{
   ${layer1_TitleColor}
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
+  font-weight: bold;
 `;
 export const Layer1_SubtitleStyle = css<{
   color?: string;

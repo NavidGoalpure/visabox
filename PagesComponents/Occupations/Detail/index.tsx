@@ -56,8 +56,9 @@ const Content: React.FC<Props> = ({ occupation }) => {
             {getSmartAssessingAuthorities({
               code: occupation?.code,
               assessing_authority: assessing_authority,
-            }).map((assess) => (
+            }).map((assess, i) => (
               <Link
+                key={i}
                 href={`/${locale}/occupations/assssing-authorities/#${
                   assess.split('_')[0]
                 }`}

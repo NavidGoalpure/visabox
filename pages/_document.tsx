@@ -37,12 +37,14 @@ export default class MyDocument extends Document {
         <Head>
           <script
             data-partytown-config
+            // navid test set
             dangerouslySetInnerHTML={{
               __html: `
             partytown = {
               lib: '/_next/static/~partytown/',
               debug: true,
-              forward: ['dataLayer.push']
+              forward: ['dataLayer.push'],
+              set:{(opts) => { const isDebugging = opts.window.location.search.includes("gtm_debug"); if ( isDebugging && opts.name === "type" && opts.nodeName === "SCRIPT" ) { return opts.prevent; } return opts.continue; }}
             };
           `,
             }}

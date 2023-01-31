@@ -19,7 +19,7 @@ export const TabItem: React.FC<Props> = ({ title, value, icon }) => {
   });
   useEffect(() => {
     if (!islaptopS) setScreen('DESKTOP');
-  });
+  }, []);
   return screen === 'MOBILE' ? (
     <Mobile title={title} value={value} icon={icon} />
   ) : (

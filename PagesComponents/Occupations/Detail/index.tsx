@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleTag from 'Elements/ToggleTag';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { SidebarPage } from './sideBar';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import TooltipTag from 'Elements/TooltipTag';
@@ -56,12 +56,13 @@ const Content: React.FC<Props> = ({ occupation }) => {
             {getSmartAssessingAuthorities({
               code: occupation?.code,
               assessing_authority: assessing_authority,
-            }).map((assess) => (
+            }).map((assess, i) => (
               <Link
+                key={i}
                 href={`/${locale}/occupations/assssing-authorities/#${
-                  assess.split('_')[0]
+                  assess.split("_")[0]
                 }`}
-                target='_blank'
+                target="_blank"
                 scroll={false}
               >
                 <TooltipTag
@@ -79,26 +80,26 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag
-          contentKey={'189'}
+          contentKey={"189"}
           isOn={has189Visa(occupation.code)}
-          backgroundtheme='PAGE'
+          backgroundtheme="PAGE"
         />
         <StyledToggleTag
-          contentKey={'190'}
+          contentKey={"190"}
           isOn={has190Visa(occupation.code)}
-          backgroundtheme='PAGE'
+          backgroundtheme="PAGE"
         />
 
         <StyledToggleTag
-          contentKey={'491'}
+          contentKey={"491"}
           isOn={has491StateVisa(occupation.code)}
-          backgroundtheme='PAGE'
+          backgroundtheme="PAGE"
         />
         <StyledToggleTag
-          contentKey={t(LanguageKeys['491-family'])}
+          contentKey={t(LanguageKeys["491-family"])}
           isOn={has491FamilyVisa(occupation.code)}
-          backgroundtheme='PAGE'
-          style={{ marginInlineEnd: '0' }}
+          backgroundtheme="PAGE"
+          style={{ marginInlineEnd: "0" }}
         />
       </ToggleContainer>
       {/*  */}

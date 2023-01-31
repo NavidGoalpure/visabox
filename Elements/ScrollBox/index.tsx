@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { directionStyles } from 'Styles/Theme';
 

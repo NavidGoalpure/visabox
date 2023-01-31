@@ -12,12 +12,12 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: "Skills Assessment And Assessing Authorities | Mara Box",
-    fa: "لیست موسسات ارزیابی مدارک و مهارت های استرالیا | مارا باکس",
+    en: "Find the most authentic migration agents for australia| Mara Box",
+    fa: "معتبر ترین وکلای ایرانی مهاجرت به استرالیا را پیدا کنید | مارا باکس",
   },
   SeoDesc: {
-    fa: "فهرست کامل مشاغل موسسات ارزیابی مدارک و مهارت های استرالیا به همراه آدرس و اطلاعات تماس",
-    en: "See the full skills assessment and assessing authorities List & find their address, email, website and etc.",
+    fa: "اسامی بهترین وکلای ایرانی برای اقامت و مهاجرت به استرالیا،ویزای سرمایه گذاری،کاری،خانواده و ازدواج،تجاری و تحصیلی",
+    en: "name and info of some of the best migration agents for migration to australia,investment visa,work visa,marriage and student visa",
   },
   //
   PageTitle: {
@@ -38,7 +38,7 @@ export const assssingAuthorities: Lawyer[] = [
       fa: ["LLB", "LLM", "دکترای حقوق"],
     },
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "info@ddamigration.com",
       phone: ["02188886344", "+61490913970"],
@@ -56,7 +56,7 @@ export const assssingAuthorities: Lawyer[] = [
 
     maraNumber: "0854826",
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "info@visayab.com",
       phone: ["0288758851", "+61410070490"],
@@ -71,7 +71,7 @@ export const assssingAuthorities: Lawyer[] = [
 
     maraNumber: "0955595",
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "r.aein@homemigration.com",
       phone: ["02188666181"],
@@ -89,7 +89,7 @@ export const assssingAuthorities: Lawyer[] = [
     },
     maraNumber: "1169662",
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "info@avestaservices.com",
       phone: ["+61406812133"],

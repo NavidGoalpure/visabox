@@ -1,4 +1,4 @@
-import { css } from 'styled-components/macro';
+import { css } from 'styled-components';
 import theme from 'styled-theming';
 
 export const globalStyles = theme('mode', {

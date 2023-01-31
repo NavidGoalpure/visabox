@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { BsCheckLg } from 'react-icons/bs';
 import { IoMdClose } from 'react-icons/io';

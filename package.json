@@ -9,6 +9,7 @@
     "lint": "npx tsc --noEmit"
   },
   "dependencies": {
+    "@next/font": "^13.1.6",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-accordion": "^1.0.1",
     "@radix-ui/react-navigation-menu": "^1.1.1",
@@ -18,9 +19,11 @@
     "@radix-ui/react-tooltip": "^1.0.2",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
+    "@types/gsap": "^3.0.0",
     "@sentry/cli": "^2.11.0",
     "@sentry/nextjs": "^7.34.0",
     "eslint-config-next": "^13.0.7",
+    "gsap": "^3.11.4",
     "next": "^13.0.7",
     "next-images": "^1.8.4",
     "next-sanity": "^1.0.0",

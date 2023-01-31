@@ -1,4 +1,4 @@
-import { css } from 'styled-components/macro';
+import { css } from 'styled-components';
 import { Headline4Style, Headline5Style } from 'Styles/Typo';
 import { directionStyles } from '../..';
 import {

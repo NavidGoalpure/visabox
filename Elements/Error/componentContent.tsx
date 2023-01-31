@@ -2,7 +2,7 @@ import { globalComponentStatements, LanguageKeys } from 'Consts/language';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { MdError } from 'react-icons/md';
 import {

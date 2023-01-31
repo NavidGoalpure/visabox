@@ -1,6 +1,6 @@
 import * as RdxSwitch from '@radix-ui/react-switch';
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import Sun from './Images/Sun.svg';
 import Moon from './Images/Moon.svg';
 import MoonLogo from './MoonLogo';

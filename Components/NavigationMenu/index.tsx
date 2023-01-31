@@ -1,7 +1,7 @@
 import { Logo } from 'Elements/Logo';
 import Link from 'next/link';
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import SwitchTheme from './switchTheme';

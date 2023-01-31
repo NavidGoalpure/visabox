@@ -1,7 +1,6 @@
 import { useLocale } from 'Hooks/useLocale';
 import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
-import { ThemeProvider } from 'styled-components/macro';
 import '../Styles/global.css';
 import 'vazirmatn/Vazirmatn-font-face.css';
 import { LanguageDirection, Languages } from 'Interfaces';
@@ -12,12 +11,14 @@ import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
 import Script from 'next/script';
 // import { hotjar } from 'react-hotjar';
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
+import { Montserrat } from '@next/font/google';
 
 const GlobalStyle = createGlobalStyle`
  ${globalStyles}
 `;
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
@@ -34,6 +35,24 @@ function MyApp({ Component, pageProps }: AppProps) {
   //
   return (
     <>
+      <style jsx global>{`
+        html {
+          font-family: ${montserrat.style.fontFamily};
+        }
+      `}</style>
+      <Script
+        id='gtm-script'
+        strategy='worker'
+        dangerouslySetInnerHTML={{
+          __html: `
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
+      `,
+        }}
+      />
       <NextNProgress height={2} />
 
       <Script id='google-tag-manager' strategy='afterInteractive'>

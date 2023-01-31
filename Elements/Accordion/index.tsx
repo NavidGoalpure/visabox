@@ -1,6 +1,6 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import React, { HTMLAttributes, ReactNode } from 'react';
-import styled, { css, keyframes } from 'styled-components/macro';
+import styled, { css, keyframes } from 'styled-components';
 import { Headline7Style } from 'Styles/Typo';
 import { getSmartBgBaseOnLevel } from 'Styles/utils';
 
@@ -35,7 +35,7 @@ export const MaraAccordion: React.FC<Props> = ({
     data-testid='Marabox-Accordion'
   >
     <AccordionItem value='item'>
-      <AccordionHeader backgroundLayer={backgroundLayer}>
+      <AccordionHeader $backgroundLayer={backgroundLayer}>
         <AccordionTrigger>
           <PlusIcon />
           {triggerText}
@@ -84,12 +84,12 @@ const AccordionItem = styled(Accordion.Item)`
   }
 `;
 const AccordionHeader = styled(Accordion.Header)<{
-  backgroundLayer: '1' | '2A' | '2B' | '3';
+  $backgroundLayer: '1' | '2A' | '2B' | '3';
 }>`
   display: flex;
   position: relative;
   z-index: 11;
-  ${({ backgroundLayer }) => getSmartBgBaseOnLevel(backgroundLayer)}
+  ${({ $backgroundLayer }) => getSmartBgBaseOnLevel($backgroundLayer)}
   border: none;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`

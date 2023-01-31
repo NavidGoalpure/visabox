@@ -1,5 +1,5 @@
 import { HtmlHTMLAttributes } from 'react';
-import styled, { keyframes } from 'styled-components/macro';
+import styled, { keyframes } from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}

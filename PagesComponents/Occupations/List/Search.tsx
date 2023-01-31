@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from 'Elements/Input';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';

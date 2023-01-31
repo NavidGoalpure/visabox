@@ -1,4 +1,4 @@
-import { css } from 'styled-components/macro';
+import { css } from 'styled-components';
 import theme from 'styled-theming';
 import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
 import { borderTheme, directionStyles } from '../..';
@@ -7,6 +7,8 @@ import {
   layer2A_HeaderBG,
   layer2A_SubtitleColor,
   layer2A_TextColor,
+  layer2B_SubtitleColor,
+  layer2B_TextColor,
 } from './theme';
 
 ///////////////layer2/////////////
@@ -67,4 +69,32 @@ export const layer2A_style = css`
   p {
     text-align: start;
   }
+`;
+export const layer2B_TitleStyle = css`
+  ${directionStyles}
+  ${layer2B_TextColor}
+  ${Headline5Style}
+`;
+export const layer2B_SubtitleStyle = css`
+  ${directionStyles}
+  ${layer2B_SubtitleColor}
+  ${Headline6Style}
+`;
+export const layer2B_TextStyle = css`
+  ${directionStyles}
+  ${layer2B_TextColor}
+  ${Headline7Style}
+`;
+export const layer2B_HeaderBg = theme("mode", {
+  light: css`
+    background: var(--color-gray7);
+  `,
+  dark: css`
+    background: var(--color-gray5);
+  `,
+});
+export const layer2B_HeaderStyle = css`
+  ${layer2B_HeaderBg}
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
 `;

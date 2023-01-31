@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import SmartComponentBaseOnLocale from 'Components/Language/SmartComponentBaseOnLocale';
 import { componentStatements } from './const';
 import reactStringReplace from 'react-string-replace';

@@ -3,7 +3,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { AnzscoSection, ReferenceType } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import AccordionContent from './AnzcoTab/accordionContent';
 import { LanguageKeys, componentStatements } from './const';

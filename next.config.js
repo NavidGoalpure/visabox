@@ -19,14 +19,18 @@ const config = {
   //
   experimental: {
     nextScriptWorkers: true,
+    
   },
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
+  build: {
+    transpile: ["gsap"],
+  },
   i18n: {
-    locales: ['en', 'fa'],
-    defaultLocale: 'en',
+    locales: ["en", "fa"],
+    defaultLocale: "en",
     localeDetection: false,
   },
   sentry: {
@@ -48,8 +52,8 @@ const config = {
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/occupations',
+        source: "/",
+        destination: "/occupations",
         permanent: false,
       },
     ];

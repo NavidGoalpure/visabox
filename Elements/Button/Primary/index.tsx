@@ -1,7 +1,7 @@
-import { deviceMin } from 'Consts/device';
-import { Loading } from 'Elements/Loading';
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import styled, { css } from 'styled-components/macro';
+import { deviceMin } from "Consts/device";
+import { Loading } from "Elements/Loading";
+import React, { ButtonHTMLAttributes, ReactNode } from "react";
+import styled, { css } from "styled-components";
 
 /**
  * Primary UI component for user interaction
@@ -15,11 +15,17 @@ export const PrimaryButton = ({
   children,
   disabled = false,
   isLoading = false,
-  type = 'button',
+  type = "button",
   ...props
 }: ButtonProps) => {
+ 
   return (
-    <Container type={type} {...props} disabled={disabled || isLoading}>
+    <Container
+      className="title"
+      type={type}
+      {...props}
+      disabled={disabled || isLoading}
+    >
       {isLoading ? <Loading /> : children}
     </Container>
   );
@@ -36,7 +42,6 @@ export const ButtonCss = css<{
   width: -webkit-fill-available;
   height: 3rem;
   padding: 0 3rem;
-
   background: var(--color-primary4);
   border-radius: 50px;
 

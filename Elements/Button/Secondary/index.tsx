@@ -1,7 +1,7 @@
 import { deviceMin } from 'Consts/device';
 import { Loading } from 'Elements/Loading';
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 
 /**

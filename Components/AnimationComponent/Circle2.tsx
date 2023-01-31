@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from "styled-components/macro";
-import { borderColorContent, CircleCss } from "./StyledComponents";
+import styled, { css, keyframes } from 'styled-components';
+import { borderColorContent, CircleCss } from './StyledComponents';
 
 const Circle2 = () => {
   return <Content aria-hidden={true} />;
@@ -32,11 +32,9 @@ left:40%;
 }
 `;
 
-
 const Content = styled.span`
-${CircleCss}
-top: 20%;
-left:80%;
-animation: ${MovingAnimation} 15s infinite ease;
-
+  ${CircleCss}
+  top: 20%;
+  left: 80%;
+  animation: ${MovingAnimation} 15s infinite ease;
 `;

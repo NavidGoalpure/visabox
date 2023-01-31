@@ -1,16 +1,16 @@
-import styled, { css, keyframes } from "styled-components/macro";
-import theme from "styled-theming";
+import styled, { css, keyframes } from 'styled-components';
+import theme from 'styled-theming';
 import {
   StyledTriangleIcon,
   TriangleCss,
   TriangleShadow,
-} from "./StyledComponents";
+} from './StyledComponents';
 
 const Triangle2 = () => {
   return (
     <Content aria-hidden={true}>
       <StyledTriangleIcon aria-hidden={true} />
-      <TriangleShadow aria-hidden={true} />{" "}
+      <TriangleShadow aria-hidden={true} />{' '}
     </Content>
   );
 };

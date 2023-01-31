@@ -95,7 +95,7 @@ export const layer2B_SubtitleColor = theme('mode', {
     color: var(--color-gray13);
   `,
   dark: css`
-    color: var(--color-primary6);
+    color: var(--color-gray13);
   `,
 });
 export const layer2B_TextColor = theme('mode', {

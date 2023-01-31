@@ -38,7 +38,7 @@ export const assssingAuthorities: Lawyer[] = [
       fa: ["LLB", "LLM", "دکترای حقوق"],
     },
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "info@ddamigration.com",
       phone: ["02188886344", "+61490913970"],
@@ -56,7 +56,7 @@ export const assssingAuthorities: Lawyer[] = [
 
     maraNumber: "0854826",
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "info@visayab.com",
       phone: ["0288758851", "+61410070490"],
@@ -71,7 +71,7 @@ export const assssingAuthorities: Lawyer[] = [
 
     maraNumber: "0955595",
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "r.aein@homemigration.com",
       phone: ["02188666181"],
@@ -89,7 +89,7 @@ export const assssingAuthorities: Lawyer[] = [
     },
     maraNumber: "1169662",
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    isFeatured: true,
     contact: {
       email: "info@avestaservices.com",
       phone: ["+61406812133"],

@@ -24,11 +24,10 @@ const similarOccupations: React.FC<Props> = ({
     <Container>
       <Title>{t(LanguageKeys.SimilarOccupations)}</Title>
       <CardsContainer>
-        {smartList.map((occupation, i) => (
+        {smartList.map((occupation) => (
           <OccupationCard
             key={occupation._id}
             code={occupation?.code}
-            id={occupation._id}
             title={occupation?.title}
             description={occupation?.anzsco_section?.description}
             slug={occupation.slug}

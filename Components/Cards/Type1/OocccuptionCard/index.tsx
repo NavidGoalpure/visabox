@@ -7,7 +7,7 @@ import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
 import PopupContent from "./popupContent";
 import { Container, Wrapper, Code, Title } from "../StyledComponents";
 import Popup from "../popup";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import gsap from "gsap";
 //@ts-ignore
@@ -18,23 +18,22 @@ interface Props {
   description?: MultiLanguageText;
   slug?: Slug;
   tasks: MultiLanguageTextArray;
-  id?: number;
 }
-function OccupationCard({ code, title, description, slug, tasks, id }: Props) {
+function OccupationCard({ code, title, description, slug, tasks }: Props) {
   const { dt } = useDynamicTranslation();
   const { locale } = useLocale();
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
-      `.c${id}`,
+      `.c${code}`,
       {
         opacity: 0,
         y: 40,
       },
       {
         scrollTrigger: {
-          trigger: `.c${id}`,
+          trigger: `.c${code}`,
           start: "-10 bottom",
           toggleActions: "play none none none",
         },
@@ -43,9 +42,9 @@ function OccupationCard({ code, title, description, slug, tasks, id }: Props) {
         duration: 1,
       }
     );
-  },[]);
+  }, []);
   return (
-    <Container className={`c${id}`}>
+    <Container className={`c${code}`}>
       <Link
         style={{ height: "100%" }}
         key={code}

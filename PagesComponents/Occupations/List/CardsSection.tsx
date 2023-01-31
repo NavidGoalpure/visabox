@@ -3,7 +3,7 @@ import { Occupation } from "Interfaces/Documents/occupation";
 import { UnitGroup } from "Interfaces/Documents/unitGroup";
 import React from "react";
 import { InfiniteData } from "react-query";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 
 interface Props {
   occupations: InfiniteData<Occupation[]> | undefined;
@@ -13,14 +13,12 @@ const CardsSection: React.FC<Props> = ({ occupations }) => {
   return (
     <Container>
       {occupations?.pages?.map((occupationPage) =>
-        occupationPage?.map((occupation: Occupation,i) => {
+        occupationPage?.map((occupation: Occupation) => {
           return (
             <OccupationCard
               key={occupation._id}
               code={occupation?.code}
               title={occupation?.title}
-
-              id={occupation._id}
               description={occupation?.anzsco_section?.description}
               slug={occupation.slug}
               tasks={

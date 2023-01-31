@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FaPhoneAlt, FaTelegramPlane } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { ImSphere } from "react-icons/im";
-import styled, { css } from "styled-components/macro";
+import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import {
@@ -28,6 +28,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { MultiLanguageText } from "Interfaces";
 import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import { deviceMin } from "Consts/device";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: MultiLanguageText;
@@ -56,7 +57,7 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
       {
         scrollTrigger: {
           trigger: `.${slug}`,
-          start: "-10 bottom",
+          start: "20 bottom",
           toggleActions: "play none none none",
         },
         y: 0,
@@ -72,17 +73,21 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
         <Socials>
           <EmailWrapper>
             <EmailTitle>Email:</EmailTitle>
-            <EmailUrl onClick={() => copyContent(email||"")}>{email}</EmailUrl>
+            <EmailUrl onClick={() => copyContent(email || "")}>
+              {email}
+            </EmailUrl>
           </EmailWrapper>
           <PhoneWrapper>
             <PhoneTitle>Phone:</PhoneTitle>
-            <PhoneUrl onClick={() => copyContent(phone?.[0]||"")}>
+            <PhoneUrl onClick={() => copyContent(phone?.[0] || "")}>
               {phone?.[0]}
             </PhoneUrl>
           </PhoneWrapper>
           <WebsiteWrapper>
             <WebsiteTitle>Website:</WebsiteTitle>
-            <EmailUrl>{website}</EmailUrl>
+            <EmailUrl href={website} target={"_blank"}>
+              {website}
+            </EmailUrl>
           </WebsiteWrapper>
         </Socials>
         <LawyerElement>Lawyer</LawyerElement>
@@ -118,21 +123,28 @@ export const MaraTheme = theme("mode", {
   `,
 });
 const Container = styled.div`
-  padding-left: 2rem;
   padding-top: 5rem;
+  width: 100%;
+  opacity: 0;
+  @media ${deviceMin.mobileL} {
+    min-width: 18.75rem;
+    width: 32%;
+  }
 `;
 const Wrapper = styled.div`
   ${layer2A_Bg}
-  width:22rem;
-  height: 27.125rem;
+  width:100%;
+  height: 20.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: fit-content;
-  padding: 3.125rem 1.5rem;
   border-radius: 15px;
+  padding: 3.125rem 0.5rem;
+  @media ${deviceMin.laptopXS} {
+    padding: 3.125rem 1.5rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -158,7 +170,7 @@ const EmailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
   cursor: pointer;
 `;
@@ -168,9 +180,10 @@ const EmailTitle = styled.h4`
   ${Headline7Style}
   transition: 0.3s all ease;
 `;
-const EmailUrl = styled.h4`
+const EmailUrl = styled.a`
   ${layer2A_TextColor};
   ${Headline6Style};
+  word-break: break-all;
 `;
 const PhoneWrapper = styled(EmailWrapper)``;
 const PhoneTitle = styled(EmailTitle)``;

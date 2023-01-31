@@ -25,7 +25,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 
 ////////////
-export const assssingAuthorities: AssssingAuthority[] = [
+export const assessingAuthorities: AssssingAuthority[] = [
   {
     title: { en: "Architects Accreditation Council of Australia" },
     abv: AssessingAuthorityAbv.AACA,

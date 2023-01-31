@@ -1,15 +1,14 @@
 import LawyerCard from "Components/Business/Lawyer/Card";
 import { deviceMin } from "Consts/device";
-import { MultiLanguageText } from "Interfaces";
 import styled from "styled-components";
 import VIPLawyerCard from "../../../Components/Business/Lawyer/VIPCard";
-import { assssingAuthorities } from "./const";
+import { Lawyers } from "./const";
 
 function Content() {
   return (
     <Container>
       <VIPContainer>
-        {assssingAuthorities.map((lawyer) => {
+        {Lawyers.map((lawyer) => {
           if (lawyer.isFeatured) {
             return (
               <VIPLawyerCard
@@ -26,7 +25,7 @@ function Content() {
         })}
       </VIPContainer>
       <NormalLawyerContainer>
-        {assssingAuthorities.map((lawyer) => {
+        {Lawyers.map((lawyer) => {
           if (!lawyer.isFeatured)
             return (
               <LawyerCard

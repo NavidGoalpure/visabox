@@ -12,12 +12,12 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: "Find the most authentic migration agents for australia| Mara Box",
-    fa: "معتبر ترین وکلای ایرانی مهاجرت به استرالیا را پیدا کنید | مارا باکس",
+    en: "Skills Assessment And Assessing Authorities | Mara Box",
+    fa: "لیست موسسات ارزیابی مدارک و مهارت های استرالیا | مارا باکس",
   },
   SeoDesc: {
-    fa: "اسامی بهترین وکلای ایرانی برای اقامت و مهاجرت به استرالیا،ویزای سرمایه گذاری،کاری،خانواده و ازدواج،تجاری و تحصیلی",
-    en: "name and info of some of the best migration agents for migration to australia,investment visa,work visa,marriage and student visa",
+    fa: "فهرست کامل مشاغل موسسات ارزیابی مدارک و مهارت های استرالیا به همراه آدرس و اطلاعات تماس",
+    en: "See the full skills assessment and assessing authorities List & find their address, email, website and etc.",
   },
   //
   PageTitle: {
@@ -27,31 +27,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 
 ////////////
-export const Lawyers: Lawyer[] = [
-  {
-    name: { en: "Damon Aryan", fa: "دامون ارین" },
-    slug: "damon-aryan",
-    website: "www.selectvisa.com",
-    locations: [Locations.en, Locations.fa],
-    maraNumber: "1384623",
-    isFeatured: true,
-    contact: {
-      email: "aryan@selectvisa.com",
-    },
-  },
-  {
-    name: { en: "Mohammad Azimi", fa: "محمد عظیمی" },
-    slug: "mohammad-azimi",
-    website: "http://www.shada.com.au/",
-
-    maraNumber: "0958292",
-    locations: [Locations.en, Locations.fa],
-    isFeatured: true,
-    contact: {
-      email: "azimi@shada.com.au",
-      phone: ["+61290025511"],
-    },
-  },
+export const assessingAuthorities: Lawyer[] = [
   {
     name: { en: "Mojtaba Dani", fa: "دکتر مجتبی دانی" },
     slug: "mojtaba-dani",
@@ -277,6 +253,19 @@ export const Lawyers: Lawyer[] = [
     },
   },
   {
+    name: { en: "Mohammad Azimi", fa: "محمد عظیمی" },
+    slug: "mohammad-azimi",
+    website: "http://www.shada.com.au/",
+
+    maraNumber: "0958292",
+    locations: [Locations.en, Locations.fa],
+    isFeatured: false,
+    contact: {
+      email: "azimi@shada.com.au",
+      phone: ["+61290025511"],
+    },
+  },
+  {
     name: { en: "Nima Kazemi", fa: "نیما کاظمی" },
     slug: "nima-kazemi",
     website: "http://www.pasargadmigration.com/",
@@ -430,6 +419,17 @@ export const Lawyers: Lawyer[] = [
     contact: {
       email: "info@visapick.com",
       phone: ["423924395"],
+    },
+  },
+  {
+    name: { en: "Damon Aryan", fa: "دامون ارین" },
+    slug: "damon-aryan",
+    website: "www.selectvisa.com",
+    locations: [Locations.en, Locations.fa],
+    maraNumber: "1384623",
+    isFeatured: false,
+    contact: {
+      email: "aryan@selectvisa.com",
     },
   },
 ];

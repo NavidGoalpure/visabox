@@ -75,6 +75,7 @@ function VIPLawyerCard({
         </ImageWrapper>
         <Title>{dt(name)}</Title>
         <Desc>
+          {/*navid delete this */}
           {dt(desc)}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
           do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
           ad minim veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur
@@ -115,6 +116,22 @@ export const LogoTitleTheme = theme("mode", {
     color: var(--color-gray9);
   `,
 });
+export const LogoBackground = theme("mode", {
+  light: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray9) 0 70%,
+      var(--color-gray11) 0% 100%
+    );
+  `,
+  dark: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray2) 0 70%,
+      var(--color-gray6) 0% 100%
+    );
+  `,
+});
 const Container = styled.div`
   padding: 5rem 0 2rem 0rem;
   opacity: 0;
@@ -148,12 +165,8 @@ const Wrapper = styled.div`
   }
 `;
 const ImageWrapper = styled.div`
+  ${LogoBackground}
   padding: 0.5rem;
-  background: linear-gradient(
-    -86deg,
-    var(--color-gray2) 0 70%,
-    var(--color-gray6) 0% 100%
-  );
   width: 6.625rem;
   height: 6.625rem;
   position: absolute;
@@ -165,7 +178,7 @@ const ImageWrapper = styled.div`
 `;
 const LawyerLogo = styled(Image)`
   position: relative !important;
-  object-fit: contain;
+  object-fit: cover;
 `;
 const Title = styled.h3`
   ${layer2B_TitleStyle}
@@ -188,7 +201,7 @@ const ViewMoreButton = styled(PrimaryButton)`
   ${Headline7Style}
   padding:0 4rem;
   width: max-content;
-  
+
   @media ${deviceMin.tabletS} {
     position: absolute;
     bottom: 0;
@@ -205,7 +218,7 @@ const LawyerElement = styled.h3`
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 10px;
   transform: rotate(-3deg) translate(-20%, 50%);
   @media ${deviceMin.tabletS} {

@@ -1,15 +1,5 @@
-import Image from "next/image";
-import { FaPhoneAlt, FaTelegramPlane } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
-import { ImSphere } from "react-icons/im";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import {
-  layer2B_HeaderStyle,
-  layer2B_TextStyle,
-  layer2B_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
@@ -21,7 +11,6 @@ import {
   layer3_TitleStyle,
 } from "Styles/Theme/Layers/layer3/style";
 import { Headline6Style, Headline7Style } from "Styles/Typo";
-import { AiFillStar } from "react-icons/ai";
 import { HTMLAttributes, useEffect } from "react";
 import gsap from "gsap";
 //@ts-ignore
@@ -42,7 +31,6 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
   const copyContent = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      console.log("navid Content copied to clipboard");
     } catch (err) {
       console.error("navid Failed to copy: ", err);
     }

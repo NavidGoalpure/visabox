@@ -75,10 +75,11 @@ function VIPLawyerCard({
         </ImageWrapper>
         <Title>{dt(name)}</Title>
         <Desc>
-          {/*navid delete this */}
           {dt(desc)}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
           do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud
+          ad minim veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud
         </Desc>
         <ViewMoreButton>View More</ViewMoreButton>
         <LawyerElement>
@@ -175,6 +176,10 @@ width: fit-content;
 const Desc = styled.p`
   ${layer2B_SubtitleStyle}
   margin-bottom:0.75rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
   @media ${deviceMin.tabletS} {
     margin-bottom: 2.5rem;
   }
@@ -183,6 +188,7 @@ const ViewMoreButton = styled(PrimaryButton)`
   ${Headline7Style}
   padding:0 4rem;
   width: max-content;
+  
   @media ${deviceMin.tabletS} {
     position: absolute;
     bottom: 0;

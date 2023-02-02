@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <style jsx global>{`
         html {
           font-family: ${montserrat.style.fontFamily};
-          // font-display: swap;
+          font-display: swap;
         }
       `}</style>
       <Script

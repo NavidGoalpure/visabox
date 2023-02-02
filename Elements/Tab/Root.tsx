@@ -19,7 +19,9 @@ export const Root: React.FC<Props> = ({
     <HeadesWrapper id='heads-container'>
       <HeadsList aria-label='tabs'>{heads}</HeadsList>
     </HeadesWrapper>
-    <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
+    <ContentsContainer id={`contents-container-${defaultValue}`}>
+      {bodies}
+    </ContentsContainer>
   </TabsRoot>
 );
 

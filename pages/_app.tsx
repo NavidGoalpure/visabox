@@ -36,13 +36,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   //
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-      </Head>
+      </Head> */}
       <style jsx global>{`
         html {
           font-family: ${montserrat.style.fontFamily};
-          font-display: swap;
+          // font-display: swap;
         }
       `}</style>
       <Script

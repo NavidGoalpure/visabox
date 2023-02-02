@@ -35,9 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   //
   return (
     <>
-      <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-      </Head>
       <style jsx global>{`
         html {
           font-family: ${montserrat.style.fontFamily};
@@ -84,6 +81,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           {/* @ts-ignore */}
           <Hydrate state={pageProps.dehydratedState}>
             <ErrorBoundary>
+              <Head>
+                <meta
+                  name='viewport'
+                  content='width=device-width, initial-scale=1'
+                />
+              </Head>
               <Component {...pageProps} />
             </ErrorBoundary>
             <ReactQueryDevtools initialIsOpen={false} />

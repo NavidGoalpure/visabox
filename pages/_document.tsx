@@ -37,7 +37,6 @@ export default class MyDocument extends Document {
         <Head>
           <script
             data-partytown-config
-            // navid test set
             dangerouslySetInnerHTML={{
               __html: `
             partytown = {

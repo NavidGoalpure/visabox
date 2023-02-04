@@ -21,8 +21,6 @@ const OccupationPage: NextPage = () => {
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/occupations/assssing-authorities`}
-        //navid temporari
-        isNoIndex={locale === Languages.fa}
       />
       <Content />
     </PageLayout>

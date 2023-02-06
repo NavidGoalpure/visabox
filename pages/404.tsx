@@ -21,10 +21,6 @@ export default function NotFound() {
         canonical={`https://www.marabox.com/404`}
         isNoIndex={true}
       />
-      <Head>
-        <title>Not Found</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <Container>
         <AnimationComponent />
         <TxtContainer>

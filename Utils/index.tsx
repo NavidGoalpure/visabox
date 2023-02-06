@@ -34,14 +34,14 @@ function setLocalStorage({
 }) {
   if (typeof window === 'undefined') return;
   //
-  window.localStorage.setItem(key, value);
+  window?.localStorage?.setItem(key, value);
   //
   if (isReloadPage) window.location.reload();
 }
 function getLocalStorage(key: LocalStorageKeys): string | null {
   if (typeof window === 'undefined') return null;
   //
-  return window.localStorage.getItem(key);
+  return window?.localStorage?.getItem(key);
   //
 }
 export {

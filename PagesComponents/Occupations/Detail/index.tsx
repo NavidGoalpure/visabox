@@ -66,7 +66,10 @@ const Content: React.FC<Props> = ({ occupation }) => {
                 scroll={false}
               >
                 <TooltipTag
-                  content={assess.replaceAll('_', ' ')}
+                  // replaceAll does not full support yet
+                  // content={assess.replaceAll('_', ' ')}
+                  content={assess.split('_').join(' ')}
+
                   // popupContent={
                   //   <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
                   //     {t(LanguageKeys.TooltipTagDesc)}

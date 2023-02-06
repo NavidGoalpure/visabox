@@ -38,7 +38,7 @@ const TabsRoot = styled(Tabs.Root)`
 `;
 const HeadesWrapper = styled.div`
   overflow: auto;
-
+  margin-bottom: 1rem;
   @media ${deviceMin.tabletL} {
     overflow: hidden;
   }

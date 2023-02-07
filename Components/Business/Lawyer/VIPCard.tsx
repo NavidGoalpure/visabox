@@ -1,33 +1,33 @@
-import Image from "next/image";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import {
   layer2B_HeaderStyle,
   layer2B_SubtitleStyle,
   layer2B_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2B_BG } from "Styles/Theme/Layers/layer2/theme";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
 import {
   layer3_SubtitleStyle,
   layer3_TextStyle,
-} from "Styles/Theme/Layers/layer3/style";
-import { Headline7Style } from "Styles/Typo";
-import { AiFillStar } from "react-icons/ai";
-import { MultiLanguageText } from "Interfaces";
-import { HTMLAttributes, useEffect } from "react";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import gsap from "gsap";
+} from 'Styles/Theme/Layers/layer3/style';
+import { Headline7Style } from 'Styles/Typo';
+import { AiFillStar } from 'react-icons/ai';
+import { MultiLanguageText } from 'Interfaces';
+import { HTMLAttributes, useEffect } from 'react';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import gsap from 'gsap';
 //@ts-ignore
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { deviceMin } from "Consts/device";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { deviceMin } from 'Consts/device';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Businesses/Lawyers/const";
-import Link from "next/link";
+} from 'PagesComponents/Businesses/Lawyers/const';
+import Link from 'next/link';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: MultiLanguageText;
@@ -48,8 +48,8 @@ function VIPLawyerCard({ name, desc, slug }: Props) {
       {
         scrollTrigger: {
           trigger: `.${slug}`,
-          start: "-10 bottom",
-          toggleActions: "play none none none",
+          start: '-10 bottom',
+          toggleActions: 'play none none none',
         },
         y: 0,
         opacity: 1,
@@ -64,13 +64,11 @@ function VIPLawyerCard({ name, desc, slug }: Props) {
           <LawyerLogo
             fill
             src={`/Images/businesses/lawyer/${slug}.jpeg`}
-            alt="image"
+            alt='image'
           />
         </ImageWrapper>
         <Title>{dt(name)}</Title>
-        <Desc>
-          {dt(desc)}
-        </Desc>
+        <Desc>{dt(desc)}</Desc>
         <ViewMoreButton hasAnimation={false}>
           {t(LanguageKeys.ViewMore)}
         </ViewMoreButton>
@@ -83,7 +81,7 @@ function VIPLawyerCard({ name, desc, slug }: Props) {
   );
 }
 export default VIPLawyerCard;
-export const ContainerBorder = theme("mode", {
+export const ContainerBorder = theme('mode', {
   light: css`
     border: 1px solid var(--color-gray9);
   `,
@@ -91,7 +89,7 @@ export const ContainerBorder = theme("mode", {
     border: none;
   `,
 });
-export const LogoTheme = theme("mode", {
+export const LogoTheme = theme('mode', {
   light: css`
     fill: var(--color-gray11);
   `,
@@ -99,7 +97,7 @@ export const LogoTheme = theme("mode", {
     fill: var(--color-gray9);
   `,
 });
-export const LogoTitleTheme = theme("mode", {
+export const LogoTitleTheme = theme('mode', {
   light: css`
     color: var(--color-gray11);
   `,
@@ -107,7 +105,7 @@ export const LogoTitleTheme = theme("mode", {
     color: var(--color-gray9);
   `,
 });
-export const LogoBackground = theme("mode", {
+export const LogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
       -86deg,

@@ -20,7 +20,6 @@ const SwitchTheme = () => {
   return (
     <SwitchRoot
       aria-label={theme as string}
-      defaultChecked={isChecked}
       checked={isChecked}
       onCheckedChange={() => {
         setIsLoading(true);
@@ -29,7 +28,7 @@ const SwitchTheme = () => {
           : setTheme(ThemeModes.DARK);
       }}
     >
-      <MoonLogo id="moon" />
+      <MoonLogo id='moon' />
       <SwitchThumb />
       {!isChecked && <SunLogo id="sun" />}
     </SwitchRoot>
@@ -37,7 +36,7 @@ const SwitchTheme = () => {
 };
 
 export default SwitchTheme;
-export const BorderColor = theme("mode", {
+export const BorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray12);
   `,
@@ -78,7 +77,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
       stroke: var(--color-gray9);
     }
   }
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     justify-content: flex-end;
     .sun {
       display: none;
@@ -101,7 +100,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
   justify-content: center;
   background-color: var(--color-gray9);
   :before {
-    content: "";
+    content: '';
     z-index: 2;
     width: 70%;
     background-size: contain;
@@ -109,7 +108,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
     background-repeat: no-repeat;
     background-image: url(${Moon});
   }
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     transform: translateX(3px);
     background-color: var(--color-secondary4);
     :before {

@@ -1,14 +1,14 @@
-import { deviceMin } from "Consts/device";
-import styled, { css } from "styled-components";
-import { Lawyers } from "../const";
-import Image from "next/image";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { Headline4Style } from "Styles/Typo";
-import { SidebarPage } from "Components/Business/Lawyer/LawyerPage/SideBar";
-import { AiFillStar } from "react-icons/ai";
-import { Lawyer } from "../interfaces";
+import { deviceMin } from 'Consts/device';
+import styled, { css } from 'styled-components';
+import { Lawyers } from '../const';
+import Image from 'next/image';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { Headline4Style } from 'Styles/Typo';
+import { SidebarPage } from 'Components/Business/Lawyer/LawyerPage/SideBar';
+import { AiFillStar } from 'react-icons/ai';
+import { Lawyer } from '../interfaces';
 interface Props {
   ChosenLawyer?: Lawyer;
 }
@@ -24,7 +24,7 @@ function MobileLawyersPage({ ChosenLawyer }: Props) {
         <ProfilePicture
           fill
           src={`/Images/businesses/lawyer/${ChosenLawyer?.slug}.jpeg`}
-          alt={"lawyer image"}
+          alt={'lawyer image'}
         />
         <VIPStarContainer aria-hidden={true}>
           <VIPStar aria-hidden={true} />
@@ -45,7 +45,7 @@ function MobileLawyersPage({ ChosenLawyer }: Props) {
   );
 }
 export default MobileLawyersPage;
-const StarBackgroundColor = theme("mode", {
+const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -53,7 +53,7 @@ const StarBackgroundColor = theme("mode", {
     background: var(--color-gray4);
   `,
 });
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -113,8 +113,7 @@ const ProfilePictureWrapper = styled.div`
   position: relative;
 `;
 const ProfilePicture = styled(Image)`
-  // navid this is ugly
-  object-fit: contain;
+  object-fit: cover;
   position: relative !important;
   border-radius: 15px;
 `;

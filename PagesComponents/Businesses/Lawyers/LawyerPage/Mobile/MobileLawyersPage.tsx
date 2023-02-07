@@ -1,14 +1,14 @@
 import { deviceMin } from 'Consts/device';
 import styled, { css } from 'styled-components';
-import { Lawyers } from '../const';
+import { Lawyers } from '../../const';
 import Image from 'next/image';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
-import { SidebarPage } from 'Components/Business/Lawyer/LawyerPage/SideBar';
+import { SidebarPage } from 'PagesComponents/Businesses/Lawyers/LawyerPage/Mobile/SideBar';
 import { AiFillStar } from 'react-icons/ai';
-import { Lawyer } from '../interfaces';
+import { Lawyer } from '../../interfaces';
 interface Props {
   ChosenLawyer?: Lawyer;
 }

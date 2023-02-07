@@ -1,25 +1,17 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import * as SideBar from "Elements/Sidebar";
-import { MdContacts } from "react-icons/md";
-import { GrCircleInformation } from "react-icons/gr";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { deviceMin } from "Consts/device";
-import { TagTheme } from "Styles/Theme";
-import { MaraAccordion } from "Elements/Accordion";
-import {
-  layer2A_style,
-  layer2A_TextStyle,
-  layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import {
-  componentStatements,
-  LanguageKeys,
-} from "PagesComponents/Businesses/Lawyers/LawyerPage/const";
-import { AboutComponent } from "./AboutComponent";
-import { MobileContactComponent } from "./MobileContactComponent";
-import theme from "styled-theming";
-import { MultiLanguageText } from "Interfaces";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import * as SideBar from 'Elements/Sidebar';
+import { MdContacts } from 'react-icons/md';
+import { GrCircleInformation } from 'react-icons/gr';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { deviceMin } from 'Consts/device';
+
+import { AboutComponent } from './AboutComponent';
+import { MobileContactComponent } from './MobileContactComponent';
+import theme from 'styled-theming';
+import { MultiLanguageText } from 'Interfaces';
+import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
+import { componentStatements, LanguageKeys } from '../const';
 interface Props {
   maraNumber?: string;
   website?: string;
@@ -28,7 +20,7 @@ interface Props {
   telegram?: string;
   instagram?: string;
   linkedin?: string;
-  desc?:MultiLanguageText;
+  desc?: MultiLanguageText;
 }
 const SidebarPage = ({
   maraNumber,
@@ -38,35 +30,35 @@ const SidebarPage = ({
   telegram,
   instagram,
   linkedin,
-  desc
+  desc,
 }: Props) => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBarRoot
-      defaultValue="about"
-      variant="UP_POSITION"
+      defaultValue='about'
+      variant='UP_POSITION'
       items={
         <>
           <SideBar.TabItem
             title={t(LanguageKeys.About)}
-            value="about"
+            value='about'
             icon={<AboutIcon />}
           />
           <SideBar.TabItem
             title={t(LanguageKeys.Contacts)}
-            value="socials"
+            value='socials'
             icon={<ContactIcon />}
           />
         </>
       }
       bodies={
         <>
-          <SideBar.BodyItem value="about">
+          <SideBar.BodyItem value='about'>
             <ContentWrapper>
               <AboutComponent desc={desc} />
             </ContentWrapper>
           </SideBar.BodyItem>
-          <SideBar.BodyItem value="socials">
+          <SideBar.BodyItem value='socials'>
             <ContentWrapper>
               <MobileContactComponent
                 maraNumber={maraNumber}
@@ -86,7 +78,7 @@ const SidebarPage = ({
 };
 
 export { SidebarPage };
-const LogoColor = theme("mode", {
+const LogoColor = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -98,7 +90,7 @@ const LogoColor = theme("mode", {
 const SideBarRoot = styled(SideBar.Root)`
   color: black;
   div {
-    &[aria-label="sidebar"] {
+    &[aria-label='sidebar'] {
       margin-bottom: 2rem;
       margin-left: -1rem;
       margin-right: -1rem;

@@ -1,15 +1,15 @@
 import { deviceMin } from 'Consts/device';
 import styled, { css } from 'styled-components';
-import { Lawyers } from '../const';
+import { Lawyers } from '../../const';
 import Image from 'next/image';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style, Headline5Style, Headline6Style } from 'Styles/Typo';
-import { SidebarPage } from 'Components/Business/Lawyer/LawyerPage/SideBar';
+import { SidebarPage } from 'PagesComponents/Businesses/Lawyers/LawyerPage/Mobile/SideBar';
 import { AiFillStar } from 'react-icons/ai';
-import { Lawyer } from '../interfaces';
-import { AboutComponent } from 'Components/Business/Lawyer/LawyerPage/AboutComponent';
+import { Lawyer } from '../../interfaces';
+import { AboutComponent } from 'PagesComponents/Businesses/Lawyers/LawyerPage/Mobile/AboutComponent';
 import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 import { FaPhone } from 'react-icons/fa';
@@ -19,9 +19,10 @@ import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
-import { DesktopContactComponent } from 'Components/Business/Lawyer/LawyerPage/DesktopContactComponent';
-import { componentStatements, LanguageKeys } from './const';
+
+import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { DesktopContactComponent } from './DesktopContactComponent';
 interface Props {
   ChosenLawyer?: Lawyer;
 }
@@ -61,7 +62,11 @@ function DesktopLawyersPage({ ChosenLawyer }: Props) {
       </Header>
       <AboutContainer>
         <AboutTitle>{t(LanguageKeys.About)}</AboutTitle>
-        <Desc>{dt(ChosenLawyer?.desc)}</Desc>
+        <Desc
+          dangerouslySetInnerHTML={{
+            __html: dt(ChosenLawyer?.desc),
+          }}
+        />
       </AboutContainer>
     </Container>
   );

@@ -9,7 +9,6 @@ import { useRouter } from 'next/router';
 import Content from 'PagesComponents/Businesses/Lawyers/LawyerPage';
 import { Lawyers } from 'PagesComponents/Businesses/Lawyers/const';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { Languages } from 'Interfaces';
 import Seo from 'Components/Seo';
 
 const OccupationPage = () => {
@@ -19,6 +18,7 @@ const OccupationPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
   const chosenLawyer = Lawyers.filter((lawyer) => lawyer.slug === slug);
+
   return (
     <PageLayout>
       <Seo
@@ -29,7 +29,7 @@ const OccupationPage = () => {
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/businesses/lawyers/${chosenLawyer[0]?.slug}`}
       />
-      <Content chosenLawyer={chosenLawyer.shift()} />
+      <Content chosenLawyer={chosenLawyer[0]} />
     </PageLayout>
   );
 };

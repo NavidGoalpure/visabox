@@ -67,7 +67,10 @@ Mohammad has extensive experiences in the employment sector and community servic
 From 2001 to 2006, he was the Iranian Correspondent for Archaeological Diggings, Australia's foremost Archaeological magazine. Between 2006 and 2008 he was a Journalist, where he contributed stories, essays, and articles about the Iranian community in Australia.
 He also owns and manages Shada Migration and Education Services.
 Spoken Languages: English; Persian; Dari.`,
-      fa: `محمد نماینده اصلی مهاجرت در خدمات مهاجرت و آموزش شادا است.
+//navid
+      fa: `<p>
+      </p>
+      محمد نماینده اصلی مهاجرت در خدمات مهاجرت و آموزش شادا است.
 او به عنوان یک کارگزار آموزشی واجد شرایط استرالیا، دارای مدرک لیسانس در مترجمی زبان انگلیسی و مدرک تحصیلات تکمیلی در قانون مهاجرت از دانشگاه ملی استرالیا است. محمد به زبان های گفتاری و نوشتاری فارسی، دری و انگلیسی مسلط است و مترجم فارسی نااتی معتبر و دارای مجوز است. NAATI (مرجع ملی اعتباربخشی مترجمان و مترجمان) استانداردهای ملی و سازمان اعتباربخشی مترجمان و مترجمان در استرالیا است.
 محمد یکی از اعضای فعال Migration Alliance، انجمن حرفه ای ارائه دهندگان خدمات مهاجرت استرالیا است. او به عنوان راهنمای تور برای بازدیدکنندگان خارج از کشور در سراسر ایران کار کرده است و درک صمیمانه ای از کشور مادری خود، ایران دارد.
 او بین سال‌های 1376 تا 1378 مدرس زبان انگلیسی در مرکز آموزش آزاد دانشگاه آزاد و سازمان ملی پرورش استعدادهای درخشان در تهران بود. محمد در هر دو کشور ایران و استرالیا به عنوان مترجم کار کرده است و پنج نشریه در کارنامه خود دارد.
@@ -89,7 +92,7 @@ Spoken Languages: English; Persian; Dari.`,
     website: "https://selectvisa.com",
     locations: [Locations.en, Locations.fa],
     maraNumber: "1384623",
-    isFeatured: true,
+    isFeatured: false,
     desc: {
       en: `Mr. Damon Aryan, a graduate of immigration law from the Australian National University and an official agent registered in the MARA organization with registration number 1384623 and MIA organization with number 7293, as the founder and manager of selectvisa company, insists that he personally oversees all customer affairs from the beginning of giving advice to the end of the process of immigration to Australia and getting a visa, have full supervision. MARA is presented as the only official authority License to operate and supervise the affairs of official immigration agents in Australia.
 `,

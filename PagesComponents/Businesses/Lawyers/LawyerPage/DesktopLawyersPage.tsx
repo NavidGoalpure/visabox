@@ -1,33 +1,33 @@
-import { deviceMin } from "Consts/device";
-import styled, { css } from "styled-components";
-import { Lawyers } from "../const";
-import Image from "next/image";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { Headline4Style, Headline5Style, Headline6Style } from "Styles/Typo";
-import { SidebarPage } from "Components/Business/Lawyer/LawyerPage/SideBar";
-import { AiFillStar } from "react-icons/ai";
-import { Lawyer } from "../interfaces";
-import { AboutComponent } from "Components/Business/Lawyer/LawyerPage/AboutComponent";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
-import { FaPhone } from "react-icons/fa";
-import { ImSphere } from "react-icons/im";
-import { SiGmail } from "react-icons/si";
+import { deviceMin } from 'Consts/device';
+import styled, { css } from 'styled-components';
+import { Lawyers } from '../const';
+import Image from 'next/image';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { Headline4Style, Headline5Style, Headline6Style } from 'Styles/Typo';
+import { SidebarPage } from 'Components/Business/Lawyer/LawyerPage/SideBar';
+import { AiFillStar } from 'react-icons/ai';
+import { Lawyer } from '../interfaces';
+import { AboutComponent } from 'Components/Business/Lawyer/LawyerPage/AboutComponent';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
+import { FaPhone } from 'react-icons/fa';
+import { ImSphere } from 'react-icons/im';
+import { SiGmail } from 'react-icons/si';
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { DesktopContactComponent } from "Components/Business/Lawyer/LawyerPage/DesktopContactComponent";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+} from 'Styles/Theme/Layers/layer2/style';
+import { DesktopContactComponent } from 'Components/Business/Lawyer/LawyerPage/DesktopContactComponent';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 interface Props {
   ChosenLawyer?: Lawyer;
 }
 function DesktopLawyersPage({ ChosenLawyer }: Props) {
   const { dt } = useDynamicTranslation();
-const { t } = useStaticTranslation(componentStatements);
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
       <Header>
@@ -35,7 +35,7 @@ const { t } = useStaticTranslation(componentStatements);
           <ProfilePicture
             fill
             src={`/Images/businesses/lawyer/${ChosenLawyer?.slug}.jpeg`}
-            alt={"lawyer image"}
+            alt={'lawyer image'}
           />
           <VIPStarContainer aria-hidden={true}>
             <VIPStar aria-hidden={true} />
@@ -44,7 +44,9 @@ const { t } = useStaticTranslation(componentStatements);
         <RightSide>
           <Title>{dt(ChosenLawyer?.name)}</Title>
           <MaraNumberContainer>
-            <MaraNumberTitle>{t(LanguageKeys.MaraNumber)}: &nbsp;</MaraNumberTitle>
+            <MaraNumberTitle>
+              {t(LanguageKeys.MaraNumber)}: &nbsp;
+            </MaraNumberTitle>
             <MaraNumber>{ChosenLawyer?.maraNumber}</MaraNumber>
           </MaraNumberContainer>
           <DesktopContactComponent
@@ -66,7 +68,7 @@ const { t } = useStaticTranslation(componentStatements);
 }
 export default DesktopLawyersPage;
 
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -74,7 +76,7 @@ const TitleColor = theme("mode", {
     color: var(--color-primary5);
   `,
 });
-const HeaderBackground = theme("mode", {
+const HeaderBackground = theme('mode', {
   light: css`
     background-color: var(--color-gray13);
   `,
@@ -82,7 +84,7 @@ const HeaderBackground = theme("mode", {
     background-color: var(--color-gray6);
   `,
 });
-const DescBackground = theme("mode", {
+const DescBackground = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -122,8 +124,7 @@ const ProfilePictureWrapper = styled.div`
   position: relative;
 `;
 const ProfilePicture = styled(Image)`
-// navid this is ugly
-  object-fit: contain;
+  object-fit: cover;
   position: relative !important;
   border-radius: 15px;
 `;

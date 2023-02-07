@@ -55,7 +55,7 @@ export const Headline6Style = css<{
   font-style: normal;
   font-weight: ${({ weight }) => weight || '500'};
   font-size: 20px;
-  line-height: 32px;
+  line-height: 2rem;
 `;
 //-----------------
 export const Headline7Style = css<{
@@ -63,6 +63,6 @@ export const Headline7Style = css<{
 }>`
   font-style: normal;
   font-weight: ${({ weight }) => weight || '500'};
-  font-size: 16px;
-  line-height: 19.5px;
+  font-size: 1rem;
+  line-height: 2rem;
 `;

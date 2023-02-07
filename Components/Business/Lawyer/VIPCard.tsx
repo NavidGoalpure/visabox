@@ -68,7 +68,7 @@ function VIPLawyerCard({ name, desc, slug }: Props) {
           />
         </ImageWrapper>
         <Title>{dt(name)}</Title>
-        <Desc>{dt(desc)}</Desc>
+        <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
         <ViewMoreButton hasAnimation={false}>
           {t(LanguageKeys.ViewMore)}
         </ViewMoreButton>
@@ -187,7 +187,7 @@ const Title = styled.h3`
 width: fit-content;
   margin-bottom: 0.75rem;
 `;
-const Desc = styled.p`
+const Desc = styled.div`
   ${layer2B_SubtitleStyle}
   margin-bottom:0.75rem;
   display: -webkit-box;
@@ -228,7 +228,7 @@ const LawyerElement = styled.h3`
     bottom: unset;
     left: 0;
     top: 0;
-    transform: rotate(-87deg) translate(-50%, -100%);
+    transform: rotate(-85deg) translate(-50%, -100%);
   }
   ${Wrapper}:hover & {
     @media ${deviceMin.tabletS} {
@@ -250,13 +250,12 @@ const MaraElement = styled.h3`
   bottom: 0%;
   left: 0;
   transform: rotate(3deg) translate(20%, 50%);
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 10px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
   @media ${deviceMin.tabletS} {
     left: -15%;
-    transform: rotate(-92deg) translate(50%, -10%);
+    transform: rotate(-90deg) translate(50%, -10%);
   }
   ${Wrapper}:hover & {
     @media ${deviceMin.tabletS} {

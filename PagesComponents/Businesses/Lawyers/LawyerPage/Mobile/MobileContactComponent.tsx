@@ -1,22 +1,21 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import theme from "styled-theming";
-import { Headline5Style, Headline6Style } from "Styles/Typo";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { ImSphere } from "react-icons/im";
-import { FaPhone, FaTelegramPlane } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
-import { deviceMin } from "Consts/device";
-import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
-import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
-import { copyContent } from "Utils";
-import { componentStatements } from "PagesComponents/Businesses/Lawyers/LawyerPage/const";
-import { LanguageKeys } from "PagesComponents/Businesses/Lawyers/LawyerPage/const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+} from 'Styles/Theme/Layers/layer2/style';
+import theme from 'styled-theming';
+import { Headline5Style, Headline6Style } from 'Styles/Typo';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { ImSphere } from 'react-icons/im';
+import { FaPhone, FaTelegramPlane } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
+import { deviceMin } from 'Consts/device';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
+import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
+import { copyContent } from 'Utils';
+import { componentStatements, LanguageKeys } from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 interface Props {
   maraNumber?: string;
   website?: string;
@@ -47,13 +46,13 @@ const MobileContactComponent = ({
         <SocialTitle>{t(LanguageKeys.Socials)}</SocialTitle>
       </SocialContainer>
       {website && (
-        <InternetContainer href={website} target={"_blank"}>
+        <InternetContainer href={website} target={'_blank'}>
           <InternetIcon />
           <InternetTitle>{website}</InternetTitle>
         </InternetContainer>
       )}
       {phone && (
-        <PhoneContainer onClick={() => copyContent(phone?.[0] || "")}>
+        <PhoneContainer onClick={() => copyContent(phone?.[0] || '')}>
           <PhoneIcon />
           <PhoneTitle>
             {phone?.map((phoneNumber) => (
@@ -63,30 +62,30 @@ const MobileContactComponent = ({
         </PhoneContainer>
       )}
       {email && (
-        <GmailContainer onClick={() => copyContent(phone?.[0] || "")}>
+        <GmailContainer onClick={() => copyContent(phone?.[0] || '')}>
           <GmailIcon />
           <GmailTitle>{email}</GmailTitle>
         </GmailContainer>
       )}
       {telegram && (
-        <TelegramContainer href={telegram} target={"_blank"}>
+        <TelegramContainer href={telegram} target={'_blank'}>
           <TelegramIcon />
           <TelegramTitle>{telegram}</TelegramTitle>
         </TelegramContainer>
       )}
       {instagram && (
-        <InstagramContainer href={instagram} target={"_blank"}>
+        <InstagramContainer href={instagram} target={'_blank'}>
           <InstagramIcon />
           <InstagramTitle>
-            {instagram.replaceAll("https://www.instagram.com/", "@")}
+            {instagram.replaceAll('https://www.instagram.com/', '@')}
           </InstagramTitle>
         </InstagramContainer>
       )}
       {linkedin && (
-        <LinkedinContainer href={linkedin} target={"_blank"}>
+        <LinkedinContainer href={linkedin} target={'_blank'}>
           <LinkedinIcon />
           <LinkedinTitle>
-            {linkedin.replaceAll("https://au.linkedin.com/in/", "")}
+            {linkedin.replaceAll('https://au.linkedin.com/in/', '')}
           </LinkedinTitle>
         </LinkedinContainer>
       )}
@@ -96,7 +95,7 @@ const MobileContactComponent = ({
 
 export { MobileContactComponent };
 
-const DescBackground = theme("mode", {
+const DescBackground = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
@@ -168,8 +167,7 @@ const PhoneContainer = styled.div`
 const PhoneIcon = styled(FaPhone)`
   ${Icon}
 `;
-const PhoneTitle = styled(InternetTitle)`
-`;
+const PhoneTitle = styled(InternetTitle)``;
 const GmailContainer = styled.div`
   ${SocialsContainerCss}
 `;

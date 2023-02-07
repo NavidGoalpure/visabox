@@ -1,30 +1,30 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
   layer2A_TextColor,
   layer2B_BG,
-} from "Styles/Theme/Layers/layer2/theme";
+} from 'Styles/Theme/Layers/layer2/theme';
 import {
   layer3_TextStyle,
   layer3_TitleStyle,
-} from "Styles/Theme/Layers/layer3/style";
-import { Headline6Style, Headline7Style } from "Styles/Typo";
-import { HTMLAttributes, useEffect } from "react";
-import gsap from "gsap";
+} from 'Styles/Theme/Layers/layer3/style';
+import { Headline6Style, Headline7Style } from 'Styles/Typo';
+import { HTMLAttributes, useEffect } from 'react';
+import gsap from 'gsap';
 //@ts-ignore
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { MultiLanguageText } from "Interfaces";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { deviceMin } from "Consts/device";
-import { copyContent } from "Utils";
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { MultiLanguageText } from 'Interfaces';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { deviceMin } from 'Consts/device';
+import { copyContent } from 'Utils';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Businesses/Lawyers/const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { IoMdCopy } from "react-icons/io";
+} from 'PagesComponents/Businesses/Lawyers/const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { IoMdCopy } from 'react-icons/io';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: MultiLanguageText;
   email: string | undefined;
@@ -46,8 +46,8 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
       {
         scrollTrigger: {
           trigger: `.${slug}`,
-          start: "20 bottom",
-          toggleActions: "play none none none",
+          start: '20 bottom',
+          toggleActions: 'play none none none',
         },
         y: 0,
         opacity: 1,
@@ -64,7 +64,7 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
             <EmailTitle>
               {t(LanguageKeys.Email)}:<CopyIcon />
             </EmailTitle>
-            <EmailUrl onClick={() => copyContent(email || "")}>
+            <EmailUrl onClick={() => copyContent(email || '')}>
               {email}
             </EmailUrl>
           </EmailWrapper>
@@ -72,13 +72,13 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
             <PhoneTitle>
               {t(LanguageKeys.Phone)}:<CopyIcon />
             </PhoneTitle>
-            <PhoneUrl onClick={() => copyContent(phone?.[0] || "")}>
+            <PhoneUrl onClick={() => copyContent(phone?.[0] || '')}>
               {phone?.[0]}
             </PhoneUrl>
           </PhoneWrapper>
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
-            <WebsiteUrl href={website} target={"_blank"}>
+            <WebsiteUrl href={website} target={'_blank'}>
               {website}
             </WebsiteUrl>
           </WebsiteWrapper>
@@ -90,7 +90,7 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
   );
 }
 export default LawyerCard;
-export const ContainerBorder = theme("mode", {
+export const ContainerBorder = theme('mode', {
   light: css`
     border: 1px solid var(--color-gray9);
   `,
@@ -98,7 +98,7 @@ export const ContainerBorder = theme("mode", {
     border: none;
   `,
 });
-export const LinksTheme = theme("mode", {
+export const LinksTheme = theme('mode', {
   light: css`
     color: var(--color-gray8);
   `,
@@ -107,7 +107,7 @@ export const LinksTheme = theme("mode", {
   `,
 });
 
-export const MaraTheme = theme("mode", {
+export const MaraTheme = theme('mode', {
   light: css`
     background: var(--color-gray12);
   `,
@@ -116,7 +116,7 @@ export const MaraTheme = theme("mode", {
   `,
 });
 
-export const CopyIconTheme = theme("mode", {
+export const CopyIconTheme = theme('mode', {
   light: css`
     color: var(--color-gray10);
   `,
@@ -212,8 +212,8 @@ const LawyerElement = styled.h3`
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: rotate(3deg) translate(-50%, 70%);
-  padding: 1rem 1.5rem;
+  transform: rotate(3deg) translate(-24%, 53%);
+  padding: 0.2rem 1.5rem;
   border-radius: 10px;
   box-shadow: unset;
 `;
@@ -223,8 +223,7 @@ const MaraElement = styled.h3`
   position:absolute;
   bottom: 0;
   left: 0;
-  transform: rotate(-3deg) translate(50%, 70%);
-  padding: 1rem 1.5rem;
+  transform: rotate(-3deg) translate(27%, 70%);
+  padding: 0.5rem 1.5rem;
   border-radius: 10px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
 `;

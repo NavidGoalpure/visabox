@@ -47,7 +47,6 @@
   --color-disable-dark: var(--color-primary1);
   /* // */
   --max-width-page: 1134px;
-  
 }
 html,
 body {
@@ -84,7 +83,6 @@ body {
   margin: 0;
   padding: 0;
   outline: none;
-  font-weight: normal;
   font-size: inherit;
   border: none;
   background: transparent;

@@ -9,6 +9,11 @@ export enum LanguageKeys {
   SeoDesc = "SeoDesc",
   //
   PageTitle = "PageTitle",
+  PageDesc = "PageDesc",
+  ViewMore = "ViewMore",
+  Email = "Email",
+  Phone = "Phone",
+  Website = "Website",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -21,29 +26,55 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: "لیست موسسات ارزیابی مدارک و مهارت های استرالیا",
-    en: "Assessing authorities",
+    fa: "وکیل مهاجرت",
+    en: "Migration lawyers",
+  },
+  PageDesc: {
+    //navid doesn't have fa trtanslation
+    fa: "وکیل مهاجرت",
+    en: `This page is for skilled individuals or families looking to permanently migrate to Australia, to fill Australia’s skill shortages. Visas within the General Skilled Migration program are points tested and are either independent, State / Territory sponsored or family-sponsored permanent visas.`,
+  },
+  ViewMore: {
+    en: "View More",
+    fa: "نمایش کامل",
+  },
+  Email: {
+    en: "Email",
+    fa: "ایمیل",
+  },
+  Phone: {
+    en: "phone",
+    fa: "تلفن",
+  },
+  Website: {
+    en: "website",
+    fa: "وبسایت",
   },
 };
 
 ////////////
 export const Lawyers: Lawyer[] = [
   {
-    name: { en: "Damon Aryan", fa: "دامون ارین" },
-    slug: "damon-aryan",
-    website: "www.selectvisa.com",
-    locations: [Locations.en, Locations.fa],
-    maraNumber: "1384623",
-    isFeatured: true,
-    contact: {
-      email: "aryan@selectvisa.com",
-    },
-  },
-  {
     name: { en: "Mohammad Azimi", fa: "محمد عظیمی" },
     slug: "mohammad-azimi",
-    website: "http://www.shada.com.au/",
-
+    website: "https://www.shada.com.au/",
+    desc: {
+      en: `Mohammad is the principal migration agent in Shada Migration and Education Services.
+As an Australian qualified education agent, he holds a Bachelor Degree in English Language Translation and a Graduate Certificate in Migration Law from the Australian National University. Mohammad is fluent in spoken and written Farsi, Dari and English, and is an accredited and licensed NAATI Persian translator. NAATI (The National Accreditation Authority for Translators and Interpreters) is the national standards and accreditation body for translators and interpreters in Australia.
+Mohammad is an active member of Migration Alliance, the professional associations for Australian migration service providers. He has worked as a tour guide for overseas visitors throughout Iran and has a heartfelt understanding of his native country, Iran.
+Between 1997 and 1999, he was an English Teacher at both the Open Education Centre of Azad University and the National Organisation for Development of Brilliant Talents, in Tehran. In both Iran and Australia, Mohammad has worked as a translator and has five publications to his credit.
+Mohammad has extensive experiences in the employment sector and community services in Australia and he has worked as an employment consultant for Mission Australia for 3 years. He was appointed as a representative of Mission Australia in Campsie Centrelink to helping the long-term unemployed and disadvantaged youth back into work.
+From 2001 to 2006, he was the Iranian Correspondent for Archaeological Diggings, Australia's foremost Archaeological magazine. Between 2006 and 2008 he was a Journalist, where he contributed stories, essays, and articles about the Iranian community in Australia.
+He also owns and manages Shada Migration and Education Services.
+Spoken Languages: English; Persian; Dari.`,
+      fa: `محمد نماینده اصلی مهاجرت در خدمات مهاجرت و آموزش شادا است.
+او به عنوان یک کارگزار آموزشی واجد شرایط استرالیا، دارای مدرک لیسانس در مترجمی زبان انگلیسی و مدرک تحصیلات تکمیلی در قانون مهاجرت از دانشگاه ملی استرالیا است. محمد به زبان های گفتاری و نوشتاری فارسی، دری و انگلیسی مسلط است و مترجم فارسی نااتی معتبر و دارای مجوز است. NAATI (مرجع ملی اعتباربخشی مترجمان و مترجمان) استانداردهای ملی و سازمان اعتباربخشی مترجمان و مترجمان در استرالیا است.
+محمد یکی از اعضای فعال Migration Alliance، انجمن حرفه ای ارائه دهندگان خدمات مهاجرت استرالیا است. او به عنوان راهنمای تور برای بازدیدکنندگان خارج از کشور در سراسر ایران کار کرده است و درک صمیمانه ای از کشور مادری خود، ایران دارد.
+او بین سال‌های 1376 تا 1378 مدرس زبان انگلیسی در مرکز آموزش آزاد دانشگاه آزاد و سازمان ملی پرورش استعدادهای درخشان در تهران بود. محمد در هر دو کشور ایران و استرالیا به عنوان مترجم کار کرده است و پنج نشریه در کارنامه خود دارد.
+محمد دارای تجارب گسترده در بخش اشتغال و خدمات اجتماعی در استرالیا است و به مدت 3 سال به عنوان مشاور استخدام در Mission استرالیا کار کرده است. او به عنوان نماینده ماموریت استرالیا در Campsie Centrelink منصوب شد تا به جوانان بیکار و محروم طولانی مدت کمک کند تا به کار بازگردند.
+از سال 2001 تا 2006، او خبرنگار ایرانی برای کاوش های باستان شناسی، برجسته ترین مجله باستان شناسی استرالیا بود. بین سال‌های 2006 تا 2008 او روزنامه‌نگار بود و در آنجا داستان‌ها، مقاله‌ها و مقالاتی درباره جامعه ایرانیان استرالیا ارائه کرد.
+او همچنین مالک و مدیریت خدمات مهاجرت و آموزش Shada است.`,
+    },
     maraNumber: "0958292",
     locations: [Locations.en, Locations.fa],
     isFeatured: true,
@@ -52,6 +83,26 @@ export const Lawyers: Lawyer[] = [
       phone: ["+61290025511"],
     },
   },
+  {
+    name: { en: "Damon Aryan", fa: "دامون ارین" },
+    slug: "damon-aryan",
+    website: "https://selectvisa.com",
+    locations: [Locations.en, Locations.fa],
+    maraNumber: "1384623",
+    isFeatured: true,
+    desc: {
+      en: `Mr. Damon Aryan, a graduate of immigration law from the Australian National University and an official agent registered in the MARA organization with registration number 1384623 and MIA organization with number 7293, as the founder and manager of selectvisa company, insists that he personally oversees all customer affairs from the beginning of giving advice to the end of the process of immigration to Australia and getting a visa, have full supervision. MARA is presented as the only official authority License to operate and supervise the affairs of official immigration agents in Australia.
+`,
+      fa: `آقای “مهندس دامون آرین” فارغ‌التحصیل حقوق مهاجرت از دانشگاه ملی استرالیا و ایجنت رسمی ثبت شده در سازمان MARA با شماره ثبت 1384623 و سازمان MIA با شماره 7293، به عنوان موسس و گرداننده‌ی شرکت Selectvisa، اصرار دارند که خود شخصاً بر تمامی امور مشتریان از ابتدای ارائه مشاوره‌های ابتدای تا انتهای پروسه‌ی مهاجرت به استرالیا و دریافت ویزا،‌ نظارت کامل داشته باشند و کلیه فعالیت‌های وی مشمول قانون تجارت استرالیا و نیز مرامنامه‌ی سازمان دولتی MARA به عنوان تنها مرجع رسمی ارائه مجوز فعالیت و نظارت به امور کارگزاران رسمی مهاجرت در استرالیا است..`,
+    },
+    contact: {
+      email: "aryan@selectvisa.com",
+      phone: ["611800047706"],
+      linkedin: "https://au.linkedin.com/in/damon-aryan",
+      instagram: "https://www.instagram.com/damonaryan",
+    },
+  },
+
   {
     name: { en: "Mojtaba Dani", fa: "دکتر مجتبی دانی" },
     slug: "mojtaba-dani",

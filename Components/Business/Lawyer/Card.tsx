@@ -18,7 +18,13 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { MultiLanguageText } from "Interfaces";
 import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
 import { deviceMin } from "Consts/device";
-
+import { copyContent } from "Utils";
+import {
+  componentStatements,
+  LanguageKeys,
+} from "PagesComponents/Businesses/Lawyers/const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { IoMdCopy } from "react-icons/io";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: MultiLanguageText;
   email: string | undefined;
@@ -28,13 +34,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
   const { dt } = useDynamicTranslation();
-  const copyContent = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch (err) {
-      console.error("navid Failed to copy: ", err);
-    }
-  };
+  const { t } = useStaticTranslation(componentStatements);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
@@ -60,22 +61,26 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
         <Title>{dt(name)}</Title>
         <Socials>
           <EmailWrapper>
-            <EmailTitle>Email:</EmailTitle>
+            <EmailTitle>
+              {t(LanguageKeys.Email)}:<CopyIcon />
+            </EmailTitle>
             <EmailUrl onClick={() => copyContent(email || "")}>
               {email}
             </EmailUrl>
           </EmailWrapper>
           <PhoneWrapper>
-            <PhoneTitle>Phone:</PhoneTitle>
+            <PhoneTitle>
+              {t(LanguageKeys.Phone)}:<CopyIcon />
+            </PhoneTitle>
             <PhoneUrl onClick={() => copyContent(phone?.[0] || "")}>
               {phone?.[0]}
             </PhoneUrl>
           </PhoneWrapper>
           <WebsiteWrapper>
-            <WebsiteTitle>Website:</WebsiteTitle>
-            <EmailUrl href={website} target={"_blank"}>
+            <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
+            <WebsiteUrl href={website} target={"_blank"}>
               {website}
-            </EmailUrl>
+            </WebsiteUrl>
           </WebsiteWrapper>
         </Socials>
         <LawyerElement>Lawyer</LawyerElement>
@@ -108,6 +113,15 @@ export const MaraTheme = theme("mode", {
   `,
   dark: css`
     background: var(--color-gray3);
+  `,
+});
+
+export const CopyIconTheme = theme("mode", {
+  light: css`
+    color: var(--color-gray10);
+  `,
+  dark: css`
+    color: var(--color-gray9);
   `,
 });
 const Container = styled.div`
@@ -168,6 +182,11 @@ const EmailTitle = styled.h4`
   ${Headline7Style}
   transition: 0.3s all ease;
 `;
+const CopyIcon = styled(IoMdCopy)`
+  ${CopyIconTheme};
+  width: 1rem;
+  height: auto;
+`;
 const EmailUrl = styled.a`
   ${layer2A_TextColor};
   ${Headline6Style};
@@ -177,7 +196,11 @@ const PhoneWrapper = styled(EmailWrapper)``;
 const PhoneTitle = styled(EmailTitle)``;
 const PhoneUrl = styled(EmailUrl)``;
 const WebsiteWrapper = styled(EmailWrapper)``;
-const WebsiteUrl = styled.a``;
+const WebsiteUrl = styled.a`
+  ${layer2A_TextColor};
+  ${Headline6Style};
+  word-break: break-all;
+`;
 const WebsiteTitle = styled(EmailTitle)``;
 const LawyerElement = styled.h3`
   ${layer3_TextStyle}

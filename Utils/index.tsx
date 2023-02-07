@@ -44,9 +44,17 @@ function getLocalStorage(key: LocalStorageKeys): string | null {
   return window.localStorage.getItem(key);
   //
 }
+const copyContent = async (text: string) => {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    console.error("navid Failed to copy: ", err);
+  }
+};
 export {
   getThemeFromLocalStorage,
   isItOnLive,
   setLocalStorage,
   getLocalStorage,
+  copyContent,
 };

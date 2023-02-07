@@ -22,28 +22,22 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { deviceMin } from "Consts/device";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import {
+  componentStatements,
+  LanguageKeys,
+} from "PagesComponents/Businesses/Lawyers/const";
+import Link from "next/link";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: MultiLanguageText;
   desc: MultiLanguageText | undefined;
-  telegram: string | undefined;
-  email: string | undefined;
-  website: string | undefined;
-  phone: string[] | undefined;
   slug: string;
 }
 
-function VIPLawyerCard({
-  name,
-  desc,
-  telegram,
-  email,
-  website,
-  phone,
-  slug,
-  ...props
-}: Props) {
+function VIPLawyerCard({ name, desc, slug }: Props) {
   const { dt } = useDynamicTranslation();
+  const { t } = useStaticTranslation(componentStatements);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.fromTo(
@@ -64,7 +58,7 @@ function VIPLawyerCard({
     );
   });
   return (
-    <Container {...props} className={slug}>
+    <Container href={`/businesses/lawyers/${slug}`} className={slug}>
       <Wrapper>
         <ImageWrapper>
           <LawyerLogo
@@ -76,13 +70,11 @@ function VIPLawyerCard({
         <Title>{dt(name)}</Title>
         <Desc>
           {/*navid delete this */}
-          {dt(desc)}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud
+          {dt(desc)}
         </Desc>
-        <ViewMoreButton>View More</ViewMoreButton>
+        <ViewMoreButton hasAnimation={false}>
+          {t(LanguageKeys.ViewMore)}
+        </ViewMoreButton>
         <LawyerElement>
           Lawyer <Star />
         </LawyerElement>
@@ -132,7 +124,7 @@ export const LogoBackground = theme("mode", {
     );
   `,
 });
-const Container = styled.div`
+const Container = styled(Link)`
   padding: 5rem 0 2rem 0rem;
   opacity: 0;
   width: 100%;
@@ -155,6 +147,7 @@ const Wrapper = styled.div`
   padding: 4rem 1.5rem 2.25rem;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
   @media ${deviceMin.mobileL} {
     width: 23rem;
   }
@@ -162,6 +155,9 @@ const Wrapper = styled.div`
     padding: 4rem 1.5rem 1rem;
     height: 23rem;
     width: 23rem;
+  }
+  :hover {
+    transform: scale(1.05);
   }
 `;
 const ImageWrapper = styled.div`
@@ -175,10 +171,18 @@ const ImageWrapper = styled.div`
   transform: translate(-50%, -52%) rotate(4deg);
   border-radius: 10px;
   border: none;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: rotate(0deg) translate(-50%, -56%);
+  }
 `;
 const LawyerLogo = styled(Image)`
   position: relative !important;
   object-fit: cover;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: scale(1.05);
+  }
 `;
 const Title = styled.h3`
   ${layer2B_TitleStyle}
@@ -218,19 +222,29 @@ const LawyerElement = styled.h3`
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1rem;
   border-radius: 10px;
   transform: rotate(-3deg) translate(-20%, 50%);
+  transition: all 0.3s ease;
   @media ${deviceMin.tabletS} {
     right: unset;
     bottom: unset;
     left: 0;
     top: 0;
-    transform: rotate(-88deg) translate(-50%, -140%);
+    transform: rotate(-87deg) translate(-50%, -100%);
+  }
+  ${Wrapper}:hover & {
+    @media ${deviceMin.tabletS} {
+      transform: rotate(-90deg) translate(-50%, -100%);
+    }
   }
 `;
 const Star = styled(AiFillStar)`
   color: var(--color-secondary4);
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: rotate(-45deg);
+  }
 `;
 const MaraElement = styled.h3`
   ${layer3_SubtitleStyle}
@@ -242,8 +256,14 @@ const MaraElement = styled.h3`
   padding: 1rem 1.5rem;
   border-radius: 10px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
   @media ${deviceMin.tabletS} {
     left: -15%;
-    transform: rotate(-91deg) translate(50%, -20%);
+    transform: rotate(-92deg) translate(50%, -10%);
+  }
+  ${Wrapper}:hover & {
+    @media ${deviceMin.tabletS} {
+      transform: rotate(-90deg) translate(50%, -10%);
+    }
   }
 `;

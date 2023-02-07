@@ -21,7 +21,7 @@ export const LanguageHint: React.FC = () => {
       <Desc>{t(LanguageKeys.Desc).split('/n')?.[1]}</Desc>
       <Row>
         <StyledButton
-          id='feedback-button_transleteit'
+          id='feedback-button_translateit'
           onClick={() => {
             setLocalStorage({
               key: LocalStorageKeys.HasBeenAnswered,
@@ -33,7 +33,7 @@ export const LanguageHint: React.FC = () => {
           {t(LanguageKeys.TranslateIt)}
         </StyledButton>
         <StyledButton
-          id='feedback-button_dont-translete'
+          id='feedback-button_dont-translate'
           onClick={() => {
             setLocalStorage({
               key: LocalStorageKeys.HasBeenAnswered,

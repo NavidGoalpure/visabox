@@ -14,7 +14,7 @@ import Script from 'next/script';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
 import { Montserrat } from '@next/font/google';
-
+import Head from 'next/head';
 const GlobalStyle = createGlobalStyle`
  ${globalStyles}
 `;
@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <style jsx global>{`
         html {
           font-family: ${montserrat.style.fontFamily};
+          font-display: swap;
         }
       `}</style>
       <Script
@@ -80,6 +81,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           {/* @ts-ignore */}
           <Hydrate state={pageProps.dehydratedState}>
             <ErrorBoundary>
+              <Head>
+                <meta
+                  name='viewport'
+                  content='width=device-width, initial-scale=1'
+                />
+              </Head>
               <Component {...pageProps} />
             </ErrorBoundary>
             <ReactQueryDevtools initialIsOpen={false} />

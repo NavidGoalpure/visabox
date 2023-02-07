@@ -31,7 +31,9 @@ export const Root: React.FC<Props> = ({
       <TabsList aria-label='sidebar' variant={variant}>
         {items}
       </TabsList>
-      <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
+      <ContentsContainer id={`contents-container-${defaultValue}`}>
+        {bodies}
+      </ContentsContainer>
     </TabsRoot>
   );
 };

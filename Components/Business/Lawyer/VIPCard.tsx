@@ -69,7 +69,6 @@ function VIPLawyerCard({ name, desc, slug }: Props) {
         </ImageWrapper>
         <Title>{dt(name)}</Title>
         <Desc>
-          {/*navid delete this */}
           {dt(desc)}
         </Desc>
         <ViewMoreButton hasAnimation={false}>

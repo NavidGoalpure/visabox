@@ -61,7 +61,7 @@ const PageTitle = styled.h1`
 `;
 const PageSubtitle = styled.h4`
   ${layer3_TitleStyle};
-  margin-bottom: 6rem;
+  margin-bottom: 1rem;
 `;
 const VIPContainer = styled.div`
   width: 100%;

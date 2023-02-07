@@ -24,11 +24,9 @@ const SwitchTheme = () => {
       checked={isChecked}
       onCheckedChange={() => {
         setIsLoading(true);
-        // if (isClient) {
         theme === ThemeModes.DARK
           ? setTheme(ThemeModes.LIGHT)
           : setTheme(ThemeModes.DARK);
-        // }
       }}
     >
       <MoonLogo id="moon" />

@@ -14,6 +14,7 @@ import Script from 'next/script';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
 import { Montserrat } from '@next/font/google';
+import ToasterContainer from 'Components/ToasterContainer';
 
 const GlobalStyle = createGlobalStyle`
  ${globalStyles}
@@ -41,8 +42,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <Script
-        id='gtm-script'
-        strategy='worker'
+        id="gtm-script"
+        strategy="worker"
         dangerouslySetInnerHTML={{
           __html: `
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -80,6 +81,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           {/* @ts-ignore */}
           <Hydrate state={pageProps.dehydratedState}>
             <ErrorBoundary>
+        <ToasterContainer />
               <Component {...pageProps} />
             </ErrorBoundary>
             <ReactQueryDevtools initialIsOpen={false} />

@@ -16,6 +16,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
   const { locale } = useLocale();
   return (
     <Container {...props} $locale={locale}>
+      
       <Header />
       <Content>{children}</Content>
       <Footer />

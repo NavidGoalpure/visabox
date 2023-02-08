@@ -7,12 +7,10 @@ import MoonLogo from "./MoonLogo";
 import SunLogo from "./SunLogo";
 import theme from "styled-theming";
 import { ThemeModes } from "Interfaces";
-import useSsr from "Hooks/useSsr";
 import useTheme from "Hooks/useTheme";
 import { Loading } from "Elements/Loading";
 
 const SwitchTheme = () => {
-  const { isClient } = useSsr();
   const { theme, setTheme } = useTheme();
   const isChecked = theme === ThemeModes.LIGHT;
   const [isLoading, setIsLoading] = useState<boolean>(false);

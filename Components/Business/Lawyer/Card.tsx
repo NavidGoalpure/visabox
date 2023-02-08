@@ -1,30 +1,30 @@
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
   layer2A_TextColor,
   layer2B_BG,
-} from 'Styles/Theme/Layers/layer2/theme';
+} from "Styles/Theme/Layers/layer2/theme";
 import {
   layer3_TextStyle,
   layer3_TitleStyle,
-} from 'Styles/Theme/Layers/layer3/style';
-import { Headline6Style, Headline7Style } from 'Styles/Typo';
-import { HTMLAttributes, useEffect } from 'react';
-import gsap from 'gsap';
+} from "Styles/Theme/Layers/layer3/style";
+import { Headline6Style, Headline7Style } from "Styles/Typo";
+import { HTMLAttributes, useEffect } from "react";
+import gsap from "gsap";
 //@ts-ignore
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { MultiLanguageText } from 'Interfaces';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { deviceMin } from 'Consts/device';
-import { copyContent } from 'Utils';
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { MultiLanguageText } from "Interfaces";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import { deviceMin } from "Consts/device";
+import { copyContent } from "Utils";
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Businesses/Lawyers/const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { IoMdCopy } from 'react-icons/io';
+} from "PagesComponents/Businesses/Lawyers/const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { IoMdCopy } from "react-icons/io";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: MultiLanguageText;
   email: string | undefined;
@@ -38,47 +38,43 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      `.${slug}`,
-      {
-        y: 40,
-      },
-      {
-        scrollTrigger: {
-          trigger: `.${slug}`,
-          start: '20 bottom',
-          toggleActions: 'play none none none',
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-      }
-    );
+     gsap.fromTo(
+       `.${slug}`,
+       {
+         y: 40,
+       },
+       {
+         scrollTrigger: {
+           trigger: `.${slug}`,
+           start: "20 bottom",
+           toggleActions: "play none none none",
+         },
+         y: 0,
+         opacity: 1,
+         duration: 1,
+       }
+     );
   });
   return (
     <Container className={slug} {...props}>
       <Wrapper>
         <Title>{dt(name)}</Title>
         <Socials>
-          <EmailWrapper>
+          <EmailWrapper onClick={() => copyContent(email || "")}>
             <EmailTitle>
               {t(LanguageKeys.Email)}:<CopyIcon />
             </EmailTitle>
-            <EmailUrl onClick={() => copyContent(email || '')}>
-              {email}
-            </EmailUrl>
+            <EmailUrl>{email}</EmailUrl>
           </EmailWrapper>
-          <PhoneWrapper>
+          <PhoneWrapper onClick={() => copyContent(phone?.[0] || "")}>
             <PhoneTitle>
               {t(LanguageKeys.Phone)}:<CopyIcon />
             </PhoneTitle>
-            <PhoneUrl onClick={() => copyContent(phone?.[0] || '')}>
-              {phone?.[0]}
-            </PhoneUrl>
+            <PhoneUrl>{phone?.[0]}</PhoneUrl>
           </PhoneWrapper>
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
-            <WebsiteUrl href={website} target={'_blank'}>
+            <WebsiteUrl href={website} target={"_blank"}>
               {website}
             </WebsiteUrl>
           </WebsiteWrapper>
@@ -90,7 +86,7 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
   );
 }
 export default LawyerCard;
-export const ContainerBorder = theme('mode', {
+export const ContainerBorder = theme("mode", {
   light: css`
     border: 1px solid var(--color-gray9);
   `,
@@ -98,7 +94,7 @@ export const ContainerBorder = theme('mode', {
     border: none;
   `,
 });
-export const LinksTheme = theme('mode', {
+export const LinksTheme = theme("mode", {
   light: css`
     color: var(--color-gray8);
   `,
@@ -107,7 +103,7 @@ export const LinksTheme = theme('mode', {
   `,
 });
 
-export const MaraTheme = theme('mode', {
+export const MaraTheme = theme("mode", {
   light: css`
     background: var(--color-gray12);
   `,
@@ -116,7 +112,7 @@ export const MaraTheme = theme('mode', {
   `,
 });
 
-export const CopyIconTheme = theme('mode', {
+export const CopyIconTheme = theme("mode", {
   light: css`
     color: var(--color-gray10);
   `,
@@ -173,18 +169,22 @@ const EmailWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 100%;
   gap: 0.5rem;
   cursor: pointer;
 `;
 
 const EmailTitle = styled.h4`
   ${LinksTheme}
-  ${Headline7Style}
+  ${Headline6Style}
   transition: 0.3s all ease;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;
 const CopyIcon = styled(IoMdCopy)`
   ${CopyIconTheme};
-  width: 1rem;
+  width: 1.5rem;
   height: auto;
 `;
 const EmailUrl = styled.a`

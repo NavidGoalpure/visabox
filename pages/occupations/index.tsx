@@ -1,5 +1,4 @@
 import type { GetServerSideProps, NextPage, NextPageContext } from 'next';
-import Head from 'next/head';
 import {
   LanguageKeys,
   componentStatements,

@@ -1,8 +1,5 @@
-import { Languages, Locations, MultiLanguageText } from 'Interfaces';
-import { AssessingAuthorityAbv } from 'Interfaces/Documents/occupation';
-import { languages } from 'sanity/schemas/languages';
-import { Lawyer } from './interfaces';
-import DanielEskandari from './Images/DanielEskandari.jpeg';
+import { Locations, MultiLanguageText } from "Interfaces";
+import { Lawyer } from "./interfaces";
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',

@@ -27,8 +27,12 @@ function MobileFooter() {
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
-          <TelegramLogo />
-          <GmailLogo />
+          <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
+            <TelegramLogo />
+          </a>
+          <a target={'_blank'} href='mailto: maraboxmigration@gmail.com'>
+            <GmailLogo />
+          </a>
         </LogosContainer>
       </ContactUsContainer>
     </Container>

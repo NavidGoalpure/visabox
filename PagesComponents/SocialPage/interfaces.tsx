@@ -11,6 +11,6 @@ export interface TelegramGroup {
   telegramLink: string;
   socialmediaType: SocialMediaTypes;
   //what countries they work in
-  locations: Locations[];
+  locations: Locations;
   desc: string;
 }

@@ -29,7 +29,7 @@ export const SocialMedias: TelegramGroup[] = [
     name: "مهاجرت تجاری به استرالیا",
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "مهاجرت-تجاری-به-استرالیا",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: `گروه بحث و تبادل نظر در مورد ویزاهای سرمایه گذاری و کارآفرینی استرالیا. زیر نظر وکیل رسمی مهاجرت استرالیا، آقای محمد رضا عظیمی.
 
 www.shadavisa.com
@@ -42,7 +42,7 @@ www.shada.com.au
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "acs-skill-assessment",
     telegramLink: "https://t.me/joinchat/BQatsE-ziHhgKXENSdNXCA",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: `همه چيز در مورد نحوه اخذ ارزيابي مثبت از سازمان ACS
 لينك عضويت گروه 
  https://t.me/joinchat/BQatsE-ziHhgKXENSdNXCA
@@ -54,7 +54,7 @@ www.shada.com.au
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "پرستار-ماما-و-پزشک-برای-استرالیا",
     telegramLink: "https://t.me/australiamd",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: `https://t.me/australiamd`,
   },
   {
@@ -62,7 +62,7 @@ www.shada.com.au
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "ch-lodge",
     telegramLink: "https://t.me/joinchat/AAAAAFYtjSQ59yW1__5cmg",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: `Lodge: Australia Visa Apps
 EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
 
@@ -77,7 +77,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "australia-live-and-work",
     telegramLink: "https://t.me/Australia_live_and_work",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: `موضوع گروه： جنبه های مختلف زندگی در استرالیا
 
 لطفا موضوعات مرتبط با پروسه اخذ ویزا و یا مقایسه استرالیا با کشورهای دیگر را در این گروه مطرح نفرمایید.
@@ -91,7 +91,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "فرهنگ-آزی-کار-زندگیau",
     telegramLink: "https://t.me/+Ij6il037uV9lYTg0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: `لینک همه گروه های استرالیا
 @AUSTRALIAVIP`,
   },
@@ -100,7 +100,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "گروه-پرواز-استرالیا-کولبر",
     telegramLink: "https://t.me/+Ij6il037uV9lYTg0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: `لینک تمام گروه های استرالیا
 @AUSTRALIAVIP`,
   },
@@ -109,7 +109,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "گروه-استرالیا-را-با-هم-بگردیم",
     telegramLink: "https://t.me/+iMSbdyjFzPczNjg0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -117,7 +117,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "گروه-کاریابی-پیشنهاد-کار",
     telegramLink: "https://t.me/+aYkIYE1sPdsxMDZk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -125,7 +125,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "گروه-مدارس-استرالیا",
     telegramLink: "https://t.me/+uY9rweSk0BIwYjk0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -133,7 +133,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "اطلاعات-خودرو-استرالیا",
     telegramLink: "https://t.me/+HUYaozJFqao1YjFk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -141,7 +141,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "اخذ-گواهینامه-استرالیا",
     telegramLink: "https://t.me/+Dhex2wIKkPQ4Nzc0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -149,7 +149,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "دوستداران-پت",
     telegramLink: "https://t.me/+6w8DZIIdYgo0ZWRk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -157,7 +157,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "فیلم‌سریال-ایرانیان-استرالیا",
     telegramLink: "https://t.me/+_plRNhEiLaU5NDU0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -165,7 +165,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "ویزای-والدین-استرالیا",
     telegramLink: "https://t.me/+gjJAOp2_NNgxYzZk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -173,7 +173,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "مسیر-درست-از-188تا888",
     telegramLink: "https://t.me/+cYx9n2PIO1RiYzFk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -181,7 +181,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "لاج-تا-اخذ-ویزای-188",
     telegramLink: "https://t.me/+jzDvq-ZAsQVkMjBk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   // {
@@ -189,7 +189,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
   // socialmediaType:SocialMediaTypes.TELEGRAM,
   //   slug: "",
   //   telegramLink: "https://t.me/+fjFdQk3r3YVkOWFk",
-  //   locations: [Locations.fa],
+  //   locations: Locations.fa,
   //   desc: ``,
   // },
   {
@@ -197,7 +197,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "اسکیل-ویزا-استرالیا",
     telegramLink: "https://t.me/+aTuhMKtcwr9mNDc0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -205,7 +205,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "citizenship-au",
     telegramLink: "https://t.me/+DwYnwSDlbD0zOWRk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -213,7 +213,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "دانشجویان-استرالیا",
     telegramLink: "https://t.me/+nO176mobSqI1ZmY0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -221,7 +221,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "بریزبن-گلدکوست-qu",
     telegramLink: "https://t.me/+5aDaER0LMEY0YjA0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -229,7 +229,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "استرالیای-جنوبی-آدلاید",
     telegramLink: "https://t.me/+sPNmFlLqGe5kMzlk",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
   {
@@ -237,7 +237,7 @@ EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
     socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: "استرالیای-غربی-پرث",
     telegramLink: "https://t.me/+sVlVt_c-9YdjYmI0",
-    locations: [Locations.fa],
+    locations: Locations.fa,
     desc: ``,
   },
 ];

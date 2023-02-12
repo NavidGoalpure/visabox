@@ -15,6 +15,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
 import { Montserrat } from '@next/font/google';
 import Head from 'next/head';
+
 const GlobalStyle = createGlobalStyle`
  ${globalStyles}
 `;
@@ -41,31 +42,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           font-display: swap;
         }
       `}</style>
-      <Script
-        id='gtm-script'
-        strategy='worker'
-        dangerouslySetInnerHTML={{
-          __html: `
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
-      `,
-        }}
-      />
-      <NextNProgress height={2} />
 
-      {/* {isItOnLive() && (
-        <Script id='google-tag-manager' strategy='afterInteractive'>
-          {`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
-      `}
-        </Script> */}
+      <NextNProgress height={2} />
 
       <ThemeProvider
         theme={{

@@ -4,12 +4,6 @@ import { Html, Head, Main, NextScript } from 'next/document';
 import { isItOnLive } from 'Utils';
 import { Partytown } from '@builder.io/partytown/react';
 
-function checkIfGoogleTagAssistantIsEnabled(ctx) {
-  const [, query] = ctx.request.url.split('?');
-  const searchParams = new URLSearchParams(query);
-
-  return !!searchParams.get('gtm_debug');
-}
 export default class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext

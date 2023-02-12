@@ -4,6 +4,12 @@ import { Html, Head, Main, NextScript } from 'next/document';
 import { isItOnLive } from 'Utils';
 import { Partytown } from '@builder.io/partytown/react';
 
+function checkIfGoogleTagAssistantIsEnabled(ctx) {
+  const [, query] = ctx.request.url.split('?');
+  const searchParams = new URLSearchParams(query);
+
+  return !!searchParams.get('gtm_debug');
+}
 export default class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
@@ -36,7 +42,22 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <Partytown debug={true} forward={['dataLayer.push']} />
+          <Partytown
+            debug={true}
+            forward={['dataLayer.push']}
+            set={(opts) => {
+              const isDebugging =
+                opts?.window?.location?.search.includes('gtm_debug');
+              if (
+                isDebugging &&
+                opts?.name === 'type' &&
+                opts?.nodeName === 'SCRIPT'
+              ) {
+                return opts.prevent;
+              }
+              return opts.continue;
+            }}
+          />
           <script
             type='text/partytown'
             dangerouslySetInnerHTML={{

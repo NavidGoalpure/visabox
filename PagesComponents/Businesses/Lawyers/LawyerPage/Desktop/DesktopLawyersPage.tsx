@@ -6,15 +6,10 @@ import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style, Headline5Style, Headline6Style } from 'Styles/Typo';
-import { SidebarPage } from 'PagesComponents/Businesses/Lawyers/LawyerPage/Mobile/SideBar';
-import { AiFillStar } from 'react-icons/ai';
+import { FiBox } from "react-icons/fi";
 import { Lawyer } from '../../interfaces';
-import { AboutComponent } from 'PagesComponents/Businesses/Lawyers/LawyerPage/Mobile/AboutComponent';
 import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
-import { FaPhone } from 'react-icons/fa';
-import { ImSphere } from 'react-icons/im';
-import { SiGmail } from 'react-icons/si';
+
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
@@ -38,9 +33,9 @@ function DesktopLawyersPage({ ChosenLawyer }: Props) {
             src={`/Images/businesses/lawyer/${ChosenLawyer?.slug}.jpeg`}
             alt={'lawyer image'}
           />
-          <VIPStarContainer aria-hidden={true}>
-            <VIPStar aria-hidden={true} />
-          </VIPStarContainer>
+          <VIPBoxContainer aria-hidden={true}>
+            <VIPBox aria-hidden={true} />
+          </VIPBoxContainer>
         </ProfilePictureWrapper>
         <RightSide>
           <Title>{dt(ChosenLawyer?.name)}</Title>
@@ -133,7 +128,7 @@ const ProfilePicture = styled(Image)`
   position: relative !important;
   border-radius: 15px;
 `;
-const VIPStarContainer = styled.div`
+const VIPBoxContainer = styled.div`
   width: 3rem;
   height: 3rem;
   display: flex;
@@ -145,7 +140,7 @@ const VIPStarContainer = styled.div`
   top: 0;
   right: 5%;
 `;
-const VIPStar = styled(AiFillStar)`
+const VIPBox = styled(FiBox)`
   color: var(--color-secondary4);
   width: 70%;
   height: auto;

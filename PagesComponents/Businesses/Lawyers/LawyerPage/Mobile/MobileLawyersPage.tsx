@@ -7,7 +7,7 @@ import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { SidebarPage } from 'PagesComponents/Businesses/Lawyers/LawyerPage/Mobile/SideBar';
-import { AiFillStar } from 'react-icons/ai';
+import { FiBox } from 'react-icons/fi';
 import { Lawyer } from '../../interfaces';
 interface Props {
   ChosenLawyer?: Lawyer;
@@ -26,9 +26,9 @@ function MobileLawyersPage({ ChosenLawyer }: Props) {
           src={`/Images/businesses/lawyer/${ChosenLawyer?.slug}.jpeg`}
           alt={'lawyer image'}
         />
-        <VIPStarContainer aria-hidden={true}>
-          <VIPStar aria-hidden={true} />
-        </VIPStarContainer>
+        <VIPBoxContainer aria-hidden={true}>
+          <VIPBox aria-hidden={true} />
+        </VIPBoxContainer>
       </ProfilePictureWrapper>
       <Title>{dt(ChosenLawyer?.name)}</Title>
       <SidebarPage
@@ -125,7 +125,7 @@ const Title = styled.h2`
   font-weight: 900;
   margin-bottom: 4rem;
 `;
-const VIPStarContainer = styled.div`
+const VIPBoxContainer = styled.div`
   width: 3rem;
   height: 3rem;
   display: flex;
@@ -137,7 +137,7 @@ const VIPStarContainer = styled.div`
   top: 0;
   right: 5%;
 `;
-const VIPStar = styled(AiFillStar)`
+const VIPBox = styled(FiBox)`
   color: var(--color-secondary4);
   width: 70%;
   height: auto;

@@ -38,22 +38,22 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-     gsap.fromTo(
-       `.${slug}`,
-       {
-         y: 40,
-       },
-       {
-         scrollTrigger: {
-           trigger: `.${slug}`,
-           start: "20 bottom",
-           toggleActions: "play none none none",
-         },
-         y: 0,
-         opacity: 1,
-         duration: 1,
-       }
-     );
+    gsap.fromTo(
+      `.${slug}`,
+      {
+        y: 40,
+      },
+      {
+        scrollTrigger: {
+          trigger: `.${slug}`,
+          start: "20 bottom",
+          toggleActions: "play none none none",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+      }
+    );
   });
   return (
     <Container className={slug} {...props}>
@@ -88,7 +88,7 @@ function LawyerCard({ name, email, website, phone, slug, ...props }: Props) {
 export default LawyerCard;
 export const ContainerBorder = theme("mode", {
   light: css`
-    border: 1px solid var(--color-gray9);
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.25));
   `,
   dark: css`
     border: none;
@@ -122,6 +122,7 @@ export const CopyIconTheme = theme("mode", {
 });
 const Container = styled.div`
   padding-top: 5rem;
+
   width: 100%;
   opacity: 0;
   @media ${deviceMin.mobileL} {
@@ -130,8 +131,10 @@ const Container = styled.div`
   }
 `;
 const Wrapper = styled.div`
-  ${layer2A_Bg}
-  width:100%;
+  ${layer2A_Bg};
+  ${ContainerBorder};
+  box-shadow: unset;
+  width: 100%;
   height: 20.5rem;
   position: relative;
   display: flex;

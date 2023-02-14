@@ -1,15 +1,18 @@
+import { deviceMin } from "Consts/device";
 import styled from "styled-components";
 import { SocialMedias } from "./const";
-import SocialCard from "./SocialCard";
+import SmartSocialCard from "./SocialCard";
 
 function Content() {
   return (
     <Container>
       {SocialMedias.map((socialMedia, i) => (
-        <SocialCard
+        <SmartSocialCard
+          key={i}
+          isFeatured={socialMedia.isFeatured}
           desc={socialMedia.desc}
           name={socialMedia.name}
-          telegramLink={socialMedia.telegramLink}
+          link={socialMedia.link}
           socialmediaType={socialMedia.socialmediaType}
           locations={socialMedia.locations}
           slug={socialMedia.slug}
@@ -19,4 +22,14 @@ function Content() {
   );
 }
 export default Content;
-const Container = styled.div``
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  @media ${deviceMin.tabletM} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`;

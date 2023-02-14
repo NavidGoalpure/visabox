@@ -10,10 +10,9 @@ import {
 import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
 import {
   layer3_SubtitleStyle,
-  layer3_TextStyle,
 } from 'Styles/Theme/Layers/layer3/style';
 import { Headline7Style } from 'Styles/Typo';
-import { AiFillStar } from 'react-icons/ai';
+import { FiBox } from "react-icons/fi";
 import { MultiLanguageText } from 'Interfaces';
 import { HTMLAttributes, useEffect } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
@@ -69,11 +68,11 @@ function VIPLawyerCard({ name, desc, slug }: Props) {
         </ImageWrapper>
         <Title>{dt(name)}</Title>
         <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
-        <ViewMoreButton hasAnimation={false}>
+        <ViewMoreButton >
           {t(LanguageKeys.ViewMore)}
         </ViewMoreButton>
         <LawyerElement>
-          Lawyer <Star />
+          Lawyer <Box />
         </LawyerElement>
         <MaraElement>Mara</MaraElement>
       </Wrapper>
@@ -236,11 +235,11 @@ const LawyerElement = styled.h3`
     }
   }
 `;
-const Star = styled(AiFillStar)`
+const Box = styled(FiBox)`
   color: var(--color-secondary4);
   transition: all 0.3s ease;
   ${Wrapper}:hover & {
-    transform: rotate(-45deg);
+    transform: rotate(-60deg);
   }
 `;
 const MaraElement = styled.h3`

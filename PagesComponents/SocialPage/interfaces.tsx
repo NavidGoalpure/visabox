@@ -1,15 +1,14 @@
-import {
-  Locations,
-} from "Interfaces";
+import { Locations } from "Interfaces";
 export enum SocialMediaTypes {
   TELEGRAM = "TELEGRAM",
-  INSTAGRAM = "INSTAGRAM"
+  INSTAGRAM = "INSTAGRAM",
 }
 export interface TelegramGroup {
   name: string;
   slug: string;
-  telegramLink: string;
+  link: string;
   socialmediaType: SocialMediaTypes;
+  isFeatured: boolean;
   //what countries they work in
   locations: Locations;
   desc: string;

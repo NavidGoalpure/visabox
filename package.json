@@ -24,6 +24,7 @@
     "@sentry/nextjs": "^7.34.0",
     "eslint-config-next": "^13.0.7",
     "next": "^13.0.7",
+    "next-auth": "^4.19.2",
     "next-images": "^1.8.4",
     "next-sanity": "^1.0.0",
     "nextjs-progressbar": "^0.0.16",

@@ -1,22 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    // "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "noUncheckedIndexedAccess": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    // "noUnusedLocals": true,
+    "noUnusedParameters": true
     // "paths": {
     //   "@/PagesComponents/*": ["PagesComponents/*"],
     //   "@/pages/*": ["pages/*"],
@@ -31,7 +36,7 @@
     "pages/indexold.old",
     "Hoc/withCSR.js",
     "types.d.ts"
-  ],
+, "pages/auth/signin.tsx"  ],
   "exclude": ["node_modules"],
   "types": ["cypress", "@testing-library/cypress", "@types/gtag.js"]
 }

@@ -7,6 +7,8 @@ import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import SwitchTheme from "./switchTheme";
 import { useLocale } from "Hooks/useLocale";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
+import LanguageChanger from "./LanguageChanger";
 
 function Desktop() {
   const { locale } = useLocale();
@@ -18,14 +20,16 @@ function Desktop() {
             <Logo />
           </Link>
         </NavigationMenu.Item>
-        <SwitchTheme />
-        {/* <MenuItems>
+        <MenuItems>
           <NavigationMenu.Item>
-            About
-            <NavigationMenu.Content></NavigationMenu.Content>
+            <MenuLink href={`/${locale}/occupations`}>Skilled Occupation List</MenuLink>
           </NavigationMenu.Item>
-          <NavigationMenu.Item>Contact</NavigationMenu.Item>
-        </MenuItems> */}
+          <NavigationMenu.Item>
+            <MenuLink href={`/${locale}/businesses/lawyers`}>Lawyers List</MenuLink>{" "}
+          </NavigationMenu.Item>
+          <LanguageChanger/>
+        <SwitchTheme />
+        </MenuItems>
       </Wrapper>
     </Container>
   );
@@ -50,10 +54,13 @@ const Wrapper = styled(NavigationMenu.List)`
   max-width: var(--max-width-page);
   margin: 0 auto;
 `;
-// const MenuItems = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   width: auto;
-//   gap: 1rem;
-// `;
+const MenuItems = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: auto;
+  gap: 1rem;
+`;
+const MenuLink = styled(Link)`
+  ${layer3_TextStyle};
+`;

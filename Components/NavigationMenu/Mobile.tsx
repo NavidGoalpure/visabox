@@ -7,10 +7,12 @@ import gsap from "gsap";
 import SwitchTheme from "./switchTheme";
 import Link from "next/link";
 import { useLocale } from "Hooks/useLocale";
+import { layer3_TitleStyle } from "Styles/Theme/Layers/layer3/style";
+import LanguageChanger from "./LanguageChanger";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
-  const {locale} = useLocale()
+  const { locale } = useLocale();
 
   const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
   const popupAnimationRef = useRef<gsap.core.Timeline>();
@@ -19,10 +21,18 @@ function SmartHeader() {
       .timeline({ paused: true })
       .add("start")
       .to(
+        "#hamburg",
+        {
+          duration: 0.2,
+          y: 10,
+        },
+        "start"
+      )
+      .to(
         `#line1`,
         {
           duration: 0.2,
-          y: 9,
+          y: 6,
         },
         "start"
       )
@@ -30,7 +40,7 @@ function SmartHeader() {
         `#line2`,
         {
           duration: 0.2,
-          y: -3,
+          y: -6,
         },
         "start"
       )
@@ -67,36 +77,51 @@ function SmartHeader() {
       hamburgerAnimationRef.current?.reverse();
     }
   });
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, []);
   return (
     <Container>
       <Wrapper>
         <MenuPopupContainer id={"popup"}>
           <Nav>
-            <HomeLink href={`/${locale}`}>Home</HomeLink>
-            <hr />
-            <OccupationLink href={`/${locale}/occupations`}>
+            <MenuLink href={`/${locale}`}>Home</MenuLink>
+            <Hr />
+            <MenuLink href={`/${locale}/occupations`}>
               Skilled Occupation List
-            </OccupationLink>
-            <hr />
+            </MenuLink>
+            <Hr />
+            <MenuLink href={`/${locale}/businesses/lawyers`}>
+              Lawyers List
+            </MenuLink>
+            <Hr />
           </Nav>
+          <LanguageChanger />
+          <Hr />
+          <SwitchTheme />
         </MenuPopupContainer>
-        <MenuBurger onClick={() => setIsMenuClicked(!isMenuClicked)}>
-          <path aria-hidden d={"M0 15 h32 v4 h-32 "} id={"line1"} />
-          <path aria-hidden d={"M0 27 h32 v4 h-32 "} id={"line2"} />
+        <MenuBurger
+          id={`hamburg`}
+          onClick={() => setIsMenuClicked(!isMenuClicked)}
+        >
+          <span aria-hidden id={"line1"} />
+          <span aria-hidden id={"line2"} />
         </MenuBurger>
-        {/* <SwitchTheme /> */}
       </Wrapper>
     </Container>
   );
 }
 export default SmartHeader;
-
+//there was a theme in the layers like this one but it was for color not background so i couldn't use it
 const MenuBurgerTheme = theme("mode", {
   light: css`
-    fill: var(--color-gray8);
+    background: var(--color-gray8);
   `,
   dark: css`
-    fill: var(--color-gray10);
+    background: var(--color-gray10);
   `,
 });
 const PopupBagroundTheme = theme("mode", {
@@ -111,7 +136,6 @@ const Container = styled.div`
   ${layer1_BG}
   ${directionStyles}
   ${boxShadow};
-
   width: 100%;
   padding: 0 1rem;
   position: relative;
@@ -126,15 +150,16 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 const MenuPopupContainer = styled.div`
-  ${PopupBagroundTheme}
+  ${PopupBagroundTheme};
   width: 100vw;
   height: 100vh;
+  padding: 6.5rem 4rem 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 1rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -100vw;
   z-index: 3;
@@ -144,16 +169,35 @@ const Nav = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap:1rem;
+  gap: 1rem;
 `;
-const HomeLink = styled(Link)``;
-const OccupationLink = styled(Link)``;
-const MenuBurger = styled.svg`
-  ${MenuBurgerTheme};
+const Hr = styled.hr`
+  width: 100%;
+  height: 1px;
+  background: var(--color-gray10);
+`;
+const MenuLink = styled(Link)`
+  ${layer3_TitleStyle};
+  text-align: start;
+  width: 100%;
+`;
+const MenuBurger = styled.div`
   position: absolute;
   top: 0;
   height: 100%;
   left: 1rem;
   width: 3rem;
   z-index: 4;
+  span {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    background: var(--color-gray10);
+    border-radius: 100px;
+    width: 2.5rem;
+    height: 4px;
+  }
+  span:nth-child(2) {
+    top: 65%;
+  }
 `;

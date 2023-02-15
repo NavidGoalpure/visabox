@@ -35,7 +35,7 @@ export const MaraAccordion: React.FC<Props> = ({
     data-testid='Marabox-Accordion'
   >
     <AccordionItem value='item'>
-      <AccordionHeader $backgroundLayer={backgroundLayer}>
+      <AccordionHeader id={"header"} $backgroundLayer={backgroundLayer}>
         <AccordionTrigger>
           <PlusIcon />
           {triggerText}

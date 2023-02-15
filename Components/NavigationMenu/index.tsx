@@ -9,7 +9,6 @@ const SmartHeader = () => {
   useEffect(() => {
     if (isLaptop) setScreen("DESKTOP");
   });
-  return <Mobile />;
   if (screen === "MOBILE") return <Mobile />;
   return <Desktop />;
 };

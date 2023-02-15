@@ -14,14 +14,15 @@ import Script from 'next/script';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
 import { Montserrat } from '@next/font/google';
-import ToasterContainer from 'Components/ToasterContainer';
+import Head from 'next/head';
+import { SessionProvider } from 'next-auth/react';
 
 const GlobalStyle = createGlobalStyle`
  ${globalStyles}
 `;
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
   const { theme } = useTheme();
@@ -41,53 +42,37 @@ function MyApp({ Component, pageProps }: AppProps) {
           font-family: ${montserrat.style.fontFamily};
         }
       `}</style>
-      <Script
-        id="gtm-script"
-        strategy="worker"
-        dangerouslySetInnerHTML={{
-          __html: `
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
-      `,
-        }}
-      />
+
       <NextNProgress height={2} />
 
-      {/* {isItOnLive() && (
-        <Script id='google-tag-manager' strategy='afterInteractive'>
-          {`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
-      `}
-        </Script> */}
-
-      <ThemeProvider
-        theme={{
-          mode: theme,
-          languageDirection:
-            locale === Languages.fa
-              ? LanguageDirection.RTL
-              : LanguageDirection.LTR,
-        }}
-      >
-        <GlobalStyle />
-        <QueryClientProvider client={queryClient}>
-          {/* @ts-ignore */}
-          <Hydrate state={pageProps.dehydratedState}>
-            <ErrorBoundary>
-        <ToasterContainer />
-              <Component {...pageProps} />
-            </ErrorBoundary>
-            <ReactQueryDevtools initialIsOpen={false} />
-          </Hydrate>
-        </QueryClientProvider>
-      </ThemeProvider>
+      <SessionProvider session={session}>
+        <ThemeProvider
+          theme={{
+            mode: theme,
+            languageDirection:
+              locale === Languages.fa
+                ? LanguageDirection.RTL
+                : LanguageDirection.LTR,
+          }}
+        >
+          <GlobalStyle />
+          <QueryClientProvider client={queryClient}>
+            {/* @ts-ignore */}
+            <Hydrate state={pageProps.dehydratedState}>
+              <ErrorBoundary>
+                <Head>
+                  <meta
+                    name='viewport'
+                    content='width=device-width, initial-scale=1'
+                  />
+                </Head>
+                <Component {...pageProps} />
+              </ErrorBoundary>
+              <ReactQueryDevtools initialIsOpen={false} />
+            </Hydrate>
+          </QueryClientProvider>
+        </ThemeProvider>
+      </SessionProvider>
     </>
   );
 }

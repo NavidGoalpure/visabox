@@ -10,11 +10,11 @@ import {
 import { useLocale } from 'Hooks/useLocale';
 import Content from 'PagesComponents/Occupations/AssssingAuthoritties';
 import Seo from 'Components/Seo';
-import { Languages } from 'Interfaces';
 
 const OccupationPage: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
+
   return (
     <PageLayout>
       <Seo

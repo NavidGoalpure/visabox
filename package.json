@@ -1,8 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "partytown": "partytown copylib public/~partytown",
+    "dev": "yarn run partytown && next dev",
+    "build": "yarn run partytown && next build",
     "start": "next start",
     "test": "jest --watch",
     "test:ci": "jest --ci",
@@ -26,6 +27,7 @@
     "eslint-config-next": "^13.0.7",
     "gsap": "^3.11.4",
     "next": "^13.0.7",
+    "next-auth": "^4.19.2",
     "next-images": "^1.8.4",
     "next-sanity": "^1.0.0",
     "nextjs-progressbar": "^0.0.16",
@@ -46,7 +48,7 @@
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
-    "@builder.io/partytown": "^0.7.5",
+    "@builder.io/partytown": "^0.7.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "14.2.0",

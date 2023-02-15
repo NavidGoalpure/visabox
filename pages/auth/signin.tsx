@@ -5,7 +5,7 @@ import type {
 import { getProviders, signIn } from 'next-auth/react';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '../api/auth/[...nextauth]';
-import { Key, ReactElement, JSXElementConstructor, ReactFragment } from 'react';
+import { Key } from 'react';
 
 export default function SignIn({
   providers,
@@ -13,17 +13,15 @@ export default function SignIn({
   return (
     <>
       {providers.map(
-        (provider: {
-          name:
-            | boolean
-            | Key
-            | ReactElement<any, string | JSXElementConstructor<any>>
-            | ReactFragment
-            | null
-            | undefined;
-          id: any;
-        }) => (
-          <div key={provider.name}>
+        (
+          provider: {
+            name: string;
+
+            id: any;
+          },
+          i: Key
+        ) => (
+          <div key={i}>
             <button onClick={() => signIn(provider.id)}>
               Sign in with {provider.name}
             </button>
@@ -45,7 +43,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 
   const providers = authOptions.providers;
-  console.log('navid Propviders=', providers);
   return {
     props: { providers: JSON.parse(JSON.stringify(providers)) ?? [] },
   };

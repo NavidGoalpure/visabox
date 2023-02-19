@@ -18,7 +18,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
     <Container {...props} $locale={locale}>
       
       <Header />
-      <Content>{children}</Content>
+      <Content id='PageContainer-content'>{children}</Content>
       <Footer />
     </Container>
   );

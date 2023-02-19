@@ -8,7 +8,7 @@ import SwitchTheme from "./switchTheme";
 import Link from "next/link";
 import { useLocale } from "Hooks/useLocale";
 import { layer3_TitleStyle } from "Styles/Theme/Layers/layer3/style";
-import LanguageChanger from "./LanguageChanger";
+import MobileLanguageChanger from "./LanguageChanger/Mobile";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -71,37 +71,36 @@ function SmartHeader() {
     if (isMenuClicked) {
       popupAnimationRef.current?.restart();
       hamburgerAnimationRef.current?.restart();
+      document.body.style.overflow = "hidden";
     }
     if (isMenuClicked === false) {
       popupAnimationRef.current?.reverse();
       hamburgerAnimationRef.current?.reverse();
+      document.body.style.overflow = "unset";
     }
   });
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, []);
+
   return (
     <Container>
       <Wrapper>
         <MenuPopupContainer id={"popup"}>
-          <Nav>
-            <MenuLink href={`/${locale}`}>Home</MenuLink>
+          <div>
+            <Nav>
+              <MenuLink href={`/${locale}`}>Home</MenuLink>
+              <Hr />
+              <MenuLink href={`/${locale}/occupations`}>
+                Skilled Occupation List
+              </MenuLink>
+              <Hr />
+              <MenuLink href={`/${locale}/businesses/lawyers`}>
+                Lawyers List
+              </MenuLink>
+              <Hr />
+            </Nav>
+            <MobileLanguageChanger />
             <Hr />
-            <MenuLink href={`/${locale}/occupations`}>
-              Skilled Occupation List
-            </MenuLink>
-            <Hr />
-            <MenuLink href={`/${locale}/businesses/lawyers`}>
-              Lawyers List
-            </MenuLink>
-            <Hr />
-          </Nav>
-          <LanguageChanger />
-          <Hr />
-          <SwitchTheme />
+            <SwitchTheme />
+          </div>
         </MenuPopupContainer>
         <MenuBurger
           id={`hamburg`}
@@ -152,14 +151,15 @@ const Wrapper = styled.div`
 const MenuPopupContainer = styled.div`
   ${PopupBagroundTheme};
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: fit-content;
   padding: 6.5rem 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: -100vw;
   z-index: 3;

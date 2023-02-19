@@ -8,7 +8,7 @@ import SwitchTheme from "./switchTheme";
 import { useLocale } from "Hooks/useLocale";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
-import LanguageChanger from "./LanguageChanger";
+import DesktopLanguageChanger from "./LanguageChanger/Desktop";
 
 function Desktop() {
   const { locale } = useLocale();
@@ -27,7 +27,7 @@ function Desktop() {
           <NavigationMenu.Item>
             <MenuLink href={`/${locale}/businesses/lawyers`}>Lawyers List</MenuLink>{" "}
           </NavigationMenu.Item>
-          <LanguageChanger/>
+          <DesktopLanguageChanger/>
         <SwitchTheme />
         </MenuItems>
       </Wrapper>

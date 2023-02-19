@@ -80,31 +80,8 @@ function VIPLawyerCard({ name, desc, slug }: Props) {
   );
 }
 export default VIPLawyerCard;
-export const ContainerBorder = theme('mode', {
-  light: css`
-    border: 1px solid var(--color-gray9);
-  `,
-  dark: css`
-    border: none;
-  `,
-});
-export const LogoTheme = theme('mode', {
-  light: css`
-    fill: var(--color-gray11);
-  `,
-  dark: css`
-    fill: var(--color-gray9);
-  `,
-});
-export const LogoTitleTheme = theme('mode', {
-  light: css`
-    color: var(--color-gray11);
-  `,
-  dark: css`
-    color: var(--color-gray9);
-  `,
-});
-export const LogoBackground = theme('mode', {
+
+const LogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
       -86deg,

@@ -43,8 +43,9 @@ export const BorderColor = theme('mode', {
   `,
 });
 const SwitchRoot = styled(RdxSwitch.Root)`
-  border: 3px solid var(--color-gray12);
   ${BorderColor};
+  border: 3px solid var(--color-gray12);
+  position: relative;
   width: 4rem;
   height: 2.25rem;
   background-color: transparent;
@@ -75,7 +76,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
       stroke: var(--color-gray9);
     }
   }
-  &[data-state='checked'] {
+  &[data-state="checked"] {
     justify-content: flex-end;
     .sun {
       display: none;

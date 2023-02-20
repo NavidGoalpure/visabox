@@ -34,7 +34,7 @@ export default function SignIn({
         <BlurContainer>
           <Title>Login</Title>
           <Subtitle>
-            Use your Google or Discord accounts for Singind or Register.
+            Use your Google or Discord accounts for Signing or Register.
           </Subtitle>
           {providers.map(
             (

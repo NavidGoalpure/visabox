@@ -50,7 +50,7 @@ export const Input = ({
           placeholder={placeholder}
           {...props}
         ></StyledInput>
-        {endElement && <span>{endElement}</span>}
+        {endElement ? endElement : null}
       </InputContainer>
       {errorMasage && <Error data-testid='error-input'>{errorMasage}</Error>}
     </Container>

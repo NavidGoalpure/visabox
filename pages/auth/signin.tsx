@@ -45,11 +45,7 @@ export default function SignIn({
               },
               i: Key
             ) => (
-              <SocialButton
-                onClick={() => signIn(provider.id)}
-                role='button'
-                key={i}
-              >
+              <SocialButton onClick={() => signIn(provider.id)} key={i}>
                 {provider.name === 'Google' && <GoogleIcon />}
                 {provider.name === 'Discord' && <DiscordIcon />}
                 Sign in with {provider.name}
@@ -128,7 +124,7 @@ const SocialButtonTheme = theme('mode', {
     background: #ffffff;
   `,
 });
-const SocialButton = styled.div`
+const SocialButton = styled.button`
   ${SocialButtonTheme}
   width: 80%;
   max-width: 21rem;
@@ -139,6 +135,14 @@ const SocialButton = styled.div`
   align-items: center;
   margin-bottom: 1rem;
   cursor: pointer;
+  &:hover {
+    background-color: var(--color-gray12);
+    outline-offset: 3px;
+  }
+  &:focus {
+    background-color: var(--color-gray11);
+    outline-offset: 3px;
+  }
 `;
 const GoogleIcon = styled(FcGoogle)`
   width: 2rem;

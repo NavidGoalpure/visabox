@@ -7,7 +7,8 @@ import { ImSphere } from "react-icons/im";
 import { BsChevronDown } from "react-icons/bs";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
-import BritishFlag from "./Images/BritishFlag.svg";
+import BritishFlag from "../Images/BritishFlag.svg";
+import IranFlag from "../Images/IranFlag.svg";
 import Image from "next/image";
 const MobileLanguageChanger = ({}) => {
   const { locale } = useLocale();
@@ -19,6 +20,7 @@ const MobileLanguageChanger = ({}) => {
   useOnClickOutside(containerRef, closePopup);
   const smartTextObj: Record<Languages, string> = {
     en: "English",
+    //navid talk about this font
     fa: "فارسی",
   };
   return (
@@ -34,11 +36,15 @@ const MobileLanguageChanger = ({}) => {
         <PopupContainer>
           <PopupItem onClick={() => setIsOpen(false)}>
             {" "}
-            <img src={BritishFlag} alt={"england flag"} />
+            <FlagWrapper>
+              <Flag fill src={BritishFlag} alt={"england flag"} />
+            </FlagWrapper>
             {smartTextObj.en}
           </PopupItem>
           <PopupItem onClick={() => setIsOpen(false)}>
-            <img src={BritishFlag} alt={"iran flag"} />
+            <FlagWrapper>
+              <Flag fill src={IranFlag} alt={"iran flag"} />
+            </FlagWrapper>
             {smartTextObj.fa}
           </PopupItem>
         </PopupContainer>
@@ -88,10 +94,18 @@ const PopupContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 `;
 const PopupItem = styled.h4`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
-const Flag = styled(Image)``;
+const FlagWrapper = styled.div`
+  width: 2.25rem;
+  height: 2.25rem;
+`;
+const Flag = styled(Image)`
+  position: relative !important;
+`;

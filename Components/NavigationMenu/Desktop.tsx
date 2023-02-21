@@ -8,10 +8,18 @@ import SwitchTheme from "./switchTheme";
 import { useLocale } from "Hooks/useLocale";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
-import DesktopLanguageChanger from "./LanguageChanger/Desktop";
+import MartSelect from "Elements/Select";
+import { Languages } from "Interfaces";
+import BritishFlag from "./Images/BritishFlag.svg";
+import IranFlag from "./Images/IranFlag.svg";
+import Image from "next/image";
 
 function Desktop() {
   const { locale } = useLocale();
+  const smartTextObj: Record<Languages, string> = {
+    en: "English",
+    fa: "فارسی",
+  };
   return (
     <Container>
       <Wrapper>
@@ -22,13 +30,37 @@ function Desktop() {
         </NavigationMenu.Item>
         <MenuItems>
           <NavigationMenu.Item>
-            <MenuLink href={`/${locale}/occupations`}>Skilled Occupation List</MenuLink>
+            <MenuLink href={`/${locale}/occupations`}>
+              Skilled Occupation List
+            </MenuLink>
           </NavigationMenu.Item>
           <NavigationMenu.Item>
-            <MenuLink href={`/${locale}/businesses/lawyers`}>Lawyers List</MenuLink>{" "}
+            <MenuLink href={`/${locale}/businesses/lawyers`}>
+              Lawyers List
+            </MenuLink>{" "}
           </NavigationMenu.Item>
-          <DesktopLanguageChanger/>
-        <SwitchTheme />
+          <MartSelect
+            triggerText={smartTextObj[locale]}
+            options={[
+              {
+                value: smartTextObj.en,
+                icon: (
+                  <FlagWrapper>
+                    <Flag fill src={BritishFlag} alt={"england flag"} />
+                  </FlagWrapper>
+                ),
+              },
+              {
+                value: smartTextObj.fa,
+                icon: (
+                  <FlagWrapper>
+                    <Flag fill src={IranFlag} alt={"iran flag"} />
+                  </FlagWrapper>
+                ),
+              },
+            ]}
+          />
+          <SwitchTheme />
         </MenuItems>
       </Wrapper>
     </Container>
@@ -63,4 +95,11 @@ const MenuItems = styled.div`
 `;
 const MenuLink = styled(Link)`
   ${layer3_TextStyle};
+`;
+const FlagWrapper = styled.div`
+  width: 2.25rem;
+  height: 2.25rem;
+`;
+const Flag = styled(Image)`
+  position: relative !important;
 `;

@@ -8,7 +8,8 @@ import SwitchTheme from "./switchTheme";
 import Link from "next/link";
 import { useLocale } from "Hooks/useLocale";
 import { layer3_TitleStyle } from "Styles/Theme/Layers/layer3/style";
-import MobileLanguageChanger from "./LanguageChanger/Mobile";
+import MobileLanguageChanger from "./MobileLanguageChanger";
+import { ScrollBox } from "Elements/ScrollBox";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -84,23 +85,26 @@ function SmartHeader() {
     <Container>
       <Wrapper>
         <MenuPopupContainer id={"popup"}>
-          <div>
-            <Nav>
-              <MenuLink href={`/${locale}`}>Home</MenuLink>
+          <ScrollBox type={"auto"} id={"scrollbox"} heightToRem={18}>
+            <MenuPopupWrapper>
+              <Nav>
+                {/* navid link prob changes */}
+                <MenuLink href={`/${locale}`}>Home</MenuLink>
+                <Hr />
+                <MenuLink href={`/${locale}/occupations`}>
+                  Skilled Occupation List
+                </MenuLink>
+                <Hr />
+                <MenuLink href={`/${locale}/businesses/lawyers`}>
+                  Lawyers List
+                </MenuLink>
+                <Hr />
+              </Nav>
+              <MobileLanguageChanger />
               <Hr />
-              <MenuLink href={`/${locale}/occupations`}>
-                Skilled Occupation List
-              </MenuLink>
-              <Hr />
-              <MenuLink href={`/${locale}/businesses/lawyers`}>
-                Lawyers List
-              </MenuLink>
-              <Hr />
-            </Nav>
-            <MobileLanguageChanger />
-            <Hr />
-            <SwitchTheme />
-          </div>
+              <SwitchTheme />
+            </MenuPopupWrapper>
+          </ScrollBox>
         </MenuPopupContainer>
         <MenuBurger
           id={`hamburg`}
@@ -151,18 +155,24 @@ const Wrapper = styled.div`
 const MenuPopupContainer = styled.div`
   ${PopupBagroundTheme};
   width: 100vw;
-  min-height: 100vh;
-  height: fit-content;
-  padding: 6.5rem 4rem 0;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  padding-top: 6.5rem;
+  z-index: 3;
+  #scrollbox {
+    height: 100%;
+  }
+`;
+const MenuPopupWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 1rem;
-  position: absolute;
-  top: 0;
-  left: -100vw;
-  z-index: 3;
+  margin-right: 1rem;
+  padding: 0 3rem ;
 `;
 const Nav = styled.nav`
   display: flex;

@@ -26,10 +26,8 @@ export default PageContainer;
 export const Container = styled.main<{ $locale: Languages }>`
   ${layer1_BG}
   ${directionStyles}
-  font-family:${({ $locale }) =>
-    $locale === Languages.fa
-      ? 'var(--font-family__fa)'
-      : 'var(--font-family__en)'};
+  ${({ $locale }) =>
+    $locale === Languages.fa && 'font-family: var(--font-family__fa)'};
   display: flex;
   justify-content: center;
   align-items: flex-start;

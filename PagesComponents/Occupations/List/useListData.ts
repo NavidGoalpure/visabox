@@ -3,12 +3,17 @@ import { Occupation } from 'Interfaces/Documents/occupation';
 import { getOccupationsList } from 'Queries/occupations/List';
 import { useInfiniteQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'Utils/query';
+import { FilteredRang } from './interfaces';
 
 type OccupationsListParams = {
   search: string;
+  filteredRang: FilteredRang;
 };
 
-export const useListData = ({ search }: OccupationsListParams) => {
+export const useListData = ({
+  search,
+  filteredRang,
+}: OccupationsListParams) => {
   const {
     hasNextPage,
     fetchNextPage,
@@ -16,10 +21,15 @@ export const useListData = ({ search }: OccupationsListParams) => {
     isError,
     isFetching,
     data: occupations,
+    refetch,
   } = useInfiniteQuery<Occupation[], ClientError>(
     OccupationsQueryKeys.list({ search }),
     ({ pageParam: lastCode = 1 }) => {
-      return getOccupationsList({ lastCode, search });
+      return getOccupationsList({
+        lastCode,
+        search,
+        filteredRang,
+      });
     },
     {
       getNextPageParam: (lastPage: Occupation[]) => {
@@ -35,5 +45,6 @@ export const useListData = ({ search }: OccupationsListParams) => {
     occupations,
     hasNextPage,
     isFetching,
+    refetch,
   };
 };

@@ -1,5 +1,9 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
+import {
+  componentStatements,
+  FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
+  LanguageKeys,
+} from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
@@ -9,16 +13,26 @@ import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NoData from 'Components/NoData';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { FilteredRang } from './interfaces';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [searchValue, setSearchValue] = useState<string>('');
-  const { occupations, isFetching, fetchNextPage, isError } = useListData({
-    search: searchValue,
+
+  const [filteredRang, setFilterdCodes] = useState<FilteredRang>({
+    lowerNumber: 0,
+    highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
   });
+  //این هوکیه که لیست آکیوپیشن ها رو برمیگردونه
+  const { occupations, isFetching, fetchNextPage, isError, refetch } =
+    useListData({
+      search: searchValue,
+      filteredRang,
+    });
+
   const { lastOccupation } = useLastOccupationData(searchValue);
   //
   const lastFechedOccupation = getLastFechedOccupation(occupations);
@@ -28,11 +42,18 @@ const Content: React.FC = () => {
   const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
   };
+  useEffect(() => {
+    refetch();
+  }, [filteredRang.highestNumber, filteredRang.lowerNumber]);
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
-      <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
+      <Search
+        searchValue={searchValue}
+        setSearchValue={onChangeSearchValue}
+        setFilterdCodes={setFilterdCodes}
+      />
       {!occupations?.pages[0]?.length && !isFetching ? (
         <NoData hasIcon={false} themeLayer='1' />
       ) : (

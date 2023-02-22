@@ -47,5 +47,6 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'متاسفانه مشکلی پیش آمده',
   },
 };
-
+/////////
+export const FILTERD_Codes__HIGHEST_NUMBER__DEFAULT = 999999;
 export const OCCUPATION_PER_PAGE = 9;

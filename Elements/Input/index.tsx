@@ -38,7 +38,7 @@ export const Input = ({
   }, [focus]);
   return (
     <Container className={className}>
-      <InputContainer disabled={disabled}>
+      <InputContainer disabled={disabled} id='input-container'>
         {icon ? icon : null}
         <StyledInput
           type={type}

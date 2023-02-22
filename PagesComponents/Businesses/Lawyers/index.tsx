@@ -4,9 +4,9 @@ import { componentStatements, LanguageKeys } from "./const";
 import styled from "styled-components";
 import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
 import VIPLawyerCard from "../../../Components/Business/Lawyer/VIPCard";
-import { Lawyers } from "./const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { layer3_TitleStyle } from "Styles/Theme/Layers/layer3/style";
+import { Lawyers } from "Consts/Businesses/Lawyers";
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

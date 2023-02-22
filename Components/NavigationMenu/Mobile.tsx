@@ -8,8 +8,10 @@ import SwitchTheme from "./switchTheme";
 import Link from "next/link";
 import { useLocale } from "Hooks/useLocale";
 import { layer3_TitleStyle } from "Styles/Theme/Layers/layer3/style";
-import MobileLanguageChanger from "./MobileLanguageChanger";
+import MobileLanguageChanger from "./LanguageChanger/Mobile";
 import { ScrollBox } from "Elements/ScrollBox";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -17,6 +19,7 @@ function SmartHeader() {
 
   const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
   const popupAnimationRef = useRef<gsap.core.Timeline>();
+  const { t } = useStaticTranslation(componentStatements);
   useEffect(() => {
     hamburgerAnimationRef.current = gsap
       .timeline({ paused: true })
@@ -69,6 +72,7 @@ function SmartHeader() {
       .to("#popup", { x: "100vw", duration: 0.3 }, "-=0.1");
   }, []);
   useEffect(() => {
+    document.body.style.overflow = "unset";
     if (isMenuClicked) {
       popupAnimationRef.current?.restart();
       hamburgerAnimationRef.current?.restart();
@@ -79,7 +83,7 @@ function SmartHeader() {
       hamburgerAnimationRef.current?.reverse();
       document.body.style.overflow = "unset";
     }
-  });
+  }, [isMenuClicked]);
 
   return (
     <Container>
@@ -88,15 +92,14 @@ function SmartHeader() {
           <ScrollBox type={"auto"} id={"scrollbox"} heightToRem={18}>
             <MenuPopupWrapper>
               <Nav>
-                {/* navid link prob changes */}
-                <MenuLink href={`/${locale}`}>Home</MenuLink>
+                <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
                 <Hr />
                 <MenuLink href={`/${locale}/occupations`}>
-                  Skilled Occupation List
+                  {t(LanguageKeys.SkilledOccupationList)}
                 </MenuLink>
                 <Hr />
                 <MenuLink href={`/${locale}/businesses/lawyers`}>
-                  Lawyers List
+                  {t(LanguageKeys.LawyersList)}
                 </MenuLink>
                 <Hr />
               </Nav>
@@ -172,7 +175,7 @@ const MenuPopupWrapper = styled.div`
   justify-content: flex-start;
   gap: 1rem;
   margin-right: 1rem;
-  padding: 0 3rem ;
+  padding: 0 3rem;
 `;
 const Nav = styled.nav`
   display: flex;

@@ -1,13 +1,10 @@
 import { deviceMin } from 'Consts/device';
 import styled, { css } from 'styled-components';
-import { Lawyers } from '../../const';
 import Image from 'next/image';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style, Headline5Style, Headline6Style } from 'Styles/Typo';
 import { FiBox } from "react-icons/fi";
-import { Lawyer } from '../../interfaces';
 import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
 
 import {
@@ -18,6 +15,7 @@ import {
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
+import { Lawyer } from 'Interfaces/Businesses/Lawyers';
 interface Props {
   ChosenLawyer?: Lawyer;
 }

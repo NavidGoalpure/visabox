@@ -51,7 +51,6 @@ export const Details = styled.div`
   h4 {
     ${layer2A_SubtitleStyle}
     direction: ltr;
-    //navid
     // a {
     //   ${layer2A_TitleColor}
     // }

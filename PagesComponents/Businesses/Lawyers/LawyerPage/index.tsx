@@ -1,8 +1,8 @@
 import useDevice from 'Hooks/useDevice';
+import { Lawyer } from 'Interfaces/Businesses/Lawyers';
 import { useState, useEffect } from 'react';
 import DesktopLawyersPage from './Desktop/DesktopLawyersPage';
 import MobileLawyersPage from './Mobile/MobileLawyersPage';
-import { Lawyer } from '../interfaces';
 interface Props {
   chosenLawyer?: Lawyer;
 }

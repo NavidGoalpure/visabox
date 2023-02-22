@@ -7,9 +7,9 @@ import {
 import { useLocale } from 'Hooks/useLocale';
 import { useRouter } from 'next/router';
 import Content from 'PagesComponents/Businesses/Lawyers/LawyerPage';
-import { Lawyers } from 'PagesComponents/Businesses/Lawyers/const';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
+import { Lawyers } from 'Consts/Businesses/Lawyers';
 
 const OccupationPage = () => {
   const router = useRouter();

@@ -8,18 +8,17 @@ import SwitchTheme from "./switchTheme";
 import { useLocale } from "Hooks/useLocale";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
-import MartSelect from "Elements/Select";
 import { Languages } from "Interfaces";
-import BritishFlag from "./Images/BritishFlag.svg";
-import IranFlag from "./Images/IranFlag.svg";
-import Image from "next/image";
+import {
+  componentStatements,
+  LanguageKeys,
+} from "./const";
+import DesktopLanguageChanger from "./LanguageChanger/Desktop";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 
 function Desktop() {
   const { locale } = useLocale();
-  const smartTextObj: Record<Languages, string> = {
-    en: "English",
-    fa: "فارسی",
-  };
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
       <Wrapper>
@@ -31,35 +30,15 @@ function Desktop() {
         <MenuItems>
           <NavigationMenu.Item>
             <MenuLink href={`/${locale}/occupations`}>
-              Skilled Occupation List
+              {t(LanguageKeys.SkilledOccupationList)}
             </MenuLink>
           </NavigationMenu.Item>
           <NavigationMenu.Item>
             <MenuLink href={`/${locale}/businesses/lawyers`}>
-              Lawyers List
+              {t(LanguageKeys.LawyersList)}
             </MenuLink>{" "}
           </NavigationMenu.Item>
-          <MartSelect
-            triggerText={smartTextObj[locale]}
-            options={[
-              {
-                value: smartTextObj.en,
-                icon: (
-                  <FlagWrapper>
-                    <Flag fill src={BritishFlag} alt={"england flag"} />
-                  </FlagWrapper>
-                ),
-              },
-              {
-                value: smartTextObj.fa,
-                icon: (
-                  <FlagWrapper>
-                    <Flag fill src={IranFlag} alt={"iran flag"} />
-                  </FlagWrapper>
-                ),
-              },
-            ]}
-          />
+          <DesktopLanguageChanger />
           <SwitchTheme />
         </MenuItems>
       </Wrapper>
@@ -95,11 +74,28 @@ const MenuItems = styled.div`
 `;
 const MenuLink = styled(Link)`
   ${layer3_TextStyle};
-`;
-const FlagWrapper = styled.div`
-  width: 2.25rem;
-  height: 2.25rem;
-`;
-const Flag = styled(Image)`
-  position: relative !important;
+  position: relative;
+  :before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 5px;
+    width: 100%;
+    overflow: hidden;
+    transition: all 400ms ease;
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  :hover {
+    :before {
+      bottom: -10px;
+      background-color: var(--color-primary4);
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
 `;

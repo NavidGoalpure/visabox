@@ -1,23 +1,23 @@
-import React, { ReactNode } from 'react';
-import { HTMLAttributes } from 'react';
-import styled, { css } from 'styled-components';
-import * as Tabs from '@radix-ui/react-tabs';
-import theme from 'styled-theming';
-import { boxShadow, directionStyles } from 'Styles/Theme';
-import { deviceMin } from 'Consts/device';
-import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
+import React, { ReactNode } from "react";
+import { HTMLAttributes } from "react";
+import styled, { css } from "styled-components";
+import * as Tabs from "@radix-ui/react-tabs";
+import theme from "styled-theming";
+import { boxShadow, directionStyles } from "Styles/Theme";
+import { deviceMin } from "Consts/device";
+import { layer2A_Bg } from "Styles/Theme/Layers/layer2/theme";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
   bodies: ReactNode;
   defaultValue: string;
-  variant?: 'UP_POSITION' | 'SIDE_POSITION';
+  variant?: "UP_POSITION" | "SIDE_POSITION";
 }
 export const Root: React.FC<Props> = ({
   items,
   bodies,
   defaultValue,
-  variant = 'SIDE_POSITION',
+  variant = "SIDE_POSITION",
   ...props
 }) => {
   return (
@@ -25,17 +25,17 @@ export const Root: React.FC<Props> = ({
     <TabsRoot
       defaultValue={defaultValue}
       variant={variant}
-      data-testid='sidebar-root'
+      data-testid="sidebar-root"
       {...props}
     >
-      <TabsList aria-label='sidebar' variant={variant}>
+      <TabsList aria-label="sidebar" variant={variant}>
         {items}
       </TabsList>
-      <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
+      <ContentsContainer id="contents-container">{bodies}</ContentsContainer>
     </TabsRoot>
   );
 };
-const rootColor = theme('mode', {
+const rootColor = theme("mode", {
   light: css`
     color: var(--color-gray4);
   `,
@@ -44,7 +44,7 @@ const rootColor = theme('mode', {
   `,
 });
 const TabsRoot = styled(Tabs.Root)<{
-  variant: 'UP_POSITION' | 'SIDE_POSITION';
+  variant: "UP_POSITION" | "SIDE_POSITION";
 }>`
   ${rootColor}
   ${directionStyles}
@@ -56,7 +56,7 @@ const TabsRoot = styled(Tabs.Root)<{
   margin-bottom: 5rem;
 
   @media ${deviceMin.laptopS} {
-    ${({ variant }) => variant === 'SIDE_POSITION' && 'flex-direction: row;'}
+    ${({ variant }) => variant === "SIDE_POSITION" && "flex-direction: row;"}
   }
 `;
 ////////////////////////
@@ -68,7 +68,7 @@ const SidePositionCss = css`
 `;
 
 const TabsList = styled(Tabs.TabsList)<{
-  variant: 'UP_POSITION' | 'SIDE_POSITION';
+  variant: "UP_POSITION" | "SIDE_POSITION";
 }>`
   ${directionStyles}
   ${layer2A_Bg}
@@ -83,12 +83,13 @@ const TabsList = styled(Tabs.TabsList)<{
   width: 100%;
   min-width: 11.5rem;
   height: 6rem;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   list-style: none;
   @media ${deviceMin.laptopS} {
     width: max-content;
     ${({ variant }) =>
-      variant === 'SIDE_POSITION' ? SidePositionCss : TopPositionCss}
+      variant === "SIDE_POSITION" ? SidePositionCss : TopPositionCss}
     border-radius: 10px;
     height: max-content;
   }

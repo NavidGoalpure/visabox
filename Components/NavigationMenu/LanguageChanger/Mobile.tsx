@@ -10,6 +10,7 @@ import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
 import BritishFlag from "../Images/BritishFlag.svg";
 import IranFlag from "../Images/IranFlag.svg";
 import Image from "next/image";
+import { useRouter } from "next/router";
 const MobileLanguageChanger = ({}) => {
   const { locale } = useLocale();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -20,9 +21,9 @@ const MobileLanguageChanger = ({}) => {
   useOnClickOutside(containerRef, closePopup);
   const smartTextObj: Record<Languages, string> = {
     en: "English",
-    //navid talk about this font
     fa: "فارسی",
   };
+  const router = useRouter();
   return (
     <Container id={"container"} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>
@@ -34,14 +35,28 @@ const MobileLanguageChanger = ({}) => {
       </TriggerContainer>
       {isOpen && (
         <PopupContainer>
-          <PopupItem onClick={() => setIsOpen(false)}>
+          <PopupItem
+            onClick={() => {
+              setIsOpen(false);
+              router.push(router.pathname, router.pathname, {
+                locale: Languages.en,
+              });
+            }}
+          >
             {" "}
             <FlagWrapper>
               <Flag fill src={BritishFlag} alt={"england flag"} />
             </FlagWrapper>
             {smartTextObj.en}
           </PopupItem>
-          <PopupItem onClick={() => setIsOpen(false)}>
+          <PopupItem
+            onClick={() => {
+              setIsOpen(false);
+              router.push(router.pathname, router.pathname, {
+                locale: Languages.fa,
+              });
+            }}
+          >
             <FlagWrapper>
               <Flag fill src={IranFlag} alt={"iran flag"} />
             </FlagWrapper>
@@ -84,7 +99,6 @@ const ArrowIcon = styled(BsChevronDown)<{ isOpen: boolean }>`
   ${({ isOpen }) => isOpen && `transform:rotate(180deg);`}
 `;
 
-const DownIcon = styled.p``;
 const PopupContainer = styled.div`
   padding: 1rem 1.5rem;
   background: var(--color-gray13);

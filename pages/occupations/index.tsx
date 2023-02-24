@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = withCSR(
         sanityClient.fetch(
           getListQuery({
             searchCondition: '',
-            filteredRang: {
+            filteredRange: {
               highestNumber: 0,
               lowerNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
             },

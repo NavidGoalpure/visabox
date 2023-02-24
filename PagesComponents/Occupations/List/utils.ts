@@ -36,30 +36,7 @@ const getLastFechedOccupation = (
   ];
 };
 //////////
-/**
- *این فاینکشن یک مقدار برای ماژور گروپ رو میگیره و کد معادل اون رو برمیگردونه
- * اگه مقداری پیدا نشه عدد -۱ رو برمیگردونه
- *
- * @param {{
- *   value: string;
- *   locale: Languages;
- * }}
- * @return {*}  {number}
- */
-function findFilterRangeForMajorGroup({
-  value,
-  locale,
-}: {
-  value: string;
-  locale: Languages;
-}): FilteredRang {
-  const selectedNumber =
-    MAJOR_GROUP.find((item) => item.title[locale] === value)?.code || 0;
-  // چون کدهامون ۶ رقمی هستن در عدد صدهزار ضرب میکنیم
-  const lowerNumber = selectedNumber * 100000 - 1;
-  const highestNumber = selectedNumber * 100000 + 100000;
-  return { lowerNumber, highestNumber };
-}
+
 //////////////////////////////
 //////////
 /**
@@ -73,8 +50,4 @@ function findFilterRangeForMajorGroup({
  * @return {*}  {number}
  */
 
-export {
-  getLastFechedOccupation,
-  getHasNextPage,
-  findFilterRangeForMajorGroup,
-};
+export { getLastFechedOccupation, getHasNextPage };

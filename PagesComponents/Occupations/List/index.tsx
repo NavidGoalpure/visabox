@@ -22,7 +22,7 @@ const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [searchValue, setSearchValue] = useState<string>('');
 
-  const [filteredRang, setFilterdCodes] = useState<FilteredRang>({
+  const [filteredRange, setFilterRange] = useState<FilteredRang>({
     lowerNumber: 0,
     highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
   });
@@ -30,7 +30,7 @@ const Content: React.FC = () => {
   const { occupations, isFetching, fetchNextPage, isError, refetch } =
     useListData({
       search: searchValue,
-      filteredRang,
+      filteredRange,
     });
 
   const { lastOccupation } = useLastOccupationData(searchValue);
@@ -44,7 +44,7 @@ const Content: React.FC = () => {
   };
   useEffect(() => {
     refetch();
-  }, [filteredRang.highestNumber, filteredRang.lowerNumber]);
+  }, [filteredRange.highestNumber, filteredRange.lowerNumber]);
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
@@ -52,7 +52,8 @@ const Content: React.FC = () => {
       <Search
         searchValue={searchValue}
         setSearchValue={onChangeSearchValue}
-        setFilterdCodes={setFilterdCodes}
+        setFilterRange={setFilterRange}
+        filteredRange={filteredRange}
       />
       {!occupations?.pages[0]?.length && !isFetching ? (
         <NoData hasIcon={false} themeLayer='1' />

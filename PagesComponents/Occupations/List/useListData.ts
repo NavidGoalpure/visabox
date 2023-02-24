@@ -7,12 +7,12 @@ import { FilteredRang } from './interfaces';
 
 type OccupationsListParams = {
   search: string;
-  filteredRang: FilteredRang;
+  filteredRange: FilteredRang;
 };
 
 export const useListData = ({
   search,
-  filteredRang,
+  filteredRange,
 }: OccupationsListParams) => {
   const {
     hasNextPage,
@@ -28,7 +28,7 @@ export const useListData = ({
       return getOccupationsList({
         lastCode,
         search,
-        filteredRang,
+        filteredRange,
       });
     },
     {

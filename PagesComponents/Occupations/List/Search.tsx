@@ -8,20 +8,31 @@ import { GoSettings } from 'react-icons/go';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
-import { MAJOR_GROUP } from 'Consts/Occupations/anszco';
+import {
+  AnszcoGroup,
+  MAJOR_GROUP,
+  SUB_MAJOR_GROUP,
+} from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
 import { FilteredRang } from './interfaces';
-import { findFilterRangeForMajorGroup } from './utils';
+import useFilters from './Hooks/Filters';
 
 interface Props {
   searchValue: string;
   setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
-  setFilterdCodes: Dispatch<SetStateAction<FilteredRang>>;
+  filteredRange: FilteredRang;
+  setFilterRange: Dispatch<SetStateAction<FilteredRang>>;
 }
-function Search({ searchValue, setSearchValue, setFilterdCodes }: Props) {
+function Search({
+  searchValue,
+  setSearchValue,
+  setFilterRange,
+  filteredRange,
+}: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
+  const { setFiltersByValue, selectedFiltersObj, filteredList } = useFilters();
 
   return (
     <Container>
@@ -42,14 +53,10 @@ function Search({ searchValue, setSearchValue, setFilterdCodes }: Props) {
           <SelectRoot
             triggerText='Major Group'
             onValueChange={(newValue) => {
-              const filteredRange = findFilterRangeForMajorGroup({
-                value: newValue,
+              setFiltersByValue({
+                filterKey: 'MAJOR_GROUP',
+                filterValue: newValue,
                 locale,
-              });
-
-              setFilterdCodes({
-                highestNumber: filteredRange.highestNumber,
-                lowerNumber: filteredRange.lowerNumber,
               });
             }}
           >
@@ -60,25 +67,32 @@ function Search({ searchValue, setSearchValue, setFilterdCodes }: Props) {
               />
             ))}
           </SelectRoot>
-          <SelectRoot triggerText='Sub-Major Group' disabled={true}>
-            {MAJOR_GROUP.map((item) => (
+          <SelectRoot
+            triggerText='Sub-Major Group'
+            onValueChange={(newValue) => {
+              setFiltersByValue({
+                filterKey: 'SUB_MAJOR_GROUP',
+                filterValue: newValue,
+                locale,
+              });
+            }}
+            disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
+          >
+            {filteredList?.subMajorGroup?.map((item: AnszcoGroup) => (
               <MaraSelect.Item
+                key={item.code}
                 value={item.title[locale] || ''}
                 text={item.title[locale] || ''}
               />
             ))}
           </SelectRoot>
-          <SelectRoot triggerText='Minor Group'>
-            {MAJOR_GROUP.map((item) => (
+          <SelectRoot
+            triggerText='Minor Group'
+            disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
+          >
+            {filteredList?.minorGroup?.map((item: AnszcoGroup) => (
               <MaraSelect.Item
-                value={item.title[locale] || ''}
-                text={item.title[locale] || ''}
-              />
-            ))}
-          </SelectRoot>
-          <SelectRoot triggerText='Unit Group'>
-            {MAJOR_GROUP.map((item) => (
-              <MaraSelect.Item
+                key={item.code}
                 value={item.title[locale] || ''}
                 text={item.title[locale] || ''}
               />

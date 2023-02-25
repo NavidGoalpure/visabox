@@ -16,21 +16,23 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import NoData from 'Components/NoData';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { FilteredRang } from './interfaces';
+import useFilterSearch from './Hooks/useFilterSearch';
+import { FilteredOccupationRange } from './interfaces';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [searchValue, setSearchValue] = useState<string>('');
+  const [filteredOccupationRange, setFilterOccupationRange] =
+    useState<FilteredOccupationRange>({
+      lowerNumber: 0,
+      highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
+    });
 
-  const [filteredRange, setFilterRange] = useState<FilteredRang>({
-    lowerNumber: 0,
-    highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
-  });
   //این هوکیه که لیست آکیوپیشن ها رو برمیگردونه
   const { occupations, isFetching, fetchNextPage, isError, refetch } =
     useListData({
       search: searchValue,
-      filteredRange,
+      filteredOccupationRange,
     });
 
   const { lastOccupation } = useLastOccupationData(searchValue);
@@ -44,7 +46,7 @@ const Content: React.FC = () => {
   };
   useEffect(() => {
     refetch();
-  }, [filteredRange.highestNumber, filteredRange.lowerNumber]);
+  }, [filteredOccupationRange.highestNumber]);
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
@@ -52,8 +54,7 @@ const Content: React.FC = () => {
       <Search
         searchValue={searchValue}
         setSearchValue={onChangeSearchValue}
-        setFilterRange={setFilterRange}
-        filteredRange={filteredRange}
+        setFilterOccupationRange={setFilterOccupationRange}
       />
       {!occupations?.pages[0]?.length && !isFetching ? (
         <NoData hasIcon={false} themeLayer='1' />

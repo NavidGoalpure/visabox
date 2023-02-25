@@ -3,16 +3,16 @@ import { Occupation } from 'Interfaces/Documents/occupation';
 import { getOccupationsList } from 'Queries/occupations/List';
 import { useInfiniteQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'Utils/query';
-import { FilteredRang } from './interfaces';
+import { FilteredOccupationRange } from './interfaces';
 
 type OccupationsListParams = {
   search: string;
-  filteredRange: FilteredRang;
+  filteredOccupationRange: FilteredOccupationRange;
 };
 
 export const useListData = ({
   search,
-  filteredRange,
+  filteredOccupationRange,
 }: OccupationsListParams) => {
   const {
     hasNextPage,
@@ -28,7 +28,7 @@ export const useListData = ({
       return getOccupationsList({
         lastCode,
         search,
-        filteredRange,
+        filteredOccupationRange,
       });
     },
     {

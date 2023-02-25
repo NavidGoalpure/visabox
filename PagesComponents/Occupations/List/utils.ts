@@ -1,8 +1,6 @@
-import { MAJOR_GROUP } from 'Consts/Occupations/anszco';
-import { Languages } from 'Interfaces';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { InfiniteData } from 'react-query';
-import { FilteredRang } from './interfaces';
+import { FilteredOccupationRange } from './interfaces';
 
 /**
  * به ما میگه که آیا صفحه دیگه ای هم برای پینجینیشن وجود داره یا خیر
@@ -37,17 +35,45 @@ const getLastFechedOccupation = (
 };
 //////////
 
-//////////////////////////////
-//////////
 /**
- *این فاینکشن یک مقدار برای ماژور گروپ رو میگیره و کد معادل اون رو برمیگردونه
- * اگه مقداری پیدا نشه عدد -۱ رو برمیگردونه
+ *کد ماژور گروپی که انتخاب شده رو میگیره و بر اساس اون میگه سرچ ما باید روی چه بازه از آکیوپیشن کدها باشه
  *
- * @param {{
- *   value: string;
- *   locale: Languages;
- * }}
- * @return {*}  {number}
+ * @param {number} code
+ * @return {*}  {FilteredOccupationRange}
  */
+function getNewRangeBaseOnMajorGroup(code: number): FilteredOccupationRange {
+  const lowerNumber = code * 100000 - 1;
+  const highestNumber = code * 100000 + 100000;
+  return { lowerNumber, highestNumber };
+}
 
-export { getLastFechedOccupation, getHasNextPage };
+/**
+ *کد ساب ماژور گروپی که انتخاب شده رو میگیره و بر اساس اون میگه سرچ ما باید روی چه بازه از آکیوپیشن کدها باشه
+ *
+ * @param {number} code
+ * @return {*}  {FilteredOccupationRange}
+ */
+function getNewRangeBaseOnSubmajorGroup(code: number): FilteredOccupationRange {
+  const lowerNumber = code * 10000 - 1;
+  const highestNumber = code * 10000 + 10000;
+  return { lowerNumber, highestNumber };
+}
+/**
+ *کد مینور گروپی که انتخاب شده رو میگیره و بر اساس اون میگه سرچ ما باید روی چه بازه از آکیوپیشن کدها باشه
+ *
+ * @param {number} code
+ * @return {*}  {FilteredOccupationRange}
+ */
+function getNewRangeBaseOnMinorGroup(code: number): FilteredOccupationRange {
+  const lowerNumber = code * 1000 - 1;
+  const highestNumber = code * 1000 + 1000;
+  return { lowerNumber, highestNumber };
+}
+
+export {
+  getLastFechedOccupation,
+  getHasNextPage,
+  getNewRangeBaseOnMajorGroup,
+  getNewRangeBaseOnSubmajorGroup,
+  getNewRangeBaseOnMinorGroup,
+};

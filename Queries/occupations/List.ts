@@ -2,7 +2,7 @@ import { sanityClient } from 'Utils/sanity';
 
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/List/const';
-import { FilteredRang } from 'PagesComponents/Occupations/List/interfaces';
+import { FilteredOccupationRange } from 'PagesComponents/Occupations/List/interfaces';
 
 /**
  * این متد عبارتی که کاربر سرچ کرده رو به عنوان ورودی میگیره و فیلتر مناسب سنیتی رو تولید میکنه
@@ -28,23 +28,23 @@ const getSearchConditions = (searchValue: string): string => {
 /**
  * گروک کوئری مورد نیاز برای لیست آکیوپیشن ها رو تولید میکنه
  * برای وقتیه که کاربر از سرچ پیشرفته استفاده میکنه و یک رنج خاصی از کدها رو نشون میدیم. این پارامتر عدد پایین رنج رو نشون میده
- * @param filteredRange_lowerNumber
+ * @param FilteredOccupationRange_lowerNumber
  *  * برای وقتیه که کاربر از سرچ پیشرفته استفاده میکنه و یک رنج خاصی از کدها رو نشون میدیم. این پارامتر عدد بالای رنج رو نشون میده
- * @param filteredRange_highestNumber
+ * @param FilteredOccupationRange_highestNumber
  * @param  lastCode کد آخرین آکیوپیشنی که در پیج قبلی گرفته شده. این کد برای پیجینیشن مورد نیازه تا در پیج های بعدی کدهای تکراری نیاد
  * @param  searchCondition عبارتی که یوزر در باکس سرچ تایپ کرده
  * @returns
  */
 const getListQuery = ({
-  filteredRange,
+  filteredOccupationRange,
   lastCode = 0,
   searchCondition,
 }: {
-  filteredRange: FilteredRang;
+  filteredOccupationRange: FilteredOccupationRange;
   lastCode?: number;
   searchCondition: string;
 }): string => {
-  const query = `*[_type=='occupation' && code>${lastCode} && code<${filteredRange.highestNumber} && code>${filteredRange.lowerNumber} ${searchCondition} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
+  const query = `*[_type=='occupation' && code>${lastCode} && code<${filteredOccupationRange.highestNumber} && code>${filteredOccupationRange.lowerNumber} ${searchCondition} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
     _id,
     slug,
     code,
@@ -68,19 +68,19 @@ const getListQuery = ({
 type QueryParams = {
   lastCode?: number;
   search: string;
-  filteredRange: FilteredRang;
+  filteredOccupationRange: FilteredOccupationRange;
 };
 const getOccupationsList = async ({
   lastCode = 0,
   search,
-  filteredRange,
+  filteredOccupationRange,
 }: QueryParams): Promise<Occupation[]> => {
   const searchCondition = getSearchConditions(search);
   const data = await sanityClient.fetch(
     getListQuery({
       lastCode,
       searchCondition,
-      filteredRange,
+      filteredOccupationRange,
     })
   );
   return data;

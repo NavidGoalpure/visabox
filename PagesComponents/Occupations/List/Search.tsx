@@ -8,31 +8,27 @@ import { GoSettings } from 'react-icons/go';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
-import {
-  AnszcoGroup,
-  MAJOR_GROUP,
-  SUB_MAJOR_GROUP,
-} from 'Consts/Occupations/anszco';
+import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
-import { FilteredRang } from './interfaces';
-import useFilters from './Hooks/Filters';
+import { FilteredOccupationRange } from './interfaces';
+import useFilters from './Hooks/useFilterSearch';
 
 interface Props {
   searchValue: string;
   setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
-  filteredRange: FilteredRang;
-  setFilterRange: Dispatch<SetStateAction<FilteredRang>>;
+  setFilterOccupationRange: Dispatch<SetStateAction<FilteredOccupationRange>>;
 }
 function Search({
   searchValue,
   setSearchValue,
-  setFilterRange,
-  filteredRange,
+  setFilterOccupationRange,
 }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
-  const { setFiltersByValue, selectedFiltersObj, filteredList } = useFilters();
+  const { setFiltersByValue, selectedFiltersObj, filteredList } = useFilters({
+    setFilterOccupationRange,
+  });
 
   return (
     <Container>
@@ -88,7 +84,14 @@ function Search({
           </SelectRoot>
           <SelectRoot
             triggerText='Minor Group'
-            disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
+            disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
+            onValueChange={(newValue) => {
+              setFiltersByValue({
+                filterKey: 'MINOR_GROUP',
+                filterValue: newValue,
+                locale,
+              });
+            }}
           >
             {filteredList?.minorGroup?.map((item: AnszcoGroup) => (
               <MaraSelect.Item

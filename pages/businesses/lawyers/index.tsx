@@ -10,7 +10,6 @@ import {
 import { useLocale } from 'Hooks/useLocale';
 import Content from 'PagesComponents/Businesses/Lawyers';
 import Seo from 'Components/Seo';
-import { Languages } from 'Interfaces';
 
 const BusinessesPage: NextPage = () => {
   const { locale } = useLocale();
@@ -20,7 +19,7 @@ const BusinessesPage: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/occupations/assssing-authorities`}
+        canonical={`https://www.marabox.com/${locale}/businesses/lawyees`}
       />
       <Content />
     </PageLayout>

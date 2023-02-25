@@ -6,7 +6,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { GoSettings } from 'react-icons/go';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
+import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
 import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
@@ -46,61 +46,70 @@ function Search({
       />
       {isShowPanel && (
         <Panel>
-          <SelectRoot
-            triggerText='Major Group'
-            onValueChange={(newValue) => {
-              setFiltersByValue({
-                filterKey: 'MAJOR_GROUP',
-                filterValue: newValue,
-                locale,
-              });
-            }}
-          >
-            {MAJOR_GROUP.map((item) => (
-              <MaraSelect.Item
-                value={item.title[locale] || ''}
-                text={item.title[locale] || ''}
-              />
-            ))}
-          </SelectRoot>
-          <SelectRoot
-            triggerText='Sub-Major Group'
-            onValueChange={(newValue) => {
-              setFiltersByValue({
-                filterKey: 'SUB_MAJOR_GROUP',
-                filterValue: newValue,
-                locale,
-              });
-            }}
-            disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
-          >
-            {filteredList?.subMajorGroup?.map((item: AnszcoGroup) => (
-              <MaraSelect.Item
-                key={item.code}
-                value={item.title[locale] || ''}
-                text={item.title[locale] || ''}
-              />
-            ))}
-          </SelectRoot>
-          <SelectRoot
-            triggerText='Minor Group'
-            disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
-            onValueChange={(newValue) => {
-              setFiltersByValue({
-                filterKey: 'MINOR_GROUP',
-                filterValue: newValue,
-                locale,
-              });
-            }}
-          >
-            {filteredList?.minorGroup?.map((item: AnszcoGroup) => (
-              <MaraSelect.Item
-                key={item.code}
-                value={item.title[locale] || ''}
-                text={item.title[locale] || ''}
-              />
-            ))}
-          </SelectRoot>
+          <FilterWrapper>
+            <FilterTitle>Major-Group:</FilterTitle>
+            <SelectRoot
+              triggerText='Select a Major-Group ...'
+              onValueChange={(newValue) => {
+                setFiltersByValue({
+                  filterKey: 'MAJOR_GROUP',
+                  filterValue: newValue,
+                  locale,
+                });
+              }}
+            >
+              {MAJOR_GROUP.map((item) => (
+                <MaraSelect.Item
+                  value={item.title[locale] || ''}
+                  text={item.title[locale] || ''}
+                />
+              ))}
+            </SelectRoot>
+          </FilterWrapper>
+          <FilterWrapper>
+            <FilterTitle>Sub Major Group:</FilterTitle>
+            <SelectRoot
+              triggerText='Select a Sub-Major Group ...'
+              onValueChange={(newValue) => {
+                setFiltersByValue({
+                  filterKey: 'SUB_MAJOR_GROUP',
+                  filterValue: newValue,
+                  locale,
+                });
+              }}
+              disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
+            >
+              {filteredList?.subMajorGroup?.map((item: AnszcoGroup) => (
+                <MaraSelect.Item
+                  key={item.code}
+                  value={item.title[locale] || ''}
+                  text={item.title[locale] || ''}
+                />
+              ))}
+            </SelectRoot>
+          </FilterWrapper>
+          <FilterWrapper>
+            <FilterTitle>Minor Group:</FilterTitle>
+            <SelectRoot
+              triggerText='Select a Minor Group ...'
+              disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
+              onValueChange={(newValue) => {
+                setFiltersByValue({
+                  filterKey: 'MINOR_GROUP',
+                  filterValue: newValue,
+                  locale,
+                });
+              }}
+            >
+              {filteredList?.minorGroup?.map((item: AnszcoGroup) => (
+                <MaraSelect.Item
+                  key={item.code}
+                  value={item.title[locale] || ''}
+                  text={item.title[locale] || ''}
+                />
+              ))}
+            </SelectRoot>
+          </FilterWrapper>
         </Panel>
       )}
     </Container>
@@ -138,13 +147,26 @@ const PanelButton = styled(PrimaryButton)`
 `;
 const Panel = styled.div`
   ${layer2A_Bg}
+
   display:flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+  flex-wrap: wrap;
+  column-gap: 2rem;
   width: 100%;
   max-width: 865px;
-  height: 4rem;
   border-radius: 0px 0px 30px 30px;
   width: 100%;
+`;
+const FilterWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: 48%;
+  margin-bottom: 0.5rem;
+`;
+const FilterTitle = styled.h4`
+  ${layer2A_Key}
+  margin-inline-end: 0.5rem;
 `;
 const SettingIcon = styled(GoSettings)`
   width: 1.5rem;

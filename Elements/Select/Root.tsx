@@ -15,20 +15,36 @@ const Root: React.FC<Props> = ({
   triggerText,
   children,
   triggerIcon,
+  disabled,
   ...props
 }) => {
   return (
-    <Select.Root {...props}>
-      <Trigger aria-label='Language' id='trigger'>
-        {triggerIcon}
-        <TriggerValue placeholder={triggerText} />
-        <Icon>
-          <ArrowIcon id='arrow-down' />
-        </Icon>
-      </Trigger>
+    <Select.Root
+      onOpenChange={(isOpen) => {
+        if (isOpen) {
+          document.body.style.pointerEvents = 'none';
+        }
+      }}
+      {...props}
+    >
+      {!disabled && (
+        <Trigger aria-label='Language' id='trigger'>
+          {triggerIcon}
+          <TriggerValue placeholder={triggerText} />
+
+          <Icon>
+            <ArrowIcon id='arrow-down' />
+          </Icon>
+        </Trigger>
+      )}
       {/* ////////////// */}
       <Portal>
-        <Content position='popper' align='center' className='SelectContent'>
+        <Content
+          position='popper'
+          align='center'
+          className='SelectContent'
+          onCloseAutoFocus={() => (document.body.style.pointerEvents = 'auto')}
+        >
           <Viewport>{children}</Viewport>
         </Content>
       </Portal>
@@ -70,7 +86,6 @@ const Portal = styled(Select.Portal)`
   position: absolute;
   top: 0%;
   left: 0;
-  transform: translate(-10%, 10%);
   z-index: 4;
   &[data-state='open'] {
     position: relative;

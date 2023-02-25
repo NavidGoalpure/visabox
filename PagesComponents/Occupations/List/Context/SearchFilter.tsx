@@ -6,7 +6,14 @@ import {
   SUB_MAJOR_GROUP,
 } from 'Consts/Occupations/anszco';
 import { Languages } from 'Interfaces';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
+import { FILTERD_Codes__HIGHEST_NUMBER__DEFAULT } from '../const';
 import {
   FilterdList,
   FilteredOccupationRange,
@@ -18,7 +25,7 @@ import {
   getNewRangeBaseOnSubmajorGroup,
 } from '../utils';
 
-interface ReturnData {
+interface ContexValues {
   setFiltersByValue: ({
     filterKey,
     filterValue,
@@ -32,19 +39,28 @@ interface ReturnData {
   selectedFiltersObj: SearchFilters;
   setSelectedFiltersObj: Dispatch<SetStateAction<SearchFilters>>;
   //
-}
-interface Props {
+  filteredList: FilterdList;
+  //
+  filteredOccupationRange: FilteredOccupationRange;
   setFilterOccupationRange: Dispatch<SetStateAction<FilteredOccupationRange>>;
-  setFilteredList: Dispatch<SetStateAction<FilterdList>>;
 }
-const useFilterSearch = ({
-  setFilterOccupationRange,
-  setFilteredList,
-}: Props): ReturnData => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const SearchFilterContext = createContext({} as ContexValues);
+function FiltersContextProvider({ children }: Props) {
   //////////////States//////////////
+  const [filteredOccupationRange, setFilterOccupationRange] =
+    useState<FilteredOccupationRange>({
+      lowerNumber: 0,
+      highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
+    });
+
   const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>(
     {} as SearchFilters
   );
+  const [filteredList, setFilteredList] = useState<FilterdList>({});
 
   // هروقت فیلتر ماژور گروب عوض شد،لیست سابماژور ها رو آپدیت کن
   useEffect(() => {
@@ -168,12 +184,22 @@ const useFilterSearch = ({
     }
   }
 
-  return {
-    setFiltersByValue,
-    //
-    selectedFiltersObj,
-    setSelectedFiltersObj,
-    //
-  };
-};
-export default useFilterSearch;
+  return (
+    <SearchFilterContext.Provider
+      value={{
+        setFiltersByValue,
+        //
+        selectedFiltersObj,
+        setSelectedFiltersObj,
+        //
+        filteredList,
+        //
+        filteredOccupationRange,
+        setFilterOccupationRange,
+      }}
+    >
+      {children}
+    </SearchFilterContext.Provider>
+  );
+}
+export { FiltersContextProvider, SearchFilterContext };

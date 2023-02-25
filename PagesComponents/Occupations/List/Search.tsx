@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useRef, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Input } from 'Elements/Input';
 import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
@@ -10,28 +10,19 @@ import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
 import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
-import { FilterdList, FilteredOccupationRange } from './interfaces';
-import useFilters from './Hooks/useFilterSearch';
+import { SearchFilterContext } from './Context/SearchFilter';
+import { deviceMin } from 'Consts/device';
 
 interface Props {
   searchValue: string;
   setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
-  setFilterOccupationRange: Dispatch<SetStateAction<FilteredOccupationRange>>;
 }
-function Search({
-  searchValue,
-  setSearchValue,
-  setFilterOccupationRange,
-}: Props) {
+function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
-  const [filteredList, setFilteredList] = useState<FilterdList>({});
-
-  const { setFiltersByValue, selectedFiltersObj } = useFilters({
-    setFilterOccupationRange,
-    setFilteredList,
-  });
+  const { setFiltersByValue, selectedFiltersObj, filteredList } =
+    useContext(SearchFilterContext);
 
   return (
     <Container isShowPanel={isShowPanel}>
@@ -52,7 +43,7 @@ function Search({
           <FilterWrapper>
             <FilterTitle>Major Group:</FilterTitle>
             <SelectRoot
-              triggerText='Select a Major-Group ...'
+              triggerText='select ...'
               onValueChange={(newValue) => {
                 setFiltersByValue({
                   filterKey: 'MAJOR_GROUP',
@@ -72,7 +63,7 @@ function Search({
           <FilterWrapper>
             <FilterTitle>Sub Major Group:</FilterTitle>
             <SelectRoot
-              triggerText='Select a Sub-Major Group ...'
+              triggerText='select ...'
               onValueChange={(newValue) => {
                 setFiltersByValue({
                   filterKey: 'SUB_MAJOR_GROUP',
@@ -94,7 +85,7 @@ function Search({
           <FilterWrapper>
             <FilterTitle>Minor Group:</FilterTitle>
             <SelectRoot
-              triggerText='Select a Minor Group ...'
+              triggerText='select ...'
               disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
               onValueChange={(newValue) => {
                 setFiltersByValue({
@@ -156,18 +147,23 @@ const Panel = styled.div`
   ${layer2A_Bg}
   display:flex;
   justify-content: flex-start;
-  padding: 0.5rem 1rem;
+  flex-direction: column;
+  padding: 1rem;
   flex-wrap: wrap;
   column-gap: 2rem;
+  row-gap: 1rem;
   width: 100%;
+  min-height: 4rem;
   border-radius: 0px 0px 30px 30px;
   width: 100%;
+  @media ${deviceMin.tabletS} {
+    flex-direction: row;
+  }
 `;
 const FilterWrapper = styled.div`
   display: flex;
   align-items: center;
   flex: 1;
-  margin-bottom: 0.5rem;
 `;
 const FilterTitle = styled.h4`
   ${layer2A_Key}

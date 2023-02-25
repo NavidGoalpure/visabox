@@ -1,9 +1,5 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import {
-  componentStatements,
-  FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
-  LanguageKeys,
-} from './const';
+import { componentStatements, LanguageKeys } from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
@@ -13,20 +9,15 @@ import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import NoData from 'Components/NoData';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { FilterdList, FilteredOccupationRange } from './interfaces';
+import { SearchFilterContext } from './Context/SearchFilter';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [searchValue, setSearchValue] = useState<string>('');
-
-  const [filteredOccupationRange, setFilterOccupationRange] =
-    useState<FilteredOccupationRange>({
-      lowerNumber: 0,
-      highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
-    });
+  const { filteredOccupationRange } = useContext(SearchFilterContext);
 
   //این هوکیه که لیست آکیوپیشن ها رو برمیگردونه
   const {
@@ -52,19 +43,12 @@ const Content: React.FC = () => {
   };
   useEffect(() => {
     refetch();
-  }, [
-    filteredOccupationRange.lowerNumber,
-    filteredOccupationRange.highestNumber,
-  ]);
+  }, [filteredOccupationRange]);
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle />
-      <Search
-        searchValue={searchValue}
-        setSearchValue={onChangeSearchValue}
-        setFilterOccupationRange={setFilterOccupationRange}
-      />
+      <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
       {!occupations?.pages[0]?.length && !isFetching ? (
         <NoData hasIcon={false} themeLayer='1' />
       ) : (

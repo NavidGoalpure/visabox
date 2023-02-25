@@ -3,6 +3,8 @@ import { sanityClient } from 'Utils/sanity';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/List/const';
 import { FilteredOccupationRange } from 'PagesComponents/Occupations/List/interfaces';
+import { SearchFilterContext } from 'PagesComponents/Occupations/List/Context/SearchFilter';
+import { useContext } from 'react';
 
 /**
  * این متد عبارتی که کاربر سرچ کرده رو به عنوان ورودی میگیره و فیلتر مناسب سنیتی رو تولید میکنه
@@ -36,13 +38,13 @@ const getSearchConditions = (searchValue: string): string => {
  * @returns
  */
 const getListQuery = ({
-  filteredOccupationRange,
   lastCode = 0,
   searchCondition,
+  filteredOccupationRange,
 }: {
-  filteredOccupationRange: FilteredOccupationRange;
   lastCode?: number;
   searchCondition: string;
+  filteredOccupationRange: FilteredOccupationRange;
 }): string => {
   const query = `*[_type=='occupation' && code>${lastCode} && code<${filteredOccupationRange.highestNumber} && code>${filteredOccupationRange.lowerNumber} ${searchCondition} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
     _id,

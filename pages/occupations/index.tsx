@@ -16,6 +16,7 @@ import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
+import { FiltersContextProvider } from 'PagesComponents/Occupations/List/Context/SearchFilter';
 
 interface Props {
   statusCode: number | null;
@@ -32,7 +33,9 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/occupations/`}
       />
-      <Content />
+      <FiltersContextProvider>
+        <Content />
+      </FiltersContextProvider>
     </PageLayout>
   );
 };

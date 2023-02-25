@@ -1,47 +1,48 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as Select from '@radix-ui/react-select';
 import { BsChevronDown } from 'react-icons/bs';
 import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
 import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
 import { SelectProps } from '@radix-ui/react-select';
+import theme from 'styled-theming';
+import { ReactNode, useRef } from 'react';
 interface Props extends SelectProps {
   triggerText: string;
+  triggerIcon?: ReactNode;
 }
 
-const Root: React.FC<Props> = ({ triggerText, children, ...props }) => {
+const Root: React.FC<Props> = ({
+  triggerText,
+  children,
+  triggerIcon,
+  ...props
+}) => {
   return (
     <Select.Root {...props}>
-      <Trigger aria-label='Language'>
+      <Trigger aria-label='Language' id='trigger'>
+        {triggerIcon}
         <TriggerValue placeholder={triggerText} />
         <Icon>
-          <ArrowIcon />
+          <ArrowIcon id='arrow-down' />
         </Icon>
       </Trigger>
       {/* ////////////// */}
       <Portal>
-        <Content position='popper' className='SelectContent'>
-          <Viewport className='SelectViewport'>
-            {children}
-            {/* <Item value={"English"}>
-              <FlagWrapper>
-                <Flag fill src={BritishFlag} alt={"england flag"} />
-              </FlagWrapper>
-              <Select.ItemText>English</Select.ItemText>
-            </Item>
-            <Item value="Persian">
-              <FlagWrapper>
-                <Flag fill src={IranFlag} alt={"iran flag"} />
-              </FlagWrapper>
-              <Select.ItemText>Persian</Select.ItemText>
-            </Item> */}
-          </Viewport>
+        <Content position='popper' align='center' className='SelectContent'>
+          <Viewport>{children}</Viewport>
         </Content>
       </Portal>
     </Select.Root>
   );
 };
 export { Root };
-
+const ContainerBorder = theme('mode', {
+  light: css`
+    border: 1px solid var(--color-gray12);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  `,
+  dark: css``,
+});
 const Trigger = styled(Select.Trigger)`
   ${layer3_TextStyle}
   display: flex;
@@ -61,11 +62,11 @@ const ArrowIcon = styled(BsChevronDown)`
 `;
 
 const Portal = styled(Select.Portal)`
+  ${ContainerBorder}
   width: max-content;
   height: max-content;
   background: var(--color-gray13);
   border-radius: 15px;
-  padding: 1rem 1.5rem;
   position: absolute;
   top: 0%;
   left: 0;
@@ -76,25 +77,19 @@ const Portal = styled(Select.Portal)`
   }
 `;
 const Content = styled(Select.Content)`
+  width: 100%;
+  height: 100%;
   background: var(--color-gray13);
   border-radius: 15px;
-  padding: 1rem 1.5rem;
-  position: absolute;
-  width: 100%;
-  top: 0%;
-  left: 0;
-  // transform: translateY(60%);
   z-index: 4;
-  &[data-state='open'] {
-    position: relative;
-  }
+  overflow: hidden;
 `;
 const Viewport = styled(Select.Viewport)`
   z-index: 5;
   position: relative;
   display: flex;
+  overflow: unset !important;
   flex-direction: column;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
 `;

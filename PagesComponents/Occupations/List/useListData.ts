@@ -20,6 +20,7 @@ export const useListData = ({
     isLoading,
     isError,
     isFetching,
+    isRefetching,
     data: occupations,
     refetch,
   } = useInfiniteQuery<Occupation[], ClientError>(
@@ -45,6 +46,7 @@ export const useListData = ({
     occupations,
     hasNextPage,
     isFetching,
+    isRefetching,
     refetch,
   };
 };

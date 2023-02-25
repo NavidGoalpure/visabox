@@ -32,17 +32,19 @@ interface ReturnData {
   selectedFiltersObj: SearchFilters;
   setSelectedFiltersObj: Dispatch<SetStateAction<SearchFilters>>;
   //
-  filteredList: FilterdList;
 }
 interface Props {
   setFilterOccupationRange: Dispatch<SetStateAction<FilteredOccupationRange>>;
+  setFilteredList: Dispatch<SetStateAction<FilterdList>>;
 }
-const useFilterSearch = ({ setFilterOccupationRange }: Props): ReturnData => {
+const useFilterSearch = ({
+  setFilterOccupationRange,
+  setFilteredList,
+}: Props): ReturnData => {
   //////////////States//////////////
   const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>(
     {} as SearchFilters
   );
-  const [filteredList, setFilteredList] = useState<FilterdList>({});
 
   // هروقت فیلتر ماژور گروب عوض شد،لیست سابماژور ها رو آپدیت کن
   useEffect(() => {
@@ -54,17 +56,17 @@ const useFilterSearch = ({ setFilterOccupationRange }: Props): ReturnData => {
     setFilteredList({ subMajorGroup: newSubMajorList });
   }, [selectedFiltersObj?.anzcoGropup?.majorGroup]);
 
-  // هروقت فیلتر ساب ماژور گروپ عوض شد،لیست سابماژور ها رو آپدیت کن
+  // هروقت فیلتر ساب ماژور گروپ عوض شد،لیست مینور گروپ ها رو آپدیت کن
   useEffect(() => {
     const newMinorList = Minor_GROUP.filter(
       (item: AnszcoGroup) =>
         Math.trunc(item.code / 10) ===
         selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code
     );
-    setFilteredList({
-      subMajorGroup: filteredList.subMajorGroup,
+    setFilteredList((prev: FilterdList) => ({
+      subMajorGroup: prev.subMajorGroup,
       minorGroup: newMinorList,
-    });
+    }));
   }, [selectedFiltersObj?.anzcoGropup?.subMajorGroup]);
 
   /**
@@ -172,7 +174,6 @@ const useFilterSearch = ({ setFilterOccupationRange }: Props): ReturnData => {
     selectedFiltersObj,
     setSelectedFiltersObj,
     //
-    filteredList,
   };
 };
 export default useFilterSearch;

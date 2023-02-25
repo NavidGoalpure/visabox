@@ -10,7 +10,7 @@ import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
 import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
-import { FilteredOccupationRange } from './interfaces';
+import { FilterdList, FilteredOccupationRange } from './interfaces';
 import useFilters from './Hooks/useFilterSearch';
 
 interface Props {
@@ -26,12 +26,15 @@ function Search({
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
-  const { setFiltersByValue, selectedFiltersObj, filteredList } = useFilters({
+  const [filteredList, setFilteredList] = useState<FilterdList>({});
+
+  const { setFiltersByValue, selectedFiltersObj } = useFilters({
     setFilterOccupationRange,
+    setFilteredList,
   });
 
   return (
-    <Container>
+    <Container isShowPanel={isShowPanel}>
       <SearchElement
         value={searchValue}
         onChange={setSearchValue}
@@ -47,7 +50,7 @@ function Search({
       {isShowPanel && (
         <Panel>
           <FilterWrapper>
-            <FilterTitle>Major-Group:</FilterTitle>
+            <FilterTitle>Major Group:</FilterTitle>
             <SelectRoot
               triggerText='Select a Major-Group ...'
               onValueChange={(newValue) => {
@@ -117,17 +120,21 @@ function Search({
 }
 
 export default Search;
-const Container = styled.div`
+const Container = styled.div<{ isShowPanel: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin: auto;
   margin-bottom: 4rem;
+  transition: all 0.3s ease;
+  max-width: 865px;
+  ${({ isShowPanel }) => isShowPanel && 'max-width: 100%;'}
 `;
 const SearchElement = styled(Input)<{ isShowPanel: boolean }>`
   margin: 0 auto;
   height: 4rem;
-  transition: all 0.8s ease;
+
   #input-container {
     ${({ isShowPanel }) => isShowPanel && 'border-radius: 35px 35px 0 0'};
   }
@@ -147,21 +154,19 @@ const PanelButton = styled(PrimaryButton)`
 `;
 const Panel = styled.div`
   ${layer2A_Bg}
-
   display:flex;
   justify-content: flex-start;
   padding: 0.5rem 1rem;
   flex-wrap: wrap;
   column-gap: 2rem;
   width: 100%;
-  max-width: 865px;
   border-radius: 0px 0px 30px 30px;
   width: 100%;
 `;
 const FilterWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 48%;
+  flex: 1;
   margin-bottom: 0.5rem;
 `;
 const FilterTitle = styled.h4`

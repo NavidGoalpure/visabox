@@ -16,12 +16,12 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import NoData from 'Components/NoData';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import useFilterSearch from './Hooks/useFilterSearch';
-import { FilteredOccupationRange } from './interfaces';
+import { FilterdList, FilteredOccupationRange } from './interfaces';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [searchValue, setSearchValue] = useState<string>('');
+
   const [filteredOccupationRange, setFilterOccupationRange] =
     useState<FilteredOccupationRange>({
       lowerNumber: 0,
@@ -29,11 +29,17 @@ const Content: React.FC = () => {
     });
 
   //این هوکیه که لیست آکیوپیشن ها رو برمیگردونه
-  const { occupations, isFetching, fetchNextPage, isError, refetch } =
-    useListData({
-      search: searchValue,
-      filteredOccupationRange,
-    });
+  const {
+    occupations,
+    isFetching,
+    isRefetching,
+    fetchNextPage,
+    isError,
+    refetch,
+  } = useListData({
+    search: searchValue,
+    filteredOccupationRange,
+  });
 
   const { lastOccupation } = useLastOccupationData(searchValue);
   //
@@ -46,7 +52,10 @@ const Content: React.FC = () => {
   };
   useEffect(() => {
     refetch();
-  }, [filteredOccupationRange.highestNumber]);
+  }, [
+    filteredOccupationRange.lowerNumber,
+    filteredOccupationRange.highestNumber,
+  ]);
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
@@ -66,7 +75,7 @@ const Content: React.FC = () => {
           />
           <SmartButton
             isError={isError}
-            isFetching={isFetching}
+            isFetching={isFetching || isRefetching}
             hasNextPage={hasNextPage}
             fetchNextPage={fetchNextPage}
           />

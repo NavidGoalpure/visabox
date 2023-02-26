@@ -6,11 +6,10 @@ import 'vazirmatn/Vazirmatn-font-face.css';
 import { LanguageDirection, Languages } from 'Interfaces';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
-import Script from 'next/script';
-// import { hotjar } from 'react-hotjar';
+import { hotjar } from 'react-hotjar';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
 import { Montserrat } from '@next/font/google';
@@ -28,12 +27,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { theme } = useTheme();
   //
 
-  // useEffect(() => {
-  //   hotjar.initialize(
-  //     Number(process.env.NEXT_PUBLIC_HJID),
-  //     Number(process.env.NEXT_PUBLIC_HJSV)
-  //   );
-  // }, []);
+  useEffect(() => {
+    hotjar.initialize(
+      Number(process.env.NEXT_PUBLIC_HJID),
+      Number(process.env.NEXT_PUBLIC_HJSV)
+    );
+  }, []);
   //
   return (
     <>

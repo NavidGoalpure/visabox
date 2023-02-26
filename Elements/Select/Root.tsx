@@ -12,7 +12,15 @@ import { findSmartHeight } from './utils';
 interface Props extends SelectProps {
   triggerText: string;
   triggerIcon?: ReactNode;
+  // مشخص میکنه کانتینر آیتم ها حداکثر چه اندازه ای باشه. این واحد به رم هست
   maxHeightInRem?: number;
+  // اگه ترو باشه، کانتینر آیتم ها رو اسکرول نمیکنه و به اندازه کل آیتم ها کش میده
+  noScroll?: boolean;
+  // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره
+  align?: 'start' | 'center' | 'end';
+  // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره
+  position?: 'popper' | 'item-aligned';
+  ariaLabel?: string;
 }
 
 const Root: React.FC<Props> = ({
@@ -21,6 +29,10 @@ const Root: React.FC<Props> = ({
   triggerIcon,
   disabled,
   maxHeightInRem,
+  noScroll = false,
+  position = 'popper',
+  align = 'start',
+  ariaLabel,
   ...props
 }) => {
   return (
@@ -33,7 +45,7 @@ const Root: React.FC<Props> = ({
       {...props}
     >
       {!disabled && (
-        <Trigger aria-label='Language' id='trigger'>
+        <Trigger aria-label={ariaLabel} id='trigger'>
           {triggerIcon}
           <TriggerValue placeholder={triggerText} />
 
@@ -45,19 +57,22 @@ const Root: React.FC<Props> = ({
       {/* ////////////// */}
       <Portal>
         <Content
-          position='popper'
-          align='center'
-          className='SelectContent'
+          position={position}
+          align={align}
           onCloseAutoFocus={() => (document.body.style.pointerEvents = 'auto')}
         >
-          <ScrollBox
-            heightInRem={findSmartHeight({
-              maxHeightInRem,
-              childrenItems: children,
-            })}
-          >
+          {noScroll ? (
             <Viewport>{children}</Viewport>
-          </ScrollBox>
+          ) : (
+            <ScrollBox
+              heightInRem={findSmartHeight({
+                maxHeightInRem,
+                childrenItems: children,
+              })}
+            >
+              <Viewport>{children}</Viewport>
+            </ScrollBox>
+          )}
         </Content>
       </Portal>
     </Select.Root>
@@ -116,6 +131,7 @@ const Content = styled(Select.Content)`
   border-radius: 15px;
   z-index: 4;
   overflow: hidden;
+  padding: 1rem;
 `;
 const Viewport = styled(Select.Viewport)`
   z-index: 5;

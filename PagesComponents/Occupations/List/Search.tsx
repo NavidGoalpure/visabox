@@ -51,7 +51,7 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.MajorGroup)}:</FilterTitle>
             <SelectRoot
-              maxHeightInRem={20}
+              noScroll
               triggerText={t(LanguageKeys.Select)}
               onValueChange={(newValue) => {
                 setFiltersByValue({
@@ -86,7 +86,7 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.SubMajorGroup)}:</FilterTitle>
             <SelectRoot
-              maxHeightInRem={20}
+              noScroll
               key={selectedFiltersObj?.anzcoGropup?.majorGroup?.code}
               triggerText={t(LanguageKeys.Select)}
               onValueChange={(newValue) => {
@@ -129,7 +129,7 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.MinorGroup)}:</FilterTitle>
             <SelectRoot
-              maxHeightInRem={20}
+              noScroll
               key={selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code}
               triggerText={t(LanguageKeys.Select)}
               disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}

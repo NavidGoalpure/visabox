@@ -70,6 +70,7 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>Sub Major Group:</FilterTitle>
             <SelectRoot
+              key={selectedFiltersObj?.anzcoGropup?.majorGroup?.code}
               triggerText='select ...'
               onValueChange={(newValue) => {
                 setFiltersByValue({
@@ -92,6 +93,7 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>Minor Group:</FilterTitle>
             <SelectRoot
+              key={selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code}
               triggerText='select ...'
               disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
               onValueChange={(newValue) => {

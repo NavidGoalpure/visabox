@@ -74,9 +74,15 @@ const ContainerBorder = theme('mode', {
 const Trigger = styled(Select.Trigger)`
   ${layer3_TextStyle}
   display: flex;
-  align-items: center;
+  align-items: baseline;
+
   gap: 0.5rem;
   cursor: pointer;
+  span {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+  }
 `;
 const TriggerValue = styled(Select.Value)`
   ${layer3_TextStyle};

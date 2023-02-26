@@ -19,7 +19,7 @@ const Item: React.FC<Props> = ({ icon, text, ...props }) => {
 export { Item };
 export const SelectItemCss = css`
   ${directionStyles}
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   width: max-content;
   display: flex;
   gap: 1rem;

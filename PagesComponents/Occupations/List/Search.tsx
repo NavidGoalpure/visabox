@@ -12,6 +12,9 @@ import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
 import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
+import SmartComponentBaseOnLocale from 'Components/Language/SmartComponentBaseOnLocale';
+import { SelectItemCss } from 'Elements/Select/Item';
+import { directionStyles } from 'Styles/Theme';
 
 interface Props {
   searchValue: string;
@@ -61,7 +64,21 @@ function Search({ searchValue, setSearchValue }: Props) {
               {MAJOR_GROUP.map((item) => (
                 <MaraSelect.Item
                   value={item.title[locale] || ''}
-                  text={item.title[locale] || ''}
+                  // text={item.title[locale] || ''}
+                  text={
+                    <SmartComponentBaseOnLocale
+                      compenents={{
+                        fa: (
+                          <FarsiWrapper>
+                            <FarsiTitle>{item.title?.['fa']}</FarsiTitle>
+                            <FarsiSubTitle>{item.title?.['en']}</FarsiSubTitle>
+                          </FarsiWrapper>
+                        ),
+
+                        en: <EnglishItem>{item?.title?.[locale]}</EnglishItem>,
+                      }}
+                    />
+                  }
                 />
               ))}
             </SelectRoot>
@@ -86,7 +103,24 @@ function Search({ searchValue, setSearchValue }: Props) {
                   <MaraSelect.Item
                     key={item.code}
                     value={item.title[locale] || ''}
-                    text={item.title[locale] || ''}
+                    text={
+                      <SmartComponentBaseOnLocale
+                        compenents={{
+                          fa: (
+                            <FarsiWrapper>
+                              <FarsiTitle>{item.title?.['fa']}</FarsiTitle>
+                              <FarsiSubTitle>
+                                {item.title?.['en']}
+                              </FarsiSubTitle>
+                            </FarsiWrapper>
+                          ),
+
+                          en: (
+                            <EnglishItem>{item?.title?.[locale]}</EnglishItem>
+                          ),
+                        }}
+                      />
+                    }
                   />
                 );
               })}
@@ -111,7 +145,20 @@ function Search({ searchValue, setSearchValue }: Props) {
                 <MaraSelect.Item
                   key={item.code}
                   value={item.title[locale] || ''}
-                  text={item.title[locale] || ''}
+                  text={
+                    <SmartComponentBaseOnLocale
+                      compenents={{
+                        fa: (
+                          <FarsiWrapper>
+                            <FarsiTitle>{item.title?.['fa']}</FarsiTitle>
+                            <FarsiSubTitle>{item.title?.['en']}</FarsiSubTitle>
+                          </FarsiWrapper>
+                        ),
+
+                        en: <EnglishItem>{item?.title?.[locale]}</EnglishItem>,
+                      }}
+                    />
+                  }
                 />
               ))}
             </SelectRoot>
@@ -174,18 +221,18 @@ const Panel = styled.div`
 `;
 const FilterWrapper = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   flex: 1;
-  @media ${deviceMin.tabletS} {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  align-items: flex-start;
+  justify-content: baseline;
 `;
 const FilterTitle = styled.h4`
   ${layer2A_Key}
   margin-inline-end: 0.5rem;
+  flex-shrink: 0;
   @media ${deviceMin.tabletS} {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 `;
 const SettingIcon = styled(GoSettings)`
@@ -193,3 +240,23 @@ const SettingIcon = styled(GoSettings)`
   height: 1.5rem;
 `;
 const SelectRoot = styled(MaraSelect.Root)``;
+const EnglishItem = styled.h5`
+  ${SelectItemCss}
+  padding: 0;
+`;
+const FarsiWrapper = styled.div`
+  ${directionStyles}
+  width: 100%;
+`;
+const FarsiTitle = styled.h5`
+  ${SelectItemCss}
+  padding: 0;
+  // padding-top: 0rem;
+`;
+const FarsiSubTitle = styled.h6`
+  ${SelectItemCss}
+  padding: 0rem;
+  padding-bottom: 0.5rem;
+
+  font-size: 70%;
+`;

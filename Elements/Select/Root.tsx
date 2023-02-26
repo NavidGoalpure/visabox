@@ -6,9 +6,13 @@ import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
 import { SelectProps } from '@radix-ui/react-select';
 import theme from 'styled-theming';
 import { ReactNode, useRef } from 'react';
+import { ScrollBox } from 'Elements/ScrollBox';
+import React from 'react';
+import { findSmartHeight } from './utils';
 interface Props extends SelectProps {
   triggerText: string;
   triggerIcon?: ReactNode;
+  maxHeightInRem?: number;
 }
 
 const Root: React.FC<Props> = ({
@@ -16,6 +20,7 @@ const Root: React.FC<Props> = ({
   children,
   triggerIcon,
   disabled,
+  maxHeightInRem,
   ...props
 }) => {
   return (
@@ -45,7 +50,14 @@ const Root: React.FC<Props> = ({
           className='SelectContent'
           onCloseAutoFocus={() => (document.body.style.pointerEvents = 'auto')}
         >
-          <Viewport>{children}</Viewport>
+          <ScrollBox
+            heightToRem={findSmartHeight({
+              maxHeightInRem,
+              childrenItems: children,
+            })}
+          >
+            <Viewport>{children}</Viewport>
+          </ScrollBox>
         </Content>
       </Portal>
     </Select.Root>

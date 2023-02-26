@@ -3,11 +3,7 @@ import { Input } from 'Elements/Input';
 import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import {
-  componentStatements,
-  FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
-  LanguageKeys,
-} from './const';
+import { componentStatements, LanguageKeys } from './const';
 import { GoSettings } from 'react-icons/go';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
@@ -16,7 +12,6 @@ import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
 import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
-import { FilterdList, SearchFilters } from './interfaces';
 
 interface Props {
   searchValue: string;
@@ -31,6 +26,9 @@ function Search({ searchValue, setSearchValue }: Props) {
   useEffect(() => {
     resetFilters();
   }, [isShowPanel]);
+
+  const submajorItems = filteredList?.subMajorGroup;
+  const minorItems = filteredList?.minorGroup;
   return (
     <Container isShowPanel={isShowPanel}>
       <SearchElement
@@ -48,9 +46,10 @@ function Search({ searchValue, setSearchValue }: Props) {
       {isShowPanel && (
         <Panel>
           <FilterWrapper>
-            <FilterTitle>Major Group:</FilterTitle>
+            <FilterTitle>{t(LanguageKeys.MajorGroup)}:</FilterTitle>
             <SelectRoot
-              triggerText='select ...'
+              maxHeightInRem={20}
+              triggerText={t(LanguageKeys.Select)}
               onValueChange={(newValue) => {
                 setFiltersByValue({
                   filterKey: 'MAJOR_GROUP',
@@ -68,10 +67,11 @@ function Search({ searchValue, setSearchValue }: Props) {
             </SelectRoot>
           </FilterWrapper>
           <FilterWrapper>
-            <FilterTitle>Sub Major Group:</FilterTitle>
+            <FilterTitle>{t(LanguageKeys.SubMajorGroup)}:</FilterTitle>
             <SelectRoot
+              maxHeightInRem={20}
               key={selectedFiltersObj?.anzcoGropup?.majorGroup?.code}
-              triggerText='select ...'
+              triggerText={t(LanguageKeys.Select)}
               onValueChange={(newValue) => {
                 setFiltersByValue({
                   filterKey: 'SUB_MAJOR_GROUP',
@@ -81,20 +81,23 @@ function Search({ searchValue, setSearchValue }: Props) {
               }}
               disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
             >
-              {filteredList?.subMajorGroup?.map((item: AnszcoGroup) => (
-                <MaraSelect.Item
-                  key={item.code}
-                  value={item.title[locale] || ''}
-                  text={item.title[locale] || ''}
-                />
-              ))}
+              {submajorItems?.map((item: AnszcoGroup) => {
+                return (
+                  <MaraSelect.Item
+                    key={item.code}
+                    value={item.title[locale] || ''}
+                    text={item.title[locale] || ''}
+                  />
+                );
+              })}
             </SelectRoot>
           </FilterWrapper>
           <FilterWrapper>
-            <FilterTitle>Minor Group:</FilterTitle>
+            <FilterTitle>{t(LanguageKeys.MinorGroup)}:</FilterTitle>
             <SelectRoot
+              maxHeightInRem={20}
               key={selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code}
-              triggerText='select ...'
+              triggerText={t(LanguageKeys.Select)}
               disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
               onValueChange={(newValue) => {
                 setFiltersByValue({

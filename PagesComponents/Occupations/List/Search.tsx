@@ -1,9 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Input } from 'Elements/Input';
 import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
+import {
+  componentStatements,
+  FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
+  LanguageKeys,
+} from './const';
 import { GoSettings } from 'react-icons/go';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
@@ -12,6 +16,7 @@ import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
 import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
+import { FilterdList, SearchFilters } from './interfaces';
 
 interface Props {
   searchValue: string;
@@ -21,9 +26,11 @@ function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
-  const { setFiltersByValue, selectedFiltersObj, filteredList } =
+  const { setFiltersByValue, selectedFiltersObj, resetFilters, filteredList } =
     useContext(SearchFilterContext);
-
+  useEffect(() => {
+    resetFilters();
+  }, [isShowPanel]);
   return (
     <Container isShowPanel={isShowPanel}>
       <SearchElement

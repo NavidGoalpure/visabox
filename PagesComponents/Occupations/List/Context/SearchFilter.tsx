@@ -43,6 +43,8 @@ interface ContexValues {
   //
   filteredOccupationRange: FilteredOccupationRange;
   setFilterOccupationRange: Dispatch<SetStateAction<FilteredOccupationRange>>;
+  //
+  resetFilters: () => void;
 }
 type Props = {
   children: React.ReactNode;
@@ -84,7 +86,17 @@ function FiltersContextProvider({ children }: Props) {
       minorGroup: newMinorList,
     }));
   }, [selectedFiltersObj?.anzcoGropup?.subMajorGroup]);
-
+  ////////////////////////////////////////
+  //////////////handlers////////////////
+  ///////////////////////////////////////
+  function resetFilters() {
+    setSelectedFiltersObj({} as SearchFilters);
+    setFilterOccupationRange({
+      lowerNumber: 0,
+      highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
+    });
+    setFilteredList({} as FilterdList);
+  }
   /**
    * این فانکشن یک ذخیره کردن فیلتر آکیوپیشن نوشته شده. روش کارش به این صورته که اسم فیلتر و مقداری که انتخاب شده رو میگیره
    * با اون مقدار آبجکت مورد نظر رو پیدا میکنه و این آبجکت رو در استیت مورد نیاز ذخیره میکنه
@@ -196,6 +208,8 @@ function FiltersContextProvider({ children }: Props) {
         //
         filteredOccupationRange,
         setFilterOccupationRange,
+        //
+        resetFilters,
       }}
     >
       {children}

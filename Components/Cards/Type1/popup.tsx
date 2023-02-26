@@ -16,7 +16,7 @@ const Popup: React.FC<Props> = ({ isPopupOpen, setIsPopupOpen, content }) => {
           return false;
         }}
       />{' '}
-      <StyledScrollBox $isPopupOpen={isPopupOpen} heightToRem={30}>
+      <StyledScrollBox $isPopupOpen={isPopupOpen} heightInRem={30}>
         {content}
       </StyledScrollBox>
     </PopupContainer>

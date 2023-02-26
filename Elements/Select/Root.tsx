@@ -51,7 +51,7 @@ const Root: React.FC<Props> = ({
           onCloseAutoFocus={() => (document.body.style.pointerEvents = 'auto')}
         >
           <ScrollBox
-            heightToRem={findSmartHeight({
+            heightInRem={findSmartHeight({
               maxHeightInRem,
               childrenItems: children,
             })}

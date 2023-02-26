@@ -1,7 +1,5 @@
 import { NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
-import Head from 'next/head';
-
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,

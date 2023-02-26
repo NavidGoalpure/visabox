@@ -173,10 +173,17 @@ const FilterWrapper = styled.div`
   display: flex;
   align-items: center;
   flex: 1;
+  @media ${deviceMin.tabletS} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 const FilterTitle = styled.h4`
   ${layer2A_Key}
   margin-inline-end: 0.5rem;
+  @media ${deviceMin.tabletS} {
+    margin-bottom: 0.5rem;
+  }
 `;
 const SettingIcon = styled(GoSettings)`
   width: 1.5rem;

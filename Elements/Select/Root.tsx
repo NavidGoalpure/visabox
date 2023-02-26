@@ -9,6 +9,9 @@ import { ReactNode, useRef } from 'react';
 import { ScrollBox } from 'Elements/ScrollBox';
 import React from 'react';
 import { findSmartHeight } from './utils';
+import { device } from 'Consts/device';
+import useDevice from 'Hooks/useDevice';
+
 interface Props extends SelectProps {
   triggerText: string;
   triggerIcon?: ReactNode;
@@ -16,11 +19,18 @@ interface Props extends SelectProps {
   maxHeightInRem?: number;
   // اگه ترو باشه، کانتینر آیتم ها رو اسکرول نمیکنه و به اندازه کل آیتم ها کش میده
   noScroll?: boolean;
-  // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره
-  align?: 'start' | 'center' | 'end';
-  // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره
-  position?: 'popper' | 'item-aligned';
-  ariaLabel?: string;
+  contentProps?: {
+    // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره
+    align?: 'start' | 'center' | 'end';
+    // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره. البته فول اسکرین رو من اضافه کردم
+    position?: 'popper' | 'item-aligned';
+    ariaLabel?: string;
+    dataId?: string;
+  };
+  triggerProps?: {
+    ariaLabel?: string;
+    dataId?: string;
+  };
 }
 
 const Root: React.FC<Props> = ({
@@ -30,13 +40,14 @@ const Root: React.FC<Props> = ({
   disabled,
   maxHeightInRem,
   noScroll = false,
-  position = 'popper',
-  align = 'start',
-  ariaLabel,
+  contentProps,
+  triggerProps,
   ...props
 }) => {
+  const { isLaptop } = useDevice();
+
   return (
-    <Select.Root
+    <SelectRoot
       onOpenChange={(isOpen) => {
         if (isOpen) {
           document.body.style.pointerEvents = 'none';
@@ -45,7 +56,10 @@ const Root: React.FC<Props> = ({
       {...props}
     >
       {!disabled && (
-        <Trigger aria-label={ariaLabel} id='trigger'>
+        <Trigger
+          aria-label={triggerProps?.ariaLabel}
+          data-id={triggerProps?.dataId}
+        >
           {triggerIcon}
           <TriggerValue placeholder={triggerText} />
 
@@ -57,8 +71,13 @@ const Root: React.FC<Props> = ({
       {/* ////////////// */}
       <Portal>
         <Content
-          position={position}
-          align={align}
+          data-id={contentProps?.dataId || 'select-content'}
+          position={
+            isLaptop || contentProps?.position === 'popper'
+              ? 'popper'
+              : 'item-aligned'
+          }
+          align={contentProps?.align}
           onCloseAutoFocus={() => (document.body.style.pointerEvents = 'auto')}
         >
           {noScroll ? (
@@ -75,10 +94,11 @@ const Root: React.FC<Props> = ({
           )}
         </Content>
       </Portal>
-    </Select.Root>
+    </SelectRoot>
   );
 };
 export { Root };
+const SelectRoot = styled(Select.Root)``;
 const ContainerBorder = theme('mode', {
   light: css`
     border: 1px solid var(--color-gray12);
@@ -120,11 +140,10 @@ const Portal = styled(Select.Portal)`
   top: 0%;
   left: 0;
   z-index: 4;
-  &[data-state='open'] {
-    position: relative;
-  }
 `;
-const Content = styled(Select.Content)`
+const Content = styled(Select.Content)<{
+  $position?: 'popper' | 'item-aligned';
+}>`
   width: 100%;
   height: 100%;
   background: var(--color-gray13);
@@ -132,6 +151,16 @@ const Content = styled(Select.Content)`
   z-index: 4;
   overflow: hidden;
   padding: 1rem;
+  &[data-state='open'] {
+    position: relative;
+    @media ${device.tabletS} {
+      position: fixed;
+      border-radius: 15px 15px 0 0;
+      height: 70%;
+      bottom: 0;
+      margin-top: auto;
+    }
+  }
 `;
 const Viewport = styled(Select.Viewport)`
   z-index: 5;

@@ -1,3 +1,4 @@
+import { deviceMin } from 'Consts/device';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -44,6 +45,14 @@ border-radius: 8px 8px 0 0;
   z-index: 10000;
   width: 80%;
   transform: translate(10%);
+  @media ${deviceMin.tabletL}
+  { 
+  width: 25%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transform: translate(0%);
+  right: 4rem;
+}
 `;
 const Wrapper = styled.form`
   box-sizing: border-box;
@@ -56,16 +65,20 @@ const Trigger = styled.div`
   ${Module_Theme}
   text-align: center;
   position: absolute;
-  top: -18px;
+  top: -24px;
   right: 20px;
-  width: 40px;
-  height: 18px;
+  width: 56px;
+  height: 24px;
   padding-top: 2px;
   cursor: pointer;
   border: none;
   box-shadow: 0 0 7px 0 rgb(0 0 0 / 30%);
   z-index: 2147483640;
   border-radius: 5px 5px 0 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 `;
 const Title = styled.div`
   ${Module_TitleColor}

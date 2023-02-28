@@ -22,31 +22,30 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
   return (
     <Container {...props} $locale={locale}>
       <Header />
-      {!isItOnLive && (
-        <Survay.Root
-          title={{
-            en: 'How do you prefer to do the legal procedures of immigration?',
-            fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
-          }}
-        >
-          <MultiChoice>
-            <Item
-              value={'navid1'}
-              text={{
-                en: 'Lawer',
-                fa: 'وکیل',
-              }}
-            />
-            <Item
-              value={'navid2'}
-              text={{
-                en: 'Myself',
-                fa: 'خودم',
-              }}
-            />
-          </MultiChoice>
-        </Survay.Root>
-      )}
+
+      <Survay.Root
+        title={{
+          en: 'How do you prefer to do the legal procedures of immigration?',
+          fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
+        }}
+      >
+        <MultiChoice>
+          <Item
+            value={'navid1'}
+            text={{
+              en: 'Lawer',
+              fa: 'وکیل',
+            }}
+          />
+          <Item
+            value={'navid2'}
+            text={{
+              en: 'Myself',
+              fa: 'خودم',
+            }}
+          />
+        </MultiChoice>
+      </Survay.Root>
       <Content id='PageContainer-content'>{children}</Content>
       <Footer />
     </Container>

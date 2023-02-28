@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from "styled-components/macro";
-import theme from "styled-theming";
-import { CircleCss } from "./StyledComponents";
+import styled, { css, keyframes } from 'styled-components';
+import theme from 'styled-theming';
+import { CircleCss } from './StyledComponents';
 
 const Circle1 = () => {
   return <Content aria-hidden={true} />;

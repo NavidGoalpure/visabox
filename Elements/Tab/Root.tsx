@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, ReactNode } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import { deviceMin } from 'Consts/device';
 import theme from 'styled-theming';
 
@@ -19,7 +19,9 @@ export const Root: React.FC<Props> = ({
     <HeadesWrapper id='heads-container'>
       <HeadsList aria-label='tabs'>{heads}</HeadsList>
     </HeadesWrapper>
-    <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
+    <ContentsContainer id={`contents-container-${defaultValue}`}>
+      {bodies}
+    </ContentsContainer>
   </TabsRoot>
 );
 
@@ -36,7 +38,7 @@ const TabsRoot = styled(Tabs.Root)`
 `;
 const HeadesWrapper = styled.div`
   overflow: auto;
-
+  margin-bottom: 1rem;
   @media ${deviceMin.tabletL} {
     overflow: hidden;
   }

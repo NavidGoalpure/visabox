@@ -21,8 +21,8 @@ function Seo({
 }: Props) {
   const { locale } = useLocale();
   const { defaultTitle, defaultDescription } = siteMetadata;
-  const smartTitle = titleProps || defaultTitle[locale];
-  const smartDescription = descriptionProps || defaultDescription[locale];
+  const smartTitle = titleProps || defaultTitle?.[locale];
+  const smartDescription = descriptionProps || defaultDescription?.[locale];
   const smartImage = image || `https://marabox.com/ogImage.png`;
   return (
     <Head>

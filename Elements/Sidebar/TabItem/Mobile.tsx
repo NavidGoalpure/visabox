@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import { HTMLAttributes } from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;

@@ -1,13 +1,13 @@
 import { MultiLanguageText } from 'Interfaces';
 
-export const iran: [
+export const iran:
   {
     title: MultiLanguageText;
     desc: MultiLanguageText;
     setion: number;
     city: MultiLanguageText;
-  }
-] = [
+  }[]
+  = [
     {
       title: {
         en: 'Abadeh Higher Education Institute',

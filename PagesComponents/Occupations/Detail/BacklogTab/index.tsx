@@ -1,6 +1,6 @@
 import { deviceMin } from 'Consts/device';
 import { BacklogSection } from 'Interfaces/Documents/occupation';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import {
   has189Visa,
   has190Visa,

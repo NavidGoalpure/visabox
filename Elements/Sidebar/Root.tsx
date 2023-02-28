@@ -5,7 +5,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 import theme from 'styled-theming';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
-import { layer2A_Bg } from 'Styles/Theme/Layers/theme';
+import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   items: ReactNode;
@@ -31,7 +31,9 @@ export const Root: React.FC<Props> = ({
       <TabsList aria-label='sidebar' variant={variant}>
         {items}
       </TabsList>
-      <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
+      <ContentsContainer id={`contents-container-${defaultValue}`}>
+        {bodies}
+      </ContentsContainer>
     </TabsRoot>
   );
 };

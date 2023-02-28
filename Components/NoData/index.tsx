@@ -1,7 +1,7 @@
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import React, { ReactNode } from 'react';
 import { IoMdClose } from 'react-icons/io';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { getSmartBgBaseOnLevel } from 'Styles/utils';
 import { componentStatements, LanguageKeys } from './const';
 

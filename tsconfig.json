@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    // "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -16,7 +15,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    // "noUnusedLocals": true,
+    "noUnusedParameters": true
     // "paths": {
     //   "@/PagesComponents/*": ["PagesComponents/*"],
     //   "@/pages/*": ["pages/*"],

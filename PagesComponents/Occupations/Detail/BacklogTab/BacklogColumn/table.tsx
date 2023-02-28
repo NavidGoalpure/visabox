@@ -1,10 +1,10 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import NoData from 'Components/NoData';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { layer2A_TableStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_TableStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props {
   titleKey: string;
@@ -37,6 +37,7 @@ export const BacklogTable: React.FC<Props> = ({
           <NoData
             hasIcon={false}
             messageComponent={t(LanguageKeys.NoDataMessage)}
+            themeLayer='2A'
           />
         )}
       </tbody>

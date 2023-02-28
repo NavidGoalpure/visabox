@@ -1,6 +1,6 @@
 import { Logo } from 'Elements/Logo';
 import React from 'react';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { Headline5Style } from 'Styles/Typo';
 import { FaTelegramPlane } from 'react-icons/fa';
@@ -35,7 +35,7 @@ function DesktopFooter() {
           <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
             <TelegramLogo />
           </a>
-          <a target={'_blank'} href='mailto: maraboxmigration@gmail.com'>
+          <a target={'_blank'} href='mailto:maraboxmigration@gmail.com'>
             <GmailLogo />
           </a>
         </LogosContainer>

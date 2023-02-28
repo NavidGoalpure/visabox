@@ -8,6 +8,7 @@ export const useLastOccupationData = (searchValue: string) => {
   const {
     isLoading,
     isError,
+    // آخرین آکیوپیشنی که دیتابیس موجود است
     data: lastOccupation,
   } = useQuery<Occupation, ClientError>(
     OccupationsQueryKeys.last({ search: searchValue }),

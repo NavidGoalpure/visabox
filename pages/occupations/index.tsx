@@ -3,6 +3,7 @@ import Head from 'next/head';
 import {
   LanguageKeys,
   componentStatements,
+  FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
 } from 'PagesComponents/Occupations/List/const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Content from 'PagesComponents/Occupations/List';
@@ -15,7 +16,7 @@ import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
-import { Languages } from 'Interfaces';
+import { FiltersContextProvider } from 'PagesComponents/Occupations/List/Context/SearchFilter';
 
 interface Props {
   statusCode: number | null;
@@ -31,10 +32,10 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/occupations/`}
-        //navid temporari
-        isNoIndex={locale === Languages.fa}
       />
-      <Content />
+      <FiltersContextProvider>
+        <Content />
+      </FiltersContextProvider>
     </PageLayout>
   );
 };
@@ -47,7 +48,15 @@ export const getServerSideProps: GetServerSideProps = withCSR(
 
     try {
       await queryClient.fetchQuery(OccupationsQueryKeys.list({}), () =>
-        sanityClient.fetch(getListQuery({ searchCondition: '' }))
+        sanityClient.fetch(
+          getListQuery({
+            searchCondition: '',
+            filteredOccupationRange: {
+              highestNumber: 0,
+              lowerNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
+            },
+          })
+        )
       );
     } catch (error: any) {
       if (ctx.res) ctx.res.statusCode = error?.response?.status;

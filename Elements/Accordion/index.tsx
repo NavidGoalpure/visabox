@@ -1,17 +1,16 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import React, { HTMLAttributes, ReactNode } from 'react';
-import styled, { css, keyframes } from 'styled-components/macro';
+import styled, { css, keyframes } from 'styled-components';
 import { Headline7Style } from 'Styles/Typo';
 import { getSmartBgBaseOnLevel } from 'Styles/utils';
 
 import { AiOutlinePlus } from 'react-icons/ai';
 import theme from 'styled-theming';
 import { deviceMin } from 'Consts/device';
-import { layer1_BG } from 'Styles/Theme/Layers/theme';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   triggerText: string;
@@ -35,7 +34,7 @@ export const MaraAccordion: React.FC<Props> = ({
     data-testid='Marabox-Accordion'
   >
     <AccordionItem value='item'>
-      <AccordionHeader backgroundLayer={backgroundLayer}>
+      <AccordionHeader $backgroundLayer={backgroundLayer}>
         <AccordionTrigger>
           <PlusIcon />
           {triggerText}
@@ -77,19 +76,19 @@ const AccordionRoot = styled(Accordion.Root)`
 const AccordionItem = styled(Accordion.Item)`
   overflow: hidden;
   margin-top: 1px;
-  :focus-within {
+  :-within  {
     position: relative;
     z-index: 1;
     box-shadow: 0 0 0 2px var(--mauve12);
   }
 `;
 const AccordionHeader = styled(Accordion.Header)<{
-  backgroundLayer: '1' | '2A' | '2B' | '3';
+  $backgroundLayer: '1' | '2A' | '2B' | '3';
 }>`
   display: flex;
   position: relative;
   z-index: 11;
-  ${({ backgroundLayer }) => getSmartBgBaseOnLevel(backgroundLayer)}
+  ${({ $backgroundLayer }) => getSmartBgBaseOnLevel($backgroundLayer)}
   border: none;
 `;
 const AccordionTrigger = styled(Accordion.Trigger)`

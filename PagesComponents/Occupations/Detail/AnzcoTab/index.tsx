@@ -4,7 +4,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { AnzscoSection } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 
 import AccordionContent from './accordionContent';
@@ -15,11 +15,11 @@ import {
   layer2A_Key,
   layer2A_TextColor,
   layer2A_Value,
-} from 'Styles/Theme/Layers/theme';
+} from 'Styles/Theme/Layers/layer2/theme';
 import {
   layer2A_SubtitleStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 
 interface Props {
   anzscoSection: AnzscoSection | undefined;

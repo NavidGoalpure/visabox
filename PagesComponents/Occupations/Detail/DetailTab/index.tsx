@@ -9,22 +9,20 @@ import useDevice from 'Hooks/useDevice';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { Details, NoMobile } from './styledComponents';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 interface Props {
   territorySection: TerritorySection[];
 }
 
 const DetailComponent: React.FC<Props> = ({ territorySection }) => {
-  const { isLaptop, isMobile } = useDevice();
+  const { isMobile } = useDevice();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <>
-      {isLaptop ? (
-        <Head>
-          <script src='https://use.fontawesome.com/5f46793e2e.js'></script>
-        </Head>
-      ) : null}
+      <Head>
+        <script src='https://use.fontawesome.com/5f46793e2e.js'></script>
+      </Head>
       <DetailTab
         defaultValue={Territories.ACT}
         heads={

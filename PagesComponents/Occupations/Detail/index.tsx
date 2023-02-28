@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleTag from 'Elements/ToggleTag';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { SidebarPage } from './sideBar';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import TooltipTag from 'Elements/TooltipTag';
@@ -24,7 +24,7 @@ import { getLocalStorage } from 'Utils';
 import {
   Layer1_SubtitleStyle,
   Layer1_TextStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer1/style';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -56,8 +56,9 @@ const Content: React.FC<Props> = ({ occupation }) => {
             {getSmartAssessingAuthorities({
               code: occupation?.code,
               assessing_authority: assessing_authority,
-            }).map((assess) => (
+            }).map((assess, i) => (
               <Link
+                key={i}
                 href={`/${locale}/occupations/assssing-authorities/#${
                   assess.split('_')[0]
                 }`}
@@ -65,7 +66,10 @@ const Content: React.FC<Props> = ({ occupation }) => {
                 scroll={false}
               >
                 <TooltipTag
-                  content={assess.replaceAll('_', ' ')}
+                  // replaceAll does not full support yet
+                  // content={assess.replaceAll('_', ' ')}
+                  content={assess.split('_').join(' ')}
+
                   // popupContent={
                   //   <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
                   //     {t(LanguageKeys.TooltipTagDesc)}
@@ -105,7 +109,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
       {/**********Language feedback ***** */}
-      {mustShowFeedbackWindow && <LanguageHint gtagEventLabel={fragmentUrl} />}
+      {mustShowFeedbackWindow && <LanguageHint />}
       {/**********Similar Occupation***** */}
       {occupation.similarOccupations && (
         <SimilarOccupations

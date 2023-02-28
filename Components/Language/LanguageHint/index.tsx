@@ -1,48 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components/macro';
-
+import styled from 'styled-components';
 import { directionStyles, warningTheme } from 'Styles/Theme';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
-import { fireGtagEvent } from 'Utils/Gtags';
-import {
-  GtagEvents_Action,
-  GtagEvents_FeedbackCategory,
-} from 'Utils/Gtags/interface';
 import { SecondaryButton } from 'Elements/Button/Secondary';
 import { setLocalStorage } from 'Utils';
 import { LocalStorageKeys } from 'Interfaces';
 import { deviceMin } from 'Consts/device';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
-interface Props {
-  gtagEventLabel: string;
-}
-export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
+export const LanguageHint: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [isSelected, setIsSelected] = useState<boolean>(false);
   //
-  useEffect(() => {
-    fireGtagEvent({
-      action: GtagEvents_Action.Feedback,
-      category: GtagEvents_FeedbackCategory.Shown,
-      label: gtagEventLabel,
-    });
-  }, []);
   //
   if (isSelected) return null;
   return (
-    <Container>
+    <Container id='feedback-area_shown'>
       <Desc>{t(LanguageKeys.Desc).split('/n')?.[0]}</Desc>
       <Desc>{t(LanguageKeys.Desc).split('/n')?.[1]}</Desc>
       <Row>
         <StyledButton
+          id='feedback-button_translateit'
           onClick={() => {
-            fireGtagEvent({
-              action: GtagEvents_Action.Feedback,
-              category: GtagEvents_FeedbackCategory.TranslateIt,
-              label: gtagEventLabel,
-            });
             setLocalStorage({
               key: LocalStorageKeys.HasBeenAnswered,
               value: 'OccupationDetailPage',
@@ -53,12 +33,8 @@ export const LanguageHint: React.FC<Props> = ({ gtagEventLabel }) => {
           {t(LanguageKeys.TranslateIt)}
         </StyledButton>
         <StyledButton
+          id='feedback-button_dont-translate'
           onClick={() => {
-            fireGtagEvent({
-              action: GtagEvents_Action.Feedback,
-              category: GtagEvents_FeedbackCategory.DoNotTranslate,
-              label: gtagEventLabel,
-            });
             setLocalStorage({
               key: LocalStorageKeys.HasBeenAnswered,
               value: 'OccupationDetailPage',

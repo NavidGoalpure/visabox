@@ -1,14 +1,13 @@
-import AnimationComponent from 'Components/AnimationComponent';
+import MaraBgAnimation from 'Components/MaraBgAnimation';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import React from 'react';
-import styled from 'styled-components/macro';
-
+import styled from 'styled-components';
 import Link from 'next/link';
 import {
-  layer1_SubtitleColor,
-  layer1_TextColor,
-} from 'Styles/Theme/Layers/theme';
-import { Layer1_TextStyle } from 'Styles/Theme/Layers/style';
+  Layer1_SubtitleStyle,
+  Layer1_TextStyle,
+  Layer1_TitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
 
 const WireSvg = () => {
   return (
@@ -72,18 +71,19 @@ const WireSvg = () => {
 export default function PageErrorContent() {
   return (
     <Container>
-      <AnimationComponent />
-      <TxtContainer>
-        <Wire>
-          <WireSvg />
-        </Wire>
-        <Title>Someone stepped on the wire</Title>
-        <Subtitle>Please check your connection</Subtitle>
-        <Desc>{`there most be some problems in the servers please try again later`}</Desc>
-        <Link href='/occupations'>
-          <PrimaryButton>Home</PrimaryButton>
-        </Link>
-      </TxtContainer>
+      <MaraBgAnimation>
+        <TxtContainer>
+          <Wire>
+            <WireSvg />
+          </Wire>
+          <Title>Someone stepped on the wire</Title>
+          <Subtitle>Please check your connection</Subtitle>
+          <Desc>{`there most be some problems in the servers please try again later`}</Desc>
+          <Link href='/occupations'>
+            <PrimaryButton>Home</PrimaryButton>
+          </Link>
+        </TxtContainer>
+      </MaraBgAnimation>
     </Container>
   );
 }
@@ -109,10 +109,10 @@ const Wire = styled.div`
 `;
 
 const Title = styled.h1`
-  ${layer1_TextColor}
+  ${Layer1_TitleStyle}
 `;
 const Subtitle = styled.h2`
-  ${layer1_SubtitleColor}
+  ${Layer1_SubtitleStyle}
 `;
 const Desc = styled.h3`
   ${Layer1_TextStyle}

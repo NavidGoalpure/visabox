@@ -7,8 +7,8 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import PopupContent from './popupContent';
 import { Container, Wrapper, Code, Title } from '../StyledComponents';
 import Popup from '../popup';
-import styled from 'styled-components/macro';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/style';
+import styled from 'styled-components';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props {
   code?: number;

@@ -3,7 +3,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { AnzscoSection, ReferenceType } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import AccordionContent from './AnzcoTab/accordionContent';
 import { LanguageKeys, componentStatements } from './const';
@@ -13,8 +13,8 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/style';
-import { layer2A_TextColor } from 'Styles/Theme/Layers/theme';
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 
 interface Props {
   anzscoSection: ReferenceType | AnzscoSection | undefined;

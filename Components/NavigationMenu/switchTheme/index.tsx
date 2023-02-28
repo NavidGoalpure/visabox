@@ -1,38 +1,40 @@
 import * as RdxSwitch from '@radix-ui/react-switch';
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components/macro';
+import React, { useEffect, useState } from 'react';
+import styled, { css } from 'styled-components';
 import Sun from './Images/Sun.svg';
 import Moon from './Images/Moon.svg';
 import MoonLogo from './MoonLogo';
 import SunLogo from './SunLogo';
 import theme from 'styled-theming';
 import { ThemeModes } from 'Interfaces';
-import useSsr from 'Hooks/useSsr';
 import useTheme from 'Hooks/useTheme';
 import { Loading } from 'Elements/Loading';
 
 const SwitchTheme = () => {
-  const { isClient } = useSsr();
   const { theme, setTheme } = useTheme();
-  const isChecked = theme === ThemeModes.LIGHT;
+  const [isDark, setIsDark] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  //
+  useEffect(() => {
+    if (theme === ThemeModes.DARK) setIsDark(true);
+    else setIsDark(false);
+  }, [theme]);
+  //
   if (isLoading) return <Loading style={{ width: 'auto' }} />;
+
   return (
     <SwitchRoot
       aria-label={theme as string}
-      defaultChecked={isChecked}
+      checked={!isDark}
       onCheckedChange={() => {
         setIsLoading(true);
-        if (isClient) {
-          theme === ThemeModes.DARK
-            ? setTheme(ThemeModes.LIGHT)
-            : setTheme(ThemeModes.DARK);
-        }
+        if (theme === ThemeModes.DARK) setTheme(ThemeModes.LIGHT);
+        else setTheme(ThemeModes.DARK);
       }}
     >
       <MoonLogo id='moon' />
       <SwitchThumb />
-      {!isChecked && <SunLogo id='sun' />}
+      {isDark && <SunLogo id='sun' />}
     </SwitchRoot>
   );
 };

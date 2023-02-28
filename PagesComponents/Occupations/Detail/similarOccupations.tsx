@@ -3,8 +3,8 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { UnitGroup } from 'Interfaces/Documents/unitGroup';
 import React from 'react';
-import styled from 'styled-components/macro';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/style';
+import styled from 'styled-components';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
 
 interface Props {

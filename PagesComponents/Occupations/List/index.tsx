@@ -8,18 +8,30 @@ import { useLastOccupationData } from './useLastOccupationData';
 import { getHasNextPage, getLastFechedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
-import styled from 'styled-components/macro';
-import { useState } from 'react';
+import styled from 'styled-components';
+import { useContext, useEffect, useState } from 'react';
 import NoData from 'Components/NoData';
-import { layer1_TitleColor } from 'Styles/Theme/Layers/theme';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/style';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { SearchFilterContext } from './Context/SearchFilter';
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [searchValue, setSearchValue] = useState<string>('');
-  const { occupations, isFetching, fetchNextPage, isError } = useListData({
+  const { filteredOccupationRange } = useContext(SearchFilterContext);
+
+  //این هوکیه که لیست آکیوپیشن ها رو برمیگردونه
+  const {
+    occupations,
+    isFetching,
+    isRefetching,
+    fetchNextPage,
+    isError,
+    refetch,
+  } = useListData({
     search: searchValue,
+    filteredOccupationRange,
   });
+
   const { lastOccupation } = useLastOccupationData(searchValue);
   //
   const lastFechedOccupation = getLastFechedOccupation(occupations);
@@ -29,6 +41,9 @@ const Content: React.FC = () => {
   const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
   };
+  useEffect(() => {
+    refetch();
+  }, [filteredOccupationRange]);
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
@@ -44,7 +59,7 @@ const Content: React.FC = () => {
           />
           <SmartButton
             isError={isError}
-            isFetching={isFetching}
+            isFetching={isFetching || isRefetching}
             hasNextPage={hasNextPage}
             fetchNextPage={fetchNextPage}
           />

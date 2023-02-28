@@ -1,6 +1,6 @@
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { HTMLAttributes, ReactNode } from 'react';
-import styled, { css, keyframes } from 'styled-components/macro';
+import styled, { css, keyframes } from 'styled-components';
 import theme from 'styled-theming';
 import { TagTheme } from 'Styles/Theme';
 import { BorderSvg } from './BorderSvg';

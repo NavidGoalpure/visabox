@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { HTMLAttributes } from 'react';
 import useDevice from 'Hooks/useDevice';
 import { MobileTabItem as Mobile } from './Mobile';
@@ -12,10 +12,15 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 export const TabItem: React.FC<Props> = ({ title, value, icon }) => {
   const { useMediaQuery } = useDevice();
+  const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
+
   const islaptopS = useMediaQuery({
     maxWidth: deviceSize.laptopS,
   });
-  return islaptopS ? (
+  useEffect(() => {
+    if (!islaptopS) setScreen('DESKTOP');
+  }, []);
+  return screen === 'MOBILE' ? (
     <Mobile title={title} value={value} icon={icon} />
   ) : (
     <DesktopTop

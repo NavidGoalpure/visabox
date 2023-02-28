@@ -1,14 +1,14 @@
 import { globalComponentStatements, LanguageKeys } from 'Consts/language';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
-import React, { ReactElement } from 'react';
-import styled from 'styled-components/macro';
+import React from 'react';
+import styled from 'styled-components';
 
 import { MdError } from 'react-icons/md';
 import {
   layer2A_TitleStyle,
   layer2A_SubtitleStyle,
-} from 'Styles/Theme/Layers/style';
+} from 'Styles/Theme/Layers/layer2/style';
 
 export const ComponentError: React.FC = () => {
   const { t } = useStaticTranslation(globalComponentStatements);

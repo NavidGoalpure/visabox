@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components/macro';
+import styled, { css } from 'styled-components';
 
 import { deviceMin } from 'Consts/device';
 import { PriorityList, Territories } from 'Interfaces/Documents/occupation';
 import { getShortageStatusBaseOnAlias } from './utils';
 import ShortageTag from './shortageTag';
 import theme from 'styled-theming';
-import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/style';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props {
   priorityList: PriorityList | undefined;

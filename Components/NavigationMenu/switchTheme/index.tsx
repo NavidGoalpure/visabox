@@ -1,20 +1,22 @@
-import * as RdxSwitch from "@radix-ui/react-switch";
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import Sun from "./Images/Sun.svg";
-import Moon from "./Images/Moon.svg";
-import MoonLogo from "./MoonLogo";
-import SunLogo from "./SunLogo";
-import theme from "styled-theming";
-import { ThemeModes } from "Interfaces";
-import useTheme from "Hooks/useTheme";
-import { Loading } from "Elements/Loading";
+import * as RdxSwitch from '@radix-ui/react-switch';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import Sun from './Images/Sun.svg';
+import Moon from './Images/Moon.svg';
+import MoonLogo from './MoonLogo';
+import SunLogo from './SunLogo';
+import theme from 'styled-theming';
+import { LanguageDirection, ThemeModes } from 'Interfaces';
+import useTheme from 'Hooks/useTheme';
+import { Loading } from 'Elements/Loading';
+import { useLocale } from 'Hooks/useLocale';
 
 const SwitchTheme = () => {
   const { theme, setTheme } = useTheme();
   const isChecked = theme === ThemeModes.LIGHT;
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  if (isLoading) return <Loading style={{ width: "auto" }} />;
+  const { direction } = useLocale();
+  if (isLoading) return <Loading style={{ width: 'auto' }} />;
   return (
     <SwitchRoot
       aria-label={theme as string}
@@ -27,8 +29,8 @@ const SwitchTheme = () => {
       }}
     >
       <MoonLogo id='moon' />
-      <SwitchThumb />
-      {!isChecked && <SunLogo id="sun" />}
+      <SwitchThumb direction={direction} />
+      {!isChecked && <SunLogo id='sun' />}
     </SwitchRoot>
   );
 };
@@ -43,8 +45,8 @@ export const BorderColor = theme('mode', {
   `,
 });
 const SwitchRoot = styled(RdxSwitch.Root)`
+  border: 3px solid;
   ${BorderColor};
-  border: 3px solid var(--color-gray12);
   position: relative;
   width: 4rem;
   height: 2.25rem;
@@ -76,7 +78,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
       stroke: var(--color-gray9);
     }
   }
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     justify-content: flex-end;
     .sun {
       display: none;
@@ -86,13 +88,17 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     }
   }
 `;
-const SwitchThumb = styled(RdxSwitch.Thumb)`
+const SwitchThumb = styled(RdxSwitch.Thumb)<{ direction: LanguageDirection }>`
   display: block;
   width: 68%;
   height: calc(100% + 6px);
   border-radius: 50%;
   transition: all 100ms;
-  transform: translateX(-3px);
+  z-index:2;
+  transform: ${({ direction }) =>
+    direction === LanguageDirection.LTR
+      ? 'translateX(-3px);'
+      : 'translateX(3px);'}
   will-change: transform;
   display: flex;
   align-items: center;
@@ -108,7 +114,10 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
     background-image: url(${Moon});
   }
   &[data-state='checked'] {
-    transform: translateX(3px);
+      transform: ${({ direction }) =>
+        direction === LanguageDirection.LTR
+          ? 'translateX(3px);'
+          : 'translateX(-3px);'}
     background-color: var(--color-secondary4);
     :before {
       background-image: url(${Sun});

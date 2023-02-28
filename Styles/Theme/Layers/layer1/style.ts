@@ -24,6 +24,7 @@ export const Layer1_SubtitleStyle = css<{
   ${layer1_SubtitleColor}
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
+  width: 100%;
 `;
 export const Layer1_TextStyle = css`
   ${directionStyles}

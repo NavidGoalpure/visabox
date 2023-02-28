@@ -17,6 +17,7 @@ const Item: React.FC<Props> = ({ icon, text, ...props }) => {
 };
 export { Item };
 const SelectItem = styled(Select.Item)`
+  padding: 1rem 1.5rem;
   width: max-content;
   display: flex;
   gap: 1rem;
@@ -25,4 +26,9 @@ const SelectItem = styled(Select.Item)`
   cursor: pointer;
   width: 100%;
   justify-content: flex-start;
+  transition: all 0.3s ease;
+  :hover {
+    background: var(--color-gray10);
+    color: var(--color-gray1);
+  }
 `;

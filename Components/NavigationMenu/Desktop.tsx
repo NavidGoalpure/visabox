@@ -9,10 +9,7 @@ import { useLocale } from "Hooks/useLocale";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 import { Languages } from "Interfaces";
-import {
-  componentStatements,
-  LanguageKeys,
-} from "./const";
+import { componentStatements, LanguageKeys } from "./const";
 import DesktopLanguageChanger from "./LanguageChanger/Desktop";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 
@@ -38,6 +35,7 @@ function Desktop() {
               {t(LanguageKeys.LawyersList)}
             </MenuLink>{" "}
           </NavigationMenu.Item>
+          {/* navid tell mobin about this */}
           <DesktopLanguageChanger />
           <SwitchTheme />
         </MenuItems>
@@ -70,7 +68,7 @@ const MenuItems = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: auto;
-  gap: 1rem;
+  gap: 2rem;
 `;
 const MenuLink = styled(Link)`
   ${layer3_TextStyle};

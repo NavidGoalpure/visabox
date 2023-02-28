@@ -10,6 +10,7 @@ import { componentStatements, LanguageKeys } from "./const";
 import { deviceMin } from "Consts/device";
 import Link from "next/link";
 import { useLocale } from "Hooks/useLocale";
+import { copyContent } from "Utils";
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -35,7 +36,7 @@ function DesktopFooter() {
           <a target={"_blank"} href="https://www.t.me/maraboxmigration">
             <TelegramLogo />
           </a>
-          <a target={"_blank"} href="mailto:maraboxmigration@gmail.com">
+          <a onClick={() => copyContent("mailto:maraboxmigration@gmail.com")}>
             <GmailLogo />
           </a>
         </LogosContainer>

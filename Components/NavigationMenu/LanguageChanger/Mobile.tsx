@@ -21,7 +21,7 @@ const MobileLanguageChanger = ({}) => {
   useOnClickOutside(containerRef, closePopup);
   const smartTextObj: Record<Languages, string> = {
     en: "English",
-    fa: "فارسی",
+    fa: "Farsi",
   };
   const router = useRouter();
   return (
@@ -49,6 +49,7 @@ const MobileLanguageChanger = ({}) => {
             </FlagWrapper>
             {smartTextObj.en}
           </PopupItem>
+          <Hr />
           <PopupItem
             onClick={() => {
               setIsOpen(false);
@@ -100,8 +101,7 @@ const ArrowIcon = styled(BsChevronDown)<{ isOpen: boolean }>`
 `;
 
 const PopupContainer = styled.div`
-  padding: 1rem 1.5rem;
-  background: var(--color-gray13);
+  padding: 1rem 0;
   border-radius: 15px;
   width: 100%;
   display: flex;
@@ -111,15 +111,24 @@ const PopupContainer = styled.div`
   gap: 1rem;
 `;
 const PopupItem = styled.h4`
+  ${layer3_TextStyle};
+  padding: 0 2.125rem;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
 `;
 const FlagWrapper = styled.div`
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
 `;
 const Flag = styled(Image)`
   position: relative !important;
+`;
+const Hr = styled.hr`
+  width: 100%;
+  height: 1px;
+  //navid ask mobin about light design background color
+  background: var(--color-gray3);
 `;

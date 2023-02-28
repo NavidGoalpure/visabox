@@ -47,14 +47,10 @@ function getLocalStorage(key: LocalStorageKeys): string | null {
   //
 }
 const copyContent = async (text: string) => {
-  navigator.clipboard.writeText(text).then(
-    function () {
-      SuccessToast("Copied to clipboard");
-    },
-    function () {
-      ErrorToast("Copying to clipboard was not successful!");
-    }
-  );
+  await navigator.clipboard
+    .writeText(text)
+    .then(() => SuccessToast("Copied to clipboard"));
+  //   ErrorToast("Copying to clipboard was not successful!");
 };
 export {
   getThemeFromLocalStorage,

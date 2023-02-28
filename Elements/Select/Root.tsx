@@ -5,23 +5,31 @@ import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 import { SelectProps } from "@radix-ui/react-select";
 import theme from "styled-theming";
+import { ReactNode } from "react";
 interface Props extends SelectProps {
   triggerText: string;
+  triggerIcon?: ReactNode;
 }
 
-const Root: React.FC<Props> = ({ triggerText, children, ...props }) => {
+const Root: React.FC<Props> = ({
+  triggerText,
+  children,
+  triggerIcon,
+  ...props
+}) => {
   return (
     <Select.Root {...props}>
-      <Trigger aria-label="Language">
+      <Trigger aria-label="Language" id="trigger">
+        {triggerIcon}
         <TriggerValue placeholder={triggerText} />
         <Icon>
-          <ArrowIcon />
+          <ArrowIcon id="arrow-down" />
         </Icon>
       </Trigger>
       {/* ////////////// */}
       <Portal>
         <Content position="popper" align="center" className="SelectContent">
-          <Viewport >{children}</Viewport>
+          <Viewport>{children}</Viewport>
         </Content>
       </Portal>
     </Select.Root>
@@ -59,7 +67,6 @@ const Portal = styled(Select.Portal)`
   height: max-content;
   background: var(--color-gray13);
   border-radius: 15px;
-  padding: 1rem 1.5rem;
   position: absolute;
   top: 0%;
   left: 0;
@@ -74,16 +81,15 @@ const Content = styled(Select.Content)`
   height: 100%;
   background: var(--color-gray13);
   border-radius: 15px;
-  padding: 1rem 1.5rem;
   z-index: 4;
+  overflow: hidden;
 `;
 const Viewport = styled(Select.Viewport)`
   z-index: 5;
-  overflow: unset !important;
   position: relative;
   display: flex;
+  overflow: unset !important;
   flex-direction: column;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
 `;

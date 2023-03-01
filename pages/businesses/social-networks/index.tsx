@@ -6,7 +6,7 @@ import {
   LanguageKeys,
 } from 'PagesComponents/Occupations/AssssingAuthoritties/const';
 import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Businesses/Lawyers';
+import Content from 'PagesComponents/Businesses/SocialPage';
 import Seo from 'Components/Seo';
 
 const SocialPages: NextPage = () => {

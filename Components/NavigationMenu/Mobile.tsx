@@ -102,6 +102,10 @@ function SmartHeader() {
                   {t(LanguageKeys.LawyersList)}
                 </MenuLink>
                 <Hr />
+                <MenuLink href={`/${locale}/businesses/social-networks`}>
+                  {t(LanguageKeys.socialList)}
+                </MenuLink>
+                <Hr />
               </Nav>
               <MobileLanguageChanger />
               <Hr />

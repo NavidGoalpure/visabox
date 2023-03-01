@@ -15,7 +15,7 @@ export const Module_TitleColor = theme('mode', {
     color: var(--color-primary6);
   `,
   dark: css`
-    color: var(--color-primary3);
+    color: var(--color-gray4);
   `,
 });
 export const Module_SubtitleColor = theme('mode', {

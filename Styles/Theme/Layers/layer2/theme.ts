@@ -13,8 +13,8 @@ export const layer2A_HeaderBG = theme('mode', {
 });
 export const layer2A_Bg = theme('mode', {
   light: css`
-    background: #ffffff;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    background: var(--color-gray13);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   `,
   dark: css`
     background: var(--color-gray6);
@@ -64,7 +64,7 @@ export const layer2A_Value = theme('mode', {
 });
 export const layer2A_BorderColor = theme('mode', {
   light: css`
-    border: 2px solid var(--color-gray11);
+    border: 2px solid var(--color-gray12);
   `,
   dark: css`
     border: 1px solid var(--color-gray13);
@@ -92,7 +92,7 @@ export const layer2B_SubtitleColor = theme('mode', {
     color: var(--color-gray13);
   `,
   dark: css`
-    color: var(--color-primary6);
+    color: var(--color-gray13);
   `,
 });
 export const layer2B_TextColor = theme('mode', {

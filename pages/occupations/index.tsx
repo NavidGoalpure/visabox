@@ -1,5 +1,4 @@
 import type { GetServerSideProps, NextPage, NextPageContext } from 'next';
-import Head from 'next/head';
 import {
   LanguageKeys,
   componentStatements,
@@ -32,6 +31,8 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/occupations/`}
+        //navid temporari
+        isNoIndex={locale === Languages.fa}
       />
       <FiltersContextProvider>
         <Content />

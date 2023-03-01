@@ -6,7 +6,7 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import { Header } from '../NavigationMenu';
+import Header  from '../NavigationMenu';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -16,6 +16,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
   const { locale } = useLocale();
   return (
     <Container {...props} $locale={locale}>
+      
       <Header />
       <Content id='PageContainer-content'>{children}</Content>
       <Footer />

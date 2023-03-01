@@ -19,6 +19,7 @@ export default function NotFound() {
         canonical={`https://www.marabox.com/404`}
         isNoIndex={true}
       />
+
       <Container>
         <MaraBgAnimation>
           <BlurContainer>

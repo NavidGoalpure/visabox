@@ -11,6 +11,7 @@ export enum LanguageKeys {
   //
   Details = "Details",
   Anzsco = "Anzsco",
+  Lawyer = "Lawyer",
   //
   TooltipTagDesc = "TooltipTagDesc",
   AnzscoTabTitle = "AnzscoTabTitle",
@@ -87,6 +88,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Backlog: {
     fa: "صف",
     en: "Backlog",
+  },
+  Lawyer: {
+    en: "lawyer",
+    fa: "وکیل",
   },
   SimilarOccupations: {
     en: "Similar Occupations",

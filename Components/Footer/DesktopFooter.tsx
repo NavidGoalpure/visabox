@@ -1,15 +1,16 @@
-import { Logo } from 'Elements/Logo';
-import React from 'react';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { Headline5Style } from 'Styles/Typo';
-import { FaTelegramPlane } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { deviceMin } from 'Consts/device';
-import Link from 'next/link';
-import { useLocale } from 'Hooks/useLocale';
+import { Logo } from "Elements/Logo";
+import React from "react";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { Headline5Style } from "Styles/Typo";
+import { FaTelegramPlane } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { deviceMin } from "Consts/device";
+import Link from "next/link";
+import { useLocale } from "Hooks/useLocale";
+import { copyContent } from "Utils";
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -32,10 +33,10 @@ function DesktopFooter() {
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
-          <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
+          <a target={"_blank"} href="https://www.t.me/maraboxmigration">
             <TelegramLogo />
           </a>
-          <a target={'_blank'} href='mailto:maraboxmigration@gmail.com'>
+          <a onClick={() => copyContent("mailto:maraboxmigration@gmail.com")}>
             <GmailLogo />
           </a>
         </LogosContainer>
@@ -45,7 +46,7 @@ function DesktopFooter() {
 }
 
 export default DesktopFooter;
-export const footerBackground = theme('mode', {
+export const footerBackground = theme("mode", {
   light: css`
     background: var(--color-gray12);
     :before {
@@ -65,7 +66,7 @@ export const footerBackground = theme('mode', {
     }
   `,
 });
-export const LogoHover = theme('mode', {
+export const LogoHover = theme("mode", {
   light: css`
     outline-color: var(--color-primary4);
     color: var(--color-primary4);
@@ -88,7 +89,7 @@ const Container = styled.footer`
   transform: skew(10deg);
   transform: scaleX(1);
   :before {
-    content: '';
+    content: "";
     width: 1px;
     height: 100%;
     position: absolute;
@@ -97,7 +98,7 @@ const Container = styled.footer`
     z-index: 2;
   }
   :after {
-    content: '';
+    content: "";
     width: 1px;
     height: 100%;
     position: absolute;
@@ -123,7 +124,7 @@ const ItemsContainer = styled.div`
 `;
 
 //
-export const hoverBackground = theme('mode', {
+export const hoverBackground = theme("mode", {
   light: css`
     var(--color-gray12);
   `,
@@ -132,7 +133,7 @@ export const hoverBackground = theme('mode', {
   `,
 });
 ///////////////////
-const hoverItemColor = theme('mode', {
+const hoverItemColor = theme("mode", {
   light: css`
     var(--color-gray6);
   `,
@@ -148,14 +149,13 @@ const Items = styled(Link)`
   width: max-content;
   transition: all 400ms ease;
   :before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0px;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    background: ${hoverBackground};
     height: 5px;
     width: 100%;
     overflow: hidden;
@@ -163,7 +163,6 @@ const Items = styled(Link)`
     border-radius: 10px;
   }
   :hover {
-    ${hoverItemColor}
     :before {
       bottom: -10px;
       background-color: var(--color-primary4);

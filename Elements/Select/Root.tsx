@@ -13,8 +13,7 @@ import { device } from 'Consts/device';
 import useDevice from 'Hooks/useDevice';
 
 interface Props extends SelectProps {
-  triggerText: string;
-  triggerIcon?: ReactNode;
+  className?: string;
   // مشخص میکنه کانتینر آیتم ها حداکثر چه اندازه ای باشه. این واحد به رم هست
   maxHeightInRem?: number;
   // اگه ترو باشه، کانتینر آیتم ها رو اسکرول نمیکنه و به اندازه کل آیتم ها کش میده
@@ -27,78 +26,81 @@ interface Props extends SelectProps {
     ariaLabel?: string;
     dataId?: string;
   };
-  triggerProps?: {
+  triggerProps: {
     ariaLabel?: string;
-    dataId?: string;
+    id?: string;
+    placeholder?: string;
+    icon?: ReactNode;
   };
 }
 
 const Root: React.FC<Props> = ({
-  triggerText,
   children,
-  triggerIcon,
   disabled,
   maxHeightInRem,
   noScroll = false,
   contentProps,
   triggerProps,
+  className,
   ...props
 }) => {
   const { isLaptop } = useDevice();
 
   return (
-    <SelectRoot
-      onOpenChange={(isOpen) => {
-        if (isOpen) {
-          document.body.style.pointerEvents = 'none';
-        }
-      }}
-      {...props}
-    >
-      {!disabled && (
-        <Trigger
-          aria-label={triggerProps?.ariaLabel}
-          data-id={triggerProps?.dataId}
-        >
-          {triggerIcon}
-          <TriggerValue placeholder={triggerText} />
-
-          <Icon>
-            <ArrowIcon id='arrow-down' />
-          </Icon>
-        </Trigger>
-      )}
-      {/* ////////////// */}
-      <Portal>
-        <Content
-          data-id={contentProps?.dataId || 'select-content'}
-          position={
-            isLaptop || contentProps?.position === 'popper'
-              ? 'popper'
-              : 'item-aligned'
+    <Container className={className}>
+      <Select.Root
+        onOpenChange={(isOpen) => {
+          if (isOpen) {
+            document.body.style.pointerEvents = 'none';
           }
-          align={contentProps?.align}
-          onCloseAutoFocus={() => (document.body.style.pointerEvents = 'auto')}
-        >
-          {noScroll ? (
-            <Viewport>{children}</Viewport>
-          ) : (
-            <ScrollBox
-              heightInRem={findSmartHeight({
-                maxHeightInRem,
-                childrenItems: children,
-              })}
-            >
+        }}
+        {...props}
+      >
+        {!disabled && (
+          <Trigger aria-label={triggerProps?.ariaLabel} id={triggerProps?.id}>
+            {triggerProps?.icon && triggerProps?.icon}
+            <TriggerValue placeholder={triggerProps?.placeholder} />
+
+            <Icon>
+              <ArrowIcon />
+            </Icon>
+          </Trigger>
+        )}
+        {/* ////////////// */}
+        <Portal>
+          <Content
+            data-id={contentProps?.dataId || 'select-content'}
+            position={
+              isLaptop || contentProps?.position === 'popper'
+                ? 'popper'
+                : 'item-aligned'
+            }
+            align={contentProps?.align}
+            onCloseAutoFocus={() =>
+              (document.body.style.pointerEvents = 'auto')
+            }
+          >
+            {noScroll ? (
               <Viewport>{children}</Viewport>
-            </ScrollBox>
-          )}
-        </Content>
-      </Portal>
-    </SelectRoot>
+            ) : (
+              <ScrollBox
+                heightInRem={findSmartHeight({
+                  maxHeightInRem,
+                  childrenItems: children,
+                })}
+              >
+                <Viewport>{children}</Viewport>
+              </ScrollBox>
+            )}
+          </Content>
+        </Portal>
+      </Select.Root>
+    </Container>
   );
 };
 export { Root };
-const SelectRoot = styled(Select.Root)``;
+const Container = styled.div``;
+
 const ContainerBorder = theme('mode', {
   light: css`
     border: 1px solid var(--color-gray12);
@@ -109,7 +111,7 @@ const ContainerBorder = theme('mode', {
 const Trigger = styled(Select.Trigger)`
   ${layer3_TextStyle}
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
   gap: 0.5rem;
   cursor: pointer;

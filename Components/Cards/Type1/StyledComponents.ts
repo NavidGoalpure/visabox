@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
 `;
 export const codeColor = theme('mode', {
   light: css`
-    background: white;
+    background: var(--color-gray13);
     color: var(--color-gray8);
     border: 2px solid var(--color-primary3);
   `,

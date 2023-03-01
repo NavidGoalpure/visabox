@@ -1,0 +1,291 @@
+import Image from "next/image";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Locations } from "Interfaces";
+import { FaTelegramPlane } from "react-icons/fa";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { layer1_BG, layer1_TextColor } from "Styles/Theme/Layers/layer1/theme";
+import {
+  layer2A_Bg,
+  layer2A_HeaderBG,
+  layer2B_BG,
+  layer2B_TextColor,
+} from "Styles/Theme/Layers/layer2/theme";
+import {
+  layer3_SubtitleStyle,
+  layer3_TitleStyle,
+} from "Styles/Theme/Layers/layer3/style";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import { Headline6Style, Headline7Style } from "Styles/Typo";
+import { componentStatements, LanguageKeys } from "../const";
+import { SocialMediaTypes, TelegramGroup } from "../interfaces";
+import { FiBox } from "react-icons/fi";
+import { deviceMin } from "Consts/device";
+
+type Props = TelegramGroup;
+function MobileSocialCard({
+  desc,
+  locations,
+  name,
+  link,
+  socialmediaType,
+  slug,
+  isFeatured,
+}: Props) {
+  const { t } = useStaticTranslation(componentStatements);
+  const SocialMediaIcon = () => {
+    switch (socialmediaType) {
+      case SocialMediaTypes.TELEGRAM:
+        return (
+          <>
+            <TelegramIcon />
+            Telegram
+          </>
+        );
+      case SocialMediaTypes.INSTAGRAM:
+        return <>Instagram</>;
+
+      default:
+        return null;
+    }
+  };
+  return (
+    <Container href={link} target={"_blank"}>
+      <Wrapper isFeatured={isFeatured}>
+        <ImgWrapper>
+          <Img fill src={`/Images/socialPage/${slug}.jpg`} alt="image" />
+        </ImgWrapper>
+        {isFeatured && (
+          <VIPBoxContainer aria-hidden={true}>
+            <VIPBox aria-hidden={true} />
+          </VIPBoxContainer>
+        )}
+        <NameTag isFeatured={isFeatured}>{name} </NameTag>
+        <Desc isFeatured={isFeatured}>{desc}</Desc>
+        <JoinButton>{t(LanguageKeys.Join)}</JoinButton>
+        <SocialMediaTag isFeatured={isFeatured}>
+          {SocialMediaIcon()}
+        </SocialMediaTag>
+        <LocationTag isFeatured={isFeatured}>
+          {locations === Locations.fa ? "Persian" : "English"}
+        </LocationTag>
+      </Wrapper>
+    </Container>
+  );
+}
+export default MobileSocialCard;
+const ContainerDropShadow = theme("mode", {
+  light: css`
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
+  `,
+  dark: css``,
+});
+const TagBgTheme = theme("mode", {
+  light: css`
+    background: white;
+    color: var(--color-gray4);
+  `,
+  dark: css`
+    background: var(--color-gray3);
+    color: var(--color-gray13);
+  `,
+});
+
+export const LogoBackground = theme("mode", {
+  light: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray9) 0 70%,
+      var(--color-gray11) 0% 100%
+    );
+  `,
+  dark: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray3) 0 70%,
+      var(--color-gray6) 0% 100%
+    );
+  `,
+});
+export const FeaturedLogoBackground = theme("mode", {
+  light: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray9) 0 70%,
+      var(--color-gray11) 0% 100%
+    );
+  `,
+  dark: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray2) 0 70%,
+      var(--color-gray3) 0% 100%
+    );
+  `,
+});
+const BoxTheme = theme("mode", {
+  light: css`
+    color: var(--color-secondary2);
+  `,
+  dark: css`
+    color: var(--color-secondary4);
+  `,
+});
+const NotFeaturedLocationTagTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray12);
+    color: var(--color-gray4);
+  `,
+  dark: css`
+    background: var(--color-gray3);
+    color: var(--color-gray13);
+  `,
+});
+const NotFeaturedSocialMediaTagStyle = css`
+  ${layer2A_Bg};
+  ${layer3_TextColor};
+  box-shadow: unset;
+`;
+const Container = styled.a`
+  position: relative;
+  width: 100%;
+  margin-top: 4.5rem;
+  @media ${deviceMin.mobileL} {
+    width: 25rem;
+  }
+`;
+
+const Wrapper = styled.div<{ isFeatured: boolean }>`
+  width: 100%;
+  min-height: 26rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  gap: 1rem;
+  padding: 4rem 0.75rem 3.5rem;
+  transition: all 0.4s ease 0s;
+  //////////////////////////
+  ${({ isFeatured }) =>
+    isFeatured
+      ? layer2B_BG
+      : css`
+          ${layer2A_Bg};
+          ${ContainerDropShadow}
+        `}
+  box-shadow:unset;
+`;
+const ImgWrapper = styled.div`
+  ${LogoBackground}
+  padding: 0.5rem;
+  width: 6.625rem;
+  height: 6.625rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -52%) rotate(4deg);
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease;
+  z-index: 2;
+`;
+const VIPBoxContainer = styled.div`
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gray5);
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  top: 0;
+  right: 5%;
+`;
+const VIPBox = styled(FiBox)`
+  ${BoxTheme}
+  width: 70%;
+  height: auto;
+`;
+
+const NameTag = styled.h4<{ isFeatured: boolean }>`
+  ${layer3_SubtitleStyle};
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  z-index: 2;
+  transition: all 0.3s ease;
+
+  ${({ isFeatured }) =>
+    isFeatured
+      ? `background-color: var(--color-gray7); color:var(--color-gray13);`
+      : layer2A_HeaderBG}
+`;
+const Img = styled(Image)`
+  position: relative !important;
+  object-fit: cover;
+  transition: all 0.3s ease;
+`;
+const Desc = styled.p<{ isFeatured: boolean }>`
+  ${Headline6Style};
+  text-align: start;
+  ${({ isFeatured }) => (isFeatured ? layer2B_TextColor : layer1_TextColor)}
+`;
+const JoinButton = styled(PrimaryButton)`
+  ${Headline7Style}
+  padding:0 4rem;
+  width: max-content;
+  transition: all 0.4s ease 0s;
+`;
+const LocationTag = styled.h3<{ isFeatured: boolean }>`
+  ${Headline7Style};
+  padding: 0.5rem 1.5rem;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(10%, 50%) rotate(-3deg);
+  ${({ isFeatured }) =>
+    isFeatured
+      ? css`
+          ${layer1_BG};
+          ${TagBgTheme}
+        `
+      : css`
+          ${NotFeaturedLocationTagTheme}
+        `}
+`;
+const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
+  ${Headline6Style};
+  ${layer3_TextColor}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-gray13);
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  z-index: 2;
+  transform: translate(-5%, 35%) rotate(3deg);
+  transition: all 0.3s ease;
+  ////////////////////
+  ${({ isFeatured }) =>
+    isFeatured ? layer2B_BG : NotFeaturedSocialMediaTagStyle};
+
+  ///////////////////
+`;
+const TelegramIcon = styled(FaTelegramPlane)`
+  background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
+  color: white;
+  height: auto;
+  width: 1.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+`;

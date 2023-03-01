@@ -1,6 +1,5 @@
 import {
-  Languages,
-  Locations,
+  Languages,  Locations,
   MultiLanguageText,
   MultiLanguageTextArray,
 } from "Interfaces";

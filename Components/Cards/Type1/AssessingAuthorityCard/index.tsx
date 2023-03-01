@@ -67,7 +67,6 @@ const Contacts = styled.div`
   ${layer2A_TextStyle}
   ${scrollbarStyles}
 
-
   width: 100%;
   text-align: center;
   margin: 0;

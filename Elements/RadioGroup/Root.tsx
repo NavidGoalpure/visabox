@@ -10,5 +10,4 @@ export const Root: React.FC<RadioGroupProps> = ({ ...props }) => {
 const RadioGroupRoot = styled(RadioGroup.Root)`
   display: flex;
   flex-direction: column;
-  gap: 10px;
 `;

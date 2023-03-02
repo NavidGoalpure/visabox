@@ -35,10 +35,16 @@ const Root: React.FC<Props> = ({ children, title, ...props }) => {
   );
 };
 export { Root };
+
+const Up = keyframes`
+ 0% { transform: translateY(95%); }
+ 100% { transform: translateY(0%);  }
+`
+
 const Container = styled.section<{ isShow: boolean }>`
   ${Module_Theme}
   ${directionStyles}
-border-radius: 8px 8px 0 0;
+  border-radius: 8px 8px 0 0;
   position: fixed;
   bottom: 0;
   margin: auto;
@@ -46,12 +52,11 @@ border-radius: 8px 8px 0 0;
   width: 80%;
   right: 0;
   left: 0;
-  transform: ${({ isShow }) => (isShow ? "translateY(100%)" : "translateY(0%)")};
+  animation: ${Up} 0.3s linear;
+  transform: ${({ isShow }) => (isShow ? "translateY(95%)" : "translateY(1%)")};
   @media ${deviceMin.tabletL}
   { 
   width: 30%;
-  padding-left: 1rem;
-  padding-right: 1rem;
   right: 3rem;
   left: unset;
 }
@@ -60,21 +65,19 @@ const Wrapper = styled.form`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  // height: auto;
   position: relative;
 `;
 const Trigger = styled.div`
   ${Module_Theme}
   text-align: center;
   position: absolute;
-  top: -24px;
+  top: -23px;
   right: 20px;
   width: 56px;
   height: 24px;
   padding-top: 2px;
   cursor: pointer;
-  border: none;
-  box-shadow: 0 0 7px 0 rgb(0 0 0 / 30%);
+  border-bottom: none;
   z-index: 2147483640;
   border-radius: 5px 5px 0 0;
   align-items: center;
@@ -85,6 +88,7 @@ const Trigger = styled.div`
 
 const ArrowContainer = styled.div<{ isShow: boolean }>`
   display: flex;
+  color: white;
   transform: ${({ isShow }) => (isShow ? "rotate(180deg)" : "rotate(1deg)")};
 `
 
@@ -103,20 +107,5 @@ const Title = styled.div`
 const Content = styled.div`
   width: 100%;
   height: 100%;
-  padding: 1rem;
+  padding-bottom: 1rem;
 `;
-
-
-
-
-
-
-// <Trigger role='button' onClick={() => setIsShow((prev) => !prev)}>
-//           <BsChevronDown />
-//         </Trigger>
-//         {isShow && (
-//           <>
-//             <Title>{dt(title)}</Title>
-//             <Content>{children}</Content>
-//           </>
-//         )}

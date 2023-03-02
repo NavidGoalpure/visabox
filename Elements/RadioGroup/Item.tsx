@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useState } from 'react';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 import { RadioGroupItemProps } from '@radix-ui/react-radio-group';
 import { Label } from '@radix-ui/react-label';
@@ -17,9 +17,10 @@ export const Item: React.FC<RadioItemProps> = ({
   ...props
 }) => {
   const { dt } = useDynamicTranslation();
+  const [isShow, setIsShow] = useState<boolean>(true);
 
   return (
-    <Container className={className}>
+    <Container className={className} isShow={isShow} onClick={() => setIsShow((prev) => !prev)} >
       <RadioGroupItem {...props}>
         <RadioGroupIndicator />
       </RadioGroupItem>
@@ -28,21 +29,25 @@ export const Item: React.FC<RadioItemProps> = ({
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ isShow: boolean }>`
   display: flex;
   align-items: center;
+  border-top: 1px solid var(--color-gray9);
+  border-bottom: 1px solid var(--color-gray9);
+  padding: 12px;
+  background-color: ${({ isShow }) => (isShow ? "var(--color-gray7)" : "var(--color-gray5)")};
 `;
 const RadioGroupItem = styled(RadioGroup.Item)`
   background-color: white;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 100%;
   box-shadow: 0 2px 10px var(--blackA7);
   &:hover {
-    background-color: red;
+    box-shadow: 0 0 0 1px var(--color-gray1);
   }
   &:focus {
-    box-shadow: 0 0 0 2px black;
+    background-color: var(--color-primary4);
   }
 `;
 const RadioGroupIndicator = styled(RadioGroup.Indicator)`

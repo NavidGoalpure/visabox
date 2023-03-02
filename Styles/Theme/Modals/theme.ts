@@ -7,7 +7,8 @@ export const Module_Theme = theme('mode', {
     background-color: bisque;
   `,
   dark: css`
-    background-color: white;
+    background-color: var(--color-gray2);
+    border: 0.2px solid var(--color-gray9);
   `,
 });
 export const Module_TitleColor = theme('mode', {
@@ -15,7 +16,7 @@ export const Module_TitleColor = theme('mode', {
     color: var(--color-primary6);
   `,
   dark: css`
-    color: var(--color-gray4);
+    color: var(--color-gray13);
   `,
 });
 export const Module_SubtitleColor = theme('mode', {
@@ -23,7 +24,7 @@ export const Module_SubtitleColor = theme('mode', {
     color: var(--color-gray7);
   `,
   dark: css`
-    color: var(--color-gray10);
+    color: var(--color-gray13);
   `,
 });
 export const Module_TextColor = theme('mode', {
@@ -31,6 +32,6 @@ export const Module_TextColor = theme('mode', {
     color: var(--color-gray13);
   `,
   dark: css`
-    color: var(--color-gray6);
+    color: var(--color-gray13);
   `,
 });

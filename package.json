@@ -37,10 +37,12 @@
     "react-hot-toast": "^2.4.0",
     "react-hotjar": "^5.3.0",
     "react-icons": "^4.6.0",
+    "react-particles": "^2.9.3",
     "react-portable-text": "^0.5.1",
     "react-query": "^3.39.2",
     "react-responsive": "^9.0.0",
     "react-string-replace": "^1.1.0",
+    "react-tsparticles": "^2.9.3",
     "styled-components": "^5.3.6",
     "styled-theming": "^2.2.0",
     "vazirmatn": "^33.0.3"
@@ -70,6 +72,7 @@
     "next-router-mock": "^0.8.0",
     "postcss": "^8.4.14",
     "react-test-renderer": "^18.2.0",
+    "tsparticles": "^2.9.3",
     "typescript": "4.7.2"
   },
   "resolutions": {

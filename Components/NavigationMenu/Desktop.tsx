@@ -19,7 +19,7 @@ function Desktop() {
     <Container>
       <Wrapper>
         <NavigationMenu.Item>
-          <Link href={`/${locale}/occupations`}>
+          <Link href={`/${locale}`}>
             <Logo />
           </Link>
         </NavigationMenu.Item>

@@ -9,7 +9,6 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
-import Script from 'next/script';
 // import { hotjar } from 'react-hotjar';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';

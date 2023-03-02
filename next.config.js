@@ -19,18 +19,17 @@ const config = {
   //
   experimental: {
     nextScriptWorkers: true,
-    
   },
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
   build: {
-    transpile: ["gsap"],
+    transpile: ['gsap'],
   },
   i18n: {
-    locales: ["en", "fa"],
-    defaultLocale: "en",
+    locales: ['en', 'fa'],
+    defaultLocale: 'en',
     localeDetection: false,
   },
   sentry: {
@@ -47,16 +46,6 @@ const config = {
     //     - excludeServerRoutes
     //   'Configure Tunneling to avoid Ad-Blockers':
     //     - tunnelRoute
-  },
-
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/occupations",
-        permanent: false,
-      },
-    ];
   },
 };
 const sentryWebpackPluginOptions = {

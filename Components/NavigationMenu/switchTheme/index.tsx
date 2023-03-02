@@ -36,7 +36,7 @@ const SwitchTheme = () => {
 };
 
 export default SwitchTheme;
-export const BorderColor = theme('mode', {
+const BorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray12);
   `,

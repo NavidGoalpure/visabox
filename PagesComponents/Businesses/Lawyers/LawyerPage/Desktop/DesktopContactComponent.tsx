@@ -1,19 +1,19 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React from "react";
+import styled, { css } from "styled-components";
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import theme from 'styled-theming';
-import { Headline5Style, Headline6Style } from 'Styles/Typo';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { ImSphere } from 'react-icons/im';
-import { FaPhone, FaTelegramPlane } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
-import { deviceMin } from 'Consts/device';
-import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
-import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
-import { copyContent } from 'Utils';
+} from "Styles/Theme/Layers/layer2/style";
+import theme from "styled-theming";
+import { Headline5Style, Headline6Style } from "Styles/Typo";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
+import { ImSphere } from "react-icons/im";
+import { FaPhone, FaTelegramPlane } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { deviceMin } from "Consts/device";
+import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
+import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
+import { copyContent } from "Utils";
 interface Props {
   website?: string;
   email?: string;
@@ -33,15 +33,15 @@ const DesktopContactComponent = ({
   return (
     <Container>
       {website && (
-        <InternetContainer href={website} target={'_blank'}>
+        <InternetContainer href={website} target={"_blank"}>
           <InternetIcon />
           <InternetTitle>
-            {website.replaceAll('https://', '').replaceAll('http://', '')}
+            {website.replaceAll("https://", "").replaceAll("http://", "")}
           </InternetTitle>
         </InternetContainer>
       )}
       {phone && (
-        <PhoneContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <PhoneContainer onClick={() => copyContent(phone?.[0] || "")}>
           <PhoneIcon />
           <PhoneTitle>
             {phone?.map((phoneNumber) => (
@@ -51,30 +51,30 @@ const DesktopContactComponent = ({
         </PhoneContainer>
       )}
       {email && (
-        <GmailContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <GmailContainer onClick={() => copyContent(email || "")}>
           <GmailIcon />
           <GmailTitle>{email}</GmailTitle>
         </GmailContainer>
       )}
       {telegram && (
-        <TelegramContainer href={telegram} target={'_blank'}>
+        <TelegramContainer href={telegram} target={"_blank"}>
           <TelegramIcon />
           <TelegramTitle>{telegram}</TelegramTitle>
         </TelegramContainer>
       )}
       {instagram && (
-        <InstagramContainer href={instagram} target={'_blank'}>
+        <InstagramContainer href={instagram} target={"_blank"}>
           <InstagramIcon />
           <InstagramTitle>
-            {instagram.replaceAll('https://www.instagram.com/', '@')}
+            {instagram.replaceAll("https://www.instagram.com/", "@")}
           </InstagramTitle>
         </InstagramContainer>
       )}
       {linkedin && (
-        <LinkedinContainer href={linkedin} target={'_blank'}>
+        <LinkedinContainer href={linkedin} target={"_blank"}>
           <LinkedinIcon />
           <LinkedinTitle>
-            {linkedin.replaceAll('https://au.linkedin.com/in/', '')}
+            {linkedin.replaceAll("https://au.linkedin.com/in/", "")}
           </LinkedinTitle>
         </LinkedinContainer>
       )}
@@ -127,7 +127,6 @@ const PhoneIcon = styled(FaPhone)`
 const PhoneTitle = styled(InternetTitle)`
   display: flex;
   flex-direction: column;
-  
 `;
 const GmailContainer = styled.div`
   ${SocialsContainerCss}

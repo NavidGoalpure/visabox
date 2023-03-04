@@ -205,6 +205,7 @@ const LogosContainer = styled.div`
 `;
 const TelegramLogo = styled(FaTelegramPlane)`
   color: var(--color-gray9);
+  cursor: pointer;
   padding-right: 0.2rem;
   width: 2rem;
   height: 2rem;
@@ -215,6 +216,7 @@ const TelegramLogo = styled(FaTelegramPlane)`
 `;
 const GmailLogo = styled(SiGmail)`
   color: var(--color-gray9);
+  cursor: pointer;
   width: 2rem;
   height: 2rem;
   transition: all 0.8s ease;

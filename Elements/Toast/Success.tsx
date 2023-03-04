@@ -1,6 +1,6 @@
-import toast from 'react-hot-toast';
-import { MdCheckCircle } from 'react-icons/md';
-import styled from 'styled-components';
+import toast from "react-hot-toast";
+import { MdCheckCircle } from "react-icons/md";
+import styled from "styled-components";
 
 function SuccessToast(message: string, duration?: number) {
   return toast.success(

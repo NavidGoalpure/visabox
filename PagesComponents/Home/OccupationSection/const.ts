@@ -1,0 +1,20 @@
+import { MultiLanguageText } from 'Interfaces';
+export enum LanguageKeys {
+  Title = 'Title',
+  Subtitle = 'Subtitle',
+  CTA = 'CTA',
+}
+export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  Title: {
+    fa: 'لیست مشاغل',
+    en: 'List Of Occupations',
+  },
+  Subtitle: {
+    fa: 'برای مشاهده لیست مشاغل دارای اولویت اینجا از این بخش استفاده کنید.',
+    en: 'Use this section to view the list of Occupations.',
+  },
+  CTA: {
+    fa: 'مشاهده همه ',
+    en: 'View All',
+  },
+};

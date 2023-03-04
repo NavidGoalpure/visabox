@@ -39,7 +39,6 @@ function Desktop() {
               {t(LanguageKeys.socialList)}
             </MenuLink>
           </NavigationMenu.Item>
-          {/* navid tell mobin about this */}
           <DesktopLanguageChanger />
           <SwitchTheme />
         </MenuItems>

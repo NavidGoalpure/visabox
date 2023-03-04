@@ -4,6 +4,7 @@ export enum LanguageKeys {
   Title1 = 'Title1',
   Title2 = 'Title2',
   Title3 = 'Title3',
+  Subtitle = 'Subtitle',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title1: {
@@ -17,6 +18,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title3: {
     fa: 'استرالیا',
     en: 'Home',
+  },
+  Subtitle: {
+    fa: 'بررسی شرایط ویزا برای <span>نیروی متخصص, لیست وکلای مهاجرت معتبر, شبکه های اجتماعی</span> مناسب و امکانات جذاب دیگر برای مهاجرت به استرالیا',
+    en: 'Examining the visa requirements for <span>specialist staff, the list of reputable immigration lawyers, suitable social networks </span> and other attractive facilities for immigration to Australia',
   },
 };
 export const tsParticleOption: ISourceOptions = {

@@ -1,18 +1,14 @@
 import { deviceMin } from 'Consts/device';
 import { useCallback, useRef } from 'react';
 import Particles from 'react-tsparticles';
-import type {
-  SizeMode,
-  ISourceOptions,
-  Container as PartcleContainer,
-  Engine,
-} from 'tsparticles-engine';
+import type { Container as PartcleContainer, Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled, { css, useTheme } from 'styled-components';
 import theme from 'styled-theming';
 import { componentStatements, LanguageKeys, tsParticleOption } from './const';
 import heroSvg from './airplane.svg';
+import { layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
 
 const Hero: React.FC = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -48,6 +44,11 @@ const Hero: React.FC = () => {
       <Title style={{ marginTop: '-5rem' }}>{t(LanguageKeys.Title1)}</Title>
       <Title>{t(LanguageKeys.Title2)}</Title>
       <Title3>{t(LanguageKeys.Title3)}</Title3>
+      <Subtitle
+        dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Subtitle) }}
+      />
+      <Blured1 />
+      <Blured2 />
     </Container>
   );
 };
@@ -70,7 +71,7 @@ const BorderColor_Desktop = theme('mode', {
     background: #282828;
   `,
 });
-const Container = styled.div`
+const Container = styled.section`
   ${BorderColor_Mobile}
   display: flex;
   align-items: center;
@@ -79,7 +80,8 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   padding-top: 2rem;
-  height: 100vh;
+  height: calc(100vh - 3rem);
+  overflow: hidden;
   @media ${deviceMin.tabletL} {
     ${BorderColor_Desktop}
   }
@@ -127,4 +129,41 @@ const title3Color = theme('mode', {
 });
 const Title3 = styled(Title)`
   ${title3Color}
+`;
+///////////////////////////////
+const subtitleColor = theme('mode', {
+  light: css`
+    color: var(--color-secondary3);
+  `,
+  dark: css`
+    color: var(--color-primary6);
+  `,
+});
+const Subtitle = styled.div`
+  ${layer1_TextColor}
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 38px;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+  span {
+    ${subtitleColor}
+  }
+`;
+const Blured1 = styled.div`
+  position: absolute;
+  width: 80px;
+  height: 70px;
+  right: 40px;
+  top: 78px;
+  background: rgba(27, 173, 161, 0.5);
+  filter: blur(80px);
+`;
+const Blured2 = styled(Blured1)`
+  bottom: 5rem;
+  left: 4rem;
+  top: unset;
+  right: unset;
 `;

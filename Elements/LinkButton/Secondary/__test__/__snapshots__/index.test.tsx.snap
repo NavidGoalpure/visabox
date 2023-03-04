@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders active correctly  1`] = `
+<button
+  className="Button__Container-sc-1bknf9u-0 cgssBM"
+  disabled={false}
+  type="button"
+>
+  Naruto
+</button>
+`;
+
+exports[`renders disabled correctly  1`] = `
+<button
+  className="Button__Container-sc-1bknf9u-0 cgssBM"
+  disabled={true}
+  type="button"
+>
+  Naruto
+</button>
+`;

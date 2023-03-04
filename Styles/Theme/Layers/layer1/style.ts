@@ -38,3 +38,9 @@ export const Layer1_TextStyle = css`
   ${Headline5Style}
   margin-bottom: 1rem;
 `;
+export const Layer1_HrStyle = css`
+  border: 2px solid var(--color-gray9);
+  width: 80%;
+  border-radius: 15px;
+  margin: 4rem 0;
+`;

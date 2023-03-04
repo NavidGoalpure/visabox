@@ -1,17 +1,16 @@
-import { Logo } from "Elements/Logo";
-import Link from "next/link";
-import React from "react";
-import styled from "styled-components";
-import { boxShadow, directionStyles } from "Styles/Theme";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import SwitchTheme from "./switchTheme";
-import { useLocale } from "Hooks/useLocale";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
-import { Languages } from "Interfaces";
-import { componentStatements, LanguageKeys } from "./const";
-import DesktopLanguageChanger from "./LanguageChanger/Desktop";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Logo } from 'Elements/Logo';
+import Link from 'next/link';
+import React from 'react';
+import styled from 'styled-components';
+import { boxShadow, directionStyles } from 'Styles/Theme';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import SwitchTheme from './switchTheme';
+import { useLocale } from 'Hooks/useLocale';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
+import { componentStatements, LanguageKeys } from './const';
+import DesktopLanguageChanger from './LanguageChanger/Desktop';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function Desktop() {
   const { locale } = useLocale();
@@ -20,7 +19,7 @@ function Desktop() {
     <Container>
       <Wrapper>
         <NavigationMenu.Item>
-          <Link href={`/${locale}/occupations`}>
+          <Link href={`/${locale}`}>
             <Logo />
           </Link>
         </NavigationMenu.Item>
@@ -33,7 +32,12 @@ function Desktop() {
           <NavigationMenu.Item>
             <MenuLink href={`/${locale}/businesses/lawyers`}>
               {t(LanguageKeys.LawyersList)}
-            </MenuLink>{" "}
+            </MenuLink>{' '}
+          </NavigationMenu.Item>
+          <NavigationMenu.Item>
+            <MenuLink href={`/${locale}/businesses/social-networks`}>
+              {t(LanguageKeys.socialList)}
+            </MenuLink>
           </NavigationMenu.Item>
           {/* navid tell mobin about this */}
           <DesktopLanguageChanger />
@@ -74,7 +78,7 @@ const MenuLink = styled(Link)`
   ${layer3_TextStyle};
   position: relative;
   :before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0px;
     left: 0;

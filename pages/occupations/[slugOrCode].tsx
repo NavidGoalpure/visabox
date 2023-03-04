@@ -27,19 +27,20 @@ const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   if (errorCode) return <Error statusCode={errorCode} />;
+  const date = new Date();
   return (
     <PageLayout>
       <Seo
-        title={t(LanguageKeys.SeoTitle, [
-          { $title: occupation?.title.en || '' },
-          { $code: occupation?.code.toString() || '' },
-        ])}
+        title={
+          t(LanguageKeys.SeoTitle, [
+            { $title: occupation?.title.en || '' },
+            { $code: occupation?.code.toString() || '' },
+          ]) + ` | ${date.getFullYear()}`
+        }
         description={
           occupation?.anzsco_section?.description?.en || t(LanguageKeys.SeoDesc)
         }
         canonical={`https://www.marabox.com/${locale}/occupations/${occupation?.slug?.current}`}
-        //navid temporari
-        isNoIndex={locale === Languages.fa}
       />
       {occupation ? <Content occupation={occupation} /> : null}
     </PageLayout>

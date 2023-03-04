@@ -85,5 +85,5 @@ const LinkColumn = styled.a`
 `;
 const Row = styled.div`
   display: flex;
-}
+  align-items: center;
 `;

@@ -36,7 +36,7 @@ const SwitchTheme = () => {
 };
 
 export default SwitchTheme;
-export const BorderColor = theme('mode', {
+const BorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray12);
   `,
@@ -56,6 +56,8 @@ const SwitchRoot = styled(RdxSwitch.Root)`
   outline: none;
   display: flex;
   align-items: center;
+  direction: ltr;
+  scale: 0.7;
   #moon {
     font-size: 4px;
     position: absolute;
@@ -94,11 +96,8 @@ const SwitchThumb = styled(RdxSwitch.Thumb)<{ direction: LanguageDirection }>`
   height: calc(100% + 6px);
   border-radius: 50%;
   transition: all 100ms;
-  z-index:2;
-  transform: ${({ direction }) =>
-    direction === LanguageDirection.LTR
-      ? 'translateX(-3px);'
-      : 'translateX(3px);'}
+  z-index: 2;
+  transform: translateX(-3px);
   will-change: transform;
   display: flex;
   align-items: center;
@@ -114,10 +113,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)<{ direction: LanguageDirection }>`
     background-image: url(${Moon});
   }
   &[data-state='checked'] {
-      transform: ${({ direction }) =>
-        direction === LanguageDirection.LTR
-          ? 'translateX(3px);'
-          : 'translateX(-3px);'}
+    transform: translateX(3px);
     background-color: var(--color-secondary4);
     :before {
       background-image: url(${Sun});

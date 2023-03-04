@@ -23,6 +23,7 @@ import {
 import { FaRegHandshake } from "react-icons/fa";
 import { Lawyers } from "Consts/Businesses/Lawyers";
 import VIPLawyerCard from "Components/Business/Lawyer/VIPCard";
+import HintComponent from "Components/HintComponent";
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -62,6 +63,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           {occupation.territory_section ? (
             <SideBar.BodyItem value="details">
               <ContentWrapper>
+                <HintComponent />
                 <DetailComponent
                   territorySection={occupation.territory_section}
                 />

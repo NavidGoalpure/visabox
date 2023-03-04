@@ -1,12 +1,12 @@
-import LawyerCard from "Components/Business/Lawyer/Card";
-import { deviceMin } from "Consts/device";
-import { componentStatements, LanguageKeys } from "./const";
-import styled from "styled-components";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import VIPLawyerCard from "../../../Components/Business/Lawyer/VIPCard";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { layer3_TitleStyle } from "Styles/Theme/Layers/layer3/style";
-import { Lawyers } from "Consts/Businesses/Lawyers";
+import LawyerCard from 'Components/Business/Lawyer/Card';
+import { deviceMin } from 'Consts/device';
+import { componentStatements, LanguageKeys } from './const';
+import styled from 'styled-components';
+import { Layer1_SubtitleStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import VIPLawyerCard from '../../../Components/Business/Lawyer/VIPCard';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
+import { Lawyers } from 'Consts/Businesses/Lawyers';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -27,15 +27,15 @@ function Content() {
       </VIPContainer>
       <NormalLawyerContainer>
         {Lawyers.filter((lawyer) => !lawyer.isFeatured).map((lawyer) => {
-            return (
-              <LawyerCard
-                name={lawyer.name}
-                email={lawyer.contact.email}
-                website={lawyer.website}
-                slug={lawyer.slug}
-                phone={lawyer.contact.phone}
-              />
-            );
+          return (
+            <LawyerCard
+              name={lawyer.name}
+              email={lawyer.contact.email}
+              website={lawyer.website}
+              slug={lawyer.slug}
+              phone={lawyer.contact.phone}
+            />
+          );
         })}
       </NormalLawyerContainer>
     </Container>
@@ -60,8 +60,9 @@ const PageTitle = styled.h1`
   }
 `;
 const PageSubtitle = styled.h4`
-  ${layer3_TitleStyle};
-  margin-bottom: 1rem;
+  ${Layer1_SubtitleStyle};
+  
+  
 `;
 const VIPContainer = styled.div`
   width: 100%;

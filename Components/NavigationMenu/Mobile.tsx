@@ -1,17 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled, { css } from "styled-components";
-import { boxShadow, directionStyles } from "Styles/Theme";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
-import gsap from "gsap";
-import SwitchTheme from "./switchTheme";
-import Link from "next/link";
-import { useLocale } from "Hooks/useLocale";
-import { layer3_TitleStyle } from "Styles/Theme/Layers/layer3/style";
-import MobileLanguageChanger from "./LanguageChanger/Mobile";
-import { ScrollBox } from "Elements/ScrollBox";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
+import React, { useEffect, useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+import { boxShadow, directionStyles } from 'Styles/Theme';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
+import gsap from 'gsap';
+import SwitchTheme from './switchTheme';
+import Link from 'next/link';
+import { useLocale } from 'Hooks/useLocale';
+import { layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
+import MobileLanguageChanger from './LanguageChanger/Mobile';
+import { ScrollBox } from 'Elements/ScrollBox';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -23,14 +23,14 @@ function SmartHeader() {
   useEffect(() => {
     hamburgerAnimationRef.current = gsap
       .timeline({ paused: true })
-      .add("start")
+      .add('start')
       .to(
-        "#hamburg",
+        '#hamburg',
         {
           duration: 0.2,
           y: 10,
         },
-        "start"
+        'start'
       )
       .to(
         `#line1`,
@@ -38,7 +38,7 @@ function SmartHeader() {
           duration: 0.2,
           y: 6,
         },
-        "start"
+        'start'
       )
       .to(
         `#line2`,
@@ -46,16 +46,16 @@ function SmartHeader() {
           duration: 0.2,
           y: -6,
         },
-        "start"
+        'start'
       )
       .to(
         `#line1`,
         {
           duration: 0.1,
           rotate: 45,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
         },
-        "+=0.1"
+        '+=0.1'
       )
 
       .to(
@@ -63,33 +63,33 @@ function SmartHeader() {
         {
           duration: 0.1,
           rotate: -45,
-          transformOrigin: "50% 50%",
+          transformOrigin: '50% 50%',
         },
-        "-=0.1"
+        '-=0.1'
       );
     popupAnimationRef.current = gsap
       .timeline({ paused: true })
-      .to("#popup", { x: "100vw", duration: 0.3 }, "-=0.1");
+      .to('#popup', { x: '100vw', duration: 0.3 }, '-=0.1');
   }, []);
   useEffect(() => {
-    document.body.style.overflow = "unset";
+    document.body.style.overflow = 'unset';
     if (isMenuClicked) {
       popupAnimationRef.current?.restart();
       hamburgerAnimationRef.current?.restart();
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     }
     if (isMenuClicked === false) {
       popupAnimationRef.current?.reverse();
       hamburgerAnimationRef.current?.reverse();
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
   }, [isMenuClicked]);
 
   return (
     <Container>
       <Wrapper>
-        <MenuPopupContainer id={"popup"}>
-          <ScrollBox type={"auto"} id={"scrollbox"} heightToRem={18}>
+        <MenuPopupContainer id={'popup'}>
+          <ScrollBox type={'auto'} id={'scrollbox'} heightInRem={18}>
             <MenuPopupWrapper>
               <Nav>
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
@@ -113,8 +113,8 @@ function SmartHeader() {
           id={`hamburg`}
           onClick={() => setIsMenuClicked(!isMenuClicked)}
         >
-          <span aria-hidden id={"line1"} />
-          <span aria-hidden id={"line2"} />
+          <span aria-hidden id={'line1'} />
+          <span aria-hidden id={'line2'} />
         </MenuBurger>
       </Wrapper>
     </Container>
@@ -122,15 +122,8 @@ function SmartHeader() {
 }
 export default SmartHeader;
 //there was a theme in the layers like this one but it was for color not background so i couldn't use it
-const MenuBurgerTheme = theme("mode", {
-  light: css`
-    background: var(--color-gray8);
-  `,
-  dark: css`
-    background: var(--color-gray10);
-  `,
-});
-const PopupBagroundTheme = theme("mode", {
+
+const PopupBagroundTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -183,7 +176,9 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  width: 100%;
 `;
+
 const Hr = styled.hr`
   width: 100%;
   height: 1px;

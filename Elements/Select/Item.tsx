@@ -1,11 +1,12 @@
-import styled from "styled-components";
-import * as Select from "@radix-ui/react-select";
-import { ReactNode } from "react";
-import { SelectItemProps } from "@radix-ui/react-select";
+import styled, { css } from 'styled-components';
+import * as Select from '@radix-ui/react-select';
+import { ReactNode } from 'react';
+import { SelectItemProps } from '@radix-ui/react-select';
+import { directionStyles } from 'Styles/Theme';
 
 interface Props extends SelectItemProps {
   icon?: ReactNode;
-  text: string;
+  text: ReactNode;
 }
 
 const Item: React.FC<Props> = ({ icon, text, ...props }) => {
@@ -16,8 +17,9 @@ const Item: React.FC<Props> = ({ icon, text, ...props }) => {
   );
 };
 export { Item };
-const SelectItem = styled(Select.Item)`
-  padding: 1rem 1.5rem;
+export const SelectItemCss = css`
+  ${directionStyles}
+  padding: 0.5rem 1rem;
   width: max-content;
   display: flex;
   gap: 1rem;
@@ -31,4 +33,7 @@ const SelectItem = styled(Select.Item)`
     background: var(--color-gray10);
     color: var(--color-gray1);
   }
+`;
+const SelectItem = styled(Select.Item)`
+  ${SelectItemCss}
 `;

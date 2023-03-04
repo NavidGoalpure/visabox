@@ -1,30 +1,30 @@
-import Image from "next/image";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import {
   layer2B_HeaderStyle,
   layer2B_SubtitleStyle,
   layer2B_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2B_BG } from "Styles/Theme/Layers/layer2/theme";
-import { layer3_SubtitleStyle } from "Styles/Theme/Layers/layer3/style";
-import { Headline7Style } from "Styles/Typo";
-import { FiBox } from "react-icons/fi";
-import { MultiLanguageText } from "Interfaces";
-import { HTMLAttributes, useEffect } from "react";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import gsap from "gsap";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
+import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
+import { Headline7Style } from 'Styles/Typo';
+import { FiBox } from 'react-icons/fi';
+import { MultiLanguageText } from 'Interfaces';
+import { HTMLAttributes, useEffect } from 'react';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import gsap from 'gsap';
 //@ts-ignore
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { deviceMin } from "Consts/device";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { deviceMin } from 'Consts/device';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Businesses/Lawyers/const";
-import Link from "next/link";
+} from 'PagesComponents/Businesses/Lawyers/const';
+import Link from 'next/link';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
@@ -45,8 +45,8 @@ function VIPLawyerCard({ name, desc, slug, className, ...props }: Props) {
       {
         scrollTrigger: {
           trigger: `.${slug}`,
-          start: "-10 bottom",
-          toggleActions: "play none none none",
+          start: '-10 bottom',
+          toggleActions: 'play none none none',
         },
         y: 0,
         opacity: 1,
@@ -58,7 +58,7 @@ function VIPLawyerCard({ name, desc, slug, className, ...props }: Props) {
     <Container
       {...props}
       href={`/businesses/lawyers/${slug}`}
-      target={"_blank"}
+      target={'_blank'}
       className={`${slug} ${className}`}
     >
       <Wrapper>
@@ -66,7 +66,8 @@ function VIPLawyerCard({ name, desc, slug, className, ...props }: Props) {
           <LawyerLogo
             fill
             src={`/Images/businesses/lawyer/${slug}.jpeg`}
-            alt="image"
+            alt={` image of ${slug}`}
+            quality={100}
           />
         </ImageWrapper>
         <Title>{dt(name)}</Title>
@@ -82,7 +83,7 @@ function VIPLawyerCard({ name, desc, slug, className, ...props }: Props) {
 }
 export default VIPLawyerCard;
 
-const LogoBackground = theme("mode", {
+const LogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
       -86deg,

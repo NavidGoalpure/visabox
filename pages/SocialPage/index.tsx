@@ -7,7 +7,7 @@ import {
 } from "PagesComponents/Occupations/AssssingAuthoritties/const";
 import { useLocale } from "Hooks/useLocale";
 import Seo from "Components/Seo";
-import Content from "PagesComponents/SocialPage";
+import Content from "PagesComponents/Businesses/SocialPage";
 
 const SocialPage: NextPage = () => {
   const { locale } = useLocale();

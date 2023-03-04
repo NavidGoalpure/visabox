@@ -42,11 +42,11 @@ const ContentContainer = styled.div`
 const TabsTriggerActivehover = theme('mode', {
   light: css`
     background: var(--color-primary4);
-    color: var(--color-gray6);
+    color: white;
   `,
   dark: css`
     background: var(--color-primary3);
-    color: var(--color-gray6);
+    color: white;
   `,
 });
 const TabsTriggerhover = theme('mode', {

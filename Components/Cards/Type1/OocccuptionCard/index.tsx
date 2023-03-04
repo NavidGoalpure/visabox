@@ -1,17 +1,17 @@
-import { useLocale } from "Hooks/useLocale";
-import { MultiLanguageText, MultiLanguageTextArray } from "Interfaces";
-import { Slug } from "Interfaces/Fields";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import PopupContent from "./popupContent";
-import { Container, Wrapper, Code, Title } from "../StyledComponents";
-import Popup from "../popup";
-import styled from "styled-components";
-import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import gsap from "gsap";
+import { useLocale } from 'Hooks/useLocale';
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
+import { Slug } from 'Interfaces/Fields';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import PopupContent from './popupContent';
+import { Container, Wrapper, Code, Title } from '../StyledComponents';
+import Popup from '../popup';
+import styled from 'styled-components';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import gsap from 'gsap';
 //@ts-ignore
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 interface Props {
   code?: number;
   title?: MultiLanguageText;
@@ -19,6 +19,7 @@ interface Props {
   slug?: Slug;
   tasks: MultiLanguageTextArray;
 }
+
 function OccupationCard({ code, title, description, slug, tasks }: Props) {
   const { dt } = useDynamicTranslation();
   const { locale } = useLocale();
@@ -34,8 +35,8 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
       {
         scrollTrigger: {
           trigger: `.c${code}`,
-          start: "-10 bottom",
-          toggleActions: "play none none none",
+          start: '-10 bottom',
+          toggleActions: 'play none none none',
         },
         y: 0,
         opacity: 1,
@@ -46,7 +47,7 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
   return (
     <Container className={`c${code}`}>
       <Link
-        style={{ height: "100%" }}
+        style={{ height: '100%' }}
         key={code}
         href={{ pathname: `/${locale}/occupations/${slug?.current}` }}
         prefetch={false}

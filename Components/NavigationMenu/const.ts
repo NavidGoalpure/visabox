@@ -1,21 +1,26 @@
-import { MultiLanguageText } from "Interfaces";
+import { MultiLanguageText } from 'Interfaces';
 
 export enum LanguageKeys {
-  SkilledOccupationList = "SkilledOccupationList",
-  LawyersList = "LawyersList",
-  Home = "Home"
+  SkilledOccupationList = 'SkilledOccupationList',
+  LawyersList = 'LawyersList',
+  Home = 'Home',
+  socialList = 'socialList',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SkilledOccupationList: {
-    en: "Skilled Occupation List",
-    fa: "لیست مشاغل",
+    en: 'Skilled Occupations',
+    fa: 'لیست مشاغل',
   },
   LawyersList: {
-    en: "Lawyers List",
-    fa: "لیست وکلا",
+    en: 'Lawyers',
+    fa: 'لیست وکلا',
   },
-  Home:{
-    en:"Home",
-    fa:"صفحه اصلی"
+  socialList: {
+    en: 'Social Networks',
+    fa: 'شبکه های اجتماعی',
+  },
+  Home: {
+    en: 'Home',
+    fa: 'صفحه اصلی',
   },
 };

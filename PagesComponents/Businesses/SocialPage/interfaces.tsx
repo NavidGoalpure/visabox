@@ -1,9 +1,9 @@
-import { Locations } from "Interfaces";
+import { Locations } from 'Interfaces';
 export enum SocialMediaTypes {
-  TELEGRAM = "TELEGRAM",
-  INSTAGRAM = "INSTAGRAM",
+  TELEGRAM = 'TELEGRAM',
+  INSTAGRAM = 'INSTAGRAM',
 }
-export interface TelegramGroup {
+export interface GroupCard {
   name: string;
   slug: string;
   link: string;

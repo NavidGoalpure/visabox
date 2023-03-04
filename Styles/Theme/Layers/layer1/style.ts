@@ -1,3 +1,4 @@
+import { deviceMin } from 'Consts/device';
 import { css } from 'styled-components';
 import { Headline4Style, Headline5Style } from 'Styles/Typo';
 import { directionStyles } from '../..';
@@ -15,6 +16,7 @@ export const Layer1_TitleStyle = css<{
   ${layer1_TitleColor}
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
+  margin-top: 1rem;
   font-weight: bold;
 `;
 export const Layer1_SubtitleStyle = css<{
@@ -25,6 +27,10 @@ export const Layer1_SubtitleStyle = css<{
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
   width: 100%;
+  text-align: center;
+  @media ${deviceMin.tabletS} {
+    text-align: start;
+  }
 `;
 export const Layer1_TextStyle = css`
   ${directionStyles}

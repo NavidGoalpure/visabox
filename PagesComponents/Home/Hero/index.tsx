@@ -1,6 +1,6 @@
 import { deviceMin } from 'Consts/device';
 import { useCallback, useRef } from 'react';
-import Particles from 'react-tsparticles';
+
 import type { Container as PartcleContainer, Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -9,6 +9,7 @@ import theme from 'styled-theming';
 import { componentStatements, LanguageKeys, tsParticleOption } from './const';
 import heroSvg from './airplane.svg';
 import { layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
+import dynamic from 'next/dynamic';
 
 const Hero: React.FC = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -20,12 +21,12 @@ const Hero: React.FC = () => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container: PartcleContainer | undefined) => {
-      await console.log(container);
-    },
-    []
-  );
+  // const particlesLoaded = useCallback(
+  //   async (container: PartcleContainer | undefined) => {
+  //     // await console.log(container);
+  //   },
+  //   []
+  // );
 
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
@@ -36,7 +37,7 @@ const Hero: React.FC = () => {
         container={particlesContainer}
         id='tsparticles'
         init={particlesInit}
-        loaded={particlesLoaded}
+        // loaded={particlesLoaded}
         options={tsParticleOption}
       />
       <img src={heroSvg} />
@@ -86,12 +87,16 @@ const Container = styled.section`
     ${BorderColor_Desktop}
   }
 `;
+const Particles = dynamic(() => import('react-tsparticles'), {
+  ssr: false,
+});
 const StyledParticles = styled(Particles)`
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
 `;
+
 ///////////////////////
 const titleFont = theme('mode', {
   light: css`

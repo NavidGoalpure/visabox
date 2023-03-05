@@ -68,6 +68,7 @@ function VIPLawyerCard({ name, desc, slug, className, ...props }: Props) {
             src={`/Images/businesses/lawyer/${slug}.jpeg`}
             alt={` image of ${slug}`}
             quality={100}
+            sizes='96px'
           />
         </ImageWrapper>
         <Title>{dt(name)}</Title>

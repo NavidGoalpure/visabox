@@ -1,7 +1,9 @@
 import VIPLawyerCard from 'Components/Business/Lawyer/VIPCard';
 import { Lawyers } from 'Consts/Businesses/Lawyers';
-import { PrimaryButton } from 'Elements/LinkButton/Primary';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import {
   Layer1_HrStyle,
@@ -12,7 +14,9 @@ import { componentStatements, LanguageKeys } from './const';
 
 const index: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
   const vipLawyer = Lawyers.find((agent) => agent.isFeatured);
+
   return (
     <Container>
       <Title>{t(LanguageKeys.Title)}</Title>
@@ -25,7 +29,9 @@ const index: React.FC = () => {
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-      <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
+      <Link href={`${locale}/businesses/lowyers`}>
+        <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
+      </Link>
       <Hr />
     </Container>
   );

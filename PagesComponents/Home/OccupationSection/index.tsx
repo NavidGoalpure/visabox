@@ -1,29 +1,20 @@
 import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
 import { PrimaryButton } from 'Elements/LinkButton/Primary';
+import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
-import { Slug } from 'Interfaces/Fields';
+import Link from 'next/link';
 import styled from 'styled-components';
 import {
   Layer1_HrStyle,
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import { componentStatements, LanguageKeys } from './const';
+import { CardData, componentStatements, LanguageKeys } from './const';
 
 const index: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
-  const CardData = {
-    code: 133111,
-    title: {
-      en: 'Construction Project Manager',
-    } as MultiLanguageText,
-    description: {
-      en: 'Plans, organises, directs, controls and coordinates construction of civil engineering and building projects, and the physical and human resources involved in the construction process. Registration or licensing may be required.',
-    } as MultiLanguageText,
-    slug: { current: '/occupations/construction-project-manager' } as Slug,
-    tasks: {} as MultiLanguageTextArray,
-  };
+  const { locale } = useLocale();
+
   return (
     <Container>
       <Title>{t(LanguageKeys.Title)}</Title>
@@ -35,7 +26,9 @@ const index: React.FC = () => {
         tasks={CardData.tasks}
       />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-      <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
+      <Link href={`${locale}/occupations`}>
+        <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
+      </Link>
     </Container>
   );
 };

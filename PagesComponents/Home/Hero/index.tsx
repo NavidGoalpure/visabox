@@ -21,13 +21,6 @@ const Hero: React.FC = () => {
     await loadFull(engine);
   }, []);
 
-  // const particlesLoaded = useCallback(
-  //   async (container: PartcleContainer | undefined) => {
-  //     // await console.log(container);
-  //   },
-  //   []
-  // );
-
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
 
@@ -37,7 +30,6 @@ const Hero: React.FC = () => {
         container={particlesContainer}
         id='tsparticles'
         init={particlesInit}
-        // loaded={particlesLoaded}
         options={tsParticleOption}
       />
       <img src={heroSvg} />

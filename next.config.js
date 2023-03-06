@@ -47,6 +47,9 @@ const config = {
     //   'Configure Tunneling to avoid Ad-Blockers':
     //     - tunnelRoute
   },
+  images: {
+    formats: ['image/webp'],
+  },
 };
 const sentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that

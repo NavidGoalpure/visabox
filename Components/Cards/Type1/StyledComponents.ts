@@ -27,7 +27,7 @@ export const Container = styled.section`
   height: 19rem;
   border-radius: 15px;
   cursor: pointer;
-  max-width: 31%;
+  max-width: 320px;
   position: relative;
   padding: 1rem 1rem 2rem 1rem;
 

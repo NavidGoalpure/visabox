@@ -102,7 +102,7 @@ function SmartHeader() {
                   {t(LanguageKeys.LawyersList)}
                 </MenuLink>
                 <Hr />
-                <MenuLink href={`/${locale}/businesses/social-networks`}>
+                <MenuLink href={`/${locale}/businesses/social-pages`}>
                   {t(LanguageKeys.socialList)}
                 </MenuLink>
                 <Hr />

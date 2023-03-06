@@ -54,7 +54,12 @@ function MobileSocialCard({
     <Container href={link} target={'_blank'} isFeatured={isFeatured}>
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
-          <Img fill src={`/Images/socialPage/${slug}.jpg`} alt='image' />
+          <Img
+            fill
+            src={`/Images/socialPage/${slug}.jpg`}
+            alt='image'
+            sizes='96px'
+          />
         </ImgWrapper>
         {isFeatured && (
           <VIPBoxContainer aria-hidden={true}>
@@ -183,6 +188,7 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
 `;
 const ImgWrapper = styled.div`
   ${LogoBackground}
+  position:relative;
   padding: 0.5rem;
   width: 6.625rem;
   height: 6.625rem;

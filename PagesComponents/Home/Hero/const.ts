@@ -21,7 +21,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   Subtitle: {
     fa: 'بررسی شرایط ویزا برای <span>نیروی متخصص, لیست وکلای مهاجرت معتبر, شبکه های اجتماعی</span> مناسب و امکانات جذاب دیگر برای مهاجرت به استرالیا',
-    en: 'Examining the visa requirements for <span>specialist staff, the list of reputable immigration lawyers, suitable social networks </span> and other attractive facilities for immigration to Australia',
+    en: 'A toolbox for <span>immigrating to Australia</span>, including the introduction of the best <span>MARA Agents</span> and <span>Social Pages</span>',
   },
 };
 export const tsParticleOption: ISourceOptions = {

@@ -18,6 +18,9 @@ export const Layer1_TitleStyle = css<{
   margin-bottom: 2.5rem;
   margin-top: 1rem;
   font-weight: bold;
+  @media ${deviceMin.tabletS} {
+    text-align: start;
+  }
 `;
 export const Layer1_SubtitleStyle = css<{
   color?: string;
@@ -40,7 +43,7 @@ export const Layer1_TextStyle = css`
 `;
 export const Layer1_HrStyle = css`
   border: 2px solid var(--color-gray9);
-  width: 80%;
+  width: 16rem;
   border-radius: 15px;
-  margin: 4rem 0;
+  margin: 4rem auto;
 `;

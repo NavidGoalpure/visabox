@@ -32,7 +32,7 @@ const MobileLanguageChanger = ({}) => {
           <SphereIcon />
           {smartTextObj[locale]}
         </TriggerText>
-        <ArrowIcon isOpen={isOpen} />
+        <ArrowIcon $isOpen={isOpen} />
       </TriggerContainer>
       {isOpen && (
         <PopupContainer>
@@ -44,9 +44,13 @@ const MobileLanguageChanger = ({}) => {
               });
             }}
           >
-            {' '}
             <FlagWrapper>
-              <Flag fill src={BritishFlag} alt={'england flag'} />
+              <Flag
+                fill
+                src={BritishFlag}
+                alt={'england flag'}
+                sizes='1.5rem'
+              />
             </FlagWrapper>
             {smartTextObj.en}
           </PopupItem>
@@ -60,7 +64,7 @@ const MobileLanguageChanger = ({}) => {
             }}
           >
             <FlagWrapper>
-              <Flag fill src={IranFlag} alt={'iran flag'} />
+              <Flag fill src={IranFlag} alt={'iran flag'} sizes='1.5rem' />
             </FlagWrapper>
             {smartTextObj.fa}
           </PopupItem>
@@ -95,10 +99,10 @@ const SphereIcon = styled(ImSphere)`
   height: auto;
   margin-bottom: 0.4rem;
 `;
-const ArrowIcon = styled(BsChevronDown)<{ isOpen: boolean }>`
+const ArrowIcon = styled(BsChevronDown)<{ $isOpen: boolean }>`
   ${layer3_TextColor};
   transition: all 0.3s ease;
-  ${({ isOpen }) => isOpen && `transform:rotate(180deg);`}
+  ${({ $isOpen }) => $isOpen && `transform:rotate(180deg);`}
 `;
 
 const PopupContainer = styled.div`
@@ -121,6 +125,7 @@ const PopupItem = styled.h4`
   gap: 1rem;
 `;
 const FlagWrapper = styled.div`
+  position: relative;
   width: 1.5rem;
   height: 1.5rem;
 `;

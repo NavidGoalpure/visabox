@@ -26,5 +26,6 @@ export default Home;
 const StyledPageLayout = styled(PageLayout)`
   #PageContainer-content {
     padding: 0;
+    max-width: unset;
   }
 `;

@@ -23,7 +23,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
     <Container {...props} $locale={locale}>
       <Header />
 
-      <Survay.Root
+      {/* <Survay.Root
         title={{
           en: 'How do you prefer to do the legal procedures of immigration?',
           fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
@@ -45,7 +45,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
             }}
           />
         </MultiChoice>
-      </Survay.Root>
+      </Survay.Root> */}
       <Content id='PageContainer-content'>{children}</Content>
       <Footer />
     </Container>

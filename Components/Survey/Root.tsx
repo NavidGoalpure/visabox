@@ -5,9 +5,9 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { MultiLanguageText } from 'Interfaces';
 import React, { HTMLAttributes, ReactNode, useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
-import { Module_Theme, Module_TitleColor } from 'Styles/Theme/Modals/theme';
+import { Module_Style, Module_TitleColor } from 'Styles/Theme/Modals/theme';
 
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   title: MultiLanguageText;
@@ -41,8 +41,13 @@ const Up = keyframes`
  100% { transform: translateY(0%);  }
 `
 
+const Down = keyframes`
+ 0% { transform: translateY(0%);  }
+ 100% { transform: translateY(95%); }
+`
+
 const Container = styled.section<{ isShow: boolean }>`
-  ${Module_Theme}
+  ${Module_Style}
   ${directionStyles}
   border-radius: 8px 8px 0 0;
   position: fixed;
@@ -52,8 +57,7 @@ const Container = styled.section<{ isShow: boolean }>`
   width: 80%;
   right: 0;
   left: 0;
-  animation: ${Up} 0.3s linear;
-  transform: ${({ isShow }) => (isShow ? "translateY(95%)" : "translateY(1%)")};
+  ${({ isShow }) => (isShow ? css`animation: ${Up} 0.3s linear forwards` : css`animation: ${Down} 0.3s linear forwards`)};
   @media ${deviceMin.tabletL}
   { 
   width: 30%;
@@ -68,7 +72,7 @@ const Wrapper = styled.form`
   position: relative;
 `;
 const Trigger = styled.div`
-  ${Module_Theme}
+  ${Module_Style}
   text-align: center;
   position: absolute;
   top: -23px;
@@ -91,7 +95,6 @@ const ArrowContainer = styled.div<{ isShow: boolean }>`
   color: white;
   transform: ${({ isShow }) => (isShow ? "rotate(180deg)" : "rotate(1deg)")};
 `
-
 
 const Title = styled.div`
   ${Module_TitleColor}

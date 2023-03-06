@@ -3,7 +3,7 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 import { RadioGroupItemProps } from '@radix-ui/react-radio-group';
 import { Label } from '@radix-ui/react-label';
 import styled from 'styled-components';
-import { Module_TextColor } from 'Styles/Theme/Modals/theme';
+import { Module_RadioBtnBG, Module_TextColor, Module_TitleColor } from 'Styles/Theme/Modals/theme';
 import { MultiLanguageText } from 'Interfaces';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 
@@ -30,12 +30,12 @@ export const Item: React.FC<RadioItemProps> = ({
 };
 
 const Container = styled.div<{ isShow: boolean }>`
+  ${Module_RadioBtnBG}
   display: flex;
   align-items: center;
   border-top: 1px solid var(--color-gray9);
   border-bottom: 1px solid var(--color-gray9);
   padding: 12px;
-  background-color: ${({ isShow }) => (isShow ? "var(--color-gray7)" : "var(--color-gray5)")};
 `;
 const RadioGroupItem = styled(RadioGroup.Item)`
   background-color: white;
@@ -67,7 +67,7 @@ const RadioGroupIndicator = styled(RadioGroup.Indicator)`
   }
 `;
 const StyledLabel = styled(Label)`
-  ${Module_TextColor}
+  ${Module_TitleColor}
   font-size: 15px;
   line-height: 1;
   padding-left: 15px;

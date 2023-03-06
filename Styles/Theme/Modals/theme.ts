@@ -2,13 +2,14 @@ import { css } from 'styled-components';
 import theme from 'styled-theming';
 
 //////////Module/////////
-export const Module_Theme = theme('mode', {
+export const Module_Style = theme('mode', {
   light: css`
-    background-color: bisque;
+  background-color: var(--color-gray6);
+  border: 0.2px solid var(--color-gray9);
   `,
   dark: css`
-    background-color: var(--color-gray2);
-    border: 0.2px solid var(--color-gray9);
+    background-color: var(--color-gray13);
+    border: 0.2px solid var(--color-gray12);
   `,
 });
 export const Module_TitleColor = theme('mode', {
@@ -16,7 +17,7 @@ export const Module_TitleColor = theme('mode', {
     color: var(--color-primary6);
   `,
   dark: css`
-    color: var(--color-gray13);
+    color: var(--color-gray6);
   `,
 });
 export const Module_SubtitleColor = theme('mode', {
@@ -24,7 +25,7 @@ export const Module_SubtitleColor = theme('mode', {
     color: var(--color-gray7);
   `,
   dark: css`
-    color: var(--color-gray13);
+    color: var(--color-gray7);
   `,
 });
 export const Module_TextColor = theme('mode', {
@@ -33,5 +34,13 @@ export const Module_TextColor = theme('mode', {
   `,
   dark: css`
     color: var(--color-gray13);
+  `,
+});
+export const Module_RadioBtnBG = theme('mode', {
+  light: css`
+    background-color: var(--color-gray7);
+  `,
+  dark: css`
+   background-color: var(--color-gray13);
   `,
 });

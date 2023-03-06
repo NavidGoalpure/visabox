@@ -7,7 +7,7 @@ import React, { HTMLAttributes, ReactNode, useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import styled, { css, keyframes } from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
-import { Module_Style, Module_TitleColor } from 'Styles/Theme/Modals/theme';
+import { Module_ElementTheme, Module_Style, Module_TitleColor } from 'Styles/Theme/Modals/theme';
 
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   title: MultiLanguageText;
@@ -91,9 +91,9 @@ const Trigger = styled.div`
 `;
 
 const ArrowContainer = styled.div<{ isShow: boolean }>`
+  ${Module_ElementTheme}
   display: flex;
-  color: white;
-  transform: ${({ isShow }) => (isShow ? "rotate(180deg)" : "rotate(1deg)")};
+  transform: ${({ isShow }) => (isShow ? "rotate(1deg)" : "rotate(1deg)rotate(180deg)")};
 `
 
 const Title = styled.div`

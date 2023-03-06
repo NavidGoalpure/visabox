@@ -41,6 +41,14 @@ export const Module_RadioBtnBG = theme('mode', {
     background-color: var(--color-gray7);
   `,
   dark: css`
-   background-color: var(--color-gray13);
+   background-color: var(--color-gray12);
+  `,
+});
+export const Module_ElementTheme = theme('mode', {
+  light: css`
+    color: var(--color-gray13);
+  `,
+  dark: css`
+   color: var(--color-gray4);
   `,
 });

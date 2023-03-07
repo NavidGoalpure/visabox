@@ -87,7 +87,6 @@ const Container = styled.section`
   flex-direction: column;
   position: relative;
   width: 100%;
-  padding-top: 2rem;
   height: calc(100vh - 3rem);
   overflow: hidden;
   @media ${deviceMin.tabletL} {
@@ -124,6 +123,7 @@ const ImageCards = styled(Image)`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -171,7 +171,7 @@ const Title = styled.h2`
   font-style: normal;
   font-weight: 700;
   font-size: 52px;
-  line-height: 95px;
+  line-height: 72px;
   letter-spacing: -0.5px;
   width: 100%;
   text-align: center;

@@ -23,7 +23,7 @@ const MobileIndex: React.FC = () => {
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-      <Link href={`${locale}/businesses/lowyers`}>
+      <Link href={`${locale}/businesses/lawyers`}>
         <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
       </Link>
       <Hr />

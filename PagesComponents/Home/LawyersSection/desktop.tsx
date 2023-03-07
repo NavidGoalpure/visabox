@@ -29,7 +29,7 @@ const DesktopIndex: React.FC = () => {
           <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-          <Link href={`${locale}/businesses/lowyers`}>
+          <Link href={`${locale}/businesses/lawyers`}>
             <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
           </Link>
         </Side>

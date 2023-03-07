@@ -79,7 +79,7 @@ const AccordionRoot = styled(Accordion.Root)`
 const AccordionItem = styled(Accordion.Item)`
   overflow: hidden;
   margin-top: 1px;
-  :focus-within {
+  :-within  {
     position: relative;
     z-index: 1;
     box-shadow: 0 0 0 2px var(--mauve12);

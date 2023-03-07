@@ -38,7 +38,7 @@ export const Input = ({
   }, [focus]);
   return (
     <Container className={className}>
-      <InputContainer disabled={disabled}>
+      <InputContainer disabled={disabled} id='input-container'>
         {icon ? icon : null}
         <StyledInput
           type={type}
@@ -50,7 +50,7 @@ export const Input = ({
           placeholder={placeholder}
           {...props}
         ></StyledInput>
-        {endElement && <span>{endElement}</span>}
+        {endElement ? endElement : null}
       </InputContainer>
       {errorMasage && <Error data-testid='error-input'>{errorMasage}</Error>}
     </Container>

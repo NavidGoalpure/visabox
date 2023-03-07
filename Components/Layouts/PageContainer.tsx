@@ -6,11 +6,7 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import { Header } from '../NavigationMenu';
-import * as Survay from 'Components/Survey';
-import { Item } from 'Elements/RadioGroup/Item';
-import { MultiChoice } from 'Components/Survey/Variants/MultiChoice';
-import { isItOnLive } from 'Utils';
+import Header from '../NavigationMenu';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;

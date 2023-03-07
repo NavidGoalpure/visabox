@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
-import gsap from 'gsap';
+
 import SwitchTheme from './switchTheme';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
@@ -11,7 +11,7 @@ import { layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import MobileLanguageChanger from './LanguageChanger/Mobile';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
+import { componentStatements, getGsapTimeLine, LanguageKeys } from './const';
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -20,57 +20,10 @@ function SmartHeader() {
   const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
   const popupAnimationRef = useRef<gsap.core.Timeline>();
   const { t } = useStaticTranslation(componentStatements);
-  useEffect(() => {
-    hamburgerAnimationRef.current = gsap
-      .timeline({ paused: true })
-      .add('start')
-      .to(
-        '#hamburg',
-        {
-          duration: 0.2,
-          y: 10,
-        },
-        'start'
-      )
-      .to(
-        `#line1`,
-        {
-          duration: 0.2,
-          y: 6,
-        },
-        'start'
-      )
-      .to(
-        `#line2`,
-        {
-          duration: 0.2,
-          y: -6,
-        },
-        'start'
-      )
-      .to(
-        `#line1`,
-        {
-          duration: 0.1,
-          rotate: 45,
-          transformOrigin: '50% 50%',
-        },
-        '+=0.1'
-      )
-
-      .to(
-        `#line2`,
-        {
-          duration: 0.1,
-          rotate: -45,
-          transformOrigin: '50% 50%',
-        },
-        '-=0.1'
-      );
-    popupAnimationRef.current = gsap
-      .timeline({ paused: true })
-      .to('#popup', { x: '100vw', duration: 0.3 }, '-=0.1');
-  }, []);
+  useEffect(
+    () => getGsapTimeLine({ hamburgerAnimationRef, popupAnimationRef }),
+    []
+  );
   useEffect(() => {
     document.body.style.overflow = 'unset';
     if (isMenuClicked) {
@@ -89,7 +42,7 @@ function SmartHeader() {
     <Container>
       <Wrapper>
         <MenuPopupContainer id={'popup'}>
-          <ScrollBox type={'auto'} id={'scrollbox'} heightInRem={18}>
+          <ScrollBox id={'scrollbox'} heightInRem={18}>
             <MenuPopupWrapper>
               <Nav>
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>

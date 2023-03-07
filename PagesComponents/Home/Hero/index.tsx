@@ -1,5 +1,5 @@
 import { deviceMin } from 'Consts/device';
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -171,7 +171,7 @@ const Title = styled.h2`
   font-style: normal;
   font-weight: 700;
   font-size: 52px;
-  line-height: 95px;
+  line-height: 72px;
   letter-spacing: -0.5px;
   width: 100%;
   text-align: center;

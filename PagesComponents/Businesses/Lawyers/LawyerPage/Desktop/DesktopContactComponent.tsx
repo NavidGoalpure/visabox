@@ -101,7 +101,7 @@ const SocialsContainerCss = css`
 `;
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-items: start;
   row-gap: 1rem;
   column-gap: 2rem;

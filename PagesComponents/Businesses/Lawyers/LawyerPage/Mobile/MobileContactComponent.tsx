@@ -41,10 +41,6 @@ const MobileContactComponent = ({
         <MaraNumberTitle>{t(LanguageKeys.MaraNumber)}: &nbsp;</MaraNumberTitle>
         <MaraNumber>{maraNumber}</MaraNumber>
       </MaraNumberContainer>
-
-      <SocialContainer>
-        <SocialTitle>{t(LanguageKeys.Socials)}</SocialTitle>
-      </SocialContainer>
       {website && (
         <InternetContainer href={website} target={'_blank'}>
           <InternetIcon />
@@ -144,11 +140,6 @@ const MaraNumberTitle = styled.h3`
 const MaraNumber = styled.h3`
   ${Headline5Style};
   color: var(--color-primary5);
-`;
-const SocialContainer = styled.div``;
-const SocialTitle = styled.h3`
-  ${layer2A_TitleStyle}
-  margin-bottom:4rem;
 `;
 const InternetContainer = styled.a`
   ${SocialsContainerCss}

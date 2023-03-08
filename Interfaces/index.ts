@@ -27,6 +27,10 @@ interface MultiLanguageTextArray {
   [Languages.en]: string[];
   [Languages.fa]?: string[];
 }
+enum Status {
+  'ACTIVE' = 'ACTIVE',
+  'DEACTIVE' = 'DEACTIVE',
+}
 export type { MultiLanguageText, MultiLanguageTextArray };
 export {
   Languages,
@@ -34,4 +38,5 @@ export {
   LanguageDirection,
   ThemeModes,
   LocalStorageKeys,
+  Status,
 };

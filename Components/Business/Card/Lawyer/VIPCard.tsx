@@ -14,17 +14,12 @@ import { FiBox } from 'react-icons/fi';
 import { MultiLanguageText } from 'Interfaces';
 import { HTMLAttributes, useEffect } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import gsap from 'gsap';
-//@ts-ignore
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { deviceMin } from 'Consts/device';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import {
-  componentStatements,
-  LanguageKeys,
-} from 'PagesComponents/Businesses/Lawyers/const';
+import { componentStatements, LanguageKeys } from '../const';
 import Link from 'next/link';
+import { getGsapTimeLine_VipCard } from '../const';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
@@ -35,25 +30,7 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
 function VIPLawyerCard({ name, desc, slug, className, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      `.${slug}`,
-      {
-        y: 40,
-      },
-      {
-        scrollTrigger: {
-          trigger: `.${slug}`,
-          start: '-10 bottom',
-          toggleActions: 'play none none none',
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1,
-      }
-    );
-  });
+  useEffect(() => getGsapTimeLine_VipCard(slug));
   return (
     <Container
       {...props}

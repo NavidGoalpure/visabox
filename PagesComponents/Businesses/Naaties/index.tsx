@@ -1,4 +1,3 @@
-import LawyerCard from 'Components/Business/Card/Lawyer/Card';
 import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
 import styled from 'styled-components';
@@ -6,10 +5,12 @@ import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import VIPLawyerCard from '../../../Components/Business/Card/Lawyer/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
-import { Lawyers } from 'Consts/Businesses/Lawyers';
+import { NAATIES } from 'Consts/Businesses/naati';
+import { slugify } from 'Utils';
+import { Status } from 'Interfaces';
+import VIPNaatiCard from 'Components/Business/Card/Naati/VIPCard';
+import NaatiCard from 'Components/Business/Card/Naati/Card';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -18,29 +19,31 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {Lawyers.filter((lawyer) => lawyer.isFeatured).map((lawyer) => {
-          return (
-            <VIPLawyerCard
-              name={lawyer.name}
-              desc={lawyer.desc}
-              slug={lawyer.slug}
-            />
-          );
+        {NAATIES.filter((naati) => naati.isFeatured).map((naati) => {
+          if (naati.status === Status.ACTIVE)
+            return (
+              <VIPNaatiCard
+                fullname={naati.fullName}
+                desc={naati?.desc}
+                slug={slugify(naati.fullName.en)}
+              />
+            );
         })}
       </VIPContainer>
-      <NormalLawyerContainer>
-        {Lawyers.filter((lawyer) => !lawyer.isFeatured).map((lawyer) => {
-          return (
-            <LawyerCard
-              name={lawyer.name}
-              email={lawyer.contact.email}
-              website={lawyer.website}
-              slug={lawyer.slug}
-              phone={lawyer.contact.phone}
-            />
-          );
+      <NormalNaatiContainer>
+        {NAATIES.filter((naati) => !naati.isFeatured).map((naati) => {
+          if (naati.status === Status.ACTIVE)
+            return (
+              <NaatiCard
+                fullName={naati.fullName}
+                email={naati.contact.email}
+                website={naati?.contact?.website}
+                slug={slugify(naati.fullName.en)}
+                phone={naati?.contact?.phone}
+              />
+            );
         })}
-      </NormalLawyerContainer>
+      </NormalNaatiContainer>
     </Container>
   );
 }
@@ -73,7 +76,7 @@ const VIPContainer = styled.div`
   row-gap: 1rem;
   column-gap: 5rem;
 `;
-const NormalLawyerContainer = styled.div`
+const NormalNaatiContainer = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;

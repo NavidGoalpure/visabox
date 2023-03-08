@@ -37,9 +37,6 @@ export const VipSocialMedias: GroupCard[] = [
     locations: Locations.fa,
     isFeatured: true,
     desc: `گروه بحث و تبادل نظر در مورد ویزاهای سرمایه گذاری و کارآفرینی استرالیا. زیر نظر وکیل رسمی مهاجرت استرالیا، آقای محمد رضا عظیمی.
-
-www.shadavisa.com
-www.shada.com.au
 `,
     link: 'https://t.me/ShadaBusinessVisaGroup',
   },

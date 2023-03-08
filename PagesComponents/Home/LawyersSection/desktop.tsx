@@ -1,4 +1,4 @@
-import VIPLawyerCard from 'Components/Business/Lawyer/VIPCard';
+import VIPLawyerCard from 'Components/Business/Card/Lawyer/VIPCard';
 import { Lawyers } from 'Consts/Businesses/Lawyers';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';

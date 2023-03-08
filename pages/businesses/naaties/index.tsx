@@ -6,7 +6,7 @@ import {
   LanguageKeys,
 } from 'PagesComponents/Occupations/AssssingAuthoritties/const';
 import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Businesses/SocialPage';
+import Content from 'PagesComponents/Businesses/Naaties';
 import Seo from 'Components/Seo';
 
 const SocialPages: NextPage = () => {
@@ -17,7 +17,7 @@ const SocialPages: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/businesses/social-pages`}
+        canonical={`https://www.marabox.com/${locale}/businesses/naaties`}
       />
       <Content />
     </PageLayout>

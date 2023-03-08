@@ -14,10 +14,6 @@ const getAllOccupationCodesQuery = (): string => {
   return query;
 };
 /////////////////
-type QueryParams = {
-  lastCode?: number;
-  search: string;
-};
 /**
  * درخواست به سنیتی برای گرفتن لیست همه آکیوپیشن-کد ها
  * @returns آرایه ای از آکیوپیشن ها

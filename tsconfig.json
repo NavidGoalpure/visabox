@@ -31,7 +31,8 @@
     "pages/_document.js",
     "pages/indexold.old",
     "Hoc/withCSR.js",
-    "types.d.ts"
+    "types.d.ts",
+    "sanity/schemas/schema.js"
   ],
   "exclude": ["node_modules"],
   "types": ["cypress", "@testing-library/cypress", "@types/gtag.js"]

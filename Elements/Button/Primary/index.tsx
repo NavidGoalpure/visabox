@@ -1,7 +1,7 @@
-import { deviceMin } from "Consts/device";
-import { Loading } from "Elements/Loading";
-import React, { ButtonHTMLAttributes, ReactNode } from "react";
-import styled, { css } from "styled-components";
+import { deviceMin } from 'Consts/device';
+import { Loading } from 'Elements/Loading';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import styled, { css } from 'styled-components';
 
 /**
  * Primary UI component for user interaction
@@ -10,20 +10,18 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   children: ReactNode;
   isLoading?: boolean;
-  hasAnimation?:boolean;
+  hasAnimation?: boolean;
 }
 export const PrimaryButton = ({
   children,
   disabled = false,
   isLoading = false,
   hasAnimation = true,
-  type = "button",
+  type = 'button',
   ...props
 }: ButtonProps) => {
- 
   return (
     <Container
-      className="title"
       hasAnimation={hasAnimation}
       type={type}
       {...props}

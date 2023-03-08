@@ -28,4 +28,5 @@ const MaraBgAnimation: React.FC<Props> = ({ children, className }) => (
 export default MaraBgAnimation;
 const Container = styled.div`
   width: 100%;
+  position: relative;
 `;

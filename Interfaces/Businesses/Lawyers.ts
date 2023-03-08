@@ -2,6 +2,7 @@ import {
   Languages,  Locations,
   MultiLanguageText,
   MultiLanguageTextArray,
+  Status,
 } from "Interfaces";
 
 export interface Lawyer {
@@ -22,4 +23,5 @@ export interface Lawyer {
   qualifications?: MultiLanguageTextArray;
   maraNumber: string;
   isFeatured: boolean;
+  status: Status;
 }

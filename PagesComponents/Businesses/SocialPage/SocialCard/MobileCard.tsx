@@ -54,7 +54,12 @@ function MobileSocialCard({
     <Container href={link} target={'_blank'} isFeatured={isFeatured}>
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
-          <Img fill src={`/Images/socialPage/${slug}.jpg`} alt='image' />
+          <Img
+            fill
+            src={`/Images/socialPage/${slug}.jpg`}
+            alt='image'
+            sizes='96px'
+          />
         </ImgWrapper>
         {isFeatured && (
           <VIPBoxContainer aria-hidden={true}>
@@ -95,31 +100,31 @@ const TagBgTheme = theme('mode', {
 export const LogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray9) 0 70%,
+      -2deg,
+      var(--color-gray9) 0 62%,
       var(--color-gray11) 0% 100%
     );
   `,
   dark: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray7) 0 70%,
-      var(--color-gray9) 0% 100%
+      -2deg,
+      var(--color-gray3) 0 62%,
+      var(--color-gray1) 0% 100%
     );
   `,
 });
 export const FeaturedLogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray9) 0 70%,
+      -2deg,
+      var(--color-gray9) 0 62%,
       var(--color-gray11) 0% 100%
     );
   `,
   dark: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray2) 0 70%,
+      -2deg,
+      var(--color-gray2) 0 62%,
       var(--color-gray3) 0% 100%
     );
   `,
@@ -162,7 +167,7 @@ const Container = styled.a<{ isFeatured: boolean }>`
 
 const Wrapper = styled.div<{ isFeatured: boolean }>`
   width: 100%;
-  min-height: 26rem;
+  min-height: 23rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -183,6 +188,7 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
 `;
 const ImgWrapper = styled.div`
   ${LogoBackground}
+  position:relative;
   padding: 0.5rem;
   width: 6.625rem;
   height: 6.625rem;
@@ -209,7 +215,7 @@ const VIPBoxContainer = styled.div`
 `;
 const VIPBox = styled(FiBox)`
   ${BoxTheme}
-  width: 70%;
+  width: 62%;
   height: auto;
 `;
 
@@ -239,7 +245,7 @@ const Desc = styled.p<{ isFeatured: boolean }>`
   text-align: start;
   ${({ isFeatured }) => (isFeatured ? layer2B_TextColor : layer1_TextColor)}
   white-space: pre-line;
-  height: 10rem;
+  height: 7rem;
   overflow: hidden;
   text-align: center;
 `;

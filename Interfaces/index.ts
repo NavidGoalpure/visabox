@@ -1,23 +1,23 @@
 enum Languages {
-  fa = "fa",
-  en = "en",
+  fa = 'fa',
+  en = 'en',
 }
 enum Locations {
-  fa = "fa",
-  en = "en",
+  fa = 'fa',
+  en = 'en',
 }
 enum ThemeModes {
-  LIGHT = "light",
-  DARK = "dark",
+  LIGHT = 'light',
+  DARK = 'dark',
 }
 enum LanguageDirection {
-  LTR = "ltr",
-  RTL = "rtl",
+  LTR = 'ltr',
+  RTL = 'rtl',
 }
 
 enum LocalStorageKeys {
-  Theme = "Theme",
-  HasBeenAnswered = "HasBeenAnswered",
+  Theme = 'Theme',
+  HasBeenAnswered = 'HasBeenAnswered',
 }
 interface MultiLanguageText {
   [Languages.en]: string;
@@ -27,6 +27,10 @@ interface MultiLanguageTextArray {
   [Languages.en]: string[];
   [Languages.fa]?: string[];
 }
+enum Status {
+  'ACTIVE' = 'ACTIVE',
+  'DEACTIVE' = 'DEACTIVE',
+}
 export type { MultiLanguageText, MultiLanguageTextArray };
 export {
   Languages,
@@ -34,4 +38,5 @@ export {
   LanguageDirection,
   ThemeModes,
   LocalStorageKeys,
+  Status,
 };

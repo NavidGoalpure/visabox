@@ -1,9 +1,12 @@
-import LawyerCard from 'Components/Business/Lawyer/Card';
+import LawyerCard from 'Components/Business/Card/Lawyer/Card';
 import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
 import styled from 'styled-components';
-import { Layer1_SubtitleStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import VIPLawyerCard from '../../../Components/Business/Lawyer/VIPCard';
+import {
+  Layer1_SubtitleStyle,
+  Layer1_TitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
+import VIPLawyerCard from '../../../Components/Business/Card/Lawyer/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { Lawyers } from 'Consts/Businesses/Lawyers';
@@ -61,8 +64,6 @@ const PageTitle = styled.h1`
 `;
 const PageSubtitle = styled.h4`
   ${Layer1_SubtitleStyle};
-  
-  
 `;
 const VIPContainer = styled.div`
   width: 100%;

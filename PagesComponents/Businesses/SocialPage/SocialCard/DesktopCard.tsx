@@ -21,7 +21,9 @@ import { SocialMediaTypes, GroupCard } from '../interfaces';
 import { FiBox } from 'react-icons/fi';
 import { layer2B_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
-type Props = GroupCard;
+interface Props extends GroupCard {
+  isRtl: boolean;
+}
 function DesktopSocialCard({
   desc,
   locations,

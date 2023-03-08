@@ -1,20 +1,19 @@
 import { deviceMin } from 'Consts/device';
 import { useCallback, useRef } from 'react';
-import Particles from 'react-tsparticles';
-import type {
-  SizeMode,
-  ISourceOptions,
-  Container as PartcleContainer,
-  Engine,
-} from 'tsparticles-engine';
+import type { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled, { css, useTheme } from 'styled-components';
 import theme from 'styled-theming';
 import { componentStatements, LanguageKeys, tsParticleOption } from './const';
-import heroSvg from './airplane.svg';
+import planeMobile from './planeMobile.svg';
+import planeDesktop from './planeDesktop.svg';
+import { layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
+  /////////
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);
 
@@ -23,13 +22,6 @@ const Hero: React.FC = () => {
     // starting from v2 you can add only the features you need reducing the bundle size
     await loadFull(engine);
   }, []);
-
-  const particlesLoaded = useCallback(
-    async (container: PartcleContainer | undefined) => {
-      await console.log(container);
-    },
-    []
-  );
 
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
@@ -40,14 +32,31 @@ const Hero: React.FC = () => {
         container={particlesContainer}
         id='tsparticles'
         init={particlesInit}
-        loaded={particlesLoaded}
         options={tsParticleOption}
       />
-      <img src={heroSvg} />
-      {/* <img s */}
-      <Title style={{ marginTop: '-5rem' }}>{t(LanguageKeys.Title1)}</Title>
-      <Title>{t(LanguageKeys.Title2)}</Title>
-      <Title3>{t(LanguageKeys.Title3)}</Title3>
+      <ImageContainer>
+        <ImageCards
+          src={'/Images/australia-pictures.webp'}
+          alt='Picture of the navid'
+          // blurDataURL="data:..." automatically provided
+          // placeholder="blur" // Optional blur-up while loading
+          fill
+        />
+      </ImageContainer>
+      <ContentContainer>
+        <PlaneMobile src={planeMobile} />
+        <PlaneDesktop src={planeDesktop} />
+        <TitleContainer>
+          <Title>{t(LanguageKeys.Title1)}</Title>
+          <Title>{t(LanguageKeys.Title2)}</Title>
+          <Title3>{t(LanguageKeys.Title3)}</Title3>
+        </TitleContainer>
+        <Subtitle
+          dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Subtitle) }}
+        />
+      </ContentContainer>
+      <Blured1 />
+      <Blured2 />
     </Container>
   );
 };
@@ -70,7 +79,7 @@ const BorderColor_Desktop = theme('mode', {
     background: #282828;
   `,
 });
-const Container = styled.div`
+const Container = styled.section`
   ${BorderColor_Mobile}
   display: flex;
   align-items: center;
@@ -78,17 +87,70 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   width: 100%;
-  padding-top: 2rem;
-  height: 100vh;
+  height: calc(100vh - 3rem);
+  overflow: hidden;
   @media ${deviceMin.tabletL} {
     ${BorderColor_Desktop}
+    height: calc(100vh - 5rem);
+    flex-direction: row;
+    justify-content: left;
   }
 `;
+
+const Particles = dynamic(() => import('react-tsparticles'), {
+  ssr: false,
+});
 const StyledParticles = styled(Particles)`
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
+`;
+const ImageContainer = styled.div`
+  display: none;
+  height: inherit;
+  @media ${deviceMin.laptopM} {
+    display: initial;
+  }
+`;
+const ImageCards = styled(Image)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  object-fit: contain;
+  object-position: right;
+`;
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  @media ${deviceMin.laptopM} {
+    width: 50%;
+    margin-left: 2%;
+  }
+`;
+const PlaneMobile = styled.img`
+  display: initial;
+  max-width: 30rem;
+  margin: 0 auto;
+  @media ${deviceMin.laptopM} {
+    display: none;
+  }
+`;
+const PlaneDesktop = styled.img`
+  display: none;
+  @media ${deviceMin.laptopM} {
+    display: initial;
+    max-width: 30rem;
+    // margin-inline-end: -5rem;
+    margin-left: auto;
+  }
+  @media ${deviceMin.laptopL} {
+    // margin-inline-end: -5rem;
+  }
 `;
 ///////////////////////
 const titleFont = theme('mode', {
@@ -97,23 +159,32 @@ const titleFont = theme('mode', {
   `,
   dark: css``,
 });
+const TitleContainer = styled.div`
+  margin-top: -5rem;
+  @media ${deviceMin.laptopM} {
+    margin-top: -7.5rem;
+  }
+`;
 const Title = styled.h2`
   ${titleFont}
   display: grid;
   font-style: normal;
   font-weight: 700;
   font-size: 52px;
-  line-height: 95px;
+  line-height: 72px;
   letter-spacing: -0.5px;
   width: 100%;
   text-align: center;
   color: white;
 
   span {
-    margin-inline-start: 0.5rem;
+    margin-left: 0.5rem;
   }
   @media ${deviceMin.mobileL} {
     font-size: 61px;
+  }
+  @media ${deviceMin.laptopM} {
+    max-width: 33rem;
   }
 `;
 ///////////
@@ -127,4 +198,48 @@ const title3Color = theme('mode', {
 });
 const Title3 = styled(Title)`
   ${title3Color}
+`;
+///////////////////////////////
+const subtitleColor = theme('mode', {
+  light: css`
+    color: var(--color-secondary3);
+  `,
+  dark: css`
+    color: var(--color-primary6);
+  `,
+});
+const Subtitle = styled.div`
+  ${layer1_TextColor}
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 38px;
+  padding: 1rem;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 2rem;
+  span {
+    ${subtitleColor}
+  }
+  @media ${deviceMin.laptopXS} {
+    width: 70%;
+  }
+  @media ${deviceMin.laptopM} {
+    width: 33rem;
+  }
+`;
+const Blured1 = styled.div`
+  position: absolute;
+  width: 80px;
+  height: 70px;
+  right: 40px;
+  top: 78px;
+  background: rgba(27, 173, 161, 0.5);
+  filter: blur(80px);
+`;
+const Blured2 = styled(Blured1)`
+  bottom: 5rem;
+  left: 4rem;
+  top: unset;
+  right: unset;
 `;

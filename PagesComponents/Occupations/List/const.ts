@@ -11,6 +11,11 @@ export enum LanguageKeys {
   LoadMore = 'LoadMore',
   //
   SomethingWentWrong = 'SomethingWentWrong',
+  //search filter
+  MajorGroup = 'MajorGroup',
+  SubMajorGroup = 'SubMajorGroup',
+  MinorGroup = 'MinorGroup',
+  Select = 'Select',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -46,6 +51,24 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Something Went Wrong',
     fa: 'متاسفانه مشکلی پیش آمده',
   },
+  ///////search filter//////
+  MajorGroup: {
+    en: 'Major Group',
+    fa: 'گروه اصلی',
+  },
+  SubMajorGroup: {
+    en: 'Sub-Major Group',
+    fa: 'زیر گروه اصلی',
+  },
+  MinorGroup: {
+    en: 'Minor Group',
+    fa: 'گروه فرعی',
+  },
+  Select: {
+    en: 'Select ...',
+    fa: 'انتخاب ...',
+  },
 };
-
+/////////
+export const FILTERD_Codes__HIGHEST_NUMBER__DEFAULT = 999999;
 export const OCCUPATION_PER_PAGE = 9;

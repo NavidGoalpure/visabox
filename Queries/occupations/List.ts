@@ -2,6 +2,9 @@ import { sanityClient } from 'Utils/sanity';
 
 import { Occupation } from 'Interfaces/Documents/occupation';
 import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/List/const';
+import { FilteredOccupationRange } from 'PagesComponents/Occupations/List/interfaces';
+import { SearchFilterContext } from 'PagesComponents/Occupations/List/Context/SearchFilter';
+import { useContext } from 'react';
 
 /**
  * این متد عبارتی که کاربر سرچ کرده رو به عنوان ورودی میگیره و فیلتر مناسب سنیتی رو تولید میکنه
@@ -26,6 +29,10 @@ const getSearchConditions = (searchValue: string): string => {
 ////////////////////////////
 /**
  * گروک کوئری مورد نیاز برای لیست آکیوپیشن ها رو تولید میکنه
+ * برای وقتیه که کاربر از سرچ پیشرفته استفاده میکنه و یک رنج خاصی از کدها رو نشون میدیم. این پارامتر عدد پایین رنج رو نشون میده
+ * @param FilteredOccupationRange_lowerNumber
+ *  * برای وقتیه که کاربر از سرچ پیشرفته استفاده میکنه و یک رنج خاصی از کدها رو نشون میدیم. این پارامتر عدد بالای رنج رو نشون میده
+ * @param FilteredOccupationRange_highestNumber
  * @param  lastCode کد آخرین آکیوپیشنی که در پیج قبلی گرفته شده. این کد برای پیجینیشن مورد نیازه تا در پیج های بعدی کدهای تکراری نیاد
  * @param  searchCondition عبارتی که یوزر در باکس سرچ تایپ کرده
  * @returns
@@ -33,11 +40,13 @@ const getSearchConditions = (searchValue: string): string => {
 const getListQuery = ({
   lastCode = 0,
   searchCondition,
+  filteredOccupationRange,
 }: {
   lastCode?: number;
   searchCondition: string;
+  filteredOccupationRange: FilteredOccupationRange;
 }): string => {
-  const query = `*[_type=='occupation' && code>${lastCode} ${searchCondition} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
+  const query = `*[_type=='occupation' && code>${lastCode} && code<${filteredOccupationRange.highestNumber} && code>${filteredOccupationRange.lowerNumber} ${searchCondition} ]| order(code) [0...${OCCUPATION_PER_PAGE}] {
     _id,
     slug,
     code,
@@ -52,23 +61,29 @@ const getListQuery = ({
   return query;
 };
 /////////////////
-type QueryParams = {
-  lastCode?: number;
-  search: string;
-};
 /**
  * درخواست به سنیتی برای گرفتن لیست آکیوپیشن ها  با فیلترهای تعیین شده از سمت کاربر به صورت صفحه به صحفه
  * @param  lastCode کد آخرین آکیوپیشنی که در پیج قبلی گرفته شده. این کد برای پیجینیشن مورد نیازه تا در پیج های بعدی کدهای تکراری نیاد
  * @param  searchCondition عبارتی که یوزر در باکس سرچ تایپ کرده
  * @returns آرایه ای از آکیوپیشن ها
  */
+type QueryParams = {
+  lastCode?: number;
+  search: string;
+  filteredOccupationRange: FilteredOccupationRange;
+};
 const getOccupationsList = async ({
   lastCode = 0,
   search,
+  filteredOccupationRange,
 }: QueryParams): Promise<Occupation[]> => {
   const searchCondition = getSearchConditions(search);
   const data = await sanityClient.fetch(
-    getListQuery({ lastCode, searchCondition })
+    getListQuery({
+      lastCode,
+      searchCondition,
+      filteredOccupationRange,
+    })
   );
   return data;
 };

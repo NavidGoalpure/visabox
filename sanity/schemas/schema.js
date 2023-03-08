@@ -9,6 +9,7 @@ import occupation from './documents/occupations/occupation';
 import visaType from './documents/occupations/visaType';
 import territory from './documents/occupations/territory';
 import unitGroup from './documents/occupations/unitGroup';
+import survey from './documents/survey';
 
 //Objects-section
 import visaOptionObj from './objects/occupations/visaOptionObj';
@@ -18,6 +19,7 @@ import priorityList from './objects/occupations/anzscoObj/priorityList';
 import backlogObj from './objects/occupations/backlogObj';
 import backlogNumbersObj from './objects/occupations/backlogObj/backlogNumbersObj';
 import territoryBacklogObj from './objects/occupations/backlogObj/territoryBacklogObj';
+import surveyChoiceObj from './objects/survey/choice';
 //Objects-other
 import { translateFields } from './objects/fieldTranslation';
 
@@ -29,23 +31,28 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes
     .concat([
+      ////Occupations Related////
       visaOptionObj,
       territoryObj,
       backlogObj,
       priorityList,
       backlogNumbersObj,
       territoryBacklogObj,
+      /////Survey Related ////
     ])
     .concat(
       translateFields([
         // The following are document types which will appear
         // in the studio.
         // translateFields([occupation]),
+        surveyChoiceObj,
         unitGroup,
         anzscoObj,
         occupation,
         visaType,
         territory,
+        /////Survey Related ////
+        survey,
       ])
     ),
 });

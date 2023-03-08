@@ -1,6 +1,6 @@
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require("@sentry/nextjs");
 
-const withImages = require('next-images');
+const withImages = require("next-images");
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -25,11 +25,11 @@ const config = {
     styledComponents: true,
   },
   build: {
-    transpile: ['gsap'],
+    transpile: ["gsap"],
   },
   i18n: {
-    locales: ['en', 'fa'],
-    defaultLocale: 'en',
+    locales: ["en", "fa"],
+    defaultLocale: "en",
     localeDetection: false,
   },
   sentry: {
@@ -46,6 +46,9 @@ const config = {
     //     - excludeServerRoutes
     //   'Configure Tunneling to avoid Ad-Blockers':
     //     - tunnelRoute
+  },
+  images: {
+    formats: ["image/webp"],
   },
 };
 const sentryWebpackPluginOptions = {

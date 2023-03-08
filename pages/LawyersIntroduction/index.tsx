@@ -27,5 +27,8 @@ const LawyersIntroduction: NextPage = () => {
 };
 export default LawyersIntroduction;
 const StyledPageLayout = styled(PageLayout)`
-  max-width: unset;
+  max-width: none;
+  #PageContainer-content {
+    padding: 0;
+  }
 `;

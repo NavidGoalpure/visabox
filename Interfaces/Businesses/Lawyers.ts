@@ -1,4 +1,5 @@
 import {
+  Contact,
   Languages,  Locations,
   MultiLanguageText,
   MultiLanguageTextArray,
@@ -9,14 +10,7 @@ export interface Lawyer {
   slug: string;
   name: MultiLanguageText;
   website?: string;
-  contact: {
-    email?: string;
-    phone?: string[];
-    telegram?: string;
-    whatsapp?: string;
-    instagram?: string;
-    linkedin?: string;
-  };
+  contact: Contact;
   //what countries they work in
   locations: Locations[];
   desc?: MultiLanguageText;

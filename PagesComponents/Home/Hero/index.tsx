@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
       <ImageContainer>
         <ImageCards
           src={'/Images/australia-pictures.webp'}
-          alt='Picture of the navid'
+          alt='Picture of the australia'
           // blurDataURL="data:..." automatically provided
           // placeholder="blur" // Optional blur-up while loading
           fill

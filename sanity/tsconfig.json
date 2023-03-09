@@ -6,7 +6,7 @@
     "./node_modules/@sanity/base/types/**/*.ts",
     "./**/*.ts",
     "./**/*.tsx",
-    "schemas/schema.js",
+    "schemas/schema.ts",
     "schemas/documents/occupations/occupation.ts"
   ],
   "compilerOptions": {

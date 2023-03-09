@@ -6,7 +6,11 @@ import React, { HTMLAttributes, ReactNode } from 'react';
 import styled from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import Header from '../NavigationMenu';
+import { Header } from '../NavigationMenu';
+import * as Survay from 'Components/Survey';
+import { Item } from 'Elements/RadioGroup/Item';
+import { MultiChoice } from 'Components/Survey/Variants/MultiChoice';
+import { isItOnLive } from 'Utils';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -14,9 +18,34 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const PageContainer: React.FC<Props> = ({ children, ...props }) => {
   const { locale } = useLocale();
+
   return (
     <Container {...props} $locale={locale}>
       <Header />
+
+      {/* <Survay.Root
+        title={{
+          en: 'How do you prefer to do the legal procedures of immigration?',
+          fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
+        }}
+      >
+        <MultiChoice>
+          <Item
+            value={'navid1'}
+            text={{
+              en: 'Lawer',
+              fa: 'وکیل',
+            }}
+          />
+          <Item
+            value={'navid2'}
+            text={{
+              en: 'Myself',
+              fa: 'خودم',
+            }}
+          />
+        </MultiChoice>
+      </Survay.Root> */}
       <Content id='PageContainer-content'>{children}</Content>
       <Footer />
     </Container>

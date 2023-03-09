@@ -3,19 +3,21 @@ import styled from 'styled-components';
 import { useLocale } from 'Hooks/useLocale';
 import * as MaraSelect from 'Elements/Select';
 import { useRouter } from 'next/router';
-import { bussinessItems } from './const';
+import { bussinessItems } from '../const';
+import { componentStatements, LanguageKeys } from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function DesktopBusinessDropdown() {
   const { locale } = useLocale();
   const router = useRouter();
-  // const [value,setValue]= useState
+  const { t } = useStaticTranslation(componentStatements);
 
   return (
     <StyledMaraSelectRoot
       noScroll
       triggerProps={{
         id: 'bussiness-trigger',
-        placeholder: 'Bussiness',
+        placeholder: t(LanguageKeys.Occupations),
       }}
     >
       <MaraSelect.Item

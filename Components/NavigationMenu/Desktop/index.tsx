@@ -1,7 +1,7 @@
 import { Logo } from 'Elements/Logo';
 import Link from 'next/link';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import SwitchTheme from '../switchTheme';
@@ -12,6 +12,8 @@ import { componentStatements, LanguageKeys } from '../const';
 import DesktopLanguageChanger from './LanguageChanger';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import DesktopBusinessDropdown from './dropdownBusiness';
+import DesktopOccupationDropdown from './dropdownOccupation';
+import theme from 'styled-theming';
 
 function Desktop() {
   const { locale } = useLocale();
@@ -26,22 +28,16 @@ function Desktop() {
         </NavigationMenu.Item>
         <MenuItems>
           <NavigationMenu.Item>
-            <MenuLink href={`/${locale}/occupations`}>
-              {t(LanguageKeys.SkilledOccupationList)}
-            </MenuLink>
-          </NavigationMenu.Item>
-          <NavigationMenu.Item>
-            <MenuLink href={`/${locale}/businesses/agents`}>
-              {t(LanguageKeys.AgentsList)}
-            </MenuLink>{' '}
+            <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
           </NavigationMenu.Item>
           <NavigationMenu.Item>
             <MenuLink href={`/${locale}/businesses/social-pages`}>
-              {t(LanguageKeys.socialList)}
+              {t(LanguageKeys.Socials)}
             </MenuLink>
           </NavigationMenu.Item>
-          <DesktopLanguageChanger />
+          <DesktopOccupationDropdown />
           <DesktopBusinessDropdown />
+          <DesktopLanguageChanger />
           <SwitchTheme />
         </MenuItems>
       </Wrapper>

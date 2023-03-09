@@ -1,30 +1,56 @@
 import gsap from 'gsap';
 import { MultiLanguageText } from 'Interfaces';
+import { DropdownItem } from './interface';
 
 export enum LanguageKeys {
-  SkilledOccupationList = 'SkilledOccupationList',
-  AgentsList = 'AgentsList',
   Home = 'Home',
-  socialList = 'socialList',
+  Socials = 'Socials',
+  Businesses = 'Businesses',
+  Occupations = 'Occupations',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  SkilledOccupationList: {
-    en: 'Skilled Occupations',
-    fa: 'لیست مشاغل',
-  },
-  AgentsList: {
-    en: 'Agents',
-    fa: 'لیست وکلا',
-  },
-  socialList: {
-    en: 'Social Networks',
+  Socials: {
+    en: 'Socials',
     fa: 'شبکه های اجتماعی',
   },
   Home: {
     en: 'Home',
     fa: 'صفحه اصلی',
   },
+  Businesses: {
+    en: 'Businesses',
+    fa: 'کسب و کارها',
+  },
+  Occupations: {
+    en: 'Skilled Worder Visa',
+    fa: 'ویزای متخصصان',
+  },
 };
+export const bussinessItems: DropdownItem[] = [
+  {
+    title: { en: 'Agents', fa: 'وکلا' },
+    href: '/businesses/agents',
+  },
+  {
+    title: { en: 'Naati Translators', fa: 'مترجمان ناتی' },
+    href: '/businesses/naaties',
+  },
+  {
+    title: { en: 'Exchanges', fa: 'صرافی‌ها' },
+    href: '/businesses/exchanges',
+  },
+];
+export const occupationItems: DropdownItem[] = [
+  {
+    title: { en: 'Search', fa: 'جستجو' },
+    href: '/occupations',
+  },
+  {
+    title: { en: 'Assessing Authority', fa: 'موسسات ارزیابی' },
+    href: '/occupations/assssing-authorities',
+  },
+];
+
 export const getGsapTimeLine = ({
   hamburgerAnimationRef,
   popupAnimationRef,

@@ -60,7 +60,6 @@ const Root: React.FC<Props> = ({
           <Trigger aria-label={triggerProps?.ariaLabel} id={triggerProps?.id}>
             {triggerProps?.icon && triggerProps?.icon}
             <TriggerValue placeholder={triggerProps?.placeholder} />
-
             <Icon>
               <ArrowIcon />
             </Icon>
@@ -162,6 +161,7 @@ const Content = styled(Select.Content)<{
       margin-top: auto;
     }
   }
+  
 `;
 const Viewport = styled(Select.Viewport)`
   z-index: 5;

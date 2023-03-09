@@ -23,6 +23,8 @@ import DarkProfileComponent from "./Images/DarkProfileComponent.svg";
 import LightProfileComponent from "./Images/LightProfileComponent.svg";
 import DarkAboutComponent from "./Images/DarkAboutComponent.svg";
 import LightAboutComponent from "./Images/LightAboutComponent.svg";
+import DarkSocialMediaBranch from "./Images/DarkSocialMediaBranch.svg";
+import LightSocialMediaBranch from "./Images/LightSocialMediaBranch.svg";
 import Image from "next/image";
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
@@ -122,6 +124,18 @@ function Desktop() {
             نسبت به رقبای خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار
             خواهید شد.
           </Desc>
+          <SocialMediaBranchContainer>
+            <SocialMediaBranch
+              width={250}
+              height={200}
+              src={
+                getThemeFromLocalStorage() === ThemeModes.DARK
+                  ? DarkSocialMediaBranch
+                  : LightSocialMediaBranch
+              }
+              alt="normal-lawyer-card"
+            />
+          </SocialMediaBranchContainer>
         </Section>
         <SectionDivider />
         <Section>
@@ -390,6 +404,12 @@ const LawyerCard_Title = styled.h2`
   }
   text-align: center;
 `;
+const SocialMediaBranchContainer = styled.div`
+
+`
+const SocialMediaBranch = styled(Image)`
+
+`
 const OccupationCardSection_Img = styled(Image)`
   width: 100%;
   height: 100%;

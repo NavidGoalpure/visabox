@@ -48,8 +48,8 @@ export const NAATIES: Naati[] = [
   },
   {
     fullName: {
-      en: 'Seyed Hassan Amirshahi',
-      fa: 'سید حسن امیرشاهی',
+      en: 'Hassan Amirshahi',
+      fa: 'حسن امیرشاهی',
     },
     language: [
       {
@@ -63,7 +63,7 @@ export const NAATIES: Naati[] = [
     },
     contact: {
       email: 'translation.office14@gmail.com',
-      phone: ['++98 2188311593', '98 9121077760'],
+      phone: ['+982188311593', '+98 9121077760'],
       website: 'www.lawiran.org',
     },
     status: Status.ACTIVE,
@@ -71,8 +71,8 @@ export const NAATIES: Naati[] = [
   },
   {
     fullName: {
-      en: 'Roxana Moallemian Barmi',
-      fa: 'رکسانا معلمیان بارمی',
+      en: 'Roxana Moallemian',
+      fa: 'رکسانا معلمیان',
     },
     contact: {
       email: 'roxanabarmi@gmail.com',
@@ -119,7 +119,7 @@ export const NAATIES: Naati[] = [
       fa: 'غلامرضا تجویدی',
     },
     contact: {
-      phone: ['98 9122151862'],
+      phone: ['+989122151862'],
     },
     language: [
       {
@@ -140,7 +140,7 @@ export const NAATIES: Naati[] = [
       fa: 'علی خرایی فرید',
     },
     contact: {
-      phone: ['00989153137087', '0098-51-38430730'],
+      phone: ['+989153137087', '+985138430730'],
       email: 'rezakhfarid@gmail.com',
     },
     language: [
@@ -177,7 +177,7 @@ export const NAATIES: Naati[] = [
     },
     contact: {
       email: 'soroosh12@gmail.com',
-      phone: ['+98(51)37672809'],
+      phone: ['+985137672809'],
       website: 'www.soroosh483.ir',
     },
     status: Status.ACTIVE,
@@ -204,7 +204,7 @@ export const NAATIES: Naati[] = [
       fa: 'محمدرضا حسینی',
     },
     contact: {
-      phone: ['+98 21 66 5645', '+98 9125139310'],
+      phone: ['+9821665645', '+989125139310'],
       email: 'shakiba11@yahoo.com',
       website: 'www.Tarjom.com',
     },
@@ -246,7 +246,7 @@ export const NAATIES: Naati[] = [
       fa: 'ایران',
     },
     contact: {
-      phone: ['02188822452', '02188862034', '00989211914685', '9122790683'],
+      phone: ['+982188822452', '+982188862034', '+989211914685', '+989122790683'],
       email: 'atefeh.pashazadeh@gmail.com',
       website: 'www.tehrannaati.com',
     },
@@ -259,7 +259,7 @@ export const NAATIES: Naati[] = [
       fa: 'مجید فتاحی پور',
     },
     contact: {
-      phone: ['00989122389210'],
+      phone: ['+989122389210'],
       email: 'majifata@gmail.com',
     },
     language: [
@@ -304,7 +304,7 @@ export const NAATIES: Naati[] = [
       fa: 'علیرضا ممدوهی',
     },
     contact: {
-      phone: ['0912 108 3186'],
+      phone: ['+989121083186'],
       email: 'mamdoohi.ar@gmail.com',
     },
     language: [

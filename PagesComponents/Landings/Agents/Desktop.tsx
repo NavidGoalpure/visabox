@@ -30,6 +30,7 @@ import { Hint_BG } from 'Styles/Theme/ Hint/theme';
 import { Hint_SubTitleStyle } from 'Styles/Theme/ Hint/style';
 import { copyContent, getThemeFromLocalStorage } from 'Utils';
 import { ThemeModes } from 'Interfaces';
+import { ContactsDesc, ContactsWrapper, ContactUsContainer, Desc, GmailContainer, GmailIcon, GmailLink, HeroTheme, RightPlaceTitle, Section, SectionDivider, TelegramContainer, TelegramIcon, TelegramLink, TitleSpanTheme, VipAgentCard } from './styledComponents';
 function Desktop() {
   const [isActive, setIsActive] = useState(false);
   useEffect(() => {
@@ -122,6 +123,18 @@ function Desktop() {
             نسبت به رقبای خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار
             خواهید شد.
           </Desc>
+          <SocialMediaBranchContainer>
+            {/* <SocialMediaBranch
+              width={250}
+              height={200}
+              src={
+                getThemeFromLocalStorage() === ThemeModes.DARK
+                  ? DarkSocialMediaBranch
+                  : LightSocialMediaBranch
+              }
+              alt="normal-lawyer-card"
+            /> */}
+          </SocialMediaBranchContainer>
         </Section>
         <SectionDivider />
         <Section>
@@ -131,8 +144,8 @@ function Desktop() {
             alt='occupation-agent-card'
             src={
               getThemeFromLocalStorage() === ThemeModes.DARK
-                ? `/Images/AgentIntroduction/DarkOccupationList.webp`
-                : `/Images/AgentIntroduction/LightOccupationList.webp`
+                ? `/Images/landing/Agents/DarkOccupationList.webp`
+                : `/Images/landing/Agents/LightOccupationList.webp`
             }
           />
           <Desc>
@@ -198,34 +211,6 @@ function Desktop() {
 }
 export default Desktop;
 
-const TitleSpanTheme = theme('mode', {
-  light: css`
-    color: var(--color-primary4);
-  `,
-  dark: css`
-    color: var(--color-primary5);
-  `,
-});
-const DescSpanTheme = theme('mode', {
-  light: css`
-    color: var(--color-primary4);
-  `,
-  dark: css`
-    color: var(--color-primary6);
-  `,
-});
-const HeroTheme = theme('mode', {
-  light: css`
-    background: linear-gradient(180deg, #dde2eb 23.96%, #ffffff 100%);
-  `,
-  dark: css`
-    background: linear-gradient(
-      180deg,
-      var(--color-gray2) 23.96%,
-      var(--color-gray3) 100%
-    );
-  `,
-});
 const heroAnimation = keyframes`
 to{
   transform:translate(4rem, -4.625rem);
@@ -275,14 +260,7 @@ const HeroTitle = styled.h2`
   margin: 0;
   margin-bottom: 1.5rem;
 `;
-const Desc = styled.p`
-  ${Layer1_TextStyle};
-  text-align: center;
-  margin: 0;
-  span {
-    ${DescSpanTheme}
-  }
-`;
+
 const HeroPicture = styled(Image)`
   width: 40%;
   height: auto;
@@ -333,38 +311,10 @@ const Wrapper = styled.div<{ $isActive: boolean }>`
         `}
 `;
 
-const RightPlaceTitle = styled.h2`
-  ${Headline1Style};
-  ${layer1_TextColor};
-  width: 100%;
-  text-align: center;
-  margin-bottom: 7rem;
-  span {
-    padding: 0 1rem;
-    display: inline-block;
-    margin-top: 1rem;
-    transform: rotate(-10deg);
-    background: var(--color-primary5);
-    border-radius: 20px;
-    color: white;
-  }
-`;
 
-const SectionDivider = styled.hr`
-  width: 50%;
-  height: 4px;
-  margin: 0 auto;
-  background: var(--color-gray9);
-  margin-bottom: 5.5rem;
-`;
-const Section = styled.section`
-  width: 100%;
-  margin-bottom: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
+
+
+
 const CardContainer = styled.div`
   width: 100%;
   display: flex;
@@ -373,10 +323,7 @@ const CardContainer = styled.div`
   gap: 1rem;
   margin-bottom: 4.5rem;
 `;
-const VipAgentCard = styled(Image)`
-  width: 100%;
-  height: 100%;
-`;
+
 const AgentCard = styled(Image)`
   width: 100%;
   height: 80%;
@@ -390,6 +337,12 @@ const AgentCard_Title = styled.h2`
   }
   text-align: center;
 `;
+const SocialMediaBranchContainer = styled.div`
+
+`
+const SocialMediaBranch = styled(Image)`
+
+`
 const OccupationCardSection_Img = styled(Image)`
   width: 100%;
   height: 100%;
@@ -402,55 +355,3 @@ const AboutComponentImage = styled(Image)`
   margin-bottom: 1.5rem;
 `;
 const ProfilePageSecton_Title = styled(AgentCard_Title)``;
-const ContactUsContainer = styled.div`
-  ${Hint_BG}
-  padding: 2rem 5rem;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 3rem;
-`;
-const ContactsWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-const ContactsDesc = styled(Desc)`
-  ${Hint_SubTitleStyle};
-`;
-const TelegramContainer = styled.a`
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  direction: ltr;
-  cursor: pointer;
-`;
-const GmailContainer = styled.button`
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  direction: ltr;
-  cursor: pointer;
-`;
-const GmailIcon = styled(SiGmail)`
-  color: var(--color-secondary4);
-  width: 1.5rem;
-  height: auto;
-`;
-const GmailLink = styled.h3`
-  ${Headline5Style};
-  color: var(--color-secondary4);
-  direction: ltr;
-  margin: 0;
-`;
-const TelegramIcon = styled(FaTelegramPlane)`
-  color: var(--color-secondary4);
-  width: 1.5rem;
-  height: auto;
-`;
-const TelegramLink = styled(GmailLink)``;

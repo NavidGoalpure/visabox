@@ -18,6 +18,7 @@ export const Layer1_TitleStyle = css<{
   margin-bottom: 2.5rem;
   margin-top: 1rem;
   font-weight: bold;
+  text-align: center;
   @media ${deviceMin.tabletS} {
     text-align: start;
   }

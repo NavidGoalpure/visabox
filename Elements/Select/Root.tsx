@@ -48,7 +48,7 @@ const Root: React.FC<Props> = ({
 
   return (
     <Container className={className}>
-      <Select.Root
+      <Select.Root 
         onOpenChange={(isOpen) => {
           if (isOpen) {
             document.body.style.pointerEvents = 'none';
@@ -141,7 +141,6 @@ const Portal = styled(Select.Portal)`
   position: absolute;
   top: 0%;
   left: 0;
-  z-index: 4;
 `;
 const Content = styled(Select.Content)<{
   $position?: 'popper' | 'item-aligned';
@@ -150,7 +149,7 @@ const Content = styled(Select.Content)<{
   height: 100%;
   background: var(--color-gray13);
   border-radius: 15px;
-  z-index: 4;
+  z-index: 100;
   overflow: hidden;
   padding: 1rem;
   &[data-state='open'] {

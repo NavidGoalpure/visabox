@@ -7,17 +7,29 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { Headline1Style } from "Styles/Typo";
 import { layer1_TextColor } from "Styles/Theme/Layers/layer1/theme";
-import HeroImage from "./Images/HeroImage.svg";
 import {
   Layer1_TitleStyle,
   Layer1_TextStyle,
 } from "Styles/Theme/Layers/layer1/style";
+import { Headline5Style } from "Styles/Typo";
+import DarkHeroImage from "./Images/DarkHeroImage.svg";
+import LightHeroImage from "./Images/LightHeroImage.svg";
 import { BiMouse } from "react-icons/bi";
 import DarkLawyerCard from "./Images/DarkLawyerCard.svg";
+import LightLawyerCard from "./Images/LightLawyerCard.svg";
 import DarkVipLawyerCard from "./Images/DarkVipLawyerCard.svg";
+import LightVipLawyerCard from "./Images/LightVipLawyerCard.svg";
 import DarkProfileComponent from "./Images/DarkProfileComponent.svg";
+import LightProfileComponent from "./Images/LightProfileComponent.svg";
 import DarkAboutComponent from "./Images/DarkAboutComponent.svg";
+import LightAboutComponent from "./Images/LightAboutComponent.svg";
 import Image from "next/image";
+import { FaTelegramPlane } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { Hint_BG } from "Styles/Theme/ Hint/theme";
+import { Hint_SubTitleStyle } from "Styles/Theme/ Hint/style";
+import { copyContent, getThemeFromLocalStorage } from "Utils";
+import { ThemeModes } from "Interfaces";
 function Desktop() {
   const [isActive, setIsActive] = useState(false);
   useEffect(() => {
@@ -46,7 +58,11 @@ function Desktop() {
             id={"hero-image"}
             width={431}
             height={272}
-            src={HeroImage}
+            src={
+              getThemeFromLocalStorage() === ThemeModes.DARK
+                ? DarkHeroImage
+                : LightHeroImage
+            }
             alt={"hero-image"}
           />
           <MouseSection>
@@ -69,19 +85,31 @@ function Desktop() {
             <LawyerCard
               width={250}
               height={200}
-              src={DarkLawyerCard}
+              src={
+                getThemeFromLocalStorage() === ThemeModes.DARK
+                  ? DarkLawyerCard
+                  : LightLawyerCard
+              }
               alt="normal-lawyer-card"
             />
             <VipLawyerCard
               width={291}
               height={304}
-              src={DarkVipLawyerCard}
+              src={
+                getThemeFromLocalStorage() === ThemeModes.DARK
+                  ? DarkVipLawyerCard
+                  : LightVipLawyerCard
+              }
               alt="vip-lawyer-card"
             />
             <LawyerCard
-              src={DarkLawyerCard}
               width={250}
               height={200}
+              src={
+                getThemeFromLocalStorage() === ThemeModes.DARK
+                  ? DarkLawyerCard
+                  : LightLawyerCard
+              }
               alt="normal-lawyer-card"
             />
           </CardContainer>
@@ -90,8 +118,9 @@ function Desktop() {
           </LawyerCard_Title>
           <Desc>
             لیست تمامی وکلای مهاجرت ایرانی که دارای پروانه مارا هستند, در
-            ماراباکس موجود است. با خرید اکانت ویژه وکلای ماراباکس نسبت به رقبای
-            خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار خواهید شد.
+            ماراباکس موجود است. با خرید اکانت <span>ویژه</span> وکلای ماراباکس
+            نسبت به رقبای خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار
+            خواهید شد.
           </Desc>
         </Section>
         <SectionDivider />
@@ -100,7 +129,11 @@ function Desktop() {
             width={768}
             height={638}
             alt="occupation-lawyer-card"
-            src={"/Images/LawyerIntroduction/DarkOccupationList.webp"}
+            src={
+              getThemeFromLocalStorage() === ThemeModes.DARK
+                ? `/Images/LawyerIntroduction/DarkOccupationList.webp`
+                : `/Images/LawyerIntroduction/LightOccupationList.webp`
+            }
           />
           <Desc>
             با خرید اکانت ویژه وکلای ماراباکس میتوانید تبلیغات خود را در صفحه
@@ -111,13 +144,21 @@ function Desktop() {
         <SectionDivider />
         <Section>
           <ProfileComponentImage
-            src={DarkProfileComponent}
+            src={
+              getThemeFromLocalStorage() === ThemeModes.DARK
+                ? DarkProfileComponent
+                : LightProfileComponent
+            }
             alt={"profile-component"}
             width={736}
             height={213}
           />
           <AboutComponentImage
-            src={DarkAboutComponent}
+            src={
+              getThemeFromLocalStorage() === ThemeModes.DARK
+                ? DarkAboutComponent
+                : LightAboutComponent
+            }
             alt={"about-component"}
             width={734}
             height={213}
@@ -127,23 +168,62 @@ function Desktop() {
             صفحه <span>اختصاصی</span> خود را داشته باشید
           </ProfilePageSecton_Title>
           <Desc>
-            وکلای ویژه در صفحه اختصاصی خود میتوانند توضیحات تکمیلی به کاربران
-            اراِیه کنند تا آنها را مشتاق به تماس نمایند.
+            وکلای <span>ویژه</span> در صفحه اختصاصی خود میتوانند توضیحات تکمیلی
+            به کاربران اراِیه کنند تا آنها را مشتاق به تماس نمایند.
           </Desc>
         </Section>
         <SectionDivider />
-        <ContactUsContainer></ContactUsContainer>
+        <ContactUsContainer>
+          <ContactsDesc>
+            اگر مایل هستید که <span>اکانت</span> ویژه وکلای ماراباکس را داشته
+            باشید,از راه های زیر با ما در ارتباط باشید.
+          </ContactsDesc>
+          <ContactsWrapper>
+            <GmailContainer onClick={() => copyContent("redneck")}>
+              <GmailIcon />
+              <GmailLink>maraboxmigration@gmail.com</GmailLink>
+            </GmailContainer>
+            <TelegramContainer
+              href={"https://t.me/maraboxmigration"}
+              target={"_blank"}
+            >
+              <TelegramIcon />
+              <TelegramLink>@maraboxmigration</TelegramLink>
+            </TelegramContainer>
+          </ContactsWrapper>
+        </ContactUsContainer>
       </Wrapper>
     </Container>
   );
 }
 export default Desktop;
-const LogoPlaceholderTheme = theme("mode", {
+
+const TitleSpanTheme = theme("mode", {
   light: css`
-    color: var(--color-gray11);
+    color: var(--color-primary4);
   `,
   dark: css`
-    color: var(--color-gray13);
+    color: var(--color-primary5);
+  `,
+});
+const DescSpanTheme = theme("mode", {
+  light: css`
+    color: var(--color-primary4);
+  `,
+  dark: css`
+    color: var(--color-primary6);
+  `,
+});
+const HeroTheme = theme("mode", {
+  light: css`
+    background: linear-gradient(180deg, #dde2eb 23.96%, #ffffff 100%);
+  `,
+  dark: css`
+    background: linear-gradient(
+      180deg,
+      var(--color-gray2) 23.96%,
+      var(--color-gray3) 100%
+    );
   `,
 });
 const heroAnimation = keyframes`
@@ -164,7 +244,7 @@ const Container = styled.div`
   }
 `;
 const Hero = styled.section<{ $isActive: boolean }>`
-  background: yellow;
+  ${HeroTheme}
   display: flex;
   justify-content: center;
   position: absolute;
@@ -174,11 +254,6 @@ const Hero = styled.section<{ $isActive: boolean }>`
   width: 100%;
   height: calc(100vh - 5.5rem);
   z-index: 3;
-  background: linear-gradient(
-    180deg,
-    var(--color-gray2) 23.96%,
-    var(--color-gray3) 100%
-  );
   box-shadow: 0 0 4px black;
 `;
 const HeroWrapper = styled.div`
@@ -204,6 +279,9 @@ const Desc = styled.p`
   ${Layer1_TextStyle};
   text-align: center;
   margin: 0;
+  span {
+    ${DescSpanTheme}
+  }
 `;
 const HeroPicture = styled(Image)`
   width: 40%;
@@ -238,7 +316,6 @@ const Wrapper = styled.div<{ $isActive: boolean }>`
   min-height: 200vh;
   overflow: auto;
   z-index: 2;
-
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -269,6 +346,7 @@ const RightPlaceTitle = styled.h2`
     transform: rotate(-10deg);
     background: var(--color-primary5);
     border-radius: 20px;
+    color: white;
   }
 `;
 
@@ -308,7 +386,7 @@ const LawyerCard_Title = styled.h2`
   margin: 0;
   margin-bottom: 1.5rem;
   span {
-    color: var(--color-primary5);
+    ${TitleSpanTheme}
   }
   text-align: center;
 `;
@@ -325,5 +403,54 @@ const AboutComponentImage = styled(Image)`
 `;
 const ProfilePageSecton_Title = styled(LawyerCard_Title)``;
 const ContactUsContainer = styled.div`
-
-`
+  ${Hint_BG}
+  padding: 2rem 5rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+`;
+const ContactsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const ContactsDesc = styled(Desc)`
+  ${Hint_SubTitleStyle};
+`;
+const TelegramContainer = styled.a`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  direction: ltr;
+  cursor: pointer;
+`;
+const GmailContainer = styled.button`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  direction: ltr;
+  cursor: pointer;
+`;
+const GmailIcon = styled(SiGmail)`
+  color: var(--color-secondary4);
+  width: 1.5rem;
+  height: auto;
+`;
+const GmailLink = styled.h3`
+  ${Headline5Style};
+  color: var(--color-secondary4);
+  direction: ltr;
+  margin: 0;
+`;
+const TelegramIcon = styled(FaTelegramPlane)`
+  color: var(--color-secondary4);
+  width: 1.5rem;
+  height: auto;
+`;
+const TelegramLink = styled(GmailLink)``;

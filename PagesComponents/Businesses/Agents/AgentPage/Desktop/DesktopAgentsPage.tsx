@@ -76,10 +76,10 @@ const TitleColor = theme('mode', {
 });
 const HeaderBackground = theme('mode', {
   light: css`
-    background-color: var(--color-gray13);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   `,
   dark: css`
-    background-color: var(--color-gray6);
+    border: 1px var(--color-gray6) solid;
   `,
 });
 const DescBackground = theme('mode', {
@@ -147,6 +147,7 @@ const VIPBox = styled(FiBox)`
 const RightSide = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
   //   justify-content: center;
   //   align-items: center;
 `;
@@ -164,6 +165,7 @@ const MaraNumberContainer = styled.div`
 const MaraNumberTitle = styled.h3`
   ${Layer1_SubtitleStyle}
   margin:0;
+  width: auto;
 `;
 const MaraNumber = styled.h3`
   ${Headline5Style};

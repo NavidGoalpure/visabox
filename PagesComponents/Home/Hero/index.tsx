@@ -1,5 +1,5 @@
 import { deviceMin } from 'Consts/device';
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';

@@ -1,20 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useLocale } from 'Hooks/useLocale';
-import * as MaraSelect from 'Elements/Select';
-import { Languages } from 'Interfaces';
-import BritishFlag from '../Images/BritishFlag.svg';
-import IranFlag from '../Images/IranFlag.svg';
-import { useRouter } from 'next/router';
-import { ImSphere } from 'react-icons/im';
-import dynamic from 'next/dynamic';
+import React from "react";
+import styled from "styled-components";
+import { useLocale } from "Hooks/useLocale";
+import * as MaraSelect from "Elements/Select";
+import { Languages } from "Interfaces";
+import BritishFlag from "../Images/BritishFlag.svg";
+import IranFlag from "../Images/IranFlag.svg";
+import { useRouter } from "next/router";
+import { ImSphere } from "react-icons/im";
+import dynamic from "next/dynamic";
 
 function DesktopLanguageChanger() {
   const { locale } = useLocale();
   const router = useRouter();
   const smartTextObj: Record<Languages, string> = {
-    en: 'English',
-    fa: 'فارسی',
+    en: "English",
+    fa: "فارسی",
   };
   function onClickHandler(value: string) {
     router.push(router.asPath, router.asPath, { locale: value });
@@ -23,7 +23,7 @@ function DesktopLanguageChanger() {
     <StyledMaraSelectRoot
       noScroll
       triggerProps={{
-        id: 'language-trigger',
+        id: "language-trigger",
         placeholder: smartTextObj[locale],
         icon: <SphereIcon />,
       }}
@@ -32,7 +32,7 @@ function DesktopLanguageChanger() {
       <MaraSelect.Item
         icon={
           <FlagWrapper>
-            <Flag fill src={BritishFlag} alt={'england flag'} sizes='2.25rem' />
+            <Flag fill src={BritishFlag} alt={"england flag"} sizes="2.25rem" />
           </FlagWrapper>
         }
         text={smartTextObj.en}
@@ -43,7 +43,7 @@ function DesktopLanguageChanger() {
         value={Languages.fa}
         icon={
           <FlagWrapper>
-            <Flag fill src={IranFlag} alt={'iran flag'} sizes='2.25rem' />
+            <Flag fill src={IranFlag} alt={"iran flag"} sizes="2.25rem" />
           </FlagWrapper>
         }
       ></MaraSelect.Item>
@@ -52,14 +52,15 @@ function DesktopLanguageChanger() {
 }
 
 export default DesktopLanguageChanger;
-const StyledMaraSelectRoot = styled(MaraSelect.Root)``;
+const StyledMaraSelectRoot = styled(MaraSelect.Root)`
+`;
 const FlagWrapper = styled.div`
   position: relative;
   width: 2.25rem;
   height: 2.25rem;
 `;
 ///////////
-const DYImage = dynamic(() => import('next/image'));
+const DYImage = dynamic(() => import("next/image"));
 const Flag = styled(DYImage)`
   position: relative !important;
 `;

@@ -1,12 +1,13 @@
-import Footer from 'Components/Footer';
-import { deviceMin } from 'Consts/device';
-import { useLocale } from 'Hooks/useLocale';
-import { Languages } from 'Interfaces';
-import React, { HTMLAttributes, ReactNode } from 'react';
-import styled from 'styled-components';
-import { directionStyles } from 'Styles/Theme';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import Header from '../NavigationMenu';
+import Footer from "Components/Footer";
+import ToasterContainer from "Components/ToasterContainer";
+import { deviceMin } from "Consts/device";
+import { useLocale } from "Hooks/useLocale";
+import { Languages } from "Interfaces";
+import React, { HTMLAttributes, ReactNode } from "react";
+import styled from "styled-components";
+import { directionStyles } from "Styles/Theme";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import Header from "../NavigationMenu";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -17,6 +18,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
 
   return (
     <Container {...props} $locale={locale}>
+      <ToasterContainer />
       <Header />
 
       {/* <Survay.Root

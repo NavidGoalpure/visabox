@@ -62,7 +62,7 @@ const MobileContactComponent = ({
         </PhoneContainer>
       )}
       {email && (
-        <GmailContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <GmailContainer onClick={() => copyContent(email || '')}>
           <GmailIcon />
           <GmailTitle>{email}</GmailTitle>
         </GmailContainer>

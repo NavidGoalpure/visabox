@@ -92,6 +92,7 @@ const Container = styled.div`
   ${layer1_BG}
   ${directionStyles}
   ${boxShadow};
+  z-index: 10;
   width: 100%;
   padding: 0 1rem;
   position: relative;

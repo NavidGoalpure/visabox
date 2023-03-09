@@ -58,6 +58,7 @@ const Title = styled.h1`
 `;
 const Subtitle = styled.h2`
   ${Layer1_SubtitleStyle}
+  text-align: center !important;
 `;
 const Desc = styled.h3`
   ${Layer1_TextStyle}

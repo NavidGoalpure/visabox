@@ -3,7 +3,7 @@ import { MultiLanguageText } from 'Interfaces';
 
 export enum LanguageKeys {
   SkilledOccupationList = 'SkilledOccupationList',
-  LawyersList = 'LawyersList',
+  AgentsList = 'AgentsList',
   Home = 'Home',
   socialList = 'socialList',
 }
@@ -12,8 +12,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Skilled Occupations',
     fa: 'لیست مشاغل',
   },
-  LawyersList: {
-    en: 'Lawyers',
+  AgentsList: {
+    en: 'Agents',
     fa: 'لیست وکلا',
   },
   socialList: {

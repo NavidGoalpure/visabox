@@ -1,4 +1,4 @@
-import { Locations, MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
@@ -13,7 +13,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'معتبر ترین وکلای ایرانی مهاجرت به استرالیا را پیدا کنید | مارا باکس',
   },
   SeoDesc: {
-    fa: 'اسامی بهترین وکلای ایرانی برای اقامت و مهاجرت به استرالیا،ویزای سرمایه گذاری،کاری،خانواده و ازدواج،تجاری و تحصیلی',
+    fa: 'اسامی بهترین وکلای ایرانی برای اقامت و مهاجرت به استرالیا،ویزای سرمایه گذاری،کاری،خانواده و ازدواج، تجاری و تحصیلی',
     en: 'name and info of some of the best migration agents for migration to australia,investment visa,work visa,marriage and student visa',
   },
   //

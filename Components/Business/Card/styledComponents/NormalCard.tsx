@@ -133,7 +133,7 @@ export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   ${({ $hasWebsite }) => !$hasWebsite && 'cursor: unset;'}
 `;
 export const WebsiteTitle = styled(EmailTitle)``;
-export const LawyerElement = styled.h3`
+export const AgentElement = styled.h3`
   ${layer3_TextStyle}
   ${layer2A_Bg}
   display: flex;

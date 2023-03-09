@@ -22,45 +22,44 @@ import Link from 'next/link';
 import { getGsapTimeLine_VipCard } from '../const';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
-  fullname: MultiLanguageText;
+  name: MultiLanguageText;
   desc: MultiLanguageText | undefined;
   slug: string;
 }
 
-function VIPNaatiCard({ fullname, desc, slug, className, ...props }: Props) {
+function VIPAgentCard({ name, desc, slug, className, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   useEffect(() => getGsapTimeLine_VipCard(slug));
-
   return (
     <Container
       {...props}
-      href={`/businesses/naaties/${slug}`}
+      href={`/businesses/agents/${slug}`}
       target={'_blank'}
       className={`${slug} ${className}`}
     >
       <Wrapper>
         <ImageWrapper>
-          <NaatiLogo
+          <AgentLogo
             fill
-            src={`/Images/businesses/naaties/${slug}.jpeg`}
+            src={`/Images/businesses/agent/${slug}.jpeg`}
             alt={` image of ${slug}`}
             quality={100}
             sizes='96px'
           />
         </ImageWrapper>
-        <Title>{dt(fullname)}</Title>
+        <Title>{dt(name)}</Title>
         <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
         <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
         <AgentElement>
-          Translator <Box />
+          Agent <Box />
         </AgentElement>
-        <MaraElement>Naati</MaraElement>
+        <MaraElement>Mara</MaraElement>
       </Wrapper>
     </Container>
   );
 }
-export default VIPNaatiCard;
+export default VIPAgentCard;
 
 const LogoBackground = theme('mode', {
   light: css`
@@ -130,7 +129,7 @@ const ImageWrapper = styled.div`
     transform: rotate(0deg) translate(-50%, -56%);
   }
 `;
-const NaatiLogo = styled(Image)`
+const AgentLogo = styled(Image)`
   position: relative !important;
   object-fit: cover;
   transition: all 0.3s ease;

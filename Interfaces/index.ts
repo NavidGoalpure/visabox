@@ -31,7 +31,18 @@ enum Status {
   'ACTIVE' = 'ACTIVE',
   'DEACTIVE' = 'DEACTIVE',
 }
-export type { MultiLanguageText, MultiLanguageTextArray };
+interface Contact {
+  email?: string;
+  phone?: string[];
+  telegram?: string;
+  whatsapp?: string;
+  instagram?: string;
+  linkedin?: string;
+  website?: string;
+  mobile?: string;
+  address?: MultiLanguageText;
+}
+export type { MultiLanguageText, MultiLanguageTextArray, Contact };
 export {
   Languages,
   Locations,

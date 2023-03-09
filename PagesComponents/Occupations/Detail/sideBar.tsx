@@ -21,8 +21,8 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
-import { Lawyers } from 'Consts/Businesses/Lawyers';
-import VIPLawyerCard from 'Components/Business/Card/Lawyer/VIPCard';
+import { Agents } from 'Consts/Businesses/agents';
+import VIPAgentCard from 'Components/Business/Card/Agent/VIPCard';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -51,9 +51,9 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             icon={<AnszcoIcon />}
           />
           <SideBar.TabItem
-            title={t(LanguageKeys.Lawyer)}
-            value='lawyer'
-            icon={<LawyerIcon />}
+            title={t(LanguageKeys.Agent)}
+            value='agent'
+            icon={<AgentIcon />}
           />
         </>
       }
@@ -124,18 +124,18 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
-          <SideBar.BodyItem value='lawyer'>
-            <LawyersContentWrapper>
-              {Lawyers.filter((lawyer) => lawyer.isFeatured).map((lawyer) => {
+          <SideBar.BodyItem value='agent'>
+            <AgentsContentWrapper>
+              {Agents.filter((agent) => agent.isFeatured).map((agent) => {
                 return (
-                  <StyledVIPLawyerCard
-                    name={lawyer.name}
-                    desc={lawyer.desc}
-                    slug={lawyer.slug}
+                  <StyledVIPAgentCard
+                    name={agent.name}
+                    desc={agent.desc}
+                    slug={agent.slug}
                   />
                 );
               })}
-            </LawyersContentWrapper>
+            </AgentsContentWrapper>
           </SideBar.BodyItem>
           {/*  */}
         </>
@@ -181,7 +181,7 @@ const AnszcoIcon = styled(TbNumbers)`
 const Backlog = styled(TbStack2)`
   ${Icon}
 `;
-const LawyerIcon = styled(FaRegHandshake)`
+const AgentIcon = styled(FaRegHandshake)`
   ${Icon}
 `;
 //////////
@@ -220,8 +220,8 @@ const Tag = styled.h5`
     font-weight: bold;
   }
 `;
-////lawyers section/////
-const LawyersContentWrapper = styled.section`
+////agents section/////
+const AgentsContentWrapper = styled.section`
   ${layer2A_style}
   width: auto;
   display: flex;
@@ -229,7 +229,7 @@ const LawyersContentWrapper = styled.section`
   align-items: center;
   padding: 0 1rem;
 `;
-const StyledVIPLawyerCard = styled(VIPLawyerCard)`
+const StyledVIPAgentCard = styled(VIPAgentCard)`
   display: block;
   width: fit-content;
 `;

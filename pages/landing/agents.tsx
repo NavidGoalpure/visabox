@@ -7,8 +7,8 @@ import {
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Businesses/Agents/const';
-import Content from 'PagesComponents/AgentsIntroduction';
 import styled from 'styled-components';
+import Content from 'PagesComponents/Landings/Agents';
 
 const AgentsIntroduction: NextPage = () => {
   const { locale } = useLocale();

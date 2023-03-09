@@ -1,5 +1,4 @@
 import useDevice from 'Hooks/useDevice';
-import { Agent } from 'Interfaces/Businesses/agents';
 import { useState, useEffect } from 'react';
 import Desktop from './Desktop';
 import Mobile from './Mobile';

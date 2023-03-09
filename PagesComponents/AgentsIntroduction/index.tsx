@@ -1,15 +1,17 @@
 import useDevice from 'Hooks/useDevice';
-import { useEffect, useState } from 'react';
-import { Desktop } from './Desktop';
+import { Agent } from 'Interfaces/Businesses/agents';
+import { useState, useEffect } from 'react';
+import Desktop from './Desktop';
 import Mobile from './Mobile';
 
-const SmartHeader = () => {
+function Content() {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
+
   useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');
   });
   if (screen === 'MOBILE') return <Mobile />;
   return <Desktop />;
-};
-export default SmartHeader;
+}
+export default Content;

@@ -2,9 +2,9 @@ import { HTMLAttributes, useEffect } from 'react';
 import { MultiLanguageText } from 'Interfaces';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { copyContent } from 'Utils';
-
+import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { BLANK_SYMBOL } from 'Consts';
+import { getGsapTimeLine_normalCard } from '../const';
 import {
   Container,
   CopyIcon,
@@ -23,49 +23,46 @@ import {
   WebsiteWrapper,
   Wrapper,
 } from '../styledComponents/NormalCard';
-import {
-  componentStatements,
-  getGsapTimeLine_normalCard,
-  LanguageKeys,
-} from '../const';
+import { BLANK_SYMBOL } from 'Consts';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  fullName: MultiLanguageText;
+  name: MultiLanguageText;
   email: string | undefined;
   website: string | undefined;
   phone: string[] | undefined;
   slug: string;
 }
-function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
+function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
 
   useEffect(() => getGsapTimeLine_normalCard(slug));
+  const hasWebsite: boolean = website !== BLANK_SYMBOL;
 
   return (
     <Container className={slug} {...props}>
       <Wrapper>
-        <Title>{dt(fullName)}</Title>
+        <Title>{dt(name)}</Title>
         <Socials>
-          <EmailWrapper onClick={() => copyContent(email || BLANK_SYMBOL)}>
+          <EmailWrapper onClick={() => copyContent(email || '')}>
             <EmailTitle>
               {t(LanguageKeys.Email)}:{!!email && <CopyIcon />}
             </EmailTitle>
             <EmailUrl>{!!email ? email : BLANK_SYMBOL}</EmailUrl>
           </EmailWrapper>
-          <PhoneWrapper onClick={() => copyContent(phone?.[0] || BLANK_SYMBOL)}>
+          <PhoneWrapper onClick={() => copyContent(phone?.[0] || '')}>
             <PhoneTitle>
-              {t(LanguageKeys.Phone)}:{!!phone?.[0] && <CopyIcon />}
+              {t(LanguageKeys.Phone)}:<CopyIcon />
             </PhoneTitle>
             <PhoneUrl>{!!phone?.[0] ? phone?.[0] : BLANK_SYMBOL}</PhoneUrl>
           </PhoneWrapper>
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
-              as={!!website ? 'a' : 'div'}
-              href={!!website ? `https://${website}` : ''}
+              as={hasWebsite ? 'a' : 'div'}
+              href={hasWebsite ? `https://${website}` : ''}
               target={'_blank'}
-              $hasWebsite={!!website}
+              $hasWebsite={hasWebsite}
             >
               {!!website ? website : BLANK_SYMBOL}
             </WebsiteUrl>
@@ -77,4 +74,4 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
     </Container>
   );
 }
-export default NaatiCard;
+export default AgentCard;

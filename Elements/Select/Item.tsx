@@ -12,7 +12,10 @@ interface Props extends SelectItemProps {
 const Item: React.FC<Props> = ({ icon, text, ...props }) => {
   return (
     <SelectItem {...props}>
-      {icon} <Select.ItemText>{text}</Select.ItemText>
+      {icon}{' '}
+      <Select.ItemText onClick={() => console.log('navid 1 inja')}>
+        {text}
+      </Select.ItemText>
     </SelectItem>
   );
 };

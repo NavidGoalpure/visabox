@@ -48,7 +48,7 @@ const Root: React.FC<Props> = ({
 
   return (
     <Container className={className}>
-      <Select.Root 
+      <Select.Root
         onOpenChange={(isOpen) => {
           if (isOpen) {
             document.body.style.pointerEvents = 'none';
@@ -148,7 +148,7 @@ const Content = styled(Select.Content)<{
   width: 100%;
   height: 100%;
   background: var(--color-gray13);
-  border-radius: 15px;
+  border-radius: 10px;
   z-index: 100;
   overflow: hidden;
   padding: 1rem;

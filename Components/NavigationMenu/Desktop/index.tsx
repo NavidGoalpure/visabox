@@ -11,6 +11,7 @@ import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
 import { componentStatements, LanguageKeys } from '../const';
 import DesktopLanguageChanger from './LanguageChanger';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import DesktopBusinessDropdown from './dropdownBusiness';
 
 function Desktop() {
   const { locale } = useLocale();
@@ -40,6 +41,7 @@ function Desktop() {
             </MenuLink>
           </NavigationMenu.Item>
           <DesktopLanguageChanger />
+          <DesktopBusinessDropdown />
           <SwitchTheme />
         </MenuItems>
       </Wrapper>

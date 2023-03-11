@@ -3,7 +3,7 @@ export enum SocialMediaTypes {
   TELEGRAM = 'TELEGRAM',
   INSTAGRAM = 'INSTAGRAM',
 }
-export interface GroupCard {
+export interface SocialCard {
   name: string;
   slug: string;
   link: string;

@@ -6,6 +6,7 @@ enum Locations {
   fa = 'fa',
   en = 'en',
 }
+
 enum ThemeModes {
   LIGHT = 'light',
   DARK = 'dark',

@@ -1,8 +1,8 @@
 import useDevice from 'Hooks/useDevice';
 import { useState, useEffect } from 'react';
-import { GroupCard } from '../interfaces';
+import { SocialCard } from '../interfaces';
 import MobileSocialCard from './MobileCard';
-type Props = GroupCard;
+type Props = SocialCard;
 function SmartSoci({
   desc,
   locations,

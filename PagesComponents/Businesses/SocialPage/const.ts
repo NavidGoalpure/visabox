@@ -1,5 +1,5 @@
 import { Locations, MultiLanguageText } from 'Interfaces';
-import { SocialMediaTypes, GroupCard } from './interfaces';
+import { SocialMediaTypes, SocialCard } from './interfaces';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
@@ -29,7 +29,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 
 ////////////
-export const VipSocialMedias: GroupCard[] = [
+export const VipSocialMedias: SocialCard[] = [
   {
     name: 'مهاجرت تجاری به استرالیا',
     socialmediaType: SocialMediaTypes.TELEGRAM,
@@ -43,7 +43,7 @@ export const VipSocialMedias: GroupCard[] = [
 ];
 
 ////////////
-export const NormalSocialMedias: GroupCard[] = [
+export const NormalSocialMedias: SocialCard[] = [
   {
     name: 'ACS - skill assessment',
     socialmediaType: SocialMediaTypes.TELEGRAM,

@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Locations } from 'Interfaces';
 import { FaTelegramPlane } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
@@ -12,46 +10,29 @@ import {
   layer2B_BG,
   layer2B_TextColor,
 } from 'Styles/Theme/Layers/layer2/theme';
-import {
-  layer3_SubtitleStyle,
-  layer3_TitleStyle,
-} from 'Styles/Theme/Layers/layer3/style';
+import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
-import { componentStatements, LanguageKeys } from '../const';
-import { SocialMediaTypes, SocialCard } from '../interfaces';
+
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
+import { ExchangeCard } from './interfaces';
+import { FcCurrencyExchange } from 'react-icons/fc';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 
-type Props = SocialCard;
-function MobileSocialCard({
+type Props = ExchangeCard;
+function MobileExchangeCard({
   desc,
-  locations,
+  location,
   name,
-  link,
-  socialmediaType,
+  externalLink,
   slug,
   isFeatured,
 }: Props) {
-  const { t } = useStaticTranslation(componentStatements);
-  const SocialMediaIcon = () => {
-    switch (socialmediaType) {
-      case SocialMediaTypes.TELEGRAM:
-        return (
-          <>
-            <TelegramIcon />
-            Telegram
-          </>
-        );
-      case SocialMediaTypes.INSTAGRAM:
-        return <>Instagram</>;
+  const { dt } = useDynamicTranslation();
 
-      default:
-        return null;
-    }
-  };
   return (
-    <Container href={link} target={'_blank'} isFeatured={isFeatured}>
+    <Container href={externalLink} target={'_blank'} isFeatured={isFeatured}>
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
           <Img
@@ -66,20 +47,18 @@ function MobileSocialCard({
             <VIPBox aria-hidden={true} />
           </VIPBoxContainer>
         )}
-        <NameTag isFeatured={isFeatured}>{name} </NameTag>
-        <Desc isFeatured={isFeatured}>{desc}</Desc>
-        <JoinButton>{t(LanguageKeys.Join)}</JoinButton>
+        <NameTag isFeatured={isFeatured}>{dt(name)} </NameTag>
+        <Desc isFeatured={isFeatured}>{dt(desc)}</Desc>
+
         <SocialMediaTag isFeatured={isFeatured}>
-          {SocialMediaIcon()}
+          <FcCurrencyExchange />
         </SocialMediaTag>
-        <LocationTag isFeatured={isFeatured}>
-          {locations === Locations.fa ? 'Persian' : 'English'}
-        </LocationTag>
+        <LocationTag isFeatured={isFeatured}>{dt(location)}</LocationTag>
       </Wrapper>
     </Container>
   );
 }
-export default MobileSocialCard;
+export default MobileExchangeCard;
 const ContainerDropShadow = theme('mode', {
   light: css`
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));

@@ -9,4 +9,5 @@ export interface Exchange {
   isFeatured: boolean;
   status: Status;
   slug: string;
+  hasImage:boolean;
 }

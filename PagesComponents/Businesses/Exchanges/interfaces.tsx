@@ -1,4 +1,4 @@
-import { Contact, MultiLanguageText } from 'Interfaces';
+import { Contact, MultiLanguageText } from "Interfaces";
 
 export interface ExchangeCard {
   name: MultiLanguageText;
@@ -6,6 +6,7 @@ export interface ExchangeCard {
   externalLink: string;
   isFeatured: boolean;
   contact: Contact;
+  hasImage: boolean;
   desc: MultiLanguageText;
   // کشور ثبت صرافی
   location: MultiLanguageText;

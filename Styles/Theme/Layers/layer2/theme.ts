@@ -13,11 +13,8 @@ export const layer2A_HeaderBG = theme('mode', {
 });
 export const layer2A_Bg = theme('mode', {
   light: css`
-    // navid test
-    // background: #ffffff;
     background: var(--color-gray13);
-
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   `,
   dark: css`
     background: var(--color-gray6);

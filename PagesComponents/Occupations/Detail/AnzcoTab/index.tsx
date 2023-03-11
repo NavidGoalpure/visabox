@@ -72,7 +72,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           dangerouslySetInnerHTML={{
             __html: dt(anzscoSection?.description),
           }}
-        ></Description>
+        />
         <StyledAccordion
           backgroundLayer='3'
           triggerText={t(LanguageKeys.AlternativeTitles)}
@@ -174,7 +174,7 @@ const ContentTitle = styled.h2`
   ${layer2A_TextColor}
   margin-bottom:1.5rem;
 `;
-const Description = styled.p`
+const Description = styled.div`
   ${BorderColor};
   ${layer3_style};
   margin: 0;

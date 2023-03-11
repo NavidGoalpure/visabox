@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
+import { copyContent } from 'Utils';
 
 function MobileFooter() {
   const { t } = useStaticTranslation(componentStatements);
@@ -27,8 +28,12 @@ function MobileFooter() {
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
-          <TelegramLogo />
-          <GmailLogo />
+          <a target={"_blank"} href="https://www.t.me/maraboxmigration">
+            <TelegramLogo />
+          </a>
+          <a onClick={() => copyContent("mailto:maraboxmigration@gmail.com")}>
+            <GmailLogo />
+          </a>
         </LogosContainer>
       </ContactUsContainer>
     </Container>

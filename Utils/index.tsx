@@ -1,3 +1,5 @@
+import ErrorToast from 'Elements/Toast/Error';
+import SuccessToast from 'Elements/Toast/Success';
 import { LocalStorageKeys, ThemeModes } from 'Interfaces';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
@@ -44,9 +46,26 @@ function getLocalStorage(key: LocalStorageKeys): string | null {
   return window.localStorage.getItem(key);
   //
 }
+const copyContent = async (text: string) => {
+  await navigator.clipboard
+    .writeText(text)
+    .then(() => SuccessToast('Copied to clipboard'));
+  //   ErrorToast("Copying to clipboard was not successful!");
+};
+/////////////////
+const slugify = (str: string) =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
 export {
   getThemeFromLocalStorage,
   isItOnLive,
   setLocalStorage,
   getLocalStorage,
+  copyContent,
+  slugify,
 };

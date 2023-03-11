@@ -1,12 +1,13 @@
-import Footer from 'Components/Footer';
-import { deviceMin } from 'Consts/device';
-import { useLocale } from 'Hooks/useLocale';
-import { Languages } from 'Interfaces';
-import React, { HTMLAttributes, ReactNode } from 'react';
-import styled from 'styled-components';
-import { directionStyles } from 'Styles/Theme';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import { Header } from '../NavigationMenu';
+import Footer from "Components/Footer";
+import ToasterContainer from "Components/ToasterContainer";
+import { deviceMin } from "Consts/device";
+import { useLocale } from "Hooks/useLocale";
+import { Languages } from "Interfaces";
+import React, { HTMLAttributes, ReactNode } from "react";
+import styled from "styled-components";
+import { directionStyles } from "Styles/Theme";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import Header from "../NavigationMenu";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -14,10 +15,36 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const PageContainer: React.FC<Props> = ({ children, ...props }) => {
   const { locale } = useLocale();
+
   return (
     <Container {...props} $locale={locale}>
+      <ToasterContainer />
       <Header />
-      <Content>{children}</Content>
+
+      {/* <Survay.Root
+        title={{
+          en: 'How do you prefer to do the legal procedures of immigration?',
+          fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
+        }}
+      >
+        <MultiChoice>
+          <Item
+            value={'navid1'}
+            text={{
+              en: 'Lawer',
+              fa: 'وکیل',
+            }}
+          />
+          <Item
+            value={'navid2'}
+            text={{
+              en: 'Myself',
+              fa: 'خودم',
+            }}
+          />
+        </MultiChoice>
+      </Survay.Root> */}
+      <Content id='PageContainer-content'>{children}</Content>
       <Footer />
     </Container>
   );
@@ -26,10 +53,8 @@ export default PageContainer;
 export const Container = styled.main<{ $locale: Languages }>`
   ${layer1_BG}
   ${directionStyles}
-  font-family:${({ $locale }) =>
-    $locale === Languages.fa
-      ? 'var(--font-family__fa)'
-      : 'var(--font-family__en)'};
+  ${({ $locale }) =>
+    $locale === Languages.fa && 'font-family: var(--font-family__fa)'};
   display: flex;
   justify-content: center;
   align-items: flex-start;

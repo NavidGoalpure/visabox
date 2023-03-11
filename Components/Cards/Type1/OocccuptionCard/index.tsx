@@ -19,6 +19,7 @@ interface Props {
   slug?: Slug;
   tasks: MultiLanguageTextArray;
 }
+
 function OccupationCard({ code, title, description, slug, tasks }: Props) {
   const { dt } = useDynamicTranslation();
   const { locale } = useLocale();
@@ -73,6 +74,9 @@ const Description = styled.p`
   direction: ltr;
   text-align: center;
   margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
   text-align: start;
 `;

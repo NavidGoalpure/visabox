@@ -77,13 +77,13 @@ const TabsList = styled(Tabs.TabsList)<{
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
   //
   position: relative;
   width: 100%;
   min-width: 11.5rem;
   height: 6rem;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   list-style: none;
   @media ${deviceMin.laptopS} {
     width: max-content;

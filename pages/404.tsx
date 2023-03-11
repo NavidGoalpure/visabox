@@ -1,10 +1,8 @@
-import AnimationComponent from 'Components/AnimationComponent';
+import MaraBgAnimation from 'Components/MaraBgAnimation';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import PageLayout from 'Components/Layouts/PageContainer';
-import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
-
 import Link from 'next/link';
 import Seo from 'Components/Seo';
 import {
@@ -21,22 +19,20 @@ export default function NotFound() {
         canonical={`https://www.marabox.com/404`}
         isNoIndex={true}
       />
-      <Head>
-        <title>Not Found</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+
       <Container>
-        <AnimationComponent />
-        <TxtContainer>
-          <Title>404</Title>
-          <Subtitle>Oops...</Subtitle>
-          <Desc>You weren't supposed to be here</Desc>
-          <Desc>Maybe you need to use a proxy</Desc>
-          <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
-          <Link href='/occupations'>
-            <PrimaryButton>Home</PrimaryButton>
-          </Link>
-        </TxtContainer>
+        <MaraBgAnimation>
+          <BlurContainer>
+            <Title>404</Title>
+            <Subtitle>Oops...</Subtitle>
+            <Desc>You weren't supposed to be here</Desc>
+            <Desc>Maybe you need to use a proxy</Desc>
+            <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
+            <Link href='/occupations'>
+              <PrimaryButton>Home</PrimaryButton>
+            </Link>
+          </BlurContainer>
+        </MaraBgAnimation>
       </Container>
     </PageLayout>
   );
@@ -49,7 +45,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-const TxtContainer = styled.div`
+const BlurContainer = styled.div`
   padding: 32px 24px;
   backdrop-filter: blur(10px);
   display: flex;
@@ -62,6 +58,7 @@ const Title = styled.h1`
 `;
 const Subtitle = styled.h2`
   ${Layer1_SubtitleStyle}
+  text-align: center !important; 
 `;
 const Desc = styled.h3`
   ${Layer1_TextStyle}

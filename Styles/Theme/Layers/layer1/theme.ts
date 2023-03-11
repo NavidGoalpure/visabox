@@ -1,18 +1,6 @@
 import { css } from 'styled-components';
 import theme from 'styled-theming';
 
-export const publiStyles = theme('mode', {
-  light: css`
-    a {
-      color: var(--color-primary4);
-    }
-  `,
-  dark: css`
-    a {
-      color: var(--color-primary6);
-    }
-  `,
-});
 //////////LAYER1/////////
 export const layer1_BG = theme('mode', {
   light: css`
@@ -35,7 +23,7 @@ export const layer1_SubtitleColor = theme('mode', {
     color: var(--color-gray7);
   `,
   dark: css`
-    color: var(--color-gray10);
+    color: var(--color-gray11);
   `,
 });
 export const layer1_TextColor = theme('mode', {

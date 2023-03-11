@@ -1,4 +1,4 @@
-import AnimationComponent from 'Components/AnimationComponent';
+import MaraBgAnimation from 'Components/MaraBgAnimation';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import React from 'react';
 import styled from 'styled-components';
@@ -71,18 +71,19 @@ const WireSvg = () => {
 export default function PageErrorContent() {
   return (
     <Container>
-      <AnimationComponent />
-      <TxtContainer>
-        <Wire>
-          <WireSvg />
-        </Wire>
-        <Title>Someone stepped on the wire</Title>
-        <Subtitle>Please check your connection</Subtitle>
-        <Desc>{`there most be some problems in the servers please try again later`}</Desc>
-        <Link href='/occupations'>
-          <PrimaryButton>Home</PrimaryButton>
-        </Link>
-      </TxtContainer>
+      <MaraBgAnimation>
+        <TxtContainer>
+          <Wire>
+            <WireSvg />
+          </Wire>
+          <Title>Someone stepped on the wire</Title>
+          <Subtitle>Please check your connection</Subtitle>
+          <Desc>{`there most be some problems in the servers please try again later`}</Desc>
+          <Link href='/occupations'>
+            <PrimaryButton>Home</PrimaryButton>
+          </Link>
+        </TxtContainer>
+      </MaraBgAnimation>
     </Container>
   );
 }

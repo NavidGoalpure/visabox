@@ -1,6 +1,6 @@
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require("@sentry/nextjs");
 
-const withImages = require('next-images');
+const withImages = require("next-images");
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -19,7 +19,6 @@ const config = {
   //
   experimental: {
     nextScriptWorkers: true,
-    
   },
   compiler: {
     // Enables the styled-components SWC transform
@@ -48,15 +47,8 @@ const config = {
     //   'Configure Tunneling to avoid Ad-Blockers':
     //     - tunnelRoute
   },
-
-  async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/occupations",
-        permanent: false,
-      },
-    ];
+  images: {
+    formats: ["image/webp"],
   },
 };
 const sentryWebpackPluginOptions = {

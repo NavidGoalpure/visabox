@@ -5,7 +5,7 @@ exports[`Element/Root renders Root correctly  1`] = `
   className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
   data-orientation="horizontal"
   dir="ltr"
-  heightToRem={3}
+  heightInRem={3}
   variant="SIDE_POSITION"
 >
   <div
@@ -37,7 +37,7 @@ exports[`Element/SRoot renders Root correctly  1`] = `
   className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
   data-orientation="horizontal"
   dir="ltr"
-  heightToRem={3}
+  heightInRem={3}
   variant="SIDE_POSITION"
 >
   <div
@@ -69,7 +69,7 @@ exports[`Element/SideBar/Root renders Root correctly  1`] = `
   className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
   data-orientation="horizontal"
   dir="ltr"
-  heightToRem={3}
+  heightInRem={3}
   variant="SIDE_POSITION"
 >
   <div
@@ -101,7 +101,7 @@ exports[`Element/Sidebar renders Root correctly  1`] = `
   className="Root__TabsRoot-sc-ymugap-0 gkUvkf"
   data-orientation="horizontal"
   dir="ltr"
-  heightToRem={3}
+  heightInRem={3}
   variant="SIDE_POSITION"
 >
   <div

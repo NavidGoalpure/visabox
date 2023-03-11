@@ -1,27 +1,27 @@
-import Image from 'next/image';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Locations } from 'Interfaces';
-import { FaTelegramPlane } from 'react-icons/fa';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { layer1_BG, layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
+import Image from "next/image";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Locations } from "Interfaces";
+import { FaTelegramPlane } from "react-icons/fa";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { layer1_BG, layer1_TextColor } from "Styles/Theme/Layers/layer1/theme";
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
   layer2B_BG,
   layer2B_TextColor,
-} from 'Styles/Theme/Layers/layer2/theme';
+} from "Styles/Theme/Layers/layer2/theme";
 import {
   layer3_SubtitleStyle,
   layer3_TitleStyle,
-} from 'Styles/Theme/Layers/layer3/style';
-import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
-import { Headline6Style, Headline7Style } from 'Styles/Typo';
-import { componentStatements, LanguageKeys } from '../const';
-import { SocialMediaTypes, SocialCard } from '../interfaces';
-import { FiBox } from 'react-icons/fi';
-import { deviceMin } from 'Consts/device';
+} from "Styles/Theme/Layers/layer3/style";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import { Headline6Style, Headline7Style } from "Styles/Typo";
+import { componentStatements, LanguageKeys } from "../const";
+import { SocialMediaTypes, SocialCard } from "../interfaces";
+import { FiBox } from "react-icons/fi";
+import { deviceMin } from "Consts/device";
 
 type Props = SocialCard;
 function MobileSocialCard({
@@ -51,14 +51,14 @@ function MobileSocialCard({
     }
   };
   return (
-    <Container href={link} target={'_blank'} isFeatured={isFeatured}>
+    <Container href={link} target={"_blank"} isFeatured={isFeatured}>
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
           <Img
             fill
             src={`/Images/socialPage/${slug}.jpg`}
-            alt='image'
-            sizes='96px'
+            alt="image"
+            sizes="96px"
           />
         </ImgWrapper>
         {isFeatured && (
@@ -73,20 +73,20 @@ function MobileSocialCard({
           {SocialMediaIcon()}
         </SocialMediaTag>
         <LocationTag isFeatured={isFeatured}>
-          {locations === Locations.fa ? 'Persian' : 'English'}
+          {locations === Locations.fa ? "Persian" : "English"}
         </LocationTag>
       </Wrapper>
     </Container>
   );
 }
 export default MobileSocialCard;
-const ContainerDropShadow = theme('mode', {
+const ContainerDropShadow = theme("mode", {
   light: css`
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
   `,
   dark: css``,
 });
-const TagBgTheme = theme('mode', {
+const TagBgTheme = theme("mode", {
   light: css`
     background: white;
     color: var(--color-gray4);
@@ -97,7 +97,7 @@ const TagBgTheme = theme('mode', {
   `,
 });
 
-export const LogoBackground = theme('mode', {
+export const LogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -113,7 +113,7 @@ export const LogoBackground = theme('mode', {
     );
   `,
 });
-export const FeaturedLogoBackground = theme('mode', {
+export const FeaturedLogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -129,7 +129,7 @@ export const FeaturedLogoBackground = theme('mode', {
     );
   `,
 });
-const BoxTheme = theme('mode', {
+const BoxTheme = theme("mode", {
   light: css`
     color: var(--color-secondary2);
   `,
@@ -137,7 +137,7 @@ const BoxTheme = theme('mode', {
     color: var(--color-secondary4);
   `,
 });
-const NotFeaturedLocationTagTheme = theme('mode', {
+const NotFeaturedLocationTagTheme = theme("mode", {
   light: css`
     background: var(--color-gray12);
     color: var(--color-gray4);
@@ -157,29 +157,36 @@ const Container = styled.a<{ isFeatured: boolean }>`
   width: 100%;
   margin-top: 4.5rem;
   row-gap: 3rem;
+  transition: all 0.3s ease;
+  width: 25rem;
 
-    width: 25rem;
-  }
   @media ${deviceMin.laptopXS} {
-    ${({ isFeatured }) => !isFeatured && 'width: 30%;'}
+    ${({ isFeatured }) => !isFeatured && "width: 30%;"}
+  }
+  :hover {
+    transform: scale(1.05);
   }
 `;
 
 const Wrapper = styled.div<{ isFeatured: boolean }>`
   width: 100%;
-  min-height: 23rem;
+  height: 24rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 15px;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 4rem 0.75rem 3.5rem;
   transition: all 0.4s ease 0s;
   //////////////////////////
   ${({ isFeatured }) =>
     isFeatured
-      ? layer2B_BG
+      ? css`
+          ${layer2B_BG};
+          min-height: 27rem;
+          justify-content: space-between;
+        `
       : css`
           ${layer2A_Bg};
           ${ContainerDropShadow}
@@ -200,6 +207,10 @@ const ImgWrapper = styled.div`
   border: none;
   transition: all 0.3s ease;
   z-index: 2;
+  transition: all 0.3s ease;
+  ${Container}:hover & {
+    transform: translate(-50%, -52%) rotate(0);
+  }
 `;
 const VIPBoxContainer = styled.div`
   width: 3rem;
@@ -245,9 +256,12 @@ const Desc = styled.p<{ isFeatured: boolean }>`
   text-align: start;
   ${({ isFeatured }) => (isFeatured ? layer2B_TextColor : layer1_TextColor)}
   white-space: pre-line;
-  height: 7rem;
   overflow: hidden;
   text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-align: start;
 `;
 const JoinButton = styled(PrimaryButton)`
   padding: 0 4rem;
@@ -262,19 +276,25 @@ const LocationTag = styled.h3<{ isFeatured: boolean }>`
   bottom: 0;
   left: 0;
   transform: translate(10%, 50%) rotate(-3deg);
+  transition: all 0.3s ease;
   ${({ isFeatured }) =>
     isFeatured
       ? css`
           ${layer1_BG};
-          ${TagBgTheme}
+          ${TagBgTheme};
+          @media ${deviceMin.tabletL} {
+            bottom: 0;
+            left: 0;
+            transform: translate(-60%, -110%) rotate(-87deg);
+          }
         `
       : css`
-          ${NotFeaturedLocationTagTheme}
+          ${NotFeaturedLocationTagTheme};
+          @media ${deviceMin.tabletL} {
+            bottom: -8px;
+            left: 8px;
+          }
         `}
-  @media ${deviceMin.tabletL} {
-    bottom: -8px;
-    left: 8px;
-  }
 `;
 const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
   ${Headline6Style};
@@ -294,13 +314,26 @@ const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
   transition: all 0.3s ease;
   ////////////////////
   ${({ isFeatured }) =>
-    isFeatured ? layer2B_BG : NotFeaturedSocialMediaTagStyle};
+    isFeatured
+      ? css`
+          ${layer2B_BG};
+          @media ${deviceMin.tabletL} {
+            bottom: unset;
+            right: unset;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, 130%) rotate(-93deg);
+          }
+        `
+      : css`
+          ${NotFeaturedSocialMediaTagStyle};
+          @media ${deviceMin.tabletL} {
+            bottom: -10px;
+            right: 8px;
+          }
+        `};
 
   ///////////////////
-  @media ${deviceMin.tabletL} {
-    bottom: -10px;
-    right: 8px;
-  }
 `;
 const TelegramIcon = styled(FaTelegramPlane)`
   background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);

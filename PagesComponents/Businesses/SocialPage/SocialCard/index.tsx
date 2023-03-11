@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { SocialCard } from '../interfaces';
 import MobileSocialCard from './MobileCard';
 type Props = SocialCard;
-function SmartSoci({
+function SmartSocial({
   desc,
   locations,
   name,
@@ -24,4 +24,4 @@ function SmartSoci({
     />
   );
 }
-export default SmartSoci;
+export default SmartSocial;

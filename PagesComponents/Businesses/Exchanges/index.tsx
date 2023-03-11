@@ -16,6 +16,7 @@ function Content() {
             externalLink={exchange.contact.website || ''}
             location={exchange.location}
             slug={exchange.slug}
+            hasImage={exchange.hasImage}
             contact={{}}
           />
         ))}

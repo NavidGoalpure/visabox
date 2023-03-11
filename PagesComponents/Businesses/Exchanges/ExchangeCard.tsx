@@ -1,24 +1,26 @@
-import Image from 'next/image';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { FaTelegramPlane } from 'react-icons/fa';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { layer1_BG, layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
+import Image from "next/image";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { FaTelegramPlane } from "react-icons/fa";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { layer1_BG, layer1_TextColor } from "Styles/Theme/Layers/layer1/theme";
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
   layer2B_BG,
   layer2B_TextColor,
-} from 'Styles/Theme/Layers/layer2/theme';
-import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
-import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
-import { Headline6Style, Headline7Style } from 'Styles/Typo';
+} from "Styles/Theme/Layers/layer2/theme";
+import { layer3_SubtitleStyle } from "Styles/Theme/Layers/layer3/style";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import { Headline6Style, Headline7Style } from "Styles/Typo";
 
-import { FiBox } from 'react-icons/fi';
-import { deviceMin } from 'Consts/device';
-import { ExchangeCard } from './interfaces';
-import { FcCurrencyExchange } from 'react-icons/fc';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { FiBox } from "react-icons/fi";
+import { deviceMin } from "Consts/device";
+import { ExchangeCard } from "./interfaces";
+import { FcCurrencyExchange } from "react-icons/fc";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
 
 type Props = ExchangeCard;
 function MobileExchangeCard({
@@ -27,19 +29,24 @@ function MobileExchangeCard({
   name,
   externalLink,
   slug,
+  hasImage,
   isFeatured,
 }: Props) {
   const { dt } = useDynamicTranslation();
-
+const {t} = useStaticTranslation(componentStatements)
   return (
-    <Container href={externalLink} target={'_blank'} isFeatured={isFeatured}>
+    <Container href={externalLink} target={"_blank"} isFeatured={isFeatured}>
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
           <Img
             fill
-            src={`/Images/socialPage/${slug}.jpg`}
-            alt='image'
-            sizes='96px'
+            src={
+              hasImage
+                ? `/Images/businesses/exchanges/${slug}.jpg`
+                : `/Images/placeholder.jpeg`
+            }
+            alt="image"
+            sizes="96px"
           />
         </ImgWrapper>
         {isFeatured && (
@@ -52,6 +59,7 @@ function MobileExchangeCard({
 
         <SocialMediaTag isFeatured={isFeatured}>
           <FcCurrencyExchange />
+{t(LanguageKeys.exchange)}
         </SocialMediaTag>
         <LocationTag isFeatured={isFeatured}>{dt(location)}</LocationTag>
       </Wrapper>
@@ -59,13 +67,13 @@ function MobileExchangeCard({
   );
 }
 export default MobileExchangeCard;
-const ContainerDropShadow = theme('mode', {
+const ContainerDropShadow = theme("mode", {
   light: css`
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
   `,
   dark: css``,
 });
-const TagBgTheme = theme('mode', {
+const TagBgTheme = theme("mode", {
   light: css`
     background: white;
     color: var(--color-gray4);
@@ -76,7 +84,7 @@ const TagBgTheme = theme('mode', {
   `,
 });
 
-export const LogoBackground = theme('mode', {
+export const LogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -92,7 +100,7 @@ export const LogoBackground = theme('mode', {
     );
   `,
 });
-export const FeaturedLogoBackground = theme('mode', {
+export const FeaturedLogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -108,7 +116,7 @@ export const FeaturedLogoBackground = theme('mode', {
     );
   `,
 });
-const BoxTheme = theme('mode', {
+const BoxTheme = theme("mode", {
   light: css`
     color: var(--color-secondary2);
   `,
@@ -116,7 +124,7 @@ const BoxTheme = theme('mode', {
     color: var(--color-secondary4);
   `,
 });
-const NotFeaturedLocationTagTheme = theme('mode', {
+const NotFeaturedLocationTagTheme = theme("mode", {
   light: css`
     background: var(--color-gray12);
     color: var(--color-gray4);
@@ -136,11 +144,13 @@ const Container = styled.a<{ isFeatured: boolean }>`
   width: 100%;
   margin-top: 4.5rem;
   row-gap: 3rem;
-
-    width: 25rem;
-  }
+  transition: all 0.3s ease;
+  width: 25rem;
   @media ${deviceMin.laptopXS} {
-    ${({ isFeatured }) => !isFeatured && 'width: 30%;'}
+    ${({ isFeatured }) => !isFeatured && "width: 30%;"}
+  }
+  :hover {
+    transform: scale(1.05);
   }
 `;
 
@@ -149,7 +159,7 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
   min-height: 23rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 15px;
   gap: 1rem;
@@ -179,6 +189,10 @@ const ImgWrapper = styled.div`
   border: none;
   transition: all 0.3s ease;
   z-index: 2;
+  transition: all 0.3s ease;
+  ${Container}:hover & {
+    transform: translate(-50%, -52%) rotate(0);
+  }
 `;
 const VIPBoxContainer = styled.div`
   width: 3rem;
@@ -221,18 +235,17 @@ const Img = styled(Image)`
 `;
 const Desc = styled.p<{ isFeatured: boolean }>`
   ${Headline6Style};
-  text-align: start;
   ${({ isFeatured }) => (isFeatured ? layer2B_TextColor : layer1_TextColor)}
-  white-space: pre-line;
-  height: 7rem;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  text-align: start;
+  white-space: pre-line;
+  // height: 7rem;
   text-align: center;
 `;
-const JoinButton = styled(PrimaryButton)`
-  padding: 0 4rem;
-  width: max-content;
-  transition: all 0.4s ease 0s;
-`;
+
 const LocationTag = styled.h3<{ isFeatured: boolean }>`
   ${Headline7Style};
   padding: 0.5rem 1.5rem;
@@ -253,6 +266,10 @@ const LocationTag = styled.h3<{ isFeatured: boolean }>`
   @media ${deviceMin.tabletL} {
     bottom: -8px;
     left: 8px;
+  }
+  transition: all 0.3s ease;
+  ${Container}:hover & {
+    transform: translate(10%, 50%) rotate(0);
   }
 `;
 const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
@@ -280,12 +297,8 @@ const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
     bottom: -10px;
     right: 8px;
   }
-`;
-const TelegramIcon = styled(FaTelegramPlane)`
-  background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
-  color: white;
-  height: auto;
-  width: 1.5rem;
-  padding: 0.25rem;
-  border-radius: 50%;
+  transition: all 0.3s ease;
+  ${Container}:hover & {
+    transform: translate(-5%, 35%) rotate(0);
+  }
 `;

@@ -17,11 +17,11 @@ import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from '../const';
-import { SocialMediaTypes, GroupCard } from '../interfaces';
+import { SocialMediaTypes, SocialCard } from '../interfaces';
 import { FiBox } from 'react-icons/fi';
 import { layer2B_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
-interface Props extends GroupCard {
+interface Props extends SocialCard {
   isRtl: boolean;
 }
 function DesktopSocialCard({

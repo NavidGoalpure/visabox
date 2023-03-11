@@ -17,6 +17,7 @@ export const Exchanges: Exchange[] = [
     },
     isFeatured: false,
     status: Status.ACTIVE,
+    slug: 'oneymex',
   },
   {
     fullName: { en: 'ROSECAP', fa: 'رزکپ' },
@@ -34,6 +35,7 @@ export const Exchanges: Exchange[] = [
     },
     isFeatured: false,
     status: Status.ACTIVE,
+    slug: 'rosecap',
   },
   {
     fullName: { en: 'Ashena', fa: 'آشنا' },
@@ -50,5 +52,6 @@ export const Exchanges: Exchange[] = [
     },
     isFeatured: false,
     status: Status.ACTIVE,
+    slug: 'ashena',
   },
 ];

@@ -23,14 +23,16 @@ import {
 } from "./styledComponents";
 import DarkVipAgentCard from "./Images/DarkVipAgentCard.svg";
 import LightVipAgentCard from "./Images/LightVipAgentCard.svg";
-import { copyContent, getThemeFromLocalStorage } from "Utils";
 import { ThemeModes } from "Interfaces";
 import SocialMediaBranch from "./Images/SocialMediaBranch.svg";
 import MobileDarkAgentProfile from "./Images/MobileDarkAgentProfile.svg";
 import MobileLightAgentProfile from "./Images/MobileLightAgentProfile.svg";
 import Image from "next/image";
+import useTheme from "Hooks/useTheme";
+import { copyContent } from "Utils";
 
 function MobileAgentsPage() {
+  const { theme } = useTheme();
   return (
     <Container>
       <Hero>
@@ -60,11 +62,7 @@ function MobileAgentsPage() {
         <StyledVipAgentCard
           width={291}
           height={304}
-          src={
-            getThemeFromLocalStorage() === ThemeModes.DARK
-              ? DarkVipAgentCard
-              : LightVipAgentCard
-          }
+          src={theme === ThemeModes.DARK ? DarkVipAgentCard : LightVipAgentCard}
           alt="vip-agent-card"
         />
         <StyledDesc>
@@ -88,12 +86,11 @@ function MobileAgentsPage() {
         <Title>
           دیده شدن در صفحه <span>مشاغل</span>
         </Title>
-        {/* navid add image */}
         <OccupationListImage
           width={291}
           height={304}
           src={
-            getThemeFromLocalStorage() === ThemeModes.DARK
+            theme === ThemeModes.DARK
               ? "/Images/landing/Agents/MobileDarkOccupationList.webp"
               : "/Images/landing/Agents/MobileLightOccupationList.webp"
           }
@@ -115,7 +112,7 @@ function MobileAgentsPage() {
           width={291}
           height={304}
           src={
-            getThemeFromLocalStorage() === ThemeModes.DARK
+            theme === ThemeModes.DARK
               ? MobileDarkAgentProfile
               : MobileLightAgentProfile
           }
@@ -212,8 +209,20 @@ const SocialBranchImage = styled(Image)`
   height: 100%;
   margin-bottom: 1.5rem;
 `;
-const OccupationListImage = styled(Image)``;
-const AgentProfileImage = styled(Image)``;
+const OccupationListImage = styled(Image)`
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  max-height: 31.5rem;
+  margin-bottom: 4rem;
+`;
+const AgentProfileImage = styled(Image)`
+  margin-bottom: 4rem;
+  width: 100%;
+  height: auto;
+  max-height: 27rem;
+  object-fit: contain;
+`;
 const StyledContactUsContainer = styled(ContactUsContainer)`
   padding: 2rem 0.5rem !important;
   width: 100%;

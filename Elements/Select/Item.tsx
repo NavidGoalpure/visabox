@@ -35,7 +35,9 @@ export const SelectItemCss = css`
   /* gray10 */
   min-height: 3.5rem;
   border-bottom: 1px solid var(--color-gray12);
-
+  span {
+    width: 100%;
+  }
   &:last-child {
     border: none;
   }

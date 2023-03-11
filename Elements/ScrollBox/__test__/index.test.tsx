@@ -7,7 +7,7 @@ jest.mock('next/router', () => require('next-router-mock'));
 describe('Element/ScrollBox', () => {
   it('renders ScrollBox element', () => {
     render(
-      <ScrollBox heightInRem={3}>
+      <ScrollBox height={'3rem'}>
         <p>Kunuha ha a great school for ninjutsu</p>
         <p>Kunuha ha a great school for ninjutsu</p>
         <p>Kunuha ha a great school for ninjutsu</p>
@@ -22,7 +22,7 @@ describe('Element/ScrollBox', () => {
   it('renders ScrollBox correctly ', () => {
     const scrollBox = renderer
       .create(
-        <ScrollBox heightInRem={3}>
+        <ScrollBox height={'3rem'}>
           <p>Kunuha ha a great school for ninjutsu</p>
           <p>Kunuha ha a great school for ninjutsu</p>
           <p>Kunuha ha a great school for ninjutsu</p>

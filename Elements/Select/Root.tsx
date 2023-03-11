@@ -32,6 +32,9 @@ interface Props extends SelectProps {
     placeholder?: string;
     icon?: ReactNode;
   };
+  valueProps?: {
+    value: ReactNode;
+  };
 }
 
 const Root: React.FC<Props> = ({
@@ -41,6 +44,7 @@ const Root: React.FC<Props> = ({
   noScroll = false,
   contentProps,
   triggerProps,
+  valueProps,
   className,
   ...props
 }) => {
@@ -83,10 +87,10 @@ const Root: React.FC<Props> = ({
               <Viewport>{children}</Viewport>
             ) : (
               <ScrollBox
-                heightInRem={findSmartHeight({
+                height={`${findSmartHeight({
                   maxHeightInRem,
                   childrenItems: children,
-                })}
+                })}rem`}
               >
                 <Viewport>{children}</Viewport>
               </ScrollBox>
@@ -161,7 +165,6 @@ const Content = styled(Select.Content)<{
       margin-top: auto;
     }
   }
-  
 `;
 const Viewport = styled(Select.Viewport)`
   z-index: 5;

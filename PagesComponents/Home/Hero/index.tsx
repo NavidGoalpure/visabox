@@ -3,7 +3,7 @@ import { useCallback, useRef } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import styled, { css, useTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { componentStatements, LanguageKeys, tsParticleOption } from './const';
 import planeMobile from './planeMobile.svg';

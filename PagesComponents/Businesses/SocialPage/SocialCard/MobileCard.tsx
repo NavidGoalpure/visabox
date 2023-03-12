@@ -19,11 +19,11 @@ import {
 import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from '../const';
-import { SocialMediaTypes, GroupCard } from '../interfaces';
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
+import { SocialMediaTypes, Socials } from 'Interfaces/Socials';
 
-type Props = GroupCard;
+type Props = Socials;
 function MobileSocialCard({
   desc,
   locations,

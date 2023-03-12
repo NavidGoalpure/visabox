@@ -94,6 +94,15 @@ const PopupContainer = styled.div`
   justify-content: center;
   gap: 1rem;
 `;
+////////////////////////////////////
+const popUpTheme = theme('mode', {
+  light: css`
+    color: var(--color-gray7);
+  `,
+  dark: css`
+    color: var(--color-gray10);
+  `,
+});
 const PopupItem = styled.h4`
   padding: 0 2.125rem;
   width: 100%;
@@ -103,6 +112,7 @@ const PopupItem = styled.h4`
   gap: 1rem;
   a {
     ${layer3_SubtitleStyle}
+    ${popUpTheme}
   }
 `;
 ///////////////

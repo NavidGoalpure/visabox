@@ -55,7 +55,9 @@ function SmartHeader() {
                 <Hr />
               </Nav>
               <MobileBusinessDropdown />
+              <Hr />
               <OccupationDropdown />
+              <Hr />
               <MobileLanguageChanger />
               <Hr />
               <SwitchTheme />

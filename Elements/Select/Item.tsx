@@ -3,6 +3,8 @@ import * as Select from '@radix-ui/react-select';
 import { ReactNode } from 'react';
 import { SelectItemProps } from '@radix-ui/react-select';
 import { directionStyles } from 'Styles/Theme';
+import theme from 'styled-theming';
+import { deviceMin } from 'Consts/device';
 
 interface Props extends SelectItemProps {
   icon?: ReactNode;
@@ -17,9 +19,10 @@ const Item: React.FC<Props> = ({ icon, text, ...props }) => {
   );
 };
 export { Item };
+
 export const SelectItemCss = css`
   ${directionStyles}
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   width: max-content;
   display: flex;
   gap: 1rem;
@@ -29,9 +32,18 @@ export const SelectItemCss = css`
   width: 100%;
   justify-content: flex-start;
   transition: all 0.3s ease;
-  :hover {
-    background: var(--color-gray10);
-    color: var(--color-gray1);
+  /* gray10 */
+  min-height: 3.5rem;
+  border-bottom: 1px solid var(--color-gray12);
+
+  &:last-child {
+    border: none;
+  }
+  @media ${deviceMin.tabletS} {
+    :hover {
+      background: var(--color-gray11);
+      color: var(--color-gray1);
+    }
   }
 `;
 const SelectItem = styled(Select.Item)`

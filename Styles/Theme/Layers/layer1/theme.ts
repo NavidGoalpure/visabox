@@ -23,7 +23,7 @@ export const layer1_SubtitleColor = theme('mode', {
     color: var(--color-gray7);
   `,
   dark: css`
-    color: var(--color-gray10);
+    color: var(--color-gray11);
   `,
 });
 export const layer1_TextColor = theme('mode', {

@@ -4,10 +4,11 @@ import theme from 'styled-theming';
 //////////LAYER3/////////
 export const layer3_BG = theme('mode', {
   light: css`
-    background-color: var(--color-gray12);
+    background-color: white;
+    border: 2px solid var(--color-gray11);
   `,
   dark: css`
-    background-color: var(--color-gray2);
+    background-color: var(--color-gray5);
   `,
 });
 export const layer3_TitleColor = theme('mode', {

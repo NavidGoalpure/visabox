@@ -1,46 +1,42 @@
 import * as RdxSwitch from '@radix-ui/react-switch';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Sun from './Images/Sun.svg';
 import Moon from './Images/Moon.svg';
 import MoonLogo from './MoonLogo';
 import SunLogo from './SunLogo';
 import theme from 'styled-theming';
-import { ThemeModes } from 'Interfaces';
+import { LanguageDirection, ThemeModes } from 'Interfaces';
 import useTheme from 'Hooks/useTheme';
 import { Loading } from 'Elements/Loading';
+import { useLocale } from 'Hooks/useLocale';
 
 const SwitchTheme = () => {
   const { theme, setTheme } = useTheme();
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const isChecked = theme === ThemeModes.LIGHT;
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  //
-  useEffect(() => {
-    if (theme === ThemeModes.DARK) setIsDark(true);
-    else setIsDark(false);
-  }, [theme]);
-  //
+  const { direction } = useLocale();
   if (isLoading) return <Loading style={{ width: 'auto' }} />;
-
   return (
     <SwitchRoot
       aria-label={theme as string}
-      checked={!isDark}
+      checked={isChecked}
       onCheckedChange={() => {
         setIsLoading(true);
-        if (theme === ThemeModes.DARK) setTheme(ThemeModes.LIGHT);
-        else setTheme(ThemeModes.DARK);
+        theme === ThemeModes.DARK
+          ? setTheme(ThemeModes.LIGHT)
+          : setTheme(ThemeModes.DARK);
       }}
     >
       <MoonLogo id='moon' />
-      <SwitchThumb />
-      {isDark && <SunLogo id='sun' />}
+      <SwitchThumb direction={direction} />
+      {!isChecked && <SunLogo id='sun' />}
     </SwitchRoot>
   );
 };
 
 export default SwitchTheme;
-export const BorderColor = theme('mode', {
+const BorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray12);
   `,
@@ -49,8 +45,9 @@ export const BorderColor = theme('mode', {
   `,
 });
 const SwitchRoot = styled(RdxSwitch.Root)`
-  border: 3px solid var(--color-gray12);
+  border: 3px solid;
   ${BorderColor};
+  position: relative;
   width: 4rem;
   height: 2.25rem;
   background-color: transparent;
@@ -59,6 +56,8 @@ const SwitchRoot = styled(RdxSwitch.Root)`
   outline: none;
   display: flex;
   align-items: center;
+  direction: ltr;
+  scale: 0.7;
   #moon {
     font-size: 4px;
     position: absolute;
@@ -91,12 +90,13 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     }
   }
 `;
-const SwitchThumb = styled(RdxSwitch.Thumb)`
+const SwitchThumb = styled(RdxSwitch.Thumb)<{ direction: LanguageDirection }>`
   display: block;
   width: 68%;
   height: calc(100% + 6px);
   border-radius: 50%;
   transition: all 100ms;
+  z-index: 2;
   transform: translateX(-3px);
   will-change: transform;
   display: flex;

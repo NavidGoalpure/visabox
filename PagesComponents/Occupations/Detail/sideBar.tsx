@@ -20,6 +20,9 @@ import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
+import { FaRegHandshake } from 'react-icons/fa';
+import { Agents } from 'Consts/Businesses/agents';
+import VIPAgentCard from 'Components/Business/Card/Agent/VIPCard';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -46,6 +49,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             title={t(LanguageKeys.Anzsco)}
             value='anzsco'
             icon={<AnszcoIcon />}
+          />
+          <SideBar.TabItem
+            title={t(LanguageKeys.Agent)}
+            value='agent'
+            icon={<AgentIcon />}
           />
         </>
       }
@@ -116,6 +124,19 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
+          <SideBar.BodyItem value='agent'>
+            <AgentsContentWrapper>
+              {Agents.filter((agent) => agent.isFeatured).map((agent) => {
+                return (
+                  <StyledVIPAgentCard
+                    name={agent.name}
+                    desc={agent.desc}
+                    slug={agent.slug}
+                  />
+                );
+              })}
+            </AgentsContentWrapper>
+          </SideBar.BodyItem>
           {/*  */}
         </>
       }
@@ -124,6 +145,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
 };
 
 export { SidebarPage };
+
 const SideBarRoot = styled(SideBar.Root)`
   div {
     &[aria-label='sidebar'] {
@@ -159,7 +181,9 @@ const AnszcoIcon = styled(TbNumbers)`
 const Backlog = styled(TbStack2)`
   ${Icon}
 `;
-
+const AgentIcon = styled(FaRegHandshake)`
+  ${Icon}
+`;
 //////////
 const Header = styled.header`
   width: 100%;
@@ -195,4 +219,17 @@ const Tag = styled.h5`
   span {
     font-weight: bold;
   }
+`;
+////agents section/////
+const AgentsContentWrapper = styled.section`
+  ${layer2A_style}
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+`;
+const StyledVIPAgentCard = styled(VIPAgentCard)`
+  display: block;
+  width: fit-content;
 `;

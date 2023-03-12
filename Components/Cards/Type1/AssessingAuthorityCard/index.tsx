@@ -67,7 +67,6 @@ const Contacts = styled.div`
   ${layer2A_TextStyle}
   ${scrollbarStyles}
 
-
   width: 100%;
   text-align: center;
   margin: 0;
@@ -86,5 +85,5 @@ const LinkColumn = styled.a`
 `;
 const Row = styled.div`
   display: flex;
-}
+  align-items: center;
 `;

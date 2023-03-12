@@ -43,6 +43,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   //
   ${directionStyles}
   padding: 1rem;
+  min-width: 5rem;
   position: relative;
   list-style: none;
   width: 100%;
@@ -60,7 +61,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   @media ${deviceMin.laptopS} {
     :hover {
       background: var(--color-primary5);
-      color: var(--color-gray6);
+      color: white;
     }
   }
 `;

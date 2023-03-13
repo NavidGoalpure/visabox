@@ -1,5 +1,5 @@
 import { deviceMin } from 'Consts/device';
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback,  useRef } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -8,7 +8,6 @@ import theme from 'styled-theming';
 import { componentStatements, LanguageKeys, tsParticleOption } from './const';
 import planeMobile from './planeMobile.svg';
 import planeDesktop from './planeDesktop.svg';
-import { layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
@@ -209,7 +208,7 @@ const subtitleColor = theme('mode', {
   `,
 });
 const Subtitle = styled.div`
-  ${layer1_TextColor}
+  color:var(--color-gray13);
   font-style: normal;
   font-weight: 500;
   font-size: 24px;

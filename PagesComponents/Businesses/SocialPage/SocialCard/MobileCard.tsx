@@ -15,15 +15,15 @@ import {
 import {
   layer3_SubtitleStyle,
   layer3_TitleStyle,
-} from "Styles/Theme/Layers/layer3/style";
-import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
-import { Headline6Style, Headline7Style } from "Styles/Typo";
-import { componentStatements, LanguageKeys } from "../const";
-import { SocialMediaTypes, SocialCard } from "../interfaces";
-import { FiBox } from "react-icons/fi";
-import { deviceMin } from "Consts/device";
+} from 'Styles/Theme/Layers/layer3/style';
+import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
+import { Headline6Style, Headline7Style } from 'Styles/Typo';
+import { componentStatements, LanguageKeys } from '../const';
+import { FiBox } from 'react-icons/fi';
+import { deviceMin } from 'Consts/device';
+import { SocialMediaTypes, Socials } from 'Interfaces/Socials';
 
-type Props = SocialCard;
+type Props = Socials;
 function MobileSocialCard({
   desc,
   locations,

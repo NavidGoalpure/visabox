@@ -6,7 +6,11 @@ enum Locations {
   fa = 'fa',
   en = 'en',
 }
-
+enum Country {
+  Iran = 'Iran',
+  Australia = 'Australia',
+  Global = 'Global',
+}
 enum ThemeModes {
   LIGHT = 'light',
   DARK = 'dark',
@@ -51,4 +55,5 @@ export {
   ThemeModes,
   LocalStorageKeys,
   Status,
+  Country,
 };

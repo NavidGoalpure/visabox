@@ -1,22 +1,23 @@
 import {
   Contact,
   Languages,
-  Locations,
+  Country,
   MultiLanguageText,
   MultiLanguageTextArray,
   Status,
 } from 'Interfaces';
 
-export interface Agent {
+export interface Agency {
   id: string;
   slug: string;
   name: MultiLanguageText;
   contact: Contact;
   //what countries they work in
-  locations: Locations[];
+  country: Country[];
   desc?: MultiLanguageText;
   qualifications?: MultiLanguageTextArray;
-  maraNumber: string;
   isFeatured: boolean;
   status: Status;
+  socialsId?: string[];
+  agentsId?: string[];
 }

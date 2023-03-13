@@ -1,9 +1,8 @@
-import useDevice from 'Hooks/useDevice';
-import { useState, useEffect } from 'react';
-import { SocialCard } from '../interfaces';
+import { Socials } from 'Interfaces/Socials';
 import MobileSocialCard from './MobileCard';
-type Props = SocialCard;
+type Props = Socials;
 function SmartSocial({
+  id,
   desc,
   locations,
   name,
@@ -21,7 +20,7 @@ function SmartSocial({
       socialmediaType={socialmediaType}
       locations={locations}
       slug={slug}
-    />
+      id={id}    />
   );
 }
 export default SmartSocial;

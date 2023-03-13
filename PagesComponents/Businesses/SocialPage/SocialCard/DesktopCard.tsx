@@ -17,11 +17,11 @@ import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from '../const';
-import { SocialMediaTypes, SocialCard } from '../interfaces';
 import { FiBox } from 'react-icons/fi';
 import { layer2B_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import { Socials, SocialMediaTypes } from 'Interfaces/Socials';
 
-interface Props extends SocialCard {
+interface Props extends Socials {
   isRtl: boolean;
 }
 function DesktopSocialCard({
@@ -245,9 +245,9 @@ const ImgWrapper = styled.div<{ isRtl: boolean }>`
   z-index: 2;
   ${Container}:hover & {
     ${({ isRtl }) =>
-      isRtl
-        ? 'transform: rotate(0deg) translate(-70%, -52%);'
-        : 'transform: rotate(0deg) translate(70%, -52%);'}
+    isRtl
+      ? 'transform: rotate(0deg) translate(-70%, -52%);'
+      : 'transform: rotate(0deg) translate(70%, -52%);'}
   }
 `;
 ///////////////////////////////
@@ -279,9 +279,9 @@ const Wrapper = styled.div<{ isFeatured: boolean; isRtl: boolean }>`
   align-items: center;
   gap: 1rem;
    clip-path:${({ isRtl }) =>
-     isRtl
-       ? ' polygon(0 0, 95% 0, 100% 75%, 100% 100%, 0 100%);'
-       : 'polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 75%);'}
+    isRtl
+      ? ' polygon(0 0, 95% 0, 100% 75%, 100% 100%, 0 100%);'
+      : 'polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 75%);'}
 
   padding: 3.25rem 12.5% 1.5rem;
   transition: all 0.4s ease 0s;

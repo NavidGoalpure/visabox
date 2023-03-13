@@ -22,7 +22,7 @@ interface Props {
 }
 function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-  const { locale } = useLocale();
+  const { locale, direction } = useLocale();
   const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
   const { setFiltersByValue, selectedFiltersObj, resetFilters, filteredList } =
     useContext(SearchFilterContext);
@@ -51,7 +51,7 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.MajorGroup)}:</FilterTitle>
             <SelectRoot
-              noScroll
+              contentProps={{ align: direction === 'rtl' ? 'end' : 'start' }}
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
               onValueChange={(newValue) => {
                 setFiltersByValue({
@@ -64,21 +64,7 @@ function Search({ searchValue, setSearchValue }: Props) {
               {MAJOR_GROUP.map((item) => (
                 <MaraSelect.Item
                   value={item.title[locale] || ''}
-                  // text={item.title[locale] || ''}
-                  text={
-                    <SmartComponentBaseOnLocale
-                      compenents={{
-                        fa: (
-                          <FarsiWrapper>
-                            <FarsiTitle>{item.title?.['fa']}</FarsiTitle>
-                            <FarsiSubTitle>{item.title?.['en']}</FarsiSubTitle>
-                          </FarsiWrapper>
-                        ),
-
-                        en: <EnglishItem>{item?.title?.[locale]}</EnglishItem>,
-                      }}
-                    />
-                  }
+                  text={item.title[locale] || ''}
                 />
               ))}
             </SelectRoot>
@@ -86,9 +72,9 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.SubMajorGroup)}:</FilterTitle>
             <SelectRoot
-              noScroll
               key={selectedFiltersObj?.anzcoGropup?.majorGroup?.code}
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+              contentProps={{ align: direction === 'rtl' ? 'end' : 'start' }}
               onValueChange={(newValue) => {
                 setFiltersByValue({
                   filterKey: 'SUB_MAJOR_GROUP',
@@ -103,24 +89,7 @@ function Search({ searchValue, setSearchValue }: Props) {
                   <MaraSelect.Item
                     key={item.code}
                     value={item.title[locale] || ''}
-                    text={
-                      <SmartComponentBaseOnLocale
-                        compenents={{
-                          fa: (
-                            <FarsiWrapper>
-                              <FarsiTitle>{item.title?.['fa']}</FarsiTitle>
-                              <FarsiSubTitle>
-                                {item.title?.['en']}
-                              </FarsiSubTitle>
-                            </FarsiWrapper>
-                          ),
-
-                          en: (
-                            <EnglishItem>{item?.title?.[locale]}</EnglishItem>
-                          ),
-                        }}
-                      />
-                    }
+                    text={item.title[locale] || ''}
                   />
                 );
               })}
@@ -129,9 +98,9 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.MinorGroup)}:</FilterTitle>
             <SelectRoot
-              noScroll
               key={selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code}
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+              contentProps={{ align: direction === 'rtl' ? 'end' : 'start' }}
               disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
               onValueChange={(newValue) => {
                 setFiltersByValue({
@@ -145,20 +114,7 @@ function Search({ searchValue, setSearchValue }: Props) {
                 <MaraSelect.Item
                   key={item.code}
                   value={item.title[locale] || ''}
-                  text={
-                    <SmartComponentBaseOnLocale
-                      compenents={{
-                        fa: (
-                          <FarsiWrapper>
-                            <FarsiTitle>{item.title?.['fa']}</FarsiTitle>
-                            <FarsiSubTitle>{item.title?.['en']}</FarsiSubTitle>
-                          </FarsiWrapper>
-                        ),
-
-                        en: <EnglishItem>{item?.title?.[locale]}</EnglishItem>,
-                      }}
-                    />
-                  }
+                  text={item.title[locale] || ''}
                 />
               ))}
             </SelectRoot>
@@ -232,7 +188,7 @@ const FilterTitle = styled.h4`
   margin-inline-end: 0.5rem;
   flex-shrink: 0;
   @media ${deviceMin.tabletS} {
-    margin-bottom: 0;
+    margin-bottom: 0.25rem;
   }
 `;
 const SettingIcon = styled(GoSettings)`
@@ -240,23 +196,7 @@ const SettingIcon = styled(GoSettings)`
   height: 1.5rem;
 `;
 const SelectRoot = styled(MaraSelect.Root)``;
-const EnglishItem = styled.h5`
+const DropboxItem = styled.h5`
   ${SelectItemCss}
   padding: 0;
-`;
-const FarsiWrapper = styled.div`
-  ${directionStyles}
-  width: 100%;
-`;
-const FarsiTitle = styled.h5`
-  ${SelectItemCss}
-  padding: 0;
-  // padding-top: 0rem;
-`;
-const FarsiSubTitle = styled.h6`
-  ${SelectItemCss}
-  padding: 0rem;
-  padding-bottom: 0.5rem;
-
-  font-size: 70%;
 `;

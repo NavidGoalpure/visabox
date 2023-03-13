@@ -6,20 +6,15 @@ import { directionStyles } from 'Styles/Theme';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  heightInRem: number;
+  height: string;
 }
-const ScrollBox: React.FC<Props> = ({
-  className,
-  id,
-  children,
-  heightInRem,
-}) => {
+const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
   return (
     <ScrollAreaRoot
       data-testid='scroll-area-root'
       className={className}
       id={id}
-      $heightInRem={heightInRem}
+      $height={height}
     >
       <ScrollAreaViewport>{children}</ScrollAreaViewport>
       <ScrollAreaScrollbar id={'scroll-area-scrollbar'} orientation='vertical'>
@@ -38,11 +33,11 @@ const ScrollBox: React.FC<Props> = ({
 
 export { ScrollBox };
 
-const ScrollAreaRoot = styled(ScrollArea.Root)<{ $heightInRem: number }>`
+const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height: string }>`
   ${directionStyles}
   width: 100%;
   height: auto;
-  height: ${({ $heightInRem }) => `${$heightInRem}rem`};
+  height: ${({ $height }) => $height};
   overflow: hidden;
   --scrollbar-size: 0.5rem;
 `;

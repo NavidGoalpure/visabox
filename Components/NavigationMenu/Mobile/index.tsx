@@ -44,7 +44,7 @@ function SmartHeader() {
     <Container>
       <Wrapper>
         <MenuPopupContainer id={'popup'}>
-          <ScrollBox id={'scrollbox'} heightInRem={18}>
+          <ScrollBox id={'scrollbox'} height={'18rem'}>
             <MenuPopupWrapper>
               <Nav>
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>

@@ -115,13 +115,15 @@ const Trigger = styled(Select.Trigger)`
   ${layer3_TextStyle}
   display: flex;
   align-items: center;
-
+  
   gap: 0.5rem;
   cursor: pointer;
   span {
-    display: flex;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
     align-items: center;
-    height: 2rem;
   }
 `;
 const TriggerValue = styled(Select.Value)`

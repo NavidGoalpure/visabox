@@ -17,6 +17,7 @@ import LightAboutComponent from "./Images/LightAboutComponent.svg";
 import Image from "next/image";
 import { copyContent, getThemeFromLocalStorage } from "Utils";
 import { ThemeModes } from "Interfaces";
+import SocialMediaBranch from "./Images/SocialMediaBranch.svg";
 import {
   ContactsDesc,
   ContactsWrapper,
@@ -121,18 +122,21 @@ function Desktop() {
             نسبت به رقبای خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار
             خواهید شد.
           </Desc>
+
           <SocialMediaBranchContainer>
-            {/* <SocialMediaBranch
-              width={250}
-              height={200}
-              src={
-                getThemeFromLocalStorage() === ThemeModes.DARK
-                  ? DarkSocialMediaBranch
-                  : LightSocialMediaBranch
-              }
-              alt="normal-lawyer-card"
-            /> */}
+          <SocialMediaBranchImage
+            width={450}
+            height={400}
+            src={SocialMediaBranch}
+            alt="vip-agent-card"
+          />
+
           </SocialMediaBranchContainer>
+           
+          <Desc>
+            با خرید اکانت <span>ویژه</span> وکلای ماراباکس شبکه های اجتماعی شما
+            نسبت به رقبای خود از جایگاه و نحوه نمایش زیباتری برخودار خواهند شد.
+          </Desc> 
         </Section>
         <SectionDivider />
         <Section>
@@ -332,7 +336,7 @@ const AgentCard_Title = styled.h2`
   text-align: center;
 `;
 const SocialMediaBranchContainer = styled.div``;
-const SocialMediaBranch = styled(Image)``;
+const SocialMediaBranchImage = styled(Image)``;
 const OccupationCardSection_Img = styled(Image)`
   width: 100%;
   height: 100%;

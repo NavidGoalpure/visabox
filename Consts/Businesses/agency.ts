@@ -1,4 +1,3 @@
-import { Socials } from "Components/Business/Card/styledComponents/NormalCard";
 import { Country, Status } from "Interfaces";
 import { Agency } from "Interfaces/Businesses/agency";
 

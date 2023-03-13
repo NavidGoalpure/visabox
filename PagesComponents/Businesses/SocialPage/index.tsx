@@ -1,6 +1,6 @@
 import { deviceMin } from 'Consts/device';
+import { NormalSocialMedias, VipSocialMedias } from 'Consts/Socials';
 import styled from 'styled-components';
-import { VipSocialMedias, NormalSocialMedias } from './const';
 import SmartSocialCard from './SocialCard';
 
 function Content() {
@@ -10,6 +10,7 @@ function Content() {
         {VipSocialMedias.map((socialMedia, i) => (
           <SmartSocialCard
             key={i}
+            id={socialMedia.id}
             isFeatured={socialMedia.isFeatured}
             desc={socialMedia.desc}
             name={socialMedia.name}
@@ -23,6 +24,7 @@ function Content() {
       <Row>
         {NormalSocialMedias.map((socialMedia, i) => (
           <SmartSocialCard
+            id={socialMedia.id}
             key={i}
             isFeatured={socialMedia.isFeatured}
             desc={socialMedia.desc}

@@ -9,21 +9,21 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: 'Skills Assessment And Assessing Authorities | Mara Box',
-    fa: 'لیست موسسات ارزیابی مدارک و مهارت های استرالیا | مارا باکس',
+    en: "List of social networks of immigration institutions | Mara Box",
+    fa: "لیست شبکه های اجتماعی موسسه های مهاجرتی | مارا باکس",
   },
   SeoDesc: {
-    fa: 'فهرست کامل مشاغل موسسات ارزیابی مدارک و مهارت های استرالیا به همراه آدرس و اطلاعات تماس',
-    en: 'See the full skills assessment and assessing authorities List & find their address, email, website and etc.',
+    fa: "لیست شبکه های اجتماعی موسسه های مهاجرتی استرالیا همانند تلگرام و اینستاگرام و غیره",
+    en: "List of social networks of Australian immigration institutions such as telegram, instagram etc",
   },
   //
   PageTitle: {
-    fa: 'لیست موسسات ارزیابی مدارک و مهارت های استرالیا',
-    en: 'Assessing authorities',
+    fa: "لیست شبکه های اجتماعی موسسه های مهاجرتی",
+    en: "List of social networks of immigration institutions",
   },
   Join: {
-    fa: 'عضویت',
-    en: 'Join',
+    fa: "عضویت",
+    en: "Join",
   },
 };
 

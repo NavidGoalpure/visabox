@@ -11,28 +11,28 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: '$agent Migration Agent | $agent',
-    fa: 'وکیل مهاجرت $agent',
+    en: "List of the most reliable Iranian translators of immigration documents | Marabox",
+    fa: "لیست معتبر ترین مترجم های ایرانی مدارک مهاجرت | ماراباکس",
   },
   SeoDesc: {
-    fa: 'marabox.com',
-    en: 'marabox.com',
+    fa: "لیستی از معتبر ترین مترجم های ایرانی مدارک مهاجرت",
+    en: "A list of the most reliable Iranian translators of immigration documents",
   },
   //
   About: {
-    en: 'about',
-    fa: 'توضیحات',
+    en: "about",
+    fa: "توضیحات",
   },
   Contacts: {
-    en: 'contacts',
-    fa: 'ارتباطات',
+    en: "contacts",
+    fa: "ارتباطات",
   },
   MaraNumber: {
-    en: 'MaraNumber',
-    fa: 'شماره مارا',
+    en: "MaraNumber",
+    fa: "شماره مارا",
   },
   Socials: {
-    en: 'Socials',
-    fa: 'ارتباطات',
+    en: "Socials",
+    fa: "ارتباطات",
   },
 };

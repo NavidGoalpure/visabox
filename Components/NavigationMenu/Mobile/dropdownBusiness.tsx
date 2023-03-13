@@ -36,9 +36,9 @@ const MobileBusinessDropdown = ({}) => {
               setIsOpen(false);
             }}
           >
-            <Link href={bussinessItems[0].href}>
+            <StyledLink href={bussinessItems[0].href}>
               {bussinessItems[0].title[locale]}
-            </Link>
+            </StyledLink>
           </PopupItem>
           <Hr />
           <PopupItem
@@ -46,9 +46,9 @@ const MobileBusinessDropdown = ({}) => {
               setIsOpen(false);
             }}
           >
-            <Link href={bussinessItems[1].href}>
+            <StyledLink href={bussinessItems[1].href}>
               {bussinessItems[1].title[locale]}
-            </Link>
+            </StyledLink>
           </PopupItem>
           <Hr />
           <PopupItem
@@ -56,9 +56,9 @@ const MobileBusinessDropdown = ({}) => {
               setIsOpen(false);
             }}
           >
-            <Link href={bussinessItems[2].href}>
+            <StyledLink href={bussinessItems[2].href}>
               {bussinessItems[2].title[locale]}
-            </Link>
+            </StyledLink>
           </PopupItem>
         </PopupContainer>
       )}
@@ -138,4 +138,7 @@ const Hr = styled.hr`
   ${hrTheme}
   width: 100%;
   height: 1px;
+`;
+const StyledLink = styled(Link)`
+  width: 100%;
 `;

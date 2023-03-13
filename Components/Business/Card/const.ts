@@ -30,25 +30,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 
 ////////////
 
-export function getGsapTimeLine_normalCard(slug: string) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.fromTo(
-    `.${slug}`,
-    {
-      y: 40,
-    },
-    {
-      scrollTrigger: {
-        trigger: `.${slug}`,
-        start: '20 bottom',
-        toggleActions: 'play none none none',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    }
-  );
-}
+
 export function getGsapTimeLine_VipCard(slug: string) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.fromTo(

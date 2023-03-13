@@ -1,10 +1,10 @@
 import { HTMLAttributes, useEffect } from 'react';
 import { MultiLanguageText } from 'Interfaces';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { copyContent } from 'Utils';
+import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { getGsapTimeLine_normalCard } from '../const';
+
 import {
   Container,
   CopyIcon,
@@ -36,7 +36,7 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
 
-  useEffect(() => getGsapTimeLine_normalCard(slug));
+  useEffect(() => getGsapTimeLine_FadeUp(slug));
   const hasWebsite: boolean = website !== BLANK_SYMBOL;
 
   return (

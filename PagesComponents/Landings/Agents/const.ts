@@ -1,5 +1,8 @@
 import { MultiLanguageText } from 'Interfaces';
-
+import { Dispatch, SetStateAction } from 'react';
+import gsap from "gsap";
+//@ts-ignore
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',
@@ -17,3 +20,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 
 ////////////
+export function getGsapTimeLine_Hero(setState:Dispatch<SetStateAction<boolean>>
+) {
+  gsap.registerPlugin(ScrollTrigger);
+    gsap.to('.hero', {
+      scrollTrigger: {
+        trigger: '.hero',
+        onLeave: () => setState(true),
+        onEnterBack: () => setState(false),
+      },})
+}

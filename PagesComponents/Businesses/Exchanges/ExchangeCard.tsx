@@ -87,16 +87,16 @@ const TagBgTheme = theme("mode", {
 export const LogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
-      -2deg,
-      var(--color-gray9) 0 62%,
-      var(--color-gray11) 0% 100%
+      -86deg,
+      var(--color-gray11) 0 70%,
+      var(--color-gray9) 0% 100%
     );
   `,
   dark: css`
     background: linear-gradient(
-      -2deg,
-      var(--color-gray3) 0 62%,
-      var(--color-gray1) 0% 100%
+      -86deg,
+      var(--color-gray3) 0 70%,
+      var(--color-gray6) 0% 100%
     );
   `,
 });

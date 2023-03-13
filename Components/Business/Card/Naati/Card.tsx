@@ -1,7 +1,7 @@
 import { HTMLAttributes, useEffect } from 'react';
 import { MultiLanguageText } from 'Interfaces';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { copyContent } from 'Utils';
+import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
 
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { BLANK_SYMBOL } from 'Consts';
@@ -25,7 +25,6 @@ import {
 } from '../styledComponents/NormalCard';
 import {
   componentStatements,
-  getGsapTimeLine_normalCard,
   LanguageKeys,
 } from '../const';
 
@@ -40,7 +39,7 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
 
-  useEffect(() => getGsapTimeLine_normalCard(slug));
+  useEffect(() => getGsapTimeLine_FadeUp(slug));
 
   return (
     <Container className={slug} {...props}>

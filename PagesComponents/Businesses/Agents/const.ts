@@ -23,7 +23,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   PageDesc: {
     fa: 'این صفحه برای افراد یا خانواده هایی است که با کمک وکیل به دنبال مهاجرت دائم به استرالیا هستند',
-    en: `This page is for people or families looking to permanently migrate to Australia with help of a agent`,
+    en: `This page is for people or families looking to permanently migrate to Australia with help of a migration agent`,
   },
 };
 

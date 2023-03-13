@@ -111,6 +111,7 @@ export const EmailTitle = styled.h4`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  
 `;
 export const CopyIcon = styled(IoMdCopy)`
   ${CopyIconTheme};
@@ -120,6 +121,10 @@ export const CopyIcon = styled(IoMdCopy)`
 export const EmailUrl = styled.a`
   ${layer2A_TextColor};
   ${Headline6Style};
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
   word-break: break-all;
 `;
 export const PhoneWrapper = styled(EmailWrapper)``;
@@ -130,7 +135,11 @@ export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   ${layer2A_TextColor};
   ${Headline6Style};
   word-break: break-all;
-  ${({ $hasWebsite }) => !$hasWebsite && 'cursor: unset;'}
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  ${({ $hasWebsite }) => !$hasWebsite && "cursor: unset;"}
 `;
 export const WebsiteTitle = styled(EmailTitle)``;
 export const AgentElement = styled.h3`

@@ -11,8 +11,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'List Of Occupations',
   },
   Subtitle: {
-    fa: 'برای مشاهده لیست مشاغل دارای اولویت اینجا از این بخش استفاده کنید.',
-    en: 'Use this section to view the list of Occupations.',
+    fa: 'برای مشاهده لیست مشاغل مورد تایید برای ویزای مهارتی، از این بخش استفاده کنید.',
+    en: 'Use this section to view the list of Occupations',
   },
   CTA: {
     fa: 'مشاهده همه ',

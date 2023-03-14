@@ -34,7 +34,7 @@ function VIPAgentCard({ name, desc, slug, className, ...props }: Props) {
   return (
     <Container
       {...props}
-      href={`/businesses/agents/${slug}`}
+      href={`/boxes/agents/${slug}`}
       target={'_blank'}
       className={`${slug} ${className}`}
     >
@@ -42,7 +42,7 @@ function VIPAgentCard({ name, desc, slug, className, ...props }: Props) {
         <ImageWrapper>
           <AgentLogo
             fill
-            src={`/Images/businesses/agent/${slug}.jpeg`}
+            src={`/Images/boxes/agent/${slug}.jpeg`}
             alt={` image of ${slug}`}
             quality={100}
             sizes='96px'

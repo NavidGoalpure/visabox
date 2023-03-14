@@ -28,7 +28,7 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={`/Images/businesses/agent/${ChosenAgent?.slug}.jpeg`}
+            src={`/Images/boxes/agent/${ChosenAgent?.slug}.jpeg`}
             alt={'agent image'}
           />
           <VIPBoxContainer aria-hidden={true}>
@@ -76,7 +76,7 @@ const TitleColor = theme('mode', {
 });
 const HeaderBackground = theme('mode', {
   light: css`
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   `,
   dark: css`
     border: 1px var(--color-gray6) solid;

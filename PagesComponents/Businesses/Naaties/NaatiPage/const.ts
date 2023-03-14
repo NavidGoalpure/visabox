@@ -20,7 +20,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   About: {
-    en: "about",
+    en: "About",
     fa: "توضیحات",
   },
   Contacts: {

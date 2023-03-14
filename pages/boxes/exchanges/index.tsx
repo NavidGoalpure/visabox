@@ -1,11 +1,13 @@
 import { NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-
+import {
+  componentStatements,
+  LanguageKeys,
+} from 'PagesComponents/Businesses/Exchanges/const';
 import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Businesses/Naaties';
+import Content from 'PagesComponents/Businesses/Exchanges';
 import Seo from 'Components/Seo';
-import { componentStatements, LanguageKeys } from 'PagesComponents/Businesses/Naaties/NaatiPage/const';
 
 const SocialPages: NextPage = () => {
   const { locale } = useLocale();
@@ -15,7 +17,7 @@ const SocialPages: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/businesses/naaties`}
+        canonical={`https://www.marabox.com/${locale}/boxes/exchanges`}
       />
       <Content />
     </PageLayout>

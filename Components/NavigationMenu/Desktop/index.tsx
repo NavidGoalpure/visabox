@@ -11,9 +11,8 @@ import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
 import { componentStatements, LanguageKeys } from '../const';
 import DesktopLanguageChanger from './LanguageChanger';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import DesktopBusinessDropdown from './dropdownBusiness';
+import DesktopBoxsesDropdown from './dropdownBoxes';
 import DesktopOccupationDropdown from './dropdownOccupation';
-import theme from 'styled-theming';
 
 function Desktop() {
   const { locale } = useLocale();
@@ -30,13 +29,8 @@ function Desktop() {
           <NavigationMenu.Item>
             <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
           </NavigationMenu.Item>
-          <NavigationMenu.Item>
-            <MenuLink href={`/${locale}/businesses/social-pages`}>
-              {t(LanguageKeys.Socials)}
-            </MenuLink>
-          </NavigationMenu.Item>
           <DesktopOccupationDropdown />
-          <DesktopBusinessDropdown />
+          <DesktopBoxsesDropdown />
           <DesktopLanguageChanger />
           <SwitchTheme />
         </MenuItems>

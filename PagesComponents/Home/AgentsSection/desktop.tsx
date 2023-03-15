@@ -1,4 +1,4 @@
-import VIPAgentCard from 'Components/Business/Card/Agent/VIPCard';
+import VIPAgentCard from 'Components/Boxes/Card/Agent/VIPCard';
 import { Agents } from 'Consts/Businesses/agents';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -29,7 +29,7 @@ const DesktopIndex: React.FC = () => {
           <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-          <Link href={`${locale}/businesses/agents`}>
+          <Link href={`${locale}/boxes/agents`}>
             <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
           </Link>
         </Side>

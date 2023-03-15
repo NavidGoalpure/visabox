@@ -35,7 +35,7 @@ function VIPNaatiCard({ fullname, desc, slug, className, ...props }: Props) {
   return (
     <Container
       {...props}
-      href={`/businesses/naaties/${slug}`}
+      href={`/boxes/naaties/${slug}`}
       target={'_blank'}
       className={`${slug} ${className}`}
     >
@@ -43,7 +43,7 @@ function VIPNaatiCard({ fullname, desc, slug, className, ...props }: Props) {
         <ImageWrapper>
           <NaatiLogo
             fill
-            src={`/Images/businesses/naaties/${slug}.jpeg`}
+            src={`/Images/boxes/naaties/${slug}.jpeg`}
             alt={` image of ${slug}`}
             quality={100}
             sizes='96px'

@@ -19,7 +19,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   //
   PageTitle: {
     fa: 'وکیل مهاجرت',
-    en: 'Migration agents',
+    en: 'Migration Agents',
   },
   PageDesc: {
     fa: 'این صفحه برای افراد یا خانواده هایی است که با کمک وکیل به دنبال مهاجرت دائم به استرالیا هستند',

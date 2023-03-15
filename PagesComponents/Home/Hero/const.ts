@@ -9,15 +9,15 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title1: {
     fa: 'جعبه ابزاری',
-    en: 'Find',
+    en: 'Build a',
   },
   Title2: {
     fa: 'برای مهاجرت به',
-    en: 'your new',
+    en: 'Bridge To',
   },
   Title3: {
     fa: 'استرالیا',
-    en: 'Home',
+    en: 'Future',
   },
   Subtitle: {
     fa: 'بررسی شرایط ویزا برای <span>نیروی متخصص, لیست وکلای مهاجرت معتبر, شبکه های اجتماعی</span> مناسب و امکانات جذاب دیگر برای مهاجرت به استرالیا',

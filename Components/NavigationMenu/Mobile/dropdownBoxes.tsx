@@ -11,7 +11,7 @@ import {
 import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
 import theme from 'styled-theming';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys, bussinessItems } from '../const';
+import { componentStatements, LanguageKeys, boxesItems } from '../const';
 import Link from 'next/link';
 const MobileBusinessDropdown = ({}) => {
   const { locale } = useLocale();
@@ -36,8 +36,8 @@ const MobileBusinessDropdown = ({}) => {
               setIsOpen(false);
             }}
           >
-            <StyledLink href={bussinessItems[0].href}>
-              {bussinessItems[0].title[locale]}
+            <StyledLink href={boxesItems[0].href}>
+              {boxesItems[0].title[locale]}
             </StyledLink>
           </PopupItem>
           <Hr />
@@ -46,8 +46,8 @@ const MobileBusinessDropdown = ({}) => {
               setIsOpen(false);
             }}
           >
-            <StyledLink href={bussinessItems[1].href}>
-              {bussinessItems[1].title[locale]}
+            <StyledLink href={boxesItems[1].href}>
+              {boxesItems[1].title[locale]}
             </StyledLink>
           </PopupItem>
           <Hr />
@@ -56,8 +56,18 @@ const MobileBusinessDropdown = ({}) => {
               setIsOpen(false);
             }}
           >
-            <StyledLink href={bussinessItems[2].href}>
-              {bussinessItems[2].title[locale]}
+            <StyledLink href={boxesItems[2].href}>
+              {boxesItems[2].title[locale]}
+            </StyledLink>
+          </PopupItem>
+          <Hr />
+          <PopupItem
+            onClick={() => {
+              setIsOpen(false);
+            }}
+          >
+            <StyledLink href={boxesItems[3].href}>
+              {boxesItems[3].title[locale]}
             </StyledLink>
           </PopupItem>
         </PopupContainer>

@@ -23,7 +23,7 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
         <ProfilePicture
           fill
           src={`/Images/businesses/agent/${ChosenAgent?.slug}.jpeg`}
-          alt={'agent image'}
+          alt={"agent image"}
         />
         <VIPBoxContainer aria-hidden={true}>
           <VIPBox aria-hidden={true} />
@@ -32,7 +32,7 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
       <Title>{dt(ChosenAgent?.name)}</Title>
       <SidebarPage
         maraNumber={ChosenAgent?.maraNumber}
-        website={ChosenAgent?.website}
+        website={ChosenAgent?.contact?.website}
         email={ChosenAgent?.contact?.email}
         phone={ChosenAgent?.contact?.phone}
         telegram={ChosenAgent?.contact?.telegram}

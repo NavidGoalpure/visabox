@@ -43,7 +43,7 @@ export const SelectItemCss = css`
   }
   @media ${deviceMin.tabletS} {
     :hover {
-      background: var(--color-gray11);
+      background: var(--color-gray12);
       color: var(--color-gray1);
     }
   }

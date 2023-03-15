@@ -33,7 +33,7 @@ function Content() {
             <AgentCard
               name={agent.name}
               email={agent.contact.email}
-              website={agent.website}
+              website={agent.contact.website}
               slug={agent.slug}
               phone={agent.contact.phone}
             />

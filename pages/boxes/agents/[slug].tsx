@@ -3,10 +3,10 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   LanguageKeys,
   componentStatements,
-} from 'PagesComponents/Businesses/Agents/AgentPage/const';
+} from 'PagesComponents/Boxes/Agents/AgentPage/const';
 import { useLocale } from 'Hooks/useLocale';
 import { useRouter } from 'next/router';
-import Content from 'PagesComponents/Businesses/Agents/AgentPage';
+import Content from 'PagesComponents/Boxes/Agents/AgentPage';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
 import { Agents } from 'Consts/Businesses/agents';

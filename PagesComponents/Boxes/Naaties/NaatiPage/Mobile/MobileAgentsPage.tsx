@@ -5,7 +5,7 @@ import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
-import { SidebarPage } from 'PagesComponents/Businesses/Agents/AgentPage/Mobile/SideBar';
+import { SidebarPage } from 'PagesComponents/Boxes/Agents/AgentPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
 import { Agent } from 'Interfaces/Businesses/agents';
 interface Props {

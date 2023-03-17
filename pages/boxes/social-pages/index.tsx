@@ -17,7 +17,7 @@ const SocialPages: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/businesses/social-pages`}
+        canonical={`https://www.marabox.com/${locale}/boxes/social-pages`}
       />
       <Content />
     </PageLayout>

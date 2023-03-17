@@ -13,7 +13,7 @@ import { ScrollBox } from 'Elements/ScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, getGsapTimeLine, LanguageKeys } from '../const';
 import OccupationDropdown from './dropdownOccupation';
-import MobileBusinessDropdown from './dropdownBusiness';
+import MobileBoxesDropdown from './dropdownBoxes';
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -49,12 +49,8 @@ function SmartHeader() {
               <Nav>
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
                 <Hr />
-                <MenuLink href={`/${locale}/businesses/social-pages`}>
-                  {t(LanguageKeys.Socials)}
-                </MenuLink>
-                <Hr />
               </Nav>
-              <MobileBusinessDropdown />
+              <MobileBoxesDropdown />
               <Hr />
               <OccupationDropdown />
               <Hr />

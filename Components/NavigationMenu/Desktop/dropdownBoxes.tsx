@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useLocale } from 'Hooks/useLocale';
 import * as MaraSelect from 'Elements/Select';
 import { useRouter } from 'next/router';
-import { bussinessItems } from '../const';
+import { boxesItems } from '../const';
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
@@ -21,21 +21,27 @@ function DesktopBusinessDropdown() {
       }}
     >
       <MaraSelect.Item
-        text={bussinessItems[0].title[locale]}
-        value={bussinessItems[0].title[locale] as string}
-        onClick={() => router.push(`/${locale}/${bussinessItems[0].href}`)}
+        text={boxesItems[0].title[locale]}
+        value={boxesItems[0].title[locale] as string}
+        onClick={() => router.push(`/${locale}/${boxesItems[0].href}`)}
         disabled
       />
       <MaraSelect.Item
-        text={bussinessItems[1].title[locale]}
-        value={bussinessItems[1].title[locale] as string}
-        onClick={() => router.push(`/${locale}/${bussinessItems[1].href}`)}
+        text={boxesItems[1].title[locale]}
+        value={boxesItems[1].title[locale] as string}
+        onClick={() => router.push(`/${locale}/${boxesItems[1].href}`)}
         disabled
       />
       <MaraSelect.Item
-        text={bussinessItems[2].title[locale]}
-        value={bussinessItems[2].title[locale] as string}
-        onClick={() => router.push(`/${locale}/${bussinessItems[2].href}`)}
+        text={boxesItems[2].title[locale]}
+        value={boxesItems[2].title[locale] as string}
+        onClick={() => router.push(`/${locale}/${boxesItems[2].href}`)}
+        disabled
+      />
+      <MaraSelect.Item
+        text={boxesItems[3].title[locale]}
+        value={boxesItems[3].title[locale] as string}
+        onClick={() => router.push(`/${locale}/${boxesItems[3].href}`)}
         disabled
       />
     </StyledMaraSelectRoot>

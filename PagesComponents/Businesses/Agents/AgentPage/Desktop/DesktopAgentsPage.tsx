@@ -28,8 +28,8 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={`/Images/businesses/agent/${ChosenAgent?.slug}.jpeg`}
-            alt={"agent image"}
+            src={`/Images/boxes/agent/${ChosenAgent?.slug}.jpeg`}
+            alt={'agent image'}
           />
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
@@ -44,7 +44,7 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
             <MaraNumber>{ChosenAgent?.maraNumber}</MaraNumber>
           </MaraNumberContainer>
           <DesktopContactComponent
-            website={ChosenAgent?.contact.website}
+            website={ChosenAgent?.contact?.website}
             email={ChosenAgent?.contact?.email}
             phone={ChosenAgent?.contact?.phone}
             telegram={ChosenAgent?.contact?.telegram}
@@ -76,7 +76,7 @@ const TitleColor = theme('mode', {
 });
 const HeaderBackground = theme('mode', {
   light: css`
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   `,
   dark: css`
     border: 1px var(--color-gray6) solid;

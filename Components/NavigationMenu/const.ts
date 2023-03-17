@@ -4,45 +4,47 @@ import { DropdownItem } from './interface';
 
 export enum LanguageKeys {
   Home = 'Home',
-  Socials = 'Socials',
   Businesses = 'Businesses',
   Occupations = 'Occupations',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  Socials: {
-    en: 'Socials',
-    fa: 'شبکه های اجتماعی',
-  },
   Home: {
     en: 'Home',
     fa: 'صفحه اصلی',
   },
   Businesses: {
-    en: 'Businesses',
-    fa: 'کسب و کارها',
+    en: 'Boxes',
+    fa: 'لیست‌ها',
   },
   Occupations: {
-    en: 'Skilled Worder Visa',
-    fa: 'ویزای متخصصان',
+    en: 'Skilled Worker Visa',
+    fa: 'ویزای مهارتی',
   },
 };
-export const bussinessItems: DropdownItem[] = [
+export const boxesItems: DropdownItem[] = [
   {
-    title: { en: 'Agents', fa: 'وکلا' },
-    href: '/businesses/agents',
+    title: { en: 'Agents Box', fa: 'لیست وکلا' },
+    href: '/boxes/agents',
   },
   {
-    title: { en: 'Naati Translators', fa: 'مترجمان ناتی' },
-    href: '/businesses/naaties',
+    title: { en: 'Naati Box', fa: 'لیست مترجمان' },
+    href: '/boxes/naaties',
   },
   {
-    title: { en: 'Exchanges', fa: 'صرافی‌ها' },
-    href: '/businesses/exchanges',
+    title: { en: 'Exchanges Box', fa: 'لیست صرافی‌ها' },
+    href: '/boxes/exchanges',
+  },
+  {
+    title: {
+      en: 'Social Box',
+      fa: 'شبکه های اجتماعی',
+    },
+    href: '/boxes/social-pages',
   },
 ];
 export const occupationItems: DropdownItem[] = [
   {
-    title: { en: 'Search', fa: 'جستجو' },
+    title: { en: 'Occupation List', fa: 'لیست مشاغل' },
     href: '/occupations',
   },
   {

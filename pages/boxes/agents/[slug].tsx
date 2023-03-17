@@ -27,7 +27,7 @@ const OccupationPage = () => {
           { $agent: dt(chosenAgent[0]?.name) || '' },
         ])}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/businesses/agents/${chosenAgent[0]?.slug}`}
+        canonical={`https://www.marabox.com/${locale}/boxes/agents/${chosenAgent[0]?.slug}`}
       />
       <Content chosenAgent={chosenAgent[0]} />
     </PageLayout>

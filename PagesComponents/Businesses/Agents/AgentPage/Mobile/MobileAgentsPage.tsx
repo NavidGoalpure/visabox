@@ -22,7 +22,7 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
       <ProfilePictureWrapper>
         <ProfilePicture
           fill
-          src={`/Images/businesses/agent/${ChosenAgent?.slug}.jpeg`}
+          src={`/Images/boxes/agent/${ChosenAgent?.slug}.jpeg`}
           alt={'agent image'}
         />
         <VIPBoxContainer aria-hidden={true}>

@@ -1,4 +1,4 @@
-import AgentCard from 'Components/Business/Card/Agent/Card';
+import AgentCard from 'Components/Boxes/Card/Agent/Card';
 import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
 import styled from 'styled-components';
@@ -6,7 +6,7 @@ import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import VIPAgentCard from '../../../Components/Business/Card/Agent/VIPCard';
+import VIPAgentCard from '../../../Components/Boxes/Card/Agent/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Agents } from 'Consts/Businesses/agents';
 

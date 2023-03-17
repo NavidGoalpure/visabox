@@ -9,8 +9,8 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { NAATIES } from 'Consts/Businesses/naati';
 import { slugify } from 'Utils';
 import { Status } from 'Interfaces';
-import VIPNaatiCard from 'Components/Business/Card/Naati/VIPCard';
-import NaatiCard from 'Components/Business/Card/Naati/Card';
+import VIPNaatiCard from 'Components/Boxes/Card/Naati/VIPCard';
+import NaatiCard from 'Components/Boxes/Card/Naati/Card';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

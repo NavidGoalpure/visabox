@@ -20,17 +20,17 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
      </url>
      
      <url>
-       <loc>${OccupatopnsPage_EN}/businesses/social-pages</loc>
+       <loc>${OccupatopnsPage_EN}/boxes/social-pages</loc>
      </url>
      <url>
-       <loc>${OccupatopnsPage_FA}/businesses/social-pages</loc>
+       <loc>${OccupatopnsPage_FA}/boxes/social-pages</loc>
      </url>
 
      <url>
-       <loc>${OccupatopnsPage_EN}/businesses/agents</loc>
+       <loc>${OccupatopnsPage_EN}/boxes/agents</loc>
      </url>
      <url>
-       <loc>${OccupatopnsPage_FA}/businesses/agents</loc>
+       <loc>${OccupatopnsPage_FA}/boxes/agents</loc>
      </url>
      
  

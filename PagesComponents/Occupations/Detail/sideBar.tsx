@@ -22,7 +22,7 @@ import {
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
 import { Agents } from 'Consts/Businesses/agents';
-import VIPAgentCard from 'Components/Business/Card/Agent/VIPCard';
+import VIPAgentCard from 'Components/Boxes/Card/Agent/VIPCard';
 
 interface Props {
   occupation: OccupationDetailRes;

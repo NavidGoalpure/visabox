@@ -30,7 +30,6 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
-  console.log("navid socials ===", relatedSocials);
   return (
     <Container>
       <Header>
@@ -65,8 +64,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
           }}
         />
       </AboutContainer>
-      {/* navid change title */}
-      <AgentTitle>Agents</AgentTitle>
+      <AgentTitle>{t(LanguageKeys.AgentTitle)}</AgentTitle>
       <VIPContainer>
         {relatedAgents?.map((relatedAgent) => (
           <VIPAgentCard
@@ -76,8 +74,9 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
           />
         ))}
       </VIPContainer>
-      {/* navid change title */}
-      {relatedSocials && <SocialsTitle>Social medias</SocialsTitle>}
+      {relatedSocials && (
+        <SocialsTitle>{t(LanguageKeys.SocialMedia)}</SocialsTitle>
+      )}
       <Row>
         {relatedSocials?.map((relatedSocial, i) => (
           <SmartSocial

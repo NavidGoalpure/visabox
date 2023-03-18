@@ -14,6 +14,7 @@ const SocialPages: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
+      
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

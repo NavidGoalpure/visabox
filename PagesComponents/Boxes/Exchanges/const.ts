@@ -6,6 +6,7 @@ export enum LanguageKeys {
   SeoDesc = 'SeoDesc',
   //
   PageTitle = 'PageTitle',
+  PageDesc="PageDesc",
   exchange = "exchange"
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
@@ -22,10 +23,15 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "لیست صرافی هایی که خدمات پرداخت هزینه های مهاجرت به استرالیا را ارائه می‌دهند",
     en: "List of exchanges that provide services for paying immigration fees to Australia",
   },
+  PageDesc:{
+    fa: "لیست صرافی هایی که خدمات پرداخت هزینه های مهاجرت به استرالیا را ارائه می‌دهند",
+    en: "List of exchanges that provide services for paying immigration fees to Australia",
+  },
   exchange: {
     fa: "صرافی",
     en:"exchange"
   },
+
 };
 
 ////////////

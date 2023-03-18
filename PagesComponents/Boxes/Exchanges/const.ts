@@ -20,8 +20,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: "لیست صرافی هایی که خدمات پرداخت هزینه های مهاجرت به استرالیا را ارائه می‌دهند",
-    en: "List of exchanges that provide services for paying immigration fees to Australia",
+    fa: "لیست صرافی ها",
+    en: "Exchanges Lists",
   },
   PageDesc:{
     fa: "لیست صرافی هایی که خدمات پرداخت هزینه های مهاجرت به استرالیا را ارائه می‌دهند",

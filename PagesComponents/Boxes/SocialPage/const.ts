@@ -5,6 +5,7 @@ export enum LanguageKeys {
   SeoDesc = 'SeoDesc',
   //
   PageTitle = 'PageTitle',
+  PageDesc = 'PageDesc',
   Join = 'Join',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
@@ -20,6 +21,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   PageTitle: {
     fa: "لیست شبکه های اجتماعی موسسه های مهاجرتی",
     en: "List of social networks of immigration institutions",
+  },
+  PageDesc: {
+    fa: 'این صفحه برای افرادی است که خواهان آدرس درگاه های مجازی موسسه های مهاجرتی هستند',
+    en: `This page is for people who want the addresses of virtual portals of immigration institutions`,
   },
   Join: {
     fa: "عضویت",

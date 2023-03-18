@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from "Interfaces";
 
 export enum LanguageKeys {
   SeoTitle = "SeoTitle",
@@ -9,6 +9,8 @@ export enum LanguageKeys {
   MaraNumber = "MaraNumber",
   Socials = "Socials",
   Agent = "Agent",
+  AgentTitle = "AgentTitle",
+  SocialMedia = "SocialMedia",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -39,5 +41,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Agent: {
     en: "agent",
     fa: "وکیل",
+  },
+  AgentTitle: {
+    en: "Agents",
+    fa: "وکلا",
+  },
+  SocialMedia: {
+    en: "Social medias",
+    fa: "شبکه های اجتماعی",
   },
 };

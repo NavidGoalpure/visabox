@@ -84,8 +84,7 @@ const SidebarPage = ({
                 linkedin={linkedin}
               />
             </ContentWrapper>
-            {/* navid change title */}
-            {relatedSocials && <SocialsTitle>Social medias</SocialsTitle>}
+            {relatedSocials && <SocialsTitle>{t(LanguageKeys.SocialMedia)}</SocialsTitle>}
             <Row>
               {relatedSocials?.map((relatedSocial, i) => (
                 <SmartSocial

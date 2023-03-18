@@ -3,7 +3,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   LanguageKeys,
   componentStatements,
-} from 'PagesComponents/Boxes/Agents/AgentPage/const';
+} from 'PagesComponents/Boxes/Agencys/AgencyPage/const';
 import { useLocale } from 'Hooks/useLocale';
 import { useRouter } from 'next/router';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';

@@ -1,17 +1,17 @@
-import styled, { css } from 'styled-components';
-import { useLocale } from 'Hooks/useLocale';
-import { useEffect, useRef, useState } from 'react';
-import useOnClickOutside from 'Hooks/useOnClickOutside';
-import { Languages } from 'Interfaces';
-import { ImSphere } from 'react-icons/im';
-import { BsChevronDown } from 'react-icons/bs';
-import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
-import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
-import BritishFlag from '../Images/BritishFlag.svg';
-import IranFlag from '../Images/IranFlag.svg';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import theme from 'styled-theming';
+import styled, { css } from "styled-components";
+import { useLocale } from "Hooks/useLocale";
+import { useEffect, useRef, useState } from "react";
+import useOnClickOutside from "Hooks/useOnClickOutside";
+import { Languages } from "Interfaces";
+import { ImSphere } from "react-icons/im";
+import { BsChevronDown } from "react-icons/bs";
+import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import BritishFlag from "../Images/BritishFlag.svg";
+import IranFlag from "../Images/IranFlag.svg";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import theme from "styled-theming";
 const MobileLanguageChanger = ({}) => {
   const { locale } = useLocale();
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -21,12 +21,13 @@ const MobileLanguageChanger = ({}) => {
   };
   useOnClickOutside(containerRef, closePopup);
   const smartTextObj: Record<Languages, string> = {
-    en: 'English',
-    fa: 'فارسی',
+    en: "English",
+    fa: "فارسی",
   };
   const router = useRouter();
+  console.log("navid router ===", router);
   return (
-    <Container id={'container'} ref={containerRef}>
+    <Container id={"container"} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>
         <TriggerText>
           <SphereIcon />
@@ -39,7 +40,7 @@ const MobileLanguageChanger = ({}) => {
           <PopupItem
             onClick={() => {
               setIsOpen(false);
-              router.push(router.pathname, router.pathname, {
+              router.push(router.pathname, router.asPath, {
                 locale: Languages.en,
               });
             }}
@@ -48,8 +49,8 @@ const MobileLanguageChanger = ({}) => {
               <Flag
                 fill
                 src={BritishFlag}
-                alt={'england flag'}
-                sizes='1.5rem'
+                alt={"england flag"}
+                sizes="1.5rem"
               />
             </FlagWrapper>
             {smartTextObj.en}
@@ -58,13 +59,13 @@ const MobileLanguageChanger = ({}) => {
           <PopupItem
             onClick={() => {
               setIsOpen(false);
-              router.push(router.pathname, router.pathname, {
+              router.push(router.pathname, router.asPath, {
                 locale: Languages.fa,
               });
             }}
           >
             <FlagWrapper>
-              <Flag fill src={IranFlag} alt={'iran flag'} sizes='1.5rem' />
+              <Flag fill src={IranFlag} alt={"iran flag"} sizes="1.5rem" />
             </FlagWrapper>
             {smartTextObj.fa}
           </PopupItem>
@@ -115,7 +116,7 @@ const PopupContainer = styled.div`
   justify-content: center;
   gap: 1rem;
 `;
-const popUpTheme = theme('mode', {
+const popUpTheme = theme("mode", {
   light: css`
     color: var(--color-gray7);
   `,
@@ -142,7 +143,7 @@ const Flag = styled(Image)`
   position: relative !important;
 `;
 ///////////////
-const hrTheme = theme('mode', {
+const hrTheme = theme("mode", {
   light: css`
     background: var(--color-gray12);
   `,

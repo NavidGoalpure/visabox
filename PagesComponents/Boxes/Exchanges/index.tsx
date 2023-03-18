@@ -1,11 +1,17 @@
 import { Exchanges } from 'Consts/Businesses/exchages';
 import { deviceMin } from 'Consts/device';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled from 'styled-components';
+import { Layer1_SubtitleStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { componentStatements, LanguageKeys } from './const';
 import ExchangeCard from './ExchangeCard';
 
 function Content() {
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
+      <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
+      <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <Row>
         {Exchanges.map((exchange, i) => (
           <ExchangeCard
@@ -13,7 +19,7 @@ function Content() {
             isFeatured={exchange.isFeatured}
             desc={exchange.desc}
             name={exchange.fullName}
-            externalLink={exchange.contact.website || ''}
+            externalLink={exchange.contact.website || ""}
             location={exchange.location}
             slug={exchange.slug}
             hasImage={exchange.hasImage}
@@ -42,4 +48,14 @@ const Row = styled.div`
   width: 100%;
   justify-content: space-around;
   row-gap: 3rem;
+`;
+const PageTitle = styled.h1`
+  ${Layer1_TitleStyle}
+  @media ${deviceMin.tabletS} {
+    width: 100%;
+    text-align: start;
+  }
+`;
+const PageSubtitle = styled.h4`
+  ${Layer1_SubtitleStyle};
 `;

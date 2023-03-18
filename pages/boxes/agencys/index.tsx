@@ -6,7 +6,7 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Boxes/Agents/const';
+} from 'PagesComponents/Boxes/Agencys/const';
 import Content from 'PagesComponents/Boxes/Agencys';
 
 const BusinessesPage: NextPage = () => {

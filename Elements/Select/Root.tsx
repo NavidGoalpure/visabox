@@ -1,16 +1,16 @@
-import styled, { css } from 'styled-components';
-import * as Select from '@radix-ui/react-select';
-import { BsChevronDown } from 'react-icons/bs';
-import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
-import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
-import { SelectProps } from '@radix-ui/react-select';
-import theme from 'styled-theming';
-import { ReactNode, useRef } from 'react';
-import { ScrollBox } from 'Elements/ScrollBox';
-import React from 'react';
-import { findSmartHeight } from './utils';
-import { device } from 'Consts/device';
-import useDevice from 'Hooks/useDevice';
+import styled, { css, keyframes } from "styled-components";
+import * as Select from "@radix-ui/react-select";
+import { BsChevronDown } from "react-icons/bs";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
+import { SelectProps } from "@radix-ui/react-select";
+import theme from "styled-theming";
+import { ReactNode, useRef } from "react";
+import { ScrollBox } from "Elements/ScrollBox";
+import React from "react";
+import { findSmartHeight } from "./utils";
+import { device } from "Consts/device";
+import useDevice from "Hooks/useDevice";
 
 interface Props extends SelectProps {
   className?: string;
@@ -20,9 +20,9 @@ interface Props extends SelectProps {
   noScroll?: boolean;
   contentProps?: {
     // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره
-    align?: 'start' | 'center' | 'end';
+    align?: "start" | "center" | "end";
     // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره. البته فول اسکرین رو من اضافه کردم
-    position?: 'popper' | 'item-aligned';
+    position?: "popper" | "item-aligned";
     ariaLabel?: string;
     dataId?: string;
   };
@@ -55,7 +55,7 @@ const Root: React.FC<Props> = ({
       <Select.Root
         onOpenChange={(isOpen) => {
           if (isOpen) {
-            document.body.style.pointerEvents = 'none';
+            document.body.style.pointerEvents = "none";
           }
         }}
         {...props}
@@ -72,17 +72,18 @@ const Root: React.FC<Props> = ({
         {/* ////////////// */}
         <Portal>
           <Content
-            data-id={contentProps?.dataId || 'select-content'}
+            data-id={contentProps?.dataId || "select-content"}
             position={
-              isLaptop || contentProps?.position === 'popper'
-                ? 'popper'
-                : 'item-aligned'
+              isLaptop || contentProps?.position === "popper"
+                ? "popper"
+                : "item-aligned"
             }
             align={contentProps?.align}
             onCloseAutoFocus={() =>
-              (document.body.style.pointerEvents = 'auto')
+              (document.body.style.pointerEvents = "auto")
             }
           >
+            {!isLaptop && <MobileTopIcon />}
             {noScroll ? (
               <Viewport>{children}</Viewport>
             ) : (
@@ -104,7 +105,7 @@ const Root: React.FC<Props> = ({
 export { Root };
 const Container = styled.div``;
 
-const ContainerBorder = theme('mode', {
+const ContainerBorder = theme("mode", {
   light: css`
     border: 1px solid var(--color-gray12);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -115,7 +116,7 @@ const Trigger = styled(Select.Trigger)`
   ${layer3_TextStyle}
   display: flex;
   align-items: center;
-  
+
   gap: 0.5rem;
   cursor: pointer;
   span {
@@ -147,8 +148,16 @@ const Portal = styled(Select.Portal)`
   top: 0%;
   left: 0;
 `;
+const SelectAscendAnimation = keyframes`
+from {
+  bottom:-100%;
+}
+to{
+  bottom:0%;
+}
+`;
 const Content = styled(Select.Content)<{
-  $position?: 'popper' | 'item-aligned';
+  $position?: "popper" | "item-aligned";
 }>`
   width: 100%;
   height: 100%;
@@ -157,7 +166,9 @@ const Content = styled(Select.Content)<{
   z-index: 100;
   overflow: hidden;
   padding: 1rem;
-  &[data-state='open'] {
+  align-items: center;
+  gap:0.5rem;
+  &[data-state="open"] {
     position: relative;
     @media ${device.tabletS} {
       position: fixed;
@@ -165,8 +176,15 @@ const Content = styled(Select.Content)<{
       height: 70%;
       bottom: 0;
       margin-top: auto;
+      animation: ${SelectAscendAnimation} 0.3s ease;
     }
   }
+`;
+const MobileTopIcon = styled.hr`
+  background: var(--color-gray9);
+  height: 5px;
+  width: 4rem;
+  border-radius: 15px;
 `;
 const Viewport = styled(Select.Viewport)`
   z-index: 5;

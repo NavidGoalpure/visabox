@@ -36,7 +36,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
   @media ${deviceMin.tabletM} {
     flex-direction: row;
     flex-wrap: wrap;

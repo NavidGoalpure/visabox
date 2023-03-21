@@ -18,6 +18,7 @@ export default {
       localize: true,
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
+    //
     // صفحه توضیحات این نوع ویزا
     {
       name: 'url',

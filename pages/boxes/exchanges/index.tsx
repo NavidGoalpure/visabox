@@ -4,9 +4,9 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Businesses/Exchanges/const';
+} from 'PagesComponents/Boxes/Exchanges/const';
 import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Businesses/Exchanges';
+import Content from 'PagesComponents/Boxes/Exchanges';
 import Seo from 'Components/Seo';
 
 const SocialPages: NextPage = () => {
@@ -14,6 +14,7 @@ const SocialPages: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
+      
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

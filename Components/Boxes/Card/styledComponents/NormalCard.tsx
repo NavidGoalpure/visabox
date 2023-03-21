@@ -53,7 +53,7 @@ export const Container = styled.div`
   width: 100%;
   opacity: 0;
   @media ${deviceMin.mobileL} {
-    min-width: 18.75rem;
+    min-width: 20rem;
     width: 32%;
   }
 `;

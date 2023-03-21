@@ -15,13 +15,13 @@ import {
 import {
   layer3_SubtitleStyle,
   layer3_TitleStyle,
-} from 'Styles/Theme/Layers/layer3/style';
-import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
-import { Headline6Style, Headline7Style } from 'Styles/Typo';
-import { componentStatements, LanguageKeys } from '../const';
-import { FiBox } from 'react-icons/fi';
-import { deviceMin } from 'Consts/device';
-import { SocialMediaTypes, Socials } from 'Interfaces/Socials';
+} from "Styles/Theme/Layers/layer3/style";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import { Headline6Style, Headline7Style } from "Styles/Typo";
+import { componentStatements, LanguageKeys } from "../const";
+import { FiBox } from "react-icons/fi";
+import { deviceMin } from "Consts/device";
+import { SocialMediaTypes, Socials } from "Interfaces/Socials";
 
 type Props = Socials;
 function MobileSocialCard({
@@ -154,12 +154,11 @@ const NotFeaturedSocialMediaTagStyle = css`
 `;
 const Container = styled.a<{ isFeatured: boolean }>`
   position: relative;
-  width: 100%;
   margin-top: 4.5rem;
   row-gap: 3rem;
   transition: all 0.3s ease;
-  width: 25rem;
-
+  width: 100%;
+  max-width: 25rem;
   @media ${deviceMin.laptopXS} {
     ${({ isFeatured }) => !isFeatured && "width: 30%;"}
   }

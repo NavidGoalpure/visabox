@@ -183,7 +183,7 @@ export const AGENCYS: Agency[] = [
     {
         id: 'agc12',
         name: { en: 'Amirshahi Law Office', fa: 'دفتر حقوقی امیرشاهی' },
-        slug: 'amirshahi -law-office',
+        slug: 'amirshahi-law-office',
         country: [Country.Global, Country.Iran],
         isFeatured: false,
         desc: {

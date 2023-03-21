@@ -5,15 +5,17 @@ import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
-import { SidebarPage } from 'PagesComponents/Businesses/Agents/AgentPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
-import { Agent } from 'Interfaces/Businesses/agents';
+import { Agency } from 'Interfaces/Businesses/agency';
+import { SidebarPage } from './SideBar';
+import { getAgencyAgents, getAgencySocials } from '../utils';
 interface Props {
-  ChosenAgent?: Agent;
+  ChosenAgency?: Agency;
 }
-function MobileAgentsPage({ ChosenAgent }: Props) {
+function MobileAgencysPage({ ChosenAgency }: Props) {
   const { dt } = useDynamicTranslation();
-
+const relatedAgents = getAgencyAgents(ChosenAgency);
+const relatedSocials = getAgencySocials(ChosenAgency);
   return (
     <Container>
       <StarBackground aria-hidden={true}>
@@ -22,28 +24,29 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
       <ProfilePictureWrapper>
         <ProfilePicture
           fill
-          src={`/Images/boxes/agent/${ChosenAgent?.slug}.jpeg`}
-          alt={'agent image'}
+          src={`/Images/boxes/agency/${ChosenAgency?.slug}.jpg`}
+          alt={"agent image"}
         />
         <VIPBoxContainer aria-hidden={true}>
           <VIPBox aria-hidden={true} />
         </VIPBoxContainer>
       </ProfilePictureWrapper>
-      <Title>{dt(ChosenAgent?.name)}</Title>
+      <Title>{dt(ChosenAgency?.name)}</Title>
       <SidebarPage
-        maraNumber={ChosenAgent?.maraNumber}
-        website={ChosenAgent?.contact?.website}
-        email={ChosenAgent?.contact?.email}
-        phone={ChosenAgent?.contact?.phone}
-        telegram={ChosenAgent?.contact?.telegram}
-        instagram={ChosenAgent?.contact?.instagram}
-        linkedin={ChosenAgent?.contact?.linkedin}
-        desc={ChosenAgent?.desc}
+        website={ChosenAgency?.contact?.website}
+        email={ChosenAgency?.contact?.email}
+        phone={ChosenAgency?.contact?.phone}
+        telegram={ChosenAgency?.contact?.telegram}
+        instagram={ChosenAgency?.contact?.instagram}
+        linkedin={ChosenAgency?.contact?.linkedin}
+        desc={ChosenAgency?.desc}
+        relatedAgents={relatedAgents}
+        relatedSocials={relatedSocials}
       />
     </Container>
   );
 }
-export default MobileAgentsPage;
+export default MobileAgencysPage;
 const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);

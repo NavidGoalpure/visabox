@@ -28,7 +28,7 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={`/Images/boxes/agent/${ChosenAgent?.slug}.jpeg`}
+            src={`/Images/boxes/agency/${ChosenAgent?.slug}.jpg`}
             alt={'agent image'}
           />
           <VIPBoxContainer aria-hidden={true}>

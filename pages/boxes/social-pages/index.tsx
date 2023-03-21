@@ -4,9 +4,9 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Businesses/SocialPage/const';
+} from 'PagesComponents/Boxes/SocialPage/const';
 import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Businesses/SocialPage';
+import Content from 'PagesComponents/Boxes/SocialPage';
 import Seo from 'Components/Seo';
 
 const SocialPages: NextPage = () => {

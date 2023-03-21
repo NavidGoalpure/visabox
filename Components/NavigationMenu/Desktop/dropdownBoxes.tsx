@@ -16,7 +16,7 @@ function DesktopBusinessDropdown() {
     <StyledMaraSelectRoot
       noScroll
       triggerProps={{
-        id: 'bussiness-trigger',
+        id: "bussiness-trigger",
         placeholder: t(LanguageKeys.Businesses),
       }}
     >
@@ -42,6 +42,12 @@ function DesktopBusinessDropdown() {
         text={boxesItems[3].title[locale]}
         value={boxesItems[3].title[locale] as string}
         onClick={() => router.push(`/${locale}/${boxesItems[3].href}`)}
+        disabled
+      />
+      <MaraSelect.Item
+        text={boxesItems[4].title[locale]}
+        value={boxesItems[4].title[locale] as string}
+        onClick={() => router.push(`/${locale}/${boxesItems[4].href}`)}
         disabled
       />
     </StyledMaraSelectRoot>

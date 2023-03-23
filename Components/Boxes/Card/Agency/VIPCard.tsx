@@ -86,7 +86,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   padding: 2.25rem 1.5rem 2.25rem;
   border-radius: 15px;
@@ -109,7 +109,8 @@ const Title = styled.h3`
   ${layer2B_TitleStyle}
   ${layer2B_HeaderStyle}
 width: fit-content;
-  margin-bottom: 0.75rem;
+  margin-bottom: 2rem;
+  margin-top: -2rem;
 `;
 const Desc = styled.div`
   ${layer2B_SubtitleStyle}
@@ -129,8 +130,7 @@ const ViewMoreButton = styled(PrimaryButton)`
 
   @media ${deviceMin.tabletS} {
     position: absolute;
-    bottom: 0;
-    transform: translateY(50%);
+    bottom: 2rem;
   }
 `;
 const AgentElement = styled.h3`

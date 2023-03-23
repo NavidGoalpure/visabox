@@ -1,8 +1,8 @@
 import ErrorToast from 'Elements/Toast/Error';
 import SuccessToast from 'Elements/Toast/Success';
 import { LocalStorageKeys, ThemeModes } from 'Interfaces';
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 const getThemeFromLocalStorage = (): ThemeModes => {
   const DEFAULT_THEME = ThemeModes.DARK;
   const res =
@@ -53,19 +53,19 @@ const copyContent = async (text: string) => {
     .then(() => SuccessToast('Copied to clipboard'));
   //   ErrorToast("Copying to clipboard was not successful!");
 };
-function getGsapTimeLine_FadeUp(slug: string | number) {
+function getGsapTimeLine_FadeUp(id: string | number) {
   gsap.registerPlugin(ScrollTrigger);
   gsap.fromTo(
-    `.${slug}`,
+    `.${id}`,
     {
       y: 40,
       opacity: 0,
     },
     {
       scrollTrigger: {
-        trigger: `.${slug}`,
-        start: "20 bottom",
-        toggleActions: "play none none none",
+        trigger: `.${id}`,
+        start: '20 bottom',
+        toggleActions: 'play none none none',
       },
       y: 0,
       opacity: 1,
@@ -92,4 +92,3 @@ export {
   slugify,
   getGsapTimeLine_FadeUp,
 };
-

@@ -1,18 +1,18 @@
-import { useLocale } from "Hooks/useLocale";
-import { MultiLanguageText, MultiLanguageTextArray } from "Interfaces";
-import { Slug } from "Interfaces/Fields";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import PopupContent from "./popupContent";
-import { Container, Wrapper, Code, Title } from "../StyledComponents";
-import Popup from "../popup";
-import styled from "styled-components";
-import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { getGsapTimeLine_FadeUp } from "Utils";
+import { useLocale } from 'Hooks/useLocale';
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
+import { Slug } from 'Interfaces/Fields';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import PopupContent from './popupContent';
+import { Container, Wrapper, Code, Title } from '../StyledComponents';
+import Popup from '../popup';
+import styled from 'styled-components';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import { getGsapTimeLine_FadeUp } from 'Utils';
 
 interface Props {
-  code?: number;
+  code: number;
   title?: MultiLanguageText;
   description?: MultiLanguageText;
   slug?: Slug;
@@ -24,12 +24,12 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
   const { locale } = useLocale();
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   useEffect(() => {
-    getGsapTimeLine_FadeUp(slug?.current || "");
+    getGsapTimeLine_FadeUp(`c${code}`);
   }, []);
   return (
-    <Container className={`${slug?.current}`}>
+    <Container className={`c${code}`}>
       <Link
-        style={{ height: "100%" }}
+        style={{ height: '100%' }}
         key={code}
         href={{ pathname: `/${locale}/occupations/${slug?.current}` }}
         prefetch={false}

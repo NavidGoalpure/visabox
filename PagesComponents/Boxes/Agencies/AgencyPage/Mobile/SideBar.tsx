@@ -1,24 +1,21 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import * as SideBar from "Elements/Sidebar";
-import { MdContacts } from "react-icons/md";
-import { GrCircleInformation } from "react-icons/gr";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { deviceMin } from "Consts/device";
-
-import { AboutComponent } from "./AboutComponent";
-import { MobileContactComponent } from "./MobileContactComponent";
-import theme from "styled-theming";
-import { MultiLanguageText } from "Interfaces";
-import { layer2A_style } from "Styles/Theme/Layers/layer2/style";
-import { componentStatements, LanguageKeys } from "../const";
-import { FaRegHandshake } from "react-icons/fa";
-import VIPAgentCard from "Components/Boxes/Card/Agent/VIPCard";
-import { getAgencyAgents } from "../utils";
-import { Agent } from "Interfaces/Businesses/agents";
-import { Socials } from "Interfaces/Socials";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import SmartSocial from "PagesComponents/Boxes/SocialPage/SocialCard";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import * as SideBar from 'Elements/Sidebar';
+import { MdContacts } from 'react-icons/md';
+import { GrCircleInformation } from 'react-icons/gr';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { deviceMin } from 'Consts/device';
+import { AboutComponent } from './AboutComponent';
+import { MobileContactComponent } from './MobileContactComponent';
+import { MultiLanguageText } from 'Interfaces';
+import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
+import { componentStatements, LanguageKeys } from '../const';
+import { FaRegHandshake } from 'react-icons/fa';
+import VIPAgentCard from 'Components/Boxes/Card/Agent/VIPCard';
+import { Agent } from 'Interfaces/Businesses/agents';
+import { Socials } from 'Interfaces/Socials';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import SmartSocial from 'PagesComponents/Boxes/SocialPage/SocialCard';
 interface Props {
   website?: string;
   email?: string;
@@ -45,35 +42,35 @@ const SidebarPage = ({
 
   return (
     <SideBarRoot
-      defaultValue="about"
-      variant="UP_POSITION"
+      defaultValue='about'
+      variant='UP_POSITION'
       items={
         <>
           <SideBar.TabItem
             title={t(LanguageKeys.About)}
-            value="about"
+            value='about'
             icon={<AboutIcon />}
           />
           <SideBar.TabItem
             title={t(LanguageKeys.Contacts)}
-            value="socials"
+            value='socials'
             icon={<ContactIcon />}
           />
           <SideBar.TabItem
             title={t(LanguageKeys.Agent)}
-            value="agent"
+            value='agent'
             icon={<AgentIcon />}
           />
         </>
       }
       bodies={
         <>
-          <SideBar.BodyItem value="about">
+          <SideBar.BodyItem value='about'>
             <ContentWrapper>
               <AboutComponent desc={desc} />
             </ContentWrapper>
           </SideBar.BodyItem>
-          <SideBar.BodyItem value="socials">
+          <SideBar.BodyItem value='socials'>
             <ContentWrapper>
               <MobileContactComponent
                 website={website}
@@ -84,7 +81,9 @@ const SidebarPage = ({
                 linkedin={linkedin}
               />
             </ContentWrapper>
-            {relatedSocials && <SocialsTitle>{t(LanguageKeys.SocialMedia)}</SocialsTitle>}
+            {relatedSocials && (
+              <SocialsTitle>{t(LanguageKeys.SocialMedia)}</SocialsTitle>
+            )}
             <Row>
               {relatedSocials?.map((relatedSocial, i) => (
                 <SmartSocial
@@ -101,7 +100,7 @@ const SidebarPage = ({
               ))}
             </Row>
           </SideBar.BodyItem>
-          <SideBar.BodyItem value="agent">
+          <SideBar.BodyItem value='agent'>
             <VIPContainer>
               {relatedAgents?.map((relatedAgent, i) => (
                 <VIPAgentCard
@@ -120,19 +119,11 @@ const SidebarPage = ({
 };
 
 export { SidebarPage };
-const LogoColor = theme("mode", {
-  light: css`
-    background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  `,
-  dark: css`
-    background: var(--color-gray6);
-  `,
-});
+
 const SideBarRoot = styled(SideBar.Root)`
   color: black;
   div {
-    &[aria-label="sidebar"] {
+    &[aria-label='sidebar'] {
       margin-bottom: 2rem;
       margin-left: -1rem;
       margin-right: -1rem;

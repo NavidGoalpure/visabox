@@ -27,12 +27,15 @@ export const BacklogTable: React.FC<Props> = ({
       </thead>
       <tbody id='body'>
         {rows?.[0]?.rowValue ? (
-          rows.map((row, i) => (
-            <tr key={i}>
-              <td>{row.rowKey}</td>
-              <td>{row.rowValue}</td>
-            </tr>
-          ))
+          rows.map((row, i) => {
+            if (row.rowValue)
+              return (
+                <tr key={i}>
+                  <td>{row.rowKey}</td>
+                  <td>{row.rowValue}</td>
+                </tr>
+              );
+          })
         ) : (
           <NoData
             hasIcon={false}

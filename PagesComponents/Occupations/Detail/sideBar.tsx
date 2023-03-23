@@ -129,6 +129,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               {Agencies.filter((agent) => agent.isFeatured).map((agent) => {
                 return (
                   <StyledVIPAgentCard
+                    key={agent.slug}
                     name={agent.name}
                     desc={agent.desc}
                     slug={agent.slug}

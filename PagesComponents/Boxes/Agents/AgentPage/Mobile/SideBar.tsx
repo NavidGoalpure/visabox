@@ -5,10 +5,8 @@ import { MdContacts } from 'react-icons/md';
 import { GrCircleInformation } from 'react-icons/gr';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { deviceMin } from 'Consts/device';
-
 import { AboutComponent } from './AboutComponent';
 import { MobileContactComponent } from './MobileContactComponent';
-import theme from 'styled-theming';
 import { MultiLanguageText } from 'Interfaces';
 import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
 import { componentStatements, LanguageKeys } from '../const';
@@ -78,15 +76,7 @@ const SidebarPage = ({
 };
 
 export { SidebarPage };
-const LogoColor = theme('mode', {
-  light: css`
-    background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  `,
-  dark: css`
-    background: var(--color-gray6);
-  `,
-});
+
 const SideBarRoot = styled(SideBar.Root)`
   color: black;
   div {

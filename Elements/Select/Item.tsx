@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components";
-import * as Select from "@radix-ui/react-select";
-import { ReactNode } from "react";
-import { SelectItemProps } from "@radix-ui/react-select";
-import { directionStyles } from "Styles/Theme";
-import { deviceMin } from "Consts/device";
-import { BsCheck } from "react-icons/bs";
+import styled, { css } from 'styled-components';
+import * as Select from '@radix-ui/react-select';
+import { ReactNode } from 'react';
+import { SelectItemProps } from '@radix-ui/react-select';
+import { directionStyles } from 'Styles/Theme';
+import { deviceMin } from 'Consts/device';
+import { BsCheck } from 'react-icons/bs';
 
 interface Props extends SelectItemProps {
   icon?: ReactNode;
@@ -12,15 +12,14 @@ interface Props extends SelectItemProps {
 }
 
 const Item: React.FC<Props> = ({ icon, text, className, ...props }) => {
-  console.log("navid icon ===", icon);
   return (
-    <SelectItem {...props} id="red" className={className}>
+    <SelectItem {...props} id='red' className={className}>
       {!icon && (
         <Select.ItemIndicator>
           <Checkmark />
         </Select.ItemIndicator>
       )}
-      {icon} <Select.ItemText className="text">{text}</Select.ItemText>
+      {icon} <Select.ItemText className='text'>{text}</Select.ItemText>
     </SelectItem>
   );
 };
@@ -47,7 +46,7 @@ export const SelectItemCss = css`
   &:last-child {
     border: none;
   }
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     background: var(--color-primary6);
   }
   @media ${deviceMin.tabletS} {

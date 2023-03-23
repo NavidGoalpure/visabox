@@ -25,7 +25,6 @@ const MobileLanguageChanger = ({}) => {
     fa: "فارسی",
   };
   const router = useRouter();
-  console.log("navid router ===", router);
   return (
     <Container id={"container"} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>

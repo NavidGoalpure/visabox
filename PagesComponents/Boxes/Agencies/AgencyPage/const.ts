@@ -1,53 +1,53 @@
-import { MultiLanguageText } from "Interfaces";
+import { MultiLanguageText } from 'Interfaces';
 
 export enum LanguageKeys {
-  SeoTitle = "SeoTitle",
-  SeoDesc = "SeoDesc",
+  SeoTitle = 'SeoTitle',
+  SeoDesc = 'SeoDesc',
   //
-  About = "About",
-  Contacts = "Contacts",
-  MaraNumber = "MaraNumber",
-  Socials = "Socials",
-  Agent = "Agent",
-  AgentTitle = "AgentTitle",
-  SocialMedia = "SocialMedia",
+  About = 'About',
+  Contacts = 'Contacts',
+  MaraNumber = 'MaraNumber',
+  Socials = 'Socials',
+  Agent = 'Agent',
+  AgentTitle = 'AgentTitle',
+  SocialMedia = 'SocialMedia',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: "$agent Migration Agency | $agent",
-    fa: "موسسه مهاجرت $agent",
+    en: '$agent Migration Agency | $agent',
+    fa: 'موسسه مهاجرت $agent',
   },
   SeoDesc: {
-    fa: "marabox.com",
-    en: "marabox.com",
+    fa: 'marabox.com',
+    en: 'marabox.com',
   },
   //
   About: {
-    en: "About",
-    fa: "توضیحات",
+    en: 'About',
+    fa: 'توضیحات',
   },
   Contacts: {
-    en: "contacts",
-    fa: "ارتباطات",
+    en: 'contacts',
+    fa: 'ارتباطات',
   },
   MaraNumber: {
-    en: "MaraNumber",
-    fa: "شماره مارا",
+    en: 'MaraNumber',
+    fa: 'شماره مارا',
   },
   Socials: {
-    en: "Socials",
-    fa: "ارتباطات",
+    en: 'Socials',
+    fa: 'ارتباطات',
   },
   Agent: {
-    en: "agent",
-    fa: "وکیل",
+    en: 'Agency',
+    fa: 'وکیل',
   },
   AgentTitle: {
-    en: "Agents",
-    fa: "وکلا",
+    en: 'Agents',
+    fa: 'وکلا',
   },
   SocialMedia: {
-    en: "Social medias",
-    fa: "شبکه های اجتماعی",
+    en: 'Social medias',
+    fa: 'شبکه های اجتماعی',
   },
 };

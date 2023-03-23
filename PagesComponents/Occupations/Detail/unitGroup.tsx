@@ -15,7 +15,10 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
-import { layer3_style, layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
+import {
+  layer3_style,
+  layer3_SubtitleStyle,
+} from 'Styles/Theme/Layers/layer3/style';
 
 interface Props {
   anzscoSection: ReferenceType | AnzscoSection | undefined;
@@ -141,6 +144,8 @@ const SkillLevelTitle = styled(ContentTitle)<{ skillLevel: string }>`
     background-color: var(--color-primary3);
     border-radius: 50%;
     color: white;
+    width: 2rem;
+    text-align: center;
   }
 `;
 

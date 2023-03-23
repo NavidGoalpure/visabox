@@ -39,15 +39,6 @@ function VIPAgencyCard({ name, desc, slug, className, ...props }: Props) {
       className={`${slug} ${className}`}
     >
       <Wrapper>
-        <ImageWrapper>
-          <AgentLogo
-            fill
-            src={`/Images/boxes/agency/${slug}.jpg`}
-            alt={` image of ${slug}`}
-            quality={100}
-            sizes='96px'
-          />
-        </ImageWrapper>
         <Title>{dt(name)}</Title>
         <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
         <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
@@ -97,7 +88,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1.5rem 2.25rem;
+  padding: 2.25rem 1.5rem 2.25rem;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
@@ -105,7 +96,7 @@ const Wrapper = styled.div`
     width: 23rem;
   }
   @media ${deviceMin.tabletS} {
-    padding: 4rem 1.5rem 1rem;
+    padding: 0rem 1.5rem 1rem;
     height: 23rem;
     width: 23rem;
   }
@@ -113,30 +104,7 @@ const Wrapper = styled.div`
     transform: scale(1.05);
   }
 `;
-const ImageWrapper = styled.div`
-  ${LogoBackground}
-  padding: 0.5rem;
-  width: 6.625rem;
-  height: 6.625rem;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -52%) rotate(4deg);
-  border-radius: 10px;
-  border: none;
-  transition: all 0.3s ease;
-  ${Wrapper}:hover & {
-    transform: rotate(0deg) translate(-50%, -56%);
-  }
-`;
-const AgentLogo = styled(Image)`
-  position: relative !important;
-  object-fit: cover;
-  transition: all 0.3s ease;
-  ${Wrapper}:hover & {
-    transform: scale(1.05);
-  }
-`;
+
 const Title = styled.h3`
   ${layer2B_TitleStyle}
   ${layer2B_HeaderStyle}

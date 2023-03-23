@@ -111,7 +111,6 @@ export const EmailTitle = styled.h4`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  
 `;
 export const CopyIcon = styled(IoMdCopy)`
   ${CopyIconTheme};
@@ -139,7 +138,8 @@ export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-  ${({ $hasWebsite }) => !$hasWebsite && "cursor: unset;"}
+  ${({ $hasWebsite }) => !$hasWebsite && 'cursor: unset;'}
+  direction:ltr;
 `;
 export const WebsiteTitle = styled(EmailTitle)``;
 export const AgentElement = styled.h3`

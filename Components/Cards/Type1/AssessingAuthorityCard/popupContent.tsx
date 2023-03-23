@@ -1,21 +1,24 @@
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { Key, Value } from '../StyledComponents';
+import { componentStatements, LanguageKeys } from './const';
 
 interface Props {
   address: string;
   email: string;
 }
 const PopupContent: React.FC<Props> = ({ address, email }) => {
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <>
       <Column>
-        <StyledKey>Email:</StyledKey>
+        <StyledKey>{t(LanguageKeys.Email)}</StyledKey>
         <Value>{email}</Value>
       </Column>
       <Column>
-        <StyledKey>Address:</StyledKey>
+        <StyledKey>{t(LanguageKeys.Address)}</StyledKey>
         <Value>{address}</Value>
       </Column>
     </>

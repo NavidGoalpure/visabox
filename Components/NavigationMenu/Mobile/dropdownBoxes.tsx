@@ -70,6 +70,16 @@ const MobileBusinessDropdown = ({}) => {
               {boxesItems[3].title[locale]}
             </StyledLink>
           </PopupItem>
+          <Hr />
+          <PopupItem
+            onClick={() => {
+              setIsOpen(false);
+            }}
+          >
+            <StyledLink href={boxesItems[4].href}>
+              {boxesItems[4].title[locale]}
+            </StyledLink>
+          </PopupItem>
         </PopupContainer>
       )}
     </Container>

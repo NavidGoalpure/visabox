@@ -18,7 +18,6 @@ import {
   has491FamilyVisa,
   has491StateVisa,
 } from './utils';
-import { LanguageHint } from 'Components/Language/LanguageHint';
 import { Languages, LocalStorageKeys } from 'Interfaces';
 import { getLocalStorage } from 'Utils';
 import {
@@ -36,12 +35,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
   const { locale } = useLocale();
   //
   const assessing_authority = occupation?.assessing_authority;
-  const fragmentUrl = `/${locale}/occupations/${occupation.code}`;
-  const mustShowFeedbackWindow =
-    locale !== Languages.en &&
-    getLocalStorage(LocalStorageKeys.HasBeenAnswered) !==
-      'OccupationDetailPage';
-  //
+
   return (
     <Container>
       <TitleContainer>
@@ -60,9 +54,9 @@ const Content: React.FC<Props> = ({ occupation }) => {
               <Link
                 key={i}
                 href={`/${locale}/occupations/assssing-authorities/#${
-                  assess.split("_")[0]
+                  assess.split('_')[0]
                 }`}
-                target="_blank"
+                target='_blank'
                 scroll={false}
               >
                 <TooltipTag
@@ -80,33 +74,32 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag
-          contentKey={"189"}
+          contentKey={'189'}
           isOn={has189Visa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={"190"}
+          contentKey={'190'}
           isOn={has190Visa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
 
         <StyledToggleTag
-          contentKey={"491"}
+          contentKey={'491'}
           isOn={has491StateVisa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={t(LanguageKeys["491-family"])}
+          contentKey={t(LanguageKeys['491-family'])}
           isOn={has491FamilyVisa(occupation.code)}
-          backgroundtheme="PAGE"
-          style={{ marginInlineEnd: "0" }}
+          backgroundtheme='PAGE'
+          style={{ marginInlineEnd: '0' }}
         />
       </ToggleContainer>
       {/*  */}
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
-      {/**********Language feedback ***** */}
-      {mustShowFeedbackWindow && <LanguageHint />}
+
       {/**********Similar Occupation***** */}
       {occupation.similarOccupations && (
         <SimilarOccupations
@@ -131,6 +124,7 @@ const Title = styled.h1`
   ${Layer1_TextStyle};
   margin-bottom: 1rem;
   text-align: center;
+  direction: ltr;
 `;
 
 const VetassesContainer = styled.div`

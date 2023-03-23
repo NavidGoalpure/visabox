@@ -21,8 +21,8 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
-import { Agents } from 'Consts/Businesses/agents';
-import VIPAgentCard from 'Components/Boxes/Card/Agent/VIPCard';
+import { Agencies } from 'Consts/Businesses/agency';
+import VIPAgencyCard from 'Components/Boxes/Card/Agency/VIPCard';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -52,7 +52,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           />
           <SideBar.TabItem
             title={t(LanguageKeys.Agent)}
-            value='agent'
+            value='agency'
             icon={<AgentIcon />}
           />
         </>
@@ -124,9 +124,9 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
-          <SideBar.BodyItem value='agent'>
+          <SideBar.BodyItem value='agency'>
             <AgentsContentWrapper>
-              {Agents.filter((agent) => agent.isFeatured).map((agent) => {
+              {Agencies.filter((agent) => agent.isFeatured).map((agent) => {
                 return (
                   <StyledVIPAgentCard
                     name={agent.name}
@@ -229,7 +229,8 @@ const AgentsContentWrapper = styled.section`
   align-items: center;
   padding: 0 1rem;
 `;
-const StyledVIPAgentCard = styled(VIPAgentCard)`
+const StyledVIPAgentCard = styled(VIPAgencyCard)`
   display: block;
   width: fit-content;
+  margin-bottom: 2rem;
 `;

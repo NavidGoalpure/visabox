@@ -6,8 +6,8 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Boxes/Agencys/const';
-import Content from 'PagesComponents/Boxes/Agencys';
+} from 'PagesComponents/Boxes/Agencies/const';
+import Content from 'PagesComponents/Boxes/Agencies';
 
 const BusinessesPage: NextPage = () => {
   const { locale } = useLocale();

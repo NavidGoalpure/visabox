@@ -12,10 +12,10 @@ import { getAgencyAgents, getAgencySocials } from '../utils';
 interface Props {
   ChosenAgency?: Agency;
 }
-function MobileAgencysPage({ ChosenAgency }: Props) {
+function MobileAgenciesPage({ ChosenAgency }: Props) {
   const { dt } = useDynamicTranslation();
-const relatedAgents = getAgencyAgents(ChosenAgency);
-const relatedSocials = getAgencySocials(ChosenAgency);
+  const relatedAgents = getAgencyAgents(ChosenAgency);
+  const relatedSocials = getAgencySocials(ChosenAgency);
   return (
     <Container>
       <StarBackground aria-hidden={true}>
@@ -25,7 +25,7 @@ const relatedSocials = getAgencySocials(ChosenAgency);
         <ProfilePicture
           fill
           src={`/Images/boxes/agency/${ChosenAgency?.slug}.jpg`}
-          alt={"agent image"}
+          alt={'agent image'}
         />
         <VIPBoxContainer aria-hidden={true}>
           <VIPBox aria-hidden={true} />
@@ -46,7 +46,7 @@ const relatedSocials = getAgencySocials(ChosenAgency);
     </Container>
   );
 }
-export default MobileAgencysPage;
+export default MobileAgenciesPage;
 const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);

@@ -23,30 +23,30 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 export const boxesItems: DropdownItem[] = [
   {
-    title: { en: "Agents Box", fa: "لیست وکلا" },
-    href: "/boxes/agents",
+    title: { en: 'Agents Box', fa: 'لیست وکلا' },
+    href: '/boxes/agents',
   },
   {
-    title: { en: "Naati Box", fa: "لیست مترجمان" },
-    href: "/boxes/naaties",
+    title: { en: 'Naati Box', fa: 'لیست مترجمان' },
+    href: '/boxes/naaties',
   },
   {
-    title: { en: "Exchanges Box", fa: "لیست صرافی‌ها" },
-    href: "/boxes/exchanges",
-  },
-  {
-    title: {
-      en: "Social Box",
-      fa: "شبکه های اجتماعی",
-    },
-    href: "/boxes/social-pages",
+    title: { en: 'Exchanges Box', fa: 'لیست صرافی‌ها' },
+    href: '/boxes/exchanges',
   },
   {
     title: {
-      en: "Agency Box",
-      fa: "لیست موسسات مهاجرتی",
+      en: 'Social Box',
+      fa: 'شبکه های اجتماعی',
     },
-    href: "/boxes/agencys",
+    href: '/boxes/social-pages',
+  },
+  {
+    title: {
+      en: 'Agency Box',
+      fa: 'لیست موسسات مهاجرتی',
+    },
+    href: '/boxes/agencies',
   },
 ];
 export const occupationItems: DropdownItem[] = [

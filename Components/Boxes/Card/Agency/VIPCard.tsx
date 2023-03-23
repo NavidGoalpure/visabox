@@ -34,7 +34,7 @@ function VIPAgencyCard({ name, desc, slug, className, ...props }: Props) {
   return (
     <Container
       {...props}
-      href={`/boxes/agencys/${slug}`}
+      href={`/boxes/agencies/${slug}`}
       target={'_blank'}
       className={`${slug} ${className}`}
     >

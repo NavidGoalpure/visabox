@@ -2,7 +2,7 @@ import useDevice from 'Hooks/useDevice';
 import { Agency } from 'Interfaces/Businesses/agency';
 import { useState, useEffect } from 'react';
 import DesktopAgentsPage from './Desktop/DesktopAgentsPage';
-import MobileAgencysPage from './Mobile/MobileAgencysPage';
+import MobileAgenciesPage from './Mobile/MobileAgenciesPage';
 interface Props {
   chosenAgency?: Agency;
 }
@@ -14,7 +14,7 @@ function Content({ chosenAgency }: Props) {
     if (isLaptop) setScreen('DESKTOP');
   });
   if (screen === 'MOBILE')
-    return <MobileAgencysPage ChosenAgency={chosenAgency} />;
+    return <MobileAgenciesPage ChosenAgency={chosenAgency} />;
   return <DesktopAgentsPage ChosenAgency={chosenAgency} />;
 }
 export default Content;

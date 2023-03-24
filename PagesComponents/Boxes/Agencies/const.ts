@@ -13,7 +13,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'معتبر ترین موسسات مهاجرت ایرانی برای مهاجرت به استرالیا را پیدا کنید | مارا باکس',
   },
   SeoDesc: {
-    fa: 'اسامی بهترین موسسات مهاجرت ایرانی برای اقامت و مهاجرت به استرالیا،ویزای سرمایه گذاری،کاری،خانواده و ازدواج، تجاری و تحصیلی',
+    fa: 'اسامی بهترین موسسات مهاجرت ایرانی برای اقامت و مهاجرت به استرالیا، ویزای سرمایه گذاری،کاری، خانواده و ازدواج، تجاری و تحصیلی',
     en: 'name and info of some of the best migration agencies for migration to australia,investment visa,work visa,marriage and student visa',
   },
   //

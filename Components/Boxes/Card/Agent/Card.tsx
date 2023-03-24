@@ -2,7 +2,7 @@ import { HTMLAttributes, useEffect } from 'react';
 import { MultiLanguageText } from 'Interfaces';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
-import { componentStatements, LanguageKeys } from '../const';
+import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 import {
@@ -68,8 +68,8 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
             </WebsiteUrl>
           </WebsiteWrapper>
         </Socials>
-        <AgentElement>Agent</AgentElement>
-        <MaraElement>Mara</MaraElement>
+        <AgentElement>{t(LanguageKeys.Agent)}</AgentElement>
+        <MaraElement>{t(LanguageKeys.Mara)}</MaraElement>
       </Wrapper>
     </Container>
   );

@@ -18,12 +18,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: 'مترجم ناتی',
-    en: 'Naati Translator',
+    fa: 'لیست مترجمین ناتی',
+    en: 'NAATI Translators',
   },
   PageDesc: {
-    fa: 'این صفحه برای افراد یا خانواده هایی است که با کمک مترجم نیازمند ترجمه مدارک خود برای مهاجرت به استرالیا هستند',
-    en: `This page is for individuals or families who need the help of a translator to translate their documents to immigrate to Australia`,
+    fa: 'این صفحه شامل اطلاعات مترجمین سازمان «ناتی» استرالیا می‌باشد. مدارکی که توسط این مترجمین ترجمه می‌گردد، مورد تایید کلیه موسسات دولتی و غیردولتی استرالیا و نیوزلند می‌باشد.',
+    en: `On this page, you have access to the information of all the Certified NAATI translators.`,
   },
 };
 

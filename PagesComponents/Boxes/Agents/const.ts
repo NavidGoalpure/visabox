@@ -18,12 +18,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: 'وکیل مهاجرت',
+    fa: 'لیست وکلای مهاجرت',
     en: 'Migration Agents',
   },
   PageDesc: {
-    fa: 'این صفحه برای افراد یا خانواده هایی است که با کمک وکیل به دنبال مهاجرت دائم به استرالیا هستند',
-    en: `This page is for people or families looking to permanently migrate to Australia with help of a migration agent`,
+    fa: 'برای انتخاب وکیل مهاجرت مناسب، می‌توانید از این لیست کمک بگیرید. این لیست شامل اطلاعات مرتبط با کلیه وکلای ایرانی مورد تایید اداره مهاجرت استرالیا است.',
+    en: `You can find MARA agents that provide immigration advice and assistance to Australia on this page.`,
   },
 };
 

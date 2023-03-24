@@ -15,7 +15,7 @@ import VIPAgentCard from 'Components/Boxes/Card/Agent/VIPCard';
 import { Agent } from 'Interfaces/Businesses/agents';
 import { Socials } from 'Interfaces/Socials';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import SmartSocial from 'PagesComponents/Boxes/SocialPage/SocialCard';
+import SmartSocial from 'Components/Boxes/Card/SocialCard';
 interface Props {
   website?: string;
   email?: string;

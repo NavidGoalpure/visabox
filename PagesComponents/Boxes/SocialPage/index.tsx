@@ -2,9 +2,12 @@ import { deviceMin } from 'Consts/device';
 import { NormalSocialMedias, VipSocialMedias } from 'Consts/Socials';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled from 'styled-components';
-import { Layer1_TitleStyle, Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import {
+  Layer1_TitleStyle,
+  Layer1_SubtitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
-import SmartSocialCard from './SocialCard';
+import SmartSocialCard from 'Components/Boxes/Card/SocialCard';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

@@ -27,7 +27,7 @@ export const boxesItems: DropdownItem[] = [
     href: '/boxes/agents',
   },
   {
-    title: { en: 'Naati Box', fa: 'لیست مترجمان' },
+    title: { en: 'Naati Box', fa: 'لیست مترجمین' },
     href: '/boxes/naaties',
   },
   {
@@ -36,14 +36,14 @@ export const boxesItems: DropdownItem[] = [
   },
   {
     title: {
-      en: 'Social Box',
+      en: 'Social Network Box',
       fa: 'شبکه های اجتماعی',
     },
     href: '/boxes/social-pages',
   },
   {
     title: {
-      en: 'Agency Box',
+      en: 'Agencies Box',
       fa: 'لیست موسسات مهاجرتی',
     },
     href: '/boxes/agencies',

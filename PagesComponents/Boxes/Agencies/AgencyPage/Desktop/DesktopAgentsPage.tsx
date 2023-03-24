@@ -21,7 +21,7 @@ import { DesktopContactComponent } from "./DesktopContactComponent";
 import { Agency } from "Interfaces/Businesses/agency";
 import { getAgencyAgents, getAgencySocials } from "../utils";
 import VIPAgentCard from "Components/Boxes/Card/Agent/VIPCard";
-import SmartSocial from "PagesComponents/Boxes/SocialPage/SocialCard";
+import SmartSocial from "Components/Boxes/Card/SocialCard";
 interface Props {
   ChosenAgency?: Agency;
 }

@@ -23,10 +23,7 @@ import {
   WebsiteWrapper,
   Wrapper,
 } from '../styledComponents/NormalCard';
-import {
-  componentStatements,
-  LanguageKeys,
-} from '../const';
+import { componentStatements, LanguageKeys } from '../const';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   fullName: MultiLanguageText;
@@ -70,8 +67,8 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
             </WebsiteUrl>
           </WebsiteWrapper>
         </Socials>
-        <AgentElement>Agent</AgentElement>
-        <MaraElement>Mara</MaraElement>
+        <AgentElement>{t(LanguageKeys.Translator)}</AgentElement>
+        <MaraElement>{t(LanguageKeys.NAATI)}</MaraElement>
       </Wrapper>
     </Container>
   );

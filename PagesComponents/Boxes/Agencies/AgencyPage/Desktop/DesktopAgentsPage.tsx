@@ -1,27 +1,24 @@
-import { deviceMin } from "Consts/device";
-import styled, { css } from "styled-components";
-import Image from "next/image";
-import theme from "styled-theming";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { Headline4Style, Headline5Style, Headline6Style } from "Styles/Typo";
-import { FiBox } from "react-icons/fi";
-import {
-  Layer1_SubtitleStyle,
-  Layer1_TitleStyle,
-} from "Styles/Theme/Layers/layer1/style";
+import { deviceMin } from 'Consts/device';
+import styled, { css } from 'styled-components';
+import Image from 'next/image';
+import theme from 'styled-theming';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { Headline4Style } from 'Styles/Typo';
+import { FiBox } from 'react-icons/fi';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
+} from 'Styles/Theme/Layers/layer2/style';
 
-import { componentStatements, LanguageKeys } from "../const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { DesktopContactComponent } from "./DesktopContactComponent";
-import { Agency } from "Interfaces/Businesses/agency";
-import { getAgencyAgents, getAgencySocials } from "../utils";
-import VIPAgentCard from "Components/Boxes/Card/Agent/VIPCard";
-import SmartSocial from "Components/Boxes/Card/SocialCard";
+import { componentStatements, LanguageKeys } from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { DesktopContactComponent } from './DesktopContactComponent';
+import { Agency } from 'Interfaces/Businesses/agency';
+import { getAgencyAgents, getAgencySocials } from '../utils';
+import VIPAgentCard from 'Components/Boxes/Card/Agent/VIPCard';
+import SmartSocial from 'Components/Boxes/Card/SocialCard';
 interface Props {
   ChosenAgency?: Agency;
 }
@@ -37,7 +34,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
           <ProfilePicture
             fill
             src={`/Images/boxes/agency/${ChosenAgency?.slug}.jpg`}
-            alt={"agent image"}
+            alt={'agent image'}
           />
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
@@ -97,7 +94,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
 }
 export default DesktopAgentsPage;
 
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -105,7 +102,7 @@ const TitleColor = theme("mode", {
     color: var(--color-primary5);
   `,
 });
-const HeaderBackground = theme("mode", {
+const HeaderBackground = theme('mode', {
   light: css`
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   `,
@@ -113,7 +110,7 @@ const HeaderBackground = theme("mode", {
     border: 1px var(--color-gray6) solid;
   `,
 });
-const DescBackground = theme("mode", {
+const DescBackground = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);

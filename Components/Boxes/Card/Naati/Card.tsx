@@ -2,7 +2,6 @@ import { HTMLAttributes, useEffect } from 'react';
 import { MultiLanguageText } from 'Interfaces';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
-
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { BLANK_SYMBOL } from 'Consts';
 import {

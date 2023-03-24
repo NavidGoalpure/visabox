@@ -1,12 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import {
-  layer2A_TextStyle,
-  layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
 import theme from 'styled-theming';
-import { Headline5Style, Headline6Style } from 'Styles/Typo';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { Headline6Style } from 'Styles/Typo';
 import { ImSphere } from 'react-icons/im';
 import { FaPhone, FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
@@ -35,8 +30,6 @@ const MobileContactComponent = ({
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
-
-
       {website && (
         <InternetContainer href={website} target={'_blank'}>
           <InternetIcon />

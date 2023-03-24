@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-
 import { useLocale } from 'Hooks/useLocale';
 import Content from 'PagesComponents/Boxes/Naaties';
 import Seo from 'Components/Seo';

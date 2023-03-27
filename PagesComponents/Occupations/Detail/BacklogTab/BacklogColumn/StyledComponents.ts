@@ -1,6 +1,5 @@
 import { deviceMin } from 'Consts/device';
 import styled, { css } from 'styled-components';
-import * as Tab from 'Elements/Tab';
 import theme from 'styled-theming';
 
 export const Container = styled.div`
@@ -55,18 +54,4 @@ export const Title = styled.h2`
     margin: 0.25rem;
     font-weight: bold;
   }
-`;
-export const TabRoot = styled(Tab.Root)`
-  width: auto;
-  div {
-    &[aria-label='tabs'] {
-      border-radius: 15px;
-    }
-  }
-  #contents-container {
-    margin: 0.5rem 0 1rem 0;
-  }
-`;
-export const TabItem = styled(Tab.Item)`
-  width: 50%;
 `;

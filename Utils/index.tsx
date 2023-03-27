@@ -66,6 +66,7 @@ function getGsapTimeLine_FadeUp(id: string | number) {
         trigger: `.${id}`,
         start: '20 bottom',
         toggleActions: 'play none none none',
+        
       },
       y: 0,
       opacity: 1,

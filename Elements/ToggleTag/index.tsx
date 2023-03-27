@@ -66,7 +66,13 @@ const ContainerOffColorTheme = theme('mode', {
     color: var(--color-gray9);
   `,
 });
-
+const toggleTagTheme = theme("languageDirection", {
+  ltr: css``,
+  rtl: css`
+    height: 100%;
+    padding: 0 1em;
+  `,
+});
 const Container = styled.div<{ isOn?: boolean }>`
   border-radius: 30px;
   width: fit-content;
@@ -98,14 +104,15 @@ const ContentKeyBackgroundColorComponent = theme('mode', {
 
 const ContentKey = styled.h3<{
   isOn?: boolean;
-  backgroundtheme: 'PAGE' | 'COMPONENT';
+  backgroundtheme: "PAGE" | "COMPONENT";
 }>`
   ${({ backgroundtheme }) =>
-    backgroundtheme === 'COMPONENT'
+    backgroundtheme === "COMPONENT"
       ? ContentKeyBackgroundColorComponent
       : ContentKeyBackgroundColorPage}
   ${Headline6Style}
   padding: 0.25em 1em;
+  ${toggleTagTheme};
 `;
 ///////////////////////
 

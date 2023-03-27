@@ -90,7 +90,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Backlog',
   },
   Agent: {
-    en: 'agent',
+    en: 'Agent',
     fa: 'وکیل',
   },
   SimilarOccupations: {

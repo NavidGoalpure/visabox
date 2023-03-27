@@ -1,25 +1,25 @@
-import Image from 'next/image';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import Image from "next/image";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import {
   layer2B_HeaderStyle,
   layer2B_SubtitleStyle,
   layer2B_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
-import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
-import { Headline7Style } from 'Styles/Typo';
-import { FiBox } from 'react-icons/fi';
-import { MultiLanguageText } from 'Interfaces';
-import { HTMLAttributes, useEffect } from 'react';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { deviceMin } from 'Consts/device';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import Link from 'next/link';
-import { getGsapTimeLine_VipCard } from '../const';
+} from "Styles/Theme/Layers/layer2/style";
+import { layer2B_BG } from "Styles/Theme/Layers/layer2/theme";
+import { layer3_SubtitleStyle } from "Styles/Theme/Layers/layer3/style";
+import { Headline7Style } from "Styles/Typo";
+import { FiBox } from "react-icons/fi";
+import { MultiLanguageText } from "Interfaces";
+import { HTMLAttributes, useEffect } from "react";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { deviceMin } from "Consts/device";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import Link from "next/link";
+import { getGsapTimeLine_VipCard } from "../const";
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
@@ -35,7 +35,7 @@ function VIPAgencyCard({ name, desc, slug, className, ...props }: Props) {
     <Container
       {...props}
       href={`/boxes/agencies/${slug}`}
-      target={'_blank'}
+      target={"_blank"}
       className={`${slug} ${className}`}
     >
       <Wrapper>
@@ -52,22 +52,6 @@ function VIPAgencyCard({ name, desc, slug, className, ...props }: Props) {
 }
 export default VIPAgencyCard;
 
-const LogoBackground = theme('mode', {
-  light: css`
-    background: linear-gradient(
-      -86deg,
-      var(--color-gray9) 0 70%,
-      var(--color-gray11) 0% 100%
-    );
-  `,
-  dark: css`
-    background: linear-gradient(
-      -86deg,
-      var(--color-gray2) 0 70%,
-      var(--color-gray6) 0% 100%
-    );
-  `,
-});
 const Container = styled(Link)`
   padding: 5rem 0 2rem 0rem;
   opacity: 0;
@@ -113,8 +97,9 @@ width: fit-content;
   margin-top: -2rem;
 `;
 const Desc = styled.div`
-  ${layer2B_SubtitleStyle}
-  margin-bottom:0.75rem;
+  ${layer2B_SubtitleStyle};
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
@@ -152,11 +137,11 @@ const AgentElement = styled.h3`
     bottom: unset;
     left: 0;
     top: 0;
-    transform: rotate(-85deg) translate(-40%, -100%);
+    transform: rotate(-85deg) translate(-40%, -120%);
   }
   ${Wrapper}:hover & {
     @media ${deviceMin.tabletS} {
-      transform: rotate(-90deg) translate(-40%, -100%);
+      transform: rotate(-90deg) translate(-40%, -130%);
     }
   }
 `;
@@ -179,7 +164,7 @@ const MaraElement = styled.h3`
   transition: all 0.3s ease;
   @media ${deviceMin.tabletS} {
     left: -15%;
-    transform: rotate(-90deg) translate(50%, -10%);
+    transform: rotate(-93deg) translate(50%, -10%);
   }
   ${Wrapper}:hover & {
     @media ${deviceMin.tabletS} {

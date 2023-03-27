@@ -99,9 +99,3 @@ ul {
   list-style: none;
 }
 /* ///////// */
-.english-font {
-  font-family: var(--font-family__en);
-}
-.persian-font {
-  font-family: var(--font-family__fa);
-}

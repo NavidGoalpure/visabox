@@ -1,28 +1,28 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import * as SideBar from 'Elements/Sidebar';
-import { TbListDetails } from 'react-icons/tb';
-import { TbStack2 } from 'react-icons/tb';
-import { TbNumbers } from 'react-icons/tb';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { deviceMin } from 'Consts/device';
-import AnzscoComponent from './AnzcoTab';
-import BacklogComponent from './BacklogTab';
-import DetailComponent from './DetailTab';
-import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
-import { TagTheme } from 'Styles/Theme';
-import { MaraAccordion } from 'Elements/Accordion';
-import NoData from 'Components/NoData';
-import { hasAnyVisaOption } from './utils';
+import React from "react";
+import styled, { css } from "styled-components";
+import * as SideBar from "Elements/Sidebar";
+import { TbListDetails } from "react-icons/tb";
+import { TbStack2 } from "react-icons/tb";
+import { TbNumbers } from "react-icons/tb";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { deviceMin } from "Consts/device";
+import AnzscoComponent from "./AnzcoTab";
+import BacklogComponent from "./BacklogTab";
+import DetailComponent from "./DetailTab";
+import { OccupationDetailRes } from "Queries/occupations/Detail/interface";
+import { TagTheme } from "Styles/Theme";
+import { MaraAccordion } from "Elements/Accordion";
+import NoData from "Components/NoData";
+import { hasAnyVisaOption } from "./utils";
 import {
   layer2A_style,
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import { FaRegHandshake } from 'react-icons/fa';
-import { Agencies } from 'Consts/Businesses/agency';
-import VIPAgencyCard from 'Components/Boxes/Card/Agency/VIPCard';
+} from "Styles/Theme/Layers/layer2/style";
+import { FaRegHandshake } from "react-icons/fa";
+import { Agencies } from "Consts/Businesses/agency";
+import VIPAgencyCard from "Components/Boxes/Card/Agency/VIPCard";
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -31,28 +31,28 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <SideBarRoot
-      defaultValue='backlog'
-      variant='UP_POSITION'
+      defaultValue="backlog"
+      variant="UP_POSITION"
       items={
         <>
           <SideBar.TabItem
             title={t(LanguageKeys.Backlog)}
-            value='backlog'
+            value="backlog"
             icon={<Backlog />}
           />
           <SideBar.TabItem
             title={t(LanguageKeys.Details)}
-            value='details'
+            value="details"
             icon={<DetailsIcon />}
           />
           <SideBar.TabItem
             title={t(LanguageKeys.Anzsco)}
-            value='anzsco'
+            value="anzsco"
             icon={<AnszcoIcon />}
           />
           <SideBar.TabItem
             title={t(LanguageKeys.Agent)}
-            value='agency'
+            value="agency"
             icon={<AgentIcon />}
           />
         </>
@@ -60,7 +60,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
       bodies={
         <>
           {occupation.territory_section ? (
-            <SideBar.BodyItem value='details'>
+            <SideBar.BodyItem value="details">
               <ContentWrapper>
                 <DetailComponent
                   territorySection={occupation.territory_section}
@@ -70,7 +70,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           ) : null}
           {/*  */}
           {occupation.anzsco_section ? (
-            <SideBar.BodyItem value='anzsco'>
+            <SideBar.BodyItem value="anzsco">
               <ContentWrapper>
                 <Header>{t(LanguageKeys.AnzscoTabTitle)}</Header>
                 <AnzscoComponent anzscoSection={occupation.anzsco_section} />
@@ -79,7 +79,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           ) : null}
           {/*  */}
           {
-            <SideBar.BodyItem value='backlog'>
+            <SideBar.BodyItem value="backlog">
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
                 {hasAnyVisaOption(occupation) ? (
@@ -91,11 +91,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                   <NoData
                     hasIcon={false}
                     messageComponent={t(LanguageKeys.NoDataMessage)}
-                    themeLayer='2A'
+                    themeLayer="2A"
                   />
                 )}
                 <StyledAccordion
-                  backgroundLayer='2A'
+                  backgroundLayer="2A"
                   triggerText={t(LanguageKeys.HintsTitle)}
                   isOpen={true}
                   content={
@@ -124,7 +124,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
-          <SideBar.BodyItem value='agency'>
+          <SideBar.BodyItem value="agency">
             <AgentsContentWrapper>
               {Agencies.filter((agent) => agent.isFeatured).map((agent) => {
                 return (
@@ -149,7 +149,7 @@ export { SidebarPage };
 
 const SideBarRoot = styled(SideBar.Root)`
   div {
-    &[aria-label='sidebar'] {
+    &[aria-label="sidebar"] {
       margin-bottom: 2rem;
       margin-left: -1rem;
       margin-right: -1rem;
@@ -189,12 +189,14 @@ const AgentIcon = styled(FaRegHandshake)`
 const Header = styled.header`
   width: 100%;
   padding: 1rem;
+  margin-bottom: 2rem;
   ${layer2A_TitleStyle}
 `;
 
 const ContentWrapper = styled.section`
-  ${layer2A_style}
+  ${layer2A_style};
   width: auto;
+  
 `;
 ///////backlog section/////
 const StyledAccordion = styled(MaraAccordion)`

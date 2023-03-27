@@ -11,6 +11,7 @@ import React from "react";
 import { findSmartHeight } from "./utils";
 import { device } from "Consts/device";
 import useDevice from "Hooks/useDevice";
+import { useLocale } from "Hooks/useLocale";
 
 interface Props extends SelectProps {
   className?: string;
@@ -49,7 +50,7 @@ const Root: React.FC<Props> = ({
   ...props
 }) => {
   const { isLaptop } = useDevice();
-
+  const { direction } = useLocale();
   return (
     <Container className={className}>
       <Select.Root
@@ -72,13 +73,13 @@ const Root: React.FC<Props> = ({
         {/* ////////////// */}
         <Portal>
           <Content
+            align={direction === "rtl" ? "end" : "start"}
             data-id={contentProps?.dataId || "select-content"}
             position={
               isLaptop || contentProps?.position === "popper"
                 ? "popper"
                 : "item-aligned"
             }
-            align={contentProps?.align}
             onCloseAutoFocus={() =>
               (document.body.style.pointerEvents = "auto")
             }
@@ -167,7 +168,7 @@ const Content = styled(Select.Content)<{
   overflow: hidden;
   padding: 1rem;
   align-items: center;
-  gap:0.5rem;
+  gap: 0.5rem;
   &[data-state="open"] {
     position: relative;
     @media ${device.tabletS} {

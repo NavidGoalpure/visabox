@@ -22,7 +22,7 @@ interface Props {
 }
 function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-  const { locale, direction } = useLocale();
+  const { locale } = useLocale();
   const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
   const { setFiltersByValue, selectedFiltersObj, resetFilters, filteredList } =
     useContext(SearchFilterContext);
@@ -51,7 +51,6 @@ function Search({ searchValue, setSearchValue }: Props) {
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.MajorGroup)}:</FilterTitle>
             <SelectRoot
-              contentProps={{ align: direction === "rtl" ? "end" : "start" }}
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
               onValueChange={(newValue) => {
                 setFiltersByValue({
@@ -74,7 +73,6 @@ function Search({ searchValue, setSearchValue }: Props) {
             <SelectRoot
               key={selectedFiltersObj?.anzcoGropup?.majorGroup?.code}
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              contentProps={{ align: direction === "rtl" ? "end" : "start" }}
               onValueChange={(newValue) => {
                 setFiltersByValue({
                   filterKey: "SUB_MAJOR_GROUP",
@@ -100,7 +98,6 @@ function Search({ searchValue, setSearchValue }: Props) {
             <SelectRoot
               key={selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code}
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              contentProps={{ align: direction === "rtl" ? "end" : "start" }}
               disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
               onValueChange={(newValue) => {
                 setFiltersByValue({

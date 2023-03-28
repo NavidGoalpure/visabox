@@ -7,15 +7,16 @@ import styled from 'styled-components';
 import { componentStatements, LanguageKeys } from './const';
 import { Container, Hr, Subtitle, Title, ViewAll } from './styledComponents';
 import Image from 'next/image';
+import { HTMLAttributes } from 'react';
 
-const DesktopIndex: React.FC = () => {
+const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const vipAgent = Agents.find((agent) => agent.isFeatured);
 
   return (
     <>
-      <Container>
+      <Container {...props}>
         <Side>
           {vipAgent && (
             <StyledCard

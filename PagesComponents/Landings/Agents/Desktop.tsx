@@ -124,19 +124,18 @@ function Desktop() {
           </Desc>
 
           <SocialMediaBranchContainer>
-          <SocialMediaBranchImage
-            width={450}
-            height={400}
-            src={SocialMediaBranch}
-            alt="vip-agent-card"
-          />
-
+            <SocialMediaBranchImage
+              width={450}
+              height={400}
+              src={SocialMediaBranch}
+              alt="vip-agent-card"
+            />
           </SocialMediaBranchContainer>
-           
+
           <Desc>
             با خرید اکانت <span>ویژه</span> وکلای ماراباکس شبکه های اجتماعی شما
             نسبت به رقبای خود از جایگاه و نحوه نمایش زیباتری برخودار خواهند شد.
-          </Desc> 
+          </Desc>
         </Section>
         <SectionDivider />
         <Section>
@@ -225,11 +224,13 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   min-height: calc(200vh - 5.5rem);
+  //this is important because we need the Wrapper to be under the hero after wrapper has position relative
   padding-top: calc(100vh - 5.5rem);
   @media ${deviceMin.tabletS} {
     justify-content: space-between;
   }
 `;
+//this will be position absolute because we need it to go outscreen when we scroll
 const Hero = styled.section<{ $isActive: boolean }>`
   ${HeroTheme}
   display: flex;
@@ -289,6 +290,7 @@ const MouseIcon = styled(BiMouse)`
   width: 2rem;
   height: 2rem;
 `;
+//this will be position fixed untill the hero is onscreen and after that it will turn to relative in order to scroll normally
 const Wrapper = styled.div<{ $isActive: boolean }>`
   width: 100%;
   max-width: var(--max-width-page);

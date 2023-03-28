@@ -2,16 +2,19 @@ import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Link from 'next/link';
+import { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { CardData, componentStatements, LanguageKeys } from './const';
 import { Container, Subtitle, Title, ViewAll } from './styledComponents';
 
-const DesktopIndex: React.FC = () => {
+const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
+  ...props
+}) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
 
   return (
-    <Container>
+    <Container {...props}>
       <Side>
         <OccupationCard
           code={CardData.code}

@@ -13,6 +13,7 @@ import theme from 'styled-theming';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys, boxesItems } from '../const';
 import Link from 'next/link';
+import { Languages } from 'Interfaces';
 const MobileBusinessDropdown = ({}) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
@@ -71,15 +72,17 @@ const MobileBusinessDropdown = ({}) => {
             </StyledLink>
           </PopupItem>
           <Hr />
-          <PopupItem
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <StyledLink href={boxesItems[4].href}>
-              {boxesItems[4].title[locale]}
-            </StyledLink>
-          </PopupItem>
+          {locale === Languages.fa && (
+            <PopupItem
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              <StyledLink href={boxesItems[4].href}>
+                {boxesItems[4].title[locale]}
+              </StyledLink>
+            </PopupItem>
+          )}
         </PopupContainer>
       )}
     </Container>

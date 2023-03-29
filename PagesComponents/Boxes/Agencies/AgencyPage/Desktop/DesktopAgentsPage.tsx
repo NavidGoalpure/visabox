@@ -61,20 +61,22 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
           }}
         />
       </AboutContainer>
-      <AgentTitle>{t(LanguageKeys.AgentTitle)}</AgentTitle>
-      <VIPContainer>
-        {relatedAgents?.map((relatedAgent) => (
-          <VIPAgentCard
-            name={relatedAgent.name}
-            slug={relatedAgent.slug}
-            desc={relatedAgent.desc}
-          />
-        ))}
-      </VIPContainer>
-      {relatedSocials && (
-        <SocialsTitle>{t(LanguageKeys.SocialMedia)}</SocialsTitle>
-      )}
+      {/* Related */}
       <Row>
+        <RelatedTo>{t(LanguageKeys.RelatedTo)}</RelatedTo>
+        <AgentTitle>{dt(ChosenAgency?.name)}</AgentTitle>
+      </Row>
+      <Row style={{ gap: '4rem' }}>
+        <VIPContainer>
+          {relatedAgents?.map((relatedAgent) => (
+            <VIPAgentCard
+              name={relatedAgent.name}
+              slug={relatedAgent.slug}
+              desc={relatedAgent.desc}
+            />
+          ))}
+        </VIPContainer>
+
         {relatedSocials?.map((relatedSocial, i) => (
           <SmartSocial
             key={i}
@@ -204,23 +206,27 @@ const AboutTitle = styled.h3`
 const Desc = styled.p`
   ${layer2A_TextStyle}
 `;
-const AgentTitle = styled.h2`
+const RelatedTo = styled.h2`
   ${Layer1_TitleStyle};
   margin-top: 4rem;
 `;
+const AgentTitle = styled.h2`
+  ${Layer1_TitleStyle};
+  margin-top: 4rem;
+  margin-inline-start: 0.5rem;
+  color: var(--color-primary4);
+`;
 const VIPContainer = styled.div`
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   row-gap: 1rem;
   column-gap: 5rem;
 `;
-const SocialsTitle = styled(AgentTitle)``;
+
 const Row = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around;
-  row-gap: 3rem;
+  justify-content: center;
 `;

@@ -10,6 +10,7 @@ import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import { copyContent } from 'Utils';
+import { Languages } from 'Interfaces';
 
 function MobileFooter() {
   const { t } = useStaticTranslation(componentStatements);
@@ -19,19 +20,56 @@ function MobileFooter() {
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <TabItem>{t(LanguageKeys.Pages)}</TabItem>
-        <Items href={`/${locale}/occupations`}>{t(LanguageKeys.Home)}</Items>
-        <Items href={`/${locale}/occupations`}>
+        <ItemsTitle>{t(LanguageKeys.Occupations)}</ItemsTitle>
+        <Items
+          href={`/${locale}/occupations`}
+          data-name={t(LanguageKeys.SkilledOccupationList)}
+        >
           {t(LanguageKeys.SkilledOccupationList)}
         </Items>
+        <Items
+          href={`/${locale}/occupations/assssing-authorities`}
+          data-name={t(LanguageKeys.AssessingAuthority)}
+        >
+          {t(LanguageKeys.AssessingAuthority)}
+        </Items>
+      </ItemsContainer>
+      <ItemsContainer>
+        <ItemsTitle>{t(LanguageKeys.Occupations)}</ItemsTitle>
+        <Items
+          href={`/${locale}/boxes/agents`}
+          data-name={t(LanguageKeys.AgentsBox)}
+        >
+          {t(LanguageKeys.AgentsBox)}
+        </Items>
+        <Items
+          href={`/${locale}/boxes/agencies`}
+          data-name={t(LanguageKeys.AgenciesBox)}
+        >
+          {t(LanguageKeys.AgenciesBox)}
+        </Items>
+        <Items
+          href={`/${locale}/boxes/secial-pages`}
+          data-name={t(LanguageKeys.SocialNetWorksBox)}
+        >
+          {t(LanguageKeys.SocialNetWorksBox)}
+        </Items>
+        {locale === Languages.fa && (
+          <Items
+            href={`/${locale}/landing/agents`}
+            data-name={t(LanguageKeys.BecomeSponser)}
+          >
+            {t(LanguageKeys.BecomeSponser)}
+          </Items>
+        )}
       </ItemsContainer>
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
-          <a target={"_blank"} href="https://www.t.me/maraboxmigration">
+          <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
             <TelegramLogo />
           </a>
-          <a onClick={() => copyContent("mailto:maraboxmigration@gmail.com")}>
+          <a onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}>
             <GmailLogo />
           </a>
         </LogosContainer>
@@ -41,7 +79,7 @@ function MobileFooter() {
 }
 
 export default MobileFooter;
-export const footerBackground = theme('mode', {
+const footerBackground = theme('mode', {
   light: css`
     background: var(--color-gray12);
     :before {
@@ -55,7 +93,7 @@ export const footerBackground = theme('mode', {
     }
   `,
 });
-export const TextColor = theme('mode', {
+const TextColor = theme('mode', {
   light: css`
     color: var(--color-gray6);
   `,
@@ -66,20 +104,20 @@ export const TextColor = theme('mode', {
 
 const Container = styled.footer`
   ${footerBackground};
-  clip-path: polygon(50% 15%, 100% 0, 100% 100%, 0 100%, 0 0);
-  padding-top: 18rem;
-  height: 40rem;
+  clip-path: polygon(50% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
+  padding-top: 19rem;
+  height: 64rem;
   width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
   :before {
     content: '';
     width: 1px;
-    height: 40%;
+    height: 13rem;
     position: absolute;
     top: 0;
     left: 50%;
@@ -91,7 +129,7 @@ const StyledLogo = styled(Logo)`
   width: 6rem;
   height: auto;
   position: absolute;
-  top: 35%;
+  top: 18%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
@@ -101,11 +139,14 @@ const ItemsContainer = styled.div`
   flex-direction: column;
   gap: 2rem;
   text-align: center;
+  border-bottom: 1px solid var(--color-gray9);
+  padding-bottom: 2rem;
 `;
-const TabItem = styled.h2`
+const ItemsTitle = styled.h2`
   ${Headline5Style};
   ${TextColor};
   cursor: pointer;
+  font-weight: bold;
 `;
 
 const Items = styled(Link)`
@@ -125,6 +166,7 @@ const ContactUsContainer = styled.div`
 const ContactUs = styled.h2`
   ${Headline5Style};
   ${TextColor};
+  font-weight: bold;
 `;
 const LogosContainer = styled.div`
   display: flex;

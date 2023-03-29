@@ -16,7 +16,7 @@ import {
 export const NoMobile = styled.div`
   ${warningTheme}
   ${layer2A_TextStyle}
-  padding: 0.5rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   min-height: 8rem;

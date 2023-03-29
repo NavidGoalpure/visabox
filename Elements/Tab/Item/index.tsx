@@ -41,6 +41,14 @@ const ColorTriggerActiveStyle = theme('mode', {
     color: var(--color-gray13);
   `,
 });
+const ColorTriggerDeactiveStyle = theme('mode', {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray11);
+  `,
+});
 const TabsTrigger = styled(Tabs.Trigger)`
   ${ColorTriggerInactiveStyle}
   ${layer2A_SubtitleStyle}
@@ -56,6 +64,8 @@ ${directionStyles}
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 1rem 0;
+  ${ColorTriggerDeactiveStyle}
+
   &::before {
     content: '';
     position: absolute;

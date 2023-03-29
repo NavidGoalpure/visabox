@@ -175,4 +175,11 @@ const Row = styled.div`
   display: flex;
   gap: 0.5rem;
   padding: 0 0.5rem;
+  align-items: column;
+  flex-direction: column;
+  align-items: center;
+  @media ${deviceMin.tabletL} {
+    flex-direction: row;
+    align-items: start;
+  }
 `;

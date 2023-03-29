@@ -122,6 +122,12 @@ export interface ReferenceType {
   _ref?: string;
   _type?: 'reference';
   _weak?: boolean;
+  _strengthenOnPublish?: {
+    template: {
+      id: string;
+    };
+    type: string;
+  };
 }
 export interface ByStateTable {
   _key: string;
@@ -134,23 +140,33 @@ export interface BacklogSection {
   //
   submited_189?: BacklogPoints;
   invited_189?: BacklogPoints;
+  lodged_189?: BacklogPoints;
   total_submited_189?: string;
   total_invited_189?: string;
+  total_lodged_189?: string;
   //
   submited_190?: BacklogPoints;
   invited_190?: BacklogPoints;
+  lodged_190?: BacklogPoints;
   submited_by_state_190?: ByStateTable[];
-  submited_by_state_491?: ByStateTable[];
   invited_by_state_190?: ByStateTable[];
-  invited_by_state_491?: ByStateTable[];
+  lodged_by_state_190?: ByStateTable[];
+
   //
   submited_491?: BacklogPoints;
   invited_491?: BacklogPoints;
+  lodged_491?: BacklogPoints;
+  submited_by_state_491?: ByStateTable[];
+  invited_by_state_491?: ByStateTable[];
+  lodged_by_state_491?: ByStateTable[];
   //
   submited_491_family?: BacklogPoints;
   invited_491_family?: BacklogPoints;
+  lodged_491_family?: BacklogPoints;
   total_submited_491_family?: string;
   total_invited_491_family?: string;
+  total_lodged_491_family?: string;
+
   //
 }
 

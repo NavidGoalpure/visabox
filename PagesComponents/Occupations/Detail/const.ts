@@ -271,8 +271,8 @@ In some instances, no formal qualification or on-the-job training may be require
   },
   ////// backlog/////////
   BacklogTitle: {
-    en: 'Backlog & Invitations issued',
-    fa: 'صف انتظار و دعوت نامه های صادر شده',
+    en: 'Backlog',
+    fa: 'صف انتظار',
   },
   NoDataMessage: {
     en: 'Since there are no submissions or invitations registered  in the backlog of this ANZSCO code, there is no visa table in these visa subclasses Any changes will be shown here as soon as the information is updated by the Department of Home Affairs.',

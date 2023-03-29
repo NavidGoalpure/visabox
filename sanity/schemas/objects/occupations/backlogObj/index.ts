@@ -17,6 +17,12 @@ export default {
       title: 'Invited 189 ',
       type: 'backlog_numbers_obj',
     },
+    ////////////LODGED////////
+    {
+      name: 'lodged_189',
+      title: 'Lodged 189 ',
+      type: 'backlog_numbers_obj',
+    },
 
     //////Total Submitted////////////////
     {
@@ -28,6 +34,12 @@ export default {
     {
       name: 'total_invited_189',
       title: 'Total Invited 189',
+      type: 'string',
+    },
+    /////// Total LODGED////////
+    {
+      name: 'total_lodged_189',
+      title: 'Total Lodged 189',
       type: 'string',
     },
     ////////////////////////////
@@ -42,6 +54,12 @@ export default {
     {
       name: 'invited_190',
       title: 'Invited 190 ',
+      type: 'backlog_numbers_obj',
+    },
+    ////////////LODGED////////
+    {
+      name: 'lodged_190',
+      title: 'Lodged 190 ',
       type: 'backlog_numbers_obj',
     },
 
@@ -59,6 +77,12 @@ export default {
       title: 'Invited 491 ',
       type: 'backlog_numbers_obj',
     },
+    ////////////LODGED////////
+    {
+      name: 'lodged_491',
+      title: 'Lodged 491 ',
+      type: 'backlog_numbers_obj',
+    },
 
     ////////////////////////////
     //////491_family Visa//////////////
@@ -74,6 +98,13 @@ export default {
       title: 'Invited 491_family ',
       type: 'backlog_numbers_obj',
     },
+    ////////////LODGED////////
+    {
+      name: 'lodged_491_family',
+      title: 'Lodged 491_family ',
+      type: 'backlog_numbers_obj',
+    },
+
     //////Total Submitted////////////////
     {
       name: 'total_submited_491_family',
@@ -84,6 +115,12 @@ export default {
     {
       name: 'total_invited_491_family',
       title: 'Total Invited 491_family',
+      type: 'string',
+    },
+    ////////////Total LODGED////////
+    {
+      name: 'total_lodged_491_family',
+      title: 'Total Lodged 491_family',
       type: 'string',
     },
     ///////////////////////////
@@ -104,6 +141,13 @@ export default {
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],
     },
+    ////////////Lodged////////
+    {
+      name: 'lodged_by_state_190',
+      title: 'Lodged By State 190',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
     ////////////SUBMITED////////
 
     {
@@ -116,6 +160,13 @@ export default {
     {
       name: 'invited_by_state_491',
       title: 'Invited By State ',
+      type: 'array',
+      of: [{ type: 'territory_backlog_obj' }],
+    },
+    ////////////Lodged////////
+    {
+      name: 'lodged_by_state_491',
+      title: 'Lodged By State ',
       type: 'array',
       of: [{ type: 'territory_backlog_obj' }],
     },

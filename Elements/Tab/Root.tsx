@@ -29,7 +29,6 @@ const TabsRoot = styled(Tabs.Root)`
   display: flex;
   flex-direction: column;
   width: auto;
-  margin: 0 1rem;
   @media ${deviceMin.tabletS} {
     margin: 0;
   }
@@ -62,6 +61,7 @@ const HeadsList = styled(Tabs.List)`
   height: 4rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+
   > * {
     &:first-child {
       div {

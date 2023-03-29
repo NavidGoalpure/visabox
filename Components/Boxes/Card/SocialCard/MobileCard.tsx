@@ -283,7 +283,7 @@ const LocationTag = styled.h3<{ isFeatured: boolean }>`
           @media ${deviceMin.tabletL} {
             bottom: 0;
             left: 0;
-            transform: translate(-60%, -110%) rotate(-93deg);
+            transform: translate(-60%, -110%) rotate(-90deg);
           }
         `
       : css`
@@ -320,7 +320,7 @@ const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
             right: unset;
             left: 0;
             top: 0;
-            transform: translate(-50%, 130%) rotate(-87deg);
+            transform: translate(-55%, 130%) rotate(-85deg);
           }
         `
       : css`

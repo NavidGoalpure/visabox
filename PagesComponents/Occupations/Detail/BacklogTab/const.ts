@@ -3,6 +3,7 @@ import { MultiLanguageText } from 'Interfaces';
 export enum LanguageKeys {
   Submitted = 'Submitted',
   Invited = 'Invited',
+  Lodged = 'Lodged',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Submitted: {
@@ -12,5 +13,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Invited: {
     en: 'Invited',
     fa: 'دعوت شده‌ها',
+  },
+  Lodged: {
+    en: 'Lodged',
+    fa: 'لاج کرده‌ها',
   },
 };

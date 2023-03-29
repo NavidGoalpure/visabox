@@ -1,11 +1,11 @@
-import { deviceMin } from 'Consts/device';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import styled from 'styled-components';
+import { deviceMin } from "Consts/device";
+import { PrimaryButton } from "Elements/Button/Primary";
+import styled from "styled-components";
 import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
   Layer1_HrStyle,
-} from 'Styles/Theme/Layers/layer1/style';
+} from "Styles/Theme/Layers/layer1/style";
 
 export const Container = styled.section`
   display: flex;
@@ -14,12 +14,22 @@ export const Container = styled.section`
   flex-direction: column;
   position: relative;
   width: 100%;
+  height: 100vh;
   max-width: var(--max-width-page);
   margin: 0 auto;
   padding: 2rem 1rem 0;
+  position: relative;
+  :before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: calc(100% + 2rem);
+    background: var(--color-gray4);
+  }
   @media ${deviceMin.tabletS} {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
     flex-direction: row;
   }
 `;

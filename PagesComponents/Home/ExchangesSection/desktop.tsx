@@ -14,11 +14,11 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   useEffect(() => {
-    GsapSectionAnimation_2("occupation");
+    GsapSectionAnimation_2("exchanges");
   }, []);
   return (
     <Container {...props}>
-      <Side className="occupation-card-section">
+      <Side className="exchanges-card-section">
         <OccupationCard
           code={CardData.code}
           title={CardData.title}
@@ -27,10 +27,10 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           tasks={CardData.tasks}
         />
       </Side>
-      <Side className="occupation-text-section">
+      <Side className="exchanges-text-section">
         <Title>{t(LanguageKeys.Title)}</Title>
         <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-        <Link href={`${locale}/occupations`}>
+        <Link href={`${locale}/boxes/exchanges`}>
           <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
         </Link>
       </Side>

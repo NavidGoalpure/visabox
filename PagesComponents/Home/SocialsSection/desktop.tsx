@@ -16,12 +16,12 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const { locale } = useLocale();
   const vipAgent = Agents.find((agent) => agent.isFeatured);
   useEffect(() => {
-    GsapSectionAnimation_1("Agent");
+    GsapSectionAnimation_1("socials");
   }, []);
   return (
     <>
       <Container {...props}>
-        <Side className="Agent-card-section">
+        <Side className="socials-card-section">
           {vipAgent && (
             <StyledCard
               name={vipAgent?.name}
@@ -30,11 +30,11 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             />
           )}
         </Side>
-        <Side className="Agent-text-section">
+        <Side className="socials-text-section">
           <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-          <Link href={`${locale}/boxes/agents`}>
+          <Link href={`${locale}/boxes/social-pages`}>
             <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
           </Link>
         </Side>

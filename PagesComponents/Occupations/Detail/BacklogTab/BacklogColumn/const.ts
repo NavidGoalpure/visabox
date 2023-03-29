@@ -1,8 +1,6 @@
 import { MultiLanguageText } from 'Interfaces';
 
 export enum LanguageKeys {
-  Submitted = 'Submitted',
-  Invited = 'Invited',
   Title189TitleSection1 = 'Title189TitleSection1',
   Title189TitleSection2 = 'Title189TitleSection2',
   Title190TitleSection1 = 'Title190TitleSection1',
@@ -15,14 +13,6 @@ export enum LanguageKeys {
   NoDataMessage = 'NoDataMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  Submitted: {
-    en: 'Submitted',
-    fa: 'ثبت شده‌ها',
-  },
-  Invited: {
-    en: 'Invited',
-    fa: 'دعوت شده‌ها',
-  },
   Title189TitleSection1: {
     en: 'Visa Subclass',
     fa: 'ویزای متخصصان با سابکلاس',

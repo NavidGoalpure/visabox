@@ -8,7 +8,7 @@ import {
 } from 'Styles/Theme/Layers/layer1/style';
 import VIPAgencyCard from '../../../Components/Boxes/Card/Agency/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Agencies } from 'Consts/Businesses/agency';
+import { AGENCYS } from 'Consts/Businesses/agency';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -17,7 +17,7 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {Agencies.filter((agency) => agency.isFeatured).map((agency) => {
+        {AGENCYS.filter((agency) => agency.isFeatured).map((agency) => {
           return (
             <VIPAgencyCard
               name={agency.name}
@@ -28,7 +28,7 @@ function Content() {
         })}
       </VIPContainer>
       <NormalAgencysContainer>
-        {Agencies.filter((agency) => !agency.isFeatured).map((agency) => {
+        {AGENCYS.filter((agency) => !agency.isFeatured).map((agency) => {
           return (
             <AgencyCard
               name={agency.name}

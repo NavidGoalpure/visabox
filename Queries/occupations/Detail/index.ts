@@ -19,12 +19,15 @@ const getDetailQuery = (baseOn: 'SLUG' | 'CODE'): string => {
  slug,
    title,
    backlog_section {
-     invited_189,
      submited_189,
+     invited_189,
+     lodged_189,
      total_submited_189,
      total_invited_189,
-     invited_190,
+     total_lodged_189,
      submited_190,
+     invited_190,
+     lodged_190,
      submited_by_state_190[]{
        eoi_count,
        territory->{
@@ -37,8 +40,15 @@ const getDetailQuery = (baseOn: 'SLUG' | 'CODE'): string => {
          abv
        },
      },
+    lodged_by_state_190[]{
+       eoi_count,
+       territory->{
+         abv
+       },
+     },
      invited_491,
      submited_491,
+     lodged_491,
      invited_by_state_491[]{
        eoi_count,
        territory->{
@@ -51,10 +61,19 @@ const getDetailQuery = (baseOn: 'SLUG' | 'CODE'): string => {
          abv
        },
      },
+      lodged_by_state_491[]{
+       eoi_count,
+       territory->{
+         abv
+       },
+     },
      invited_491_family,
      submited_491_family,
+     lodged_491_family,
      total_invited_491_family,
      total_submited_491_family,
+     total_lodged_491_family,
+
      
    },
    anzsco_section {...,

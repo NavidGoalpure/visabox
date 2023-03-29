@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { boxesItems } from '../const';
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Languages } from 'Interfaces';
 
 function DesktopBusinessDropdown() {
   const { locale } = useLocale();
@@ -16,7 +17,7 @@ function DesktopBusinessDropdown() {
     <StyledMaraSelectRoot
       noScroll
       triggerProps={{
-        id: "bussiness-trigger",
+        id: 'bussiness-trigger',
         placeholder: t(LanguageKeys.Businesses),
       }}
     >
@@ -44,12 +45,14 @@ function DesktopBusinessDropdown() {
         onClick={() => router.push(`/${locale}/${boxesItems[3].href}`)}
         disabled
       />
-      <MaraSelect.Item
-        text={boxesItems[4].title[locale]}
-        value={boxesItems[4].title[locale] as string}
-        onClick={() => router.push(`/${locale}/${boxesItems[4].href}`)}
-        disabled
-      />
+      {locale === Languages.fa && (
+        <MaraSelect.Item
+          text={boxesItems[4].title[locale]}
+          value={boxesItems[4].title[locale] as string}
+          onClick={() => router.push(`/${locale}/${boxesItems[4].href}`)}
+          disabled
+        />
+      )}
     </StyledMaraSelectRoot>
   );
 }

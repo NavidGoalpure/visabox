@@ -20,6 +20,7 @@ function Content() {
         {AGENCYS.filter((agency) => agency.isFeatured).map((agency) => {
           return (
             <VIPAgencyCard
+              key={agency.slug}
               name={agency.name}
               desc={agency.desc}
               slug={agency.slug}
@@ -31,6 +32,7 @@ function Content() {
         {AGENCYS.filter((agency) => !agency.isFeatured).map((agency) => {
           return (
             <AgencyCard
+              key={agency.slug}
               name={agency.name}
               email={agency.contact.email}
               website={agency.contact.website}

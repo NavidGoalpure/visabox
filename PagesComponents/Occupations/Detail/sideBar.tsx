@@ -21,7 +21,7 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
-import { Agencies } from 'Consts/Businesses/agency';
+import { AGENCYS } from 'Consts/Businesses/agency';
 import VIPAgencyCard from 'Components/Boxes/Card/Agency/VIPCard';
 
 interface Props {
@@ -126,7 +126,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           }
           <SideBar.BodyItem value='agency'>
             <AgentsContentWrapper>
-              {Agencies.filter((agent) => agent.isFeatured).map((agent) => {
+              {AGENCYS.filter((agent) => agent.isFeatured).map((agent) => {
                 return (
                   <StyledVIPAgentCard
                     key={agent.slug}

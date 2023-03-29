@@ -5,16 +5,18 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
 import styled from "styled-components";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, Hr, Subtitle, Title, ViewAll } from "./styledComponents";
+import { Container, Subtitle, Title, ViewAll } from "./styledComponents";
 import { HTMLAttributes, useEffect } from "react";
 import { GsapSectionAnimation_1 } from "../utils";
+import { AGENCYS } from "Consts/Businesses/agency";
+import VIPAgencyCard from "Components/Boxes/Card/Agency/VIPCard";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgent = Agents.find((agent) => agent.isFeatured);
+  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.isFeatured);
   useEffect(() => {
     GsapSectionAnimation_1("agency");
   }, []);
@@ -22,11 +24,11 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     <>
       <Container {...props}>
         <Side className="agency-card-section">
-          {vipAgent && (
-            <StyledCard
-              name={vipAgent?.name}
-              desc={vipAgent?.desc}
-              slug={vipAgent?.slug}
+          {vipAgency && (
+            <VIPAgencyCard
+              name={vipAgency.name}
+              desc={vipAgency.desc}
+              slug={vipAgency.slug}
             />
           )}
         </Side>

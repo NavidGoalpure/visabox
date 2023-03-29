@@ -40,21 +40,20 @@ export const Exchanges: Exchange[] = [
     hasImage: true,
   },
   {
-    fullName: { en: "Ashena", fa: "آشنا" },
+    fullName: { en: "Sarafi baloch", fa: "صرافی بلوچ" },
     desc: {
-      en: "Please contact us before any transfer.",
-      fa: "لطفا قبل از هر گونه انتقالی با ما تماس بگیرید.",
+      en: `The management of Baloch Exchange started its activity in 1995 with the production and trade of fabrics throughout Iran and then continued in the UAE, South Korea, Thailand and China and then in Australia from 2017 with the official registration of the company (ASIC) and Registration in Austrac organization is active.`,
+      fa: `مدیریت صرافی بلوچ، فعالیت خود را از سال 1995 با تولید و تجارت پارچه در سراسر ایران آغاز و سپس در کشورهای امارات، کره جنوبی، تایلند و چین ادامه داد و پس از آن از سال 2017 در استرالیا با ثبت رسمی شرکت (ASIC) و ثبت در سازمان آسترک (Austrac) مشغول به فعالیت می باشد.`,
     },
     location: { en: "Australia", fa: "استرالیا" },
     contact: {
-      telegram: "@sarrafiashena",
-      instagram: "ashena_sarrafi",
-      email: "ashena.exchange@gmali.com",
+      telegram: "@balochEx",
+      phone: ["+61 406 182 742"],
       website: "https://ashenaexchange.com/",
     },
-    hasImage: false,
+    hasImage: true,
     isFeatured: false,
     status: Status.ACTIVE,
-    slug: "ashena",
+    slug: "baloch",
   },
 ];

@@ -1,28 +1,30 @@
-import Image from 'next/image';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { FaTelegramPlane } from 'react-icons/fa';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { layer1_BG, layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
+import Image from "next/image";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { layer1_BG, layer1_TextColor } from "Styles/Theme/Layers/layer1/theme";
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
   layer2B_BG,
   layer2B_TextColor,
-} from 'Styles/Theme/Layers/layer2/theme';
-import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
-import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
-import { Headline6Style, Headline7Style } from 'Styles/Typo';
+} from "Styles/Theme/Layers/layer2/theme";
+import { layer3_SubtitleStyle } from "Styles/Theme/Layers/layer3/style";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import { Headline6Style, Headline7Style } from "Styles/Typo";
 
-import { FiBox } from 'react-icons/fi';
-import { deviceMin } from 'Consts/device';
-import { ExchangeCard } from './interfaces';
-import { FcCurrencyExchange } from 'react-icons/fc';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
+import { FiBox } from "react-icons/fi";
+import { deviceMin } from "Consts/device";
+import { ExchangeCard } from "../../../../PagesComponents/Boxes/Exchanges/interfaces";
+import { FcCurrencyExchange } from "react-icons/fc";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import {
+  componentStatements,
+  LanguageKeys,
+} from "../../../../PagesComponents/Boxes/Exchanges/const";
+import { HTMLAttributes } from "react";
 
-type Props = ExchangeCard;
+interface Props extends ExchangeCard, HTMLAttributes<HTMLAnchorElement> {}
 function MobileExchangeCard({
   desc,
   location,
@@ -31,11 +33,19 @@ function MobileExchangeCard({
   slug,
   hasImage,
   isFeatured,
+  className,
+  ...props
 }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <Container href={externalLink} target={'_blank'} isFeatured={isFeatured}>
+    <Container
+      {...props}
+      className={className}
+      href={externalLink}
+      target={"_blank"}
+      isFeatured={isFeatured}
+    >
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
           <Img
@@ -45,8 +55,8 @@ function MobileExchangeCard({
                 ? `/Images/boxes/exchanges/${slug}.jpg`
                 : `/Images/placeholder.jpeg`
             }
-            alt='image'
-            sizes='96px'
+            alt="image"
+            sizes="96px"
           />
         </ImgWrapper>
         {isFeatured && (
@@ -67,13 +77,13 @@ function MobileExchangeCard({
   );
 }
 export default MobileExchangeCard;
-const ContainerDropShadow = theme('mode', {
+const ContainerDropShadow = theme("mode", {
   light: css`
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
   `,
   dark: css``,
 });
-const TagBgTheme = theme('mode', {
+const TagBgTheme = theme("mode", {
   light: css`
     background: white;
     color: var(--color-gray4);
@@ -84,7 +94,7 @@ const TagBgTheme = theme('mode', {
   `,
 });
 
-export const LogoBackground = theme('mode', {
+export const LogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
       -86deg,
@@ -100,7 +110,7 @@ export const LogoBackground = theme('mode', {
     );
   `,
 });
-export const FeaturedLogoBackground = theme('mode', {
+export const FeaturedLogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -116,7 +126,7 @@ export const FeaturedLogoBackground = theme('mode', {
     );
   `,
 });
-const BoxTheme = theme('mode', {
+const BoxTheme = theme("mode", {
   light: css`
     color: var(--color-secondary2);
   `,
@@ -124,7 +134,7 @@ const BoxTheme = theme('mode', {
     color: var(--color-secondary4);
   `,
 });
-const NotFeaturedLocationTagTheme = theme('mode', {
+const NotFeaturedLocationTagTheme = theme("mode", {
   light: css`
     background: var(--color-gray12);
     color: var(--color-gray4);
@@ -147,7 +157,7 @@ const Container = styled.a<{ isFeatured: boolean }>`
   transition: all 0.3s ease;
   width: 25rem;
   @media ${deviceMin.laptopXS} {
-    ${({ isFeatured }) => !isFeatured && 'width: 30%;'}
+    ${({ isFeatured }) => !isFeatured && "width: 30%;"}
   }
   :hover {
     transform: scale(1.05);

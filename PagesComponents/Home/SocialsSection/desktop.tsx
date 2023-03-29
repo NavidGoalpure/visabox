@@ -1,5 +1,4 @@
 import VIPAgentCard from "Components/Boxes/Card/Agent/VIPCard";
-import { Agents } from "Consts/Businesses/agents";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
@@ -8,13 +7,14 @@ import { componentStatements, LanguageKeys } from "./const";
 import { Container, Hr, Subtitle, Title, ViewAll } from "./styledComponents";
 import { HTMLAttributes, useEffect } from "react";
 import { GsapSectionAnimation_1 } from "../utils";
+import SmartSocialCard from "Components/Boxes/Card/SocialCard";
+import { VipSocialMedias } from "Consts/Socials";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgent = Agents.find((agent) => agent.isFeatured);
   useEffect(() => {
     GsapSectionAnimation_1("socials");
   }, []);
@@ -22,13 +22,16 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     <>
       <Container {...props}>
         <Side className="socials-card-section">
-          {vipAgent && (
-            <StyledCard
-              name={vipAgent?.name}
-              desc={vipAgent?.desc}
-              slug={vipAgent?.slug}
+            <SmartSocialCard
+              id={VipSocialMedias[0].id}
+              isFeatured={VipSocialMedias[0].isFeatured}
+              desc={VipSocialMedias[0].desc}
+              name={VipSocialMedias[0].name}
+              link={VipSocialMedias[0].link}
+              socialmediaType={VipSocialMedias[0].socialmediaType}
+              locations={VipSocialMedias[0].locations}
+              slug={VipSocialMedias[0].slug}
             />
-          )}
         </Side>
         <Side className="socials-text-section">
           <Title>{t(LanguageKeys.Title)}</Title>

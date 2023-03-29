@@ -4,7 +4,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled from 'styled-components';
 import { Layer1_SubtitleStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
-import ExchangeCard from './ExchangeCard';
+import ExchangeCard from '../../../Components/Boxes/Card/Exchange/ExchangeCard';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

@@ -19,14 +19,4 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'View All',
   },
 };
-export const CardData = {
-  code: 133111,
-  title: {
-    en: 'Construction Project Manager',
-  } as MultiLanguageText,
-  description: {
-    en: 'Plans, organises, directs, controls and coordinates construction of civil engineering and building projects, and the physical and human resources involved in the construction process. Registration or licensing may be required.',
-  } as MultiLanguageText,
-  slug: { current: 'construction-project-manager' } as Slug,
-  tasks: {} as MultiLanguageTextArray,
-};
+

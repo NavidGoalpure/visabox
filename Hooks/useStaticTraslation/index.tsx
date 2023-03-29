@@ -19,7 +19,12 @@ export const useStaticTranslation = (
      * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
      * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
      */
-    t: (statementKey: string, aliases?: Record<string, string>[]) =>
-      translatedObject({ statementKey, statements, aliases }),
+    t: (
+      statementKey: string | undefined,
+      aliases?: Record<string, string>[]
+    ) => {
+      if (!statementKey) return '';
+      return translatedObject({ statementKey, statements, aliases });
+    },
   };
 };

@@ -31,13 +31,14 @@ function Content() {
       <NormalAgencysContainer>
         {AGENCYS.filter((agency) => !agency.isFeatured).map((agency) => {
           return (
-            <AgencyCard
+            <StyledAgencyCard
               key={agency.slug}
               name={agency.name}
               email={agency.contact.email}
               website={agency.contact.website}
               slug={agency.slug}
               phone={agency.contact.phone}
+              style={{ minHeight: '3rem' }}
             />
           );
         })}
@@ -80,4 +81,8 @@ const NormalAgencysContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+`;
+
+const StyledAgencyCard = styled(AgencyCard)`
+  min-height: 3rem;
 `;

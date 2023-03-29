@@ -50,6 +50,7 @@ function MobileSocialCard({
   return (
     <Container href={link} target={'_blank'} isFeatured={isFeatured}>
       <Wrapper isFeatured={isFeatured}>
+        {isFeatured && 
         <ImgWrapper>
           <Img
             fill
@@ -58,6 +59,7 @@ function MobileSocialCard({
             sizes='96px'
           />
         </ImgWrapper>
+        }
         {isFeatured && (
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
@@ -96,7 +98,7 @@ const TagBgTheme = theme('mode', {
   `,
 });
 
-export const LogoBackground = theme('mode', {
+const LogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -112,21 +114,21 @@ export const LogoBackground = theme('mode', {
     );
   `,
 });
-export const FeaturedLogoBackground = theme('mode', {
+const FeaturedLogoBackground = theme('mode', {
   light: css`
-    background: linear-gradient(
-      -2deg,
-      var(--color-gray9) 0 62%,
-      var(--color-gray11) 0% 100%
-    );
-  `,
+  background: linear-gradient(
+    -86deg,
+    var(--color-gray9) 0 70%,
+    var(--color-gray11) 0% 100%
+  );
+`,
   dark: css`
-    background: linear-gradient(
-      -2deg,
-      var(--color-gray2) 0 62%,
-      var(--color-gray3) 0% 100%
-    );
-  `,
+  background: linear-gradient(
+    -86deg,
+    var(--color-gray2) 0 70%,
+    var(--color-gray6) 0% 100%
+  );
+`,
 });
 const BoxTheme = theme('mode', {
   light: css`
@@ -168,14 +170,14 @@ const Container = styled.a<{ isFeatured: boolean }>`
 
 const Wrapper = styled.div<{ isFeatured: boolean }>`
   width: 100%;
-  height: 24rem;
+  height: 21rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   border-radius: 15px;
   gap: 1.5rem;
-  padding: 4rem 0.75rem 3.5rem;
+  padding: 2rem 0.75rem 3.5rem;
   transition: all 0.4s ease 0s;
   //////////////////////////
   ${({ isFeatured }) =>
@@ -184,6 +186,7 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
           ${layer2B_BG};
           min-height: 27rem;
           justify-content: space-between;
+          padding: 5rem 0.75rem 3.5rem;
         `
       : css`
           ${layer2A_Bg};
@@ -192,7 +195,7 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
   box-shadow:unset;
 `;
 const ImgWrapper = styled.div`
-  ${LogoBackground}
+  ${FeaturedLogoBackground}
   position:relative;
   padding: 0.5rem;
   width: 6.625rem;

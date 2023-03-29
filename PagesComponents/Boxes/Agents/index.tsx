@@ -20,6 +20,7 @@ function Content() {
         {Agents.filter((agent) => agent.isFeatured).map((agent) => {
           return (
             <VIPAgentCard
+              key={agent.slug}
               name={agent.name}
               desc={agent.desc}
               slug={agent.slug}
@@ -31,6 +32,7 @@ function Content() {
         {Agents.filter((agent) => !agent.isFeatured).map((agent) => {
           return (
             <AgentCard
+              key={agent.slug}
               name={agent.name}
               email={agent.contact.email}
               website={agent.contact.website}

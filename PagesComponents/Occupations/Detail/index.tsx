@@ -1,30 +1,27 @@
-import React from "react";
-import ToggleTag from "Elements/ToggleTag";
-import styled, { css } from "styled-components";
-import { SidebarPage } from "./sideBar";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import TooltipTag from "Elements/TooltipTag";
-import { deviceMin } from "Consts/device";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { OccupationDetailRes } from "Queries/occupations/Detail/interface";
-import SimilarOccupations from "./similarOccupations";
-import Link from "next/link";
-import { useLocale } from "Hooks/useLocale";
+import React from 'react';
+import ToggleTag from 'Elements/ToggleTag';
+import styled, { css } from 'styled-components';
+import { SidebarPage } from './sideBar';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import TooltipTag from 'Elements/TooltipTag';
+import { deviceMin } from 'Consts/device';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
+import SimilarOccupations from './similarOccupations';
+import Link from 'next/link';
+import { useLocale } from 'Hooks/useLocale';
 import {
   getSmartAssessingAuthorities,
   has189Visa,
   has190Visa,
   has491FamilyVisa,
   has491StateVisa,
-} from "./utils";
-import { Languages, LocalStorageKeys } from "Interfaces";
-import { getLocalStorage } from "Utils";
+} from './utils';
 import {
   Layer1_SubtitleStyle,
   Layer1_TextStyle,
-} from "Styles/Theme/Layers/layer1/style";
-import theme from "styled-theming";
+} from 'Styles/Theme/Layers/layer1/style';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -55,13 +52,13 @@ const Content: React.FC<Props> = ({ occupation }) => {
               <Link
                 key={i}
                 href={`/${locale}/occupations/assssing-authorities/#${
-                  assess.split("_")[0]
+                  assess.split('_')[0]
                 }`}
-                target="_blank"
+                target='_blank'
                 scroll={false}
               >
                 <TooltipTag
-                  content={assess.replaceAll("_", " ")}
+                  content={assess.replaceAll('_', ' ')}
                   // popupContent={
                   //   <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
                   //     {t(LanguageKeys.TooltipTagDesc)}
@@ -75,26 +72,26 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag
-          contentKey={"189"}
+          contentKey={'189'}
           isOn={has189Visa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={"190"}
+          contentKey={'190'}
           isOn={has190Visa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
 
         <StyledToggleTag
-          contentKey={"491"}
+          contentKey={'491'}
           isOn={has491StateVisa(occupation.code)}
-          backgroundtheme="PAGE"
+          backgroundtheme='PAGE'
         />
         <StyledToggleTag
-          contentKey={t(LanguageKeys["491-family"])}
+          contentKey={t(LanguageKeys['491-family'])}
           isOn={has491FamilyVisa(occupation.code)}
-          backgroundtheme="PAGE"
-          style={{ marginInlineEnd: "0" }}
+          backgroundtheme='PAGE'
+          style={{ marginInlineEnd: '0' }}
         />
       </ToggleContainer>
       {/*  */}

@@ -19,15 +19,17 @@ const config = {
   //
   experimental: {
     nextScriptWorkers: true,
-    
   },
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
+  build: {
+    transpile: ['gsap'],
+  },
   i18n: {
     locales: ['en', 'fa'],
-    defaultLocale: 'en',
+    defaultLocale: 'fa',
     localeDetection: false,
   },
   sentry: {
@@ -45,15 +47,8 @@ const config = {
     //   'Configure Tunneling to avoid Ad-Blockers':
     //     - tunnelRoute
   },
-
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/occupations',
-        permanent: false,
-      },
-    ];
+  images: {
+    formats: ['image/webp'],
   },
 };
 const sentryWebpackPluginOptions = {

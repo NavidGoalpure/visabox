@@ -1,9 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap'); */
 :root {
   --font-family__fa: 'Vazirmatn', 'Open Sans', 'Poppin', 'Helvetica', 'Arial',
     'sans-serif';
-  --font-family__en: 'Montserrat', 'Open Sans', 'Poppin', 'Helvetica', 'Arial',
-    'sans-serif';
+
   /* //////////colors/////////// */
 
   /* // */
@@ -47,7 +45,6 @@
   --color-disable-dark: var(--color-primary1);
   /* // */
   --max-width-page: 1134px;
-  
 }
 html,
 body {
@@ -84,7 +81,6 @@ body {
   margin: 0;
   padding: 0;
   outline: none;
-  font-weight: normal;
   font-size: inherit;
   border: none;
   background: transparent;
@@ -103,9 +99,3 @@ ul {
   list-style: none;
 }
 /* ///////// */
-.english-font {
-  font-family: var(--font-family__en);
-}
-.persian-font {
-  font-family: var(--font-family__fa);
-}

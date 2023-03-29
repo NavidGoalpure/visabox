@@ -10,16 +10,23 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   children: ReactNode;
   isLoading?: boolean;
+  hasAnimation?: boolean;
 }
 export const PrimaryButton = ({
   children,
   disabled = false,
   isLoading = false,
+  hasAnimation = true,
   type = 'button',
   ...props
 }: ButtonProps) => {
   return (
-    <Container type={type} {...props} disabled={disabled || isLoading}>
+    <Container
+      hasAnimation={hasAnimation}
+      type={type}
+      {...props}
+      disabled={disabled || isLoading}
+    >
       {isLoading ? <Loading /> : children}
     </Container>
   );
@@ -27,6 +34,7 @@ export const PrimaryButton = ({
 
 export const ButtonCss = css<{
   disabled: boolean | undefined;
+  hasAnimation: boolean;
 }>`
   display: flex;
   justify-content: center;
@@ -36,7 +44,6 @@ export const ButtonCss = css<{
   width: -webkit-fill-available;
   height: 3rem;
   padding: 0 3rem;
-
   background: var(--color-primary4);
   border-radius: 50px;
 
@@ -47,12 +54,17 @@ export const ButtonCss = css<{
   //////////////disabled///////////////////////
 
   //////////////hover///////////////////////
-  &:hover {
-    background: var(--color-primary2);
+  ${({ hasAnimation }) =>
+    hasAnimation &&
+    css`
+      &:hover {
+        background: var(--color-primary2);
+        transition: all 0.4s ease 0s;
+        // filter: drop-shadow(0px 4px 4px rgb(0 0 0 / 10%));
+        // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    `}
 
-    transform: scale(1);
-    transition: all 0.4s ease 0s;
-  }
   @media ${deviceMin.tabletS} {
     width: auto;
   }

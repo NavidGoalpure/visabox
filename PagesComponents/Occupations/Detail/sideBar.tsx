@@ -20,6 +20,9 @@ import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
+import { FaRegHandshake } from 'react-icons/fa';
+import { AGENCYS } from 'Consts/Businesses/agency';
+import VIPAgencyCard from 'Components/Lists/Card/Agency/VIPCard';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -46,6 +49,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             title={t(LanguageKeys.Anzsco)}
             value='anzsco'
             icon={<AnszcoIcon />}
+          />
+          <SideBar.TabItem
+            title={t(LanguageKeys.Agent)}
+            value='agency'
+            icon={<AgentIcon />}
           />
         </>
       }
@@ -107,7 +115,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                       <HintItem>
                         <Tag>
                           {t(LanguageKeys.LastUpdate)}
-                          <span> 31/12/2022</span>
+                          <span> 28/02/2023</span>
                         </Tag>
                       </HintItem>
                     </AccordionContentContainer>
@@ -116,6 +124,20 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
+          <SideBar.BodyItem value='agency'>
+            <AgentsContentWrapper>
+              {AGENCYS.filter((agent) => agent.isFeatured).map((agent) => {
+                return (
+                  <StyledVIPAgentCard
+                    key={agent.slug}
+                    name={agent.name}
+                    desc={agent.desc}
+                    slug={agent.slug}
+                  />
+                );
+              })}
+            </AgentsContentWrapper>
+          </SideBar.BodyItem>
           {/*  */}
         </>
       }
@@ -124,6 +146,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
 };
 
 export { SidebarPage };
+
 const SideBarRoot = styled(SideBar.Root)`
   div {
     &[aria-label='sidebar'] {
@@ -159,7 +182,9 @@ const AnszcoIcon = styled(TbNumbers)`
 const Backlog = styled(TbStack2)`
   ${Icon}
 `;
-
+const AgentIcon = styled(FaRegHandshake)`
+  ${Icon}
+`;
 //////////
 const Header = styled.header`
   width: 100%;
@@ -168,7 +193,7 @@ const Header = styled.header`
 `;
 
 const ContentWrapper = styled.section`
-  ${layer2A_style}
+  ${layer2A_style};
   width: auto;
 `;
 ///////backlog section/////
@@ -195,4 +220,18 @@ const Tag = styled.h5`
   span {
     font-weight: bold;
   }
+`;
+////agents section/////
+const AgentsContentWrapper = styled.section`
+  ${layer2A_style}
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+`;
+const StyledVIPAgentCard = styled(VIPAgencyCard)`
+  display: block;
+  width: fit-content;
+  margin-bottom: 2rem;
 `;

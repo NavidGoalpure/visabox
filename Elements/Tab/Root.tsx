@@ -19,9 +19,7 @@ export const Root: React.FC<Props> = ({
     <HeadesWrapper id='heads-container'>
       <HeadsList aria-label='tabs'>{heads}</HeadsList>
     </HeadesWrapper>
-    <ContentsContainer id={`contents-container-${defaultValue}`}>
-      {bodies}
-    </ContentsContainer>
+    <ContentsContainer id='contents-container'>{bodies}</ContentsContainer>
   </TabsRoot>
 );
 
@@ -31,14 +29,13 @@ const TabsRoot = styled(Tabs.Root)`
   display: flex;
   flex-direction: column;
   width: auto;
-  margin: 0 1rem;
   @media ${deviceMin.tabletS} {
     margin: 0;
   }
 `;
 const HeadesWrapper = styled.div`
   overflow: auto;
-  margin-bottom: 1rem;
+
   @media ${deviceMin.tabletL} {
     overflow: hidden;
   }
@@ -49,7 +46,7 @@ const HeadesWrapper = styled.div`
 export const backgroundHeadsList = theme('mode', {
   light: css`
     background: var(--color-gray13);
-    border: 2px solid var(--color-gray11);
+    border: 2px solid var(--color-gray12);
   `,
   dark: css`
     background: var(--color-gray7);
@@ -64,6 +61,7 @@ const HeadsList = styled(Tabs.List)`
   height: 4rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+
   > * {
     &:first-child {
       div {

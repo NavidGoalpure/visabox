@@ -10,6 +10,9 @@ import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
+import { copyContent } from 'Utils';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
+import { Languages } from 'Interfaces';
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -18,34 +21,76 @@ function DesktopFooter() {
   return (
     <Container>
       <StyledLogo />
-      <ItemsContainer>
-        <Items href={`/${locale}/occupations`} data-name={t(LanguageKeys.Home)}>
-          {t(LanguageKeys.Home)}
-        </Items>
-        <Items
-          href={`/${locale}/occupations`}
-          data-name={t(LanguageKeys.SkilledOccupationList)}
-        >
-          {t(LanguageKeys.SkilledOccupationList)}
-        </Items>
-      </ItemsContainer>
-      <ContactUsContainer>
-        <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
-        <LogosContainer>
-          <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
-            <TelegramLogo />
-          </a>
-          <a target={'_blank'} href='mailto:maraboxmigration@gmail.com'>
-            <GmailLogo />
-          </a>
-        </LogosContainer>
-      </ContactUsContainer>
+      <Wrapper>
+        <SideContainer>
+          <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
+            {t(LanguageKeys.Home)}
+          </Items>
+          <Items
+            href={`/${locale}/occupations`}
+            data-name={t(LanguageKeys.SkilledOccupationList)}
+          >
+            {t(LanguageKeys.SkilledOccupationList)}
+          </Items>
+          <Items
+            href={`/${locale}/occupations/assssing-authorities`}
+            data-name={t(LanguageKeys.AssessingAuthority)}
+          >
+            {t(LanguageKeys.AssessingAuthority)}
+          </Items>
+        </SideContainer>
+        <CenterItemsContainer locale={locale}>
+          <Items
+            href={`/${locale}/lists/agents`}
+            data-name={t(LanguageKeys.AgentsBox)}
+          >
+            {t(LanguageKeys.AgentsBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/agencies`}
+            data-name={t(LanguageKeys.AgenciesBox)}
+          >
+            {t(LanguageKeys.AgenciesBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/secial-pages`}
+            data-name={t(LanguageKeys.SocialNetWorksBox)}
+          >
+            {t(LanguageKeys.SocialNetWorksBox)}
+          </Items>
+          {locale === Languages.fa && (
+            <Items
+              href={`/${locale}/landing/agents`}
+              data-name={t(LanguageKeys.BecomeSponser)}
+            >
+              {t(LanguageKeys.BecomeSponser)}
+            </Items>
+          )}
+        </CenterItemsContainer>
+        <SideContainer>
+          <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
+          <LogosContainer>
+            <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
+              <TelegramLogo />
+            </a>
+            <a onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}>
+              <GmailLogo />
+            </a>
+          </LogosContainer>
+        </SideContainer>
+      </Wrapper>
     </Container>
   );
 }
 
 export default DesktopFooter;
-export const footerBackground = theme('mode', {
+const Container = styled.footer`
+  position: relative;
+  width: 100%;
+  height: 35rem;
+  margin-top: 4rem;
+`;
+const footerBackground = theme('mode', {
   light: css`
     background: var(--color-gray12);
     :before {
@@ -65,7 +110,7 @@ export const footerBackground = theme('mode', {
     }
   `,
 });
-export const LogoHover = theme('mode', {
+const LogoHover = theme('mode', {
   light: css`
     outline-color: var(--color-primary4);
     color: var(--color-primary4);
@@ -76,15 +121,15 @@ export const LogoHover = theme('mode', {
   `,
 });
 
-const Container = styled.footer`
+const Wrapper = styled.div`
   ${footerBackground};
   clip-path: polygon(20% 17.5%, 80% 17.5%, 100% 0, 100% 100%, 0 100%, 0 0);
   width: 100%;
-  height: 35rem;
+  height: 100%;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   transform: skew(10deg);
   transform: scaleX(1);
   :before {
@@ -107,46 +152,40 @@ const Container = styled.footer`
   }
 `;
 const StyledLogo = styled(Logo)`
-  width: 8rem;
+  width: 6rem;
   height: auto;
   position: absolute;
-  top: 60%;
-  left: 20%;
+  top: 6rem;
+  left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 1;
 `;
-const ItemsContainer = styled.div`
+const CenterItemsContainer = styled.div<{ locale: Languages }>`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-top: 10%;
+  gap: 1rem;
+  margin-top: ${({ locale }) => (locale === Languages.fa ? '7rem' : '5rem')};
 `;
 
-//
-export const hoverBackground = theme('mode', {
-  light: css`
-    var(--color-gray12);
-  `,
-  dark: css`
-     var(--color-gray2);
-  `,
-});
 ///////////////////
-const hoverItemColor = theme('mode', {
+const itemHover = theme('mode', {
   light: css`
-    var(--color-gray6);
+    color: var(--color-gray6);
   `,
   dark: css`
-     var(--color-gray12);
+    color: var(--color-gray13);
   `,
 });
 const Items = styled(Link)`
-  ${Headline5Style}
+  ${layer2A_SubtitleStyle}
+  text-align: center;
   color: var(--color-gray9);
   cursor: pointer;
   position: relative;
-  width: max-content;
+  width: 100%;
+  max-width: max-content;
   transition: all 400ms ease;
+  margin: auto;
   :before {
     content: '';
     position: absolute;
@@ -155,7 +194,6 @@ const Items = styled(Link)`
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    background: ${hoverBackground};
     height: 5px;
     width: 100%;
     overflow: hidden;
@@ -163,7 +201,8 @@ const Items = styled(Link)`
     border-radius: 10px;
   }
   :hover {
-    ${hoverItemColor}
+    ${itemHover}
+
     :before {
       bottom: -10px;
       background-color: var(--color-primary4);
@@ -174,18 +213,15 @@ const Items = styled(Link)`
 `;
 //
 
-const ContactUsContainer = styled.div`
-  width: fit-content;
-  position: absolute;
-  top: 60%;
-  right: 5%;
-  transform: translateY(-50%);
+const SideContainer = styled.div`
+  margin-top: 4rem;
+  width: 20%;
   color: var(--color-gray9);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   @media ${deviceMin.laptopXS} {
     right: 3%;
   }
@@ -197,7 +233,8 @@ const ContactUsContainer = styled.div`
   }
 `;
 const ContactUs = styled.h2`
-  ${Headline5Style};
+  ${layer2A_SubtitleStyle}
+  color: var(--color-gray9);
 `;
 const LogosContainer = styled.div`
   display: flex;
@@ -206,6 +243,7 @@ const LogosContainer = styled.div`
 `;
 const TelegramLogo = styled(FaTelegramPlane)`
   color: var(--color-gray9);
+  cursor: pointer;
   padding-right: 0.2rem;
   width: 2rem;
   height: 2rem;
@@ -216,6 +254,7 @@ const TelegramLogo = styled(FaTelegramPlane)`
 `;
 const GmailLogo = styled(SiGmail)`
   color: var(--color-gray9);
+  cursor: pointer;
   width: 2rem;
   height: 2rem;
   transition: all 0.8s ease;

@@ -28,25 +28,44 @@ export const DesktopTabItem_Top: React.FC<Props> = ({
     </TabsTrigger>
   );
 };
+//////////////////////////
+const contentContainerActiveColor = theme('mode', {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray11);
+  `,
+});
+//////////
+const contentContainerDeactiveColor = theme('mode', {
+  light: css`
+    color: var(--color-gray5);
+  `,
+  dark: css`
+    color: var(--color-gray13);
+  `,
+});
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
   font-weight: bold;
-
+  ${contentContainerActiveColor}
   @media ${deviceMin.laptopS} {
     flex-direction: column;
   }
 `;
 ////////////
+
 const TabsTriggerActivehover = theme('mode', {
   light: css`
     background: var(--color-primary4);
-    color: var(--color-gray6);
+    color: white;
   `,
   dark: css`
     background: var(--color-primary3);
-    color: var(--color-gray6);
+    color: white;
   `,
 });
 const TabsTriggerhover = theme('mode', {
@@ -78,6 +97,9 @@ const TabsTrigger = styled(Tabs.Trigger)`
     color: white;
     :hover {
       ${TabsTriggerActivehover}
+    }
+    div {
+      ${contentContainerDeactiveColor}
     }
   }
 

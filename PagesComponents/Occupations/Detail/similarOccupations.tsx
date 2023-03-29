@@ -1,11 +1,11 @@
-import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Occupation } from 'Interfaces/Documents/occupation';
-import { UnitGroup } from 'Interfaces/Documents/unitGroup';
-import React from 'react';
-import styled from 'styled-components';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { componentStatements, LanguageKeys } from './const';
+import OccupationCard from "Components/Cards/Type1/OocccuptionCard";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Occupation } from "Interfaces/Documents/occupation";
+import { UnitGroup } from "Interfaces/Documents/unitGroup";
+import React from "react";
+import styled from "styled-components";
+import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
+import { componentStatements, LanguageKeys } from "./const";
 
 interface Props {
   similarOccupations: Occupation[];
@@ -26,6 +26,7 @@ const similarOccupations: React.FC<Props> = ({
       <CardsContainer>
         {smartList.map((occupation) => (
           <OccupationCard
+            hasAnimation={false}
             key={occupation._id}
             code={occupation?.code}
             title={occupation?.title}

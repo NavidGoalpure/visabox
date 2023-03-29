@@ -19,6 +19,7 @@ export default function NotFound() {
         canonical={`https://www.marabox.com/404`}
         isNoIndex={true}
       />
+
       <Container>
         <MaraBgAnimation>
           <BlurContainer>
@@ -57,6 +58,7 @@ const Title = styled.h1`
 `;
 const Subtitle = styled.h2`
   ${Layer1_SubtitleStyle}
+  text-align: center !important;
 `;
 const Desc = styled.h3`
   ${Layer1_TextStyle}

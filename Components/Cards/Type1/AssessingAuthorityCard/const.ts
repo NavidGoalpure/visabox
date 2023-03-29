@@ -5,6 +5,8 @@ export enum LanguageKeys {
   Tasks = 'Tasks',
   NoTask = 'NoTask',
   Website = 'Website',
+  Email = 'Email',
+  Address = 'Address',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   ReadMore: {
@@ -22,6 +24,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Website: {
     fa: 'وبسایت:',
     en: 'Website:',
+  },
+  Email: {
+    fa: 'ایمیل:',
+    en: 'Email:',
+  },
+  Address: {
+    fa: 'آدرس:',
+    en: 'Address:',
   },
 };
 

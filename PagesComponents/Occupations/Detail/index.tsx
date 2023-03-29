@@ -1,6 +1,6 @@
 import React from 'react';
 import ToggleTag from 'Elements/ToggleTag';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { SidebarPage } from './sideBar';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import TooltipTag from 'Elements/TooltipTag';
@@ -18,9 +18,6 @@ import {
   has491FamilyVisa,
   has491StateVisa,
 } from './utils';
-import { LanguageHint } from 'Components/Language/LanguageHint';
-import { Languages, LocalStorageKeys } from 'Interfaces';
-import { getLocalStorage } from 'Utils';
 import {
   Layer1_SubtitleStyle,
   Layer1_TextStyle,
@@ -36,12 +33,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
   const { locale } = useLocale();
   //
   const assessing_authority = occupation?.assessing_authority;
-  const fragmentUrl = `/${locale}/occupations/${occupation.code}`;
-  const mustShowFeedbackWindow =
-    locale !== Languages.en &&
-    getLocalStorage(LocalStorageKeys.HasBeenAnswered) !==
-      'OccupationDetailPage';
-  //
+
   return (
     <Container>
       <TitleContainer>
@@ -66,10 +58,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
                 scroll={false}
               >
                 <TooltipTag
-                  // replaceAll does not full support yet
-                  // content={assess.replaceAll('_', ' ')}
-                  content={assess.split('_').join(' ')}
-
+                  content={assess.replaceAll('_', ' ')}
                   // popupContent={
                   //   <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
                   //     {t(LanguageKeys.TooltipTagDesc)}
@@ -108,8 +97,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
       {/*  */}
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
-      {/**********Language feedback ***** */}
-      {mustShowFeedbackWindow && <LanguageHint />}
+
       {/**********Similar Occupation***** */}
       {occupation.similarOccupations && (
         <SimilarOccupations
@@ -122,6 +110,8 @@ const Content: React.FC<Props> = ({ occupation }) => {
 };
 
 export default Content;
+//there was a bug which the text wasn't vertically aligned in persian so I needed to fix it this way
+
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -134,6 +124,7 @@ const Title = styled.h1`
   ${Layer1_TextStyle};
   margin-bottom: 1rem;
   text-align: center;
+  direction: ltr;
 `;
 
 const VetassesContainer = styled.div`

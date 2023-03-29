@@ -16,7 +16,7 @@ import {
 export const NoMobile = styled.div`
   ${warningTheme}
   ${layer2A_TextStyle}
-  padding: 0.5rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   min-height: 8rem;
@@ -51,6 +51,9 @@ export const Details = styled.div`
   h4 {
     ${layer2A_SubtitleStyle}
     direction: ltr;
+    // a {
+    //   ${layer2A_TitleColor}
+    // }
   }
   h5 {
     ${layer2A_TextStyle}

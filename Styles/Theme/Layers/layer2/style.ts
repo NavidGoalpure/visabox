@@ -7,6 +7,8 @@ import {
   layer2A_HeaderBG,
   layer2A_SubtitleColor,
   layer2A_TextColor,
+  layer2B_SubtitleColor,
+  layer2B_TextColor,
 } from './theme';
 
 ///////////////layer2/////////////
@@ -68,41 +70,31 @@ export const layer2A_style = css`
     text-align: start;
   }
 `;
-export const layer2A_TableStyle = css`
-  ${borderTheme}
-  ${layer2A_style}
-  box-shadow: none;
-  width: 100%;
-  margin-bottom: 1rem;
-
-  thead {
-    display: block;
-    background-color: transparent !important;
-    padding: 0.5rem 0 !important;
-    ${borderTheme}
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-
-  tbody {
-    text-align: center;
-    padding: 1rem 0 !important;
-    display: block;
-  }
-  tr {
-    width: 100%;
-    font-weight: 500;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    margin-bottom: 1rem;
-    :last-child {
-      margin-bottom: 0;
-    }
-  }
-  td {
-      margin: 0;
-      font-weight: 500;
-    }
-  }
+export const layer2B_TitleStyle = css`
+  ${directionStyles}
+  ${layer2B_TextColor}
+  ${Headline5Style}
+`;
+export const layer2B_SubtitleStyle = css`
+  ${directionStyles}
+  ${layer2B_SubtitleColor}
+  ${Headline6Style}
+`;
+export const layer2B_TextStyle = css`
+  ${directionStyles}
+  ${layer2B_TextColor}
+  ${Headline7Style}
+`;
+export const layer2B_HeaderBg = theme("mode", {
+  light: css`
+    background: var(--color-gray7);
+  `,
+  dark: css`
+    background: var(--color-gray5);
+  `,
+});
+export const layer2B_HeaderStyle = css`
+  ${layer2B_HeaderBg}
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
 `;

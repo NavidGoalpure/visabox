@@ -42,7 +42,7 @@ const secondaryButtonTheme = theme('mode', {
     }
   `,
 });
-export const ButtonCss = css<{
+export const SecondaryButtonCss = css<{
   disabled: boolean | undefined;
 }>`
   ${secondaryButtonTheme}
@@ -63,5 +63,5 @@ export const ButtonCss = css<{
 `;
 
 const Container = styled.button`
-  ${ButtonCss}
+  ${SecondaryButtonCss}
 `;

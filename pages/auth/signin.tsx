@@ -116,8 +116,6 @@ const Subtitle = styled.h1`
 const SocialButtonTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
-
-    // az mobin bepors in box shadow class khasi dare ya na
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   `,
   dark: css`

@@ -11,9 +11,11 @@ import { deviceSize } from 'Consts/device';
  * @param {({
  *   maxHeightInRem: number | undefined;
  *   childrenItems: ReactNode;
+ *   elementHeight:number
  * })} {
  *   maxHeightInRem // سایزی که میخوایم پاپاپ از اون بزرگتر نشه. با واحد رم,
  *   childrenItems,// آیتم هایی که توی پاپاپ نشون میدیم
+ *    elementHeight,// طول هر المنت فرزند- این المنت برای محاسبه طول کانتینر به کار میره
  * }
  * @return {*}  {number}
  */
@@ -25,7 +27,7 @@ export function findSmartHeight({
   childrenItems: ReactNode;
 }): number {
   const calculatedHeight =
-    (React.Children.toArray(childrenItems)?.length || 0) * 2.2;
+    (React.Children.toArray(childrenItems)?.length || 0) * 3.5;
   //
   if (!maxHeightInRem) return calculatedHeight;
   const smartHeight =

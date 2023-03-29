@@ -1,6 +1,7 @@
 import { Socials } from 'Interfaces/Socials';
+import { HTMLAttributes } from 'react';
 import MobileSocialCard from './MobileCard';
-type Props = Socials;
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials { }
 function SmartSocial({
   id,
   desc,
@@ -10,6 +11,7 @@ function SmartSocial({
   socialmediaType,
   slug,
   isFeatured,
+  ...props
 }: Props) {
   return (
     <MobileSocialCard
@@ -20,7 +22,9 @@ function SmartSocial({
       socialmediaType={socialmediaType}
       locations={locations}
       slug={slug}
-      id={id}    />
+      id={id}
+      {...props}
+    />
   );
 }
 export default SmartSocial;

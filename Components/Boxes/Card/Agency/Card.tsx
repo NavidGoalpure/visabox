@@ -38,8 +38,8 @@ function AgencyCard({ name, email, website, phone, slug, ...props }: Props) {
   const hasWebsite: boolean = website !== BLANK_SYMBOL;
 
   return (
-    <Container className={slug} {...props}>
-      <Wrapper>
+    <Container className={slug}>
+      <Wrapper  {...props}>
         <Title>{dt(name)}</Title>
         <StyledSocials>
           <PhoneWrapper onClick={() => copyContent(phone?.[0] || "")}>

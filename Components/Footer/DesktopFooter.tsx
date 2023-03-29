@@ -58,14 +58,14 @@ function DesktopFooter() {
           >
             {t(LanguageKeys.SocialNetWorksBox)}
           </Items>
-          {locale === Languages.fa && (
+          {/* {locale === Languages.fa && (
             <Items
               href={`/${locale}/landing/agents`}
               data-name={t(LanguageKeys.BecomeSponser)}
             >
               {t(LanguageKeys.BecomeSponser)}
             </Items>
-          )}
+          )} */}
         </CenterItemsContainer>
         <SideContainer>
           <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>

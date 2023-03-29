@@ -50,11 +50,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
-          <SideBar.TabItem
+          {/* <SideBar.TabItem
             title={t(LanguageKeys.Agent)}
             value='agency'
             icon={<AgentIcon />}
-          />
+          /> */}
         </>
       }
       bodies={
@@ -124,7 +124,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
-          <SideBar.BodyItem value='agency'>
+          {/* <SideBar.BodyItem value='agency'>
             <AgentsContentWrapper>
               {AGENCYS.filter((agent) => agent.isFeatured).map((agent) => {
                 return (
@@ -137,7 +137,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                 );
               })}
             </AgentsContentWrapper>
-          </SideBar.BodyItem>
+          </SideBar.BodyItem> */}
           {/*  */}
         </>
       }

@@ -111,7 +111,7 @@ export const AGENCYS: Agency[] = [
       fa: `این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند تمامی مراحل اقامت را با امکانات نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضی انجام دهد.`,
     },
     contact: {
-      website: 'http://azzyimmi.com.au',
+      website: 'http://azzyimmi.com.a',
       phone: ['09123252009'],
     },
     status: Status.ACTIVE,

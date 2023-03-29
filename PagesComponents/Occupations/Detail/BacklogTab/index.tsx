@@ -26,7 +26,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
   return (
     <Container>
       <TabRoot
-        defaultValue={LanguageKeys.Submitted}
+        defaultValue={t(LanguageKeys.Submitted)}
         heads={
           <>
             <TabItem
@@ -45,7 +45,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
         }
         bodies={
           <>
-            <RadixTab.Content value={LanguageKeys.Submitted}>
+            <RadixTab.Content value={t(LanguageKeys.Submitted)}>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189
@@ -73,7 +73,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
                 )}
               </Row>
             </RadixTab.Content>
-            <RadixTab.Content value={LanguageKeys.Invited}>
+            <RadixTab.Content value={t(LanguageKeys.Invited)}>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189
@@ -101,7 +101,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
                 )}
               </Row>
             </RadixTab.Content>
-            <RadixTab.Content value={LanguageKeys.Lodged}>
+            <RadixTab.Content value={t(LanguageKeys.Lodged)}>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189

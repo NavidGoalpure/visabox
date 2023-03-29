@@ -11,9 +11,7 @@ import { deviceMin } from 'Consts/device';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
 import { copyContent } from 'Utils';
-import {
-  layer2A_SubtitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages } from 'Interfaces';
 
 function DesktopFooter() {
@@ -43,19 +41,19 @@ function DesktopFooter() {
         </SideContainer>
         <CenterItemsContainer locale={locale}>
           <Items
-            href={`/${locale}/boxes/agents`}
+            href={`/${locale}/lists/agents`}
             data-name={t(LanguageKeys.AgentsBox)}
           >
             {t(LanguageKeys.AgentsBox)}
           </Items>
           <Items
-            href={`/${locale}/boxes/agencies`}
+            href={`/${locale}/lists/agencies`}
             data-name={t(LanguageKeys.AgenciesBox)}
           >
             {t(LanguageKeys.AgenciesBox)}
           </Items>
           <Items
-            href={`/${locale}/boxes/secial-pages`}
+            href={`/${locale}/lists/secial-pages`}
             data-name={t(LanguageKeys.SocialNetWorksBox)}
           >
             {t(LanguageKeys.SocialNetWorksBox)}

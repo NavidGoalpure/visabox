@@ -37,19 +37,19 @@ function MobileFooter() {
       <ItemsContainer>
         <ItemsTitle>{t(LanguageKeys.Occupations)}</ItemsTitle>
         <Items
-          href={`/${locale}/boxes/agents`}
+          href={`/${locale}/lists/agents`}
           data-name={t(LanguageKeys.AgentsBox)}
         >
           {t(LanguageKeys.AgentsBox)}
         </Items>
         <Items
-          href={`/${locale}/boxes/agencies`}
+          href={`/${locale}/lists/agencies`}
           data-name={t(LanguageKeys.AgenciesBox)}
         >
           {t(LanguageKeys.AgenciesBox)}
         </Items>
         <Items
-          href={`/${locale}/boxes/secial-pages`}
+          href={`/${locale}/lists/secial-pages`}
           data-name={t(LanguageKeys.SocialNetWorksBox)}
         >
           {t(LanguageKeys.SocialNetWorksBox)}

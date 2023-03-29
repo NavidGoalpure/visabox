@@ -27,19 +27,19 @@ export const boxesItems: DropdownItem[] = [
       en: 'Agencies Box',
       fa: 'لیست موسسات مهاجرتی',
     },
-    href: '/boxes/agencies',
+    href: '/lists/agencies',
   },
   {
     title: { en: 'Agents Box', fa: 'لیست وکلا' },
-    href: '/boxes/agents',
+    href: '/lists/agents',
   },
   {
     title: { en: 'Naati Box', fa: 'لیست مترجمین' },
-    href: '/boxes/naaties',
+    href: '/lists/naaties',
   },
   {
     title: { en: 'Exchanges Box', fa: 'لیست صرافی‌ها' },
-    href: '/boxes/exchanges',
+    href: '/lists/exchanges',
   },
 
   {
@@ -47,7 +47,7 @@ export const boxesItems: DropdownItem[] = [
       en: 'Social Network Box',
       fa: 'شبکه های اجتماعی',
     },
-    href: '/boxes/social-pages',
+    href: '/lists/social-pages',
   },
 ];
 export const occupationItems: DropdownItem[] = [

@@ -19,8 +19,10 @@ import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
 import { SocialMediaTypes, Socials } from 'Interfaces/Socials';
+import { HTMLAttributes } from 'react';
 
-type Props = Socials;
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
+
 function MobileSocialCard({
   desc,
   locations,
@@ -29,6 +31,7 @@ function MobileSocialCard({
   socialmediaType,
   slug,
   isFeatured,
+  ...props
 }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const SocialMediaIcon = () => {
@@ -49,17 +52,17 @@ function MobileSocialCard({
   };
   return (
     <Container href={link} target={'_blank'} isFeatured={isFeatured}>
-      <Wrapper isFeatured={isFeatured}>
-        {isFeatured && 
-        <ImgWrapper>
-          <Img
-            fill
-            src={`/Images/socialPage/${slug}.jpg`}
-            alt='image'
-            sizes='96px'
-          />
-        </ImgWrapper>
-        }
+      <Wrapper isFeatured={isFeatured} {...props}>
+        {isFeatured && (
+          <ImgWrapper>
+            <Img
+              fill
+              src={`/Images/socialPage/${slug}.jpg`}
+              alt='image'
+              sizes='96px'
+            />
+          </ImgWrapper>
+        )}
         {isFeatured && (
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
@@ -116,19 +119,19 @@ const LogoBackground = theme('mode', {
 });
 const FeaturedLogoBackground = theme('mode', {
   light: css`
-  background: linear-gradient(
-    -86deg,
-    var(--color-gray9) 0 70%,
-    var(--color-gray11) 0% 100%
-  );
-`,
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray9) 0 70%,
+      var(--color-gray11) 0% 100%
+    );
+  `,
   dark: css`
-  background: linear-gradient(
-    -86deg,
-    var(--color-gray2) 0 70%,
-    var(--color-gray6) 0% 100%
-  );
-`,
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray2) 0 70%,
+      var(--color-gray6) 0% 100%
+    );
+  `,
 });
 const BoxTheme = theme('mode', {
   light: css`

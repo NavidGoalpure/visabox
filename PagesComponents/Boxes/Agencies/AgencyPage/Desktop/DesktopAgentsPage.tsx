@@ -89,6 +89,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
             socialmediaType={relatedSocial?.socialmediaType}
             locations={relatedSocial?.locations}
             slug={relatedSocial?.slug}
+            style={{ minHeight: '24.5rem', scale: '0.94' }}
           />
         ))}
       </Row>

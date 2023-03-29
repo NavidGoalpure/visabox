@@ -96,7 +96,7 @@ const TagBgTheme = theme('mode', {
   `,
 });
 
-export const LogoBackground = theme('mode', {
+const LogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -112,21 +112,21 @@ export const LogoBackground = theme('mode', {
     );
   `,
 });
-export const FeaturedLogoBackground = theme('mode', {
+const FeaturedLogoBackground = theme('mode', {
   light: css`
-    background: linear-gradient(
-      -2deg,
-      var(--color-gray9) 0 62%,
-      var(--color-gray11) 0% 100%
-    );
-  `,
+  background: linear-gradient(
+    -86deg,
+    var(--color-gray9) 0 70%,
+    var(--color-gray11) 0% 100%
+  );
+`,
   dark: css`
-    background: linear-gradient(
-      -2deg,
-      var(--color-gray2) 0 62%,
-      var(--color-gray3) 0% 100%
-    );
-  `,
+  background: linear-gradient(
+    -86deg,
+    var(--color-gray2) 0 70%,
+    var(--color-gray6) 0% 100%
+  );
+`,
 });
 const BoxTheme = theme('mode', {
   light: css`
@@ -192,7 +192,7 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
   box-shadow:unset;
 `;
 const ImgWrapper = styled.div`
-  ${LogoBackground}
+  ${FeaturedLogoBackground}
   position:relative;
   padding: 0.5rem;
   width: 6.625rem;

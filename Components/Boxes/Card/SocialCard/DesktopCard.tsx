@@ -126,7 +126,7 @@ export const FeaturedLogoBackground = theme('mode', {
     background: linear-gradient(
       -86deg,
       var(--color-gray2) 0 70%,
-      var(--color-gray3) 0% 100%
+      var(--color-gray6) 0% 100%
     );
   `,
 });

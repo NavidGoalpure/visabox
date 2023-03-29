@@ -26,7 +26,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
   return (
     <Container>
       <TabRoot
-        defaultValue={t(LanguageKeys.Submitted)}
+        defaultValue={LanguageKeys.Submitted}
         heads={
           <>
             <TabItem
@@ -45,7 +45,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
         }
         bodies={
           <>
-            <RadixTab.Content value={t(LanguageKeys.Submitted)}>
+            <RadixTab.Content value={LanguageKeys.Submitted}>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189
@@ -73,7 +73,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
                 )}
               </Row>
             </RadixTab.Content>
-            <RadixTab.Content value={t(LanguageKeys.Invited)}>
+            <RadixTab.Content value={LanguageKeys.Invited}>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189
@@ -101,7 +101,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
                 )}
               </Row>
             </RadixTab.Content>
-            <RadixTab.Content value={t(LanguageKeys.Lodged)}>
+            <RadixTab.Content value={LanguageKeys.Lodged}>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189
@@ -132,7 +132,6 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
           </>
         }
       />
-      <ColumnWrappers></ColumnWrappers>
     </Container>
   );
 };
@@ -181,5 +180,6 @@ const Row = styled.div`
   @media ${deviceMin.tabletL} {
     flex-direction: row;
     align-items: start;
+    justify-content: center;
   }
 `;

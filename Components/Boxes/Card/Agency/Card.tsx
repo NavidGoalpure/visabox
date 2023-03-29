@@ -1,9 +1,9 @@
-import { HTMLAttributes, useEffect } from "react";
-import { MultiLanguageText } from "Interfaces";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { copyContent, getGsapTimeLine_FadeUp } from "Utils";
-import { componentStatements, LanguageKeys } from "../const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { HTMLAttributes, useEffect } from 'react';
+import { MultiLanguageText } from 'Interfaces';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
+import { componentStatements, LanguageKeys } from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 import {
   Container,
@@ -19,9 +19,9 @@ import {
   WebsiteUrl,
   WebsiteWrapper,
   Wrapper,
-} from "../styledComponents/NormalCard";
-import { BLANK_SYMBOL } from "Consts";
-import styled from "styled-components";
+} from '../styledComponents/NormalCard';
+import { BLANK_SYMBOL } from 'Consts';
+import styled from 'styled-components';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: MultiLanguageText;
@@ -42,7 +42,7 @@ function AgencyCard({ name, email, website, phone, slug, ...props }: Props) {
       <Wrapper>
         <Title>{dt(name)}</Title>
         <StyledSocials>
-          <PhoneWrapper onClick={() => copyContent(phone?.[0] || "")}>
+          <PhoneWrapper onClick={() => copyContent(phone?.[0] || '')}>
             <PhoneTitle>
               {t(LanguageKeys.Phone)}:<CopyIcon />
             </PhoneTitle>
@@ -51,9 +51,9 @@ function AgencyCard({ name, email, website, phone, slug, ...props }: Props) {
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
-              as={hasWebsite ? "a" : "div"}
-              href={hasWebsite ? `https://${website}` : ""}
-              target={"_blank"}
+              as={hasWebsite ? 'a' : 'div'}
+              href={hasWebsite ? `https://${website}` : ''}
+              target={'_blank'}
               $hasWebsite={hasWebsite}
             >
               {!!website ? website : BLANK_SYMBOL}

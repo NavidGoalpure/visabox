@@ -19,10 +19,11 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {NAATIES.filter((naati) => naati.isFeatured).map((naati) => {
+        {NAATIES.filter((naati) => naati.isFeatured).map((naati, i) => {
           if (naati.status === Status.ACTIVE)
             return (
               <VIPNaatiCard
+                key={i}
                 fullname={naati.fullName}
                 desc={naati?.desc}
                 slug={slugify(naati.fullName.en)}
@@ -31,10 +32,11 @@ function Content() {
         })}
       </VIPContainer>
       <NormalNaatiContainer>
-        {NAATIES.filter((naati) => !naati.isFeatured).map((naati) => {
+        {NAATIES.filter((naati) => !naati.isFeatured).map((naati, i) => {
           if (naati.status === Status.ACTIVE)
             return (
               <NaatiCard
+                key={i}
                 fullName={naati.fullName}
                 email={naati.contact.email}
                 website={naati?.contact?.website}

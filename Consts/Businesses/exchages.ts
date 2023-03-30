@@ -42,18 +42,10 @@ export const Exchanges: Exchange[] = [
       'https://lh6.googleusercontent.com/-EWGiO5krhRM/AAAAAAAAAAI/AAAAAAAAAAA/4L0fxrrHYCs/s160-c-k-mo/photo.jpg',
   },
   {
-    fullName: { en: 'Ashena', fa: 'آشنا' },
+    fullName: { en: "Sarafi baloch", fa: "صرافی بلوچ" },
     desc: {
-      en: `At the beginning of 2022, Ashna exchange has started its activity in Australia and in the city of Sydney with the support of an experienced, expert and skilled team in the field of buying and selling and currency transfers between countries.
-
-Ashna, one of the most reliable exchanges in Australia, with the name ASHENA MONEY EXCHANGE PTY LTD and ACN: 658 923 758, is legally registered and under the supervision of the Australian Money Laundering Organization (ASTERC) with the number IND 100805100-001 and has official licenses to operate in the field of money transfer. and financial transfers to all countries.
-
-Ashna Exchange has started its activity with the aim of providing the best services in the shortest time to you, dear compatriots, and is doing its best for this purpose.`,
-      fa: `صرافی آشنا در ابتدای سال 2022 به پشتوانه یک تیم با تجربه، متخصص و ماهر در زمینه خرید و فروش و انتقالات ارزی بین کشورها فعالیت خود را در استرالیا و در شهر سیدنی آغاز نموده است.
-
-آشنا،یکی از معتبرترین صرافی های استرالیا با نام  ASHENA  MONEY  EXCHANGE  PTY  LTD و  ACN:  658 923 758    به صورت قانونی ثبت شده و تحت نظارت سازمان پول شویی استرالیا (آسترک) با شماره IND 100805100-001  دارای مجوز های رسمی فعالیت در زمینه نقل و انتقالات مالی به تمام کشورها می باشد.
-
-صرافی آشنا با هدف ارائه بهترین خدمات در کمترین زمان به شما هموطنان عزیز فعالیت خود را شروع کرده و تمام تلاش خود را به این منظور دارد`,
+      en: `The management of Baloch Exchange started its activity in 1995 with the production and trade of fabrics throughout Iran and then continued in the UAE, South Korea, Thailand and China and then in Australia from 2017 with the official registration of the company (ASIC) and Registration in Austrac organization is active.`,
+      fa: `مدیریت صرافی بلوچ، فعالیت خود را از سال 1995 با تولید و تجارت پارچه در سراسر ایران آغاز و سپس در کشورهای امارات، کره جنوبی، تایلند و چین ادامه داد و پس از آن از سال 2017 در استرالیا با ثبت رسمی شرکت (ASIC) و ثبت در سازمان آسترک (Austrac) مشغول به فعالیت می باشد.`,
     },
     location: { en: 'Australia', fa: 'استرالیا' },
     contact: {

@@ -5,7 +5,6 @@ import styled from "styled-components";
 import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
-  Layer1_HrStyle,
 } from "Styles/Theme/Layers/layer1/style";
 
 export const Container = styled.section`
@@ -19,19 +18,9 @@ export const Container = styled.section`
   max-width: var(--max-width-page);
   margin: 0 auto;
   padding: 2rem 1rem;
-  position: relative;
-  :before {
-    content: "";
-    position: absolute;
-    top: -2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: calc(100% + 2rem);
-    background: var(--color-gray4);
-  }
+
   @media ${deviceMin.tabletS} {
-    flex-direction: row;
+    flex-direction: row-reverse;
     height: 100vh;
   }
 `;
@@ -54,8 +43,8 @@ export const Subtitle = styled.h2`
 `;
 export const ViewAll = styled(PrimaryButton)`
   width: auto;
-  z-index: 10;
   margin: auto !important;
+  z-index: 10;
 `;
 export const StyledLink = styled(Link)`
   z-index: 10;

@@ -5,7 +5,6 @@ import styled from "styled-components";
 import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
-  Layer1_HrStyle,
 } from "Styles/Theme/Layers/layer1/style";
 
 export const Container = styled.section`
@@ -23,11 +22,11 @@ export const Container = styled.section`
   :before {
     content: "";
     position: absolute;
-    top: -2rem;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: calc(100% + 2rem);
+    height: 100%;
     background: var(--color-gray4);
   }
   @media ${deviceMin.tabletS} {
@@ -40,7 +39,7 @@ export const Title = styled.h2`
   ${Layer1_TitleStyle}
   text-align: center !important;
   margin-bottom: 1rem;
-  z-index: 10;
+  z-index:10;
 `;
 export const Subtitle = styled.h2`
   ${Layer1_SubtitleStyle}
@@ -52,11 +51,12 @@ export const Subtitle = styled.h2`
     text-align: center !important;
   }
 `;
+export const StyledLink= styled(Link)`
+z-index:10;
+`
 export const ViewAll = styled(PrimaryButton)`
   width: auto;
-  z-index: 10;
   margin: auto !important;
+   
 `;
-export const StyledLink = styled(Link)`
-  z-index: 10;
-`;
+

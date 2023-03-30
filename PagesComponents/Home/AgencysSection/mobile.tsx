@@ -1,32 +1,34 @@
-import VIPAgentCard from "Components/Lists/Card/Agent/VIPCard";
-import { Agents } from "Consts/Businesses/agents";
+import VIPAgencyCard from "Components/Boxes/Card/Agency/VIPCard";
+
+import { AGENCYS } from "Consts/Businesses/agency";
+
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import Link from "next/link";
+
 import { HTMLAttributes } from "react";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container,  StyledLink,  Subtitle, Title, ViewAll } from "./styledComponents";
+import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgent = Agents.find((agent) => agent.isFeatured);
+  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.isFeatured);
 
   return (
     <Container {...props}>
       <Title>{t(LanguageKeys.Title)}</Title>
-      {vipAgent && (
-        <VIPAgentCard
-          name={vipAgent?.name}
-          desc={vipAgent?.desc}
-          slug={vipAgent?.slug}
+      {vipAgency && (
+        <VIPAgencyCard
+          name={vipAgency.name}
+          desc={vipAgency.desc}
+          slug={vipAgency.slug}
         />
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-      <StyledLink href={`${locale}/boxes/agents`}>
+      <StyledLink href={`${locale}/boxes/agencies`}>
         <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
       </StyledLink>
     </Container>

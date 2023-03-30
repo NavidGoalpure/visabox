@@ -1,11 +1,14 @@
-import OccupationCard from "Components/Cards/Type1/OocccuptionCard";
+import NaatiCard from "Components/Boxes/Card/Naati/Card";
+import { NAATIES } from "Consts/Businesses/naati";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Status } from "Interfaces";
 import Link from "next/link";
 import { HTMLAttributes, useEffect } from "react";
 import styled from "styled-components";
+import { slugify } from "Utils";
 import { GsapSectionAnimation_2 } from "../utils";
-import { CardData, componentStatements, LanguageKeys } from "./const";
+import { componentStatements, LanguageKeys } from "./const";
 import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -14,23 +17,25 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   useEffect(() => {
-    GsapSectionAnimation_2("occupation");
+    GsapSectionAnimation_2("natties");
   }, []);
   return (
     <Container {...props}>
-      <Side className="occupation-card-section">
-        <OccupationCard
-          code={CardData.code}
-          title={CardData.title}
-          description={CardData.description}
-          slug={CardData.slug}
-          tasks={CardData.tasks}
-        />
+      <Side className="natties-card-section">
+        {NAATIES[0]?.status === Status.ACTIVE && (
+          <NaatiCard
+            fullName={NAATIES[0].fullName}
+            email={NAATIES[0].contact.email}
+            website={NAATIES[0].contact.website}
+            phone={NAATIES[0].contact.phone}
+            slug={slugify(NAATIES[0].fullName.en)}
+          />
+        )}
       </Side>
-      <Side className="occupation-text-section">
+      <Side className="natties-text-section">
         <Title>{t(LanguageKeys.Title)}</Title>
         <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-        <StyledLink href={`${locale}/occupations`}>
+        <StyledLink href={`${locale}/boxes/naaties`}>
           <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
         </StyledLink>
       </Side>

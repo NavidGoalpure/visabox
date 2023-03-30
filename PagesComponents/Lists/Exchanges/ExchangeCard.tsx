@@ -43,6 +43,7 @@ function MobileExchangeCard({
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
           <Img
+            loading='lazy'
             src={logoUrl ? logoUrl : `/Images/placeholder.jpeg`}
             alt='image'
             width={92}

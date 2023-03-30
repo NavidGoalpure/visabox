@@ -16,7 +16,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <Container {...props}>
       <Title>{t(LanguageKeys.Title)}</Title>
-      <ExchangeCard {...Exchanges[2]} />
+      <ExchangeCard {...Exchanges[1]} />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
       <StyledLink href={`${locale}/boxes/exchanges`}>
         <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>

@@ -22,7 +22,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     <Container {...props}>
       <Side className="exchanges-card-section">
         <StyledExchangeCard
-{...Exchanges[2]}
+{...Exchanges[1]}
         />
       </Side>
       <Side className="exchanges-text-section">

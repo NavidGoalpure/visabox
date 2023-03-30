@@ -1,6 +1,3 @@
-import Image from 'next/image';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { FaTelegramPlane } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { layer1_BG, layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
@@ -146,9 +143,9 @@ const Container = styled.a<{ isFeatured: boolean }>`
   margin-top: 4.5rem;
   row-gap: 3rem;
   transition: all 0.3s ease;
-  width: 25rem;
   @media ${deviceMin.laptopXS} {
-    ${({ isFeatured }) => !isFeatured && 'width: 30%;'}
+    width: 25rem;
+    ${({ isFeatured }) => !isFeatured && "width: 30%;"}
   }
   :hover {
     transform: scale(1.05);

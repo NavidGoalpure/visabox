@@ -19,7 +19,7 @@ import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { layer2B_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { Socials, SocialMediaTypes } from 'Interfaces/Socials';
+import { Socials, SocialMediaTypes } from 'Interfaces/Lists/Socials';
 
 interface Props extends Socials {
   isRtl: boolean;

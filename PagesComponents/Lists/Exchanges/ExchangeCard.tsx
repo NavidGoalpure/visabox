@@ -16,37 +16,37 @@ import { Headline6Style, Headline7Style } from 'Styles/Typo';
 
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
-import { ExchangeCard } from './interfaces';
 import { FcCurrencyExchange } from 'react-icons/fc';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
+import { Exchange } from 'Interfaces/Lists/exchanges';
 
-type Props = ExchangeCard;
+type Props = Exchange;
+
 function MobileExchangeCard({
   desc,
   location,
-  name,
-  externalLink,
-  slug,
-  hasImage,
+  fullName,
   isFeatured,
+  logoUrl,
+  contact,
 }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <Container href={externalLink} target={'_blank'} isFeatured={isFeatured}>
+    <Container
+      href={contact?.website}
+      target={'_blank'}
+      isFeatured={isFeatured}
+    >
       <Wrapper isFeatured={isFeatured}>
         <ImgWrapper>
           <Img
-            fill
-            src={
-              hasImage
-                ? `/Images/lists/exchanges/${slug}.jpg`
-                : `/Images/placeholder.jpeg`
-            }
+            src={logoUrl ? logoUrl : `/Images/placeholder.jpeg`}
             alt='image'
-            sizes='96px'
+            width={92}
+            height={92}
           />
         </ImgWrapper>
         {isFeatured && (
@@ -54,7 +54,7 @@ function MobileExchangeCard({
             <VIPBox aria-hidden={true} />
           </VIPBoxContainer>
         )}
-        <NameTag isFeatured={isFeatured}>{dt(name)} </NameTag>
+        <NameTag isFeatured={isFeatured}>{dt(fullName)} </NameTag>
         <Desc isFeatured={isFeatured}>{dt(desc)}</Desc>
 
         <SocialMediaTag isFeatured={isFeatured}>
@@ -175,25 +175,7 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
         `}
   box-shadow:unset;
 `;
-const ImgWrapper = styled.div`
-  ${LogoBackground}
-  position:relative;
-  padding: 0.5rem;
-  width: 6.625rem;
-  height: 6.625rem;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -52%) rotate(4deg);
-  border-radius: 10px;
-  border: none;
-  transition: all 0.3s ease;
-  z-index: 2;
-  transition: all 0.3s ease;
-  ${Container}:hover & {
-    transform: translate(-50%, -52%) rotate(0);
-  }
-`;
+
 const VIPBoxContainer = styled.div`
   width: 3rem;
   height: 3rem;
@@ -228,10 +210,41 @@ const NameTag = styled.h4<{ isFeatured: boolean }>`
       ? `background-color: var(--color-gray7); color:var(--color-gray13);`
       : layer2A_HeaderBG}
 `;
-const Img = styled(Image)`
-  position: relative !important;
+const ImgWrapper = styled.div`
+  ${LogoBackground}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.5rem;
+  width: 6.625rem;
+  height: 6.625rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -52%) rotate(4deg);
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease;
+  z-index: 2;
+  transition: all 0.3s ease;
+  ${Container}:hover & {
+    transform: translate(-50%, -52%) rotate(0);
+  }
+`;
+const Img = styled.img`
   object-fit: cover;
   transition: all 0.3s ease;
+  height: 92px;
+  width: 92px;
+  background: white;
+  border-radius: 10px;
+  border-radius: 10px;
+
+  ${Container}:hover & {
+    height: 96px;
+    width: 96px;
+  }
 `;
 const Desc = styled.p<{ isFeatured: boolean }>`
   ${Headline6Style};

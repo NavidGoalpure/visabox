@@ -1,5 +1,5 @@
 import useDevice from 'Hooks/useDevice';
-import { Agency } from 'Interfaces/Businesses/agency';
+import { Agency } from 'Interfaces/Lists/agency';
 import { useState, useEffect } from 'react';
 import DesktopAgentsPage from './Desktop/DesktopAgentsPage';
 import MobileAgenciesPage from './Mobile/MobileAgenciesPage';

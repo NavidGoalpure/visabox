@@ -7,7 +7,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { SidebarPage } from 'PagesComponents/Lists/Agents/AgentPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
-import { Agent } from 'Interfaces/Businesses/agents';
+import { Agent } from 'Interfaces/Lists/agents';
 interface Props {
   ChosenAgent?: Agent;
 }

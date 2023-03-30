@@ -1,5 +1,5 @@
 import { ClientError } from '@sanity/client';
-import { Occupation } from 'Interfaces/Documents/occupation';
+import { Occupation } from 'Interfaces/Occupation/occupation';
 import { getOccupationsList } from 'Queries/occupations/List';
 import { useInfiniteQuery } from 'react-query';
 import { OccupationsQueryKeys } from 'Utils/query';

@@ -15,7 +15,7 @@ import {
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
-import { Agent } from 'Interfaces/Businesses/agents';
+import { Agent } from 'Interfaces/Lists/agents';
 interface Props {
   ChosenAgent?: Agent;
 }

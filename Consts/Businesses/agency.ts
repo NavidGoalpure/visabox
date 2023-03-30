@@ -1,5 +1,5 @@
 import { Country, Status } from 'Interfaces';
-import { Agency } from 'Interfaces/Businesses/agency';
+import { Agency } from 'Interfaces/Lists/agency';
 
 export const AGENCYS: Agency[] = [
   {

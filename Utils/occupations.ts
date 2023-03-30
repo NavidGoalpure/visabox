@@ -1,4 +1,4 @@
-import { Territories } from 'Interfaces/Documents/occupation';
+import { Territories } from 'Interfaces/Occupation/occupation';
 
 /**
  *فانکشنی که روی همه تروریتی های استرالیا مپ زده و یک آرایه از آنها می‌سازد

@@ -1,14 +1,14 @@
 import {
   AssessingAuthorityAbv,
   Occupation,
-} from "Interfaces/Documents/occupation";
-import { ParsedUrlQuery } from "querystring";
+} from 'Interfaces/Occupation/occupation';
+import { ParsedUrlQuery } from 'querystring';
 import {
   MLTSSL_LIST,
   multiAssessingAuthority,
   ROL_LIST,
   STSOL_LIST,
-} from "./const";
+} from './const';
 
 /**
  *این فاننکشن پارامز ها رو از یوآرال میگیره و بر اساس اون فیلتر کوئری رو میسازه
@@ -26,7 +26,7 @@ export function getSmartparam(params: ParsedUrlQuery | undefined): {
 } {
   const numberParam = Number(params?.slugOrCode);
   return isNaN(numberParam) === true
-    ? { slug: params?.slugOrCode?.toString() || "" }
+    ? { slug: params?.slugOrCode?.toString() || '' }
     : { code: Number(params?.slugOrCode) };
 }
 ///////////////////

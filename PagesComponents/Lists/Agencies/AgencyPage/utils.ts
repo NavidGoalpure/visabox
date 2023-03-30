@@ -1,6 +1,6 @@
-import { Agents } from "Consts/Businesses/agents";
-import { VipSocialMedias } from "Consts/Socials";
-import { Agency } from "Interfaces/Businesses/agency";
+import { Agents } from 'Consts/Businesses/agents';
+import { VipSocialMedias } from 'Consts/Socials';
+import { Agency } from 'Interfaces/Lists/agency';
 
 export const getAgencyAgents = (ChosenAgency?: Agency) => {
   const agents = ChosenAgency?.agentsId?.map((agentId) => {
@@ -13,5 +13,5 @@ export const getAgencySocials = (ChosenAgency?: Agency) => {
     return VipSocialMedias.filter((social) => social.id === socialId)[0];
   });
   if (agents?.[0] !== undefined) return agents;
-  return null
+  return null;
 };

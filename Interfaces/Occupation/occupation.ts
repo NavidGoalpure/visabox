@@ -8,7 +8,7 @@
 // match the expected interface, even if the JSON is valid.
 
 import { MultiLanguageText, MultiLanguageTextArray } from '..';
-import { Slug } from '../Fields';
+import { Slug } from './Fields';
 import { UnitGroup } from './unitGroup';
 import { Territory } from './territory';
 

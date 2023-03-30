@@ -1,5 +1,5 @@
 import { Locations, Status } from 'Interfaces';
-import { Agent } from 'Interfaces/Businesses/agents';
+import { Agent } from 'Interfaces/Lists/agents';
 
 export const Agents: Agent[] = [
   {

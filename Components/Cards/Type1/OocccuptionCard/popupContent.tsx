@@ -1,7 +1,7 @@
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { MultiLanguageTextArray } from 'Interfaces';
-import { Slug } from 'Interfaces/Fields';
+import { Slug } from 'Interfaces/Occupation/Fields';
 import { useRouter } from 'next/router';
 import React, { Fragment } from 'react';
 import { componentStatements, LanguageKeys } from './const';

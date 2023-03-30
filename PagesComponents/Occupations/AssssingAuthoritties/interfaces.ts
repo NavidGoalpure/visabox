@@ -1,5 +1,5 @@
 import { MultiLanguageText } from 'Interfaces';
-import { AssessingAuthorityAbv } from 'Interfaces/Documents/occupation';
+import { AssessingAuthorityAbv } from 'Interfaces/Occupation/occupation';
 
 type AssssingAuthority = {
   title: MultiLanguageText;

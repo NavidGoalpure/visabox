@@ -1,4 +1,4 @@
-import { Occupation } from 'Interfaces/Documents/occupation';
+import { Occupation } from 'Interfaces/Occupation/occupation';
 import { getAllOccupationCodes } from 'Queries/sitemap';
 
 const OccupatopnsPage_EN = 'https://marabox.com/en/occupations';
@@ -27,13 +27,33 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
      </url>
 
      <url>
+       <loc>${OccupatopnsPage_EN}/lists/agencies</loc>
+     </url>
+     <url>
+       <loc>${OccupatopnsPage_FA}/lists/agencies</loc>
+     </url>
+ 
+
+     <url>
        <loc>${OccupatopnsPage_EN}/lists/agents</loc>
      </url>
      <url>
        <loc>${OccupatopnsPage_FA}/lists/agents</loc>
      </url>
      
- 
+     <url>
+       <loc>${OccupatopnsPage_EN}/lists/naaties</loc>
+     </url>
+     <url>
+       <loc>${OccupatopnsPage_FA}/lists/naaties</loc>
+     </url>
+      
+      <url>
+       <loc>${OccupatopnsPage_EN}/lists/exchanges</loc>
+     </url>
+     <url>
+       <loc>${OccupatopnsPage_FA}/lists/exchanges</loc>
+     </url>
      ${occupations
        .map(({ slug }) => {
          return `

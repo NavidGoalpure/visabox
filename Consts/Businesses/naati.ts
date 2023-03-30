@@ -1,5 +1,5 @@
 import { Status } from 'Interfaces';
-import { Naati } from 'Interfaces/Businesses/naaties';
+import { Naati } from 'Interfaces/Lists/naaties';
 
 export const NAATIES: Naati[] = [
   {
@@ -246,7 +246,12 @@ export const NAATIES: Naati[] = [
       fa: 'ایران',
     },
     contact: {
-      phone: ['+982188822452', '+982188862034', '+989211914685', '+989122790683'],
+      phone: [
+        '+982188822452',
+        '+982188862034',
+        '+989211914685',
+        '+989122790683',
+      ],
       email: 'atefeh.pashazadeh@gmail.com',
       website: 'www.tehrannaati.com',
     },

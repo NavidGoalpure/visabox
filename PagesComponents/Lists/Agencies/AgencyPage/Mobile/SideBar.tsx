@@ -12,8 +12,8 @@ import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
 import { componentStatements, LanguageKeys } from '../const';
 import { FaRegHandshake } from 'react-icons/fa';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
-import { Agent } from 'Interfaces/Businesses/agents';
-import { Socials } from 'Interfaces/Socials';
+import { Agent } from 'Interfaces/Lists/agents';
+import { Socials } from 'Interfaces/Lists/Socials';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import SmartSocial from 'Components/Lists/Card/SocialCard';
 interface Props {

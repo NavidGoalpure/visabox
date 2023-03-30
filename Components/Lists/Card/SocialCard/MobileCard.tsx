@@ -18,7 +18,7 @@ import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
-import { SocialMediaTypes, Socials } from 'Interfaces/Socials';
+import { SocialMediaTypes, Socials } from 'Interfaces/Lists/Socials';
 import { HTMLAttributes } from 'react';
 
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}

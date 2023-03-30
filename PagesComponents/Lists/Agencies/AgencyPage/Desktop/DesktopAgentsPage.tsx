@@ -15,7 +15,7 @@ import {
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
-import { Agency } from 'Interfaces/Businesses/agency';
+import { Agency } from 'Interfaces/Lists/agency';
 import { getAgencyAgents, getAgencySocials } from '../utils';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import SmartSocial from 'Components/Lists/Card/SocialCard';

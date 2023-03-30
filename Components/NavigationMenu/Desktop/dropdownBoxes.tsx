@@ -18,7 +18,7 @@ function DesktopBusinessDropdown() {
       noScroll
       triggerProps={{
         id: 'bussiness-trigger',
-        placeholder: t(LanguageKeys.Businesses),
+        placeholder: t(LanguageKeys.Lists),
       }}
     >
       <MaraSelect.Item

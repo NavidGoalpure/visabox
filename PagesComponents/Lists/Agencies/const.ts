@@ -22,8 +22,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Migration Agencies',
   },
   PageDesc: {
-    fa: 'این صفحه برای افراد یا خانواده هایی است که با کمک موسسه مهاجرت به دنبال مهاجرت دائم به استرالیا هستند',
-    en: `This page is for people or families looking to permanently migrate to Australia with help of a migration agencies`,
+    fa: 'برای انتخاب موسسه مهاجرتی مناسب، می‌توانید از این لیست کمک بگیرید. این لیست شامل اطلاعات مرتبط با کلیه موسسات مهاجرتی ایران است که حداقل با یک وکیل مورد تایید اداره مهاجرت استرالیا همکاری می‌کنند.',
+    en: `You can use this list to choose the right immigration agency. This list contains information related to all Iranian immigration agencies that cooperate with at least one lawyer approved by the Australian Immigration Department.`,
   },
 };
 

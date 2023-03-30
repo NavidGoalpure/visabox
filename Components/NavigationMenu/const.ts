@@ -4,7 +4,7 @@ import { DropdownItem } from './interface';
 
 export enum LanguageKeys {
   Home = 'Home',
-  Businesses = 'Businesses',
+  Lists = 'Lists',
   Occupations = 'Occupations',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
@@ -12,8 +12,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Home',
     fa: 'صفحه اصلی',
   },
-  Businesses: {
-    en: 'Boxes',
+  Lists: {
+    en: 'Lists',
     fa: 'لیست‌ها',
   },
   Occupations: {
@@ -24,27 +24,27 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 export const boxesItems: DropdownItem[] = [
   {
     title: {
-      en: 'Agencies Box',
+      en: 'Agencies',
       fa: 'لیست موسسات مهاجرتی',
     },
     href: '/lists/agencies',
   },
   {
-    title: { en: 'Agents Box', fa: 'لیست وکلا' },
+    title: { en: 'Agents', fa: 'لیست وکلا' },
     href: '/lists/agents',
   },
   {
-    title: { en: 'Naati Box', fa: 'لیست مترجمین' },
+    title: { en: 'Naati', fa: 'لیست مترجمین' },
     href: '/lists/naaties',
   },
   {
-    title: { en: 'Exchanges Box', fa: 'لیست صرافی‌ها' },
+    title: { en: 'Exchanges', fa: 'لیست صرافی‌ها' },
     href: '/lists/exchanges',
   },
 
   {
     title: {
-      en: 'Social Network Box',
+      en: 'Social Network',
       fa: 'شبکه های اجتماعی',
     },
     href: '/lists/social-pages',

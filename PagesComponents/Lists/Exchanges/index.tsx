@@ -1,4 +1,4 @@
-import { Exchanges } from 'Consts/Businesses/exchages';
+import { Exchanges } from 'Consts/Lists/exchages';
 import { deviceMin } from 'Consts/device';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import {
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
-import ExchangeCard from '../../../Components/Boxes/Card/Exchange/ExchangeCard';
+import ExchangeCard from '../../../Components/Lists/Card/Exchange/ExchangeCard';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

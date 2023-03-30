@@ -1,5 +1,6 @@
-import ExchangeCard from "Components/Boxes/Card/Exchange/ExchangeCard";
-import { Exchanges } from "Consts/Businesses/exchages";
+
+import ExchangeCard from "Components/Lists/Card/Exchange/ExchangeCard";
+import { Exchanges } from "Consts/Lists/exchages";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
@@ -21,14 +22,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
     <Container {...props}>
       <Side className="exchanges-card-section">
         <StyledExchangeCard
-          isFeatured={Exchanges[2].isFeatured}
-          desc={Exchanges[2].desc}
-          name={Exchanges[2].fullName}
-          externalLink={Exchanges[2].contact.website || ""}
-          location={Exchanges[2].location}
-          slug={Exchanges[2].slug}
-          hasImage={Exchanges[2].hasImage}
-          contact={{}}
+{...Exchanges[2]}
         />
       </Side>
       <Side className="exchanges-text-section">

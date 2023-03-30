@@ -6,7 +6,7 @@ import {
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { NAATIES } from 'Consts/Businesses/naati';
+import { NAATIES } from 'Consts/Lists/naati';
 import { slugify } from 'Utils';
 import { Status } from 'Interfaces';
 import VIPNaatiCard from 'Components/Lists/Card/Naati/VIPCard';

@@ -8,7 +8,7 @@ import { useLocale } from 'Hooks/useLocale';
 import { useRouter } from 'next/router';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
-import { AGENCYS } from 'Consts/Businesses/agency';
+import { AGENCYS } from 'Consts/Lists/agency';
 import Content from 'PagesComponents/Lists/Agencies/AgencyPage';
 
 const VipAgencyPage = () => {

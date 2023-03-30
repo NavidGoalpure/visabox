@@ -19,7 +19,7 @@ import { deviceMin } from 'Consts/device';
 import { FcCurrencyExchange } from 'react-icons/fc';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
+import { componentStatements, LanguageKeys } from '../../../../PagesComponents/Lists/Exchanges/const';
 import { Exchange } from 'Interfaces/Lists/exchanges';
 
 type Props = Exchange;

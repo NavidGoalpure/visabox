@@ -1,15 +1,21 @@
-import VIPAgentCard from "Components/Boxes/Card/Agent/VIPCard";
-import { Agents } from "Consts/Businesses/agents";
+import VIPAgentCard from "Components/Lists/Card/Agent/VIPCard";
+import { Agents } from "Consts/Lists/agents";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
 import styled from "styled-components";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
+import {
+  Container,
+  StyledLink,
+  Subtitle,
+  Title,
+  ViewAll,
+} from "./styledComponents";
 import { HTMLAttributes, useEffect } from "react";
 import { GsapSectionAnimation_1 } from "../utils";
-import { AGENCYS } from "Consts/Businesses/agency";
-import VIPAgencyCard from "Components/Boxes/Card/Agency/VIPCard";
+import { AGENCYS } from "Consts/Lists/agency";
+import VIPAgencyCard from "Components/Lists/Card/Agency/VIPCard";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props

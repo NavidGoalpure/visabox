@@ -1,5 +1,5 @@
-import ExchangeCard from "Components/Boxes/Card/Exchange/ExchangeCard";
-import { Exchanges } from "Consts/Businesses/exchages";
+import ExchangeCard from "Components/Lists/Card/Exchange/ExchangeCard";
+import { Exchanges } from "Consts/Lists/exchages";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
@@ -16,16 +16,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <Container {...props}>
       <Title>{t(LanguageKeys.Title)}</Title>
-      <ExchangeCard
-        isFeatured={Exchanges[2].isFeatured}
-        desc={Exchanges[2].desc}
-        name={Exchanges[2].fullName}
-        externalLink={Exchanges[2].contact.website || ""}
-        location={Exchanges[2].location}
-        slug={Exchanges[2].slug}
-        hasImage={Exchanges[2].hasImage}
-        contact={{}}
-      />
+      <ExchangeCard {...Exchanges[2]} />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
       <StyledLink href={`${locale}/boxes/exchanges`}>
         <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>

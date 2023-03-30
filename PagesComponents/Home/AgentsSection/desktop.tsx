@@ -1,5 +1,5 @@
 import VIPAgentCard from "Components/Lists/Card/Agent/VIPCard";
-import { Agents } from "Consts/Businesses/agents";
+import { Agents } from "Consts/Lists/agents";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";

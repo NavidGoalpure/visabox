@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import Content from 'PagesComponents/Lists/Agents/AgentPage';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
-import { Agents } from 'Consts/Businesses/agents';
+import { Agents } from 'Consts/Lists/agents';
 
 const VipAgentPage = () => {
   const router = useRouter();

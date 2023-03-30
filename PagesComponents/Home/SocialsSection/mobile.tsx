@@ -1,12 +1,18 @@
-import { Agents } from "Consts/Businesses/agents";
-import { VipSocialMedias } from "Consts/Socials";
+import { Agents } from "Consts/Lists/agents";
+import { VipSocialMedias } from "Consts/Lists/Socials";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
 import { HTMLAttributes } from "react";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
-import SmartSocialCard from "Components/Boxes/Card/SocialCard";
+import {
+  Container,
+  StyledLink,
+  Subtitle,
+  Title,
+  ViewAll,
+} from "./styledComponents";
+import SmartSocialCard from "Components/Lists/Card/SocialCard";
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {

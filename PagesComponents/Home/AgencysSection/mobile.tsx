@@ -1,13 +1,19 @@
-import VIPAgencyCard from "Components/Boxes/Card/Agency/VIPCard";
+import VIPAgencyCard from "Components/Lists/Card/Agency/VIPCard";
 
-import { AGENCYS } from "Consts/Businesses/agency";
+import { AGENCYS } from "Consts/Lists/agency";
 
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 
 import { HTMLAttributes } from "react";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
+import {
+  Container,
+  StyledLink,
+  Subtitle,
+  Title,
+  ViewAll,
+} from "./styledComponents";
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props

@@ -1,5 +1,5 @@
-import { Agents } from 'Consts/Businesses/agents';
-import { VipSocialMedias } from 'Consts/Socials';
+import { Agents } from 'Consts/Lists/agents';
+import { VipSocialMedias } from 'Consts/Lists/Socials';
 import { Agency } from 'Interfaces/Lists/agency';
 
 export const getAgencyAgents = (ChosenAgency?: Agency) => {

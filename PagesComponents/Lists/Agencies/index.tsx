@@ -8,7 +8,7 @@ import {
 } from 'Styles/Theme/Layers/layer1/style';
 import VIPAgencyCard from '../../../Components/Lists/Card/Agency/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { AGENCYS } from 'Consts/Businesses/agency';
+import { AGENCYS } from 'Consts/Lists/agency';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

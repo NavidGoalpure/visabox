@@ -1,5 +1,5 @@
-import NaatiCard from "Components/Boxes/Card/Naati/Card";
-import { NAATIES } from "Consts/Businesses/naati";
+import NaatiCard from "Components/Lists/Card/Naati/Card";
+import { NAATIES } from "Consts/Lists/naati";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Status } from "Interfaces";
@@ -9,7 +9,13 @@ import styled from "styled-components";
 import { slugify } from "Utils";
 import { GsapSectionAnimation_2 } from "../utils";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
+import {
+  Container,
+  StyledLink,
+  Subtitle,
+  Title,
+  ViewAll,
+} from "./styledComponents";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props

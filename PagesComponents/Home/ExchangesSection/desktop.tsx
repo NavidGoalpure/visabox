@@ -7,7 +7,7 @@ import { HTMLAttributes, useEffect } from "react";
 import styled from "styled-components";
 import { GsapSectionAnimation_2 } from "../utils";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, Subtitle, Title, ViewAll } from "./styledComponents";
+import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -34,9 +34,9 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       <Side className="exchanges-text-section">
         <Title>{t(LanguageKeys.Title)}</Title>
         <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-        <Link href={`${locale}/boxes/exchanges`}>
+        <StyledLink href={`${locale}/boxes/exchanges`}>
           <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
-        </Link>
+        </StyledLink>
       </Side>
     </Container>
   );

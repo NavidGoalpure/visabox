@@ -4,7 +4,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Link from 'next/link';
 import { HTMLAttributes } from 'react';
 import { CardData, componentStatements, LanguageKeys } from './const';
-import { Container, Subtitle, Title, ViewAll } from './styledComponents';
+import { Container, StyledLink, Subtitle, Title, ViewAll } from './styledComponents';
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -23,9 +23,9 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         tasks={CardData.tasks}
       />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-      <Link href={`${locale}/occupations`}>
+      <StyledLink href={`${locale}/occupations`}>
         <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
-      </Link>
+      </StyledLink>
     </Container>
   );
 };

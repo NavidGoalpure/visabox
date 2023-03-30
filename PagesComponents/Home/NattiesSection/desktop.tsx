@@ -1,12 +1,15 @@
-import OccupationCard from "Components/Cards/Type1/OocccuptionCard";
+import NaatiCard from "Components/Boxes/Card/Naati/Card";
+import { NAATIES } from "Consts/Businesses/naati";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Status } from "Interfaces";
 import Link from "next/link";
 import { HTMLAttributes, useEffect } from "react";
 import styled from "styled-components";
+import { slugify } from "Utils";
 import { GsapSectionAnimation_2 } from "../utils";
-import { CardData, componentStatements, LanguageKeys } from "./const";
-import { Container, Subtitle, Title, ViewAll } from "./styledComponents";
+import { componentStatements, LanguageKeys } from "./const";
+import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -19,20 +22,22 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <Container {...props}>
       <Side className="natties-card-section">
-        <OccupationCard
-          code={CardData.code}
-          title={CardData.title}
-          description={CardData.description}
-          slug={CardData.slug}
-          tasks={CardData.tasks}
-        />
+        {NAATIES[0]?.status === Status.ACTIVE && (
+          <NaatiCard
+            fullName={NAATIES[0].fullName}
+            email={NAATIES[0].contact.email}
+            website={NAATIES[0].contact.website}
+            phone={NAATIES[0].contact.phone}
+            slug={slugify(NAATIES[0].fullName.en)}
+          />
+        )}
       </Side>
       <Side className="natties-text-section">
         <Title>{t(LanguageKeys.Title)}</Title>
         <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-        <Link href={`${locale}/boxes/naaties`}>
+        <StyledLink href={`${locale}/boxes/naaties`}>
           <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
-        </Link>
+        </StyledLink>
       </Side>
     </Container>
   );

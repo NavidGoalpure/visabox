@@ -5,7 +5,7 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
 import { HTMLAttributes } from "react";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, Subtitle, Title, ViewAll } from "./styledComponents";
+import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -27,9 +27,9 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         contact={{}}
       />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-      <Link href={`${locale}/boxes/exchanges`}>
+      <StyledLink href={`${locale}/boxes/exchanges`}>
         <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
-      </Link>
+      </StyledLink>
     </Container>
   );
 };

@@ -5,7 +5,7 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
 import styled from "styled-components";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, Subtitle, Title, ViewAll } from "./styledComponents";
+import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
 import { HTMLAttributes, useEffect } from "react";
 import { GsapSectionAnimation_1 } from "../utils";
 import { AGENCYS } from "Consts/Businesses/agency";
@@ -36,9 +36,9 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-          <Link href={`${locale}/boxes/agencies`}>
+          <StyledLink href={`${locale}/boxes/agencies`}>
             <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
-          </Link>
+          </StyledLink>
         </Side>
       </Container>
     </>

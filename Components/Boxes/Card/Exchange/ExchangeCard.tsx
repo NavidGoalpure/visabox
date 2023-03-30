@@ -155,8 +155,8 @@ const Container = styled.a<{ isFeatured: boolean }>`
   margin-top: 4.5rem;
   row-gap: 3rem;
   transition: all 0.3s ease;
-  width: 25rem;
   @media ${deviceMin.laptopXS} {
+    width: 25rem;
     ${({ isFeatured }) => !isFeatured && "width: 30%;"}
   }
   :hover {

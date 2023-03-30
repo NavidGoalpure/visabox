@@ -1,5 +1,5 @@
 import { Locations } from 'Interfaces';
-import { SocialMediaTypes, Socials } from 'Interfaces/Socials';
+import { SocialMediaTypes, Socials } from 'Interfaces/Lists/Socials';
 
 export const VipSocialMedias: Socials[] = [
   {

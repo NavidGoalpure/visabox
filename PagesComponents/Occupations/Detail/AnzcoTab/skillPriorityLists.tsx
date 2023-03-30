@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { deviceMin } from 'Consts/device';
-import { PriorityList, Territories } from 'Interfaces/Documents/occupation';
+import { PriorityList, Territories } from 'Interfaces/Occupation/occupation';
 import { getShortageStatusBaseOnAlias } from './utils';
 import ShortageTag from './shortageTag';
 import theme from 'styled-theming';

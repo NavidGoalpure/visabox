@@ -1,5 +1,5 @@
 import { sanityClient } from 'Utils/sanity';
-import { Occupation } from 'Interfaces/Documents/occupation';
+import { Occupation } from 'Interfaces/Occupation/occupation';
 import { ClientError } from '@sanity/client';
 import { OccupationDetailRes } from './interface';
 

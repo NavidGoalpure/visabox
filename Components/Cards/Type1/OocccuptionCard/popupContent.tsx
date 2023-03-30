@@ -1,7 +1,7 @@
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { MultiLanguageTextArray } from 'Interfaces';
-import { Slug } from 'Interfaces/Fields';
+import { Slug } from 'Interfaces/Occupation/Fields';
 import { useRouter } from 'next/router';
 import React, { Fragment } from 'react';
 import { componentStatements, LanguageKeys } from './const';
@@ -22,9 +22,18 @@ const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
   return (
     <>
       <PopupTitle>{t(LanguageKeys.Tasks)}</PopupTitle>
-      {isMultiLanguageTextArrayIsEmpty(tasks) ? (
+      {/* navid check empty */}
+      <ul style={{ direction: 'ltr' }}>
+        {tasks.en?.map((task, i) => (
+          <Fragment key={i}>
+            <li>{task}</li>
+            <br />
+          </Fragment>
+        ))}
+      </ul>
+      {/* {isMultiLanguageTextArrayIsEmpty(tasks) ? (
         <ul>
-          {dtArray(tasks)?.map((task, i) => (
+          {tasks.en?.map((task, i) => (
             <Fragment key={i}>
               <li>{task}</li>
               <br />
@@ -33,7 +42,7 @@ const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
         </ul>
       ) : (
         <p>{t(LanguageKeys.NoTask)}</p>
-      )}
+      )} */}
       <StyledButton
         onClick={() => router.push(`/${locale}/occupations/${slug?.current}`)}
       >

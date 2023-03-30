@@ -1,11 +1,11 @@
-import VIPAgentCard from "Components/Boxes/Card/Agent/VIPCard";
-import { Agents } from "Consts/Businesses/agents";
-import { useLocale } from "Hooks/useLocale";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import Link from "next/link";
-import { HTMLAttributes } from "react";
-import { componentStatements, LanguageKeys } from "./const";
-import { Container, Hr, Subtitle, Title, ViewAll } from "./styledComponents";
+import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
+import { Agents } from 'Consts/Businesses/agents';
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import Link from 'next/link';
+import { HTMLAttributes } from 'react';
+import { componentStatements, LanguageKeys } from './const';
+import { Container, Hr, Subtitle, Title, ViewAll } from './styledComponents';
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -26,7 +26,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-      <Link href={`${locale}/boxes/agents`}>
+      <Link href={`${locale}/lists/agents`}>
         <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
       </Link>
       <Hr />

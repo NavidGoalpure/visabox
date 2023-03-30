@@ -1,5 +1,5 @@
 import { Locations, Status } from 'Interfaces';
-import { Agent } from 'Interfaces/Businesses/agents';
+import { Agent } from 'Interfaces/Lists/agents';
 
 export const Agents: Agent[] = [
   {
@@ -20,11 +20,11 @@ Spoken Languages: English; Persian; Dari.`,
       <div>
       <p>&nbsp;</p>
 
-      <p>محمد نماینده اصلی مهاجرت در خدمات مهاجرت و آموزش شادا است.</p>
+      <p>محمد عظیمی نماینده اصلی مهاجرت در خدمات مهاجرت و آموزش شادا است.</p>
 
-      <p>او به عنوان یک کارگزار آموزشی واجد شرایط استرالیا، دارای مدرک لیسانس در مترجمی زبان انگلیسی و مدرک تحصیلات تکمیلی در قانون مهاجرت از دانشگاه ملی استرالیا است. محمد به زبان های گفتاری و نوشتاری فارسی، دری و انگلیسی مسلط است و مترجم فارسی نااتی معتبر و دارای مجوز است. NAATI (مرجع ملی اعتباربخشی مترجمان و مترجمان) استانداردهای ملی و سازمان اعتباربخشی مترجمان و مترجمان در استرالیا است.</p>
+      <p>او به عنوان یک کارگزار آموزشی واجد شرایط استرالیا، دارای مدرک لیسانس در مترجمی زبان انگلیسی و مدرک تحصیلات تکمیلی در قانون مهاجرت از دانشگاه ملی استرالیا است. محمد عظیمی به زبان های گفتاری و نوشتاری فارسی، دری و انگلیسی مسلط است و مترجم فارسی نااتی معتبر و دارای مجوز است. NAATI (مرجع ملی اعتباربخشی مترجمان و مترجمان) استانداردهای ملی و سازمان اعتباربخشی مترجمان و مترجمان در استرالیا است.</p>
 
-      <p>محمد یکی از اعضای فعال Migration Alliance، انجمن های حرفه ای ارائه دهندگان خدمات مهاجرت استرالیا است. او به عنوان راهنمای تور برای بازدیدکنندگان خارج از کشور در سراسر ایران کار کرده است و درک صمیمانه ای از کشور مادری خود، ایران دارد.</p>
+      <p>محمد عظیمی یکی از اعضای فعال Migration Alliance، انجمن های حرفه ای ارائه دهندگان خدمات مهاجرت استرالیا است. او به عنوان راهنمای تور برای بازدیدکنندگان خارج از کشور در سراسر ایران کار کرده است و درک صمیمانه ای از کشور مادری خود، ایران دارد.</p>
 
       <p>او بین سال‌های 1376 تا 1378 مدرس زبان انگلیسی در مرکز آموزش آزاد دانشگاه آزاد و سازمان ملی پرورش استعدادهای درخشان در تهران بود. محمد در هر دو کشور ایران و استرالیا به عنوان مترجم کار کرده است و پنج نشریه در کارنامه خود دارد.</p>
 
@@ -99,7 +99,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt4',
     name: { en: 'Sirous Ahmadi', fa: 'سیروس احمدی' },
     slug: 'sirous-ahmadi',
-    
+
     maraNumber: '0854826',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -116,7 +116,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt5',
     name: { en: 'Reza Aein', fa: 'رضا آیین' },
     slug: 'reza-aein',
-    
+
     maraNumber: '0955595',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -132,7 +132,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt6',
     name: { en: 'Hami Niroumand', fa: 'حامی نیرومند' },
     slug: 'hami-niroumand',
-    
+
     qualifications: {
       en: ['G.cert'],
       fa: ['G.cert'],
@@ -152,7 +152,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   id: 'agt7',
   //   name: { en: 'Mina Madani', fa: 'مینا مدنی' },
   //   slug: 'mina-madani',
-    
+
   //   maraNumber: '1798674',
   //   locations: [Locations.en, Locations.fa],
   //   isFeatured: false,
@@ -167,7 +167,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt8',
     name: { en: 'Soodeh Jafari', fa: 'سوده جعفری' },
     slug: 'soodeh-jafari',
-    
+
     maraNumber: '1795035',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -184,7 +184,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt9',
     name: { en: 'Azam Jafari', fa: 'اعظم جعفری' },
     slug: 'azam-jafari',
-    
+
     maraNumber: '1571733',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -200,7 +200,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt10',
     name: { en: 'Matin Amirshahi', fa: 'متین امیرشاهی' },
     slug: 'matin-amirshahi',
-    
+
     maraNumber: '1685110',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -216,7 +216,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   id: 'agt11',
   //   name: { en: 'Ali Kiaei', fa: 'علی کیائی' },
   //   slug: 'ali-kiaei',
-    
+
   //   maraNumber: '1789771',
   //   locations: [Locations.en, Locations.fa],
   //   isFeatured: false,
@@ -232,7 +232,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt12',
     name: { en: 'Ali Shahami ', fa: 'علی شهامی' },
     slug: 'ali-shahami',
-    
+
     maraNumber: '1688026',
     qualifications: { en: ['M.S.'], fa: ['M.S.'] },
     locations: [Locations.en, Locations.fa],
@@ -263,7 +263,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt14',
     name: { en: 'Ehsan Azadi', fa: 'احسان آزادی' },
     slug: 'ehsan-azadi',
-    
+
     maraNumber: '1279450',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -278,7 +278,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt15',
     name: { en: 'Ehsan Jahanandish', fa: 'احسان جهان اندیش' },
     slug: 'ehsan-jahanandish',
-    
+
     qualifications: {
       en: ['M.S.'],
       fa: ['M.S.'],
@@ -299,7 +299,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   id: 'agt16',
   //   name: { en: 'Kourosh Momeni', fa: 'کوروش مومنی' },
   //   slug: 'kourosh-momeni',
-    
+
   //   maraNumber: '0955242',
   //   locations: [Locations.en, Locations.fa],
   //   isFeatured: false,
@@ -314,7 +314,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt17',
     name: { en: 'Mehdi Keivani', fa: 'مهدی کیوانی' },
     slug: 'mehdi-keivani',
-    
+
     maraNumber: '2217813',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -329,7 +329,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt18',
     name: { en: 'Nima Kazemi', fa: 'نیما کاظمی' },
     slug: 'nima-kazemi',
-    
+
     maraNumber: '1278784',
     locations: [Locations.en, Locations.fa],
     isFeatured: false,
@@ -348,7 +348,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   id: 'agt19',
   //   name: { en: 'Saeed Rezaei', fa: 'سعید رضائی' },
   //   slug: 'saeed-rezaei',
-    
+
   //   maraNumber: '1796143',
   //   locations: [Locations.en, Locations.fa],
   //   isFeatured: false,
@@ -377,7 +377,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt21',
     name: { en: 'Soodabeh Harirzadeh', fa: 'سودابه حریری' },
     slug: 'soodabeh-harirzadeh',
-    
+
     locations: [Locations.en, Locations.fa],
     maraNumber: '1687507',
     isFeatured: false,
@@ -392,7 +392,7 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt22',
     name: { en: 'Zara Mavi', fa: 'زهرا ماوی' },
     slug: 'zara-mavi',
-    
+
     locations: [Locations.en, Locations.fa],
     maraNumber: '1464111',
     qualifications: {

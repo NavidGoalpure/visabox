@@ -22,7 +22,7 @@ import {
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
 import { AGENCYS } from 'Consts/Businesses/agency';
-import VIPAgencyCard from 'Components/Boxes/Card/Agency/VIPCard';
+import VIPAgencyCard from 'Components/Lists/Card/Agency/VIPCard';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -50,11 +50,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
-          <SideBar.TabItem
+          {/* <SideBar.TabItem
             title={t(LanguageKeys.Agent)}
             value='agency'
             icon={<AgentIcon />}
-          />
+          /> */}
         </>
       }
       bodies={
@@ -115,7 +115,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                       <HintItem>
                         <Tag>
                           {t(LanguageKeys.LastUpdate)}
-                          <span> 31/12/2022</span>
+                          <span> 28/02/2023</span>
                         </Tag>
                       </HintItem>
                     </AccordionContentContainer>
@@ -124,7 +124,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
-          <SideBar.BodyItem value='agency'>
+          {/* <SideBar.BodyItem value='agency'>
             <AgentsContentWrapper>
               {AGENCYS.filter((agent) => agent.isFeatured).map((agent) => {
                 return (
@@ -137,7 +137,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                 );
               })}
             </AgentsContentWrapper>
-          </SideBar.BodyItem>
+          </SideBar.BodyItem> */}
           {/*  */}
         </>
       }

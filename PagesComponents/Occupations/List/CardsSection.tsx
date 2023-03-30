@@ -1,15 +1,16 @@
-import OccupationCard from "Components/Cards/Type1/OocccuptionCard";
-import { Occupation } from "Interfaces/Documents/occupation";
-import { UnitGroup } from "Interfaces/Documents/unitGroup";
-import React from "react";
-import { InfiniteData } from "react-query";
-import styled from "styled-components";
+import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
+import { Occupation } from 'Interfaces/Occupation/occupation';
+import { UnitGroup } from 'Interfaces/Occupation/unitGroup';
+import React from 'react';
+import { InfiniteData } from 'react-query';
+import styled from 'styled-components';
 
 interface Props {
   occupations: InfiniteData<Occupation[]> | undefined;
 }
 
 const CardsSection: React.FC<Props> = ({ occupations }) => {
+  console.log('navid occupation=', occupations);
   return (
     <Container>
       {occupations?.pages?.map((occupationPage) =>

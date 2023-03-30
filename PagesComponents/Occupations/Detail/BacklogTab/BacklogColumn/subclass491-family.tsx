@@ -2,7 +2,10 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import React from 'react';
 import { componentStatements, LanguageKeys } from './const';
 import { Container, Title } from './StyledComponents';
-import { BacklogPoints, BacklogSection } from 'Interfaces/Documents/occupation';
+import {
+  BacklogPoints,
+  BacklogSection,
+} from 'Interfaces/Occupation/occupation';
 import { BacklogTable } from './table';
 import { getRowKeyValueBaseonBacklogPoints } from './utils';
 

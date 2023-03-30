@@ -1,4 +1,4 @@
 export interface Slug {
-  _type?: string;
+  _type?: 'slug';
   current?: string;
 }

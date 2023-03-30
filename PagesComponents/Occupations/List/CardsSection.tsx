@@ -10,7 +10,6 @@ interface Props {
 }
 
 const CardsSection: React.FC<Props> = ({ occupations }) => {
-  console.log('navid occupation=', occupations);
   return (
     <Container>
       {occupations?.pages?.map((occupationPage) =>

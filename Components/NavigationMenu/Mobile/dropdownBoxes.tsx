@@ -27,7 +27,7 @@ const MobileBusinessDropdown = ({}) => {
   return (
     <Container id={'container'} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>
-        <TriggerText>{t(LanguageKeys.Businesses)}</TriggerText>
+        <TriggerText>{t(LanguageKeys.Lists)}</TriggerText>
         <ArrowIcon $isOpen={isOpen} />
       </TriggerContainer>
       {isOpen && (

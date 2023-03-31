@@ -1,10 +1,15 @@
 import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import Link from 'next/link';
 import { HTMLAttributes } from 'react';
 import { CardData, componentStatements, LanguageKeys } from './const';
-import { Container, StyledLink, Subtitle, Title, ViewAll } from './styledComponents';
+import {
+  Container,
+  StyledLink,
+  Subtitle,
+  Title,
+  ViewAll,
+} from './styledComponents';
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props

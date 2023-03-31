@@ -50,4 +50,5 @@ export const BacklogTable: React.FC<Props> = ({
 
 const Table = styled.table`
   ${layer3_TableStyle}
+  direction: ltr;
 `;

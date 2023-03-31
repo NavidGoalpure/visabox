@@ -24,7 +24,9 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
       <StyledLink href={`${locale}/occupations`}>
-        <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
+        <ViewAll id={`home_all-occupations${locale}`}>
+          {t(LanguageKeys.CTA)}
+        </ViewAll>
       </StyledLink>
     </Container>
   );

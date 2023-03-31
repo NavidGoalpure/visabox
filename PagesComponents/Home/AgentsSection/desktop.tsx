@@ -35,7 +35,9 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
           <StyledLink href={`${locale}/boxes/agents`}>
-            <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
+            <ViewAll id={`home_all-agents_${locale}`}>
+              {t(LanguageKeys.CTA)}
+            </ViewAll>
           </StyledLink>
         </Side>
       </Container>

@@ -21,15 +21,15 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <Container {...props}>
       <Side className="exchanges-card-section">
-        <StyledExchangeCard
-{...Exchanges[1]}
-        />
+        <StyledExchangeCard {...Exchanges[1]} />
       </Side>
       <Side className="exchanges-text-section">
         <Title>{t(LanguageKeys.Title)}</Title>
         <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
         <StyledLink href={`${locale}/boxes/exchanges`}>
-          <ViewAll>{t(LanguageKeys.CTA)}</ViewAll>
+          <ViewAll id={`home_all-exchanges_${locale}`}>
+            {t(LanguageKeys.CTA)}
+          </ViewAll>
         </StyledLink>
       </Side>
     </Container>
@@ -43,5 +43,4 @@ const Side = styled.div`
   align-items: center;
 `;
 const StyledExchangeCard = styled(ExchangeCard)`
-  width: 70%;
 `;

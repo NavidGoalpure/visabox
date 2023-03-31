@@ -13,12 +13,12 @@ const HomeContent: React.FC = () => {
     <>
       <Hero />
       <Container id="section-container">
-        <AgentsSection className="section" />
         <OccupationSection className="section" />
         <AgencysSection className="section" />
+        <NattiesSection className="section" />
+        <AgentsSection className="section" />
         <ExchangesSection className="section" />
         <SocialsSection className="section" />
-        <NattiesSection className="section" />
       </Container>
     </>
   );

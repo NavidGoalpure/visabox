@@ -43,14 +43,14 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
             __html: dt(occupationUnitGroup?.description),
           }}
         ></Description>
-        <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ''}>
+        <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ""}>
           {t(LanguageKeys.IndicativeSkillLevel)}
         </SkillLevelTitle>
         <SkillLevelDesc>
-          {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ''))}
+          {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ""))}
         </SkillLevelDesc>
         <StyledAccordion
-          backgroundLayer='3'
+          backgroundLayer="2A"
           triggerText={t(LanguageKeys.Tasks)}
           content={
             <AccordionContent
@@ -61,7 +61,7 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {(anzscoSection as AnzscoSection)?.priority_list?.[0]?.national ? (
           <StyledAccordion
-            backgroundLayer='2A'
+            backgroundLayer="2A"
             triggerText={t(LanguageKeys.SkillPriorityLists)}
             content={
               <div>

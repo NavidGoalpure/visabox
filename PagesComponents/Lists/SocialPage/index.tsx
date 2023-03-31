@@ -1,5 +1,5 @@
 import { deviceMin } from 'Consts/device';
-import { NormalSocialMedias, VipSocialMedias } from 'Consts/Socials';
+import { NormalSocialMedias, VipSocialMedias } from 'Consts/Lists/Socials';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled from 'styled-components';
 import {

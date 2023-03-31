@@ -21,7 +21,7 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
-import { AGENCYS } from 'Consts/Businesses/agency';
+import { AGENCYS } from 'Consts/Lists/agency';
 import VIPAgencyCard from 'Components/Lists/Card/Agency/VIPCard';
 
 interface Props {

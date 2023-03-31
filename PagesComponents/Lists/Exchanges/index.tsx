@@ -1,13 +1,13 @@
-import { Exchanges } from 'Consts/Businesses/exchages';
-import { deviceMin } from 'Consts/device';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import styled from 'styled-components';
+import { Exchanges } from "Consts/Lists/exchages";
+import { deviceMin } from "Consts/device";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import styled from "styled-components";
 import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
-} from 'Styles/Theme/Layers/layer1/style';
-import { componentStatements, LanguageKeys } from './const';
-import ExchangeCard from './ExchangeCard';
+} from "Styles/Theme/Layers/layer1/style";
+import { componentStatements, LanguageKeys } from "./const";
+import ExchangeCard from "../../../Components/Lists/Card/Exchange/ExchangeCard";
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -17,7 +17,7 @@ function Content() {
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <Row>
         {Exchanges.map((exchange, i) => (
-          <ExchangeCard key={i} {...exchange} />
+          <StyledExchangeCard key={i} {...exchange} />
         ))}
       </Row>
     </Container>
@@ -50,4 +50,7 @@ const PageTitle = styled.h1`
 `;
 const PageSubtitle = styled.h4`
   ${Layer1_SubtitleStyle};
+`;
+const StyledExchangeCard = styled(ExchangeCard)`
+  width: 32%;
 `;

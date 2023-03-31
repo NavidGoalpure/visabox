@@ -38,14 +38,14 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
             <Tr>
               <TdKey>{t(LanguageKeys.MajorGroup)} :</TdKey>
               <TdValue>
-                {`${anzscoSection?.major_group} -${' '}
+                {`${anzscoSection?.major_group} -${" "}
               ${dt(ConvertAnzscoCodeToTitle(anzscoSection?.major_group || 0))}`}
               </TdValue>
             </Tr>
             <Tr>
               <TdKey>{t(LanguageKeys.SubMajorGroup)} :</TdKey>
               <TdValue>
-                {`${anzscoSection?.submajor_group} -${' '}
+                {`${anzscoSection?.submajor_group} -${" "}
               ${dt(
                 ConvertAnzscoCodeToTitle(anzscoSection?.submajor_group || 0)
               )}`}
@@ -54,7 +54,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
             <Tr>
               <TdKey>{t(LanguageKeys.MinorGroup)} :</TdKey>
               <TdValue>
-                {`${anzscoSection?.minor_group} -${' '}
+                {`${anzscoSection?.minor_group} -${" "}
               ${dt(ConvertAnzscoCodeToTitle(anzscoSection?.minor_group || 0))}`}
               </TdValue>
             </Tr>
@@ -74,7 +74,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }}
         />
         <StyledAccordion
-          backgroundLayer='3'
+          backgroundLayer="2A"
           triggerText={t(LanguageKeys.AlternativeTitles)}
           content={
             <AccordionContent
@@ -85,7 +85,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
           }
         />
         <StyledAccordion
-          backgroundLayer='3'
+          backgroundLayer="2A"
           triggerText={t(LanguageKeys.Specialisations)}
           content={
             <AccordionContent
@@ -97,7 +97,7 @@ const AnzscoComponent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {!isMultiLanguageTextArrayIsEmpty(anzscoSection?.nec_occupation) && (
           <StyledAccordion
-            backgroundLayer='3'
+            backgroundLayer="2A"
             triggerText={t(LanguageKeys.NecOccupation)}
             content={
               <AccordionContent

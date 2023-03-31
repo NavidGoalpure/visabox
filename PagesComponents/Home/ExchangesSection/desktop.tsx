@@ -1,11 +1,13 @@
-import OccupationCard from "Components/Cards/Type1/OocccuptionCard";
+
+import ExchangeCard from "Components/Lists/Card/Exchange/ExchangeCard";
+import { Exchanges } from "Consts/Lists/exchages";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
 import { HTMLAttributes, useEffect } from "react";
 import styled from "styled-components";
 import { GsapSectionAnimation_2 } from "../utils";
-import { CardData, componentStatements, LanguageKeys } from "./const";
+import { componentStatements, LanguageKeys } from "./const";
 import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -14,24 +16,18 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   useEffect(() => {
-    GsapSectionAnimation_2("occupation");
+    GsapSectionAnimation_2("exchanges");
   }, []);
   return (
     <Container {...props}>
-      <Side className="occupation-card-section">
-        <OccupationCard
-          code={CardData.code}
-          title={CardData.title}
-          description={CardData.description}
-          slug={CardData.slug}
-          tasks={CardData.tasks}
-        />
+      <Side className="exchanges-card-section">
+        <StyledExchangeCard {...Exchanges[1]} />
       </Side>
-      <Side className="occupation-text-section">
+      <Side className="exchanges-text-section">
         <Title>{t(LanguageKeys.Title)}</Title>
         <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-        <StyledLink href={`${locale}/occupations`}>
-          <ViewAll id={`home_all-occupations${locale}`}>
+        <StyledLink href={`${locale}/boxes/exchanges`}>
+          <ViewAll id={`home_all-exchanges_${locale}`}>
             {t(LanguageKeys.CTA)}
           </ViewAll>
         </StyledLink>
@@ -45,4 +41,6 @@ const Side = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+const StyledExchangeCard = styled(ExchangeCard)`
 `;

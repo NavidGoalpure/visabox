@@ -1,4 +1,4 @@
-import { Locations } from 'Interfaces';
+import { Locations, Status } from 'Interfaces';
 import { SocialMediaTypes, Socials } from 'Interfaces/Lists/Socials';
 
 export const VipSocialMedias: Socials[] = [
@@ -12,6 +12,7 @@ export const VipSocialMedias: Socials[] = [
     desc: `گروه بحث و تبادل نظر در مورد ویزاهای سرمایه گذاری و کارآفرینی استرالیا. زیر نظر وکیل رسمی مهاجرت استرالیا، آقای محمد رضا عظیمی.
   `,
     link: 'https://t.me/ShadaBusinessVisaGroup',
+    status: Status.ACTIVE,
   },
 ];
 
@@ -27,6 +28,7 @@ export const NormalSocialMedias: Socials[] = [
     isFeatured: false,
     desc: `همه چيز در مورد نحوه اخذ ارزيابي مثبت از سازمان ACS
   زير مجموعه گروه اصلی مهاجرت به استراليا `,
+    status: Status.ACTIVE,
   },
 
   {
@@ -40,6 +42,7 @@ export const NormalSocialMedias: Socials[] = [
     desc: `موضوع گروه： جنبه های مختلف زندگی در استرالیا
   لطفا موضوعات مرتبط با پروسه اخذ ویزا و یا مقایسه استرالیا با کشورهای دیگر را در این گروه مطرح نفرمایید.
   قوانین گروه در کانال گروه پین شده است`,
+    status: Status.ACTIVE,
   },
   {
     id: 'soc5',
@@ -50,6 +53,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه همه مسائل مربوط به کار و زندگی و بررسی فرهنگ و آداب و رسوم استرالیایها بررسی میشود و دوستان در گروه هم دیگه رو کمک و راهنمایی میکنند`,
+    status: Status.ACTIVE,
   },
   {
     id: 'soc6',
@@ -61,6 +65,7 @@ export const NormalSocialMedias: Socials[] = [
     isFeatured: false,
     desc: `لینک تمام گروه های استرالیا
   @AUSTRALIAVIP`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc7',
@@ -71,6 +76,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `این گروه بزرگترین  گروه گردشگری استرالیاست و جهت به اشتراک گذاری تجربیات و لحظات خوش سفر همگروهی ها و راهنمایی عزیزانی که تازه وارد هستند تشکیل شده است.`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc8',
@@ -81,6 +87,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `هدف این گروه سهولت در کاریابی آسان و پیشنهاد کاری کاری کارفرمایان ایرانی می باشد.`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc9',
@@ -91,6 +98,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه والدین مقیم استرالیا در خصوص موضوعات مرتبط با مدارس استرالیا و دغدغه ها و مسائل مرتبط بحث و تبادل ظر می کنند و اعضا یکدیگر را راهنمایی می نمایند.`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc10',
@@ -101,6 +109,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `اشتراک گذاری تجربیات در مورد خودروهای واقع در بازار استرالیا  ، مراحل اداری و پلاک ، سطح کیفی اتومبیلها و هر آنچه مربوط به خودرو هست ، هدف اصلی این گروه میباشداشتراک گذاری تجربیات در مورد خودروهای واقع در بازار استرالیا  ، مراحل اداری و پلاک ، سطح کیفی اتومبیلها و هر آنچه مربوط به خودرو هست ، هدف اصلی این گروه میباشد`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc11',
@@ -111,6 +120,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `این گروه در خصوص قوانین رانندگی و اخذ گواهینامه در استرالیا جهت به اشتراک گذاری تجربیات و راهنمیی عزیزان تازه وارد تشکیل شده است.`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc12',
@@ -121,6 +131,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه ایرانیان مقیم استرالیا در خصوص مسائل مرتبط با نگهداری حیواات خانگی و موضوعات مورد نظرشان بحث و تبادل نظر می نمایند.`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc13',
@@ -131,6 +142,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه ایرانیان مقیم استرالیا در مورد فیلم و سریال های مورد علاقه خود بحث و تبادل ظر می کنند`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc14',
@@ -141,6 +153,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه همه مسائل مربوط به ویزای والدین و توریستی ششصد بررسی میشه و همگروهی ها با پرسش و پاسخ هاشون هم دیگه رو کمک و راهنمایی میکنند`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc15',
@@ -151,6 +164,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه مباحث مرتبط با مسیر درست تبدیل ویزای 188 به ویزای 888 مورد برررسی قرار گرفته و افراد با تجربیات خود یکدیگر را راهنمایی می نمایند.`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc16',
@@ -161,16 +175,9 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه مباحث مد نظر کسانی که برای ویزای 188 لاج کرده اند و منتظر ویزا هستند مطرح می شود و اعضا مباحث مد نظر خود را به بحث گذاشته به یکدیگر کمک می کنند.`,
+    status: Status.DEACTIVE,
   },
-  // {
-  //   name: `گروه مناطق ریجینال استرالیا`,
-  // socialmediaType:SocialMediaTypes.TELEGRAM,
-  //   slug: "",
-  //   link: "https://t.me/+fjFdQk3r3YVkOWFk",
-  //   locations: Locations.fa,
-  // isFeatured:false,
-  //   desc: `در این گروه همه مسائل مربوط به کار و زندگی در مناطق ریجینال استرالیا  بررسی میشه و همگروهی ها با پرسش و پاسخ هاشون هم دیگه رو کمک و راهنمایی میکنند`,
-  // },
+
   {
     id: 'soc17',
     name: `اسکیل ویزا استرالیا`,
@@ -180,6 +187,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه موارد مرتبط با  اقدام برای اخذ ویزای اسکیل و مهارتی استرالیا  مطرح و اعضا یکدیگر را راهنمایی می نماید`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc18',
@@ -190,6 +198,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه تمام مراحل اخذ شهروندی استرالیا و اخذ پاسپورت گفتگو میشه و عزیزان همگروهی تجربیاتشون رو در گروه شر میکنند  `,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc19',
@@ -200,6 +209,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه موارد مرتبط با  اقدام برای اخذ شهروندی مطرح و اعضا یکدیگر را راهنمایی می نماید`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc20',
@@ -210,6 +220,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه همه مسائل مربوط به کار و زندگی در ایالت کوییزلند/ بریزبن  بررسی میشه و همگروهی ها با پرسش و پاسخ هاشون هم دیگه رو کمک و راهنمایی میکنند`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc21',
@@ -220,6 +231,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه همه مسائل مربوط به کار و زندگی در ایالت استرالیا جنوبی/ ادلاید  بررسی میشه و همگروهی ها با پرسش و پاسخ هاشون هم دیگه رو کمک و راهنمایی میکنند`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc22',
@@ -230,6 +242,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه همه مسائل مربوط به کار و زندگی در ایالت استرالیا غربی/پرث  بررسی میشه و همگروهی ها با پرسش و پاسخ هاشون هم دیگه رو کمک و راهنمایی میکنند`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc23',
@@ -240,6 +253,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه همه مسائل مربوط به کار و زندگی در ایالت نیو ساوث ولز/سیدنی بررسی میشه و همگروهی ها با پرسش و پاسخ هاشون هم دیگه رو کمک و راهنمایی میکنند`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc24',
@@ -250,6 +264,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `اینجا در مورد خرید خونه و فرصت های سرمایه گذاری در زمینه مسکن صحبت می کنید`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc25',
@@ -261,16 +276,9 @@ export const NormalSocialMedias: Socials[] = [
     isFeatured: false,
     desc: `"همه چيز در مورد نحوه اخذ ارزيابي مثبت از سازمان مهندسین
   استرالیا EA"`,
+    status: Status.ACTIVE,
   },
-  // {
-  //   name: `traselfassessment`,
-  //   socialmediaType: SocialMediaTypes.TELEGRAM,
-  //   slug: "traselfassessment",
-  //   link: "https://web.telegram.org/z/#-1088155804",
-  //   locations: Locations.fa,
-  //   isFeatured: false,
-  //   desc: `این  گروه جهت راهنمایی و کمک به کسانی که میخواهند از سازمان TRA اسسمنت بگیرند تشکیل شده است`,
-  // },
+
   {
     id: 'soc26',
     name: `Persian Aussie Club`,
@@ -281,6 +289,7 @@ export const NormalSocialMedias: Socials[] = [
     isFeatured: false,
     desc: `"كارهاى الزامى و ضرورى قبل از ورود به استراليا و كارهاى مربوط به ماه هاى اول ورود
   لطفا كسانى كه در مرحله اخذ دعوتنامه نهايي ،لاج و منتظر ويزا هستند به اين گروه جوين شوند."`,
+    status: Status.ACTIVE,
   },
   {
     id: 'soc27',
@@ -291,6 +300,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `در این گروه همه مسائل بانکی و مالی در استرالیا بررسی میشه و همگروهی ها با پرسش و پاسخ هاشون هم دیگه رو کمک و راهنمایی میکنند`,
+    status: Status.DEACTIVE,
   },
   {
     id: 'soc28',
@@ -301,6 +311,7 @@ export const NormalSocialMedias: Socials[] = [
     locations: Locations.fa,
     isFeatured: false,
     desc: `https://t.me/australiamd`,
+    status: Status.ACTIVE,
   },
   {
     id: 'soc3',
@@ -314,5 +325,6 @@ export const NormalSocialMedias: Socials[] = [
   EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
   برای عضویت در گروه لاج استرالیا به یکی از ادمین ها☝️پیام دهید.
   در صورتیکه از مرحله دریافت دعوتنامه عبور کردید`,
+    status: Status.ACTIVE,
   },
 ];

@@ -8,6 +8,7 @@ import {
 } from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
 import SmartSocialCard from 'Components/Lists/Card/SocialCard';
+import { Status } from 'Interfaces';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -17,34 +18,16 @@ function Content() {
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <CardContainer>
         <Row>
-          {VipSocialMedias.map((socialMedia, i) => (
-            <SmartSocialCard
-              key={i}
-              id={socialMedia.id}
-              isFeatured={socialMedia.isFeatured}
-              desc={socialMedia.desc}
-              name={socialMedia.name}
-              link={socialMedia.link}
-              socialmediaType={socialMedia.socialmediaType}
-              locations={socialMedia.locations}
-              slug={socialMedia.slug}
-            />
-          ))}
+          {VipSocialMedias.map((socialMedia, i) => {
+            if (socialMedia.status === Status.ACTIVE)
+              return <SmartSocialCard key={i} {...socialMedia} />;
+          })}
         </Row>
         <Row>
-          {NormalSocialMedias.map((socialMedia, i) => (
-            <SmartSocialCard
-              id={socialMedia.id}
-              key={i}
-              isFeatured={socialMedia.isFeatured}
-              desc={socialMedia.desc}
-              name={socialMedia.name}
-              link={socialMedia.link}
-              socialmediaType={socialMedia.socialmediaType}
-              locations={socialMedia.locations}
-              slug={socialMedia.slug}
-            />
-          ))}
+          {NormalSocialMedias.map((socialMedia, i) => {
+            if (socialMedia.status === Status.ACTIVE)
+              return <SmartSocialCard key={i} {...socialMedia} />;
+          })}
         </Row>
       </CardContainer>
     </Container>

@@ -1,4 +1,4 @@
-import { Locations } from 'Interfaces';
+import { Locations, Status } from 'Interfaces';
 export enum SocialMediaTypes {
     TELEGRAM = 'TELEGRAM',
     INSTAGRAM = 'INSTAGRAM',
@@ -13,4 +13,5 @@ export interface Socials {
     //what countries they work in
     locations: Locations;
     desc: string;
+    status: Status
 }

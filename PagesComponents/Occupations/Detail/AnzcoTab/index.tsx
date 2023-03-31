@@ -136,6 +136,7 @@ const BorderColor = theme('mode', {
 });
 const Table = styled.table`
   ${layer3_style}
+  direction: ltr;
   width: 100%;
   padding: 1.5rem;
   border-radius: 15px;

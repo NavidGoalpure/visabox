@@ -6,12 +6,12 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title: {
-    fa: 'لیست وکلای مهاجرت',
-    en: 'List Of Mara Agents',
+    fa: 'لیست شبکه‌های اجتماعی',
+    en: 'List Of Social Networks',
   },
   Subtitle: {
-    fa: 'برای مشاهده لیست وکلای رسمی مهاجرت به استرالیا اینجا از این بخش استفاده کنید.',
-    en: 'Use this section to view the list of official immigration agents to Australia',
+    fa: 'برای مشاهده لیست شبکه های اجتماعی مهاجرت به استرالیا از این بخش استفاده کنید. این گروه‌ها و پیج ها اطلاعات مناسب مهاجرت را در اختیار شما می‌گذارند و مکان مناسبی برای پرسیدن سوالات شما هستند.',
+    en: 'Use this section to view the list of social networks for immigration to Australia. These groups and pages provide you with relevant immigration information and are a good place to ask your questions.',
   },
   CTA: {
     fa: 'مشاهده همه ',

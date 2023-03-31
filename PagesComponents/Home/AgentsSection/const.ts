@@ -10,8 +10,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'List Of Mara Agents',
   },
   Subtitle: {
-    fa: 'برای مشاهده لیست وکلای رسمی مهاجرت به استرالیا اینجا از این بخش استفاده کنید.',
-    en: 'Use this section to view the list of official immigration agents to Australia',
+    fa: 'برای مشاهده لیست وکلای معتبر مهاجرت به استرالیا که مورد تایید سازمان «MARA» هستند، از این بخش استفاده کنید.',
+    en: 'You can find immigration agencies that provide you with services according to consulting and applying for immigration to Australia here.',
   },
   CTA: {
     fa: 'مشاهده همه ',

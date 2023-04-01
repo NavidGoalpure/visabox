@@ -81,14 +81,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
         {relatedSocials?.map((relatedSocial, i) => (
           <SmartSocial
             key={i}
-            id={relatedSocial?.id}
-            isFeatured={relatedSocial?.isFeatured}
-            desc={relatedSocial?.desc}
-            name={relatedSocial?.name}
-            link={relatedSocial?.link}
-            socialmediaType={relatedSocial?.socialmediaType}
-            locations={relatedSocial?.locations}
-            slug={relatedSocial?.slug}
+            {...relatedSocial}
             style={{ minHeight: '24.5rem', scale: '0.94' }}
           />
         ))}

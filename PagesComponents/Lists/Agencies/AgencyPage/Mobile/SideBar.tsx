@@ -86,17 +86,7 @@ const SidebarPage = ({
             )}
             <Row>
               {relatedSocials?.map((relatedSocial, i) => (
-                <SmartSocial
-                  key={i}
-                  id={relatedSocial?.id}
-                  isFeatured={relatedSocial?.isFeatured}
-                  desc={relatedSocial?.desc}
-                  name={relatedSocial?.name}
-                  link={relatedSocial?.link}
-                  socialmediaType={relatedSocial?.socialmediaType}
-                  locations={relatedSocial?.locations}
-                  slug={relatedSocial?.slug}
-                />
+                <SmartSocial key={i} {...relatedSocial} />
               ))}
             </Row>
           </SideBar.BodyItem>

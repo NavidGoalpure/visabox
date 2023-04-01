@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Locations } from 'Interfaces';
+import { Locations, Status } from 'Interfaces';
 import { FaTelegramPlane } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
@@ -33,7 +33,9 @@ function DesktopSocialCard({
   slug,
   isFeatured,
   isRtl,
+  status,
 }: Props) {
+  if (status === Status.DEACTIVE) return null;
   const { t } = useStaticTranslation(componentStatements);
   const SocialMediaIcon = () => {
     switch (socialmediaType) {

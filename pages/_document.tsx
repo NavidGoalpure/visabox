@@ -2,7 +2,7 @@ import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { Html, Head, Main, NextScript } from 'next/document';
 import { isItOnLive } from 'Utils';
-// import { Partytown } from '@builder.io/partytown/react';
+import { Partytown } from '@builder.io/partytown/react';
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
           {/* ////////////////////////////////////////////
           /////////////GTAG With Partytown////////////
           //////////////////////////////////////////// */}
-          {/* <Partytown
+          <Partytown
             debug={true}
             forward={['dataLayer.push']}
             set={(opts) => {
@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
               return opts.continue;
             }}
           />
-              
+
           <script
             defer
             type='text/partytown'
@@ -68,20 +68,20 @@ export default class MyDocument extends Document {
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
       `,
             }}
-          /> 
+          />
           {/* ////////////////////////////////////////////
           /////////////GTAG Without Partytown////////////
           //////////////////////////////////////////// */}
-          {isItOnLive() && (
-            <>
-              <script
-                async
-                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM}`}
-              />
-              <script
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{
-                  __html: `
+
+          {/* <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM}`}
+            />
+            <script
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -89,10 +89,9 @@ export default class MyDocument extends Document {
               page_path: window.location.pathname,
             });
           `,
-                }}
-              />
-            </>
-          )}
+              }}
+            />
+          </> */}
         </Head>
         <body>
           <Main />

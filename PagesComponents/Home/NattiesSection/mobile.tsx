@@ -33,7 +33,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         />
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-      <StyledLink href={`${locale}/boxes/naaties`}>
+      <StyledLink href={`${locale}/lists/naaties`}>
         <ViewAll id={`home_all-natties_${locale}`}>
           {t(LanguageKeys.CTA)}
         </ViewAll>

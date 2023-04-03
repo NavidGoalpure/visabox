@@ -1,4 +1,3 @@
-
 import ExchangeCard from "Components/Lists/Card/Exchange/ExchangeCard";
 import { Exchanges } from "Consts/Lists/exchages";
 import { useLocale } from "Hooks/useLocale";
@@ -8,7 +7,13 @@ import { HTMLAttributes, useEffect } from "react";
 import styled from "styled-components";
 import { GsapSectionAnimation_2 } from "../utils";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container, StyledLink, Subtitle, Title, ViewAll } from "./styledComponents";
+import {
+  Container,
+  StyledLink,
+  Subtitle,
+  Title,
+  ViewAll,
+} from "./styledComponents";
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -26,7 +31,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       <Side className="exchanges-text-section">
         <Title>{t(LanguageKeys.Title)}</Title>
         <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-        <StyledLink href={`${locale}/boxes/exchanges`}>
+        <StyledLink href={`${locale}/lists/exchanges`}>
           <ViewAll id={`home_all-exchanges_${locale}`}>
             {t(LanguageKeys.CTA)}
           </ViewAll>
@@ -42,5 +47,4 @@ const Side = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const StyledExchangeCard = styled(ExchangeCard)`
-`;
+const StyledExchangeCard = styled(ExchangeCard)``;

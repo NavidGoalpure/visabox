@@ -24,7 +24,7 @@ const DetailComponent: React.FC<Props> = ({ territorySection }) => {
   return (
     <>
       <Head>
-        <script src='https://use.fontawesome.com/5f46793e2e.js'></script>
+        <script defer src='https://use.fontawesome.com/5f46793e2e.js'></script>
       </Head>
       <DetailTab
         defaultValue={Territories.ACT}

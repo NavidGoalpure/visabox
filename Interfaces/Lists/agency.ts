@@ -20,4 +20,5 @@ export interface Agency {
   status: Status;
   socialsId?: string[];
   agentsId?: string[];
+  logoUrl?: string;
 }

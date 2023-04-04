@@ -49,6 +49,7 @@ const config = {
   },
   images: {
     formats: ['image/webp'],
+    domains: ['binsta.dev'],
   },
 };
 const sentryWebpackPluginOptions = {

@@ -19,6 +19,8 @@ export const AGENCYS: Agency[] = [
     status: Status.ACTIVE,
     agentsId: ['agt1'],
     socialsId: ['soc1'],
+    logoUrl:
+      'https://binsta.dev/api/v1/files/e-0Kne5-hR/transform?format=webp&size=lg&quality=hi',
   },
   {
     id: 'agc2',

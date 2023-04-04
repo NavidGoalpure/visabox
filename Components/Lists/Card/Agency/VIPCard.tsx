@@ -25,9 +25,17 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
   desc: MultiLanguageText | undefined;
   slug: string;
+  logoUrl?: string;
 }
 
-function VIPAgencyCard({ name, desc, slug, className, ...props }: Props) {
+function VIPAgencyCard({
+  name,
+  desc,
+  slug,
+  className,
+  logoUrl,
+  ...props
+}: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   useEffect(() => getGsapTimeLine_VipCard(slug));
@@ -40,9 +48,9 @@ function VIPAgencyCard({ name, desc, slug, className, ...props }: Props) {
     >
       <Wrapper>
         <ImageWrapper>
-          <AgentLogo
+          <AgencyLogo
             fill
-            src={`/Images/lists/agency/${slug}.jpg`}
+            src={logoUrl || `/Images/placeholder.jpeg`}
             alt={` image of ${slug}`}
             quality={100}
             sizes='96px'
@@ -51,9 +59,9 @@ function VIPAgencyCard({ name, desc, slug, className, ...props }: Props) {
         <Title>{dt(name)}</Title>
         <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
         <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
-        <AgentElement>
+        <AgencyElement>
           Agency <Box />
-        </AgentElement>
+        </AgencyElement>
         <MaraElement>Mara</MaraElement>
       </Wrapper>
     </Container>
@@ -129,7 +137,7 @@ const ImageWrapper = styled.div`
     transform: rotate(0deg) translate(-50%, -56%);
   }
 `;
-const AgentLogo = styled(Image)`
+const AgencyLogo = styled(Image)`
   position: relative !important;
   object-fit: cover;
   transition: all 0.3s ease;
@@ -166,7 +174,7 @@ const ViewMoreButton = styled(PrimaryButton)`
     transform: translateY(50%);
   }
 `;
-const AgentElement = styled.h3`
+const AgencyElement = styled.h3`
   ${layer2B_SubtitleStyle}
   ${layer2B_BG}
   display: flex;

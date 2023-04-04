@@ -24,6 +24,7 @@ function Content() {
               name={agency.name}
               desc={agency.desc}
               slug={agency.slug}
+              logoUrl={agency.logoUrl}
             />
           );
         })}

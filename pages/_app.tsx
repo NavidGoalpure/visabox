@@ -15,7 +15,6 @@ import { globalStyles } from 'Styles/Theme';
 import { Montserrat } from '@next/font/google';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
-import Script from 'next/script';
 
 const GlobalStyle = createGlobalStyle`
  ${globalStyles}
@@ -44,6 +43,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       `}</style>
       {/* ////////////////////////////////////////////
           /////////////GTAG Without Partytown////////////
+          //وقتی این رو آنکامنت میکنیم  باید جیتگ/پارتیتاون رو از توی کاستوم داکیومنت کامنت کنیم
           //////////////////////////////////////////// */}
       {/* 
       <Script id='google-tag-manager' strategy='afterInteractive'>

@@ -1,19 +1,19 @@
-import VIPAgentCard from "Components/Lists/Card/Agent/VIPCard";
-import { Agents } from "Consts/Lists/agents";
-import { useLocale } from "Hooks/useLocale";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import Link from "next/link";
-import styled from "styled-components";
-import { componentStatements, LanguageKeys } from "./const";
+import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
+import { Agents } from 'Consts/Lists/agents';
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import Link from 'next/link';
+import styled from 'styled-components';
+import { componentStatements, LanguageKeys } from './const';
 import {
   Container,
   StyledLink,
   Subtitle,
   Title,
   ViewAll,
-} from "./styledComponents";
-import { HTMLAttributes, useEffect } from "react";
-import { GsapSectionAnimation_1 } from "../utils";
+} from './styledComponents';
+import { HTMLAttributes, useEffect } from 'react';
+import { GsapSectionAnimation_1 } from '../utils';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -22,12 +22,12 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const { locale } = useLocale();
   const vipAgent = Agents.find((agent) => agent.isFeatured);
   useEffect(() => {
-    GsapSectionAnimation_1("Agent");
+    GsapSectionAnimation_1('Agent');
   }, []);
   return (
     <>
       <Container {...props}>
-        <Side className="Agent-card-section">
+        <Side className='Agent-card-section'>
           {vipAgent && (
             <StyledCard
               name={vipAgent?.name}
@@ -36,7 +36,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             />
           )}
         </Side>
-        <Side className="Agent-text-section">
+        <Side className='Agent-text-section'>
           <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 

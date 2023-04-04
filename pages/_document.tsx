@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
           {/* ////////////////////////////////////////////
           /////////////GTAG With Partytown////////////
           //////////////////////////////////////////// */}
-          {/* <Partytown
+          <Partytown
             debug={true}
             forward={['dataLayer.push']}
             set={(opts) => {
@@ -68,7 +68,7 @@ export default class MyDocument extends Document {
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
       `,
             }}
-          /> */}
+          />
         </Head>
         <body>
           <Main />

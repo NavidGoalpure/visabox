@@ -5,7 +5,13 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import Link from "next/link";
 import { HTMLAttributes } from "react";
 import { componentStatements, LanguageKeys } from "./const";
-import { Container,  StyledLink,  Subtitle, Title, ViewAll } from "./styledComponents";
+import {
+  Container,
+  StyledLink,
+  Subtitle,
+  Title,
+  ViewAll,
+} from "./styledComponents";
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -26,7 +32,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-      <StyledLink href={`${locale}/boxes/agents`}>
+      <StyledLink href={`${locale}/lists/agents`}>
         <ViewAll id={`home_all-agents_${locale}`}>
           {t(LanguageKeys.CTA)}
         </ViewAll>

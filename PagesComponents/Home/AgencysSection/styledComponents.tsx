@@ -1,12 +1,20 @@
 import { deviceMin } from "Consts/device";
 import { PrimaryButton } from "Elements/Button/Primary";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
 import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
 } from "Styles/Theme/Layers/layer1/style";
-
+const ContainerTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray13);
+  `,
+  dark: css`
+    background: var(--color-gray4);
+  `,
+});
 export const Container = styled.section`
   display: flex;
   align-items: center;
@@ -27,7 +35,7 @@ export const Container = styled.section`
     transform: translateX(-50%);
     width: 100vw;
     height: 100%;
-    background: var(--color-gray4);
+    ${ContainerTheme};
   }
   @media ${deviceMin.tabletS} {
     flex-direction: row;
@@ -39,7 +47,7 @@ export const Title = styled.h2`
   ${Layer1_TitleStyle}
   text-align: center !important;
   margin-bottom: 1rem;
-  z-index:10;
+  z-index: 10;
 `;
 export const Subtitle = styled.h2`
   ${Layer1_SubtitleStyle}
@@ -51,12 +59,10 @@ export const Subtitle = styled.h2`
     text-align: center !important;
   }
 `;
-export const StyledLink= styled(Link)`
-z-index:10;
-`
+export const StyledLink = styled(Link)`
+  z-index: 10;
+`;
 export const ViewAll = styled(PrimaryButton)`
   width: auto;
   margin: auto !important;
-   
 `;
-

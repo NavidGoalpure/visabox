@@ -1,16 +1,16 @@
-import { VipSocialMedias } from 'Consts/Lists/Socials';
-import { useLocale } from 'Hooks/useLocale';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { HTMLAttributes } from 'react';
-import { componentStatements, LanguageKeys } from './const';
+import { VipSocialMedias } from "Consts/Lists/Socials";
+import { useLocale } from "Hooks/useLocale";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { HTMLAttributes } from "react";
+import { componentStatements, LanguageKeys } from "./const";
 import {
   Container,
   StyledLink,
   Subtitle,
   Title,
   ViewAll,
-} from './styledComponents';
-import SmartSocialCard from 'Components/Lists/Card/SocialCard';
+} from "./styledComponents";
+import SmartSocialCard from "Components/Lists/Card/SocialCard";
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
@@ -23,7 +23,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
       <SmartSocialCard {...VipSocialMedias[0]} />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
 
-      <StyledLink href={`${locale}/boxes/social-pages`}>
+      <StyledLink href={`${locale}/lists/social-pages`}>
         <ViewAll id={`home_all-socials_${locale}`}>
           {t(LanguageKeys.CTA)}
         </ViewAll>

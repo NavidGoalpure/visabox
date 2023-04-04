@@ -6,9 +6,11 @@ import ExchangesSection from "./ExchangesSection";
 import SocialsSection from "./SocialsSection";
 import NattiesSection from "./NattiesSection";
 import styled from "styled-components";
+import { useLocale } from "Hooks/useLocale";
+import { Languages } from "Interfaces";
 
 const HomeContent: React.FC = () => {
-  
+  const { locale } = useLocale();
   return (
     <>
       <Hero />
@@ -18,7 +20,7 @@ const HomeContent: React.FC = () => {
         <NattiesSection className="section" />
         <AgentsSection className="section" />
         <ExchangesSection className="section" />
-        <SocialsSection className="section" />
+        {locale === Languages.fa && <SocialsSection className="section" />}
       </Container>
     </>
   );

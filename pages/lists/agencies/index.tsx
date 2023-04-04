@@ -14,7 +14,6 @@ const BusinessesPage: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
-      {/* navid change seo */}
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

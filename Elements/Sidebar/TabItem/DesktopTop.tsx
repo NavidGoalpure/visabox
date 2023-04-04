@@ -75,7 +75,7 @@ const TabsTriggerhover = theme('mode', {
   `,
   dark: css`
     background: var(--color-primary5);
-    color: var(--color-gray6);
+    color: white;
   `,
 });
 const TabsTrigger = styled(Tabs.Trigger)`

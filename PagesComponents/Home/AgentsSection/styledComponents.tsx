@@ -1,13 +1,21 @@
 import { deviceMin } from "Consts/device";
 import { PrimaryButton } from "Elements/Button/Primary";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
 import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
   Layer1_HrStyle,
 } from "Styles/Theme/Layers/layer1/style";
-
+const ContainerTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray13);
+  `,
+  dark: css`
+    background: var(--color-gray4);
+  `,
+});
 export const Container = styled.section`
   display: flex;
   align-items: center;
@@ -21,6 +29,7 @@ export const Container = styled.section`
   padding: 2rem 1rem;
   position: relative;
   :before {
+    ${ContainerTheme};
     content: "";
     position: absolute;
     top: -2rem;
@@ -28,7 +37,6 @@ export const Container = styled.section`
     transform: translateX(-50%);
     width: 100vw;
     height: calc(100% + 2rem);
-    background: var(--color-gray4);
   }
   @media ${deviceMin.tabletS} {
     flex-direction: row;

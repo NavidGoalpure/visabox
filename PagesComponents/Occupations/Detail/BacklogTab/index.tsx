@@ -26,26 +26,17 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
   return (
     <Container>
       <TabRoot
-        defaultValue={t(LanguageKeys.Submitted)}
+        defaultValue='submitted'
         heads={
           <>
-            <TabItem
-              title={t(LanguageKeys.Submitted)}
-              value={t(LanguageKeys.Submitted)}
-            />
-            <TabItem
-              title={t(LanguageKeys.Invited)}
-              value={t(LanguageKeys.Invited)}
-            />
-            <TabItem
-              title={t(LanguageKeys.Lodged)}
-              value={t(LanguageKeys.Lodged)}
-            />
+            <TabItem title={t(LanguageKeys.Submitted)} value='submitted' />
+            <TabItem title={t(LanguageKeys.Invited)} value='invited' />
+            <TabItem title={t(LanguageKeys.Lodged)} value='lodged' />
           </>
         }
         bodies={
           <>
-            <RadixTab.Content value={t(LanguageKeys.Submitted)}>
+            <RadixTab.Content value='submitted'>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189
@@ -73,7 +64,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
                 )}
               </Row>
             </RadixTab.Content>
-            <RadixTab.Content value={t(LanguageKeys.Invited)}>
+            <RadixTab.Content value='invited'>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189
@@ -101,7 +92,7 @@ const BacklogComponent: React.FC<Props> = ({ backlogSection, code }) => {
                 )}
               </Row>
             </RadixTab.Content>
-            <RadixTab.Content value={t(LanguageKeys.Lodged)}>
+            <RadixTab.Content value='lodged'>
               <Row>
                 {has189Visa(code) && (
                   <Subclass189

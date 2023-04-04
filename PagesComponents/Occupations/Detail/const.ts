@@ -48,11 +48,13 @@ export enum LanguageKeys {
   HintPoints = 'HintPoints',
   HintSubmitted = 'HintSubmitted',
   HintInvited = 'HintInvited',
+  HintLodged = 'HintLodged',
   //Similar
   SimilarOccupations = 'SimilarOccupations',
   Points = 'Points',
   Submitted = 'Submitted',
   Invited = 'Invited',
+  Lodged = 'Lodged',
   LastUpdate = 'LastUpdate',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
@@ -292,11 +294,19 @@ In some instances, no formal qualification or on-the-job training may be require
   },
   HintInvited: {
     en: 'Invitation letter for visa application has been issued.',
-    fa: 'دعوت نامه ای که برای درخواست ویزا صادر شده است.',
+    fa: 'تعداد دعوت نامه ای که برای درخواست ویزا صادر شده است..',
+  },
+  HintLodged: {
+    en: 'The number of files that have been lodged for this occupation.',
+    fa: 'تعداد پرونده هایی که برای این رشته لاج شده است.',
   },
   Points: { en: 'Points', fa: 'امتیازات' },
   Submitted: { en: 'Submitted', fa: 'ثبت شده‌ها' },
   Invited: { en: 'Invited', fa: 'دعوت شده‌ها' },
+  Lodged: {
+    en: 'Lodged',
+    fa: 'لاج شده‌ها',
+  },
   LastUpdate: { en: 'LastUpdate:', fa: 'آخرین آپدیت: ' },
 };
 

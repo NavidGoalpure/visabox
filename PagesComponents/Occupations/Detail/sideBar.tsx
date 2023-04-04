@@ -83,10 +83,43 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               <ContentWrapper>
                 <Header>{t(LanguageKeys.BacklogTitle)}</Header>
                 {hasAnyVisaOption(occupation) ? (
-                  <BacklogComponent
-                    backlogSection={occupation.backlog_section}
-                    code={occupation.code}
-                  />
+                  <>
+                    <BacklogComponent
+                      backlogSection={occupation.backlog_section}
+                      code={occupation.code}
+                    />
+                    <StyledAccordion
+                      backgroundLayer='2A'
+                      triggerText={t(LanguageKeys.HintsTitle)}
+                      isOpen={true}
+                      content={
+                        <AccordionContentContainer>
+                          <HintItem>
+                            <Tag>{t(LanguageKeys.Points)}</Tag>
+                            {t(LanguageKeys.HintPoints)}
+                          </HintItem>
+                          <HintItem>
+                            <Tag>{t(LanguageKeys.Submitted)}</Tag>
+                            {t(LanguageKeys.HintSubmitted)}
+                          </HintItem>
+                          <HintItem>
+                            <Tag>{t(LanguageKeys.Invited)}</Tag>
+                            {t(LanguageKeys.HintInvited)}
+                          </HintItem>
+                          <HintItem>
+                            <Tag>{t(LanguageKeys.Lodged)}</Tag>
+                            {t(LanguageKeys.HintLodged)}
+                          </HintItem>
+                          <HintItem>
+                            <Tag>
+                              {t(LanguageKeys.LastUpdate)}
+                              <span> 28/02/2023</span>
+                            </Tag>
+                          </HintItem>
+                        </AccordionContentContainer>
+                      }
+                    />
+                  </>
                 ) : (
                   <NoData
                     hasIcon={false}
@@ -94,33 +127,6 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                     themeLayer='2A'
                   />
                 )}
-                <StyledAccordion
-                  backgroundLayer='2A'
-                  triggerText={t(LanguageKeys.HintsTitle)}
-                  isOpen={true}
-                  content={
-                    <AccordionContentContainer>
-                      <HintItem>
-                        <Tag>{t(LanguageKeys.Points)}</Tag>
-                        {t(LanguageKeys.HintPoints)}
-                      </HintItem>
-                      <HintItem>
-                        <Tag>{t(LanguageKeys.Submitted)}</Tag>
-                        {t(LanguageKeys.HintSubmitted)}
-                      </HintItem>
-                      <HintItem>
-                        <Tag>{t(LanguageKeys.Invited)}</Tag>
-                        {t(LanguageKeys.HintInvited)}
-                      </HintItem>
-                      <HintItem>
-                        <Tag>
-                          {t(LanguageKeys.LastUpdate)}
-                          <span> 28/02/2023</span>
-                        </Tag>
-                      </HintItem>
-                    </AccordionContentContainer>
-                  }
-                />
               </ContentWrapper>
             </SideBar.BodyItem>
           }

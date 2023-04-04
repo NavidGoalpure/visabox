@@ -19,6 +19,21 @@ export const VipSocialMedias: Socials[] = [
 ////////////
 export const NormalSocialMedias: Socials[] = [
   {
+    id: 'soc29',
+    name: 'گروه بزرگ مهاجرت استرالیا',
+    socialmediaType: SocialMediaTypes.TELEGRAM,
+    slug: 'گروه-بزرگ-مهاجرت-استرالیا',
+    link: 'https://t.me/c/1204778733/334120',
+    locations: Locations.fa,
+    isFeatured: false,
+    desc: `ضمن سلام و خوشامدگویی به همه شما بزرگواران عزیز به گروه بزرگ
+  مهاجرت نیروی کار ماهر (Skilled Worker) به استرالیا تحت نظر وکیل
+  رسمی مارا، از شما دعوت میشه در صورتی که در ابتدای پروسه هستید
+  فایل FAQ رو بدقت و کامل مطالعه کنید و جواب بسیاری از سوالات
+  خودتون رو ازش می‌گیرید`,
+    status: Status.ACTIVE,
+  },
+  {
     id: 'soc2',
     name: 'ACS - skill assessment',
     socialmediaType: SocialMediaTypes.TELEGRAM,
@@ -325,6 +340,17 @@ export const NormalSocialMedias: Socials[] = [
   EOI > Invitation > Lodge > Visa > 🇦🇺 So,  make a new life 🤗
   برای عضویت در گروه لاج استرالیا به یکی از ادمین ها☝️پیام دهید.
   در صورتیکه از مرحله دریافت دعوتنامه عبور کردید`,
+    status: Status.ACTIVE,
+  },
+  {
+    id: 'soc30',
+    name: 'داروسازان استرالیا',
+    socialmediaType: SocialMediaTypes.TELEGRAM,
+    slug: 'داروسازان-استرالیا',
+    link: 'https://t.me/pharmacyinAustralia',
+    locations: Locations.fa,
+    isFeatured: false,
+    desc: `تبادل اطلاعات در مورد مسیر رجیستریشن،آزمون‌ها و ویزاهای داروسازان در استرالیا`,
     status: Status.ACTIVE,
   },
 ];

@@ -15,11 +15,7 @@ const AgentsIntroduction: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <StyledPageLayout>
-      <Seo
-        title={t(LanguageKeys.SeoTitle)}
-        description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/landing/agents`}
-      />
+      {/* navid add seo  */}
       <Content />
     </StyledPageLayout>
   );

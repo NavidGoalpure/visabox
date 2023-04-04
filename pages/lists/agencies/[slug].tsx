@@ -21,7 +21,6 @@ const VipAgencyPage = () => {
 
   return (
     <PageLayout>
-      {/* navid change */}
       <Seo
         title={t(LanguageKeys.SeoTitle, [
           { $agent: dt(chosenAgency[0]?.name) || '' },

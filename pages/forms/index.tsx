@@ -15,7 +15,6 @@ const AgentsIntroduction: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <StyledPageLayout>
-        {/* navid fix seo title and desc */}
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

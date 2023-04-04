@@ -14,12 +14,7 @@ const BusinessesPage: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
-      {/* navid change seo */}
-      <Seo
-        title={t(LanguageKeys.SeoTitle)}
-        description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents`}
-      />
+      {/* navid add seo */}
       <Content />
     </PageLayout>
   );

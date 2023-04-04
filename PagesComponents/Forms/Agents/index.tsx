@@ -1,10 +1,6 @@
-import useDevice from "Hooks/useDevice";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
-import { useState, useEffect } from "react";
 import styled from "styled-components";
-import Desktop from "./Desktop";
-import Mobile from "./Mobile";
 
 function Content() {
   const {locale} = useLocale()

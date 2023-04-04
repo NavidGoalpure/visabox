@@ -1,50 +1,42 @@
+import { Input } from "Components/Input";
 import Slider from "Components/SliderComponent";
-import useDevice from "Hooks/useDevice";
-import { useLocale } from "Hooks/useLocale";
-import { Languages } from "Interfaces";
 import styled from "styled-components";
-
+import * as ToggleGroup from "./ToggleGroup";
 function Content() {
-  const {locale} = useLocale()
-  // return (
-  //   <Container>
-  //     {locale === Languages.fa ? (
-  //       <GoogleForm
-  //         src="https://docs.google.com/forms/d/e/1FAIpQLScqCjbxv1CJBxEsmwCkTUce1lVAR-S5t-fELLJOFDXNC2qRWA/viewform?embedded=true"
-  //         width="500"
-  //         height="920"
-  //         frameBorder="1"
-  //         marginHeight={0}
-  //         marginWidth={0}
-  //       >
-  //         Loading…
-  //       </GoogleForm>
-  //     ) : (
-  //       <GoogleForm
-  //         src="https://docs.google.com/forms/d/e/1FAIpQLSeQz7fxXOGTmts1Wt8JwpAE9H26ylJubGKBKq5WtZ6ECVzSPA/viewform?embedded=true"
-  //         width="500"
-  //         height="920"
-  //         frameBorder="1"
-  //         marginHeight={0}
-  //         marginWidth={0}
-  //       >
-  //         Loading…
-  //       </GoogleForm>
-  //     )}
-  //   </Container>
-  // );
-  return (<Slider currentStep={2} end={5}/>)
+  const ages = [
+    { en: "15-20", fa: "15-20" },
+    { en: "13-20", fa: "15-20" },
+    { en: "16-20", fa: "15-20" },
+  ];
+  return (
+    <Container>
+      <Slider currentStep={5} end={9} />
+      <Input required label="Name:" inputName="name" placeholder="Name" />
+      <Input
+        required
+        label="Last Name:"
+        inputName="lname"
+        placeholder="Last Name"
+      />
+      <ToggleGroup.Root type="single">
+        {
+          <>
+            {ages.map((age) => (
+              <ToggleGroup.Item text={age} value={age.en}></ToggleGroup.Item>
+            ))}
+          </>
+        }
+      </ToggleGroup.Root>
+    </Container>
+  );
 }
 export default Content;
-// const Container = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 5rem 0;
-// `;
-// const GoogleForm = styled.iframe`
-//   background: var(--color-gray12);
-//   border-radius: 15px;
-//   min-height: 920px;
-// `;
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 0 3rem;
+`;

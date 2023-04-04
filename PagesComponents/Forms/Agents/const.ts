@@ -17,6 +17,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "در این صفحه طراحی شده برای وکلا شما مزیت های خرید اکانت وی ای پی سایت ماراباکس را میبینید",
     en: "In this page we show you the benefits of buying our vip account",
   },
+  
 };
 
 ////////////

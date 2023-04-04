@@ -1659,6 +1659,17 @@
     "@radix-ui/react-primitive" "1.0.1"
     "@radix-ui/react-slot" "1.0.1"
 
+"@radix-ui/react-collection@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-collection/-/react-collection-1.0.2.tgz#d50da00bfa2ac14585319efdbbb081d4c5a29a97"
+  integrity sha512-s8WdQQ6wNXpaxdZ308KSr8fEWGrg4un8i4r/w7fhiS4ElRNjk5rRcl0/C6TANG2LvLOGIxtzo/jAg6Qf73TEBw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-compose-refs" "1.0.0"
+    "@radix-ui/react-context" "1.0.0"
+    "@radix-ui/react-primitive" "1.0.2"
+    "@radix-ui/react-slot" "1.0.1"
+
 "@radix-ui/react-compose-refs@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-1.0.0.tgz#37595b1f16ec7f228d698590e78eeed18ff218ae"
@@ -1804,6 +1815,14 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-slot" "1.0.1"
 
+"@radix-ui/react-primitive@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-1.0.2.tgz#54e22f49ca59ba88d8143090276d50b93f8a7053"
+  integrity sha512-zY6G5Qq4R8diFPNwtyoLRZBxzu1Z+SXMlfYpChN7Dv8gvmx9X3qhDqiLWvKseKVJMuedFeU/Sa0Sy/Ia+t06Dw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-slot" "1.0.1"
+
 "@radix-ui/react-radio-group@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-radio-group/-/react-radio-group-1.1.1.tgz#564549b3e0a5905367dfe9adfe7b0e245cbdb640"
@@ -1850,6 +1869,22 @@
     "@radix-ui/react-direction" "1.0.0"
     "@radix-ui/react-id" "1.0.0"
     "@radix-ui/react-primitive" "1.0.1"
+    "@radix-ui/react-use-callback-ref" "1.0.0"
+    "@radix-ui/react-use-controllable-state" "1.0.0"
+
+"@radix-ui/react-roving-focus@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-roving-focus/-/react-roving-focus-1.0.3.tgz#0b4f4f9bd509f4510079e9e0734a734fd17cdce3"
+  integrity sha512-stjCkIoMe6h+1fWtXlA6cRfikdBzCLp3SnVk7c48cv/uy3DTGoXhN76YaOYUJuy3aEDvDIKwKR5KSmvrtPvQPQ==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "1.0.0"
+    "@radix-ui/react-collection" "1.0.2"
+    "@radix-ui/react-compose-refs" "1.0.0"
+    "@radix-ui/react-context" "1.0.0"
+    "@radix-ui/react-direction" "1.0.0"
+    "@radix-ui/react-id" "1.0.0"
+    "@radix-ui/react-primitive" "1.0.2"
     "@radix-ui/react-use-callback-ref" "1.0.0"
     "@radix-ui/react-use-controllable-state" "1.0.0"
 
@@ -1932,6 +1967,30 @@
     "@radix-ui/react-presence" "1.0.0"
     "@radix-ui/react-primitive" "1.0.1"
     "@radix-ui/react-roving-focus" "1.0.1"
+    "@radix-ui/react-use-controllable-state" "1.0.0"
+
+"@radix-ui/react-toggle-group@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-toggle-group/-/react-toggle-group-1.0.3.tgz#6e37d03ce7d0102250ae84a26cb740c8268db26c"
+  integrity sha512-fl7yQ3Ty9+jeWb+TwzMkidXhTgFc5HKFxaEDn9nShjLPS1ya/bA5t2JK8wkUaUH6mo6yU+M3vcmUkxnchlXYtw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "1.0.0"
+    "@radix-ui/react-context" "1.0.0"
+    "@radix-ui/react-direction" "1.0.0"
+    "@radix-ui/react-primitive" "1.0.2"
+    "@radix-ui/react-roving-focus" "1.0.3"
+    "@radix-ui/react-toggle" "1.0.2"
+    "@radix-ui/react-use-controllable-state" "1.0.0"
+
+"@radix-ui/react-toggle@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-toggle/-/react-toggle-1.0.2.tgz#d27ba93b72ad7d06a0138237b25e2b367d8ac64a"
+  integrity sha512-1MhVrHjgdmYDBgBpmOB0sjK096gFrVqUocsHNapkOTkZIxOwjpGxnW9e24CjQQX9D/c57dI6E8zAAdeAeIdY8g==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "1.0.0"
+    "@radix-ui/react-primitive" "1.0.2"
     "@radix-ui/react-use-controllable-state" "1.0.0"
 
 "@radix-ui/react-tooltip@^1.0.2":

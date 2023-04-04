@@ -1,8 +1,7 @@
-import { InputHTMLAttributes, ReactNode, useEffect, useRef } from 'react';
-import { Container, InputContainer, StyledInput, Error } from './styles';
+import { InputHTMLAttributes, ReactNode, useEffect, useRef } from "react";
+import { Container, InputContainer, StyledInput, Error, Label } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  icon?: ReactNode;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onChange?: any;
   type?: string;
@@ -13,11 +12,12 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   focus?: boolean;
   endElement?: string | ReactNode;
   placeholder?: string;
+  inputName?: string;
+  label?: string;
 }
 
 export const Input = ({
-  icon,
-  type = 'text',
+  type = "text",
   errorMasage,
   value,
   disabled = false,
@@ -27,6 +27,8 @@ export const Input = ({
   pattern,
   endElement,
   placeholder,
+  inputName,
+  label,
   ...props
 }: InputProps) => {
   const inputElement = useRef<HTMLInputElement>(null);
@@ -38,8 +40,8 @@ export const Input = ({
   }, [focus]);
   return (
     <Container className={className}>
-      <InputContainer disabled={disabled} id='input-container'>
-        {icon ? icon : null}
+      <InputContainer disabled={disabled} id="input-container">
+        {!!label && <Label htmlFor={inputName || ""}>{label}</Label>}
         <StyledInput
           type={type}
           onChange={onChange}
@@ -48,11 +50,12 @@ export const Input = ({
           disabled={disabled}
           pattern={pattern}
           placeholder={placeholder}
+          name={inputName}
           {...props}
         ></StyledInput>
         {endElement ? endElement : null}
       </InputContainer>
-      {errorMasage && <Error data-testid='error-input'>{errorMasage}</Error>}
+      {errorMasage && <Error data-testid="error-input">{errorMasage}</Error>}
     </Container>
   );
 };

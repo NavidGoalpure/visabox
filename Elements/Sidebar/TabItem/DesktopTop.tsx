@@ -46,36 +46,24 @@ const contentContainerDeactiveColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
-const ContentContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-weight: bold;
-  ${contentContainerActiveColor}
-  @media ${deviceMin.laptopS} {
-    flex-direction: column;
-  }
-`;
-////////////
-
 const TabsTriggerActivehover = theme('mode', {
   light: css`
     background: var(--color-primary4);
-    color: white;
+    color: var(--color-gray13);
   `,
   dark: css`
     background: var(--color-primary3);
-    color: white;
+    color: var(--color-gray13);
   `,
 });
 const TabsTriggerhover = theme('mode', {
   light: css`
     background: var(--color-primary7);
-    color: var(--color-gray6);
+    color: var(--color-gray13);
   `,
   dark: css`
     background: var(--color-primary5);
-    color: white;
+    color: var(--color-gray13);
   `,
 });
 const TabsTrigger = styled(Tabs.Trigger)`
@@ -94,7 +82,7 @@ const TabsTrigger = styled(Tabs.Trigger)`
   &[aria-selected='true'] {
     background: var(--color-primary2);
     box-shadow: 0px 0px 4px var(--color-primary4);
-    color: white;
+    color: var(--color-gray13);
     :hover {
       ${TabsTriggerActivehover}
     }
@@ -104,9 +92,28 @@ const TabsTrigger = styled(Tabs.Trigger)`
   }
 
   ////////////hover//////////
-  @media ${deviceMin.laptopS} {
+  @media ${deviceMin.tabletL} {
     :hover {
       ${TabsTriggerhover}
     }
   }
 `;
+
+const ContentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  ${contentContainerActiveColor};
+  @media ${deviceMin.laptopS} {
+    flex-direction: column;
+  }
+  @media ${deviceMin.tabletL} {
+    ${TabsTrigger}:hover {
+      ${TabsTriggerhover}
+    }
+  }
+`;
+////////////
+
+

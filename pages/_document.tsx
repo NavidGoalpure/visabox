@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
           {/* ////////////////////////////////////////////
           /////////////GTAG With Partytown////////////
           //////////////////////////////////////////// */}
-          <Partytown
+          {/* <Partytown
             debug={true}
             forward={['dataLayer.push']}
             set={(opts) => {
@@ -68,12 +68,12 @@ export default class MyDocument extends Document {
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
       `,
             }}
-          />
+          /> */}
           {/* ////////////////////////////////////////////
           /////////////GTAG Without Partytown////////////
           //////////////////////////////////////////// */}
 
-          {/* <>
+          <>
             <script
               async
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM}`}
@@ -91,7 +91,7 @@ export default class MyDocument extends Document {
           `,
               }}
             />
-          </> */}
+          </>
         </Head>
         <body>
           <Main />

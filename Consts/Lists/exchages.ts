@@ -68,4 +68,24 @@ Ashna Exchange has started its activity with the aim of providing the best servi
     status: Status.ACTIVE,
     slug: "ashena",
   },
+  {
+    fullName: { en: "Baloch", fa: "بلوچ" },
+    desc: {
+      en: "Transfer your money overseas in a safe, secure and fast way, thanks to our professional team and modern services. We highly recommend trying our services since Rose Exchange is the choice of smart individual and businesses.",
+      fa: "به کمک تیم حرفه ای و خدمات مدرن رٌزکپ، حواله خود را به روشی امن، مطمئن و سریع انجام دهید. فقط یکبار امتحان کنید تا همیشه با ما بمانید! صرافی رٌزکپ همواره انتخاب افراد هوشمند و حرفه‌ای است.",
+    },
+    location: { en: "Australia", fa: "استرالیا" },
+    contact: {
+      phone: ["+61-406182742"],
+      telegram: "",
+      email: "info@baloch.com.au",
+      instagram: "baloch_exchange",
+      website: "www.baloch.com.au",
+    },
+    isFeatured: false,
+    status: Status.ACTIVE,
+    slug: "baloch",
+    logoUrl:
+      "https://www.baloch.com.au/wp-content/uploads/2022/10/baloch_en_logo.png",
+  },
 ];

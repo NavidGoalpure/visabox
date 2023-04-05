@@ -290,7 +290,7 @@ In some instances, no formal qualification or on-the-job training may be require
   },
   HintSubmitted: {
     en: 'You can submit an EOI with all fields completed, meeting all requirements for all visa subclasses you have selected. Once submitted, points will be assigned to the EOI based on the information provided. Submitted EOIs can be selected in the invitation rounds.',
-    fa: 'یک EOI که تمام شرایط مورد نیاز برای همه زیر کلاس‌های ویزا را برآورده می‌کند و تمام فیلدها را تکمیل می‌کند، می‌تواند ارسال شود. پس از ارسال، امتیازات بر اساس اطلاعات ارائه شده به EOI نسبت داده می شود. EOI های ارسال شده واجد شرایط انتخاب در یک دور دعوت هستند.',
+    fa: 'صف موارد EOI ثبت شده براي هر سابكلاس كه در انتظار دريافت دعوتنامه هستند .',
   },
   HintInvited: {
     en: 'Invitation letter for visa application has been issued.',

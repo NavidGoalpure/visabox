@@ -1,10 +1,24 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    // If you use remark-gfm, you'll need to use next.config.mjs
+    // as the package is ESM only
+    // https://github.com/remarkjs/remark-gfm#install
+    remarkPlugins: [],
+    rehypePlugins: [],
+    providerImportSource: '@mdx-js/react',
+  },
+});
+
 const withImages = require('next-images');
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
   swcMinify: true,
+  // Configure pageExtensions to include md and mdx
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   //
   webpack: (config, { webpack }) => {
     config.plugins.push(
@@ -65,6 +79,6 @@ const sentryWebpackPluginOptions = {
 };
 
 module.exports = withSentryConfig(
-  withImages(config),
+  withImages(withMDX(config)),
   sentryWebpackPluginOptions
 );

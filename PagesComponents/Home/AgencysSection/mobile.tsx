@@ -30,6 +30,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           name={vipAgency.name}
           desc={vipAgency.desc}
           slug={vipAgency.slug}
+          logoUrl={vipAgency.logoUrl}
         />
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>

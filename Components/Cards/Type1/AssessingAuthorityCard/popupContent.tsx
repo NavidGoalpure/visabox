@@ -34,10 +34,10 @@ const Column = styled.div`
 ////////////
 export const keyColor = theme('mode', {
   light: css`
-    color: var(--color-gray2);
+    color: var(--color-gray4);
   `,
   dark: css`
-    color: var(--color-gray5);
+    color: var(--color-gray12);
   `,
 });
 const StyledKey = styled(Key)`

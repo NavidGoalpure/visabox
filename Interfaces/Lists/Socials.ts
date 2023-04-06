@@ -2,6 +2,7 @@ import { Locations, Status } from 'Interfaces';
 export enum SocialMediaTypes {
     TELEGRAM = 'TELEGRAM',
     INSTAGRAM = 'INSTAGRAM',
+    YOUTUBE = 'YOUTUBE',
 }
 export interface Socials {
     id: string;

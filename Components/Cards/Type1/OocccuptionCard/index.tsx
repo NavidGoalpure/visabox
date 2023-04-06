@@ -37,6 +37,8 @@ function OccupationCard({
   return (
     <Container className={`c${code}`}>
       <Link
+        target='_blank'
+        rel='noopener noreferrer'
         style={{ height: '100%' }}
         key={code}
         href={{ pathname: `/${locale}/occupations/${slug?.current}` }}

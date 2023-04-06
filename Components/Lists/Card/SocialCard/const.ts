@@ -6,6 +6,7 @@ export enum LanguageKeys {
   English = 'English',
   Telegram = 'Telegram',
   Instagram = 'Instagram',
+  Youtube = 'Youtube',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Join: {
@@ -27,6 +28,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Instagram: {
     en: 'Instagram',
     fa: 'اینستاگرام',
+  },
+  Youtube: {
+    en: 'Youtube',
+    fa: 'یوتیوب',
   },
 };
 

@@ -19,6 +19,7 @@ import { Agency } from 'Interfaces/Lists/agency';
 import { getAgencyAgents, getAgencySocials } from '../utils';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import SmartSocial from 'Components/Lists/Card/SocialCard';
+import { directionStyles } from 'Styles/Theme';
 interface Props {
   ChosenAgency?: Agency;
 }
@@ -66,7 +67,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
         <RelatedTo>{t(LanguageKeys.RelatedTo)}</RelatedTo>
         <AgentTitle>{dt(ChosenAgency?.name)}</AgentTitle>
       </Row>
-      <Row style={{ gap: '4rem' }}>
+      <Row style={{ gap: '4rem', flexWrap: 'nowrap', width: 'auto' }}>
         <VIPContainer>
           {relatedAgents?.map((relatedAgent) => (
             <VIPAgentCard
@@ -82,11 +83,11 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
           <SmartSocial
             key={i}
             {...relatedSocial}
-            style={{ minHeight: '24.5rem', scale: '0.94' }}
+            style={{ minHeight: '24.5rem', scale: '0.97', }}
           />
         ))}
       </Row>
-    </Container>
+    </Container >
   );
 }
 export default DesktopAgentsPage;
@@ -225,3 +226,4 @@ const Row = styled.div`
   width: 100%;
   justify-content: center;
 `;
+

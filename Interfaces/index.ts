@@ -41,6 +41,7 @@ interface Contact {
   telegram?: string;
   whatsapp?: string;
   instagram?: string;
+  youtube?: string;
   linkedin?: string;
   website?: string;
   mobile?: string;

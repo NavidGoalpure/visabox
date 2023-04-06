@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Locations, Status } from 'Interfaces';
-import { FaTelegramPlane } from 'react-icons/fa';
+import { FaInstagram, FaTelegramPlane, FaYoutube } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { layer1_BG, layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
@@ -47,7 +47,14 @@ function DesktopSocialCard({
           </>
         );
       case SocialMediaTypes.INSTAGRAM:
-        return <>{t(LanguageKeys.Instagram)}</>;
+        return <>
+          <InstagramIcon />
+          {t(LanguageKeys.Instagram)}</>;
+
+      case SocialMediaTypes.YOUTUBE:
+        return <>
+          <YoutubeIcon />
+          {t(LanguageKeys.Youtube)}</>;
 
       default:
         return null;
@@ -249,9 +256,9 @@ const ImgWrapper = styled.div<{ isRtl: boolean }>`
   z-index: 2;
   ${Container}:hover & {
     ${({ isRtl }) =>
-      isRtl
-        ? 'transform: rotate(0deg) translate(-70%, -52%);'
-        : 'transform: rotate(0deg) translate(70%, -52%);'}
+    isRtl
+      ? 'transform: rotate(0deg) translate(-70%, -52%);'
+      : 'transform: rotate(0deg) translate(70%, -52%);'}
   }
 `;
 ///////////////////////////////
@@ -272,6 +279,22 @@ const TelegramIcon = styled(FaTelegramPlane)`
   padding: 0.25rem;
   border-radius: 50%;
 `;
+const InstagramIcon = styled(FaInstagram)`
+  // background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
+  color: white;
+  height: auto;
+  width: 1.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+`;
+const YoutubeIcon = styled(FaYoutube)`
+  // background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
+  color: white;
+  height: auto;
+  width: 1.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+`;
 const DropshadowDiv = styled.div`
   ${ContainerDropShadow}
 `;
@@ -283,9 +306,9 @@ const Wrapper = styled.div<{ isFeatured: boolean; isRtl: boolean }>`
   align-items: center;
   gap: 1rem;
    clip-path:${({ isRtl }) =>
-     isRtl
-       ? ' polygon(0 0, 95% 0, 100% 75%, 100% 100%, 0 100%);'
-       : 'polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 75%);'}
+    isRtl
+      ? ' polygon(0 0, 95% 0, 100% 75%, 100% 100%, 0 100%);'
+      : 'polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 75%);'}
 
   padding: 3.25rem 12.5% 1.5rem;
   transition: all 0.4s ease 0s;

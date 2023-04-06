@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Locations, Status } from 'Interfaces';
-import { FaTelegramPlane } from 'react-icons/fa';
+import { FaInstagram, FaTelegramPlane, FaYoutube } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { layer1_BG, layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
@@ -21,7 +21,7 @@ import { deviceMin } from 'Consts/device';
 import { SocialMediaTypes, Socials } from 'Interfaces/Lists/Socials';
 import { HTMLAttributes } from 'react';
 
-interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials { }
 
 function MobileSocialCard({
   desc,
@@ -46,7 +46,14 @@ function MobileSocialCard({
           </>
         );
       case SocialMediaTypes.INSTAGRAM:
-        return <>{t(LanguageKeys.Instagram)}</>;
+        return <>
+          <InstagramIcon />
+          {t(LanguageKeys.Instagram)}</>;
+
+      case SocialMediaTypes.YOUTUBE:
+        return <>
+          <YoutubeIcon />
+          {t(LanguageKeys.Youtube)}</>;
 
       default:
         return null;
@@ -346,6 +353,22 @@ const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
 `;
 const TelegramIcon = styled(FaTelegramPlane)`
   background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
+  color: white;
+  height: auto;
+  width: 1.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+`;
+const InstagramIcon = styled(FaInstagram)`
+  // background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
+  color: white;
+  height: auto;
+  width: 1.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+`;
+const YoutubeIcon = styled(FaYoutube)`
+  background-color: #c7524a;
   color: white;
   height: auto;
   width: 1.5rem;

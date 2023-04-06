@@ -32,7 +32,13 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
      <url>
        <loc>${OccupatopnsPage_FA}/lists/agencies</loc>
      </url>
- 
+
+     <url>
+       <loc>${OccupatopnsPage_EN}/lists/agencies/shada-visa</loc>
+     </url>
+     <url>
+       <loc>${OccupatopnsPage_FA}/lists/agencies/shada-visa</loc>
+     </url>
 
      <url>
        <loc>${OccupatopnsPage_EN}/lists/agents</loc>

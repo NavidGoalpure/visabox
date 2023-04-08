@@ -1,13 +1,16 @@
-import { deviceMin } from "Consts/device";
-import { PrimaryButton } from "Elements/Button/Primary";
-import Link from "next/link";
-import styled from "styled-components";
+import { deviceMin } from 'Consts/device';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import Link from 'next/link';
+import styled from 'styled-components';
 import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
-} from "Styles/Theme/Layers/layer1/style";
+} from 'Styles/Theme/Layers/layer1/style';
 
 export const Container = styled.section`
+  content-visibility: auto;
+  contain-intrinsic-size: 100% 100vh;
+  //
   display: flex;
   align-items: center;
   justify-content: flex-start;

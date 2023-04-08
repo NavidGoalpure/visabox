@@ -16,9 +16,6 @@ const ContainerTheme = theme('mode', {
   `,
 });
 export const Container = styled.section`
-  content-visibility: auto;
-  contain-intrinsic-size: 100% 100vh;
-  //
   display: flex;
   align-items: center;
   justify-content: flex-start;

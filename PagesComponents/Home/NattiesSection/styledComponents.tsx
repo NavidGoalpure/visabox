@@ -8,9 +8,6 @@ import {
 } from 'Styles/Theme/Layers/layer1/style';
 
 export const Container = styled.section`
-  content-visibility: auto;
-  contain-intrinsic-size: 100% 100vh;
-  //
   display: flex;
   align-items: center;
   justify-content: flex-start;

@@ -11,7 +11,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   Subtitle: {
     fa: 'برای مشاهده لیست وکلای معتبر مهاجرت به استرالیا که مورد تایید سازمان «MARA» هستند، از این بخش استفاده کنید.',
-    en: 'You can find immigration agencies that provide you with services according to consulting and applying for immigration to Australia here.',
+    en: 'Expert guidance for Australian immigration: Discover trusted MARA agents for your journey.',
   },
   CTA: {
     fa: 'مشاهده همه ',

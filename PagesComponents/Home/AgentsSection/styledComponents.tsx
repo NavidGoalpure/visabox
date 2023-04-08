@@ -1,14 +1,14 @@
-import { deviceMin } from "Consts/device";
-import { PrimaryButton } from "Elements/Button/Primary";
-import Link from "next/link";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import { deviceMin } from 'Consts/device';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import Link from 'next/link';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
   Layer1_HrStyle,
-} from "Styles/Theme/Layers/layer1/style";
-const ContainerTheme = theme("mode", {
+} from 'Styles/Theme/Layers/layer1/style';
+const ContainerTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -17,6 +17,9 @@ const ContainerTheme = theme("mode", {
   `,
 });
 export const Container = styled.section`
+  content-visibility: auto;
+  contain-intrinsic-size: 100% 100vh;
+  //
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -30,7 +33,7 @@ export const Container = styled.section`
   position: relative;
   :before {
     ${ContainerTheme};
-    content: "";
+    content: '';
     position: absolute;
     top: -2rem;
     left: 50%;

@@ -39,9 +39,6 @@ const HeadesWrapper = styled.div`
   @media ${deviceMin.tabletL} {
     overflow: hidden;
   }
-  button {
-    padding: 0 0.5rem;
-  }
 `;
 export const backgroundHeadsList = theme('mode', {
   light: css`

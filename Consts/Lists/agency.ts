@@ -280,7 +280,7 @@ export const AGENCYS: Agency[] = [
   },
   {
     id: 'agc18',
-    name: { en: 'Visapick', fa: 'موسسه مهاجرتی ویزاپیک' },
+    name: { en: 'Visapick', fa: 'ویزاپیک' },
     slug: 'visa-pick',
     country: [Country.Global, Country.Iran],
     isFeatured: false,

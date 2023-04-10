@@ -60,7 +60,9 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
               as={hasWebsite ? 'a' : 'div'}
-              href={hasWebsite ? `https://${website}` : ''}
+              href={
+                hasWebsite ? `https://${website?.replace('https://', '')}` : ''
+              }
               target={'_blank'}
               $hasWebsite={hasWebsite}
             >

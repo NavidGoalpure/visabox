@@ -58,7 +58,9 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
               as={!!website ? 'a' : 'div'}
-              href={!!website ? `https://${website}` : ''}
+              href={
+                !!website ? `https://${website?.replace('https://', '')}` : ''
+              }
               target={'_blank'}
               $hasWebsite={!!website}
             >

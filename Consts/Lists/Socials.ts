@@ -60,17 +60,6 @@ export const NormalSocialMedias: Socials[] = [
     status: Status.ACTIVE,
   },
   {
-    id: 'soc5',
-    name: `فرهنگ آزی/کار/زندگی`,
-    socialmediaType: SocialMediaTypes.TELEGRAM,
-    slug: 'فرهنگ-آزی-کار-زندگیau',
-    link: 'https://t.me/+Ij6il037uV9lYTg0',
-    locations: Locations.fa,
-    isFeatured: false,
-    desc: `در این گروه همه مسائل مربوط به کار و زندگی و بررسی فرهنگ و آداب و رسوم استرالیایها بررسی میشود و دوستان در گروه هم دیگه رو کمک و راهنمایی میکنند`,
-    status: Status.ACTIVE,
-  },
-  {
     id: 'soc6',
     name: `گروه پرواز استرالیا / کولبر`,
     socialmediaType: SocialMediaTypes.TELEGRAM,

@@ -23,7 +23,6 @@ export const Container = styled.section`
   flex-direction: column;
   position: relative;
   width: 100%;
-
   max-width: var(--max-width-page);
   margin: 0 auto;
   padding: 2rem 1rem;

@@ -14,7 +14,7 @@ const AgentsIntroduction: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <StyledPageLayout>
+    <StyledPageLayout hasFooter={false}>
       {/* navid add seo  */}
       <Content />
     </StyledPageLayout>

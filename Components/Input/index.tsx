@@ -1,4 +1,10 @@
-import { InputHTMLAttributes, ReactNode, useEffect, useRef } from "react";
+import {
+  InputHTMLAttributes,
+  ReactNode,
+  RefObject,
+  useEffect,
+  useRef,
+} from "react";
 import { Container, InputContainer, StyledInput, Error, Label } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -14,41 +20,40 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   inputName?: string;
   label?: string;
+  // isNumberOnly detemines if value can only accept numbers
+  isNumberOnly?: boolean;
+  ref?: RefObject<HTMLInputElement>;
 }
 
 export const Input = ({
   type = "text",
+  isNumberOnly = false,
   errorMasage,
   value,
   disabled = false,
   className,
   onChange,
   focus = false,
-  pattern,
   endElement,
   placeholder,
   inputName,
+  id,
   label,
+  ref,
   ...props
 }: InputProps) => {
-  const inputElement = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (inputElement?.current && focus) {
-      inputElement?.current?.focus();
-    }
-  }, [focus]);
   return (
     <Container className={className}>
       <InputContainer disabled={disabled} id="input-container">
         {!!label && <Label htmlFor={inputName || ""}>{label}</Label>}
         <StyledInput
+          id={id}
           type={type}
+          ref={ref}
           onChange={onChange}
           hasError={!!errorMasage}
-          value={value}
+          value={isNumberOnly ? value?.replace(/[^\d]/g, "") : value}
           disabled={disabled}
-          pattern={pattern}
           placeholder={placeholder}
           name={inputName}
           {...props}

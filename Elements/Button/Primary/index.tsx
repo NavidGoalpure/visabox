@@ -1,7 +1,7 @@
-import { deviceMin } from 'Consts/device';
-import { Loading } from 'Elements/Loading';
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { deviceMin } from "Consts/device";
+import { Loading } from "Elements/Loading";
+import React, { ButtonHTMLAttributes, ReactNode } from "react";
+import styled, { css } from "styled-components";
 
 /**
  * Primary UI component for user interaction
@@ -11,23 +11,27 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   isLoading?: boolean;
   hasAnimation?: boolean;
+  icon?: ReactNode;
 }
 export const PrimaryButton = ({
   children,
   disabled = false,
   isLoading = false,
   hasAnimation = true,
-  type = 'button',
+  icon,
+  type = "button",
   ...props
 }: ButtonProps) => {
   return (
     <Container
       hasAnimation={hasAnimation}
       type={type}
+      hasIcon={!!icon}
       {...props}
       disabled={disabled || isLoading}
     >
       {isLoading ? <Loading /> : children}
+      {!isLoading && icon}
     </Container>
   );
 };
@@ -35,11 +39,13 @@ export const PrimaryButton = ({
 export const ButtonCss = css<{
   disabled: boolean | undefined;
   hasAnimation: boolean;
+  hasIcon: boolean;
 }>`
   display: flex;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
+  gap: 0.5rem;
   cursor: pointer;
   width: -webkit-fill-available;
   height: 3rem;
@@ -50,12 +56,24 @@ export const ButtonCss = css<{
   color: white;
   font-weight: bold;
   transition: all 0.3s;
-
+  //////////////hasIcon////////////////
+  ${({ hasIcon }) =>
+    hasIcon &&
+    css`
+      padding: 0 1.5rem;
+    `}
   //////////////disabled///////////////////////
-
+${({ disabled }) =>
+    disabled &&
+    css`
+      background: var(--color-primary1);
+      color: var(--color-gray10);
+      cursor: auto;
+    `}
   //////////////hover///////////////////////
-  ${({ hasAnimation }) =>
+  ${({ hasAnimation, disabled }) =>
     hasAnimation &&
+    !disabled &&
     css`
       &:hover {
         background: var(--color-primary2);

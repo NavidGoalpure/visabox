@@ -40,9 +40,9 @@ const numberTheme = theme("mode", {
 
 const Container = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
-
   padding: 0 1rem;
   z-index: 1;
   height: 3.25rem;
@@ -79,7 +79,7 @@ const Lines = styled.div`
 `;
 const Numbers = styled.h5`
   ${numberTheme};
-  ${Headline6Style}
+  ${Headline6Style};
   font-weight: 600;
   line-height: 16px;
   margin-left: 4px;

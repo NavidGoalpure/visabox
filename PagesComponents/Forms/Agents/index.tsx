@@ -1,42 +1,29 @@
-import { Input } from "Components/Input";
 import Slider from "Components/SliderComponent";
+import { deviceMin } from "Consts/device";
+import { useState } from "react";
 import styled from "styled-components";
-import * as ToggleGroup from "./ToggleGroup";
+
+import SmartSteps from "./Steps/SmartStep";
+import { WizardContextProvider } from "./Contexts/Wizard/Context";
 function Content() {
-  const ages = [
-    { en: "15-20", fa: "15-20" },
-    { en: "13-20", fa: "15-20" },
-    { en: "16-20", fa: "15-20" },
-  ];
   return (
     <Container>
-      <Slider currentStep={5} end={9} />
-      <Input required label="Name:" inputName="name" placeholder="Name" />
-      <Input
-        required
-        label="Last Name:"
-        inputName="lname"
-        placeholder="Last Name"
-      />
-      <ToggleGroup.Root type="single">
-        {
-          <>
-            {ages.map((age) => (
-              <ToggleGroup.Item text={age} value={age.en}></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroup.Root>
+      <WizardContextProvider>
+        <SmartSteps />
+      </WizardContextProvider>
     </Container>
   );
 }
 export default Content;
 const Container = styled.div`
   width: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 1rem;
   align-items: center;
-  gap: 2rem;
-  margin: 1rem 0 3rem;
+  margin: 0rem 0 3rem;
+  position: relative;
+  
 `;

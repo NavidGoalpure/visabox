@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
-import { Headline5Style, Headline7Style } from "Styles/Typo";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
+import { Headline7Style } from "Styles/Typo";
 const inputTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
@@ -10,14 +11,6 @@ const inputTheme = theme("mode", {
   dark: css`
     background: var(--color-gray6);
     color: var(--color-gray13);
-  `,
-});
-const LabelTheme = theme("mode", {
-  light: css`
-    color: var(--color-gray6);
-  `,
-  dark: css`
-    color: var(--color-gray11);
   `,
 });
 const inputPlaceHolderTheme = theme("mode", {
@@ -33,7 +26,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  max-width: 27rem;
   height: 100%;
 `;
 
@@ -42,7 +34,7 @@ const InputContainer = styled.div<{
 }>`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 1rem;
   width: 100%;
@@ -52,8 +44,8 @@ const InputContainer = styled.div<{
   ${({ disabled }) => disabled && "border-color:var(--color-gray5); "};
 `;
 const Label = styled.label`
-  ${LabelTheme};
-  ${Headline5Style}
+  ${Layer1_SubtitleStyle};
+  margin: 0;
 `;
 const InputStyle = css<{
   hasError: boolean;
@@ -63,11 +55,21 @@ const InputStyle = css<{
   ${Headline7Style};
   width: 100%;
   border-radius: 15px;
-  padding: 1.5rem;
+  padding: 1rem;
   box-sizing: border-box;
+  -webkit-appearance: none;
   ${({ hasError }) => hasError && "color:var(--color-error);"};
   ${({ disabled }) => disabled && "color:var(--color-gray3); "};
-
+  ////////////////delete arrows in type=number input////////////////
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+  /////////
   ::placeholder {
     ${Headline7Style};
     ${inputPlaceHolderTheme};

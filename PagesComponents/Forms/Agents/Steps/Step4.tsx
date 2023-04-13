@@ -1,0 +1,98 @@
+import styled from "styled-components";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
+import * as ToggleGroup from "../../../../Elements/ToggleGroup";
+import { Input } from "Components/Input";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import { WizardContext } from "../Contexts/Wizard/Context";
+import { useContext, useEffect, useState } from "react";
+import {
+  ButtonWrapper,
+  Container,
+  NextButton,
+  NextIcon,
+  PrevButton,
+  PrevIcon,
+} from "./StyledComponents";
+import { FormDataContext } from "../Contexts/FormDataContext/Context";
+import { ClientDegree } from "../Contexts/FormDataContext/interface";
+import { educations } from "./consts";
+
+const Step4 = () => {
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+  const { t } = useStaticTranslation(componentStatements);
+  const { clientData, setClientData } = useContext(FormDataContext);
+  const [fieldOfStudyInputValue, setFieldOfStudyInputValue] = useState<string>(
+    clientData?.fieldOfStudy || ""
+  );
+  const [degreeValue, setDegreeValue] = useState<ClientDegree>(
+    clientData?.degree
+  );
+
+  return (
+    <Container>
+      <StyledInput
+        required
+        label={t(LanguageKeys.FieldOfStudyInputLabel)}
+        inputName="field-of-study"
+        placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
+        value={fieldOfStudyInputValue}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setFieldOfStudyInputValue(e.target.value)
+        }
+      />
+      <Title>{t(LanguageKeys.DegreeOfEducationSectionTitle)}</Title>
+      <ToggleGroupRoot
+        type="single"
+        value={degreeValue}
+        onValueChange={(value) => setDegreeValue(value as ClientDegree)}
+      >
+        {
+          <>
+            {educations.map((education,i) => (
+              <ToggleGroup.Item
+                key={i}
+                text={education}
+                value={education.en.replaceAll(" ", "")}
+              ></ToggleGroup.Item>
+            ))}
+          </>
+        }
+      </ToggleGroupRoot>
+      <ButtonWrapper>
+        <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
+          <PrevIcon />
+          {t(LanguageKeys.PrevButtonTitle)}
+        </PrevButton>
+
+        <NextButton
+          step={step}
+          onClick={() => {
+            handleNextPress();
+            setClientData({
+              ...clientData,
+              fieldOfStudy: fieldOfStudyInputValue,
+              degree: degreeValue,
+            });
+          }}
+          disabled={!fieldOfStudyInputValue || !degreeValue}
+          icon={<NextIcon />}
+        >
+          {t(LanguageKeys.NextButtonTitle)}
+        </NextButton>
+      </ButtonWrapper>
+    </Container>
+  );
+};
+export default Step4;
+
+const ToggleGroupRoot = styled(ToggleGroup.Root)`
+  gap: 1rem;
+`;
+const Title = styled.h1`
+  ${Layer1_SubtitleStyle};
+  margin: 0;
+`;
+const StyledInput = styled(Input)`
+  margin-top: 1rem;
+`;

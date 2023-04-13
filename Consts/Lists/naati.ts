@@ -283,7 +283,7 @@ export const NAATIES: Naati[] = [
   {
     fullName: {
       en: 'Shahram Mirzaei',
-      fa: 'دکتر نوید آرمیون',
+      fa: 'شهرام میرزایی',
     },
     language: [
       {

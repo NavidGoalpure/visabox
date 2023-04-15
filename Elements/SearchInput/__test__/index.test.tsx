@@ -5,7 +5,7 @@ import {
   getByPlaceholderText,
 } from 'Utils/test-utils';
 import renderer from 'react-test-renderer';
-import { Input } from 'Elements/Input';
+import { Input } from 'Elements/SearchInput';
 jest.mock('next/router', () => require('next-router-mock'));
 
 describe('Elements/Input', () => {

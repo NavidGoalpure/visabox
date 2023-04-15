@@ -1,47 +1,29 @@
-import { useLocale } from "Hooks/useLocale";
-import { Languages } from "Interfaces";
+import Slider from "Components/SliderComponent";
+import { deviceMin } from "Consts/device";
+import { useState } from "react";
 import styled from "styled-components";
 
+import SmartSteps from "./Steps/SmartStep";
+import { WizardContextProvider } from "./Contexts/Wizard/Context";
 function Content() {
-  const {locale} = useLocale()
   return (
     <Container>
-      {locale === Languages.fa ? (
-        <GoogleForm
-          src="https://docs.google.com/forms/d/e/1FAIpQLScqCjbxv1CJBxEsmwCkTUce1lVAR-S5t-fELLJOFDXNC2qRWA/viewform?embedded=true"
-          width="500"
-          height="920"
-          frameBorder="1"
-          marginHeight={0}
-          marginWidth={0}
-        >
-          Loading…
-        </GoogleForm>
-      ) : (
-        <GoogleForm
-          src="https://docs.google.com/forms/d/e/1FAIpQLSeQz7fxXOGTmts1Wt8JwpAE9H26ylJubGKBKq5WtZ6ECVzSPA/viewform?embedded=true"
-          width="500"
-          height="920"
-          frameBorder="1"
-          marginHeight={0}
-          marginWidth={0}
-        >
-          Loading…
-        </GoogleForm>
-      )}
+      <WizardContextProvider>
+        <SmartSteps />
+      </WizardContextProvider>
     </Container>
   );
 }
 export default Content;
 const Container = styled.div`
   width: 100%;
+  height: max-content;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1rem;
   align-items: center;
-  margin: 5rem 0;
-`;
-const GoogleForm = styled.iframe`
-  background: var(--color-gray12);
-  border-radius: 15px;
-  min-height: 920px;
+  margin: 0rem 0 3rem;
+  position: relative;
+  
 `;

@@ -39,7 +39,7 @@ export const PrimaryButton = ({
 const DisabledTheme = theme("mode", {
   light: css`
     background: var(--color-gray10);
-    color: white;
+    color: var(--color-gray12);
   `,
   dark: css`
     color: var(--color-gray10);

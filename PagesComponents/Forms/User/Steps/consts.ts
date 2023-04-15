@@ -15,6 +15,7 @@ export const educations: MultiLanguageText[] = [
   { en: "Bachelor's degree", fa: "لیسانس" },
   { en: "Doctorate", fa: "دکترا" },
 ];
+
  export const works: MultiLanguageText[] = [
    { en: "Below 1 year", fa: "زیر یک سال" },
    { en: "1 to 3 years", fa: "۱ تا ۳ سال" },

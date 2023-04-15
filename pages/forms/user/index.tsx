@@ -5,14 +5,14 @@ import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import { componentStatements } from 'PagesComponents/Landings/Agents/const';
 import styled from 'styled-components';
-import Content from 'PagesComponents/Forms/Agents';
+import Content from 'PagesComponents/Forms/User';
 import { LanguageKeys } from 'PagesComponents/Forms/User/const';
 
 const AgentsIntroduction: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <StyledPageLayout>
+    <StyledPageLayout hasFooter={false}>
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

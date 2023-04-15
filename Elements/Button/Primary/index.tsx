@@ -2,6 +2,7 @@ import { deviceMin } from "Consts/device";
 import { Loading } from "Elements/Loading";
 import React, { ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { css } from "styled-components";
+import theme from "styled-theming";
 
 /**
  * Primary UI component for user interaction
@@ -35,7 +36,16 @@ export const PrimaryButton = ({
     </Container>
   );
 };
-
+const DisabledTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray10);
+    color: white;
+  `,
+  dark: css`
+    color: var(--color-gray10);
+    background: var(--color-primary1);
+  `,
+});
 export const ButtonCss = css<{
   disabled: boolean | undefined;
   hasAnimation: boolean;
@@ -66,8 +76,8 @@ export const ButtonCss = css<{
 ${({ disabled }) =>
     disabled &&
     css`
-      background: var(--color-primary1);
-      color: var(--color-gray10);
+      ${DisabledTheme};
+
       cursor: auto;
     `}
   //////////////hover///////////////////////

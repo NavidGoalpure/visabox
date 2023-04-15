@@ -1,11 +1,12 @@
+import { InputHTMLAttributes, ReactNode, RefObject } from "react";
 import {
-  InputHTMLAttributes,
-  ReactNode,
-  RefObject,
-  useEffect,
-  useRef,
-} from "react";
-import { Container, InputContainer, StyledInput, Error, Label } from "./styles";
+  Container,
+  InputContainer,
+  StyledInput,
+  ErrorElement,
+  ErrorIcon,
+  Label,
+} from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -58,9 +59,14 @@ export const Input = ({
           name={inputName}
           {...props}
         ></StyledInput>
+        {!!errorMasage && (
+          <ErrorElement>
+            <ErrorIcon />
+            {errorMasage}{" "}
+          </ErrorElement>
+        )}
         {endElement ? endElement : null}
       </InputContainer>
-      {errorMasage && <Error data-testid="error-input">{errorMasage}</Error>}
     </Container>
   );
 };

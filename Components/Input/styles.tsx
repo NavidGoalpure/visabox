@@ -1,3 +1,4 @@
+import { FaExclamationTriangle } from "react-icons/fa";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
@@ -36,7 +37,6 @@ const InputContainer = styled.div<{
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1rem;
   width: 100%;
   height: 100%;
 
@@ -46,6 +46,7 @@ const InputContainer = styled.div<{
 const Label = styled.label`
   ${Layer1_SubtitleStyle};
   margin: 0;
+  margin-bottom: 1rem;
 `;
 const InputStyle = css<{
   hasError: boolean;
@@ -58,7 +59,13 @@ const InputStyle = css<{
   padding: 1rem;
   box-sizing: border-box;
   -webkit-appearance: none;
-  ${({ hasError }) => hasError && "color:var(--color-error);"};
+  ${({ hasError }) =>
+    hasError &&
+    `
+  border:2px solid var(--color-fail1);
+  border-radius: 15px 15px 0px 0px;
+
+  `};
   ${({ disabled }) => disabled && "color:var(--color-gray3); "};
   ////////////////delete arrows in type=number input////////////////
   ::-webkit-outer-spin-button,
@@ -82,11 +89,29 @@ const InputStyle = css<{
   }
 `;
 const StyledInput = styled.input`
-  ${InputStyle}
+  ${InputStyle};
 `;
 
-const Error = styled.h5`
-  color: var(--color-error);
-  margin-top: 0.5rem;
+const ErrorElement = styled.h5`
+  padding: 0.75rem 1rem;
+  background: var(--color-fail1);
+  border-radius: 0px 0px 15px 15px;
+  color: var(--color-gray13);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
 `;
-export { Error, StyledInput, InputContainer, Container, InputStyle, Label };
+const ErrorIcon = styled(FaExclamationTriangle)`
+  color: var(--color-fail3);
+`;
+export {
+  ErrorIcon,
+  StyledInput,
+  ErrorElement,
+  InputContainer,
+  Container,
+  InputStyle,
+  Label,
+};

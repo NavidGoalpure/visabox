@@ -25,7 +25,10 @@ export default function Post(props: Props) {
   return (
     //@ts-ignore
     <MDXProvider components={components}>
-      <main {...props} />
+      <main>
+        <Image src={props.meta.bannerUrl} alt={`${props.meta.title}-image`} />
+        {props.children}
+      </main>
     </MDXProvider>
   );
 }

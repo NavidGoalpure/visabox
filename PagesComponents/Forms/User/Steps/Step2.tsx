@@ -53,7 +53,6 @@ const Step2 = () => {
         value={ageInputValue}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setAgeInputValue(e.target.value);
-          console.log("navid age ===", ageInputValue);
         }}
         id={"phone-input"}
         placeholder={t(LanguageKeys.PhoneInputPlaceholder)}

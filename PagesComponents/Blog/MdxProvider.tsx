@@ -2,6 +2,7 @@ import { MDXProvider } from '@mdx-js/react';
 import Image, { ImageProps } from 'next/image';
 import { HeadingH1 } from 'PagesComponents/Blog/Heading';
 import { ReactNode } from 'react';
+import { ArticleMetaData } from './interfaces';
 
 const ResponsiveImage = (props: ImageProps) => (
   <Image {...props} alt={props.alt} fill />
@@ -17,8 +18,10 @@ const components = {
 };
 type Props = {
   children: ReactNode;
+  meta: ArticleMetaData;
 };
 export default function Post(props: Props) {
+  console.log('navid props=', props.meta);
   return (
     //@ts-ignore
     <MDXProvider components={components}>

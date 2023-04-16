@@ -55,6 +55,8 @@ const InputStyle = css<{
   ${inputTheme};
   ${Headline7Style};
   width: 100%;
+  display: flex;
+  align-items: center;
   border-radius: 15px;
   padding: 1rem;
   box-sizing: border-box;

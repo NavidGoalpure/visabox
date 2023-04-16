@@ -56,7 +56,7 @@ export default createSchema({
         /////Survey Related ////
         survey,
         /////User Related ////
-        // user,
+        user,
       ])
     ),
 });

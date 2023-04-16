@@ -1,10 +1,4 @@
-export enum ClientAge {
-  "18-24" = "18-24",
-  "25-32" = "25-32",
-  "33-39" = "33-39",
-  "40-44" = "40-44",
-  "45+" = "45+",
-}
+
 export enum ClientMarital {
   Married = "Married",
   Single = "Single",
@@ -38,7 +32,7 @@ export type ClientData = {
   name: string;
   lastName: string;
   phoneNumber: string;
-  age: ClientAge;
+  age: string;
   marital: ClientMarital;
   fieldOfStudy: string;
   degree: ClientDegree;

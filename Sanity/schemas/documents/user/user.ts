@@ -10,7 +10,7 @@ export default {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
-      name: "last-name",
+      name: "lastname",
       title: "Last Name",
       type: "string",
       validation: (Rule: { required: () => any }) => Rule.required(),
@@ -18,12 +18,13 @@ export default {
     {
       name: "phone",
       title: "Phone Number",
-      type: "string",
+      type: "number",
     },
     {
+      // navid turn age to type of Date
       name: "age",
       title: "Age",
-      type: "",
+      type: "date",
       options: {
         list: [
           { title: "18-24", value: "18-24" },
@@ -50,7 +51,7 @@ export default {
       },
     },
     {
-      name: "field-of-study",
+      name: "field_of_study",
       title: "Field Of Study",
       type: "string",
       validation: (Rule: { required: () => any }) => Rule.required(),
@@ -58,7 +59,7 @@ export default {
     {
       name: "degree",
       title: "Degree",
-      type: "",
+      type: "string",
       options: {
         list: [
           { title: "Diploma", value: "Diploma" },
@@ -70,15 +71,15 @@ export default {
       },
     },
     {
-      name: "currentjob",
+      name: "current_job",
       title: "Current Job",
       type: "string",
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
-      name: "work-experience",
+      name: "work_experience",
       title: "Work Experience",
-      type: "",
+      type: "string",
       options: {
         list: [
           { title: "Below 1 year", value: "Below 1 year" },
@@ -92,9 +93,9 @@ export default {
       },
     },
     {
-      name: "australian-work-experience",
+      name: "australian_work_experience",
       title: "Australian Work Experience",
-      type: "",
+      type: "string",
       options: {
         list: [
           {
@@ -112,9 +113,9 @@ export default {
       },
     },
     {
-      name: "english-level",
+      name: "english_level",
       title: "English Level",
-      type: "",
+      type: "string",
       options: {
         list: [
           { title: "More than 8 years", value: "More than 8 years" },
@@ -127,10 +128,23 @@ export default {
         direction: "horizontal",
       },
     },
-  ],
-  preview: {
-    select: {
-      title: "title",
+    {
+      name: "many",
+      title: "Many",
+      type: "reference",
+      to: [
+        {
+          // name:"leo",
+          // title:"nardo",
+          type: "occupation",
+        },
+      ],
     },
-  },
+  ],
+  // preview: {
+  //   select: {
+  //     // navid find why its untitled
+  //     title: "username",
+  //   },
+  // },
 };

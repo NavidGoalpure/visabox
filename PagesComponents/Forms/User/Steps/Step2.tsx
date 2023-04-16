@@ -15,18 +15,20 @@ import {
   PrevIcon,
 } from "./StyledComponents";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { ClientAge } from "../Contexts/FormDataContext/interface";
 import { ages } from "./consts";
+import { Input } from "Components/Input";
 
 const Step2 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [ageValue, setAgeValue] = useState<ClientAge>(clientData?.age);
+  const [ageInputValue, setAgeInputValue] = useState<string>(
+    clientData?.age || ""
+  );
 
   return (
     <Container>
-      <Title>{t(LanguageKeys.AgeSectionTitle)}</Title>
+      {/* <Title>{t(LanguageKeys.AgeSectionTitle)}</Title>
       <ToggleGroupRoot
         value={ageValue}
         type="single"
@@ -43,7 +45,19 @@ const Step2 = () => {
             ))}
           </>
         }
-      </ToggleGroupRoot>
+      </ToggleGroupRoot> */}
+      <Input
+        label={t(LanguageKeys.AgeSectionTitle)}
+        type={"date"}
+        inputName="age"
+        value={ageInputValue}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          setAgeInputValue(e.target.value);
+          console.log("navid age ===", ageInputValue);
+        }}
+        id={"phone-input"}
+        placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
+      />
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -56,11 +70,11 @@ const Step2 = () => {
             handleNextPress();
             setClientData({
               ...clientData,
-              age: ageValue,
+              age: ageInputValue,
             });
           }}
           icon={<NextIcon />}
-          disabled={!ageValue}
+          disabled={!ageInputValue}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

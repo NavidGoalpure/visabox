@@ -4,12 +4,13 @@ import { ArticleMetaData, ArticleTags } from './interfaces';
 
 export const articleMetadatas: ArticleMetaData[] = [
   {
-    title: 'یک مقاله برای اینکه بیشتر هوای هم رو داشته باشیم',
+    title: 'ویزای مهارتی استرالیا',
     tags: [ArticleTags.INVESTIGATE],
     summary:
-      'Markdown/MDX with Next.js Markdown/MDX with Next.js Markdown/MDX with Next.jsMarkdown/MDX with Next.js',
-    slug: 'a-good-article',
-    id: convertToMd5('a-good-article'),
+      'استرالیا به دلیل کیفیت بالای زندگی، فرهنگ متنوع و فرصت‌های شغلی فراوان، مقصدی محبوب برای مهاجران از سراسر جهان است. در مطلب پیش رو می خواهیم ، مهاجرت به استرالیا از طریق تخصص...',
+    slug: 'skilled-worker',
+    id: convertToMd5('skilled-worker'),
     locale: Locations.fa,
+    date: new Date,
   },
 ];

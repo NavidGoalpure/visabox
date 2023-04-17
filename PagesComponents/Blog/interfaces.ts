@@ -6,7 +6,7 @@ export interface ArticleMetaData {
   slug: string;
   tags?: ArticleTags[];
   summary: string;
-  bannerUrl: string;
+  // bannerUrl: string;
   date: Date;
   //must be hash of slug in MD5
   id: string;

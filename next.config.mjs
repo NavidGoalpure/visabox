@@ -1,18 +1,20 @@
-const { withSentryConfig } = require('@sentry/nextjs');
+// بر اساس داکیومنت نکست جی اس پسوند این فایل به جی اس تغییر کنه دیگه
+// remarkGfm
+// توش کار نمیکنه
+import remarkGfm from 'remark-gfm';
+import { withSentryConfig } from '@sentry/nextjs';
+import createMDX from '@next/mdx';
+import withImages from 'next-images';
 
-const withMDX = require('@next/mdx')({
+const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    // If you use remark-gfm, you'll need to use next.config.mjs
-    // as the package is ESM only
-    // https://github.com/remarkjs/remark-gfm#install
-    remarkPlugins: [],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [],
     providerImportSource: '@mdx-js/react',
   },
 });
 
-const withImages = require('next-images');
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
@@ -78,7 +80,7 @@ const sentryWebpackPluginOptions = {
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
 
-module.exports = withSentryConfig(
+export default withSentryConfig(
   withImages(withMDX(config)),
   sentryWebpackPluginOptions
 );

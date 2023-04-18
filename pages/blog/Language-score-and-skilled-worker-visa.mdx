@@ -1,0 +1,18 @@
+import PageLayout from 'Components/Layouts/PageContainer';
+import MDXProvider from 'PagesComponents/Blog/MdxProvider';
+import { articleMetadatas } from 'PagesComponents/Blog/const';
+
+export const meta = articleMetadatas[0];
+
+# نمره زبان  و ویزای مهارتی یا اسکیل ورکر 
+
+آزمونهای زبان مورد تایید سازمان مهاجرت استرالیا جهت اقدام برای ویزاهای مختلف شامل :IELTS, PTE,TOEFL, CAE, OET می باشد. توضیحات هر یک از این آزمونها به شرح ذیل است:
+
+    * آزمون IELTS یا  International English Language Testing System  به دو صورت GENERAl  و ACADEMIC برگزار می شود ، که هر دو نوع آزمون برای ویزای کاری  مورد قبول اداره مهاجرت استرالیا  می باشند. مراکز برگزاری این آزمون بسیار زیاد و در همه کشورهای دنیا فعال می باشند. این آزمون در دو مرحله به صورت حضوری برگزار می گردد. یک مرحله از آن به سنجش کتبی توانایی های شنیداری، خواندن و درک مفاهیم و نگارش پرداخته و مرحله دیگر آن که در روز جداگانه ای می باشد به سنجش توانایی های گفتاری فرد از طریق یک مصاحبه رو در رو با ممتحن می پردازد.
+    * آزمون PTE یا Pearson Test of English آزمونی برخواسته از موسسه Pearson  انگلستان می باشد. نکته حائز اهمیت در این آزمون، تصحیح آن توسط هوش مصنوعی و بدون هیچ گونه دخالت انسانی است. این نوع تصحیح بر روی نوع آموزش و تمرین آن تأثیر بسزایی داشته و آنرا نسبت به آزمون های مشابه و هم دوران خود بسیار متفاوت کرده است.
+
+export default ({ children }) => (
+  <PageLayout>
+    <MDXProvider meta={meta}>{children}</MDXProvider>
+  </PageLayout>
+);

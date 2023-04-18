@@ -51,7 +51,8 @@ table {
   ${borderTheme}
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
   border-spacing: 0px;
 }
 
@@ -66,6 +67,9 @@ tbody {
 tr {
   width: auto;
   height: 4rem;
+  th {
+    max-width: 278px;
+  }
 }
 td {
   text-align: center;
@@ -85,7 +89,6 @@ th {
   padding-inline-start: 32px;
   padding-inline-end: 32px;
   line-height: 1.5rem;
-
   border-color: #ececec;
   :last-child {
     border-right: none;

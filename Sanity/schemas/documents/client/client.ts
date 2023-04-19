@@ -1,6 +1,6 @@
 export default {
-  name: "user",
-  title: "User",
+  name: "client",
+  title: "Client",
   type: "document",
   fields: [
     {
@@ -16,26 +16,50 @@ export default {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
+      name: "email",
+      title: "Email",
+      type: "string",
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
       name: "phone",
       title: "Phone Number",
-      type: "number",
+      type: "string",
     },
     {
       // navid turn age to type of Date
       name: "age",
       title: "Age",
       type: "date",
+    },
+    {
+      name: "status",
+      title: "Status",
+      type: "string",
       options: {
         list: [
-          { title: "18-24", value: "18-24" },
-          { title: "25-32", value: "25-32" },
-          { title: "33-39", value: "33-39" },
-          { title: "40-44", value: "40-44" },
-          { title: "45+", value: "45+" },
+          { title: "ACTIVE", value: "active" },
+          { title: "DEACTIVE", value: "deactive" },
+          { title: "DELETED", value: "deleted" },
         ],
         layout: "radio",
         direction: "horizontal",
       },
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
+      name: "role",
+      title: "Role",
+      type: "string",
+      options: {
+        list: [
+          { title: "NORMAL", value: "normal" },
+          { title: "ADMIN", value: "admin" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: "marital",
@@ -62,9 +86,9 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "Diploma", value: "Diploma" },
-          { title: "Bachelor's degree", value: "Bachelor's degree" },
-          { title: "Doctorate", value: "Doctorate" },
+          { title: "Diploma", value: "diploma" },
+          { title: "Bachelor's degree", value: "bachelor's degree" },
+          { title: "Doctorate", value: "doctorate" },
         ],
         layout: "radio",
         direction: "horizontal",
@@ -82,11 +106,11 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "Below 1 year", value: "Below 1 year" },
+          { title: "Below 1 year", value: "below 1 year" },
           { title: "1 to 3 years", value: "1 to 3 years" },
           { title: "3 to 5 years", value: "3 to 5 years" },
           { title: "5 to 8 years", value: "5 to 8 years" },
-          { title: "More than 8 years", value: "More than 8 years" },
+          { title: "More than 8 years", value: "more than 8 years" },
         ],
         layout: "radio",
         direction: "horizontal",
@@ -102,11 +126,11 @@ export default {
             title: "none - less than 1 year",
             value: "none - less than 1 year",
           },
-          { title: "Below 1 year", value: "Below 1 year" },
+          { title: "Below 1 year", value: "below 1 year" },
           { title: "1 to 3 years", value: "1 to 3 years" },
           { title: "3 to 5 years", value: "3 to 5 years" },
           { title: "5 to 8 years", value: "5 to 8 years" },
-          { title: "More than 8 years", value: "More than 8 years" },
+          { title: "More than 8 years", value: "more than 8 years" },
         ],
         layout: "radio",
         direction: "horizontal",
@@ -118,29 +142,18 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "More than 8 years", value: "More than 8 years" },
-          { title: "Low", value: "Low" },
-          { title: "Normal", value: "Normal" },
-          { title: "Good", value: "Good" },
-          { title: "Perfect", value: "Perfect" },
+          { title: "More than 8 years", value: "more than 8 years" },
+          { title: "Low", value: "low" },
+          { title: "Normal", value: "normal" },
+          { title: "Good", value: "good" },
+          { title: "Perfect", value: "perfect" },
         ],
         layout: "radio",
         direction: "horizontal",
       },
     },
-    {
-      name: "many",
-      title: "Many",
-      type: "reference",
-      to: [
-        {
-          // name:"leo",
-          // title:"nardo",
-          type: "occupation",
-        },
-      ],
-    },
   ],
+
   // preview: {
   //   select: {
   //     // navid find why its untitled

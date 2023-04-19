@@ -24,9 +24,8 @@ const Step1 = () => {
     clientData?.lastName || ""
   );
   const [phoneNumberInputValue, setPhoneNumberInputValue] = useState<string>(
-    clientData?.phoneNumber ||""
+    clientData?.phoneNumber || ""
   );
-
   return (
     <Container>
       {/* //////////name-input//////////// */}
@@ -35,9 +34,12 @@ const Step1 = () => {
         label={t(LanguageKeys.NameInputLabel)}
         inputName="name"
         placeholder={t(LanguageKeys.NameInputPlaceholder)}
-        value={nameInputValue}
+        value={clientData?.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setNameInputValue(e.target.value)
+          setClientData({
+            ...clientData,
+            name: e.target.value,
+          })
         }
       />
       {/* //////////last-name-input//////////// */}
@@ -45,9 +47,12 @@ const Step1 = () => {
         required
         label={t(LanguageKeys.LastNameInputLabel)}
         inputName="lname"
-        value={lastNameInputValue}
+        value={clientData.lastName}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setLastNameInputValue(e.target.value)
+          setClientData({
+            ...clientData,
+            lastName: e.target.value,
+          })
         }
         placeholder={t(LanguageKeys.LastNameInputPlaceholder)}
       />
@@ -55,9 +60,12 @@ const Step1 = () => {
       <Input
         inputMode={"numeric"}
         label={t(LanguageKeys.PhoneInputLabel)}
-        value={phoneNumberInputValue}
+        value={clientData.phoneNumber}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setPhoneNumberInputValue(e.target.value.replace(/[^\d]/g, ""))
+          setClientData({
+            ...clientData,
+            phoneNumber: e.target.value.replace(/[^\d]/g, ""),
+          })
         }
         inputName="phoneNumber"
         isNumberOnly={true}
@@ -82,7 +90,7 @@ const Step1 = () => {
             });
           }}
           disabled={
-            !nameInputValue || !lastNameInputValue || !phoneNumberInputValue
+            !clientData.name || !clientData.lastName || !clientData.phoneNumber
           }
           icon={<NextIcon />}
         >

@@ -10,7 +10,7 @@ import visaType from './documents/occupations/visaType';
 import territory from './documents/occupations/territory';
 import unitGroup from './documents/occupations/unitGroup';
 import survey from './documents/survey';
-import user from './documents/user/user';
+import client from './documents/client/client';
 
 //Objects-section
 import visaOptionObj from './objects/occupations/visaOptionObj';
@@ -55,8 +55,8 @@ export default createSchema({
         territory,
         /////Survey Related ////
         survey,
-        /////User Related ////
-        user,
+        /////client Related ////
+        client,
       ])
     ),
 });

@@ -15,8 +15,8 @@ import {
   PrevIcon,
 } from './StyledComponents';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { ClientDegree } from '../Contexts/FormDataContext/interface';
 import { educations } from './consts';
+import { ClientDegree } from 'Interfaces/Client';
 
 const Step4 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);

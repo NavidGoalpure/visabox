@@ -15,8 +15,8 @@ import {
   PrevIcon,
 } from "./StyledComponents";
 import { australianWorks } from "./consts";
-import { AustralianWorkExperience } from "../Contexts/FormDataContext/interface";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
+import { AustralianWorkExperience } from "Interfaces/Client";
 
 const Step7 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);

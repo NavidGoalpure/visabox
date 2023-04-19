@@ -14,15 +14,41 @@ import {
   PrevButton,
   PrevIcon,
 } from "./StyledComponents";
-import { EnglishSkillLevel } from "../Contexts/FormDataContext/interface";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { englishLevels } from "./consts";
+import { sanityClient } from "Utils/sanity";
+import { EnglishSkillLevel } from "Interfaces/Client";
 const Step8 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
   const [englishSkillLevelValue, setEnglishSkillLevelValue] =
     useState<EnglishSkillLevel>(clientData?.englishSkillLevel);
+  const getServerSideProps = async () => {
+    const data = `*[_type=='user']{
+    name
+  }`;
+    try {
+      await sanityClient.patch(
+        {
+          query: data,
+          id:"user"
+        },
+        { set: { name: clientData.name } }
+      );
+      console.log(
+        "navid data===",
+        sanityClient.patch({
+          query: data,
+          params: {
+            Set: { name: clientData.name },
+          },
+        })
+      );
+    } catch (error) {
+      console.log("navid error ===", error);
+    }
+  };
 
   return (
     <Container>
@@ -54,10 +80,7 @@ const Step8 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            setClientData({
-              ...clientData,
-              englishSkillLevel: englishSkillLevelValue,
-            });
+            getServerSideProps();
           }}
           disabled={!englishSkillLevelValue}
           icon={<NextIcon />}

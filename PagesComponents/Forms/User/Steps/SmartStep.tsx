@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -14,7 +14,6 @@ import { WizardContext } from "../Contexts/Wizard/Context";
 import Slider from "Components/SliderComponent";
 import Wizard from "../Contexts/Wizard";
 import { deviceMin } from "Consts/device";
-import { FormDataContextProvider } from "../Contexts/FormDataContext/Context";
 
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
@@ -30,12 +29,11 @@ const SmartSteps: React.FC = () => {
     <Step7 />,
     <Step8 />,
   ];
+
   return (
     <Container>
       <Slider currentStep={step + 1} end={maxStep} />
-      <FormDataContextProvider>
         <StepsWrapper>{steps[step]}</StepsWrapper>
-      </FormDataContextProvider>
     </Container>
   );
 };

@@ -17,7 +17,7 @@ import {
 } from "./StyledComponents";
 import { works } from "./consts";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { WorkExperience } from "../Contexts/FormDataContext/interface";
+import { WorkExperience } from "Interfaces/Client";
 
 const Step6 = () => {
   const { t } = useStaticTranslation(componentStatements);

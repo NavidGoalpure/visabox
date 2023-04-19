@@ -43,6 +43,7 @@ export const Input = ({
   ref,
   ...props
 }: InputProps) => {
+  console.log("navid value ===", value);
   return (
     <Container className={className}>
       <InputContainer disabled={disabled} id="input-container">
@@ -53,7 +54,7 @@ export const Input = ({
           ref={ref}
           onChange={onChange}
           hasError={!!errorMasage}
-          value={isNumberOnly ? value?.replace(/[^\d]/g, "") : value}
+          value={isNumberOnly && value ? value.replace(/[^\d]/g, "") : value}
           disabled={disabled}
           placeholder={placeholder}
           name={inputName}

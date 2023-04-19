@@ -2,7 +2,7 @@ import { ClientError } from '@sanity/client';
 import { Occupation } from 'Interfaces/Occupation/occupation';
 import { getlastOccupationCode } from 'Queries/occupations/List';
 import { useQuery } from 'react-query';
-import { OccupationsQueryKeys } from 'Utils/query';
+import { OccupationsQueryKeys } from 'Utils/query/keys';
 
 export const useLastOccupationData = (searchValue: string) => {
   const {

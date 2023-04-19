@@ -1,8 +1,4 @@
 import { MultiLanguageText } from 'Interfaces';
-import { Dispatch, SetStateAction } from 'react';
-import gsap from 'gsap';
-//@ts-ignore
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',

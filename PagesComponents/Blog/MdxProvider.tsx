@@ -115,7 +115,10 @@ ol {
     padding-inline-start: 3rem;
   }
 }
-li:last-child {
+li{
+margin-bottom: 1rem;
+}
+:last-child {
   margin-bottom: 2rem;
 }
 `

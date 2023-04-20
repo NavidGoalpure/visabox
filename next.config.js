@@ -78,7 +78,17 @@ const sentryWebpackPluginOptions = {
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
 
-module.exports = withSentryConfig(
-  withImages(withMDX(config)),
-  sentryWebpackPluginOptions
-);
+//در هر لحظه باید یکی از دو حالت رو فقط انتخاب کنیم
+// بسته به این که میخوایم سنتری فعال باشه یا نه
+/////////////////////////////
+///////active sentry/////////
+/////////////////////////////
+// module.exports = withSentryConfig(
+//   withImages(withMDX(config)),
+//   sentryWebpackPluginOptions
+// );
+
+/////////////////////////////
+///////deactive sentry/////////
+/////////////////////////////
+module.exports = withImages(withMDX(config));

@@ -1,6 +1,6 @@
 import { deviceMin } from 'Consts/device';
 import { css } from 'styled-components';
-import { Headline4Style, Headline5Style } from 'Styles/Typo';
+import { Headline4Style, Headline5Style, Headline6Style } from 'Styles/Typo';
 import { directionStyles } from '../..';
 import {
   layer1_TitleColor,
@@ -39,7 +39,8 @@ export const Layer1_SubtitleStyle = css<{
 export const Layer1_TextStyle = css`
   ${directionStyles}
   ${layer1_TextColor}
-  ${Headline5Style}
+  ${Headline6Style}
+  font-weight: normal;
   margin-bottom: 1rem;
   text-align: center;
   @media ${deviceMin.tabletS} {

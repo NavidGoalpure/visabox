@@ -26,9 +26,9 @@ const config = {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
-  // build: {
-  //   transpile: ['gsap'],
-  // },
+  build: {
+    transpile: ['gsap'],
+  },
   i18n: {
     locales: ['en', 'fa'],
     defaultLocale: 'fa',

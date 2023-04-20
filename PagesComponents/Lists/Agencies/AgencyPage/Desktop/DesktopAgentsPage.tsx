@@ -83,11 +83,11 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
           <SmartSocial
             key={i}
             {...relatedSocial}
-            style={{ minHeight: '24.5rem', scale: '0.97', }}
+            style={{ minHeight: '24.5rem', scale: '0.97' }}
           />
         ))}
       </Row>
-    </Container >
+    </Container>
   );
 }
 export default DesktopAgentsPage;
@@ -142,7 +142,7 @@ const Header = styled.header`
 `;
 const ProfilePictureWrapper = styled.div`
   flex-shrink: 0;
-  width: 16rem;
+  width: 12rem;
   height: 16rem;
   z-index: 1;
   position: relative;
@@ -226,4 +226,3 @@ const Row = styled.div`
   width: 100%;
   justify-content: center;
 `;
-

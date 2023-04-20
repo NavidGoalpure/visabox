@@ -75,11 +75,12 @@ export const Details = styled.div`
   }
   table {
     ${borderTheme}
-    border-radius: 64px;
+    border-radius: 15px;
     overflow: hidden;
     margin-bottom: 1rem;
+    border-spacing: 0px;
   }
-
+  
   tbody {
     margin: 0 0 20px;
     padding: 0;
@@ -100,20 +101,17 @@ export const Details = styled.div`
     padding: 0.5rem;
     line-height: 1.5rem;
   }
-
+  
   th {
     ${layer2A_HeaderBG}
     ${layer2A_TextStyle}
     direction: ltr;
     text-align: center;
-    border-left: medium none;
-    border-style: none solid solid none;
-    border-top: medium none;
-    border-width: medium 1px 1px medium;
     font-weight: 500;
-    padding: 16px;
+    padding-inline-start: 32px;
+    padding-inline-end: 32px;
     line-height: 1.5rem;
-
+  
     border-color: #ececec;
     :last-child {
       border-right: none;

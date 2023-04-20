@@ -11,8 +11,8 @@ const config = {
   webpack: (config, { webpack }) => {
     config.plugins.push(
       new webpack.DefinePlugin({
-        __SENTRY_DEBUG__: false,
-        __SENTRY_TRACING__: false,
+        SENTRY_DEBUG: false,
+        SENTRY_TRACING: false,
       })
     );
 

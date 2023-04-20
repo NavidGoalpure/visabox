@@ -3,6 +3,8 @@ import SuccessToast from 'Elements/Toast/Success';
 import { LocalStorageKeys, ThemeModes } from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import crypto from 'crypto';
+
 const getThemeFromLocalStorage = (): ThemeModes => {
   const DEFAULT_THEME = ThemeModes.DARK;
   const res =
@@ -66,7 +68,6 @@ function getGsapTimeLine_FadeUp(id: string | number) {
         trigger: `.${id}`,
         start: '20 bottom',
         toggleActions: 'play none none none',
-        
       },
       y: 0,
       opacity: 1,
@@ -84,6 +85,9 @@ const slugify = (str: string) =>
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '');
 
+function convertToMd5(text: string) {
+  return crypto.createHash('md5').update(text).digest('hex');
+}
 export {
   getThemeFromLocalStorage,
   isItOnLive,
@@ -92,4 +96,5 @@ export {
   copyContent,
   slugify,
   getGsapTimeLine_FadeUp,
+  convertToMd5,
 };

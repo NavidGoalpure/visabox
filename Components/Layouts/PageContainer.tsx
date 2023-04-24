@@ -11,9 +11,14 @@ import Header from "../NavigationMenu";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
+  hasFooter?: boolean;
 }
 
-const PageContainer: React.FC<Props> = ({ children, ...props }) => {
+const PageContainer: React.FC<Props> = ({
+  hasFooter = true,
+  children,
+  ...props
+}) => {
   const { locale } = useLocale();
 
   return (
@@ -44,8 +49,8 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
           />
         </MultiChoice>
       </Survay.Root> */}
-      <Content id='PageContainer-content'>{children}</Content>
-      <Footer />
+      <Content id="PageContainer-content">{children}</Content>
+      {hasFooter && <Footer />}
     </Container>
   );
 };
@@ -54,7 +59,7 @@ export const Container = styled.main<{ $locale: Languages }>`
   ${layer1_BG}
   ${directionStyles}
   ${({ $locale }) =>
-    $locale === Languages.fa && 'font-family: var(--font-family__fa)'};
+    $locale === Languages.fa && "font-family: var(--font-family__fa)"};
   display: flex;
   justify-content: center;
   align-items: flex-start;

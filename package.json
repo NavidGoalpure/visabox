@@ -23,6 +23,7 @@
     "@radix-ui/react-select": "^1.2.0",
     "@radix-ui/react-switch": "^1.0.1",
     "@radix-ui/react-tabs": "^1.0.1",
+    "@radix-ui/react-toggle-group": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.2",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",

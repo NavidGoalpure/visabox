@@ -8,8 +8,6 @@ import Step5 from "./Step5";
 import Step6 from "./Step6";
 import Step7 from "./Step7";
 import Step8 from "./Step8";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
 import { WizardContext } from "../Contexts/Wizard/Context";
 import Slider from "Components/SliderComponent";
 import Wizard from "../Contexts/Wizard";
@@ -17,7 +15,6 @@ import { deviceMin } from "Consts/device";
 
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
-  const { t } = useStaticTranslation(componentStatements);
   const maxStep = 8;
   const steps = [
     <Step1 />,

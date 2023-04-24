@@ -137,16 +137,14 @@ export default {
       },
     },
     {
-      name: "english_level",
-      title: "English Level",
+      name: "ielts_score",
+      title: "IELTS Score",
       type: "string",
       options: {
         list: [
-          { title: "More than 8 years", value: "more than 8 years" },
-          { title: "Low", value: "low" },
-          { title: "Normal", value: "normal" },
-          { title: "Good", value: "good" },
-          { title: "Perfect", value: "perfect" },
+          { title: "6", value: "6" },
+          { title: "7", value: "7" },
+          { title: "8", value: "8" },
         ],
         layout: "radio",
         direction: "horizontal",

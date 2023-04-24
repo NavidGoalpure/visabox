@@ -22,10 +22,7 @@ const Step2 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [ageInputValue, setAgeInputValue] = useState<string>(
-    clientData?.age || ""
-  );
-
+ 
   return (
     <Container>
       {/* <Title>{t(LanguageKeys.AgeSectionTitle)}</Title>
@@ -50,9 +47,13 @@ const Step2 = () => {
         label={t(LanguageKeys.AgeSectionTitle)}
         type={"date"}
         inputName="age"
-        value={ageInputValue}
+        value={clientData?.age}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          setAgeInputValue(e.target.value);
+          clientData &&
+            setClientData({
+              ...clientData,
+              age: e.target.value,
+            });
         }}
         id={"phone-input"}
         placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
@@ -67,13 +68,9 @@ const Step2 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            setClientData({
-              ...clientData,
-              age: ageInputValue,
-            });
           }}
           icon={<NextIcon />}
-          disabled={!ageInputValue}
+          disabled={!clientData?.age}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

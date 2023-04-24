@@ -22,25 +22,29 @@ const Step3 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [maritalValue, setMaritalValue] = useState<ClientMarital>(
-    clientData?.marital
-  );
+  console.log("navid marital ===", clientData?.marital);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.maritalStatusSectionTitle)}</Title>
       <ToggleGroupRoot
         type="single"
-        value={maritalValue}
-        onValueChange={(value) => setMaritalValue(value as ClientMarital)}
+        value={clientData?.marital}
+        onValueChange={(value) =>
+          clientData &&
+          setClientData({
+            ...clientData,
+            marital: value as ClientMarital,
+          })
+        }
       >
         {
           <>
-            {maritalStatuses.map((maritalStatus,i) => (
+            {maritalStatuses.map((maritalStatus, i) => (
               <ToggleGroup.Item
                 key={i}
                 text={maritalStatus}
-                value={maritalStatus.en.replaceAll(" ", "")}
+                value={maritalStatus.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -56,12 +60,8 @@ const Step3 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            setClientData({
-              ...clientData,
-              marital: maritalValue,
-            });
           }}
-          disabled={!maritalValue}
+          disabled={!clientData?.marital}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

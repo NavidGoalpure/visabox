@@ -10,7 +10,7 @@ type ContextProps = {
   prevData?: ClientData;
 };
 interface FormDataContextProps {
-  clientData: ClientData;
+  clientData: ClientData | undefined;
   setClientData: React.Dispatch<React.SetStateAction<ClientData>>;
 }
 const FormDataContext = React.createContext({} as FormDataContextProps);

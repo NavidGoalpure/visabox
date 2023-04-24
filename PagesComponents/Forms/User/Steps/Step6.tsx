@@ -23,26 +23,28 @@ const Step6 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [workExperienceValue, setworkExperienceValue] =
-    useState<WorkExperience>(clientData?.workExperience);
-
+ 
   return (
     <Container>
       <Title>{t(LanguageKeys.WorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
         type="single"
-        value={workExperienceValue}
+        value={clientData?.workExperience}
         onValueChange={(value) =>
-          setworkExperienceValue(value as WorkExperience)
+          clientData &&
+          setClientData({
+            ...clientData,
+            workExperience: value as WorkExperience,
+          })
         }
       >
         {
           <>
-            {works.map((work,i) => (
+            {works.map((work, i) => (
               <ToggleGroup.Item
                 key={i}
                 text={work}
-                value={work.en.replaceAll(" ", "")}
+                value={work.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -58,12 +60,8 @@ const Step6 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            setClientData({
-              ...clientData,
-              workExperience: workExperienceValue,
-            });
           }}
-          disabled={!workExperienceValue}
+          disabled={!clientData?.workExperience}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

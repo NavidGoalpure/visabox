@@ -31,9 +31,8 @@ export const australianWorks: MultiLanguageText[] = [
   { en: "5 to 8 years", fa: "۵ تا ۸ سال" },
   { en: "More than 8 years", fa: "بیشتر از ۸ سال" },
 ];
-export const englishLevels: MultiLanguageText[] = [
-  { en: "Low", fa: "ضعیف" },
-  { en: "Normal", fa: "متوسط" },
-  { en: "Good", fa: "خوب" },
-  { en: "Perfect", fa: "عالی" },
+export const IELTSScores: MultiLanguageText[] = [
+  { en: "6", fa: "6" },
+  { en: "7", fa: "7" },
+  { en: "8", fa: "8" },
 ];

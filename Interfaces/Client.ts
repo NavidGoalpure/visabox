@@ -1,33 +1,37 @@
 export enum ClientMarital {
-  Married = "Married",
-  Single = "Single",
+  Married = "married",
+  Single = "single",
 }
 export enum ClientDegree {
-  Diploma = "Diploma",
-
-  Bachelorsdegree = "Bachelor's degree",
-  Doctorate = "Doctorate",
+  Diploma = "diploma",
+  Bachelorsdegree = "bachelor's degree",
+  Doctorate = "doctorate",
 }
 export enum WorkExperience {
-  "Below1Year" = "Below 1 year",
+  "Below1Year" = "below 1 year",
   "1To3Years" = "1 to 3 years",
   "3To5Years" = "3 to 5 years",
   "5To8Years" = "5 to 8 years",
-  "MoreThan8Years" = "More than 8 years",
+  "MoreThan8Years" = "more than 8 years",
 }
 export enum AustralianWorkExperience {
   "LessThan1Year" = "none - less than 1 year",
   "1To3Years" = "1 to 3 years",
   "3To5Years" = "3 to 5 years",
   "5To8Years" = "5 to 8 years",
-  "MoreThan8Years" = "More than 8 years",
+  "MoreThan8Years" = "more than 8 years",
 }
-export enum EnglishSkillLevel {
-  "Score6inIELTS" = "Score 6 in IELTS",
-  "Score7InIELTS" = "Score 7 in IELTS",
-  "Score8InIELTS" = "Score 8 in IELTS",
+export enum IELTSScore {
+  Six = "6",
+  Seven = "7",
+  Eight = "8",
 }
 export type ClientData = {
+  _createdAt?: Date;
+  _id?: string;
+  _rev?: string;
+  _type?: string;
+  _updatedAt?: Date;
   name: string;
   lastName: string;
   phoneNumber: string;
@@ -38,5 +42,5 @@ export type ClientData = {
   currentJob: string;
   workExperience: WorkExperience;
   australianWorkExperience: AustralianWorkExperience;
-  englishSkillLevel: EnglishSkillLevel;
+  IELTSScore: IELTSScore;
 };

@@ -54,7 +54,11 @@ export const Input = ({
           ref={ref}
           onChange={onChange}
           hasError={!!errorMasage}
-          value={isNumberOnly && value ? value.replace(/[^\d]/g, "") : value}
+          value={
+            isNumberOnly && value
+              ? value.toString().replace(/[^\d]/g, "")
+              : value
+          }
           disabled={disabled}
           placeholder={placeholder}
           name={inputName}

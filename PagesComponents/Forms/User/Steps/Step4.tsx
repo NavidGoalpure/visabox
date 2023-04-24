@@ -22,30 +22,34 @@ const Step4 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [fieldOfStudyInputValue, setFieldOfStudyInputValue] = useState<string>(
-    clientData?.fieldOfStudy || ''
-  );
-  const [degreeValue, setDegreeValue] = useState<ClientDegree>(
-    clientData?.degree
-  );
 
   return (
     <Container>
       <StyledInput
         required
         label={t(LanguageKeys.FieldOfStudyInputLabel)}
-        inputName='field-of-study'
+        inputName="field-of-study"
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        value={fieldOfStudyInputValue}
+        value={clientData?.fieldOfStudy}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setFieldOfStudyInputValue(e.target.value)
+          clientData &&
+          setClientData({
+            ...clientData,
+            fieldOfStudy: e.target.value,
+          })
         }
       />
       <Title>{t(LanguageKeys.DegreeOfEducationSectionTitle)}</Title>
       <ToggleGroupRoot
-        type='single'
-        value={degreeValue}
-        onValueChange={(value: ClientDegree) => setDegreeValue(value)}
+        type="single"
+        value={clientData?.degree}
+        onValueChange={(value: ClientDegree) =>
+          clientData &&
+          setClientData({
+            ...clientData,
+            degree: value,
+          })
+        }
       >
         {
           <>
@@ -53,7 +57,7 @@ const Step4 = () => {
               <ToggleGroup.Item
                 key={i}
                 text={education}
-                value={education.en.replaceAll(' ', '')}
+                value={education.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -69,13 +73,8 @@ const Step4 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            setClientData({
-              ...clientData,
-              fieldOfStudy: fieldOfStudyInputValue,
-              degree: degreeValue,
-            });
           }}
-          disabled={!fieldOfStudyInputValue || !degreeValue}
+          disabled={!clientData?.fieldOfStudy || !clientData?.degree}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

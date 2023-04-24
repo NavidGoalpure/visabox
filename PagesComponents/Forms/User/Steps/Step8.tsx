@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 import * as ToggleGroup from "../../../../Elements/ToggleGroup";
-import { MultiLanguageText } from "Interfaces";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
 import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   Container,
@@ -15,58 +14,45 @@ import {
   PrevIcon,
 } from "./StyledComponents";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { englishLevels } from "./consts";
+import { IELTSScores } from "./consts";
 import { sanityClient } from "Utils/sanity";
-import { EnglishSkillLevel } from "Interfaces/Client";
+import { IELTSScore } from "Interfaces/Client";
 const Step8 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [englishSkillLevelValue, setEnglishSkillLevelValue] =
-    useState<EnglishSkillLevel>(clientData?.englishSkillLevel);
-  const getServerSideProps = async () => {
-    const data = `*[_type=='user']{
-    name
-  }`;
-    try {
-      await sanityClient.patch(
-        {
-          query: data,
-          id:"user"
-        },
-        { set: { name: clientData.name } }
-      );
-      console.log(
-        "navid data===",
-        sanityClient.patch({
-          query: data,
-          params: {
-            Set: { name: clientData.name },
-          },
-        })
-      );
-    } catch (error) {
-      console.log("navid error ===", error);
-    }
-  };
 
+  const postClientData = () => {
+    sanityClient
+      .patch(clientData?._id || "")
+      .set({ name: "navid" })
+      .commit()
+      .then((res) => {
+        console.log("navid patch ===", res);
+      })
+      .catch((err) => console.log("navid error ===", err));
+  };
   return (
     <Container>
-      <Title>{t(LanguageKeys.EnglishSkillLevelSectionTitle)}</Title>
+      <Title>{t(LanguageKeys.IELTSScoreSectionTitle)}</Title>
       <ToggleGroupRoot
         type="single"
-        value={englishSkillLevelValue}
+        value={clientData?.IELTSScore}
         onValueChange={(value) =>
-          setEnglishSkillLevelValue(value as EnglishSkillLevel)
+          clientData &&
+          setClientData({
+            ...clientData,
+            IELTSScore: value as IELTSScore,
+          })
         }
       >
         {
           <>
-            {englishLevels.map((englishLevel, i) => (
+            {IELTSScores.map((IELTSScore, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={englishLevel}
-                value={englishLevel.en.replaceAll(" ", "")}
+                text={IELTSScore}
+                value={IELTSScore.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -80,9 +66,9 @@ const Step8 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            getServerSideProps();
+            postClientData();
           }}
-          disabled={!englishSkillLevelValue}
+          disabled={!clientData?.IELTSScore}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.ConfirmButtonTitle)}

@@ -21,9 +21,7 @@ const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [currentJobInputValue, setCurrentJobInputValue] = useState<string>(
-    clientData?.currentJob || ""
-  );
+
 
   return (
     <Container>
@@ -32,9 +30,13 @@ const Step5 = () => {
         label={t(LanguageKeys.CurrentJobInputLabel)}
         inputName="current-job"
         placeholder={t(LanguageKeys.CurrentJobInputPlaceholder)}
-        value={currentJobInputValue}
+        value={clientData?.currentJob}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setCurrentJobInputValue(e.target.value)
+          clientData &&
+          setClientData({
+            ...clientData,
+            currentJob: e.target.value,
+          })
         }
       />
       <ButtonWrapper>
@@ -47,12 +49,8 @@ const Step5 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            setClientData({
-              ...clientData,
-              currentJob: currentJobInputValue,
-            });
           }}
-          disabled={!currentJobInputValue}
+          disabled={!clientData?.currentJob}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

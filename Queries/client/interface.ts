@@ -1,4 +1,10 @@
-import { ClientMarital, ClientDegree, WorkExperience, AustralianWorkExperience, EnglishSkillLevel } from "Interfaces/Client";
+import {
+  ClientMarital,
+  ClientDegree,
+  WorkExperience,
+  AustralianWorkExperience,
+  IELTSScore,
+} from "Interfaces/Client";
 
 export type ClientData_Sanity = {
   name: string;
@@ -11,5 +17,10 @@ export type ClientData_Sanity = {
   current_job: string;
   work_experience: WorkExperience;
   australian_work_experience: AustralianWorkExperience;
-  english_skill_level: EnglishSkillLevel;
+  ielts_score: IELTSScore;
+  _createdAt?: Date;
+  _id?: string;
+  _rev?: string;
+  _type?: string;
+  _updatedAt?: Date;
 };

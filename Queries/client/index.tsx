@@ -7,7 +7,7 @@ import { ClientData_Sanity } from "./interface";
 export const getClientDetail_Form = async (
   queryConditions:string
 ): Promise<{ clientData: ClientData_Sanity[]; queryClient: QueryClient }> => {
-  const queryParams = `*[_type=='user'&& ${queryConditions}]{
+  const queryParams = `*[_type=='client'&& ${queryConditions}]{
     _id,
     name,
     lastname,
@@ -19,7 +19,7 @@ export const getClientDetail_Form = async (
     current_job,
     work_experience,
     australian_work_experience,
-    english_level
+    ielts_score
   }`;
   const queryClient = new QueryClient();
 

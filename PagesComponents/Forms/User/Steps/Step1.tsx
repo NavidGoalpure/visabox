@@ -17,15 +17,6 @@ const Step1 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [nameInputValue, setNameInputValue] = useState<string>(
-    clientData?.name || ""
-  );
-  const [lastNameInputValue, setLastNameInputValue] = useState<string>(
-    clientData?.lastName || ""
-  );
-  const [phoneNumberInputValue, setPhoneNumberInputValue] = useState<string>(
-    clientData?.phoneNumber || ""
-  );
   return (
     <Container>
       {/* //////////name-input//////////// */}
@@ -36,6 +27,7 @@ const Step1 = () => {
         placeholder={t(LanguageKeys.NameInputPlaceholder)}
         value={clientData?.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          clientData &&
           setClientData({
             ...clientData,
             name: e.target.value,
@@ -47,8 +39,9 @@ const Step1 = () => {
         required
         label={t(LanguageKeys.LastNameInputLabel)}
         inputName="lname"
-        value={clientData.lastName}
+        value={clientData?.lastName}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          clientData &&
           setClientData({
             ...clientData,
             lastName: e.target.value,
@@ -60,8 +53,9 @@ const Step1 = () => {
       <Input
         inputMode={"numeric"}
         label={t(LanguageKeys.PhoneInputLabel)}
-        value={clientData.phoneNumber}
+        value={clientData?.phoneNumber}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          clientData &&
           setClientData({
             ...clientData,
             phoneNumber: e.target.value.replace(/[^\d]/g, ""),
@@ -82,15 +76,11 @@ const Step1 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            setClientData({
-              ...clientData,
-              name: nameInputValue,
-              lastName: lastNameInputValue,
-              phoneNumber: phoneNumberInputValue,
-            });
           }}
           disabled={
-            !clientData.name || !clientData.lastName || !clientData.phoneNumber
+            (!clientData?.name ||
+              !clientData?.lastName ||
+              !clientData?.phoneNumber)
           }
           icon={<NextIcon />}
         >

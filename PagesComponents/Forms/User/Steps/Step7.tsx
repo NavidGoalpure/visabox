@@ -22,17 +22,19 @@ const Step7 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const [australianWorkExperienceValue, setAustralianWorkExperienceValue] =
-    useState<AustralianWorkExperience>(clientData?.australianWorkExperience);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.AustralianWorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
         type="single"
-        value={australianWorkExperienceValue}
+        value={clientData?.australianWorkExperience}
         onValueChange={(value) =>
-          setAustralianWorkExperienceValue(value as AustralianWorkExperience)
+          clientData &&
+          setClientData({
+            ...clientData,
+            australianWorkExperience: value as AustralianWorkExperience,
+          })
         }
       >
         {
@@ -41,7 +43,7 @@ const Step7 = () => {
               <ToggleGroup.Item
                 key={i}
                 text={australianWork}
-                value={australianWork.en.replaceAll(" ", "")}
+                value={australianWork.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -58,12 +60,8 @@ const Step7 = () => {
           icon={<NextIcon />}
           onClick={() => {
             handleNextPress();
-            setClientData({
-              ...clientData,
-              australianWorkExperience: australianWorkExperienceValue,
-            });
           }}
-          disabled={!australianWorkExperienceValue}
+          disabled={!clientData?.australianWorkExperience}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

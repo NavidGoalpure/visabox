@@ -1,32 +1,18 @@
-// بر اساس داکیومنت نکست جی اس پسوند این فایل به جی اس تغییر کنه دیگه
-// remarkGfm
-// توش کار نمیکنه
-import remarkGfm from 'remark-gfm';
-import { withSentryConfig } from '@sentry/nextjs';
-import createMDX from '@next/mdx';
-import withImages from 'next-images';
+const { withSentryConfig } = require("@sentry/nextjs");
 
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
-    providerImportSource: '@mdx-js/react',
-  },
-});
-
+const withImages = require("next-images");
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
   swcMinify: true,
   // Configure pageExtensions to include md and mdx
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ["ts", "tsx", "js", "jsx"],
   //
   webpack: (config, { webpack }) => {
     config.plugins.push(
       new webpack.DefinePlugin({
-        __SENTRY_DEBUG__: false,
-        __SENTRY_TRACING__: false,
+        SENTRY_DEBUG: false,
+        SENTRY_TRACING: false,
       })
     );
 
@@ -41,11 +27,11 @@ const config = {
     styledComponents: true,
   },
   build: {
-    transpile: ['gsap'],
+    transpile: ["gsap"],
   },
   i18n: {
-    locales: ['en', 'fa'],
-    defaultLocale: 'fa',
+    locales: ["en", "fa"],
+    defaultLocale: "fa",
     localeDetection: false,
   },
   sentry: {
@@ -64,8 +50,8 @@ const config = {
     //     - tunnelRoute
   },
   images: {
-    formats: ['image/webp'],
-    domains: ['binsta.dev'],
+    formats: ["image/webp"],
+    domains: ["binsta.dev"],
   },
 };
 const sentryWebpackPluginOptions = {
@@ -80,7 +66,17 @@ const sentryWebpackPluginOptions = {
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
 
-export default withSentryConfig(
-  withImages(withMDX(config)),
-  sentryWebpackPluginOptions
-);
+//در هر لحظه باید یکی از دو حالت رو فقط انتخاب کنیم
+// بسته به این که میخوایم سنتری فعال باشه یا نه
+/////////////////////////////
+///////active sentry/////////
+/////////////////////////////
+// module.exports = withSentryConfig(
+//   withImages(config),
+//   sentryWebpackPluginOptions
+// );
+
+/////////////////////////////
+///////deactive sentry/////////
+/////////////////////////////
+module.exports = withImages(config);

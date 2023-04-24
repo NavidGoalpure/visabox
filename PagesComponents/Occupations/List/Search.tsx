@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Input } from "Elements/Input";
-import styled, { keyframes } from "styled-components";
+import { SearchInput } from "Elements/SearchInput";
+import styled from "styled-components";
 import { CiSearch } from "react-icons/ci";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
@@ -12,9 +12,7 @@ import { AnszcoGroup, MAJOR_GROUP } from "Consts/Occupations/anszco";
 import { useLocale } from "Hooks/useLocale";
 import { SearchFilterContext } from "./Context/SearchFilter";
 import { deviceMin } from "Consts/device";
-import SmartComponentBaseOnLocale from "Components/Language/SmartComponentBaseOnLocale";
 import { SelectItemCss } from "Elements/Select/Item";
-import { directionStyles } from "Styles/Theme";
 
 interface Props {
   searchValue: string;
@@ -134,7 +132,7 @@ const Container = styled.div<{ isShowPanel: boolean }>`
   max-width: 865px;
   ${({ isShowPanel }) => isShowPanel && "max-width: 100%;"}
 `;
-const SearchElement = styled(Input)<{ isShowPanel: boolean }>`
+const SearchElement = styled(SearchInput)<{ isShowPanel: boolean }>`
   margin: 0 auto;
   height: 4rem;
   #input-container {

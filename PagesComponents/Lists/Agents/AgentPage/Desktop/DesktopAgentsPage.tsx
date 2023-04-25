@@ -5,9 +5,13 @@ import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style, Headline5Style, Headline6Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import {
+  Layer1_SubtitleStyle,
+  Layer1_TitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
 
 import {
+  layer2A_SubtitleStyle,
   layer2A_TextStyle,
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
@@ -16,6 +20,7 @@ import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
 import { Agent } from 'Interfaces/Lists/agents';
+import { layer2A_Key, layer2A_Value } from 'Styles/Theme/Layers/layer2/theme';
 interface Props {
   ChosenAgent?: Agent;
 }
@@ -153,9 +158,8 @@ const RightSide = styled.div`
 `;
 const Title = styled.h2`
   ${TitleColor}
-  ${Headline4Style}
+  ${layer2A_TitleStyle}
   z-index:1;
-  font-weight: 900;
   margin-bottom: 1.5rem;
 `;
 const MaraNumberContainer = styled.div`
@@ -163,13 +167,12 @@ const MaraNumberContainer = styled.div`
   margin-bottom: 2rem;
 `;
 const MaraNumberTitle = styled.h3`
-  ${Layer1_SubtitleStyle}
+  ${layer2A_Key}
   margin:0;
   width: auto;
 `;
 const MaraNumber = styled.h3`
-  ${Headline5Style};
-  color: var(--color-primary5);
+  ${layer2A_Value}
 `;
 const AboutContainer = styled.div`
   ${DescBackground}

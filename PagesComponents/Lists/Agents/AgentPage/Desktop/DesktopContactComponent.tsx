@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import {
+  layer2A_SubtitleStyle,
   layer2A_TextStyle,
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
@@ -115,8 +116,8 @@ const InternetIcon = styled(ImSphere)`
 `;
 const InternetTitle = styled.h3`
   ${layer2A_TextColor}
-  ${Headline6Style}
-      word-break: break-all;
+  ${layer2A_SubtitleStyle}
+  word-break: break-all;
   cursor: pointer;
 `;
 const PhoneContainer = styled.div`

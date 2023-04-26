@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import * as ToggleGroup from '../../../../Elements/ToggleGroup';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext } from 'react';
+import styled from "styled-components";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
+import * as ToggleGroup from "../../../../Elements/ToggleGroup";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import { WizardContext } from "../Contexts/Wizard/Context";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   Container,
@@ -12,32 +12,32 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-} from './StyledComponents';
-import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { IELTSScores } from './consts';
-import { sanityClient } from 'Utils/sanity';
-import { IELTSScore } from 'Interfaces/Client';
+} from "./StyledComponents";
+import { FormDataContext } from "../Contexts/FormDataContext/Context";
+import { IELTSScores } from "./consts";
+import { sanityClient } from "Utils/sanity";
+import { IELTSScore } from "Interfaces/Client";
 const Step8 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
-  console.log('navid sanityClient=', sanityClient);
+  console.log("navid sanityClient=", sanityClient);
 
   const postClientData = () => {
-    sanityClient
-      .patch(clientData?._id || '')
-      .set({ name: 'navid' })
-      .commit()
-      .then((res) => {
-        console.log('navid patch ===', res);
-      })
-      .catch((err) => console.log('navid error ===', err));
+    fetch("/api/forms/client", {
+      method: "POST",
+      body: JSON.stringify({clientData}),
+    })
+      .then(() => console.log("navid request sent"))
+      .catch(() => {
+        console.log("navid request didnt make it :(");
+      });
   };
   return (
     <Container>
       <Title>{t(LanguageKeys.IELTSScoreSectionTitle)}</Title>
       <ToggleGroupRoot
-        type='single'
+        type="single"
         value={clientData?.IELTSScore}
         onValueChange={(value) =>
           clientData &&

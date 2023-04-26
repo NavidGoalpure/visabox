@@ -32,8 +32,10 @@ const Step1 = () => {
             ...clientData,
             name: e.target.value,
           })
+          
         }
-      />
+isLoading
+/>
       {/* //////////last-name-input//////////// */}
       <Input
         required

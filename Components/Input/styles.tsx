@@ -1,8 +1,38 @@
 import { FaExclamationTriangle } from "react-icons/fa";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import theme from "styled-theming";
 import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { Headline7Style } from "Styles/Typo";
+const LoadingAnimation = keyframes`
+ 0%{
+    transform-origin: 75% 50%;
+    transform: rotate(0deg) translateY(-50%);
+  }
+  100%{
+    transform: rotate(360deg) translateY(-50%);
+  }
+`;
+const SvgLoadingAnimation = keyframes`
+  100%{
+    stroke-dashoffset:12rem;
+  }
+`;
+const LoadingBackgroundTheme = theme("mode", {
+  light: css`
+    stroke: var(--color-gray10);
+  `,
+  dark: css`
+    stroke: var(--color-gray5);
+  `,
+});
+const LoadingMovingTheme = theme("mode", {
+  light: css`
+    stroke: var(--color-gray3);
+  `,
+  dark: css`
+    stroke: var(--color-gray8);
+  `,
+});
 const inputTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
@@ -14,6 +44,17 @@ const inputTheme = theme("mode", {
     color: var(--color-gray13);
   `,
 });
+const inputFocusTheme = theme("mode", {
+  light: css`
+    border-bottom: 2px solid var(--color-gray2);
+    background: var(--color-gray12);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  `,
+  dark: css`
+    background: var(--color-gray7);
+    border-bottom: 2px solid var(--color-gray10);
+  `,
+});
 const inputPlaceHolderTheme = theme("mode", {
   light: css`
     color: var(--color-gray9);
@@ -21,6 +62,12 @@ const inputPlaceHolderTheme = theme("mode", {
   dark: css`
     color: var(--color-gray8);
   `,
+});
+const ErrorTheme = theme("mode", {
+  light: css`
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  `,
+  dark: css``,
 });
 const Container = styled.div`
   display: flex;
@@ -43,6 +90,21 @@ const InputContainer = styled.div<{
   ////////////disabled////////////
   ${({ disabled }) => disabled && "border-color:var(--color-gray5); "};
 `;
+const InputWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  svg {
+    position: absolute;
+    bottom: 50%;
+    right: 1rem;
+    transform: translateY(50%);
+  }
+`;
 const Label = styled.label`
   ${Layer1_SubtitleStyle};
   margin: 0;
@@ -60,6 +122,7 @@ const InputStyle = css<{
   border-radius: 15px;
   padding: 1rem;
   box-sizing: border-box;
+  transition: all 0.3s ease;
   -webkit-appearance: none;
   ${({ hasError }) =>
     hasError &&
@@ -79,6 +142,14 @@ const InputStyle = css<{
     -moz-appearance: textfield;
   }
   /////////
+  ${({ hasError }) =>
+    !hasError &&
+    css`
+      :focus {
+        ${inputFocusTheme};
+      }
+    `}
+  /////////
   ::placeholder {
     ${Headline7Style};
     ${inputPlaceHolderTheme};
@@ -93,9 +164,34 @@ const InputStyle = css<{
 const StyledInput = styled.input`
   ${InputStyle};
 `;
+const LoadingBackgroundCircle = styled.circle`
+  ${LoadingBackgroundTheme};
+  fill: none;
+  stroke-width: 7px;
+`;
+const LoadingMovingCircle = styled.circle`
+  ${LoadingMovingTheme}
+  fill: none;
+  stroke: var(--color-gray8);
+  stroke-width: 7px;
+  z-index: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 2rem 10rem;
+  animation: ${SvgLoadingAnimation} 0.7s linear infinite;
+`;
+// navid in case they dont like the animation
+// const LoadingIcon = styled.img`
+//   position: absolute;
+//   width: 1rem;
+//   height: 1rem;
+//   bottom: 40%;
+//   right: 2rem;
+//   animation: ${LoadingAnimation} 0.5s linear infinite;
+// `;
 
 const ErrorElement = styled.h5`
   padding: 0.75rem 1rem;
+  z-index: 10;
   background: var(--color-fail1);
   border-radius: 0px 0px 15px 15px;
   color: var(--color-gray13);
@@ -104,6 +200,7 @@ const ErrorElement = styled.h5`
   align-items: center;
   justify-content: flex-start;
   gap: 0.5rem;
+  ${ErrorTheme};
 `;
 const ErrorIcon = styled(FaExclamationTriangle)`
   color: var(--color-fail3);
@@ -111,9 +208,12 @@ const ErrorIcon = styled(FaExclamationTriangle)`
 export {
   ErrorIcon,
   StyledInput,
+  InputWrapper,
   ErrorElement,
   InputContainer,
   Container,
   InputStyle,
   Label,
+  LoadingBackgroundCircle,
+  LoadingMovingCircle,
 };

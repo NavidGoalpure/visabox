@@ -18,7 +18,7 @@ function FormDataContextProvider(props: ContextProps) {
     props.prevData || ({} as ClientData)
   );
   const getClientData = async () => {
-    const data = await getClientDetail_Form("name=='navid'");
+    const data = await getClientDetail_Form("email=='farzamfara85@gmail.com'");
     setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));
   };
 

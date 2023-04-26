@@ -343,6 +343,17 @@ export const NormalSocialMedias: Socials[] = [
     status: Status.ACTIVE,
   },
   {
+    id: 'soc34',
+    name: 'Arad Immigration',
+    socialmediaType: SocialMediaTypes.YOUTUBE,
+    slug: 'Arad-Immigration',
+    link: 'https://t.me/Arad_immigration',
+    locations: Locations.fa,
+    isFeatured: false,
+    desc: `این گروه جهت پاسخگویی به سوالات شما عزیزان در حوزه ویزا و اقامت استرالیا می باشد. جهت ارتباط با وکیل رسمی مهاجرت سرکار خانم سودابه حریری از راه های زیر با ما در تماس باشید`,
+    status: Status.ACTIVE,
+  },
+  {
     id: 'soc31',
     name: 'مهاجرهاب',
     socialmediaType: SocialMediaTypes.YOUTUBE,

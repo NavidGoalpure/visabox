@@ -450,7 +450,7 @@ Spoken Languages: English; Persian; Dari.`,
   // },
   {
     id: 'agt26',
-    name: { en: 'Negin Safaee', fa: 'نگین ضفایی' },
+    name: { en: 'Negin Safaee', fa: 'نگین صفایی' },
     slug: 'negin-safaee',
     locations: [Locations.en, Locations.fa],
     maraNumber: '1791573',

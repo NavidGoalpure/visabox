@@ -1,14 +1,15 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import { Layer1_TextStyle } from "Styles/Theme/Layers/layer1/style";
-import { layer1_TextColor } from "Styles/Theme/Layers/layer1/theme";
-import { Headline1Style, Headline5Style } from "Styles/Typo";
-import Image from "next/image";
-import { Hint_BG } from "Styles/Theme/ Hint/theme";
-import { Hint_SubTitleStyle } from "Styles/Theme/ Hint/style";
-import { FaTelegramPlane } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
-const HeroTheme = theme("mode", {
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { Layer1_TextStyle } from 'Styles/Theme/Layers/layer1/style';
+import { layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
+import { Headline1Style, Headline5Style } from 'Styles/Typo';
+import Image from 'next/image';
+import { Hint_BG } from 'Styles/Theme/ Hint/theme';
+import { Hint_SubTitleStyle } from 'Styles/Theme/ Hint/style';
+import { FaTelegramPlane } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
+import { device, deviceMin } from 'Consts/device';
+const HeroTheme = theme('mode', {
   light: css`
     background: linear-gradient(
       180deg,
@@ -24,7 +25,7 @@ const HeroTheme = theme("mode", {
     );
   `,
 });
-const DescSpanTheme = theme("mode", {
+const DescSpanTheme = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -33,7 +34,7 @@ const DescSpanTheme = theme("mode", {
   `,
 });
 
-const TitleSpanTheme = theme("mode", {
+const TitleSpanTheme = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -61,13 +62,20 @@ const RightPlaceTitle = styled.h2`
 const VipAgentCard = styled(Image)`
   width: 100%;
   height: 100%;
+  scale: 90%;
 `;
 const Desc = styled.p`
   ${Layer1_TextStyle};
   text-align: center;
   margin: 0;
+
   span {
     ${DescSpanTheme}
+  }
+
+  @media ${deviceMin.tabletL} {
+    font-size: 32px;
+    line-height: 46px;
   }
 `;
 const SectionDivider = styled.hr`
@@ -80,11 +88,13 @@ const SectionDivider = styled.hr`
 const Section = styled.section`
   width: 100%;
   margin-bottom: 5rem;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 `;
+
 const ContactUsContainer = styled.div`
   ${Hint_BG}
   padding: 2rem 5rem;

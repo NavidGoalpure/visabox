@@ -34,7 +34,6 @@ const Step1 = () => {
           })
           
         }
-isLoading
 />
       {/* //////////last-name-input//////////// */}
       <Input

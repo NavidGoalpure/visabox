@@ -45,5 +45,5 @@ const Content = styled.span`
   ${SquareCss}
   top: 60%;
   left: 50%;
-  animation: ${MovingAnimation} 15s infinite ease;
+  animation: ${MovingAnimation} var(--animation-speed) infinite ease;
 `;

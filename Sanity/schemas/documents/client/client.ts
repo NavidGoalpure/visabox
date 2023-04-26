@@ -27,7 +27,6 @@ export default {
       type: "string",
     },
     {
-      // navid turn age to type of Date
       name: "age",
       title: "Age",
       type: "date",
@@ -154,7 +153,6 @@ export default {
 
   // preview: {
   //   select: {
-  //     // navid find why its untitled
   //     title: "username",
   //   },
   // },

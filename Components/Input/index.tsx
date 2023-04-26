@@ -64,7 +64,7 @@ export const Input = ({
                 ? value.toString().replace(/[^\d]/g, "")
                 : value
             }
-            disabled={disabled}
+            disabled={disabled || isLoading}
             placeholder={placeholder}
             name={inputName}
             {...props}
@@ -76,8 +76,6 @@ export const Input = ({
             </svg>
           )}
 
-          {/* navid in case they dont like the animation */}
-          {/* {isLoading && <LoadingIcon src={Loading} />} */}
         </InputWrapper>
         {!!errorMasage && (
           <ErrorElement>

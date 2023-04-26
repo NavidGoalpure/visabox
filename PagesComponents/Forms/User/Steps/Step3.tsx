@@ -22,7 +22,6 @@ const Step3 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { clientData, setClientData } = useContext(FormDataContext);
-  console.log("navid marital ===", clientData?.marital);
 
   return (
     <Container>

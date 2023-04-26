@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -32,7 +32,8 @@ const SmartSteps: React.FC = () => {
   return (
     <Container>
       {step !== 0 && <Slider currentStep={step} end={maxStep} />}
-      <StepsWrapper>{steps[step]}</StepsWrapper>
+        <StepsWrapper>{steps[step]}</StepsWrapper>
+
     </Container>
   );
 };

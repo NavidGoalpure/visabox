@@ -18,12 +18,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       ielts_score: clientData?.IELTSScore,
     })
     .commit()
-    .then((res) => {
+    .then(() => {
       res.status(200).json({ message: "success" });
     })
     .catch((err) => {
       res.status(500).json({ message:"couldnt patch the user",err });
     });
-  console.log("navid clientdata ===", req.body);
-  res.status(200).json({ message: "hello", clientData });
 }

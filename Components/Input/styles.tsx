@@ -19,7 +19,7 @@ const SvgLoadingAnimation = keyframes`
 `;
 const LoadingBackgroundTheme = theme("mode", {
   light: css`
-    stroke: var(--color-gray10);
+    stroke: var(--color-gray9);
   `,
   dark: css`
     stroke: var(--color-gray5);
@@ -42,12 +42,23 @@ const inputTheme = theme("mode", {
   dark: css`
     background: var(--color-gray6);
     color: var(--color-gray13);
+    color-scheme: dark;
+  `,
+});
+const InputDisabledTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray10);
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    background: var(--color-gray4);
+    color: var(--color-gray7);
   `,
 });
 const inputFocusTheme = theme("mode", {
   light: css`
     border-bottom: 2px solid var(--color-gray2);
-    background: var(--color-gray12);
+    background: white;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   `,
   dark: css`
@@ -101,7 +112,7 @@ const InputWrapper = styled.div`
   svg {
     position: absolute;
     bottom: 50%;
-    right: 1rem;
+    inset-inline-end: 1rem;
     transform: translateY(50%);
   }
 `;
@@ -124,6 +135,7 @@ const InputStyle = css<{
   box-sizing: border-box;
   transition: all 0.3s ease;
   -webkit-appearance: none;
+  //////////////error////////////
   ${({ hasError }) =>
     hasError &&
     `
@@ -131,7 +143,13 @@ const InputStyle = css<{
   border-radius: 15px 15px 0px 0px;
 
   `};
-  ${({ disabled }) => disabled && "color:var(--color-gray3); "};
+  ////////////////disabled/////////////
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      ${InputDisabledTheme};
+      box-shadow: unset;
+    `};
   ////////////////delete arrows in type=number input////////////////
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
@@ -141,7 +159,7 @@ const InputStyle = css<{
   &[type="number"] {
     -moz-appearance: textfield;
   }
-  /////////
+  /////////focus////////
   ${({ hasError }) =>
     !hasError &&
     css`
@@ -149,7 +167,7 @@ const InputStyle = css<{
         ${inputFocusTheme};
       }
     `}
-  /////////
+  /////////placeholder//////////////
   ::placeholder {
     ${Headline7Style};
     ${inputPlaceHolderTheme};
@@ -160,6 +178,7 @@ const InputStyle = css<{
     color: var(--color-gray10);
     ${({ disabled }) => disabled && "color:var(--color-gray5); "};
   }
+
 `;
 const StyledInput = styled.input`
   ${InputStyle};
@@ -179,15 +198,7 @@ const LoadingMovingCircle = styled.circle`
   stroke-dasharray: 2rem 10rem;
   animation: ${SvgLoadingAnimation} 0.7s linear infinite;
 `;
-// navid in case they dont like the animation
-// const LoadingIcon = styled.img`
-//   position: absolute;
-//   width: 1rem;
-//   height: 1rem;
-//   bottom: 40%;
-//   right: 2rem;
-//   animation: ${LoadingAnimation} 0.5s linear infinite;
-// `;
+
 
 const ErrorElement = styled.h5`
   padding: 0.75rem 1rem;

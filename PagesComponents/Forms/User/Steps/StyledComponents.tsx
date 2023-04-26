@@ -17,6 +17,14 @@ const NextIconDirectionStyle = theme("languageDirection", {
     transform: rotate(180deg);
   `,
 });
+const PrevButtonTheme = theme("mode", {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray10);
+  `,
+});
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -51,10 +59,10 @@ export const ButtonWrapper = styled.div`
 `;
 export const PrevButton = styled.button<{ step: number }>`
   ${Headline7Style};
+  ${PrevButtonTheme}
   outline: none;
   border: none;
   background: transparent;
-  color: var(--color-gray10);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,6 +70,7 @@ export const PrevButton = styled.button<{ step: number }>`
   opacity: 0;
   transition: all 0.3s ease;
   cursor: auto;
+  backdrop-filter: blur(10px);
   ${({ step }) =>
     step > 0 &&
     css`

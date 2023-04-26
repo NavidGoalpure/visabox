@@ -28,11 +28,9 @@ export const getClientDetail_Form = async (
       UserQueryKeys.detail("farzamfara85@gmail.com"),
       () => sanityClient.fetch(queryParams)
     );
-    console.log("navid data ===", data);
     return {queryClient,
    clientData: data};
   } catch (error) {
-    console.log("navid error ===", error);
     throw error
   }
 };

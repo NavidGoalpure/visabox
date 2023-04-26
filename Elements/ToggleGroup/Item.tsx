@@ -63,10 +63,11 @@ const Container = styled(ToggleGroup.Item)`
   padding: 1rem 3rem;
   width: fit-content;
   transition: all 0.5s ease;
+  backdrop-filter: blur(15px);
   span {
     opacity: 0;
   }
-  &[data-state='on'] {
+  &[data-state="on"] {
     color: var(--color-primary4);
     border-color: var(--color-primary3);
     background: rgba(194, 255, 250, 0.1);

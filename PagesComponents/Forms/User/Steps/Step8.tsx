@@ -4,7 +4,7 @@ import * as ToggleGroup from "../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
 import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   ButtonWrapper,
   Container,
@@ -15,24 +15,31 @@ import {
 } from "./StyledComponents";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { IELTSScores } from "./consts";
-import { sanityClient } from "Utils/sanity";
 import { IELTSScore } from "Interfaces/Client";
+import { useLocale } from "Hooks/useLocale";
+import { Router, useRouter } from "next/router";
+import SuccessToast from "Elements/Toast/Success";
+import { useMutation } from "react-query";
 const Step8 = () => {
-  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+  const { step, handleBackPress } = useContext(WizardContext);
+  const router = useRouter();
   const { t } = useStaticTranslation(componentStatements);
+  // navid fix send bug
   const { clientData, setClientData } = useContext(FormDataContext);
-  console.log("navid sanityClient=", sanityClient);
-
-  const postClientData = () => {
-    fetch("/api/forms/client", {
-      method: "POST",
-      body: JSON.stringify({clientData}),
-    })
-      .then(() => console.log("navid request sent"))
-      .catch(() => {
-        console.log("navid request didnt make it :(");
+  const { locale } = useLocale();
+  const mutation = useMutation({
+    mutationFn: () => {
+      return fetch("/api/forms/client", {
+        method: "POST",
+        body: JSON.stringify({ clientData }),
       });
-  };
+    },
+    onSuccess: () => {},
+    onError: (error) => {
+      console.log("navid error ===", error);
+    },
+  });
+
   return (
     <Container>
       <Title>{t(LanguageKeys.IELTSScoreSectionTitle)}</Title>
@@ -67,10 +74,13 @@ const Step8 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            postClientData();
+            mutation.mutate();
+            mutation.isSuccess &&
+              SuccessToast(t(LanguageKeys.SuccessToastText)) 
           }}
           disabled={!clientData?.IELTSScore}
           icon={<NextIcon />}
+          isLoading={mutation.isLoading}
         >
           {t(LanguageKeys.ConfirmButtonTitle)}
         </NextButton>

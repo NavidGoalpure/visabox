@@ -12,7 +12,6 @@ import { dehydrate, QueryClient } from "react-query";
 import { getClientDetail_Form } from "Queries/client";
 
 const AgentsIntroduction: NextPage = ({}) => {
-  console.log("navid dehydratedState ===");
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (

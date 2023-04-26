@@ -5,17 +5,28 @@ import { WizardContext } from "../Contexts/Wizard/Context";
 import { useContext } from "react";
 import Image from "next/image";
 import { NextButton, NextIcon } from "./StyledComponents";
-import styled from "styled-components";
-import kangrooLogo from "./Images/kangorooLogo.svg";
-import { Headline3Style, Headline5Style } from "Styles/Typo";
+import styled, { css } from "styled-components";
+import useTheme from "Hooks/useTheme";
+import DarkKangorooLogo from "./Images/DarkKangorooLogo.svg";
+import LightKangorooLogo from "./Images/LightKangorooLogo.svg";
+import { Headline3Style } from "Styles/Typo";
+import { ThemeModes } from "Interfaces";
+import theme from "styled-theming";
+import { layer2A_SubtitleStyle } from "Styles/Theme/Layers/layer2/style";
 
 const Step0 = () => {
+  const { theme } = useTheme();
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleNextPress } = useContext(WizardContext);
   return (
     <Container>
       <LogoContainer>
-        <Logo width={90} height={90} src={kangrooLogo} alt={"site-logo"} />
+        <Logo
+          width={90}
+          height={90}
+          src={theme === ThemeModes.DARK ? DarkKangorooLogo : LightKangorooLogo}
+          alt={"site-logo"}
+        />
       </LogoContainer>
       <Title>فرم ارزیابی ماراباکس</Title>
       <Desc>
@@ -36,7 +47,21 @@ const Step0 = () => {
   );
 };
 export default Step0;
+const BackgroundTheme = theme("mode", {
+  light: css`
+    background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  `,
+  dark: css`
+    background: linear-gradient(
+      140.49deg,
+      var(--color-gray6) 53.63%,
+      var(--color-gray7) 99.96%
+    );
+  `,
+});
 const Container = styled.div`
+  ${BackgroundTheme};
   box-sizing: content-box;
   width: 100%;
   height: 100%;
@@ -48,11 +73,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  background: linear-gradient(
-    140.49deg,
-    var(--color-gray6) 53.63%,
-    var(--color-gray7) 99.96%
-  );
 `;
 const LogoContainer = styled.div``;
 const Logo = styled(Image)``;
@@ -61,8 +81,7 @@ const Title = styled.h1`
   color: var(--color-primary5);
 `;
 const Desc = styled.p`
-  ${Headline5Style};
-  color: white;
+  ${layer2A_SubtitleStyle};
   white-space: pre-line;
 `;
 const StartButton = styled(NextButton)`

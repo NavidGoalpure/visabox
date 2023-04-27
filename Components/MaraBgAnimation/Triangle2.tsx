@@ -46,5 +46,5 @@ const Content = styled.span`
   ${TriangleCss}
   top: 20%;
   left: 50%;
-  animation: ${MovingAnimation} 15s infinite ease;
+  animation: ${MovingAnimation} var(--animation-speed) infinite ease;
 `;

@@ -1,44 +1,72 @@
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { TriangleIcon } from './TriangleIcon';
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { TriangleIcon } from "./TriangleIcon";
 
-export const borderColorContent = theme('mode', {
+const primaryBorderColor = theme("mode", {
   light: css`
-    border: 6px solid var(--color-gray10);
+    border: 6px solid var(--color-gray13);
   `,
   dark: css`
-    border: 6px solid var(--color-primary1);
+    border: 6px solid var(--color-gray4);
   `,
 });
-
+const borderColorContent = theme("mode", {
+  light: css`
+    border: 6px solid var(--color-gray12);
+    opacity: 0.5;
+  `,
+  dark: css`
+    border: 6px solid var(--color-gray5);
+  `,
+});
+const TriangleColorColor = theme("mode", {
+  light: css`
+    stroke: var(--color-gray13);
+  `,
+  dark: css`
+    stroke: var(--color-gray4);
+  `,
+});
+const ShadowColor = theme("mode", {
+  light: css`
+    stroke: var(--color-gray12);
+    opacity: 0.5;
+  `,
+  dark: css`
+    stroke: var(--color-gray5);
+  `,
+});
 ////////////circle////////////////
 export const CircleCss = css`
+  ${primaryBorderColor};
   width: 5rem;
   height: 5rem;
-  border: 6px solid var(--color-primary3);
   transform: rotate(45deg);
   border-radius: 50%;
   position: absolute;
   :before {
-    content: '';
+    content: "";
     border-radius: 50%;
     position: absolute;
     width: 5rem;
     height: 5rem;
     top: -30%;
     left: -30%;
+    opacity: 0.4;
     ${borderColorContent}
   }
 `;
 ////////////square///////////////
 export const SquareCss = css`
+  ${primaryBorderColor}
   width: 5rem;
   height: 5rem;
-  border: 6px solid var(--color-primary3);
+
   transform: rotate(45deg);
   position: absolute;
   :before {
     ${borderColorContent}
+    opacity: 0.4;
     content: "";
     position: absolute;
     width: 5rem;
@@ -54,17 +82,14 @@ export const TriangleCss = css`
   transform: rotate(45deg);
   position: absolute;
 `;
-export const ShadowColor = theme('mode', {
-  light: css`
-    stroke: var(--color-gray10);
-  `,
-  dark: css`
-    stroke: var(--color-primary1);
-  `,
-});
+
 export const StyledTriangleIcon = styled(TriangleIcon)`
   width: 5rem;
   height: 5rem;
+  opacity: 0.4;
+  path {
+    ${TriangleColorColor};
+  }
 `;
 export const TriangleShadow = styled(StyledTriangleIcon)`
   position: absolute;

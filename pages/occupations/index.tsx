@@ -9,13 +9,13 @@ import Content from 'PagesComponents/Occupations/List';
 import PageLayout from 'Components/Layouts/PageContainer';
 import { sanityClient } from 'Utils/sanity';
 import { dehydrate, QueryClient } from 'react-query';
-import { OccupationsQueryKeys } from 'Utils/query';
 import { getListQuery } from 'Queries/occupations/List';
 import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import { FiltersContextProvider } from 'PagesComponents/Occupations/List/Context/SearchFilter';
+import { OccupationsQueryKeys } from 'Utils/query/keys';
 
 interface Props {
   statusCode: number | null;

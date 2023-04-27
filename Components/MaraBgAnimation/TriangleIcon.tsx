@@ -5,15 +5,15 @@ export const TriangleIcon: React.FC<HTMLAttributes<HTMLOrSVGElement>> = (props) 
     <svg
     {...props}
       width="69"
-      height="66"
-      viewBox="0 0 69 66"
+      height="65"
+      viewBox="0 0 69 65"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M5.21112 61.949L24.4107 6.27694L63.0243 50.7402L5.21112 61.949Z"
-        stroke="#1BADA1"
-        strokeWidth="6"
+        d="M63.8881 60.8032L5.59341 52.4526L41.9726 6.14327L63.8881 60.8032Z"
+        stroke="#505050"
+        stroke-width="6"
       />
     </svg>
   );

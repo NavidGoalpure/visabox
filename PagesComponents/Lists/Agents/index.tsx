@@ -9,6 +9,7 @@ import {
 import VIPAgentCard from '../../../Components/Lists/Card/Agent/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Agents } from 'Consts/Lists/agents';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -17,7 +18,11 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {Agents.filter((agent) => agent.featuredPlan).map((agent) => {
+        {Agents.filter(
+          (agent) =>
+            agent.featuredPlan === FeaturedPlan_Business.VIP ||
+            agent.featuredPlan === FeaturedPlan_Business.FULL_DATA
+        ).map((agent) => {
           return (
             <VIPAgentCard
               key={agent.slug}
@@ -29,7 +34,9 @@ function Content() {
         })}
       </VIPContainer>
       <NormalAgentContainer>
-        {Agents.filter((agent) => !agent.featuredPlan).map((agent) => {
+        {Agents.filter(
+          (agent) => agent.featuredPlan === FeaturedPlan_Business.SIMPLE
+        ).map((agent) => {
           return (
             <AgentCard
               key={agent.slug}

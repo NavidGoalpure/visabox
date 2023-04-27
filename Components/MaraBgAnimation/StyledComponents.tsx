@@ -52,6 +52,7 @@ export const CircleCss = css`
     height: 5rem;
     top: -30%;
     left: -30%;
+    opacity: 0.4;
     ${borderColorContent}
   }
 `;
@@ -65,6 +66,7 @@ export const SquareCss = css`
   position: absolute;
   :before {
     ${borderColorContent}
+    opacity: 0.4;
     content: "";
     position: absolute;
     width: 5rem;
@@ -75,7 +77,6 @@ export const SquareCss = css`
 `;
 //////////triangle////////////
 export const TriangleCss = css`
-  stroke: red;
   width: 5rem;
   height: 5rem;
   transform: rotate(45deg);
@@ -85,6 +86,7 @@ export const TriangleCss = css`
 export const StyledTriangleIcon = styled(TriangleIcon)`
   width: 5rem;
   height: 5rem;
+  opacity: 0.4;
   path {
     ${TriangleColorColor};
   }

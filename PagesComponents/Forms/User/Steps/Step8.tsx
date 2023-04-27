@@ -17,16 +17,16 @@ import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { IELTSScores } from "./consts";
 import { IELTSScore } from "Interfaces/Client";
 import { useLocale } from "Hooks/useLocale";
-import { Router, useRouter } from "next/router";
-import SuccessToast from "Elements/Toast/Success";
+import { useRouter } from "next/router";
 import { useMutation } from "react-query";
+import SuccessToast from "Elements/Toast/Success";
 const Step8 = () => {
-  const { step, handleBackPress } = useContext(WizardContext);
-  const router = useRouter();
-  const { t } = useStaticTranslation(componentStatements);
-  // navid fix send bug
-  const { clientData, setClientData } = useContext(FormDataContext);
   const { locale } = useLocale();
+  const router = useRouter();
+  const { step, handleBackPress } = useContext(WizardContext);
+  const { t } = useStaticTranslation(componentStatements);
+  const successToastMessage = t(LanguageKeys.SuccessToastText);
+  const { clientData, setClientData } = useContext(FormDataContext);
   const mutation = useMutation({
     mutationFn: () => {
       return fetch("/api/forms/client", {
@@ -34,7 +34,10 @@ const Step8 = () => {
         body: JSON.stringify({ clientData }),
       });
     },
-    onSuccess: () => {},
+    onSuccess: () => {
+      router.push(`/${locale}`);
+      SuccessToast(successToastMessage);
+    },
     onError: (error) => {
       console.log("navid error ===", error);
     },
@@ -75,8 +78,6 @@ const Step8 = () => {
           step={step}
           onClick={() => {
             mutation.mutate();
-            mutation.isSuccess &&
-              SuccessToast(t(LanguageKeys.SuccessToastText)) 
           }}
           disabled={!clientData?.IELTSScore}
           icon={<NextIcon />}

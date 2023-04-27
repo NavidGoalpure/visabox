@@ -1,11 +1,10 @@
-import { MultiLanguageText } from "Interfaces";
 import styled from "styled-components";
 import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 import * as ToggleGroup from "../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
 import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import {
   ButtonWrapper,
   Container,
@@ -60,6 +59,7 @@ const Step7 = () => {
           icon={<NextIcon />}
           onClick={() => {
             handleNextPress();
+            
           }}
           disabled={!clientData?.australianWorkExperience}
         >

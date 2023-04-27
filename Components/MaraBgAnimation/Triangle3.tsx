@@ -38,7 +38,7 @@ left:80%;
 100% {
   transform: rotate(45deg);
   top: 90%;
-  left: 40%;
+  left: 90%;
 }
 `;
 

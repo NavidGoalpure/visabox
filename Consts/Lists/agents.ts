@@ -185,14 +185,25 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt9',
     name: { en: 'Azam Jafari', fa: 'اعظم جعفری' },
     slug: 'azam-jafari',
+    desc: {
+      en: `Azam Jafari is a registered immigration lawyer and a member of the Australian Immigration Institute. Mrs. Jafari has many years of experience in the field of educational counseling for people interested in continuing their studies in foreign countries. He began his academic studies in Iran in the field of law at the National University of Iran, and after immigrating to Australia, he continued his studies in the field of Master's in International Law from Macquarie University, Sydney. Mrs. Jafari also completed her post-graduate certificate in Australia in the field of immigration law at Victoria University of Melbourne and started her professional activity in the field of providing consulting services in immigration matters in 2015.
 
+      Based on the Code of Conduct, AJ Migration considers itself committed to respecting the client's interests and uses its efforts to provide the best services and advice to its clients.
+      
+      Due to the continuous changes in the field of immigration to Australia, Ms. Jafari has kept her knowledge up-to-date in the field of immigration by participating in educational workshops that are held permanently in the field of immigration by organizations affiliated with the Australian Immigration Department. and provide the most up-to-date necessary guidance to its customers.`,
+
+      fa: `اعظم جعفری، وکیل ثبت‌شده مهاجرتی و عضو انستیتو مهاجرت استرالیا است. خانم جعفری، سابقه سالها فعالیت در زمنیه مشاوره آموزشی به افراد علاقمند به ادامه تحصیل در کشورهای خارج را دارا می‌باشند. او تحصیلات آکادمیک خود را در ایران در رشته حقوق در دانشگاه ملی ایران آغاز کرد و پس از مهاجرت به استرالیا، تحصیلات خود را در رشته کارشناسی ارشد حقوق بین الملل از دانشگاه مکواری سیدنی ادامه داد. خانم جعفری همچنین گواهی تحصیلات تکمیلی در استرالیا در زمینه قوانین مهاجرت را در دانشگاه ویکتوریای ملبورن به پایان رسانید و فعالیت حرفه‌ای خود را در زمینه ارائه خدمات مشاوره در امور مهاجرتی را در سال ۲۰۱۵ آغاز نمود.
+
+      شرکت AJ Migration بر اساس Code of Conduct (منشور اخلاقی امور مهاجرتی) خود را متعهد به رعایت مصالح و منافع مشتری دانسته و تلاش خود را جهت ارائه بهترین خدمات و مشاوره به مشتریان خود بکار می‌گیرد.
+      
+      با توجه به تغییرات مستمر در زمینه امور مهاجرتی به استرالیا، خانم جعفری با شرکت در کارگاه‌های آموزشی که بطور دائمی در زمینه امور مهاجرتی توسط سازمان های وابسته به اداره مهاجرت استرالیا برگزار می‌شود، اطلاعات خود را در زمینه امور مهاجرتی بروز نگه داشته تا بتواند بهترین و بروزترین راهنمایی لازم را به مشتریان خود ارائه نماید.`
+    },
     maraNumber: '1571733',
     locations: [Locations.en, Locations.fa],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
       email: 'ajafari@ajmigration.com',
-      phone: ['+61280346901', '+61414187045'],
-      whatsapp: '61414187045',
+      phone: ['0414187045'],
       website: 'https://www.ajmigration.com',
     },
     status: Status.ACTIVE,
@@ -201,15 +212,19 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt10',
     name: { en: 'Matin Amirshahi', fa: 'متین امیرشاهی' },
     slug: 'matin-amirshahi',
-
+    desc: {
+      en: `Our immigration activities include acceptance of representation in immigration matters to Australia and translation and confirmation of documents related to immigration to Australia. These services are performed under the direct supervision of an official immigration lawyer and an Australian Naati translator. Our clients have the possibility to communicate directly with the lawyer group and follow the transfer process easily.`,
+      fa: `فعاليتهای مهاجرتی ما شامل قبول وکالت در امور مهاجرت به استراليا و ترجمه و تائيد مدارک مربوط به مهاجرت به اين کشور ميشوند. اين خدمات با سرپرستی مستقيم وکيل رسمی مهاجرت و مترجم ناتی استراليا انجام ميشوند. موکلین ما این امکان را دارند که به طور مستقیم با وکیل مجموعه در ارتباط باشند و روند پروسه مهاجرت را به سهولت پیگیری کنند.`,
+    },
     maraNumber: '1685110',
     locations: [Locations.en, Locations.fa],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
       email: 'admin@amirshahi.law',
-      phone: ['02122705327', '09012800983'],
+      phone: ['+982122705217', '061457461255'],
+      telegram: '09012800983',
       whatsapp: '09012800983',
-      website: 'https://www.amirshahi.law/',
+      website: 'www.amirshahi.law',
     },
     status: Status.ACTIVE,
   },
@@ -249,13 +264,51 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt13',
     name: { en: 'Azadeh Ghorashi ', fa: 'آزاده قریشی' },
     slug: 'azadeh-ghorashi',
+    desc: {
+      en: `After obtaining Australian residency in 2012 and obtaining an official attorney's license from Australia Registered Migration Agent under MARN 1573151; Azzy Immigration office officially started its activity in 2013. This collection can do all the steps with the possibility of monitoring the process and solving ambiguities and questions for those people who have changed their way of living and staying in Australia.
+
+ 
+
+      Azzy Immigration Service Office, due to its experience and expertise in all types of immigration visas, can provide a suitable solution for your immigration and suit your situation with certainty. Therefore, our team is ready to sit down with you to plan with your situation in order to provide a solution, to present you what we can do in the form of a road map.
+      
+       
+      
+      Credits of Azi Immigration Service Office:
+      
+      Our official lawyer
+      Mia official member
+      Member of the Iranian Immigration Lawyers Association of Australia
+      Membership in the Iran Australia Chamber of Commerce
+       
+      
+      You experience the borderless world with Azzy Immigration.`,
+      fa: `
+      پس از اخذ اقامت استرالیا در سال 2012 و اخذ مجوز وکالت رسمی از Australia Registered Migration Agent به شمارهMARN 1573151؛ دفتر خدمات مهاجرتی Azzy Immigration فعالیت خود را بصورت رسمی از سال 2013 آغاز نمود. این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند، تمامی مراحل اقامت را با امکان نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضیان انجام دهد.
+      
+       
+      
+      دفتر خدمات مهاجرتی Azzy Immigration با توجه به تجربه و تخصصی که در انواع ویزاهای مهاجرتی دارد، می تواند یک راه حل مناسب برای معمای مهاجرت شما و متناسب با وضعیت تان که با قطعیت بالایی همراه باشد، ارائه دهد. بنابراین تیم ما آماده است که متناسب با وضعیت شما در جهت ارائه یک راه حل، با شما به مذاکره بنشیند تا آنچه که ما می توانیم انجام دهیم را در قالب یک نقشه راه به شما ارائه نماید.
+      
+       
+      
+      اعتبارات دفتر خدمات مهاجراتی آزی ایمیگریشن:
+      
+      وکیل رسمی Mara
+      عضور رسمی Mia
+      عضو انجمن وکلای مهاجرت ایران استرالیا
+      عضویت در اتاق بازرگانی ایران استرالیا
+       
+      
+      دنیای بدون مرز را با Azzy Immigration تجربه نمایید.`
+    },
     maraNumber: '1573151',
     locations: [Locations.en, Locations.fa],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
-      website: 'https://www.azzyimmi.com.au',
+      website: 'azzyimmi.com.au',
       email: 'info@azzyimmi.com',
-      phone: ['6145477750'],
+      phone: ['+989308719363', '+61452477750'],
+      telegram: 'https://t.me/joinchat/A6McME_tPeHKkEOLJ-VyUQ',
     },
     status: Status.ACTIVE,
   },
@@ -315,14 +368,21 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt17',
     name: { en: 'Mehdi Keivani', fa: 'مهدی کیوانی' },
     slug: 'mehdi-keivani',
-
+    desc: {
+      en: `Unique Visa Immigration Organization has started its activities in the field of immigration to Australia since 2008 and has had a close relationship with various departments of the Australian Immigration Department since the beginning.
+      The lawyer of this collection is Mr. Mehdi Kivani with MARN number 2217813 in the Mara organization and the client's case is examined and carried out directly under his supervision.`,
+      fa: `
+      سازمان مهاجرتی یونیک ویزا از سال ۲۰۰۸ فعالیت خود را در زمینه مهاجرت به استرالیا آغاز نموده و از همان بدو امر ارتباط تنگاتنگی با بخش های مختلف اداره مهاجرت استرالیا داشته است.
+      وکیل این مجموعه جناب آقای مهدی کیوانی با شماره MARN 2217813 در سازمان مارا (Mara )میباشند و پرونده موکلین مستقیما زیرنظر ایشان مورد بررسی قرار گرفته و انجام می شوند.`,
+    },
     maraNumber: '2217813',
     locations: [Locations.en, Locations.fa],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
-      website: 'https://www.uniquevisa.net/',
+      website: 'https://uniquevisa.net',
       email: 'admin@uniquevisa.net',
-      phone: ['+61413541043'],
+      phone: ['+61413541043', '+982188545324-6'],
+      telegram: 'https://t.me/uniquevisa',
     },
     status: Status.ACTIVE,
   },
@@ -467,13 +527,17 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt27',
     name: { en: 'Naghmeh Danai', fa: 'نغمه دانایی' },
     slug: 'naghmeh-danai',
+    desc: {
+      en: `Over 15 years of experience in different visa and migration matters.`,
+      fa: `بیش از 15 سال تجربه در امور مختلف ویزا و مهاجرت.`,
+    },
     locations: [Locations.en, Locations.fa],
-    maraNumber: '748076',
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    maraNumber: '0748076',
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
-      website: 'https://www.visazone.com.au/?lang=fa#top',
+      website: 'www.visazone.com.au',
       email: 'naghmeh.danai@gmail.com',
-      phone: ['61414326277'],
+      phone: ['0414326277'],
     },
     status: Status.ACTIVE,
   },

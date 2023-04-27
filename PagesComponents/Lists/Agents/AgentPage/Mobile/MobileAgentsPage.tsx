@@ -8,11 +8,19 @@ import { Headline4Style } from 'Styles/Typo';
 import { SidebarPage } from 'PagesComponents/Lists/Agents/AgentPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
 import { Agent } from 'Interfaces/Lists/agents';
+import { useEffect, useState } from 'react';
+import { useLocale } from 'Hooks/useLocale';
 interface Props {
   ChosenAgent?: Agent;
 }
 function MobileAgentsPage({ ChosenAgent }: Props) {
   const { dt } = useDynamicTranslation();
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState('');
+
+  useEffect(() => {
+    setImgSrc(`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`);
+  }, [ChosenAgent]);
 
   return (
     <Container>
@@ -22,8 +30,15 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
       <ProfilePictureWrapper>
         <ProfilePicture
           fill
-          src={`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`}
-          alt={'agent image'}
+          src={imgSrc}
+          alt={
+            ChosenAgent?.name
+              ? `${ChosenAgent?.name?.[locale]} image`
+              : 'agent image'
+          }
+          onError={() => {
+            setImgSrc(`/Images/placeholder.jpeg`);
+          }}
         />
         <VIPBoxContainer aria-hidden={true}>
           <VIPBox aria-hidden={true} />

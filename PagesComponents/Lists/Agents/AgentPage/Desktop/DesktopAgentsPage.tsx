@@ -21,20 +21,36 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
 import { Agent } from 'Interfaces/Lists/agents';
 import { layer2A_Key, layer2A_Value } from 'Styles/Theme/Layers/layer2/theme';
+import { useEffect, useState } from 'react';
+import { useLocale } from 'Hooks/useLocale';
 interface Props {
   ChosenAgent?: Agent;
 }
 function DesktopAgentsPage({ ChosenAgent }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState('');
+
+  useEffect(() => {
+    setImgSrc(`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`);
+  }, [ChosenAgent]);
+
   return (
     <Container>
       <Header>
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`}
-            alt={'agent image'}
+            src={imgSrc}
+            alt={
+              ChosenAgent?.name
+                ? `${ChosenAgent?.name?.[locale]} image`
+                : 'agent image'
+            }
+            onError={() => {
+              setImgSrc(`/Images/placeholder.jpeg`);
+            }}
           />
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />

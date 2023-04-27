@@ -19,7 +19,8 @@ import { Agency } from 'Interfaces/Lists/agency';
 import { getAgencyAgents, getAgencySocials } from '../utils';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import SmartSocial from 'Components/Lists/Card/SocialCard';
-import { directionStyles } from 'Styles/Theme';
+import { useEffect, useState } from 'react';
+import { useLocale } from 'Hooks/useLocale';
 interface Props {
   ChosenAgency?: Agency;
 }
@@ -28,14 +29,28 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState('');
+
+  useEffect(() => {
+    setImgSrc(`/Images/lists/agency/${ChosenAgency?.slug}.jpg`);
+  }, [ChosenAgency]);
+
   return (
     <Container>
       <Header>
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={`/Images/lists/agency/${ChosenAgency?.slug}.jpg`}
-            alt={'agent image'}
+            src={imgSrc}
+            alt={
+              ChosenAgency?.name
+                ? `${ChosenAgency?.name?.[locale]} image`
+                : 'agent image'
+            }
+            onError={() => {
+              setImgSrc(`/Images/placeholder.jpeg`);
+            }}
           />
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />

@@ -12,7 +12,7 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     en: '$agent Migration Agent | $agent',
-    fa: 'وکیل مهاجرت $agent',
+    fa: '$agent وکیل مهاجرت ',
   },
   SeoDesc: {
     fa: 'marabox.com',

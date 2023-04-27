@@ -1,4 +1,5 @@
 import { Status } from 'Interfaces';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 import { Naati } from 'Interfaces/Lists/naaties';
 
 export const NAATIES: Naati[] = [
@@ -25,7 +26,7 @@ export const NAATIES: Naati[] = [
     },
 
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -44,7 +45,7 @@ export const NAATIES: Naati[] = [
     },
     contact: {},
     status: Status.DEACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -67,7 +68,7 @@ export const NAATIES: Naati[] = [
       website: 'www.lawiran.org',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -84,7 +85,7 @@ export const NAATIES: Naati[] = [
       },
     ],
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -111,7 +112,7 @@ export const NAATIES: Naati[] = [
       website: 'www.amirshahi.law',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -132,7 +133,7 @@ export const NAATIES: Naati[] = [
       },
     ],
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -154,7 +155,7 @@ export const NAATIES: Naati[] = [
       fa: 'ایران',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -181,7 +182,7 @@ export const NAATIES: Naati[] = [
       website: 'www.soroosh483.ir',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -196,7 +197,7 @@ export const NAATIES: Naati[] = [
     ],
     contact: {},
     status: Status.DEACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -223,7 +224,7 @@ export const NAATIES: Naati[] = [
       fa: 'ایران',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -256,7 +257,7 @@ export const NAATIES: Naati[] = [
       website: 'www.tehrannaati.com',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -278,7 +279,7 @@ export const NAATIES: Naati[] = [
       fa: 'ایران',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -301,7 +302,7 @@ export const NAATIES: Naati[] = [
       website: 'www.aryagroup.co.ir',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -319,7 +320,7 @@ export const NAATIES: Naati[] = [
       },
     ],
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
   {
     fullName: {
@@ -346,6 +347,6 @@ export const NAATIES: Naati[] = [
       website: 'www.abiztranslation.ir',
     },
     status: Status.ACTIVE,
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
   },
 ];

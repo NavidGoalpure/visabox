@@ -22,7 +22,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.isFeatured);
+  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.featuredPlan);
   useEffect(() => {
     GsapSectionAnimation_1('agency');
   }, []);

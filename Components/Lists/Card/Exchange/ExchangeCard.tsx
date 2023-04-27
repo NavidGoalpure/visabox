@@ -1,27 +1,28 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import { layer1_BG, layer1_TextColor } from "Styles/Theme/Layers/layer1/theme";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { layer1_BG, layer1_TextColor } from 'Styles/Theme/Layers/layer1/theme';
 import {
   layer2A_Bg,
   layer2A_HeaderBG,
   layer2B_BG,
   layer2B_TextColor,
-} from "Styles/Theme/Layers/layer2/theme";
-import { layer3_SubtitleStyle } from "Styles/Theme/Layers/layer3/style";
-import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
-import { Headline6Style, Headline7Style } from "Styles/Typo";
+} from 'Styles/Theme/Layers/layer2/theme';
+import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
+import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
+import { Headline6Style, Headline7Style } from 'Styles/Typo';
 
-import { FiBox } from "react-icons/fi";
-import { deviceMin } from "Consts/device";
-import { FcCurrencyExchange } from "react-icons/fc";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { FiBox } from 'react-icons/fi';
+import { deviceMin } from 'Consts/device';
+import { FcCurrencyExchange } from 'react-icons/fc';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from "../../../../PagesComponents/Lists/Exchanges/const";
-import { Exchange } from "Interfaces/Lists/exchanges";
-import { HTMLAttributes } from "react";
+} from '../../../../PagesComponents/Lists/Exchanges/const';
+import { Exchange } from 'Interfaces/Lists/exchanges';
+import { HTMLAttributes } from 'react';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 interface Props extends Exchange, HTMLAttributes<HTMLDivElement> {}
 
@@ -29,7 +30,7 @@ function MobileExchangeCard({
   desc,
   location,
   fullName,
-  isFeatured,
+  featuredPlan,
   logoUrl,
   contact,
   className,
@@ -38,49 +39,46 @@ function MobileExchangeCard({
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <Container
-    className={className}
-    isFeatured={isFeatured}
-    {...props}
-    >
-      <Wrapper 
-      target={"_blank"}
-      href={contact?.website}
-      isFeatured={isFeatured}>
+    <Container className={className} {...props}>
+      <Wrapper
+        target={'_blank'}
+        href={contact?.website}
+        featuredPlan={featuredPlan}
+      >
         <ImgWrapper>
           <Img
-            loading="lazy"
+            loading='lazy'
             src={logoUrl ? logoUrl : `/Images/placeholder.jpeg`}
-            alt="image"
+            alt='image'
             width={92}
             height={92}
           />
         </ImgWrapper>
-        {isFeatured && (
+        {featuredPlan && (
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
           </VIPBoxContainer>
         )}
-        <NameTag isFeatured={isFeatured}>{dt(fullName)} </NameTag>
-        <Desc isFeatured={isFeatured}>{dt(desc)}</Desc>
+        <NameTag featuredPlan={featuredPlan}>{dt(fullName)} </NameTag>
+        <Desc featuredPlan={featuredPlan}>{dt(desc)}</Desc>
 
-        <SocialMediaTag isFeatured={isFeatured}>
+        <SocialMediaTag featuredPlan={featuredPlan}>
           <FcCurrencyExchange />
           {t(LanguageKeys.exchange)}
         </SocialMediaTag>
-        <LocationTag isFeatured={isFeatured}>{dt(location)}</LocationTag>
+        <LocationTag featuredPlan={featuredPlan}>{dt(location)}</LocationTag>
       </Wrapper>
     </Container>
   );
 }
 export default MobileExchangeCard;
-const ContainerDropShadow = theme("mode", {
+const ContainerDropShadow = theme('mode', {
   light: css`
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.5));
   `,
   dark: css``,
 });
-const TagBgTheme = theme("mode", {
+const TagBgTheme = theme('mode', {
   light: css`
     background: white;
     color: var(--color-gray4);
@@ -91,7 +89,7 @@ const TagBgTheme = theme("mode", {
   `,
 });
 
-export const LogoBackground = theme("mode", {
+export const LogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
       -86deg,
@@ -107,7 +105,7 @@ export const LogoBackground = theme("mode", {
     );
   `,
 });
-export const FeaturedLogoBackground = theme("mode", {
+export const FeaturedLogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
       -2deg,
@@ -123,7 +121,7 @@ export const FeaturedLogoBackground = theme("mode", {
     );
   `,
 });
-const BoxTheme = theme("mode", {
+const BoxTheme = theme('mode', {
   light: css`
     color: var(--color-secondary2);
   `,
@@ -131,7 +129,7 @@ const BoxTheme = theme("mode", {
     color: var(--color-secondary4);
   `,
 });
-const NotFeaturedLocationTagTheme = theme("mode", {
+const NotFeaturedLocationTagTheme = theme('mode', {
   light: css`
     background: var(--color-gray12);
     color: var(--color-gray4);
@@ -146,13 +144,13 @@ const NotFeaturedSocialMediaTagStyle = css`
   ${layer3_TextColor};
   box-shadow: unset;
 `;
-const Container = styled.div<{ isFeatured: boolean }>`
+const Container = styled.div`
   @media ${deviceMin.laptopXS} {
     max-width: 25rem;
   }
 `;
 
-const Wrapper = styled.a<{ isFeatured: boolean }>`
+const Wrapper = styled.a<{ featuredPlan: FeaturedPlan_Business }>`
   position: relative;
   width: 100%;
   min-height: 23rem;
@@ -166,13 +164,13 @@ const Wrapper = styled.a<{ isFeatured: boolean }>`
   transition: all 0.4s ease 0s;
   margin-top: 4.5rem;
   transition: all 0.3s ease;
-  
+
   :hover {
     transform: scale(1.05);
   }
   //////////////////////////
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? layer2B_BG
       : css`
           ${layer2A_Bg};
@@ -199,7 +197,7 @@ const VIPBox = styled(FiBox)`
   height: auto;
 `;
 
-const NameTag = styled.h4<{ isFeatured: boolean }>`
+const NameTag = styled.h4<{ featuredPlan: FeaturedPlan_Business }>`
   ${layer3_SubtitleStyle};
   display: flex;
   gap: 0.2rem;
@@ -210,8 +208,8 @@ const NameTag = styled.h4<{ isFeatured: boolean }>`
   z-index: 2;
   transition: all 0.3s ease;
 
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? `background-color: var(--color-gray7); color:var(--color-gray13);`
       : layer2A_HeaderBG}
 `;
@@ -251,9 +249,9 @@ const Img = styled.img`
     width: 96px;
   }
 `;
-const Desc = styled.p<{ isFeatured: boolean }>`
+const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline6Style};
-  ${({ isFeatured }) => (isFeatured ? layer2B_TextColor : layer1_TextColor)}
+  ${({ featuredPlan }) => (featuredPlan ? layer2B_TextColor : layer1_TextColor)}
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -264,7 +262,7 @@ const Desc = styled.p<{ isFeatured: boolean }>`
   text-align: center;
 `;
 
-const LocationTag = styled.h3<{ isFeatured: boolean }>`
+const LocationTag = styled.h3<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline7Style};
   padding: 0.5rem 1.5rem;
   border-radius: 15px;
@@ -272,8 +270,8 @@ const LocationTag = styled.h3<{ isFeatured: boolean }>`
   bottom: 0;
   left: 0;
   transform: translate(10%, 50%) rotate(-3deg);
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? css`
           ${layer1_BG};
           ${TagBgTheme}
@@ -290,7 +288,7 @@ const LocationTag = styled.h3<{ isFeatured: boolean }>`
     transform: translate(10%, 50%) rotate(0);
   }
 `;
-const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
+const SocialMediaTag = styled.h4<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline6Style};
   ${layer3_TextColor}
   display: flex;
@@ -307,8 +305,8 @@ const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
   transform: translate(-5%, 35%) rotate(3deg);
   transition: all 0.3s ease;
   ////////////////////
-  ${({ isFeatured }) =>
-    isFeatured ? layer2B_BG : NotFeaturedSocialMediaTagStyle};
+  ${({ featuredPlan }) =>
+    featuredPlan ? layer2B_BG : NotFeaturedSocialMediaTagStyle};
 
   ///////////////////
   @media ${deviceMin.tabletL} {

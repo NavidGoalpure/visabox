@@ -17,7 +17,7 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {Agents.filter((agent) => agent.isFeatured).map((agent) => {
+        {Agents.filter((agent) => agent.featuredPlan).map((agent) => {
           return (
             <VIPAgentCard
               key={agent.slug}
@@ -29,7 +29,7 @@ function Content() {
         })}
       </VIPContainer>
       <NormalAgentContainer>
-        {Agents.filter((agent) => !agent.isFeatured).map((agent) => {
+        {Agents.filter((agent) => !agent.featuredPlan).map((agent) => {
           return (
             <AgentCard
               key={agent.slug}

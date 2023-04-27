@@ -132,7 +132,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
           }
           {/* <SideBar.BodyItem value='agency'>
             <AgentsContentWrapper>
-              {AGENCYS.filter((agent) => agent.isFeatured).map((agent) => {
+              {AGENCYS.filter((agent) => agent.featuredPlan).map((agent) => {
                 return (
                   <StyledVIPAgentCard
                     key={agent.slug}

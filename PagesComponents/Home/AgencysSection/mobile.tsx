@@ -20,7 +20,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.isFeatured);
+  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.featuredPlan);
 
   return (
     <Container {...props}>

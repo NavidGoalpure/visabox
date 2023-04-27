@@ -1,10 +1,12 @@
-import { Locations } from 'Interfaces';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { Locations, Status } from 'Interfaces';
+import { FeaturedPlan_Business } from '.';
 export enum SocialMediaTypes {
   TELEGRAM = 'TELEGRAM',
   INSTAGRAM = 'INSTAGRAM',
+  YOUTUBE = 'YOUTUBE',
 }
-export interface SocialCard {
+export interface Socials {
+  id: string;
   name: string;
   slug: string;
   link: string;
@@ -13,4 +15,5 @@ export interface SocialCard {
   //what countries they work in
   locations: Locations;
   desc: string;
+  status: Status;
 }

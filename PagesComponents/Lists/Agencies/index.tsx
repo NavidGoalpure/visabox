@@ -17,7 +17,7 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {AGENCYS.filter((agency) => agency.isFeatured).map((agency) => {
+        {AGENCYS.filter((agency) => agency.featuredPlan).map((agency) => {
           return (
             <VIPAgencyCard
               key={agency.slug}
@@ -30,7 +30,7 @@ function Content() {
         })}
       </VIPContainer>
       <NormalAgencysContainer>
-        {AGENCYS.filter((agency) => !agency.isFeatured).map((agency) => {
+        {AGENCYS.filter((agency) => !agency.featuredPlan).map((agency) => {
           return (
             <AgencyCard
               key={agency.slug}

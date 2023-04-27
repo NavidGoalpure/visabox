@@ -18,10 +18,11 @@ import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
-import { SocialMediaTypes, Socials } from 'Interfaces/Lists/Socials';
+import { SocialMediaTypes, Socials } from 'Interfaces/Lists/socials';
 import { HTMLAttributes } from 'react';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
-interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials { }
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
 
 function MobileSocialCard({
   desc,
@@ -30,7 +31,7 @@ function MobileSocialCard({
   link,
   socialmediaType,
   slug,
-  isFeatured,
+  featuredPlan,
   status,
   ...props
 }: Props) {
@@ -46,23 +47,29 @@ function MobileSocialCard({
           </>
         );
       case SocialMediaTypes.INSTAGRAM:
-        return <>
-          <InstagramIcon />
-          {t(LanguageKeys.Instagram)}</>;
+        return (
+          <>
+            <InstagramIcon />
+            {t(LanguageKeys.Instagram)}
+          </>
+        );
 
       case SocialMediaTypes.YOUTUBE:
-        return <>
-          <YoutubeIcon />
-          {t(LanguageKeys.Youtube)}</>;
+        return (
+          <>
+            <YoutubeIcon />
+            {t(LanguageKeys.Youtube)}
+          </>
+        );
 
       default:
         return null;
     }
   };
   return (
-    <Container href={link} target={'_blank'} isFeatured={isFeatured}>
-      <Wrapper isFeatured={isFeatured} {...props}>
-        {isFeatured && (
+    <Container href={link} target={'_blank'} featuredPlan={featuredPlan}>
+      <Wrapper featuredPlan={featuredPlan} {...props}>
+        {featuredPlan && (
           <ImgWrapper>
             <Img
               fill
@@ -72,18 +79,18 @@ function MobileSocialCard({
             />
           </ImgWrapper>
         )}
-        {isFeatured && (
+        {featuredPlan && (
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
           </VIPBoxContainer>
         )}
-        <NameTag isFeatured={isFeatured}>{name} </NameTag>
-        <Desc isFeatured={isFeatured}>{desc}</Desc>
+        <NameTag featuredPlan={featuredPlan}>{name} </NameTag>
+        <Desc featuredPlan={featuredPlan}>{desc}</Desc>
         <JoinButton>{t(LanguageKeys.Join)}</JoinButton>
-        <SocialMediaTag isFeatured={isFeatured}>
+        <SocialMediaTag featuredPlan={featuredPlan}>
           {SocialMediaIcon()}
         </SocialMediaTag>
-        <LocationTag isFeatured={isFeatured}>
+        <LocationTag featuredPlan={featuredPlan}>
           {locations === Locations.fa
             ? t(LanguageKeys.Persian)
             : t(LanguageKeys.English)}
@@ -165,7 +172,7 @@ const NotFeaturedSocialMediaTagStyle = css`
   ${layer3_TextColor};
   box-shadow: unset;
 `;
-const Container = styled.a<{ isFeatured: boolean }>`
+const Container = styled.a<{ featuredPlan: FeaturedPlan_Business }>`
   margin-top: 4.5rem;
   display: flex;
   justify-content: center;
@@ -174,14 +181,14 @@ const Container = styled.a<{ isFeatured: boolean }>`
   transition: all 0.3s ease;
   width: 100%;
   @media ${deviceMin.laptopXS} {
-    ${({ isFeatured }) => !isFeatured && 'width: 30%;'}
+    ${({ featuredPlan }) => !featuredPlan && 'width: 30%;'}
   }
   :hover {
     transform: scale(1.05);
   }
 `;
 
-const Wrapper = styled.div<{ isFeatured: boolean }>`
+const Wrapper = styled.div<{ featuredPlan: FeaturedPlan_Business }>`
   width: 100%;
   max-width: 25rem;
   height: 21rem;
@@ -195,8 +202,8 @@ const Wrapper = styled.div<{ isFeatured: boolean }>`
   position: relative;
   transition: all 0.4s ease 0s;
   //////////////////////////
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? css`
           ${layer2B_BG};
           min-height: 27rem;
@@ -246,7 +253,7 @@ const VIPBox = styled(FiBox)`
   height: auto;
 `;
 
-const NameTag = styled.h4<{ isFeatured: boolean }>`
+const NameTag = styled.h4<{ featuredPlan: FeaturedPlan_Business }>`
   ${layer3_SubtitleStyle};
   display: flex;
   gap: 0.2rem;
@@ -257,8 +264,8 @@ const NameTag = styled.h4<{ isFeatured: boolean }>`
   z-index: 2;
   transition: all 0.3s ease;
 
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? `background-color: var(--color-gray7); color:var(--color-gray13);`
       : layer2A_HeaderBG}
 `;
@@ -267,10 +274,10 @@ const Img = styled(Image)`
   object-fit: cover;
   transition: all 0.3s ease;
 `;
-const Desc = styled.p<{ isFeatured: boolean }>`
+const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline6Style};
   text-align: start;
-  ${({ isFeatured }) => (isFeatured ? layer2B_TextColor : layer1_TextColor)}
+  ${({ featuredPlan }) => (featuredPlan ? layer2B_TextColor : layer1_TextColor)}
   white-space: pre-line;
   overflow: hidden;
   text-align: center;
@@ -284,7 +291,7 @@ const JoinButton = styled(PrimaryButton)`
   width: max-content;
   transition: all 0.4s ease 0s;
 `;
-const LocationTag = styled.h3<{ isFeatured: boolean }>`
+const LocationTag = styled.h3<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline7Style};
   padding: 0.5rem 1.5rem;
   border-radius: 15px;
@@ -293,8 +300,8 @@ const LocationTag = styled.h3<{ isFeatured: boolean }>`
   left: 0;
   transform: translate(10%, 50%) rotate(-3deg);
   transition: all 0.3s ease;
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? css`
           ${layer1_BG};
           ${TagBgTheme};
@@ -312,7 +319,7 @@ const LocationTag = styled.h3<{ isFeatured: boolean }>`
           }
         `}
 `;
-const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
+const SocialMediaTag = styled.h4<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline6Style};
   ${layer3_TextColor}
   display: flex;
@@ -329,8 +336,8 @@ const SocialMediaTag = styled.h4<{ isFeatured: boolean }>`
   transform: translate(-5%, 35%) rotate(3deg);
   transition: all 0.3s ease;
   ////////////////////
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? css`
           ${layer2B_BG};
           @media ${deviceMin.tabletL} {

@@ -196,7 +196,7 @@ Spoken Languages: English; Persian; Dari.`,
 
       شرکت AJ Migration بر اساس Code of Conduct (منشور اخلاقی امور مهاجرتی) خود را متعهد به رعایت مصالح و منافع مشتری دانسته و تلاش خود را جهت ارائه بهترین خدمات و مشاوره به مشتریان خود بکار می‌گیرد.
       
-      با توجه به تغییرات مستمر در زمینه امور مهاجرتی به استرالیا، خانم جعفری با شرکت در کارگاه‌های آموزشی که بطور دائمی در زمینه امور مهاجرتی توسط سازمان های وابسته به اداره مهاجرت استرالیا برگزار می‌شود، اطلاعات خود را در زمینه امور مهاجرتی بروز نگه داشته تا بتواند بهترین و بروزترین راهنمایی لازم را به مشتریان خود ارائه نماید.`
+      با توجه به تغییرات مستمر در زمینه امور مهاجرتی به استرالیا، خانم جعفری با شرکت در کارگاه‌های آموزشی که بطور دائمی در زمینه امور مهاجرتی توسط سازمان های وابسته به اداره مهاجرت استرالیا برگزار می‌شود، اطلاعات خود را در زمینه امور مهاجرتی بروز نگه داشته تا بتواند بهترین و بروزترین راهنمایی لازم را به مشتریان خود ارائه نماید.`,
     },
     maraNumber: '1571733',
     locations: [Locations.en, Locations.fa],
@@ -224,7 +224,7 @@ Spoken Languages: English; Persian; Dari.`,
       phone: ['+982122705217', '061457461255'],
       telegram: '09012800983',
       whatsapp: '09012800983',
-      website: 'www.amirshahi.law',
+      website: 'https://www.amirshahi.law', // full address with http
     },
     status: Status.ACTIVE,
   },
@@ -262,7 +262,7 @@ Spoken Languages: English; Persian; Dari.`,
   },
   {
     id: 'agt13',
-    name: { en: 'Azadeh Ghorashi ', fa: 'آزاده قریشی' },
+    name: { en: 'Azadeh Ghorashi ', fa: 'آزاده قرشی' },
     slug: 'azadeh-ghorashi',
     desc: {
       en: `After obtaining Australian residency in 2012 and obtaining an official attorney's license from Australia Registered Migration Agent under MARN 1573151; Azzy Immigration office officially started its activity in 2013. This collection can do all the steps with the possibility of monitoring the process and solving ambiguities and questions for those people who have changed their way of living and staying in Australia.
@@ -299,7 +299,7 @@ Spoken Languages: English; Persian; Dari.`,
       عضویت در اتاق بازرگانی ایران استرالیا
        
       
-      دنیای بدون مرز را با Azzy Immigration تجربه نمایید.`
+      دنیای بدون مرز را با Azzy Immigration تجربه نمایید.`,
     },
     maraNumber: '1573151',
     locations: [Locations.en, Locations.fa],
@@ -341,7 +341,7 @@ Spoken Languages: English; Persian; Dari.`,
     locations: [Locations.en, Locations.fa],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
-      website: 'www.smartmigration.com',
+      website: 'https://www.smartmigration.com',
       email: 'info@smartmigration.com',
       phone: ['+982147627828', '+61291606260', '+61477181614'],
       whatsapp: '+989027022286',
@@ -517,7 +517,7 @@ Spoken Languages: English; Persian; Dari.`,
     maraNumber: '1791573',
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
-      website: 'www.visayab.com',
+      website: 'https://www.visayab.com',
       email: 'n.safaee@visayab.com',
       phone: ['61296591694'],
     },
@@ -535,7 +535,7 @@ Spoken Languages: English; Persian; Dari.`,
     maraNumber: '0748076',
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
-      website: 'www.visazone.com.au',
+      website: 'https://www.visazone.com.au',
       email: 'naghmeh.danai@gmail.com',
       phone: ['0414326277'],
     },

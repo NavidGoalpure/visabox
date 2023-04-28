@@ -81,7 +81,7 @@ Ashna Exchange has started its activity with the aim of providing the best servi
       telegram: '',
       email: 'info@baloch.com.au',
       instagram: 'baloch_exchange',
-      website: 'www.baloch.com.au',
+      website: 'https://www.baloch.com.au',
     },
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     status: Status.ACTIVE,

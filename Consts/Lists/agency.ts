@@ -198,7 +198,7 @@ export const AGENCYS: Agency[] = [
       phone: ['+982122705217', '061457461255'],
       telegram: '09012800983',
       whatsapp: '09012800983',
-      website: 'www.amirshahi.law',
+      website: 'https://www.amirshahi.law', // full address with http
     },
     status: Status.ACTIVE,
   },

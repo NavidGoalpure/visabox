@@ -10,10 +10,7 @@ import {
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 
-import {
-  layer2A_TextStyle,
-  layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';

@@ -19,10 +19,10 @@ function MobileAgenciesPage({ ChosenAgency }: Props) {
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
 
   useEffect(() => {
-    setImgSrc(`/Images/lists/agency/${ChosenAgency?.slug}.jpg`);
+    if (ChosenAgency?.logoUrl) setImgSrc(ChosenAgency?.logoUrl);
   }, [ChosenAgency]);
 
   return (

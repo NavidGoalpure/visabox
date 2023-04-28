@@ -30,10 +30,10 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
 
   useEffect(() => {
-    setImgSrc(`/Images/lists/agency/${ChosenAgency?.slug}.jpg`);
+    if (ChosenAgency?.logoUrl) setImgSrc(ChosenAgency?.logoUrl);
   }, [ChosenAgency]);
 
   return (
@@ -166,6 +166,7 @@ const ProfilePicture = styled(Image)`
   object-fit: cover;
   position: relative !important;
   border-radius: 15px;
+  background: white;
 `;
 const VIPBoxContainer = styled.div`
   width: 3rem;

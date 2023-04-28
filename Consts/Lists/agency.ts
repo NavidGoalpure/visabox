@@ -201,7 +201,7 @@ export const AGENCYS: Agency[] = [
       website: 'https://www.amirshahi.law', // full address with http
     },
     logoUrl:
-      'https://binsta.dev/api/v1/files/ow64fvOSPs/transform?format=webp&size=lg&quality=hi',
+      'https://binsta.dev/api/v1/files/S9BeXyKR5_/transform?format=webp&size=lg&quality=hi',
     status: Status.ACTIVE,
   },
   // {

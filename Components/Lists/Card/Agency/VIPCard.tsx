@@ -40,11 +40,11 @@ function VIPAgencyCard({
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
 
   useEffect(() => {
-    if (slug) setImgSrc(`/Images/lists/agency/${slug}.jpg`);
-  }, [slug]);
+    if (logoUrl) setImgSrc(logoUrl);
+  }, [logoUrl]);
 
   useEffect(() => getGsapTimeLine_VipCard(slug));
 
@@ -153,6 +153,7 @@ const AgencyLogo = styled(Image)`
   position: relative !important;
   object-fit: cover;
   transition: all 0.3s ease;
+  background: white;
   ${Wrapper}:hover & {
     transform: scale(1.05);
   }

@@ -25,7 +25,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   Contacts: {
     en: 'contacts',
-    fa: 'ارتباطات',
+    fa: 'راه های تماس',
   },
   MaraNumber: {
     en: 'MaraNumber',

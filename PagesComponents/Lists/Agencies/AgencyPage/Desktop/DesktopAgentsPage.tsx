@@ -5,7 +5,10 @@ import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import {
+  Layer1_TextStyle,
+  Layer1_TitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
 
 import {
   layer2A_TextStyle,
@@ -215,7 +218,7 @@ const AboutTitle = styled.h3`
   ${layer2A_TitleStyle}
 `;
 const Desc = styled.p`
-  ${layer2A_TextStyle}
+  ${Layer1_TextStyle}
 `;
 const RelatedTo = styled.h2`
   ${Layer1_TitleStyle};

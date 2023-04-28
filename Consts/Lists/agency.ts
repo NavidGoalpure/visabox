@@ -200,6 +200,8 @@ export const AGENCYS: Agency[] = [
       whatsapp: '09012800983',
       website: 'https://www.amirshahi.law', // full address with http
     },
+    logoUrl:
+      'https://binsta.dev/api/v1/files/ow64fvOSPs/transform?format=webp&size=lg&quality=hi',
     status: Status.ACTIVE,
   },
   // {

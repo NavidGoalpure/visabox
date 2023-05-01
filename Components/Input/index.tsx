@@ -71,11 +71,24 @@ export const Input = ({
           />
           {isLoading && (
             <svg width="50" height="50" viewBox="0 0 100 100">
-              <LoadingBackgroundCircle r="30" cx={50} cy={50} x={0} y={0} />
-              <LoadingMovingCircle r="30" cx={50} cy={50} x={0} y={0} />
+              <LoadingBackgroundCircle
+                strokeWidth={7}
+                r="30"
+                cx={50}
+                cy={50}
+                x={0}
+                y={0}
+              />
+              <LoadingMovingCircle
+                strokeWidth={7}
+                r="30"
+                cx={50}
+                cy={50}
+                x={0}
+                y={0}
+              />
             </svg>
           )}
-
         </InputWrapper>
         {!!errorMasage && (
           <ErrorElement>

@@ -3,7 +3,7 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext} from "react";
 import {
   ButtonWrapper,
   Container,

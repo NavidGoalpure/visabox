@@ -1,7 +1,8 @@
-import { ClientData } from 'Interfaces/Client';
-import { getClientDetail_Form } from 'Queries/client';
-import React, { useEffect, useState } from 'react';
-import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
+import { ClientData } from "Interfaces/Client";
+import { useSession } from "next-auth/react";
+import { getClientDetail_Form } from "Queries/client";
+import React, { useEffect, useState } from "react";
+import { proxySanityClientResponseToCamelCase } from "Utils/query/clients";
 
 type ContextProps = {
   children: React.ReactNode;
@@ -17,14 +18,18 @@ function FormDataContextProvider(props: ContextProps) {
   const [clientData, setClientData] = useState<ClientData>(
     props.prevData || ({} as ClientData)
   );
+  const { data: session } = useSession();
+
   const getClientData = async () => {
-    const data = await getClientDetail_Form("email=='farzamfara85@gmail.com'");
+    const data = await getClientDetail_Form("session?.user?.email || `defensive`");
     setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));
   };
-
   useEffect(() => {
-    getClientData();
-  }, []);
+    if(session){
+      console.log("navid session?.user?.email=== ", session?.user?.email);
+      getClientData();
+    }
+  }, [session]);
 
   //
   return (
@@ -32,6 +37,7 @@ function FormDataContextProvider(props: ContextProps) {
       value={{
         clientData,
         setClientData,
+        
       }}
     >
       {props.children}

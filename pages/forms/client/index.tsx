@@ -5,13 +5,13 @@ import { useLocale } from "Hooks/useLocale";
 import Seo from "Components/Seo";
 import { componentStatements } from "PagesComponents/Landings/Agents/const";
 import styled from "styled-components";
-import Content from "PagesComponents/Forms/User";
-import { LanguageKeys } from "PagesComponents/Forms/User/const";
-import { FormDataContextProvider } from "PagesComponents/Forms/User/Contexts/FormDataContext/Context";
+import Content from "PagesComponents/Forms/Client";
+import { LanguageKeys } from "PagesComponents/Forms/Client/const";
+import { FormDataContextProvider } from "PagesComponents/Forms/Client/Contexts/FormDataContext/Context";
 import { dehydrate, QueryClient } from "react-query";
 import { getClientDetail_Form } from "Queries/client";
 
-const AgentsIntroduction: NextPage = ({}) => {
+const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
@@ -28,7 +28,7 @@ const AgentsIntroduction: NextPage = ({}) => {
     </StyledPageLayout>
   );
 };
-export default AgentsIntroduction;
+export default UserForms;
 const StyledPageLayout = styled(PageLayout)`
   max-width: none;
   #PageContainer-content {

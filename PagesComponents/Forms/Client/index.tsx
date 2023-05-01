@@ -3,23 +3,28 @@ import MaraBgAnimation from "Components/MaraBgAnimation";
 import SmartSteps from "./Steps/SmartStep";
 import { WizardContextProvider } from "./Contexts/Wizard/Context";
 import { useSession } from "next-auth/react";
+import Router, { useRouter } from "next/router";
+import { useLocale } from "Hooks/useLocale";
+import { useEffect } from "react";
 function Content() {
-  const { data: session, status } = useSession();
-  if (status === "loading") {
-    return <div>its loading</div>;
-  }
-  if (session) {
-    return (
-      <Container>
-        <WizardContextProvider>
-          <StyledMaraBgAnimation animationSpeed={60}>
-            <SmartSteps />
-          </StyledMaraBgAnimation>
-        </WizardContextProvider>
-      </Container>
-    );
-  }
-  return <div>you are not signed in</div>;
+  const { status } = useSession();
+  const router = useRouter();
+  const { locale } = useLocale();
+  useEffect(() => {
+    if (status ==="unauthenticated") {
+      router.push(`/${locale}/auth/signin`);
+    }
+  }, []);
+
+  return (
+    <Container>
+      <WizardContextProvider>
+        <StyledMaraBgAnimation animationSpeed={60}>
+          <SmartSteps />
+        </StyledMaraBgAnimation>
+      </WizardContextProvider>
+    </Container>
+  );
 }
 export default Content;
 const Container = styled.div`

@@ -1,13 +1,12 @@
-import { ClientData } from "Interfaces/Client";
 import { QueryClient, useQueryClient } from "react-query";
 import { UserQueryKeys } from "Utils/query/keys";
 import { sanityClient } from "Utils/sanity";
 import { ClientData_Sanity } from "./interface";
 
 export const getClientDetail_Form = async (
-  queryConditions:string
+  email: string
 ): Promise<{ clientData: ClientData_Sanity[]; queryClient: QueryClient }> => {
-  const queryParams = `*[_type=='client'&& ${queryConditions}]{
+  const queryParams = `*[_type=='client' && email == 'farzamfara85@gmail.com' ]{
     _id,
     name,
     lastname,
@@ -22,15 +21,15 @@ export const getClientDetail_Form = async (
     ielts_score
   }`;
   const queryClient = new QueryClient();
-
+console.log("navid queryParams ===", queryParams);
   try {
     const data = await queryClient.fetchQuery(
+      // navid ask about what to put in detail
       UserQueryKeys.detail("farzamfara85@gmail.com"),
       () => sanityClient.fetch(queryParams)
     );
-    return {queryClient,
-   clientData: data};
+    return { queryClient, clientData: data };
   } catch (error) {
-    throw error
+    throw error;
   }
 };

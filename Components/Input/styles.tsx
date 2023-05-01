@@ -186,13 +186,11 @@ const StyledInput = styled.input`
 const LoadingBackgroundCircle = styled.circle`
   ${LoadingBackgroundTheme};
   fill: none;
-  stroke-width: 7px;
 `;
 const LoadingMovingCircle = styled.circle`
   ${LoadingMovingTheme}
   fill: none;
   stroke: var(--color-gray8);
-  stroke-width: 7px;
   z-index: 10;
   stroke-linecap: round;
   stroke-dasharray: 2rem 10rem;

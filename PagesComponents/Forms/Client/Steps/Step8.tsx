@@ -18,8 +18,10 @@ import { IELTSScores } from "./consts";
 import { IELTSScore } from "Interfaces/Client";
 import { useLocale } from "Hooks/useLocale";
 import { useRouter } from "next/router";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import SuccessToast from "Elements/Toast/Success";
+import { UserQueryKeys } from "Utils/query/keys";
+import { useSession } from "next-auth/react";
 const Step8 = () => {
   const { locale } = useLocale();
   const router = useRouter();
@@ -27,6 +29,8 @@ const Step8 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const { clientData, setClientData } = useContext(FormDataContext);
+  const queryClient = useQueryClient();
+  const { data: session } = useSession();
   const mutation = useMutation({
     mutationFn: () => {
       return fetch("/api/forms/client", {
@@ -35,8 +39,11 @@ const Step8 = () => {
       });
     },
     onSuccess: () => {
-      router.push(`/${locale}`);
+      router.push(`/${locale}/`);
       SuccessToast(successToastMessage);
+      queryClient.removeQueries(
+        UserQueryKeys.detail(session?.user?.email || "defensive")
+      );
     },
     onError: (error) => {
       console.log("navid error ===", error);

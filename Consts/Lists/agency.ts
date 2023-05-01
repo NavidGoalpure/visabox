@@ -60,7 +60,7 @@ export const AGENCYS: Agency[] = [
     name: { en: 'Ajmigration', fa: 'شرکت مهاجرتی اعظم جعفری' },
     slug: 'ajmigration',
     country: [Country.Global, Country.Iran],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `Based on AJ Migration (Migration Code of Ethics), the company considers itself committed to respecting the interests and interests of its customers and uses its efforts to provide the best services and advice to its customers. Due to the continuous changes in the field of immigration to Australia, Ms. Jafari has kept her knowledge up-to-date in the field of immigration by participating in educational workshops that are held permanently in the field of immigration by organizations affiliated with the Australian Immigration Department. and provide the most up-to-date necessary guidance to its customers.`,
       fa: `شرکت بر اساس AJ Migration  (منشور اخلاقی امور مهاجرتی) خود را متعهد به رعایت مصالح و منافع مشتری دانسته و تلاش خود را جهت ارائه بهترین خدمات و مشاوره به مشتریان خود بکار می‌گیرد. با توجه به تغییرات مستمر در زمینه امور مهاجرتی به استرالیا، خانم جعفری با شرکت در کارگاه‌های آموزشی که بطور دائمی در زمینه امور مهاجرتی توسط سازمان های وابسته به اداره مهاجرت استرالیا برگزار می‌شود، اطلاعات خود را در زمینه امور مهاجرتی بروز نگه داشته تا بتواند بهترین و بروزترین راهنمایی لازم را به مشتریان خود ارائه نماید`,
@@ -69,6 +69,7 @@ export const AGENCYS: Agency[] = [
       website: 'https://www.ajmigration.com/fa',
       phone: ['0061280346901'],
     },
+    agentsId: ['agt17'],
     status: Status.ACTIVE,
   },
   // {
@@ -87,28 +88,29 @@ export const AGENCYS: Agency[] = [
   //     },
   //     status: Status.ACTIVE,
   // },
-  // {
-  //     id: 'agc6',
-  //     name: { en: 'Visazone', fa: 'ویزازون' },
-  //     slug: 'visa-zone',
-  //     country: [Country.Global, Country.Iran],
-  //     featuredPlan: FeaturedPlan_Business.SIMPLE,
-  //     desc: {
-  //         en: `At Visazone, we provide you with a set of professional services, including evaluation of immigration options, assistance in preparing immigration programs, document review, preparation of submitted documents, residence request, all necessary communication and follow-up measures with the Immigration and Citizenship Department.`,
-  //         fa: `ما در ویزازون مجموعه ای از خدمات حرفه ای شامل ارزیابی گزینه های مهاجرت، کمک در تهیه برنامه های مهاجرت، بررسی اسناد و مدارک، آماده سازی مدارک ارسالی، درخواست محل اقامت، کلیه اقدامات ارتباطی و پیگیری لازم با اداره مهاجرت و شهروندی را به شما ارائه میدهیم`,
-  //     },
-  //     contact: {
-  //         website: 'https://www.visazone.com.au?lang=fa#top',
-  //         phone: ['0414326277'],
-  //     },
-  //     status: Status.ACTIVE,
-  // },
+  {
+    id: 'agc6',
+    name: { en: 'Visazone', fa: 'ویزازون' },
+    slug: 'visa-zone',
+    country: [Country.Global, Country.Iran],
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    desc: {
+      en: `At Visazone, we provide you with a set of professional services, including evaluation of immigration options, assistance in preparing immigration programs, document review, preparation of submitted documents, residence request, all necessary communication and follow-up measures with the Immigration and Citizenship Department.`,
+      fa: `ما در ویزازون مجموعه ای از خدمات حرفه ای شامل ارزیابی گزینه های مهاجرت، کمک در تهیه برنامه های مهاجرت، بررسی اسناد و مدارک، آماده سازی مدارک ارسالی، درخواست محل اقامت، کلیه اقدامات ارتباطی و پیگیری لازم با اداره مهاجرت و شهروندی را به شما ارائه میدهیم`,
+    },
+    contact: {
+      website: 'https://www.visazone.com.au?lang=fa#top',
+      phone: ['0414326277'],
+    },
+    agentsId: ['agt27'],
+    status: Status.ACTIVE,
+  },
   {
     id: 'agc7',
     name: { en: 'Azzy Immigration', fa: 'آزی ایمیگیریشن' },
     slug: 'azzy-immigration',
     country: [Country.Global, Country.Iran],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `For those interested who want to change their life path and stay in Australia, this collection can handle all the stages of residence with the facilities of monitoring the process and solving the applicant's doubts and questions.`,
       fa: `این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند تمامی مراحل اقامت را با امکانات نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضی انجام دهد.`,
@@ -117,6 +119,7 @@ export const AGENCYS: Agency[] = [
       website: 'http://azzyimmi.com.a',
       phone: ['09123252009'],
     },
+    agentsId: ['agt13'],
     status: Status.ACTIVE,
   },
   {
@@ -200,6 +203,7 @@ export const AGENCYS: Agency[] = [
       whatsapp: '09012800983',
       website: 'https://www.amirshahi.law', // full address with http
     },
+    agentsId: ['agt10'],
     logoUrl:
       'https://binsta.dev/api/v1/files/S9BeXyKR5_/transform?format=webp&size=lg&quality=hi',
     status: Status.ACTIVE,
@@ -241,7 +245,7 @@ export const AGENCYS: Agency[] = [
     name: { en: 'Uniquevisa', fa: 'یونیک ویزا' },
     slug: 'unique-visa',
     country: [Country.Global, Country.Iran],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `Unique Visa has started its activity in the field of immigration to Australia since 2008 and has had a close relationship with various departments of the Australian Immigration Department since the beginning. Unique Visa immigration organization has had hundreds of successful cases in the fields of expertise and skill visas, investment in Australia (through entrepreneurship), work, etc., since the beginning of its activity, and currently there are different cases in the field of obtaining Australian visas. It is on the agenda of this institution.`,
       fa: `یونیک ویزا از سال 2008 فعالیت خود را در زمینه مهاجرت به استرالیا آغاز نموده و از همان بدو امر ارتباط تنگاتنگی با بخش های مختلف اداره مهاجرت استرالیا داشته است. سازمان مهاجرتی یونیک ویزا از زمان شروع فعالیت تاکنون صدها پرونده موفق در زمینه های ویزای تخصص و مهارت، سرمایه گذاری در استرالیا (از طریق کارآفرینی) ، کار و ... داشته است و در حال حاضر نیز پرونده های متفاوتی در زمینه اخذ ویزاهای استرالیا در دستور کار این موسسه قرار دارد.`,
@@ -250,6 +254,7 @@ export const AGENCYS: Agency[] = [
       website: 'https://uniquevisa.net/',
       phone: ['02188545324'],
     },
+    agentsId: ['agt17'],
     status: Status.ACTIVE,
   },
   // {

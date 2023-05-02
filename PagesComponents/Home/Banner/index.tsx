@@ -2,6 +2,7 @@ import MaraBgAnimation from "Components/MaraBgAnimation";
 import { PrimaryButton } from "Elements/Button/Primary";
 import useDevice from "Hooks/useDevice";
 import { HTMLAttributes, useEffect, useState } from "react";
+import { MdNavigateNext } from "react-icons/md";
 import styled from "styled-components";
 import { Headline3Style } from "Styles/Typo";
 
@@ -16,7 +17,7 @@ const Banner: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
             کنید تا وکلای مهاجرت با شما به صورت <span>رایگان</span> با شما در
             ارتباط باشند.
           </Title>{" "}
-          <Button icon={}>پر کردن فرم</Button>
+          <Button icon={<NextIcon />}>پر کردن فرم</Button>
         </Wrapper>
       </MaraBgAnimation>
     </Container>
@@ -77,3 +78,9 @@ const Title = styled.h2`
   }
 `;
 const Button = styled(PrimaryButton)``;
+export const NextIcon = styled(MdNavigateNext)`
+  ${NextIconDirectionStyle};
+  width: auto;
+  height: 1.5rem;
+  margin-bottom: 0.2rem;
+`;

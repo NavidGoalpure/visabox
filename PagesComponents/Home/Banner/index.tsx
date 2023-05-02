@@ -3,7 +3,8 @@ import { PrimaryButton } from "Elements/Button/Primary";
 import useDevice from "Hooks/useDevice";
 import { HTMLAttributes, useEffect, useState } from "react";
 import { MdNavigateNext } from "react-icons/md";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
 import { Headline3Style } from "Styles/Typo";
 
 const Banner: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
@@ -24,6 +25,12 @@ const Banner: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
   );
 };
 export default Banner;
+const NextIconDirectionStyle = theme("languageDirection", {
+  ltr: css``,
+  rtl: css`
+    transform: rotate(180deg);
+  `,
+});
 const Container = styled.div`
   background: var(--color-primary1);
   text-align: center;

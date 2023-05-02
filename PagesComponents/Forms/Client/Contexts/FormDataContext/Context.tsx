@@ -21,12 +21,13 @@ function FormDataContextProvider(props: ContextProps) {
   const { data: session } = useSession();
 
   const getClientData = async () => {
-    const data = await getClientDetail_Form("session?.user?.email || `defensive`");
+    const data = await getClientDetail_Form(
+      session?.user?.email || `defensive`
+    );
     setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));
   };
   useEffect(() => {
-    if(session){
-      console.log("navid session?.user?.email=== ", session?.user?.email);
+    if (session) {
       getClientData();
     }
   }, [session]);
@@ -37,7 +38,6 @@ function FormDataContextProvider(props: ContextProps) {
       value={{
         clientData,
         setClientData,
-        
       }}
     >
       {props.children}

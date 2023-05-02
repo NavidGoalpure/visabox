@@ -7,14 +7,14 @@ import Router, { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
 import { useEffect } from "react";
 function Content() {
-  const { status } = useSession();
+  const { status, data: session } = useSession();
   const router = useRouter();
   const { locale } = useLocale();
   useEffect(() => {
-    if (status ==="unauthenticated") {
+    if (status === "unauthenticated") {
       router.push(`/${locale}/auth/signin`);
     }
-  }, []);
+  }, [status]);
 
   return (
     <Container>

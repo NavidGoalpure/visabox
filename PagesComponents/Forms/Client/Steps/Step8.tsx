@@ -46,7 +46,7 @@ const Step8 = () => {
       );
     },
     onError: (error) => {
-      console.log("navid error ===", error);
+      // navid make an error handling function here
     },
   });
 

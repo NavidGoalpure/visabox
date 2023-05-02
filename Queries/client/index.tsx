@@ -6,7 +6,8 @@ import { ClientData_Sanity } from "./interface";
 export const getClientDetail_Form = async (
   email: string
 ): Promise<{ clientData: ClientData_Sanity[]; queryClient: QueryClient }> => {
-  const queryParams = `*[_type=='client' && email == 'farzamfara85@gmail.com' ]{
+  const clientEmail = email;
+  const queryParams = `*[_type=='client' && email == "${clientEmail}" ]{
     _id,
     name,
     lastname,
@@ -21,11 +22,9 @@ export const getClientDetail_Form = async (
     ielts_score
   }`;
   const queryClient = new QueryClient();
-console.log("navid queryParams ===", queryParams);
   try {
     const data = await queryClient.fetchQuery(
-      // navid ask about what to put in detail
-      UserQueryKeys.detail("farzamfara85@gmail.com"),
+      UserQueryKeys.detail(clientEmail),
       () => sanityClient.fetch(queryParams)
     );
     return { queryClient, clientData: data };

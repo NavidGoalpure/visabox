@@ -16,7 +16,7 @@ const Banner: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
             کنید تا وکلای مهاجرت با شما به صورت <span>رایگان</span> با شما در
             ارتباط باشند.
           </Title>{" "}
-          <Button >پر کردن فرم</Button>
+          <Button icon={}>پر کردن فرم</Button>
         </Wrapper>
       </MaraBgAnimation>
     </Container>

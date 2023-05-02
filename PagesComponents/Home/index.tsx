@@ -8,6 +8,7 @@ import NattiesSection from "./NattiesSection";
 import styled from "styled-components";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
+import Banner from "./Banner";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -15,6 +16,7 @@ const HomeContent: React.FC = () => {
     <>
       <Hero />
       <Container id="section-container">
+        <Banner />
         <OccupationSection className="section" />
         <AgencysSection className="section" />
         <NattiesSection className="section" />

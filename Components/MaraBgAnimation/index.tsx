@@ -1,18 +1,18 @@
-import { HTMLAttributes, ReactNode } from 'react';
-import styled from 'styled-components';
-import Circle1 from './Circle1';
-import Circle2 from './Circle2';
-import Square1 from './Square1';
-import Square2 from './Square2';
-import Triangle1 from './Triangle1';
-import Triangle2 from './Triangle2';
-import Triangle3 from './Triangle3';
+import { HTMLAttributes, ReactNode } from "react";
+import styled from "styled-components";
+import Circle1 from "./Circle1";
+import Circle2 from "./Circle2";
+import Square1 from "./Square1";
+import Square2 from "./Square2";
+import Triangle1 from "./Triangle1";
+import Triangle2 from "./Triangle2";
+import Triangle3 from "./Triangle3";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   isBlurContainer?: boolean;
 }
-
+// put a backdrop-filter: blur(0px); on the children so they dont get behind the objects
 const MaraBgAnimation: React.FC<Props> = ({ children, className }) => (
   <Container className={className}>
     <Square1 />

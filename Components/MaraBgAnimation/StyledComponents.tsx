@@ -34,6 +34,7 @@ export const CircleCss = css`
 export const SquareCss = css`
   width: 5rem;
   height: 5rem;
+  z-index: 0;
   border: 6px solid var(--color-primary3);
   transform: rotate(45deg);
   position: absolute;

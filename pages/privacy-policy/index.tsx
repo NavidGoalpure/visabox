@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
 import styled from 'styled-components';
-import Content from 'PagesComponents/Terms-Conditions';
+import Content from 'PagesComponents/Privacy-Policy';
 
 const TermsAndConditions: NextPage = () => {
   return (

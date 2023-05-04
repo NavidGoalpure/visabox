@@ -1,13 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import {
-  layer2A_SubtitleStyle,
-  layer2A_TextStyle,
-  layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import theme from 'styled-theming';
-import { Headline5Style, Headline6Style } from 'Styles/Typo';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
+
 import { ImSphere } from 'react-icons/im';
 import { FaPhone, FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
@@ -45,9 +39,11 @@ const DesktopContactComponent = ({
         <PhoneContainer onClick={() => copyContent(phone?.[0] || '')}>
           <PhoneIcon />
           <PhoneTitle>
-            {phone?.map((phoneNumber) => (
-              <div>{phoneNumber}</div>
-            ))}
+            <PhonesRow>
+              {phone?.map((phoneNumber) => (
+                <p>{phoneNumber}</p>
+              ))}
+            </PhonesRow>
           </PhoneTitle>
         </PhoneContainer>
       )}
@@ -97,16 +93,13 @@ const Icon = css`
 const SocialsContainerCss = css`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
-  direction: ltr;
+  margin-bottom: 3rem;
+  cursor: pointer;
 `;
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-items: start;
-  row-gap: 1rem;
-  column-gap: 2rem;
+  width: 100%;
 `;
 const InternetContainer = styled.a`
   ${SocialsContainerCss}
@@ -118,10 +111,12 @@ const InternetTitle = styled.h3`
   ${layer2A_TextColor}
   ${layer2A_SubtitleStyle}
   word-break: break-all;
-  cursor: pointer;
+
+  direction: ltr;
 `;
 const PhoneContainer = styled.div`
   ${SocialsContainerCss}
+  cursor: auto;
 `;
 const PhoneIcon = styled(FaPhone)`
   ${Icon}
@@ -129,32 +124,46 @@ const PhoneIcon = styled(FaPhone)`
 const PhoneTitle = styled(InternetTitle)`
   display: flex;
   flex-direction: column;
+  direction: ltr;
+`;
+const PhonesRow = styled.div`
+  display:flex;
+  gap 1rem;
 `;
 const GmailContainer = styled.div`
   ${SocialsContainerCss}
+  cursor: auto;
 `;
 const GmailIcon = styled(SiGmail)`
   ${Icon}
 `;
-const GmailTitle = styled(InternetTitle)``;
+const GmailTitle = styled(InternetTitle)`
+  direction: ltr;
+`;
 const TelegramContainer = styled.a`
   ${SocialsContainerCss}
 `;
 const TelegramIcon = styled(FaTelegramPlane)`
   ${Icon}
 `;
-const TelegramTitle = styled(InternetTitle)``;
+const TelegramTitle = styled(InternetTitle)`
+  direction: ltr;
+`;
 const InstagramContainer = styled.a`
   ${SocialsContainerCss}
 `;
 const InstagramIcon = styled(AiOutlineInstagram)`
   ${Icon}
 `;
-const InstagramTitle = styled(InternetTitle)``;
+const InstagramTitle = styled(InternetTitle)`
+  direction: ltr;
+`;
 const LinkedinContainer = styled.a`
   ${SocialsContainerCss}
 `;
 const LinkedinIcon = styled(AiFillLinkedin)`
   ${Icon}
 `;
-const LinkedinTitle = styled(InternetTitle)``;
+const LinkedinTitle = styled(InternetTitle)`
+  direction: ltr;
+`;

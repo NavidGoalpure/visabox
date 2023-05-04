@@ -2,7 +2,6 @@ import { Logo } from 'Elements/Logo';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
-import { Headline5Style } from 'Styles/Typo';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';

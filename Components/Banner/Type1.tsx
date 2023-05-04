@@ -1,30 +1,38 @@
 import MaraBgAnimation from "Components/MaraBgAnimation";
+import { deviceMin } from "Consts/device";
 import { PrimaryButton } from "Elements/Button/Primary";
-import useDevice from "Hooks/useDevice";
-import { HTMLAttributes, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { HTMLAttributes, ReactNode } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
-import { Headline3Style } from "Styles/Typo";
-
-const Banner: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
+import { Headline3Style, Headline4Style } from "Styles/Typo";
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  navigateTo: string;
+  desc: ReactNode;
+  buttonText: string;
+}
+const Type1: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
+  const router = useRouter();
   return (
     <Container>
       {" "}
-      <MaraBgAnimation>
+      <MaraBgAnimation
+        animationSpeed={60}
+        DarkPrimaryColor={"var(--color-primary3)"}
+        LightPrimaryColor={"var(--color-primary3)"}
+      >
         <Wrapper>
-          <Title>
-            برای شروع سفر <span>مهاجرتی</span> خود آماده اید؟ اکنون فرم ما را پر
-            کنید تا وکلای مهاجرت با شما به صورت <span>رایگان</span> با شما در
-            ارتباط باشند.
-          </Title>{" "}
-          <Button icon={<NextIcon />}>پر کردن فرم</Button>
+          <Title>{desc}</Title>{" "}
+          <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
+            {buttonText}
+          </Button>
         </Wrapper>
       </MaraBgAnimation>
     </Container>
   );
 };
-export default Banner;
+export default Type1;
 const NextIconDirectionStyle = theme("languageDirection", {
   ltr: css``,
   rtl: css`
@@ -39,7 +47,7 @@ const Container = styled.div`
   left: 0;
   width: 100%;
   height: max-content;
-  z-index:0;
+  z-index: 0;
   overflow: hidden;
   :before {
     content: "";
@@ -70,21 +78,30 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  padding: 1.5rem;
+  padding: 7.5rem 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 3.5rem;
   backdrop-filter: blur(5px);
+  @media ${deviceMin.tabletS} {
+    padding: 1.5rem 2rem;
+  }
 `;
 const Title = styled.h2`
-  ${Headline3Style};
+  ${Headline4Style};
   color: var(--color-gray13);
+  @media ${deviceMin.tabletS} {
+    ${Headline3Style};
+    width: auto;
+  }
   span {
     color: var(--color-primary5);
   }
 `;
-const Button = styled(PrimaryButton)``;
+const Button = styled(PrimaryButton)`
+  width: fit-content;
+`;
 export const NextIcon = styled(MdNavigateNext)`
   ${NextIconDirectionStyle};
   width: auto;

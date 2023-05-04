@@ -4,36 +4,36 @@ import { TriangleIcon } from "./TriangleIcon";
 
 const primaryBorderColor = theme("mode", {
   light: css`
-    border: 6px solid var(--color-gray13);
+    border: 6px solid var(--light-primary-color);
   `,
   dark: css`
-    border: 6px solid var(--color-gray4);
+    border: 6px solid var(--dark-primary-color);
   `,
 });
 const borderColorContent = theme("mode", {
   light: css`
-    border: 6px solid var(--color-gray12);
+    border: 6px solid var(--light-secondary-color);
     opacity: 0.5;
   `,
   dark: css`
-    border: 6px solid var(--color-gray5);
+    border: 6px solid var(--dark-secondary-color);
   `,
 });
 const TriangleColorColor = theme("mode", {
   light: css`
-    stroke: var(--color-gray13);
+    stroke: var(--light-primary-color);
   `,
   dark: css`
-    stroke: var(--color-gray4);
+    stroke: var(--dark-primary-color);
   `,
 });
 const ShadowColor = theme("mode", {
   light: css`
-    stroke: var(--color-gray12);
+    stroke: var(--light-secondary-color);
     opacity: 0.5;
   `,
   dark: css`
-    stroke: var(--color-gray5);
+    stroke: var(--dark-secondary-color);
   `,
 });
 ////////////circle////////////////

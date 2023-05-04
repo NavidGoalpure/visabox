@@ -16,8 +16,8 @@ const HomeContent: React.FC = () => {
   const { data: session } = useSession();
   return (
     <>
+      
       <Hero />
-
       <Container id="section-container">
         {session && (
           <Banner

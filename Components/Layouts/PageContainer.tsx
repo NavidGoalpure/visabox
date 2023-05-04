@@ -1,3 +1,4 @@
+import Banner from "Components/Banner";
 import Footer from "Components/Footer";
 import ToasterContainer from "Components/ToasterContainer";
 import { deviceMin } from "Consts/device";
@@ -11,14 +12,22 @@ import Header from "../NavigationMenu";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
+  hasBanner?:boolean;
 }
 
-const PageContainer: React.FC<Props> = ({ children, ...props }) => {
+const PageContainer: React.FC<Props> = ({ children,hasBanner=false, ...props }) => {
   const { locale } = useLocale();
-
   return (
     <Container {...props} $locale={locale}>
       <ToasterContainer />
+      {hasBanner && 
+      <Banner
+        navigateTo="/forms/client"
+        desc={<>برای شروع سفر مهاجرتی خود آماده اید؟</>}
+        buttonText={"پر کردن فرم"}
+        type="TYPE2"
+      />
+      }
       <Header />
 
       {/* <Survay.Root
@@ -44,7 +53,7 @@ const PageContainer: React.FC<Props> = ({ children, ...props }) => {
           />
         </MultiChoice>
       </Survay.Root> */}
-      <Content id='PageContainer-content'>{children}</Content>
+      <Content id="PageContainer-content">{children}</Content>
       <Footer />
     </Container>
   );

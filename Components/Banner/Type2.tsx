@@ -2,6 +2,7 @@ import MaraBgAnimation from "Components/MaraBgAnimation";
 import { SecondaryButton } from "Elements/Button/Secondary";
 import { useRouter } from "next/router";
 import { HTMLAttributes, ReactNode } from "react";
+import { IoMdClose } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
@@ -22,6 +23,9 @@ const Type2: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
         LightPrimaryColor={"var(--color-primary3)"}
       >
         <Wrapper>
+          <CloseIcon
+            onClick={() => sessionStorage.setItem("hasClosed", "false")}
+          />
           <Title>{desc}</Title>{" "}
           <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
             {buttonText}
@@ -94,4 +98,13 @@ export const NextIcon = styled(MdNavigateNext)`
   width: auto;
   height: 1.5rem;
   margin-bottom: 0.2rem;
+`;
+const CloseIcon = styled(IoMdClose)`
+  color: white;
+  width: auto;
+  height: 40%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
 `;

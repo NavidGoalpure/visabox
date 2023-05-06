@@ -2,7 +2,7 @@ import MaraBgAnimation from "Components/MaraBgAnimation";
 import { SecondaryButton } from "Elements/Button/Secondary";
 import { useRouter } from "next/router";
 import { HTMLAttributes, ReactNode } from "react";
-import { IoMdClose } from "react-icons/io";
+import { IoCloseOutline } from "react-icons/io5";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
@@ -23,9 +23,13 @@ const Type2: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
         LightPrimaryColor={"var(--color-primary3)"}
       >
         <Wrapper>
-          <CloseIcon
-            onClick={() => sessionStorage.setItem("hasClosed", "false")}
-          />
+          <CloseIconWrapper>
+            <CloseIcon
+              onClick={() => {
+                router.push("/");
+              }}
+            />
+          </CloseIconWrapper>
           <Title>{desc}</Title>{" "}
           <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
             {buttonText}
@@ -99,12 +103,16 @@ export const NextIcon = styled(MdNavigateNext)`
   height: 1.5rem;
   margin-bottom: 0.2rem;
 `;
-const CloseIcon = styled(IoMdClose)`
-  color: white;
-  width: auto;
-  height: 40%;
+const CloseIconWrapper = styled.div`
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
   position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
+  top: 20%;
+  right: 5%;
+`;
+const CloseIcon = styled(IoCloseOutline)`
+  color: white;
+  width: 100%;
+  height: 100%;
 `;

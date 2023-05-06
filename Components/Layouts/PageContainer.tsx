@@ -12,22 +12,26 @@ import Header from "../NavigationMenu";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  hasBanner?:boolean;
+  hasBanner?: boolean;
 }
 
-const PageContainer: React.FC<Props> = ({ children,hasBanner=false, ...props }) => {
+const PageContainer: React.FC<Props> = ({
+  children,
+  hasBanner = false,
+  ...props
+}) => {
   const { locale } = useLocale();
   return (
     <Container {...props} $locale={locale}>
       <ToasterContainer />
-      {hasBanner && 
-      <Banner
-        navigateTo="/forms/client"
-        desc={<>برای شروع سفر مهاجرتی خود آماده اید؟</>}
-        buttonText={"پر کردن فرم"}
-        type="TYPE2"
-      />
-      }
+      {hasBanner  && (
+        <Banner
+          navigateTo="/forms/client"
+          desc={<>برای شروع سفر مهاجرتی خود آماده اید؟</>}
+          buttonText={"پر کردن فرم"}
+          type="TYPE2"
+        />
+      )}
       <Header />
 
       {/* <Survay.Root
@@ -63,7 +67,7 @@ export const Container = styled.main<{ $locale: Languages }>`
   ${layer1_BG}
   ${directionStyles}
   ${({ $locale }) =>
-    $locale === Languages.fa && 'font-family: var(--font-family__fa)'};
+    $locale === Languages.fa && "font-family: var(--font-family__fa)"};
   display: flex;
   justify-content: center;
   align-items: flex-start;

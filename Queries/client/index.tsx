@@ -19,7 +19,8 @@ export const getClientDetail_Form = async (
     current_job,
     work_experience,
     australian_work_experience,
-    ielts_score
+    ielts_score,
+    is_sharable
   }`;
   const queryClient = new QueryClient();
   try {

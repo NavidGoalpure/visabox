@@ -13,10 +13,11 @@ import Slider from "Components/SliderComponent";
 import Wizard from "../Contexts/Wizard";
 import { deviceMin } from "Consts/device";
 import Step0 from "./Step0";
+import Step9 from "./Step9";
 
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
-  const maxStep = 8;
+  const maxStep = 9;
   const steps = [
     <Step0 />,
     <Step1 />,
@@ -27,13 +28,13 @@ const SmartSteps: React.FC = () => {
     <Step6 />,
     <Step7 />,
     <Step8 />,
+    <Step9 />,
   ];
 
   return (
     <Container>
       {step !== 0 && <Slider currentStep={step} end={maxStep} />}
-        <StepsWrapper>{steps[step]}</StepsWrapper>
-
+      <StepsWrapper>{steps[step]}</StepsWrapper>
     </Container>
   );
 };

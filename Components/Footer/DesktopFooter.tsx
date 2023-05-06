@@ -12,6 +12,8 @@ import { useLocale } from 'Hooks/useLocale';
 import { copyContent } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages } from 'Interfaces';
+import { Headline7Style } from 'Styles/Typo';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -76,6 +78,7 @@ function DesktopFooter() {
               <GmailLogo />
             </a>
           </LogosContainer>
+          <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
         </SideContainer>
       </Wrapper>
     </Container>
@@ -240,6 +243,19 @@ const LogosContainer = styled.div`
   gap: 1.5rem;
   align-items: center;
 `;
+
+const Privacy = styled.a`
+${layer2A_TextStyle}
+color: var(--color-gray9);
+font-size: 12px;
+position: absolute;
+bottom: 8px;
+
+:hover {
+  text-decoration: underline;
+}
+`
+
 const TelegramLogo = styled(FaTelegramPlane)`
   color: var(--color-gray9);
   cursor: pointer;

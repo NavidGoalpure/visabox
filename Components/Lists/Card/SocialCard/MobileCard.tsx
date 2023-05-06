@@ -22,7 +22,7 @@ import { SocialMediaTypes, Socials } from 'Interfaces/Lists/socials';
 import { HTMLAttributes } from 'react';
 import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
-interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials { }
 
 function MobileSocialCard({
   desc,
@@ -66,10 +66,11 @@ function MobileSocialCard({
         return null;
     }
   };
+  console.log("navid =", featuredPlan);
   return (
     <Container href={link} target={'_blank'} featuredPlan={featuredPlan}>
       <Wrapper featuredPlan={featuredPlan} {...props}>
-        {featuredPlan && (
+        {featuredPlan === FeaturedPlan_Business.VIP && (
           <ImgWrapper>
             <Img
               fill
@@ -79,7 +80,7 @@ function MobileSocialCard({
             />
           </ImgWrapper>
         )}
-        {featuredPlan && (
+        {featuredPlan === FeaturedPlan_Business.VIP && (
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
           </VIPBoxContainer>
@@ -117,22 +118,22 @@ const TagBgTheme = theme('mode', {
   `,
 });
 
-const LogoBackground = theme('mode', {
-  light: css`
-    background: linear-gradient(
-      -2deg,
-      var(--color-gray9) 0 62%,
-      var(--color-gray11) 0% 100%
-    );
-  `,
-  dark: css`
-    background: linear-gradient(
-      -2deg,
-      var(--color-gray3) 0 62%,
-      var(--color-gray1) 0% 100%
-    );
-  `,
-});
+// const LogoBackground = theme('mode', {
+//   light: css`
+//     background: linear-gradient(
+//       -2deg,
+//       var(--color-gray9) 0 62%,
+//       var(--color-gray11) 0% 100%
+//     );
+//   `,
+//   dark: css`
+//     background: linear-gradient(
+//       -2deg,
+//       var(--color-gray3) 0 62%,
+//       var(--color-gray1) 0% 100%
+//     );
+//   `,
+// });
 const FeaturedLogoBackground = theme('mode', {
   light: css`
     background: linear-gradient(
@@ -181,7 +182,7 @@ const Container = styled.a<{ featuredPlan: FeaturedPlan_Business }>`
   transition: all 0.3s ease;
   width: 100%;
   @media ${deviceMin.laptopXS} {
-    ${({ featuredPlan }) => !featuredPlan && 'width: 30%;'}
+    ${({ featuredPlan }) => featuredPlan === FeaturedPlan_Business.SIMPLE && 'width: 30%;'}
   }
   :hover {
     transform: scale(1.05);
@@ -203,7 +204,7 @@ const Wrapper = styled.div<{ featuredPlan: FeaturedPlan_Business }>`
   transition: all 0.4s ease 0s;
   //////////////////////////
   ${({ featuredPlan }) =>
-    featuredPlan
+    featuredPlan === FeaturedPlan_Business.VIP
       ? css`
           ${layer2B_BG};
           min-height: 27rem;
@@ -265,7 +266,7 @@ const NameTag = styled.h4<{ featuredPlan: FeaturedPlan_Business }>`
   transition: all 0.3s ease;
 
   ${({ featuredPlan }) =>
-    featuredPlan
+    featuredPlan=== FeaturedPlan_Business.VIP
       ? `background-color: var(--color-gray7); color:var(--color-gray13);`
       : layer2A_HeaderBG}
 `;
@@ -277,7 +278,7 @@ const Img = styled(Image)`
 const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline6Style};
   text-align: start;
-  ${({ featuredPlan }) => (featuredPlan ? layer2B_TextColor : layer1_TextColor)}
+  ${({ featuredPlan }) => (featuredPlan === FeaturedPlan_Business.VIP ? layer2B_TextColor : layer1_TextColor)}
   white-space: pre-line;
   overflow: hidden;
   text-align: center;
@@ -301,7 +302,7 @@ const LocationTag = styled.h3<{ featuredPlan: FeaturedPlan_Business }>`
   transform: translate(10%, 50%) rotate(-3deg);
   transition: all 0.3s ease;
   ${({ featuredPlan }) =>
-    featuredPlan
+    featuredPlan === FeaturedPlan_Business.VIP
       ? css`
           ${layer1_BG};
           ${TagBgTheme};
@@ -337,7 +338,7 @@ const SocialMediaTag = styled.h4<{ featuredPlan: FeaturedPlan_Business }>`
   transition: all 0.3s ease;
   ////////////////////
   ${({ featuredPlan }) =>
-    featuredPlan
+    featuredPlan === FeaturedPlan_Business.VIP
       ? css`
           ${layer2B_BG};
           @media ${deviceMin.tabletL} {

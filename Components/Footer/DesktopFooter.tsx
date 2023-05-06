@@ -54,7 +54,7 @@ function DesktopFooter() {
             {t(LanguageKeys.AgenciesBox)}
           </Items>
           <Items
-            href={`/${locale}/lists/secial-pages`}
+            href={`/${locale}/lists/social-pages`}
             data-name={t(LanguageKeys.SocialNetWorksBox)}
           >
             {t(LanguageKeys.SocialNetWorksBox)}

@@ -37,7 +37,7 @@ export const AGENCYS: Agency[] = [
       website: 'https://visayab.com',
       phone: ['02191017028'],
     },
-    status: Status.ACTIVE,
+    status: Status.DEACTIVE,
   },
   {
     id: 'agc3',

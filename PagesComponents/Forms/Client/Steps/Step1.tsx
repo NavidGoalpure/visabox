@@ -1,9 +1,9 @@
-import { Input } from "Components/Input";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext} from "react";
+import { Input } from 'Components/Input';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { FormDataContext } from '../Contexts/FormDataContext/Context';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   Container,
@@ -11,35 +11,36 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-} from "./StyledComponents";
+} from './StyledComponents';
 
 const Step1 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
+  console.log('navid step0=', clientData);
   return (
     <Container>
       {/* //////////name-input//////////// */}
       <Input
         required
         label={t(LanguageKeys.NameInputLabel)}
-        inputName="name"
+        inputName='name'
         placeholder={t(LanguageKeys.NameInputPlaceholder)}
         value={clientData?.name}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+
           clientData &&
-          setClientData({
-            ...clientData,
-            name: e.target.value,
-          })
-          
-        }
-/>
+            setClientData({
+              ...clientData,
+              name: e.target.value,
+            });
+        }}
+      />
       {/* //////////last-name-input//////////// */}
       <Input
         required
         label={t(LanguageKeys.LastNameInputLabel)}
-        inputName="lname"
+        inputName='lname'
         value={clientData?.lastName}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           clientData &&
@@ -52,19 +53,19 @@ const Step1 = () => {
       />
       {/* //////////phone-number-input//////////// */}
       <Input
-        inputMode={"numeric"}
+        inputMode={'numeric'}
         label={t(LanguageKeys.PhoneInputLabel)}
         value={clientData?.phoneNumber}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           clientData &&
           setClientData({
             ...clientData,
-            phoneNumber: e.target.value.replace(/[^\d]/g, ""),
+            phoneNumber: e.target.value.replace(/[^\d]/g, ''),
           })
         }
-        inputName="phoneNumber"
+        inputName='phoneNumber'
         isNumberOnly={true}
-        id={"phone-input"}
+        id={'phone-input'}
         placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
       />
       <ButtonWrapper>
@@ -79,9 +80,9 @@ const Step1 = () => {
             handleNextPress();
           }}
           disabled={
-            (!clientData?.name ||
-              !clientData?.lastName ||
-              !clientData?.phoneNumber)
+            !clientData?.name ||
+            !clientData?.lastName ||
+            !clientData?.phoneNumber
           }
           icon={<NextIcon />}
         >

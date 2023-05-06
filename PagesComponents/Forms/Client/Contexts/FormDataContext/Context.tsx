@@ -1,8 +1,8 @@
-import { ClientData } from "Interfaces/Client";
-import { useSession } from "next-auth/react";
-import { getClientDetail_Form } from "Queries/client";
-import React, { useEffect, useState } from "react";
-import { proxySanityClientResponseToCamelCase } from "Utils/query/clients";
+import { ClientData } from 'Interfaces/Client';
+import { useSession } from 'next-auth/react';
+import { getClientDetail_Form } from 'Queries/client';
+import React, { useEffect, useState } from 'react';
+import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
 
 type ContextProps = {
   children: React.ReactNode;
@@ -24,7 +24,9 @@ function FormDataContextProvider(props: ContextProps) {
     const data = await getClientDetail_Form(
       session?.user?.email || `defensive`
     );
-    setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));
+
+    if (data.clientData[0])
+      setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));
   };
   useEffect(() => {
     if (session) {

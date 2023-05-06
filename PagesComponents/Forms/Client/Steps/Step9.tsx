@@ -1,26 +1,26 @@
-import { Input } from "Components/Input";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext } from "react";
-import Image from "next/image";
-import { NextButton, PrevButton, PrevIcon } from "./StyledComponents";
-import styled, { css } from "styled-components";
-import useTheme from "Hooks/useTheme";
-import DarkKangorooLogo from "./Images/DarkKangorooLogo.svg";
-import LightKangorooLogo from "./Images/LightKangorooLogo.svg";
-import { Headline3Style } from "Styles/Typo";
-import { ThemeModes } from "Interfaces";
-import theme from "styled-theming";
-import { layer2A_SubtitleStyle } from "Styles/Theme/Layers/layer2/style";
-import { useMutation, useQueryClient } from "react-query";
-import SuccessToast from "Elements/Toast/Success";
-import { useSession } from "next-auth/react";
-import { UserQueryKeys } from "Utils/query/keys";
-import { useRouter } from "next/router";
-import { useLocale } from "Hooks/useLocale";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { BsCheck2 } from "react-icons/bs";
+import { Input } from 'Components/Input';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import { useContext, useEffect } from 'react';
+import Image from 'next/image';
+import { NextButton, PrevButton, PrevIcon } from './StyledComponents';
+import styled, { css } from 'styled-components';
+import useTheme from 'Hooks/useTheme';
+import DarkKangorooLogo from './Images/DarkKangorooLogo.svg';
+import LightKangorooLogo from './Images/LightKangorooLogo.svg';
+import { Headline3Style } from 'Styles/Typo';
+import { ThemeModes } from 'Interfaces';
+import theme from 'styled-theming';
+import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
+import { useMutation, useQueryClient } from 'react-query';
+import SuccessToast from 'Elements/Toast/Success';
+import { useSession } from 'next-auth/react';
+import { UserQueryKeys } from 'Utils/query/keys';
+import { useRouter } from 'next/router';
+import { useLocale } from 'Hooks/useLocale';
+import { FormDataContext } from '../Contexts/FormDataContext/Context';
+import { BsCheck2 } from 'react-icons/bs';
 
 const Step9 = () => {
   const { theme } = useTheme();
@@ -32,35 +32,37 @@ const Step9 = () => {
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const queryClient = useQueryClient();
   const { data: session } = useSession();
+
   const mutation = useMutation({
-    mutationFn: () => {
-      return fetch("/api/forms/client", {
-        method: "POST",
-        body: JSON.stringify({ clientData }),
+    mutationFn: ({ isSharable }: { isSharable: boolean }) => {
+      return fetch('/api/forms/client', {
+        method: 'POST',
+        body: JSON.stringify({ clientData: { ...clientData, isSharable } }),
       });
       // .then((res) => {
-
+      //   console.log('navid hura');
+      //   return res;
       // })
       // .catch((err) => {
-      //   console.log("navid error");
-      //      throw new Error(err);
+      //   console.log('navid error');
+      //   throw new Error(err);
       // });
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        console.log("navid res ===", res);
-        console.log("navid res stringify ===", JSON.stringify(res.body));
-        throw new Error("couldnt patch the user");
+        console.log('navid res ===', res);
+        console.log('navid res stringify ===', JSON.stringify(res.body));
+        throw new Error('couldnt patch the user');
       }
       router.push(`/${locale}/`);
       SuccessToast(successToastMessage);
       queryClient.removeQueries(
-        UserQueryKeys.detail(session?.user?.email || "defensive")
+        UserQueryKeys.detail(session?.user?.email || 'defensive')
       );
     },
     onError: (errors) => {
       // navid make an error handling function here
-      console.log("navid errorr ===", errors);
+      console.log('navid errorr ===', errors);
     },
   });
   return (
@@ -70,7 +72,7 @@ const Step9 = () => {
           width={90}
           height={90}
           src={theme === ThemeModes.DARK ? DarkKangorooLogo : LightKangorooLogo}
-          alt={"site-logo"}
+          alt={'site-logo'}
         />
       </LogoContainer>
       <Title>فرم ارزیابی ماراباکس</Title>
@@ -83,12 +85,7 @@ const Step9 = () => {
         <NoButton
           step={step}
           onClick={() => {
-            clientData &&
-              setClientData({
-                ...clientData,
-                isSharable: false,
-              });
-            !!clientData?.isSharable && mutation.mutate();
+            clientData && mutation.mutate({ isSharable: false });
           }}
         >
           <PrevIcon />
@@ -97,12 +94,8 @@ const Step9 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            clientData &&
-              setClientData({
-                ...clientData,
-                isSharable: true,
-              });
-            !!clientData?.isSharable && mutation.mutate();
+            console.log('navid data=', clientData);
+            clientData && mutation.mutate({ isSharable: true });
           }}
           icon={<CheckIcon />}
           isLoading={mutation.isLoading}
@@ -114,7 +107,7 @@ const Step9 = () => {
   );
 };
 export default Step9;
-const BackgroundTheme = theme("mode", {
+const BackgroundTheme = theme('mode', {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);

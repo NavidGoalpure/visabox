@@ -12,7 +12,7 @@ import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { Headline7Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
 import { MultiLanguageText } from 'Interfaces';
-import { HTMLAttributes, useEffect } from 'react';
+import { HTMLAttributes, useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { deviceMin } from 'Consts/device';
@@ -20,6 +20,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 import Link from 'next/link';
 import { getGsapTimeLine_VipCard } from '../const';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
@@ -38,7 +39,15 @@ function VIPAgencyCard({
 }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
+
+  useEffect(() => {
+    if (logoUrl) setImgSrc(logoUrl);
+  }, [logoUrl]);
+
   useEffect(() => getGsapTimeLine_VipCard(slug));
+
   return (
     <Container
       {...props}
@@ -50,8 +59,11 @@ function VIPAgencyCard({
         <ImageWrapper>
           <AgencyLogo
             fill
-            src={logoUrl || `/Images/placeholder.jpeg`}
-            alt={` image of ${slug}`}
+            src={imgSrc}
+            alt={name ? `${name?.[locale]} image` : 'agent image'}
+            onError={() => {
+              setImgSrc(`/Images/placeholder.jpeg`);
+            }}
             quality={100}
             sizes='96px'
           />
@@ -141,6 +153,7 @@ const AgencyLogo = styled(Image)`
   position: relative !important;
   object-fit: cover;
   transition: all 0.3s ease;
+  background: white;
   ${Wrapper}:hover & {
     transform: scale(1.05);
   }

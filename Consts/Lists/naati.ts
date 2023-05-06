@@ -22,7 +22,7 @@ export const NAATIES: Naati[] = [
     contact: {
       phone: ['+989113410070'],
       email: 'armiun@hotmail.com',
-      website: 'www.armiun.com',
+      website: 'https://www.armiun.com',
     },
 
     status: Status.ACTIVE,
@@ -65,7 +65,7 @@ export const NAATIES: Naati[] = [
     contact: {
       email: 'translation.office14@gmail.com',
       phone: ['+982188311593', '+98 9121077760'],
-      website: 'www.lawiran.org',
+      website: 'https://www.lawiran.org',
     },
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
@@ -109,7 +109,7 @@ export const NAATIES: Naati[] = [
     contact: {
       email: 'translation@amirshahi.law',
       phone: ['+982122704817', '+989013788625'],
-      website: 'www.amirshahi.law',
+      website: 'https://www.amirshahi.law',
     },
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
@@ -179,7 +179,7 @@ export const NAATIES: Naati[] = [
     contact: {
       email: 'soroosh12@gmail.com',
       phone: ['+985137672809'],
-      website: 'www.soroosh483.ir',
+      website: 'https://www.soroosh483.ir',
     },
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
@@ -207,7 +207,7 @@ export const NAATIES: Naati[] = [
     contact: {
       phone: ['+9821665645', '+989125139310'],
       email: 'shakiba11@yahoo.com',
-      website: 'www.Tarjom.com',
+      website: 'https://www.Tarjom.com',
     },
     language: [
       {
@@ -254,7 +254,7 @@ export const NAATIES: Naati[] = [
         '+989122790683',
       ],
       email: 'atefeh.pashazadeh@gmail.com',
-      website: 'www.tehrannaati.com',
+      website: 'https://www.tehrannaati.com',
     },
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
@@ -299,7 +299,7 @@ export const NAATIES: Naati[] = [
     contact: {
       phone: ['+982188240445'],
       email: 'translation@aryagroup.com.au',
-      website: 'www.aryagroup.co.ir',
+      website: 'https://www.aryagroup.co.ir',
     },
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
@@ -344,7 +344,7 @@ export const NAATIES: Naati[] = [
     contact: {
       phone: ['+982122743307'],
       email: 'alirezaabiz@gmail.com',
-      website: 'www.abiztranslation.ir',
+      website: 'https://www.abiztranslation.ir',
     },
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.SIMPLE,

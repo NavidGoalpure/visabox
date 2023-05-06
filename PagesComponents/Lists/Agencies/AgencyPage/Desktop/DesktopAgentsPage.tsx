@@ -5,12 +5,12 @@ import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-
 import {
-  layer2A_TextStyle,
-  layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
+  Layer1_TextStyle,
+  Layer1_TitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
+
+import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -19,7 +19,8 @@ import { Agency } from 'Interfaces/Lists/agency';
 import { getAgencyAgents, getAgencySocials } from '../utils';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import SmartSocial from 'Components/Lists/Card/SocialCard';
-import { directionStyles } from 'Styles/Theme';
+import { useEffect, useState } from 'react';
+import { useLocale } from 'Hooks/useLocale';
 interface Props {
   ChosenAgency?: Agency;
 }
@@ -28,14 +29,28 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
+
+  useEffect(() => {
+    if (ChosenAgency?.logoUrl) setImgSrc(ChosenAgency?.logoUrl);
+  }, [ChosenAgency]);
+
   return (
     <Container>
       <Header>
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={`/Images/lists/agency/${ChosenAgency?.slug}.jpg`}
-            alt={'agent image'}
+            src={imgSrc}
+            alt={
+              ChosenAgency?.name
+                ? `${ChosenAgency?.name?.[locale]} image`
+                : 'agent image'
+            }
+            onError={() => {
+              setImgSrc(`/Images/placeholder.jpeg`);
+            }}
           />
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
@@ -151,6 +166,7 @@ const ProfilePicture = styled(Image)`
   object-fit: cover;
   position: relative !important;
   border-radius: 15px;
+  background: white;
 `;
 const VIPBoxContainer = styled.div`
   width: 3rem;
@@ -200,7 +216,7 @@ const AboutTitle = styled.h3`
   ${layer2A_TitleStyle}
 `;
 const Desc = styled.p`
-  ${layer2A_TextStyle}
+  ${Layer1_TextStyle}
 `;
 const RelatedTo = styled.h2`
   ${Layer1_TitleStyle};

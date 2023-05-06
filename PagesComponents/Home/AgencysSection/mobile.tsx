@@ -4,6 +4,7 @@ import { AGENCYS } from 'Consts/Lists/agency';
 
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 import { HTMLAttributes } from 'react';
 import { componentStatements, LanguageKeys } from './const';
@@ -20,7 +21,9 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.featuredPlan);
+  const vipAgency = AGENCYS.find(
+    (agency) => agency.featuredPlan === FeaturedPlan_Business.VIP
+  );
 
   return (
     <Container {...props}>

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import PageLayout from "Components/Layouts/PageContainer";
 import styled from "styled-components";
-import Content from "PagesComponents/User/Verification";
+import Content from "PagesComponents/Client/Verification";
 
 const UserVerification: NextPage = () => {
   return (

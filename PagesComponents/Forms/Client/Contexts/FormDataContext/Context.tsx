@@ -1,6 +1,6 @@
 import { ClientData } from 'Interfaces/Client';
 import { useSession } from 'next-auth/react';
-import { getClientDetail_Form } from 'Queries/client';
+import { getClientDetail } from 'Queries/client';
 import React, { useEffect, useState } from 'react';
 import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
 
@@ -21,9 +21,23 @@ function FormDataContextProvider(props: ContextProps) {
   const { data: session } = useSession();
 
   const getClientData = async () => {
-    const data = await getClientDetail_Form(
-      session?.user?.email || `defensive`
-    );
+    const data = await getClientDetail({
+      email: session?.user?.email || `defensive`,
+      resParams: `
+      _id,
+      name,
+      lastname,
+      age,
+      phone,
+      marital,
+      field_of_study,
+      degree,
+      current_job,
+      work_experience,
+      australian_work_experience,
+      ielts_score,
+      is_sharable`,
+    });
 
     if (data.clientData[0])
       setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));

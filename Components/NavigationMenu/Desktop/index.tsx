@@ -4,7 +4,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { boxShadow, directionStyles } from 'Styles/Theme';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import SwitchTheme from '../switchTheme';
+import theme from 'styled-theming';
 import { useLocale } from 'Hooks/useLocale';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
@@ -20,20 +20,22 @@ function Desktop() {
   return (
     <Container>
       <Wrapper>
-        <NavigationMenu.Item>
-          <Link href={`/${locale}`}>
-            <Logo />
-          </Link>
-        </NavigationMenu.Item>
         <MenuItems>
           <NavigationMenu.Item>
-            <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
+            <Link href={`/${locale}`}>
+              <Logo />
+            </Link>
           </NavigationMenu.Item>
+          <DesktopLanguageChanger />
+
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
-          <DesktopLanguageChanger />
-          <SwitchTheme />
         </MenuItems>
+        <NavigationMenu.Item>
+          <MenuLink href={`/${locale}/auth/signin`}>
+            {t(LanguageKeys.Login)}
+          </MenuLink>
+        </NavigationMenu.Item>
       </Wrapper>
     </Container>
   );
@@ -49,21 +51,35 @@ const Container = styled(NavigationMenu.Root)`
   width: 100%;
   padding: 0 1rem;
 `;
+const dirFlexStyle = theme('languageDirection', {
+  ltr: css`
+    flex-direction: row;
+  `,
+  rtl: css`
+    flex-direction: row-reverse;
+  `,
+});
 const Wrapper = styled(NavigationMenu.List)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  ${dirFlexStyle}
   width: 100%;
   height: 5.5rem;
   max-width: var(--max-width-page);
   margin: 0 auto;
+  direction: ltr;
 `;
 const MenuItems = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  ${dirFlexStyle}
   width: auto;
   gap: 2rem;
+  //navid
+  direction: ltr;
+  // flex-direction: row-reverse;
 `;
 const MenuLink = styled(Link)`
   ${layer3_TextStyle};

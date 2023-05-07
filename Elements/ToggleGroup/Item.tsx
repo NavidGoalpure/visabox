@@ -36,8 +36,9 @@ const ContainerTheme = theme('mode', {
     color: var(--color-gray11);
   `,
   dark: css`
-    border: 2px solid var(--color-gray8);
-    color: var(--color-gray8);
+    color: var(--color-gray10);
+    background: var(--color-gray4);
+    border: 3px solid var(--color-gray10);
   `,
 });
 const scaleUp = keyframes`
@@ -67,7 +68,7 @@ const Container = styled(ToggleGroup.Item)`
   span {
     opacity: 0;
   }
-  &[data-state="on"] {
+  &[data-state='on'] {
     color: var(--color-primary4);
     border-color: var(--color-primary3);
     background: rgba(194, 255, 250, 0.1);

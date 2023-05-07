@@ -2,7 +2,7 @@ import { MultiLanguageText } from 'Interfaces';
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',
-  SuccessToastText = "SuccessToastText",
+  SuccessToastText = 'SuccessToastText',
   NameInputLabel = 'NameInputLabel',
   NameInputPlaceholder = 'NameInputPlaceholder',
   LastNameInputLabel = 'LastNameInputLabel',
@@ -25,92 +25,91 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: "Request a Call from Immigration Agencies | Mara Box",
-    fa: "درخواست تماس از وکلای مهاجرت | مارا باکس",
+    en: 'Request a Call from Immigration Agencies | Mara Box',
+    fa: 'درخواست تماس از وکلای مهاجرت | مارا باکس',
   },
   SeoDesc: {
-    fa: "اطلاعات خود را ارسال کنید و منتظر تماس وکلای مهاجرت باشید",
-    en: "Submit your information and wait for a call from immigration agencies",
+    fa: 'اطلاعات خود را ارسال کنید و منتظر تماس وکلای مهاجرت باشید',
+    en: 'Submit your information and wait for a call from immigration agencies',
   },
   SuccessToastText: {
-     
-    en: "Congrats! You Are Done",
-    fa: "تبریک! فرم کامل شد",
+    en: 'Congrats! You Are Done',
+    fa: 'تبریک! فرم کامل شد',
   },
   NameInputLabel: {
-    en: "Name:",
-    fa: "نام:",
+    en: 'Name:',
+    fa: 'نام:',
   },
   NameInputPlaceholder: {
-    en: "Simon",
-    fa: "علی",
+    en: 'Simon',
+    fa: 'علی',
   },
   LastNameInputLabel: {
-    en: "Last Name:",
-    fa: "نام خانوادگی:",
+    en: 'Last Name:',
+    fa: 'نام خانوادگی:',
   },
   LastNameInputPlaceholder: {
-    en: "Smith",
-    fa: "محمدی",
+    en: 'Smith',
+    fa: 'محمدی',
   },
   PhoneInputLabel: {
-    en: "Phone Number:",
-    fa: "شماره تلفن:",
+    en: 'Phone Number:',
+    fa: 'شماره تلفن:',
   },
   PhoneInputPlaceholder: {
-    en: "+98 0000 000 0000",
-    fa: "0000 000 0900",
+    en: '+98 0000 000 0000',
+    fa: '0000 000 0900',
   },
   AgeSectionTitle: {
-    en: "Age:",
-    fa: "سن:",
+    en: 'Age:',
+    fa: 'سن:',
   },
   maritalStatusSectionTitle: {
-    en: "marital Status:",
-    fa: "وضعیت تاهل:",
+    en: 'marital Status:',
+    fa: 'وضعیت تاهل:',
   },
   FieldOfStudyInputLabel: {
-    en: "Field of Study:",
-    fa: "حوزه تحصیلات:",
+    en: 'Field of Study:',
+    fa: 'حوزه تحصیلات:',
   },
   FieldOfStudyInputPlaceholder: {
-    en: "Math",
-    fa: "ریاضیات",
+    en: 'Math',
+    fa: 'ریاضیات',
   },
   DegreeOfEducationSectionTitle: {
-    en: "Degree of education :",
-    fa: "درجه تحصیلات:",
+    en: 'Degree of education :',
+    fa: 'درجه تحصیلات:',
   },
   CurrentJobInputLabel: {
-    en: "Current Job:",
-    fa: "کار فعلی:",
+    en: 'Current Job:',
+    fa: 'کار فعلی:',
   },
   CurrentJobInputPlaceholder: {
-    en: "Engineer",
-    fa: "مهندس",
+    en: 'Web Developer',
+    fa: 'برنامه نویس اپلیکیشن موبایل',
   },
   WorkExperienceSectionTitle: {
-    en: "Work Experience :",
-    fa: "تجربه کار:",
+    en: 'Work Experience :',
+    fa: 'تجربه کار:',
   },
   AustralianWorkExperienceSectionTitle: {
-    en: "Australian work experience :",
-    fa: "تجربه کار استرالیایی:",
+    en: 'Australian work experience :',
+    fa: 'تجربه کار استرالیایی:',
   },
   IELTSScoreSectionTitle: {
-    en: "IELTS Score:",
-    fa: "نمره ایلتس:",
+    en: 'IELTS Score:',
+    fa: 'نمره ایلتس:',
   },
   NextButtonTitle: {
-    en: "Next",
-    fa: "بعدی",
+    en: 'Next',
+    fa: 'بعدی',
   },
   PrevButtonTitle: {
-    en: "Prev",
-    fa: "قبلی",
+    en: 'Prev',
+    fa: 'قبلی',
   },
   ConfirmButtonTitle: {
-    en: "Send",
-    fa: "ارسال",
+    en: 'Send',
+    fa: 'ارسال',
   },
 };

@@ -12,10 +12,12 @@ import Header from "../NavigationMenu";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   hasFooter?: boolean;
+  hasMenu?: boolean;
 }
 
 const PageContainer: React.FC<Props> = ({
   hasFooter = true,
+  hasMenu = true,
   children,
   ...props
 }) => {
@@ -24,8 +26,7 @@ const PageContainer: React.FC<Props> = ({
   return (
     <Container {...props} $locale={locale}>
       <ToasterContainer />
-      <Header />
-
+      {hasMenu && <Header />}
       {/* <Survay.Root
         title={{
           en: 'How do you prefer to do the legal procedures of immigration?',

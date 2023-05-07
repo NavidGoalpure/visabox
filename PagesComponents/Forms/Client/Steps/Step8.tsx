@@ -4,7 +4,7 @@ import * as ToggleGroup from "../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
 import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   Container,
@@ -16,39 +16,11 @@ import {
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { IELTSScores } from "./consts";
 import { IELTSScore } from "Interfaces/Client";
-import { useLocale } from "Hooks/useLocale";
-import { useRouter } from "next/router";
-import { useMutation, useQueryClient } from "react-query";
-import SuccessToast from "Elements/Toast/Success";
-import { UserQueryKeys } from "Utils/query/keys";
-import { useSession } from "next-auth/react";
+
 const Step8 = () => {
-  const { locale } = useLocale();
-  const router = useRouter();
-  const { step, handleBackPress } = useContext(WizardContext);
+  const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const successToastMessage = t(LanguageKeys.SuccessToastText);
   const { clientData, setClientData } = useContext(FormDataContext);
-  const queryClient = useQueryClient();
-  const { data: session } = useSession();
-  const mutation = useMutation({
-    mutationFn: () => {
-      return fetch("/api/forms/client", {
-        method: "POST",
-        body: JSON.stringify({ clientData }),
-      });
-    },
-    onSuccess: () => {
-      router.push(`/${locale}/`);
-      SuccessToast(successToastMessage);
-      queryClient.removeQueries(
-        UserQueryKeys.detail(session?.user?.email || "defensive")
-      );
-    },
-    onError: (error) => {
-      // navid make an error handling function here
-    },
-  });
 
   return (
     <Container>
@@ -84,13 +56,12 @@ const Step8 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            mutation.mutate();
+            handleNextPress();
           }}
           disabled={!clientData?.IELTSScore}
           icon={<NextIcon />}
-          isLoading={mutation.isLoading}
         >
-          {t(LanguageKeys.ConfirmButtonTitle)}
+          {t(LanguageKeys.NextButtonTitle)}
         </NextButton>
       </ButtonWrapper>
     </Container>

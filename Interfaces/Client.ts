@@ -43,4 +43,5 @@ export type ClientData = {
   workExperience: WorkExperience;
   australianWorkExperience: AustralianWorkExperience;
   IELTSScore: IELTSScore;
+  isSharable: boolean;
 };

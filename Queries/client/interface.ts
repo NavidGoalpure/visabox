@@ -18,6 +18,7 @@ export type ClientData_Sanity = {
   work_experience: WorkExperience;
   australian_work_experience: AustralianWorkExperience;
   ielts_score: IELTSScore;
+  is_sharable: boolean;
   _createdAt?: Date;
   _id?: string;
   _rev?: string;

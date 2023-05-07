@@ -149,6 +149,11 @@ export default {
         direction: "horizontal",
       },
     },
+    {
+      name: "is_sharable",
+      title: "is Sharable",
+      type: "boolean",
+    },
   ],
 
   // preview: {

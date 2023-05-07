@@ -13,12 +13,10 @@ import styled, { css } from 'styled-components';
 import { FcGoogle } from 'react-icons/fc';
 import theme from 'styled-theming';
 import { FaDiscord } from 'react-icons/fa';
-import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import { device } from 'Consts/device';
 
 export default function SignIn({
   providers,
@@ -64,8 +62,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // If the user is already logged in, redirect.
   // Note: Make sure not to redirect to the same page
   // To avoid an infinite loop!
+
+  //navid
+  // این خط باعث میشه بعد از لاگین به زبان فارسی که دیفالت هست بره
+  // باید بفهمیم زبان کاربر چی بوده تا بفرستیمش همونجا
   if (session) {
-    return { redirect: { destination: "/client/verification" } };
+    return { redirect: { destination: '/client/verification' } };
   }
 
   const providers = authOptions.providers;

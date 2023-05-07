@@ -13,9 +13,11 @@ import DesktopLanguageChanger from './LanguageChanger';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import DesktopBoxsesDropdown from './dropdownBoxes';
 import DesktopOccupationDropdown from './dropdownOccupation';
+import { useSession } from 'next-auth/react';
 
 function Desktop() {
   const { locale } = useLocale();
+  const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
@@ -32,9 +34,13 @@ function Desktop() {
           <DesktopBoxsesDropdown />
         </MenuItems>
         <NavigationMenu.Item>
-          <MenuLink href={`/${locale}/auth/signin`}>
-            {t(LanguageKeys.Login)}
-          </MenuLink>
+          {session ? (
+            <Avatar src={session.user?.image || '/Images/placeholder.jpeg'} />
+          ) : (
+            <MenuLink href={`/${locale}/auth/signin`}>
+              {t(LanguageKeys.Login)}
+            </MenuLink>
+          )}
         </NavigationMenu.Item>
       </Wrapper>
     </Container>
@@ -107,4 +113,9 @@ const MenuLink = styled(Link)`
       border-radius: 10px;
     }
   }
+`;
+const Avatar = styled.img`
+  border-radius: 50%;
+  width: 3rem;
+  outline: 2px solid var(--color-gray7);
 `;

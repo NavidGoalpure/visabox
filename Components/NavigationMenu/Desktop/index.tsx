@@ -20,20 +20,22 @@ function Desktop() {
   return (
     <Container>
       <Wrapper>
-        <NavigationMenu.Item>
-          <Link href={`/${locale}`}>
-            <Logo />
-          </Link>
-        </NavigationMenu.Item>
         <MenuItems>
+          <NavigationMenu.Item>
+            <Link href={`/${locale}`}>
+              <Logo />
+            </Link>
+          </NavigationMenu.Item>
           <NavigationMenu.Item>
             <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
           </NavigationMenu.Item>
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
           <DesktopLanguageChanger />
-          <SwitchTheme />
         </MenuItems>
+        <NavigationMenu.Item>
+          <MenuLink href={`/${locale}/auth/signin`}>{t(LanguageKeys.Login)}</MenuLink>
+        </NavigationMenu.Item>
       </Wrapper>
     </Container>
   );

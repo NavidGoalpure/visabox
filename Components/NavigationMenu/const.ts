@@ -6,6 +6,7 @@ export enum LanguageKeys {
   Home = "Home",
   Lists = "Lists",
   Occupations = "Occupations",
+  Login = "Login",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
@@ -19,6 +20,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Occupations: {
     en: "Skilled Worker Visa",
     fa: "ویزای مهارتی",
+  },
+  Login: {
+    en: "Sign Up",
+    fa: "ساخت حساب کاربری",
   },
 };
 export const listsItems: DropdownItem[] = [

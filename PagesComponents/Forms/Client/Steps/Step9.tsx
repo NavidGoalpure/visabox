@@ -39,14 +39,7 @@ const Step9 = () => {
         method: 'POST',
         body: JSON.stringify({ clientData: { ...clientData, isSharable } }),
       });
-      // .then((res) => {
-      //   console.log('navid hura');
-      //   return res;
-      // })
-      // .catch((err) => {
-      //   console.log('navid error');
-      //   throw new Error(err);
-      // });
+
     },
     onSuccess: (res) => {
       if (!res.ok) {

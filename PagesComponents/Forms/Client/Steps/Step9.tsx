@@ -1,73 +1,75 @@
-import { Input } from 'Components/Input';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext, useEffect } from 'react';
-import Image from 'next/image';
-import { NextButton, PrevButton, PrevIcon } from './StyledComponents';
-import styled, { css } from 'styled-components';
-import useTheme from 'Hooks/useTheme';
-import DarkKangorooLogo from './Images/DarkKangorooLogo.svg';
-import LightKangorooLogo from './Images/LightKangorooLogo.svg';
-import { Headline3Style } from 'Styles/Typo';
-import { ThemeModes } from 'Interfaces';
-import theme from 'styled-theming';
-import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
-import { useMutation, useQueryClient } from 'react-query';
-import SuccessToast from 'Elements/Toast/Success';
-import { useSession } from 'next-auth/react';
-import { UserQueryKeys } from 'Utils/query/keys';
-import { useRouter } from 'next/router';
-import { useLocale } from 'Hooks/useLocale';
-import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { BsCheck2 } from 'react-icons/bs';
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import { WizardContext } from "../Contexts/Wizard/Context";
+import { useContext } from "react";
+import { PrevButton, PrevIcon } from "./StyledComponents";
+import styled, { css } from "styled-components";
+import { Headline3Style } from "Styles/Typo";
+import theme from "styled-theming";
+import { layer2A_SubtitleStyle } from "Styles/Theme/Layers/layer2/style";
+import { useMutation, useQueryClient } from "react-query";
+import SuccessToast from "Elements/Toast/Success";
+import { useSession } from "next-auth/react";
+import { UserQueryKeys } from "Utils/query/keys";
+import { useRouter } from "next/router";
+import { useLocale } from "Hooks/useLocale";
+import { FormDataContext } from "../Contexts/FormDataContext/Context";
+import { BsCheck2, BsFillCheckCircleFill } from "react-icons/bs";
+import { PrimaryButton } from "Elements/Button/Primary";
 
 const Step9 = () => {
-  const { theme } = useTheme();
-  const { step, handleBackPress } = useContext(WizardContext);
+  const { step } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
   const { locale } = useLocale();
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { clientData } = useContext(FormDataContext);
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const queryClient = useQueryClient();
   const { data: session } = useSession();
 
   const mutation = useMutation({
     mutationFn: ({ isSharable }: { isSharable: boolean }) => {
-      return fetch('/api/forms/client', {
-        method: 'POST',
+      return fetch("/api/forms/client", {
+        method: "POST",
         body: JSON.stringify({ clientData: { ...clientData, isSharable } }),
       });
-
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        console.log('navid res ===', res);
-        console.log('navid res stringify ===', JSON.stringify(res.body));
-        throw new Error('couldnt patch the user');
+        console.log("navid res ===", res);
+        console.log("navid res stringify ===", JSON.stringify(res.body));
+        throw new Error("couldnt patch the user");
       }
       router.push(`/${locale}/`);
       SuccessToast(successToastMessage);
       queryClient.removeQueries(
-        UserQueryKeys.detail(session?.user?.email || 'defensive')
+        UserQueryKeys.detail({
+          email: session?.user?.email || "defensive",
+          resParams: `
+      _id,
+      name,
+      lastname,
+      age,
+      phone,
+      marital,
+      field_of_study,
+      degree,
+      current_job,
+      work_experience,
+      australian_work_experience,
+      ielts_score,
+      is_sharable`,
+        })
       );
     },
     onError: (errors) => {
       // navid make an error handling function here
-      console.log('navid errorr ===', errors);
+      console.log("navid errorr ===", errors);
     },
   });
   return (
     <Container>
-      <LogoContainer>
-        <Logo
-          width={90}
-          height={90}
-          src={theme === ThemeModes.DARK ? DarkKangorooLogo : LightKangorooLogo}
-          alt={'site-logo'}
-        />
-      </LogoContainer>
+      <Logo />
       <Title>فرم ارزیابی ماراباکس</Title>
       <Desc>
         {`کاربر گرامی
@@ -81,13 +83,12 @@ const Step9 = () => {
             clientData && mutation.mutate({ isSharable: false });
           }}
         >
-          <PrevIcon />
           خیر
         </NoButton>
         <NextButton
           step={step}
           onClick={() => {
-            console.log('navid data=', clientData);
+            console.log("navid data=", clientData);
             clientData && mutation.mutate({ isSharable: true });
           }}
           icon={<CheckIcon />}
@@ -100,7 +101,7 @@ const Step9 = () => {
   );
 };
 export default Step9;
-const BackgroundTheme = theme('mode', {
+const BackgroundTheme = theme("mode", {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -127,8 +128,13 @@ const Container = styled.div`
   justify-content: center;
   gap: 1.5rem;
 `;
-const LogoContainer = styled.div``;
-const Logo = styled(Image)``;
+const Logo = styled(BsFillCheckCircleFill)`
+  color: var(--color-primary3);
+  border-radius: 50%;
+  background: white;
+  width: 5rem;
+  height: auto;
+`;
 const Title = styled.h1`
   ${Headline3Style};
   color: var(--color-primary5);
@@ -144,9 +150,22 @@ const ButtonWrapper = styled.div`
   align-items: center;
   gap: 2rem;
 `;
-const NoButton = styled(PrevButton)``;
+const NoButton = styled(PrevButton)`
+  background: var(--color-gray12);
+  color: var(--color-gray8);
+  padding: 0.5rem 2rem;
+  border-radius: 100px;
+`;
 const CheckIcon = styled(BsCheck2)`
   width: auto;
   height: 1.5rem;
   margin-bottom: 0.2rem;
+`;
+const NextButton = styled(PrimaryButton)<{ step: number }>`
+  padding: 0 2.5rem;
+  ${({ step }) =>
+    step === 0 &&
+    css`
+      margin-inline-start: auto;
+    `}
 `;

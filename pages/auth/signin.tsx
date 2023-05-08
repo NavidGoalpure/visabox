@@ -114,6 +114,7 @@ const SubtitleColor = theme('mode', {
 const Subtitle = styled.h1`
   ${Layer1_SubtitleStyle}
   ${SubtitleColor}
+    text-align: center !important;
 `;
 const SocialButtonTheme = theme('mode', {
   light: css`

@@ -7,7 +7,7 @@ import theme from 'styled-theming';
 import SwitchTheme from '../switchTheme';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
-import { layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
+import { layer3_SubtitleStyle, layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import MobileLanguageChanger from './LanguageChanger';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -43,6 +43,7 @@ function SmartHeader() {
   return (
     <Container>
       <Wrapper>
+        <Signin href={`/${locale}/auth/signin`}>{t(LanguageKeys.Login)}</Signin>
         <MenuPopupContainer id={'popup'}>
           <ScrollBox id={'scrollbox'} height={'18rem'}>
             <MenuPopupWrapper>
@@ -141,6 +142,14 @@ const MenuLink = styled(Link)`
   text-align: start;
   width: 100%;
 `;
+
+const Signin = styled(MenuLink)`
+${layer3_SubtitleStyle};
+text-align: start;
+width: fit-content;
+direction: rtl;
+`
+
 const MenuBurger = styled.div`
   position: absolute;
   top: 0;

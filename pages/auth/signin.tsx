@@ -21,12 +21,14 @@ import { setLocalStorage } from 'Utils';
 import { CookieKeys, LocalStorageKeys } from 'Interfaces';
 import { useLocale } from 'Hooks/useLocale';
 import Cookies from 'js-cookie';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from 'PagesComponents/Auth/Signin/const';
 
 export default function SignIn({
   providers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-
   return (
     <StyledPageLayout>
       <Seo
@@ -36,9 +38,9 @@ export default function SignIn({
       />
       <MaraBgAnimation>
         <BlurContainer>
-          <Title>Login</Title>
+          <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>
-            Use your Google or Discord accounts for Signing or Register.
+            {t(LanguageKeys.Subtitle)}
           </Subtitle>
           {providers.map(
             (

@@ -23,6 +23,12 @@ enum LanguageDirection {
 enum LocalStorageKeys {
   Theme = 'Theme',
 }
+enum CookieKeys {
+  // وقتی با گوگل یا چیز دیگه ای لاگین میکنیم از دامین خودمون خارج میشیم و وقتی برمیگردیم مشخص نبوده
+  // که قبلا روی لوکیل چه زبانی بودیم. برای این کار در صفحه ساین این لوکیل رو موقتا ذخیره میکنیم و بعد از لاگین
+  // دوباره پاک میکنیم
+  TemporaryLocale = 'TemporaryLocale', //
+}
 interface MultiLanguageText {
   [Languages.en]: string;
   [Languages.fa]?: string;
@@ -54,6 +60,7 @@ export {
   LanguageDirection,
   ThemeModes,
   LocalStorageKeys,
+  CookieKeys,
   Status,
   Country,
 };

@@ -22,8 +22,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'ویزای مهارتی',
   },
   Login: {
-    en: 'Sign Up',
-    fa: 'ثبت نام',
+    en: 'Sign in',
+    fa: 'ورود',
   },
 };
 export const listsItems: DropdownItem[] = [

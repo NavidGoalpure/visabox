@@ -4,6 +4,7 @@ import {
   WorkExperience,
   AustralianWorkExperience,
   IELTSScore,
+  UniSections,
 } from "Interfaces/Client";
 
 export type ClientData_Sanity = {
@@ -19,6 +20,7 @@ export type ClientData_Sanity = {
   australian_work_experience: AustralianWorkExperience;
   ielts_score: IELTSScore;
   is_sharable: boolean;
+  uni_section: UniSections;
   _createdAt?: Date;
   _id?: string;
   _rev?: string;

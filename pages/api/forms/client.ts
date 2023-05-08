@@ -1,7 +1,7 @@
-import { ClientData } from 'Interfaces/Client';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { ClientData_Sanity } from 'Queries/client/interface';
-import { sanityClient } from 'Utils/sanity';
+import { ClientData } from "Interfaces/Client";
+import { NextApiRequest, NextApiResponse } from "next";
+import { ClientData_Sanity } from "Queries/client/interface";
+import { sanityClient } from "Utils/sanity";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const body = JSON.parse(req.body);
   const clientData: ClientData = body?.clientData;
@@ -18,6 +18,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     australian_work_experience: clientData?.australianWorkExperience,
     ielts_score: clientData?.IELTSScore,
     is_sharable: clientData?.isSharable,
+    uni_section: clientData?.uniSection,
   };
   if (clientData?._id) {
     sanityClient
@@ -25,19 +26,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       .set(params)
       .commit()
       .then(() => {
-        console.log('navid sercer success');
-
-        res.status(200).json({ message: 'success' });
+        res.status(200).json({ message: "success" });
       })
       .catch((err) => {
-        console.log('navid sercer errr');
-
         const errors = err?.response?.body?.error?.items;
-        res.status(500).send({ message: 'navid', errors });
+        res.status(500).send({ message: "request failed", errors });
       });
   } else {
     res.status(401).send({
-      message: 'The user have not _id',
+      message: "The user have not _id",
     });
   }
 }

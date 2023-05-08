@@ -154,6 +154,20 @@ export default {
       title: "is Sharable",
       type: "boolean",
     },
+    {
+      name: "uni_section",
+      title: "Uni Section",
+      type: "string",
+      options: {
+        list: [
+          { title: "Section 1", value: "section 1" },
+          { title: "Section 2", value: "section 2" },
+          { title: "I don't know", value: "i dont know" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    },
   ],
 
   // preview: {

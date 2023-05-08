@@ -78,7 +78,7 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  padding: 7.5rem 0;
+  padding: 1.5rem 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;

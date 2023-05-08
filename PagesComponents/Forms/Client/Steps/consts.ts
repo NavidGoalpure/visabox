@@ -15,14 +15,18 @@ export const educations: MultiLanguageText[] = [
   { en: "Bachelor's degree", fa: "لیسانس" },
   { en: "Doctorate", fa: "دکترا" },
 ];
-
- export const works: MultiLanguageText[] = [
-   { en: "Below 1 year", fa: "زیر یک سال" },
-   { en: "1 to 3 years", fa: "۱ تا ۳ سال" },
-   { en: "3 to 5 years", fa: "۳ تا ۵ سال" },
-   { en: "5 to 8 years", fa: "۵ تا ۸ سال" },
-   { en: "More than 8 years", fa: "بیشتر از ۸ سال" },
- ];
+export const uniSections: MultiLanguageText[] = [
+  { en: "Section 1", fa: "سکشن ۱" },
+  { en: "Section 2", fa: "سکشن ۲" },
+  { en: "I don't know", fa: "نمیدانم" },
+];
+export const works: MultiLanguageText[] = [
+  { en: "Below 1 year", fa: "زیر یک سال" },
+  { en: "1 to 3 years", fa: "۱ تا ۳ سال" },
+  { en: "3 to 5 years", fa: "۳ تا ۵ سال" },
+  { en: "5 to 8 years", fa: "۵ تا ۸ سال" },
+  { en: "More than 8 years", fa: "بیشتر از ۸ سال" },
+];
 export const australianWorks: MultiLanguageText[] = [
   { en: "none - less than 1 year", fa: "هیچی - کمتر از یکسال" },
   { en: "Below 1 year", fa: "زیر یک سال" },

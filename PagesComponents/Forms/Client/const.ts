@@ -14,6 +14,7 @@ export enum LanguageKeys {
   FieldOfStudyInputLabel = "FieldOfStudyInputLabel",
   FieldOfStudyInputPlaceholder = "FieldOfStudyInputPlaceholder",
   DegreeOfEducationSectionTitle = "DegreeOfEducationSectionTitle",
+  UniSectionsSectionTitle = "UniSectionsSectionTitle",
   CurrentJobInputLabel = "CurrentJobInputLabel",
   CurrentJobInputPlaceholder = "CurrentJobInputPlaceholder",
   WorkExperienceSectionTitle = "WorkExperienceSectionTitle",
@@ -24,7 +25,7 @@ export enum LanguageKeys {
   ConfirmButtonTitle = "ConfirmButtonTitle",
   Step0Title = "Step0Title",
   Step0Desc = "Step0Desc",
-  Step0Button="Step0Button",
+  Step0Button = "Step0Button",
   Step9Title = "Step9Title",
   Step9Desc = "Step9Desc",
   YesText = "YesText",
@@ -86,6 +87,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   DegreeOfEducationSectionTitle: {
     en: "Degree of education :",
     fa: "درجه تحصیلات:",
+  },
+  UniSectionsSectionTitle: {
+    en: "University Section:",
+    fa: "سکشن دانشگاه:",
   },
   CurrentJobInputLabel: {
     en: "Current Job:",

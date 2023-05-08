@@ -36,7 +36,9 @@ function FormDataContextProvider(props: ContextProps) {
       work_experience,
       australian_work_experience,
       ielts_score,
-      is_sharable`,
+      is_sharable,
+      uni_section,
+      `,
     });
 
     if (data.clientData[0])

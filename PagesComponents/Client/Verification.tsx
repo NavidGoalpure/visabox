@@ -34,9 +34,7 @@ function Content() {
       getClientDetail({ email, resParams: `name` })
         .then((res) => {
           console.log("navid success res=", res.clientData);
-
-          //  navid change toast
-          SuccessToast("Success");
+          SuccessToast(t(LanguageKeys.ToastMessage));
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
           if (res?.clientData[0]?.name) {
             router.push(`/${locale}`);

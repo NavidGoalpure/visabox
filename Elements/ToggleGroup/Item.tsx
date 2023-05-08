@@ -1,12 +1,12 @@
-import React from 'react';
-import * as ToggleGroup from '@radix-ui/react-toggle-group';
-import { Label } from '@radix-ui/react-label';
-import styled, { css, keyframes } from 'styled-components';
-import { MultiLanguageText } from 'Interfaces';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import theme from 'styled-theming';
-import { AiOutlineCheck } from 'react-icons/ai';
-import { Headline7Style } from 'Styles/Typo';
+import React from "react";
+import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import { Label } from "@radix-ui/react-label";
+import styled, { css, keyframes } from "styled-components";
+import { MultiLanguageText } from "Interfaces";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import theme from "styled-theming";
+import { AiOutlineCheck } from "react-icons/ai";
+import { Headline7Style } from "Styles/Typo";
 
 export interface RadioItemProps extends ToggleGroup.ToggleGroupItemProps {
   text: MultiLanguageText;
@@ -22,15 +22,15 @@ export const Item: React.FC<RadioItemProps> = ({
   return (
     <Container className={className} {...props} value={value}>
       <RadioGroupIndicator>
-        <Checkmark />{' '}
+        <Checkmark />{" "}
       </RadioGroupIndicator>
-      <StyledLabel className='label' htmlFor={props.id}>
+      <StyledLabel className="label" htmlFor={props.id}>
         {dt(text)}
       </StyledLabel>
     </Container>
   );
 };
-const ContainerTheme = theme('mode', {
+const ContainerTheme = theme("mode", {
   light: css`
     border: 2px solid var(--color-gray11);
     color: var(--color-gray11);
@@ -56,6 +56,7 @@ opacity:1;
 const Container = styled(ToggleGroup.Item)`
   ${ContainerTheme};
   ${Headline7Style};
+  cursor: pointer;
   position: relative;
   display: flex;
   align-items: center;
@@ -68,7 +69,7 @@ const Container = styled(ToggleGroup.Item)`
   span {
     opacity: 0;
   }
-  &[data-state='on'] {
+  &[data-state="on"] {
     color: var(--color-primary4);
     border-color: var(--color-primary3);
     background: rgba(194, 255, 250, 0.1);
@@ -96,6 +97,7 @@ const StyledLabel = styled(Label)`
   line-height: 1;
   transition: all 0.5s ease;
   transform: translateX(-0.5rem);
+  cursor: pointer;
 `;
 const Checkmark = styled(AiOutlineCheck)`
   width: 100%;

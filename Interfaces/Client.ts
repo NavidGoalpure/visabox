@@ -14,6 +14,11 @@ export enum WorkExperience {
   "5To8Years" = "5 to 8 years",
   "MoreThan8Years" = "more than 8 years",
 }
+export enum UniSections {
+  "Section1" = "Section 1",
+  "Section2" = "Section 2",
+  "IDontKnow" = "I don't know",
+}
 export enum AustralianWorkExperience {
   "LessThan1Year" = "none - less than 1 year",
   "1To3Years" = "1 to 3 years",
@@ -43,5 +48,6 @@ export type ClientData = {
   workExperience: WorkExperience;
   australianWorkExperience: AustralianWorkExperience;
   IELTSScore: IELTSScore;
+  uniSection: UniSections;
   isSharable: boolean;
 };

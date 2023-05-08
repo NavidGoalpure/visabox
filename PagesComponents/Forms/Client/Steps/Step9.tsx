@@ -38,8 +38,6 @@ const Step9 = () => {
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        console.log("navid res ===", res);
-        console.log("navid res stringify ===", JSON.stringify(res.body));
         throw new Error("couldnt patch the user");
       }
       router.push(`/${locale}/`);
@@ -66,7 +64,6 @@ const Step9 = () => {
     },
     onError: (errors) => {
       // navid make an error handling function here
-      console.log("navid errorr ===", errors);
     },
   });
   return (

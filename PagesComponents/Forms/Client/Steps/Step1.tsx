@@ -17,7 +17,6 @@ const Step1 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
-  console.log('navid step0=', clientData);
   return (
     <Container>
       {/* //////////name-input//////////// */}

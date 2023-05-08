@@ -1,4 +1,5 @@
 import MaraBgAnimation from "Components/MaraBgAnimation";
+import { deviceMin } from "Consts/device";
 import { SecondaryButton } from "Elements/Button/Secondary";
 import { useRouter } from "next/router";
 import { HTMLAttributes, ReactNode } from "react";
@@ -83,11 +84,16 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  padding: 0.3rem;
+  flex-direction: column;
+  padding: 2rem 0.3rem 1rem;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   backdrop-filter: blur(5px);
+  @media ${deviceMin.tabletS} {
+    flex-direction: row;
+    padding: 0.3rem;
+  }
 `;
 const Title = styled.h2`
   ${Headline5Style};
@@ -108,8 +114,12 @@ const CloseIconWrapper = styled.div`
   width: 2rem;
   height: 2rem;
   position: absolute;
-  top: 20%;
-  right: 5%;
+  top: 3%;
+  right: 2%;
+  @media ${deviceMin.tabletS} {
+    top: 20%;
+    right: 5%;
+  }
 `;
 const CloseIcon = styled(IoCloseOutline)`
   color: white;

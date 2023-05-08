@@ -1,7 +1,7 @@
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
 import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PrevButton, PrevIcon } from "./StyledComponents";
 import styled, { css } from "styled-components";
 import { Headline3Style } from "Styles/Typo";
@@ -16,8 +16,10 @@ import { useLocale } from "Hooks/useLocale";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { BsCheck2, BsFillCheckCircleFill } from "react-icons/bs";
 import { PrimaryButton } from "Elements/Button/Primary";
+import { Loading } from "Elements/Loading";
 
 const Step9 = () => {
+  const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
   const { step } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
@@ -70,31 +72,31 @@ const Step9 = () => {
   return (
     <Container>
       <Logo />
-      <Title>فرم ارزیابی ماراباکس</Title>
-      <Desc>
-        {`کاربر گرامی
-         با صرف زمان دو دقیقه و پر کردن این فرم می توانید اطلاعات خود را در اختیار بهترین وکلای مهاجرت قرار دهید تا با بررسی  دقیق تر شرایط شما بتوانند بهترین راهکارهای مهاجرت را در اختیارتان قرار دهند.
-         `}
-      </Desc>
+      <Title>{t(LanguageKeys.Step9Title)}</Title>
+      <Desc>{t(LanguageKeys.Step9Desc)}</Desc>
       <ButtonWrapper>
-        <NoButton
-          step={step}
-          onClick={() => {
-            clientData && mutation.mutate({ isSharable: false });
-          }}
-        >
-          خیر
-        </NoButton>
+        {mutation.isLoading && !isYesClicked ? (
+          <Loading />
+        ) : (
+          <NoButton
+            step={step}
+            onClick={() => {
+              clientData && mutation.mutate({ isSharable: false });
+            }}
+          >
+            {t(LanguageKeys.NoText)}
+          </NoButton>
+        )}
         <NextButton
           step={step}
           onClick={() => {
-            console.log("navid data=", clientData);
+            setIsYesClicked(true);
             clientData && mutation.mutate({ isSharable: true });
           }}
           icon={<CheckIcon />}
-          isLoading={mutation.isLoading}
+          isLoading={isYesClicked && mutation.isLoading}
         >
-          بله
+          {t(LanguageKeys.YesText)}
         </NextButton>
       </ButtonWrapper>
     </Container>
@@ -114,6 +116,17 @@ const BackgroundTheme = theme("mode", {
     );
   `,
 });
+const NoButtonTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray12);
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    background: var(--color-gray7);
+    color: var(--color-gray11);
+  `,
+});
+
 const Container = styled.div`
   ${BackgroundTheme};
   box-sizing: content-box;
@@ -151,8 +164,7 @@ const ButtonWrapper = styled.div`
   gap: 2rem;
 `;
 const NoButton = styled(PrevButton)`
-  background: var(--color-gray12);
-  color: var(--color-gray8);
+  ${NoButtonTheme};
   padding: 0.5rem 2rem;
   border-radius: 100px;
 `;

@@ -33,7 +33,7 @@ const SmartSteps: React.FC = () => {
 
   return (
     <Container>
-      {step !== 0 && <Slider currentStep={step} end={maxStep} />}
+      {step !== 0 && step !== 9 && <Slider currentStep={step} end={maxStep} />}
       <StepsWrapper>{steps[step]}</StepsWrapper>
     </Container>
   );

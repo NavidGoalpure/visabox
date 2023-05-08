@@ -28,12 +28,8 @@ const Step0 = () => {
           alt={"site-logo"}
         />
       </LogoContainer>
-      <Title>فرم ارزیابی ماراباکس</Title>
-      <Desc>
-        {`کاربر گرامی
-         با صرف زمان دو دقیقه و پر کردن این فرم می توانید اطلاعات خود را در اختیار بهترین وکلای مهاجرت قرار دهید تا با بررسی  دقیق تر شرایط شما بتوانند بهترین راهکارهای مهاجرت را در اختیارتان قرار دهند.
-         `}
-      </Desc>
+      <Title>{t(LanguageKeys.Step0Title)}</Title>
+      <Desc>{t(LanguageKeys.Step0Desc)}</Desc>
       <StartButton
         step={step}
         onClick={() => {
@@ -41,7 +37,7 @@ const Step0 = () => {
         }}
         icon={<NextIcon />}
       >
-        ورود به فرم
+        {t(LanguageKeys.Step0Button)}
       </StartButton>
     </Container>
   );

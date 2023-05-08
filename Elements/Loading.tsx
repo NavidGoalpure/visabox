@@ -38,7 +38,6 @@ transform:rotate(360deg);
 `;
 const Container = styled.svg`
   display: flex;
-  margin: auto;
   justify-content: center;
   transform-origin: center center;
   animation: ${RotateAnimation} 1s linear infinite;

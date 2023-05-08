@@ -1,3 +1,4 @@
+import Banner from "Components/Banner";
 import Footer from "Components/Footer";
 import ToasterContainer from "Components/ToasterContainer";
 import { deviceMin } from "Consts/device";
@@ -13,20 +14,32 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   hasFooter?: boolean;
   hasMenu?: boolean;
+  hasBanner?:boolean;
 }
 
 const PageContainer: React.FC<Props> = ({
   hasFooter = true,
   hasMenu = true,
+  hasBanner=true,
   children,
   ...props
 }) => {
   const { locale } = useLocale();
-
   return (
     <Container {...props} $locale={locale}>
       <ToasterContainer />
-      {hasMenu && <Header />}
+      {hasBanner  && (
+        <Banner
+          navigateTo="/forms/client"
+          desc={<>برای شروع سفر مهاجرتی خود آماده اید؟</>}
+          buttonText={"پر کردن فرم"}
+          type="TYPE2"
+        />
+      )}
+      {hasMenu &&
+      <Header />
+      }
+
       {/* <Survay.Root
         title={{
           en: 'How do you prefer to do the legal procedures of immigration?',

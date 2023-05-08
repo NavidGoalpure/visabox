@@ -17,10 +17,16 @@ import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
+import { setLocalStorage } from 'Utils';
+import { CookieKeys, LocalStorageKeys } from 'Interfaces';
+import { useLocale } from 'Hooks/useLocale';
+import Cookies from 'js-cookie';
 
 export default function SignIn({
   providers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const { locale } = useLocale();
+
   return (
     <StyledPageLayout>
       <Seo
@@ -43,7 +49,17 @@ export default function SignIn({
               },
               i: Key
             ) => (
-              <SocialButton onClick={() => signIn(provider.id)} key={i}>
+              <SocialButton
+                onClick={() => {
+                  //چون با عوض شدن یوآرال لوکیل رو از دست میدیم، موقتا لوکیل رو توی کوکی ذخیره میکنیم
+                  // تا در صفحه وریفیکیشن و در قسمت سرورسایدش بتونیم دوباره کاربر رو به لوکیل خودش برگردونیم
+                  Cookies.set(CookieKeys.TemporaryLocale, locale, {
+                    expires: 1,
+                  });
+                  signIn(provider.id);
+                }}
+                key={i}
+              >
                 {provider.name === 'Google' && <GoogleIcon />}
                 {provider.name === 'Discord' && <DiscordIcon />}
                 Sign in with {provider.name}
@@ -66,8 +82,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   //navid
   // این خط باعث میشه بعد از لاگین به زبان فارسی که دیفالت هست بره
   // باید بفهمیم زبان کاربر چی بوده تا بفرستیمش همونجا
+  console.log('***navid locale=', context.locale);
   if (session) {
-    return { redirect: { destination: '/client/verification' } };
+    return {
+      redirect: { destination: `/auth/verification` },
+    };
   }
 
   const providers = authOptions.providers;

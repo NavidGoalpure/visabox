@@ -83,9 +83,6 @@ const MenuItems = styled.div`
   ${dirFlexStyle}
   width: auto;
   gap: 2rem;
-  //navid
-  direction: ltr;
-  // flex-direction: row-reverse;
 `;
 const MenuLink = styled(Link)`
   ${layer3_TextStyle};

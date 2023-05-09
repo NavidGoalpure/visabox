@@ -5,7 +5,7 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: 'Mara Box | Australia immigration toolkit',
-    fa: 'ماراباکس | جعبه ابزار مهاجرت به استرالیا',
+    en: 'ماراباکس | جعبه ابزار مهاجرت به استرالیا - Mara Box | Australia immigration toolkit',
+    fa: 'ماراباکس | جعبه ابزار مهاجرت به استرالیا - Mara Box | Australia immigration toolkit',
   },
 };

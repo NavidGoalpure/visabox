@@ -98,6 +98,7 @@ const SidebarPage = ({
                   name={relatedAgent.name}
                   slug={relatedAgent.slug}
                   desc={relatedAgent.desc}
+                  layerContext='1'
                 />
               ))}
             </VIPContainer>

@@ -90,6 +90,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
               slug={relatedAgent.slug}
               desc={relatedAgent.desc}
               key={relatedAgent.slug}
+              layerContext='1'
             />
           ))}
         </VIPContainer>

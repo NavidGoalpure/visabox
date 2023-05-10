@@ -229,7 +229,7 @@ Australia`,
 GPO Box 400
 Canberra City ACT 2601`,
     email: 'admin@osteopathiccouncil.org.au',
-    website: 'www.osteopathiccouncil.org.au',
+    website: 'https://www.osteopathiccouncil.org.au',
   },
   {
     title: {

@@ -1,11 +1,11 @@
 import {
   Contact,
-  Languages,
   Locations,
   MultiLanguageText,
   MultiLanguageTextArray,
   Status,
 } from 'Interfaces';
+import { FeaturedPlan_Business } from '.';
 
 export interface Agent {
   id: string;
@@ -17,6 +17,6 @@ export interface Agent {
   desc?: MultiLanguageText;
   qualifications?: MultiLanguageTextArray;
   maraNumber: string;
-  isFeatured: boolean;
+  featuredPlan: FeaturedPlan_Business;
   status: Status;
 }

@@ -8,9 +8,6 @@ export default {
     columns: 6, // Defines a grid for the fields and how many columns it should have
   },
   fields: [
-    ////////////////////////////
-    //////189 Visa//////////////
-    ////////////SUBMITED////////
     {
       name: 'upper_than_65',
       title: '> 65 ',
@@ -79,6 +76,26 @@ export default {
     {
       name: 'upper_than_130',
       title: '> 130 ',
+      type: 'string',
+    },
+    {
+      name: 'upper_than_135',
+      title: '> 135 ',
+      type: 'string',
+    },
+    {
+      name: 'upper_than_140',
+      title: '> 140 ',
+      type: 'string',
+    },
+    {
+      name: 'upper_than_145',
+      title: '> 145 ',
+      type: 'string',
+    },
+    {
+      name: 'upper_than_150',
+      title: '> 150 ',
       type: 'string',
     },
   ],

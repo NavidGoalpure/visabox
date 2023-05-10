@@ -9,6 +9,8 @@ import { FiBox } from 'react-icons/fi';
 import { Agency } from 'Interfaces/Lists/agency';
 import { SidebarPage } from './SideBar';
 import { getAgencyAgents, getAgencySocials } from '../utils';
+import { useState, useEffect } from 'react';
+import { useLocale } from 'Hooks/useLocale';
 interface Props {
   ChosenAgency?: Agency;
 }
@@ -16,6 +18,13 @@ function MobileAgenciesPage({ ChosenAgency }: Props) {
   const { dt } = useDynamicTranslation();
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
+
+  useEffect(() => {
+    if (ChosenAgency?.logoUrl) setImgSrc(ChosenAgency?.logoUrl);
+  }, [ChosenAgency]);
+
   return (
     <Container>
       <StarBackground aria-hidden={true}>
@@ -24,8 +33,15 @@ function MobileAgenciesPage({ ChosenAgency }: Props) {
       <ProfilePictureWrapper>
         <ProfilePicture
           fill
-          src={`/Images/lists/agency/${ChosenAgency?.slug}.jpg`}
-          alt={'agent image'}
+          src={imgSrc}
+          alt={
+            ChosenAgency?.name
+              ? `${ChosenAgency?.name?.[locale]} image`
+              : 'agent image'
+          }
+          onError={() => {
+            setImgSrc(`/Images/placeholder.jpeg`);
+          }}
         />
         <VIPBoxContainer aria-hidden={true}>
           <VIPBox aria-hidden={true} />

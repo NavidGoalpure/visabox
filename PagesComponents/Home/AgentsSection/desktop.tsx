@@ -14,13 +14,16 @@ import {
 } from './styledComponents';
 import { HTMLAttributes, useEffect } from 'react';
 import { GsapSectionAnimation_1 } from '../utils';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgent = Agents.find((agent) => agent.isFeatured);
+  const vipAgent = Agents.find(
+    (agent) => agent.featuredPlan === FeaturedPlan_Business.VIP
+  );
   useEffect(() => {
     GsapSectionAnimation_1('Agent');
   }, []);

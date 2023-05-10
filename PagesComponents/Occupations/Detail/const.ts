@@ -307,7 +307,7 @@ In some instances, no formal qualification or on-the-job training may be require
     en: 'Lodged',
     fa: 'لاج شده‌ها',
   },
-  LastUpdate: { en: 'LastUpdate:', fa: 'آخرین آپدیت: ' },
+  LastUpdate: { en: 'Last Update:', fa: 'آخرین آپدیت: ' },
 };
 
 //////

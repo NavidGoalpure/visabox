@@ -45,20 +45,6 @@ const Step9 = () => {
       queryClient.removeQueries(
         UserQueryKeys.detail({
           email: session?.user?.email || "defensive",
-          resParams: `
-      _id,
-      name,
-      lastname,
-      age,
-      phone,
-      marital,
-      field_of_study,
-      degree,
-      current_job,
-      work_experience,
-      australian_work_experience,
-      ielts_score,
-      is_sharable`,
         })
       );
     },

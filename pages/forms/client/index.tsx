@@ -13,7 +13,7 @@ const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <StyledPageLayout hasFooter={false}>
+    <StyledPageLayout hasBanner={false} hasFooter={false}>
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

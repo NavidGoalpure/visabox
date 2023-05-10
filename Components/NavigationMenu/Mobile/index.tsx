@@ -1,19 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
-import { boxShadow, directionStyles } from 'Styles/Theme';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import theme from 'styled-theming';
+import React, { useEffect, useRef, useState } from "react";
+import styled, { css } from "styled-components";
+import { boxShadow, directionStyles } from "Styles/Theme";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import theme from "styled-theming";
 
-import SwitchTheme from '../switchTheme';
-import Link from 'next/link';
-import { useLocale } from 'Hooks/useLocale';
-import { layer3_SubtitleStyle, layer3_TitleStyle } from 'Styles/Theme/Layers/layer3/style';
-import MobileLanguageChanger from './LanguageChanger';
-import { ScrollBox } from 'Elements/ScrollBox';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, getGsapTimeLine, LanguageKeys } from '../const';
-import OccupationDropdown from './dropdownOccupation';
-import MobileBoxesDropdown from './dropdownBoxes';
+import SwitchTheme from "../switchTheme";
+import Link from "next/link";
+import { useLocale } from "Hooks/useLocale";
+import {
+  layer3_SubtitleStyle,
+  layer3_TitleStyle,
+} from "Styles/Theme/Layers/layer3/style";
+import MobileLanguageChanger from "./LanguageChanger";
+import { ScrollBox } from "Elements/ScrollBox";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, getGsapTimeLine, LanguageKeys } from "../const";
+import OccupationDropdown from "./dropdownOccupation";
+import MobileBoxesDropdown from "./dropdownBoxes";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -27,16 +30,16 @@ function SmartHeader() {
     []
   );
   useEffect(() => {
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
     if (isMenuClicked) {
       popupAnimationRef.current?.restart();
       hamburgerAnimationRef.current?.restart();
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     }
     if (isMenuClicked === false) {
       popupAnimationRef.current?.reverse();
       hamburgerAnimationRef.current?.reverse();
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   }, [isMenuClicked]);
 
@@ -44,8 +47,8 @@ function SmartHeader() {
     <Container>
       <Wrapper>
         <Signin href={`/${locale}/auth/signin`}>{t(LanguageKeys.Login)}</Signin>
-        <MenuPopupContainer id={'popup'}>
-          <ScrollBox id={'scrollbox'} height={'18rem'}>
+        <MenuPopupContainer id={"popup"}>
+          <ScrollBox id={"scrollbox"} height={"18rem"}>
             <MenuPopupWrapper>
               <Nav>
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
@@ -65,8 +68,8 @@ function SmartHeader() {
           id={`hamburg`}
           onClick={() => setIsMenuClicked(!isMenuClicked)}
         >
-          <span aria-hidden id={'line1'} />
-          <span aria-hidden id={'line2'} />
+          <span aria-hidden id={"line1"} />
+          <span aria-hidden id={"line2"} />
         </MenuBurger>
       </Wrapper>
     </Container>
@@ -75,7 +78,7 @@ function SmartHeader() {
 export default SmartHeader;
 //there was a theme in the layers like this one but it was for color not background so i couldn't use it
 
-const PopupBagroundTheme = theme('mode', {
+const PopupBagroundTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
   `,
@@ -94,7 +97,7 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-items: center;
   width: 100%;
   height: 3rem;
@@ -144,11 +147,11 @@ const MenuLink = styled(Link)`
 `;
 
 const Signin = styled(MenuLink)`
-${layer3_SubtitleStyle};
-text-align: start;
-width: fit-content;
-direction: rtl;
-`
+  ${layer3_SubtitleStyle};
+  text-align: start;
+  width: fit-content;
+  direction: rtl;
+`;
 
 const MenuBurger = styled.div`
   position: absolute;

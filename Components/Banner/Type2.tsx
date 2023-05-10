@@ -1,13 +1,15 @@
 import MaraBgAnimation from "Components/MaraBgAnimation";
 import { deviceMin } from "Consts/device";
 import { SecondaryButton } from "Elements/Button/Secondary";
+import { LocalStorageKeys } from "Interfaces";
 import { useRouter } from "next/router";
-import { HTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import { Headline5Style } from "Styles/Typo";
+import { getLocalStorage, setLocalStorage } from "Utils";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
@@ -15,8 +17,16 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 const Type2: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
   const router = useRouter();
+  const [isBannerClosed, setIsBannerClosed] = useState(false);
+  useEffect(() => {
+    if (
+      getLocalStorage(LocalStorageKeys.Client_IsFormBannerClosed) === "true"
+    ) {
+      setIsBannerClosed(true);
+    }
+  }, []);
   return (
-    <Container>
+    <Container isBannerClosed={isBannerClosed}>
       {" "}
       <MaraBgAnimation
         animationSpeed={60}
@@ -24,17 +34,21 @@ const Type2: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
         LightPrimaryColor={"var(--color-primary3)"}
       >
         <Wrapper>
-          <CloseIconWrapper>
-            <CloseIcon
-              onClick={() => {
-                router.push("/");
-              }}
-            />
-          </CloseIconWrapper>
           <Title>{desc}</Title>{" "}
           <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
             {buttonText}
           </Button>
+          <CloseIconWrapper
+            onClick={() => {
+              setLocalStorage({
+                key: LocalStorageKeys.Client_IsFormBannerClosed,
+                value: "true",
+              });
+              setIsBannerClosed(true);
+            }}
+          >
+            <CloseIcon />
+          </CloseIconWrapper>
         </Wrapper>
       </MaraBgAnimation>
     </Container>
@@ -47,7 +61,7 @@ const NextIconDirectionStyle = theme("languageDirection", {
     transform: rotate(180deg);
   `,
 });
-const Container = styled.div`
+const Container = styled.div<{ isBannerClosed: boolean }>`
   background: var(--color-primary1);
   text-align: center;
   position: relative;
@@ -55,6 +69,9 @@ const Container = styled.div`
   height: max-content;
   z-index: 0;
   overflow: hidden;
+  ///////////
+  ${({ isBannerClosed }) => isBannerClosed && `display:none;`}
+  ///////
   :before {
     content: "";
     width: 20%;
@@ -66,7 +83,7 @@ const Container = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 10;
+    z-index: 0;
   }
   :after {
     content: "";
@@ -79,7 +96,7 @@ const Container = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 10;
+    z-index: 0;
   }
 `;
 const Wrapper = styled.div`

@@ -10,10 +10,13 @@ import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
 import Banner from "../../Components/Banner";
 import { useSession } from "next-auth/react";
+import { componentStatements, LanguageKeys } from "./const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
   const { data: session } = useSession();
+  const {t} =useStaticTranslation(componentStatements)
   return (
     <>
       
@@ -23,13 +26,10 @@ const HomeContent: React.FC = () => {
           <Banner
             navigateTo="/forms/client"
             desc={
-              <>
-                برای شروع سفر <span>مهاجرتی</span> خود آماده اید؟ اکنون فرم ما
-                را پر کنید تا وکلای مهاجرت با شما به صورت <span>رایگان</span> با
-                شما در ارتباط باشند.
-              </>
+              <div dangerouslySetInnerHTML={{__html:t(LanguageKeys.BannerDesc)}}>
+              </div>
             }
-            buttonText={"پر کردن فرم"}
+            buttonText={t(LanguageKeys.BannerButtonText)}
             type="TYPE1"
           />
         )}

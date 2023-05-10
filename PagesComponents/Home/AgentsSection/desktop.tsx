@@ -36,6 +36,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               name={vipAgent?.name}
               desc={vipAgent?.desc}
               slug={vipAgent?.slug}
+              layerContext='1'
             />
           )}
         </Side>

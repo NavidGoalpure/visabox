@@ -26,6 +26,7 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
   desc: MultiLanguageText | undefined;
   slug: string;
+  // این پرابز نشون میده که لایر زمینه این کامپوننت شماره چنده. مثلا لایر یک یا لایر۲
   layerContext: '1' | '2';
 }
 

@@ -49,11 +49,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
-          {/* <SideBar.TabItem
+          <SideBar.TabItem
             title={t(LanguageKeys.Agent)}
             value='agency'
             icon={<AgentIcon />}
-          /> */}
+          />
         </>
       }
       bodies={
@@ -112,7 +112,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                           <HintItem>
                             <Tag>
                               {t(LanguageKeys.LastUpdate)}
-                              <span> 9 May 2023 </span>
+                              <span> May 10, 2023 </span>
                             </Tag>
                           </HintItem>
                         </AccordionContentContainer>

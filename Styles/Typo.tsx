@@ -35,7 +35,7 @@ export const Headline4Style = css<{
   font-style: normal;
   font-weight: ${({ weight }) => weight || '500'};
   font-size: 34px;
-  line-height: 41px;
+  line-height: 58px;
 `;
 
 //------------------
@@ -45,7 +45,7 @@ export const Headline5Style = css<{
   font-style: normal;
   font-weight: ${({ weight }) => weight || '500'};
   font-size: 24px;
-  line-height: 32.3px;
+  line-height: 40px;
 `;
 
 //-----------------
@@ -55,7 +55,7 @@ export const Headline6Style = css<{
   font-style: normal;
   font-weight: ${({ weight }) => weight || '500'};
   font-size: 20px;
-  line-height: 2rem;
+  line-height: 2.3rem;
 `;
 //-----------------
 export const Headline7Style = css<{

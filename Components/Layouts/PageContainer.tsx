@@ -1,30 +1,74 @@
+import SmartBanner from "Components/SmartBanner";
 import Footer from "Components/Footer";
 import ToasterContainer from "Components/ToasterContainer";
 import { deviceMin } from "Consts/device";
 import { useLocale } from "Hooks/useLocale";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Languages } from "Interfaces";
-import React, { HTMLAttributes, ReactNode } from "react";
+import { useSession } from "next-auth/react";
+import { getClientDetail } from "Queries/client";
+import React, { HTMLAttributes, ReactNode, useEffect, useState } from "react";
+import { useQuery } from 'react-query';
 import styled from "styled-components";
 import { directionStyles } from "Styles/Theme";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import { UserQueryKeys } from "Utils/query/keys";
 import Header from "../NavigationMenu";
+import { componentStatements, LanguageKeys } from "./const";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   hasFooter?: boolean;
+  hasMenu?: boolean;
+  hasBanner?: boolean;
 }
 
 const PageContainer: React.FC<Props> = ({
   hasFooter = true,
+  hasMenu = true,
+  hasBanner = true,
   children,
   ...props
 }) => {
   const { locale } = useLocale();
-
+  const { t } = useStaticTranslation(componentStatements);
+  const [hasClientCompletedForm, setHasClientCompletedForm] =
+    useState<boolean>(true);
+  const { data: session } = useSession();
+  const { data, isLoading } = useQuery(
+    UserQueryKeys.detail({
+      email: session?.user?.email || `defensive`,
+      resParams: `
+     name
+      `,
+    }),
+    () => {
+      return getClientDetail({
+        email: session?.user?.email || `defensive`,
+        resParams: `
+     name
+      `,
+      });
+    }
+  );
+  useEffect(() => {
+    if (!!data) setHasClientCompletedForm(true);
+  }, [isLoading]);
   return (
     <Container {...props} $locale={locale}>
       <ToasterContainer />
-      <Header />
+      {hasMenu && <Header />}
+      {hasBanner && !hasClientCompletedForm && (
+        <SmartBanner
+          navigateTo={`/${locale}/forms/client`}
+          desc={
+            <div
+              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
+            ></div>
+          }
+          buttonText={t(LanguageKeys.BannerButtonText)}
+        />
+      )}
 
       {/* <Survay.Root
         title={{

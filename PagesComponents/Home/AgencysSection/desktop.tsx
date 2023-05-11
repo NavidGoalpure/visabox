@@ -16,13 +16,14 @@ import { HTMLAttributes, useEffect } from 'react';
 import { GsapSectionAnimation_1 } from '../utils';
 import { AGENCYS } from 'Consts/Lists/agency';
 import VIPAgencyCard from 'Components/Lists/Card/Agency/VIPCard';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.isFeatured);
+  const vipAgency = AGENCYS.find((AGENCYS) => AGENCYS.featuredPlan===FeaturedPlan_Business.VIP);
   useEffect(() => {
     GsapSectionAnimation_1('agency');
   }, []);

@@ -9,6 +9,7 @@ import {
 import VIPAgencyCard from '../../../Components/Lists/Card/Agency/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { AGENCYS } from 'Consts/Lists/agency';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -17,7 +18,11 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {AGENCYS.filter((agency) => agency.isFeatured).map((agency) => {
+        {AGENCYS.filter(
+          (agency) =>
+            agency.featuredPlan === FeaturedPlan_Business.VIP ||
+            agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
+        ).map((agency) => {
           return (
             <VIPAgencyCard
               key={agency.slug}
@@ -30,7 +35,9 @@ function Content() {
         })}
       </VIPContainer>
       <NormalAgencysContainer>
-        {AGENCYS.filter((agency) => !agency.isFeatured).map((agency) => {
+        {AGENCYS.filter(
+          (agency) => agency.featuredPlan === FeaturedPlan_Business.SIMPLE
+        ).map((agency) => {
           return (
             <AgencyCard
               key={agency.slug}

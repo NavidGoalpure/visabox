@@ -15,9 +15,10 @@ export function proxySanityClientResponseToCamelCase(
       phoneNumber: sanityResponse?.phone,
       australianWorkExperience: sanityResponse?.australian_work_experience,
       IELTSScore: sanityResponse?.ielts_score,
+      isSharable: sanityResponse?.is_sharable,
+      uniSection:sanityResponse?.uni_section
     });
     
 
-  console.log("navid sanityResponse ===", sanityResponse);
   return clientData;
 }

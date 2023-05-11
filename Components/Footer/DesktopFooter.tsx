@@ -2,7 +2,6 @@ import { Logo } from 'Elements/Logo';
 import React from 'react';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
-import { Headline5Style } from 'Styles/Typo';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -13,6 +12,9 @@ import { useLocale } from 'Hooks/useLocale';
 import { copyContent } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages } from 'Interfaces';
+import { Headline7Style } from 'Styles/Typo';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -23,6 +25,9 @@ function DesktopFooter() {
       <StyledLogo />
       <Wrapper>
         <SideContainer>
+          <SwitchButton>
+            <SwitchTheme />
+          </SwitchButton>
           <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
             {t(LanguageKeys.Home)}
           </Items>
@@ -53,7 +58,7 @@ function DesktopFooter() {
             {t(LanguageKeys.AgenciesBox)}
           </Items>
           <Items
-            href={`/${locale}/lists/secial-pages`}
+            href={`/${locale}/lists/social-pages`}
             data-name={t(LanguageKeys.SocialNetWorksBox)}
           >
             {t(LanguageKeys.SocialNetWorksBox)}
@@ -77,6 +82,7 @@ function DesktopFooter() {
               <GmailLogo />
             </a>
           </LogosContainer>
+          <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
         </SideContainer>
       </Wrapper>
     </Container>
@@ -232,6 +238,12 @@ const SideContainer = styled.div`
     right: 6%;
   }
 `;
+
+const SwitchButton = styled.div`
+position: absolute;
+bottom: 16px;
+`
+
 const ContactUs = styled.h2`
   ${layer2A_SubtitleStyle}
   color: var(--color-gray9);
@@ -241,6 +253,19 @@ const LogosContainer = styled.div`
   gap: 1.5rem;
   align-items: center;
 `;
+
+const Privacy = styled.a`
+${layer2A_TextStyle}
+color: var(--color-gray9);
+font-size: 12px;
+position: absolute;
+bottom: 8px;
+
+:hover {
+  text-decoration: underline;
+}
+`
+
 const TelegramLogo = styled(FaTelegramPlane)`
   color: var(--color-gray9);
   cursor: pointer;

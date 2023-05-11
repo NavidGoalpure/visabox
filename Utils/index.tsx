@@ -1,14 +1,16 @@
-import ErrorToast from 'Elements/Toast/Error';
-import SuccessToast from 'Elements/Toast/Success';
-import { LocalStorageKeys, ThemeModes } from 'Interfaces';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import ErrorToast from "Elements/Toast/Error";
+import SuccessToast from "Elements/Toast/Success";
+import { LocalStorageKeys, ThemeModes } from "Interfaces";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { MultiLanguageText } from "Interfaces";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import crypto from 'crypto';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
   const DEFAULT_THEME = ThemeModes.DARK;
   const res =
-    typeof window === 'undefined'
+    typeof window === "undefined"
       ? DEFAULT_THEME
       : (localStorage.getItem(LocalStorageKeys.Theme) as ThemeModes);
   return res;
@@ -18,12 +20,12 @@ const getThemeFromLocalStorage = (): ThemeModes => {
 //
 function isItOnLive(): boolean {
   const smartLocation =
-    typeof window === 'undefined' ? '' : window?.location?.href;
+    typeof window === "undefined" ? "" : window?.location?.href;
   if (
-    smartLocation.includes('https://marabox.com') ||
-    smartLocation.includes('http://marabox.com') ||
-    smartLocation.includes('https://www.marabox.com') ||
-    smartLocation.includes('http://www.marabox.com')
+    smartLocation.includes("https://marabox.com") ||
+    smartLocation.includes("http://marabox.com") ||
+    smartLocation.includes("https://www.marabox.com") ||
+    smartLocation.includes("http://www.marabox.com")
   )
     return true;
   return false;
@@ -37,22 +39,34 @@ function setLocalStorage({
   value: string;
   isReloadPage?: boolean;
 }) {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
   //
   window.localStorage.setItem(key, value);
   //
   if (isReloadPage) window.location.reload();
 }
 function getLocalStorage(key: LocalStorageKeys): string | null {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === "undefined") return null;
   //
   return window.localStorage.getItem(key);
   //
 }
+enum LanguageKeys {
+  toastMessage = "toastMessage",
+}
+const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  toastMessage: {
+    en: "Copied to clipboard",
+    fa: "کپی شد",
+  },
+};
+
 const copyContent = async (text: string) => {
+  const { t } = useStaticTranslation(componentStatements);
+  const toastMessage = t(LanguageKeys.toastMessage);
   await navigator.clipboard
     .writeText(text)
-    .then(() => SuccessToast('Copied to clipboard'));
+    .then(() => SuccessToast(toastMessage));
   //   ErrorToast("Copying to clipboard was not successful!");
 };
 function getGsapTimeLine_FadeUp(id: string | number) {
@@ -66,8 +80,8 @@ function getGsapTimeLine_FadeUp(id: string | number) {
     {
       scrollTrigger: {
         trigger: `.${id}`,
-        start: '20 bottom',
-        toggleActions: 'play none none none',
+        start: "20 bottom",
+        toggleActions: "play none none none",
       },
       y: 0,
       opacity: 1,
@@ -81,9 +95,9 @@ const slugify = (str: string) =>
   str
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 function convertToMd5(text: string) {
   return crypto.createHash('md5').update(text).digest('hex');

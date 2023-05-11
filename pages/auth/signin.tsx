@@ -13,16 +13,22 @@ import styled, { css } from 'styled-components';
 import { FcGoogle } from 'react-icons/fc';
 import theme from 'styled-theming';
 import { FaDiscord } from 'react-icons/fa';
-import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import { device } from 'Consts/device';
+import { setLocalStorage } from 'Utils';
+import { CookieKeys, LocalStorageKeys } from 'Interfaces';
+import { useLocale } from 'Hooks/useLocale';
+import Cookies from 'js-cookie';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from 'PagesComponents/Auth/Signin/const';
 
 export default function SignIn({
   providers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
   return (
     <StyledPageLayout>
       <Seo
@@ -32,9 +38,9 @@ export default function SignIn({
       />
       <MaraBgAnimation>
         <BlurContainer>
-          <Title>Login</Title>
+          <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>
-            Use your Google or Discord accounts for Signing or Register.
+            {t(LanguageKeys.Subtitle)}
           </Subtitle>
           {providers.map(
             (
@@ -45,7 +51,17 @@ export default function SignIn({
               },
               i: Key
             ) => (
-              <SocialButton onClick={() => signIn(provider.id)} key={i}>
+              <SocialButton
+                onClick={() => {
+                  //چون با عوض شدن یوآرال لوکیل رو از دست میدیم، موقتا لوکیل رو توی کوکی ذخیره میکنیم
+                  // تا در صفحه وریفیکیشن و در قسمت سرورسایدش بتونیم دوباره کاربر رو به لوکیل خودش برگردونیم
+                  Cookies.set(CookieKeys.TemporaryLocale, locale, {
+                    expires: 1,
+                  });
+                  signIn(provider.id);
+                }}
+                key={i}
+              >
                 {provider.name === 'Google' && <GoogleIcon />}
                 {provider.name === 'Discord' && <DiscordIcon />}
                 Sign in with {provider.name}
@@ -64,8 +80,15 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // If the user is already logged in, redirect.
   // Note: Make sure not to redirect to the same page
   // To avoid an infinite loop!
+
+  //navid
+  // این خط باعث میشه بعد از لاگین به زبان فارسی که دیفالت هست بره
+  // باید بفهمیم زبان کاربر چی بوده تا بفرستیمش همونجا
+  console.log('***navid locale=', context.locale);
   if (session) {
-    return { redirect: { destination: '/' } };
+    return {
+      redirect: { destination: `/auth/verification` },
+    };
   }
 
   const providers = authOptions.providers;
@@ -112,6 +135,7 @@ const SubtitleColor = theme('mode', {
 const Subtitle = styled.h1`
   ${Layer1_SubtitleStyle}
   ${SubtitleColor}
+    text-align: center !important;
 `;
 const SocialButtonTheme = theme('mode', {
   light: css`

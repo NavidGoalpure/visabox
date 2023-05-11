@@ -6,6 +6,9 @@ import {
   ErrorElement,
   ErrorIcon,
   Label,
+  InputWrapper,
+  LoadingBackgroundCircle,
+  LoadingMovingCircle,
 } from "./styles";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -18,6 +21,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   focus?: boolean;
   endElement?: string | ReactNode;
+  isLoading?: boolean;
   placeholder?: string;
   inputName?: string;
   label?: string;
@@ -29,12 +33,13 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = ({
   type = "text",
   isNumberOnly = false,
+  focus = false,
+  disabled = false,
+  isLoading = false,
   errorMasage,
   value,
-  disabled = false,
   className,
   onChange,
-  focus = false,
   endElement,
   placeholder,
   inputName,
@@ -43,27 +48,48 @@ export const Input = ({
   ref,
   ...props
 }: InputProps) => {
-  console.log("navid value ===", value);
   return (
     <Container className={className}>
       <InputContainer disabled={disabled} id="input-container">
         {!!label && <Label htmlFor={inputName || ""}>{label}</Label>}
-        <StyledInput
-          id={id}
-          type={type}
-          ref={ref}
-          onChange={onChange}
-          hasError={!!errorMasage}
-          value={
-            isNumberOnly && value
-              ? value.toString().replace(/[^\d]/g, "")
-              : value
-          }
-          disabled={disabled}
-          placeholder={placeholder}
-          name={inputName}
-          {...props}
-        ></StyledInput>
+        <InputWrapper>
+          <StyledInput
+            id={id}
+            type={type}
+            ref={ref}
+            onChange={onChange}
+            hasError={!!errorMasage}
+            value={
+              isNumberOnly && value
+                ? value.toString().replace(/[^\d]/g, "")
+                : value
+            }
+            disabled={disabled || isLoading}
+            placeholder={placeholder}
+            name={inputName}
+            {...props}
+          />
+          {isLoading && (
+            <svg width="50" height="50" viewBox="0 0 100 100">
+              <LoadingBackgroundCircle
+                strokeWidth={7}
+                r="30"
+                cx={50}
+                cy={50}
+                x={0}
+                y={0}
+              />
+              <LoadingMovingCircle
+                strokeWidth={7}
+                r="30"
+                cx={50}
+                cy={50}
+                x={0}
+                y={0}
+              />
+            </svg>
+          )}
+        </InputWrapper>
         {!!errorMasage && (
           <ErrorElement>
             <ErrorIcon />

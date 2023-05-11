@@ -27,7 +27,6 @@ export default {
       type: "string",
     },
     {
-      // navid turn age to type of Date
       name: "age",
       title: "Age",
       type: "date",
@@ -150,11 +149,29 @@ export default {
         direction: "horizontal",
       },
     },
+    {
+      name: "is_sharable",
+      title: "is Sharable",
+      type: "boolean",
+    },
+    {
+      name: "uni_section",
+      title: "Uni Section",
+      type: "string",
+      options: {
+        list: [
+          { title: "Section 1", value: "section 1" },
+          { title: "Section 2", value: "section 2" },
+          { title: "I don't know", value: "i dont know" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    },
   ],
 
   // preview: {
   //   select: {
-  //     // navid find why its untitled
   //     title: "username",
   //   },
   // },

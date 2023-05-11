@@ -2574,6 +2574,11 @@
     expect "^29.0.0"
     pretty-format "^29.0.0"
 
+"@types/js-cookie@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@types/js-cookie/-/js-cookie-3.0.3.tgz#d6bfbbdd0c187354ca555213d1962f6d0691ff4e"
+  integrity sha512-Xe7IImK09HP1sv2M/aI+48a20VX+TdRJucfq4vfRVy6nWN8PYPOEnlMRSgxJAgYQIXJVL8dZ4/ilAM7dWNaOww==
+
 "@types/jsdom@^16.2.4":
   version "16.2.15"
   resolved "https://registry.yarnpkg.com/@types/jsdom/-/jsdom-16.2.15.tgz#6c09990ec43b054e49636cba4d11d54367fc90d6"
@@ -5380,6 +5385,11 @@ jose@^4.10.0, jose@^4.9.3:
   version "4.11.4"
   resolved "https://registry.yarnpkg.com/jose/-/jose-4.11.4.tgz#e04d4a393ac017d0450fa0a38e2f2382cd73f71e"
   integrity sha512-94FdcR8felat4vaTJyL/WVdtlWLlsnLMZP8v+A0Vru18K3bQ22vn7TtpVh3JlgBFNIlYOUlGqwp/MjRPOnIyCQ==
+
+js-cookie@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
+  integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
 
 js-sha3@0.8.0:
   version "0.8.0"

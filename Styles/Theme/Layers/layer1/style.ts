@@ -12,8 +12,8 @@ import {
 export const Layer1_TitleStyle = css<{
   color?: string;
 }>`
-  ${Headline4Style}
-  ${layer1_TitleColor}
+  ${Headline4Style};
+  ${layer1_TitleColor};
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
   margin-top: 1rem;
@@ -40,6 +40,7 @@ export const Layer1_TextStyle = css`
   ${directionStyles}
   ${layer1_TextColor}
   ${Headline6Style}
+  font-weight: normal;
   margin-bottom: 1rem;
   text-align: center;
   @media ${deviceMin.tabletS} {

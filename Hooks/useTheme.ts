@@ -1,6 +1,6 @@
-import { LocalStorageKeys, ThemeModes } from 'Interfaces';
-import { useEffect, useState } from 'react';
-import { setLocalStorage } from 'Utils';
+import { LocalStorageKeys, ThemeModes } from "Interfaces";
+import { useEffect, useState } from "react";
+import { getLocalStorage, setLocalStorage } from "Utils";
 
 export default function useTheme() {
   // State to store our value
@@ -8,7 +8,7 @@ export default function useTheme() {
 
   const [theme, setThemeState] = useState<ThemeModes>(ThemeModes.DARK);
   useEffect(() => {
-    const item = localStorage?.getItem(LocalStorageKeys.Theme);
+    const item = getLocalStorage(LocalStorageKeys.Theme);
     if (item === ThemeModes.LIGHT) setThemeState(ThemeModes.LIGHT);
   }, []);
 

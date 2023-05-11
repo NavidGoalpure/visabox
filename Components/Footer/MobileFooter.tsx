@@ -11,6 +11,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import { copyContent } from 'Utils';
 import { Languages } from 'Interfaces';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 function MobileFooter() {
   const { t } = useStaticTranslation(componentStatements);
@@ -49,7 +50,7 @@ function MobileFooter() {
           {t(LanguageKeys.AgenciesBox)}
         </Items>
         <Items
-          href={`/${locale}/lists/secial-pages`}
+          href={`/${locale}/lists/social-pages`}
           data-name={t(LanguageKeys.SocialNetWorksBox)}
         >
           {t(LanguageKeys.SocialNetWorksBox)}
@@ -73,6 +74,7 @@ function MobileFooter() {
             <GmailLogo />
           </a>
         </LogosContainer>
+        <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
       </ContactUsContainer>
     </Container>
   );
@@ -173,6 +175,17 @@ const LogosContainer = styled.div`
   gap: 1rem;
   align-items: center;
 `;
+
+const Privacy = styled.a`
+${layer2A_TextStyle}
+color: var(--color-gray9);
+// font-size: 12px;
+position: absolute;
+bottom: 16px;
+:hover {
+  text-decoration: underline;
+}
+`
 
 const TelegramLogo = styled(FaTelegramPlane)`
   color: var(--color-gray9);

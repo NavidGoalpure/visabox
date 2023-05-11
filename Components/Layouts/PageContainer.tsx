@@ -8,7 +8,7 @@ import { Languages } from "Interfaces";
 import { useSession } from "next-auth/react";
 import { getClientDetail } from "Queries/client";
 import React, { HTMLAttributes, ReactNode, useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery } from 'react-query';
 import styled from "styled-components";
 import { directionStyles } from "Styles/Theme";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";

@@ -38,6 +38,7 @@ function Content() {
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
           if (res?.clientData[0]?.name) {
             router.push(`/${locale}`);
+            console.log("navid inja")
           }
           // اگر کلاینت برای اولین بار ثبت نام کرده بود
           else {

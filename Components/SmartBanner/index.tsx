@@ -1,21 +1,32 @@
 import MaraBgAnimation from "Components/MaraBgAnimation";
 import { deviceMin } from "Consts/device";
-import { PrimaryButton } from "Elements/Button/Primary";
+import { SecondaryButton } from "Elements/Button/Secondary";
+import { LocalStorageKeys } from "Interfaces";
 import { useRouter } from "next/router";
-import { HTMLAttributes, ReactNode } from "react";
+import { HTMLAttributes, ReactNode, useEffect, useState } from "react";
+import { IoCloseOutline } from "react-icons/io5";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
-import { Headline3Style, Headline4Style } from "Styles/Typo";
+import { Headline5Style } from "Styles/Typo";
+import { getLocalStorage, setLocalStorage } from "Utils";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
   buttonText: string;
 }
-const Type1: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
+const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
   const router = useRouter();
+  const [isBannerClosed, setIsBannerClosed] = useState(false);
+  useEffect(() => {
+    if (
+      getLocalStorage(LocalStorageKeys.Client_IsFormBannerClosed) === "true"
+    ) {
+      setIsBannerClosed(true);
+    }
+  }, []);
   return (
-    <Container>
+    <Container isBannerClosed={isBannerClosed}>
       {" "}
       <MaraBgAnimation
         animationSpeed={60}
@@ -27,28 +38,40 @@ const Type1: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
           <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
             {buttonText}
           </Button>
+          <CloseIconWrapper
+            onClick={() => {
+              setLocalStorage({
+                key: LocalStorageKeys.Client_IsFormBannerClosed,
+                value: "true",
+              });
+              setIsBannerClosed(true);
+            }}
+          >
+            <CloseIcon />
+          </CloseIconWrapper>
         </Wrapper>
       </MaraBgAnimation>
     </Container>
   );
 };
-export default Type1;
+export default SmartBanner;
 const NextIconDirectionStyle = theme("languageDirection", {
   ltr: css``,
   rtl: css`
     transform: rotate(180deg);
   `,
 });
-const Container = styled.div`
+const Container = styled.div<{ isBannerClosed: boolean }>`
   background: var(--color-primary1);
   text-align: center;
   position: relative;
-  top: -2rem;
-  left: 0;
   width: 100%;
   height: max-content;
   z-index: 0;
   overflow: hidden;
+  ///////////
+  ${({ isBannerClosed }) => isBannerClosed && `display:none;`}
+  ///////
   :before {
     content: "";
     width: 20%;
@@ -60,7 +83,7 @@ const Container = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 10;
+    z-index: 0;
   }
   :after {
     content: "";
@@ -73,38 +96,52 @@ const Container = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 10;
+    z-index: 0;
   }
 `;
 const Wrapper = styled.div`
   display: flex;
-  padding: 1.5rem 0;
   flex-direction: column;
+  padding: 2rem 0.3rem 1rem;
   justify-content: center;
   align-items: center;
-  gap: 3.5rem;
+  gap: 1rem;
   backdrop-filter: blur(5px);
   @media ${deviceMin.tabletS} {
-    padding: 1.5rem 2rem;
+    flex-direction: row;
+    padding: 0.3rem;
   }
 `;
 const Title = styled.h2`
-  ${Headline4Style};
+  ${Headline5Style};
   color: var(--color-gray13);
-  @media ${deviceMin.tabletS} {
-    ${Headline3Style};
-    width: auto;
-  }
   span {
     color: var(--color-primary5);
   }
 `;
-const Button = styled(PrimaryButton)`
-  width: fit-content;
+const Button = styled(SecondaryButton)`
+  width: auto;
 `;
 export const NextIcon = styled(MdNavigateNext)`
   ${NextIconDirectionStyle};
   width: auto;
   height: 1.5rem;
   margin-bottom: 0.2rem;
+`;
+const CloseIconWrapper = styled.div`
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  @media ${deviceMin.tabletS} {
+    top: 20%;
+    right: 5%;
+  }
+`;
+const CloseIcon = styled(IoCloseOutline)`
+  color: white;
+  width: 100%;
+  height: 100%;
 `;

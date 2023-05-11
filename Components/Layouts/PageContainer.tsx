@@ -1,10 +1,10 @@
-import Banner from "Components/Banner";
+import SmartBanner from "Components/SmartBanner";
 import Footer from "Components/Footer";
 import ToasterContainer from "Components/ToasterContainer";
 import { deviceMin } from "Consts/device";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Languages, LocalStorageKeys } from "Interfaces";
+import { Languages } from "Interfaces";
 import { useSession } from "next-auth/react";
 import { getClientDetail } from "Queries/client";
 import React, { HTMLAttributes, ReactNode, useEffect, useState } from "react";
@@ -12,7 +12,6 @@ import { useQuery } from "react-query";
 import styled from "styled-components";
 import { directionStyles } from "Styles/Theme";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import { getLocalStorage } from "Utils";
 import { UserQueryKeys } from "Utils/query/keys";
 import Header from "../NavigationMenu";
 import { componentStatements, LanguageKeys } from "./const";
@@ -60,15 +59,14 @@ const PageContainer: React.FC<Props> = ({
       <ToasterContainer />
       {hasMenu && <Header />}
       {hasBanner && !hasClientCompletedForm && (
-        <Banner
-          navigateTo="/forms/client"
+        <SmartBanner
+          navigateTo={`/${locale}/forms/client`}
           desc={
             <div
               dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
             ></div>
           }
           buttonText={t(LanguageKeys.BannerButtonText)}
-          type="TYPE2"
         />
       )}
 

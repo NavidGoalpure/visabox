@@ -9,31 +9,28 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { useEffect, useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
-import { hotjar } from 'react-hotjar';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
 import { Montserrat } from '@next/font/google';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`
- ${globalStyles}
+${globalStyles}
 `;
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+  const router = useRouter();
   const [queryClient] = useState(() => new QueryClient());
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
-
   useEffect(() => {
-    hotjar.initialize(
-      Number(process.env.NEXT_PUBLIC_HJID),
-      Number(process.env.NEXT_PUBLIC_HJSV)
-    );
+    smartActiveHotjar(router.route);
   }, []);
-
   return (
     <>
       <style jsx global>{`

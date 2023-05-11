@@ -71,6 +71,8 @@ export const AGENCYS: Agency[] = [
     },
     agentsId: ['agt17'],
     status: Status.ACTIVE,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/LocKxKSv-L/transform?format=webp&size=md&quality=best',
   },
   // {
   //     id: 'agc5',
@@ -104,6 +106,8 @@ export const AGENCYS: Agency[] = [
     },
     agentsId: ['agt27'],
     status: Status.ACTIVE,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/cLmt8U6IyD/transform?format=webp&size=md&quality=best',
   },
   {
     id: 'agc7',
@@ -121,6 +125,8 @@ export const AGENCYS: Agency[] = [
     },
     agentsId: ['agt13'],
     status: Status.ACTIVE,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/6sAICuDV2d/transform?format=webp&size=md&quality=best',
   },
   {
     id: 'agc8',
@@ -256,6 +262,8 @@ export const AGENCYS: Agency[] = [
     },
     agentsId: ['agt17'],
     status: Status.ACTIVE,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/BOIbrUTlLL/transform?format=webp&size=md&quality=best',
   },
   // {
   //     id: 'agc16',

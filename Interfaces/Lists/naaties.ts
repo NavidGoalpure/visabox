@@ -9,4 +9,6 @@ export interface Naati {
   contact: Contact;
   featuredPlan: FeaturedPlan_Business;
   status: Status;
+  avatar?: string;
+  slug: string;
 }

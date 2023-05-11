@@ -26,20 +26,20 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
   desc: MultiLanguageText | undefined;
   slug: string;
+  avatar: string;
 }
 
-function VIPAgentCard({ name, desc, slug, className, ...props }: Props) {
+function VIPAgentCard({ name, avatar, desc, slug, className, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState(`/Images/placeholder.jpeg`);
 
   useEffect(() => {
-    if (slug) setImgSrc(`/Images/lists/agent/${slug}.jpeg`);
-  }, [slug]);
+    if (avatar) setImgSrc(avatar);
+  }, [avatar]);
 
   useEffect(() => getGsapTimeLine_VipCard(slug));
-
   return (
     <Container
       {...props}

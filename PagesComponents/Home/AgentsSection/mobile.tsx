@@ -31,6 +31,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           name={vipAgent?.name}
           desc={vipAgent?.desc}
           slug={vipAgent?.slug}
+          avatar={vipAgent?.avatar || `/Images/placeholder.jpeg`}
         />
       )}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>

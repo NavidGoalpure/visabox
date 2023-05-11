@@ -5,14 +5,21 @@ import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
-import { SidebarPage } from 'PagesComponents/Lists/Agents/AgentPage/Mobile/SideBar';
+import { SidebarPage } from 'PagesComponents/Lists/Naaties/NaatiPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
-import { Agent } from 'Interfaces/Lists/agents';
+import { Naati } from 'Interfaces/Lists/naaties';
+import { useEffect, useState } from 'react';
+import { useLocale } from 'Hooks/useLocale';
 interface Props {
-  ChosenAgent?: Agent;
+  chosenNaati?: Naati;
 }
-function MobileAgentsPage({ ChosenAgent }: Props) {
+function MobileNaatiPage({ chosenNaati }: Props) {
   const { dt } = useDynamicTranslation();
+  const [imgSrc, setImgSrc] = useState(`/Images/placeholder.jpeg`);
+  const { locale } = useLocale();
+  useEffect(() => {
+    if (chosenNaati?.avatar) setImgSrc(chosenNaati?.avatar);
+  }, [chosenNaati?.avatar]);
 
   return (
     <Container>
@@ -22,28 +29,32 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
       <ProfilePictureWrapper>
         <ProfilePicture
           fill
-          src={`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`}
-          alt={'agent image'}
+          src={imgSrc}
+          alt={chosenNaati?.fullName ? `${chosenNaati?.fullName?.[locale]} image` : 'naati image'}
+          onError={() => {
+            setImgSrc(`/Images/placeholder.jpeg`);
+          }}
+          quality={100}
+          sizes='96px'
         />
-        <VIPBoxContainer aria-hidden={true}>
+        < VIPBoxContainer aria-hidden={true}>
           <VIPBox aria-hidden={true} />
         </VIPBoxContainer>
       </ProfilePictureWrapper>
-      <Title>{dt(ChosenAgent?.name)}</Title>
+      <Title>{dt(chosenNaati?.fullName)}</Title>
       <SidebarPage
-        maraNumber={ChosenAgent?.maraNumber}
-        website={ChosenAgent?.contact?.website}
-        email={ChosenAgent?.contact?.email}
-        phone={ChosenAgent?.contact?.phone}
-        telegram={ChosenAgent?.contact?.telegram}
-        instagram={ChosenAgent?.contact?.instagram}
-        linkedin={ChosenAgent?.contact?.linkedin}
-        desc={ChosenAgent?.desc}
+        website={chosenNaati?.contact?.website}
+        email={chosenNaati?.contact?.email}
+        phone={chosenNaati?.contact?.phone}
+        telegram={chosenNaati?.contact?.telegram}
+        instagram={chosenNaati?.contact?.instagram}
+        linkedin={chosenNaati?.contact?.linkedin}
+        desc={chosenNaati?.desc}
       />
-    </Container>
+    </Container >
   );
 }
-export default MobileAgentsPage;
+export default MobileNaatiPage;
 const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);

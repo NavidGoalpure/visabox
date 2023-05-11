@@ -29,6 +29,7 @@ function Content() {
               name={agent.name}
               desc={agent.desc}
               slug={agent.slug}
+              avatar={agent.avatar || `/Images/placeholder.jpeg`}
             />
           );
         })}

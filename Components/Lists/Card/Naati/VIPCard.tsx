@@ -12,7 +12,7 @@ import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { Headline7Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
 import { MultiLanguageText } from 'Interfaces';
-import { HTMLAttributes, useEffect } from 'react';
+import { HTMLAttributes, useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { deviceMin } from 'Consts/device';
@@ -20,17 +20,26 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 import Link from 'next/link';
 import { getGsapTimeLine_VipCard } from '../const';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   fullname: MultiLanguageText;
   desc: MultiLanguageText | undefined;
   slug: string;
+  avatar: string;
 }
 
-function VIPNaatiCard({ fullname, desc, slug, className, ...props }: Props) {
+function VIPNaatiCard({ fullname, avatar, desc, slug, className, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   useEffect(() => getGsapTimeLine_VipCard(slug));
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState(`/Images/placeholder.jpeg`);
+
+  useEffect(() => {
+    if (avatar) setImgSrc(avatar);
+  }, [avatar]);
+
 
   return (
     <Container
@@ -43,8 +52,11 @@ function VIPNaatiCard({ fullname, desc, slug, className, ...props }: Props) {
         <ImageWrapper>
           <NaatiLogo
             fill
-            src={`/Images/lists/naaties/${slug}.jpeg`}
-            alt={` image of ${slug}`}
+            src={imgSrc}
+            alt={fullname ? `${fullname?.[locale]} image` : 'agent image'}
+            onError={() => {
+              setImgSrc(`/Images/placeholder.jpeg`);
+            }}
             quality={100}
             sizes='96px'
           />

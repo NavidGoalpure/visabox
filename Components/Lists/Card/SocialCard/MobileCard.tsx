@@ -22,7 +22,7 @@ import { SocialMediaTypes, Socials } from 'Interfaces/Lists/socials';
 import { HTMLAttributes } from 'react';
 import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
-interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials { }
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
 
 function MobileSocialCard({
   desc,
@@ -66,7 +66,7 @@ function MobileSocialCard({
         return null;
     }
   };
-  console.log("navid =", featuredPlan);
+
   return (
     <Container href={link} target={'_blank'} featuredPlan={featuredPlan}>
       <Wrapper featuredPlan={featuredPlan} {...props}>
@@ -182,7 +182,8 @@ const Container = styled.a<{ featuredPlan: FeaturedPlan_Business }>`
   transition: all 0.3s ease;
   width: 100%;
   @media ${deviceMin.laptopXS} {
-    ${({ featuredPlan }) => featuredPlan === FeaturedPlan_Business.SIMPLE && 'width: 30%;'}
+    ${({ featuredPlan }) =>
+      featuredPlan === FeaturedPlan_Business.SIMPLE && 'width: 30%;'}
   }
   :hover {
     transform: scale(1.05);
@@ -266,7 +267,7 @@ const NameTag = styled.h4<{ featuredPlan: FeaturedPlan_Business }>`
   transition: all 0.3s ease;
 
   ${({ featuredPlan }) =>
-    featuredPlan=== FeaturedPlan_Business.VIP
+    featuredPlan === FeaturedPlan_Business.VIP
       ? `background-color: var(--color-gray7); color:var(--color-gray13);`
       : layer2A_HeaderBG}
 `;
@@ -278,7 +279,10 @@ const Img = styled(Image)`
 const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline6Style};
   text-align: start;
-  ${({ featuredPlan }) => (featuredPlan === FeaturedPlan_Business.VIP ? layer2B_TextColor : layer1_TextColor)}
+  ${({ featuredPlan }) =>
+    featuredPlan === FeaturedPlan_Business.VIP
+      ? layer2B_TextColor
+      : layer1_TextColor}
   white-space: pre-line;
   overflow: hidden;
   text-align: center;

@@ -7,7 +7,7 @@ import Router, { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
 import { useEffect } from "react";
 function Content() {
-  const { status, data: session } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   const { locale } = useLocale();
   useEffect(() => {

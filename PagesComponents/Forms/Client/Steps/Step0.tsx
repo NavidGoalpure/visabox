@@ -9,10 +9,11 @@ import styled, { css } from "styled-components";
 import useTheme from "Hooks/useTheme";
 import DarkKangorooLogo from "./Images/DarkKangorooLogo.svg";
 import LightKangorooLogo from "./Images/LightKangorooLogo.svg";
-import { Headline3Style } from "Styles/Typo";
+import { Headline3Style, Headline4Style } from "Styles/Typo";
 import { ThemeModes } from "Interfaces";
 import theme from "styled-theming";
-import { layer2A_SubtitleStyle } from "Styles/Theme/Layers/layer2/style";
+import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
+import { deviceMin } from "Consts/device";
 
 const Step0 = () => {
   const { theme } = useTheme();
@@ -58,27 +59,38 @@ const BackgroundTheme = theme("mode", {
 });
 const Container = styled.div`
   ${BackgroundTheme};
-  box-sizing: content-box;
   width: 100%;
   height: 100%;
   margin-top: 2rem;
-  padding: 1.5rem 2.5rem;
+  padding: 1.5rem 1rem;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  box-sizing: border-box;
+  @media ${deviceMin.tabletS} {
+    padding: 1.5rem 2.5rem;
+    box-sizing: content-box;
+  }
 `;
 const LogoContainer = styled.div``;
 const Logo = styled(Image)``;
 const Title = styled.h1`
-  ${Headline3Style};
+  ${Headline4Style};
+  white-space: nowrap;
   color: var(--color-primary5);
+  @media ${deviceMin.tabletS} {
+    ${Headline3Style};
+  }
 `;
 const Desc = styled.p`
-  ${layer2A_SubtitleStyle};
   white-space: pre-line;
+  ${layer2A_TextStyle};
+  @media ${deviceMin.tabletS} {
+    ${layer2A_SubtitleStyle};
+  }
 `;
 const StartButton = styled(NextButton)`
   margin: 0 auto;

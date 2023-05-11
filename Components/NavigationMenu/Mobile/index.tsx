@@ -17,6 +17,7 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, getGsapTimeLine, LanguageKeys } from "../const";
 import OccupationDropdown from "./dropdownOccupation";
 import MobileBoxesDropdown from "./dropdownBoxes";
+import { useSession } from "next-auth/react";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -25,6 +26,7 @@ function SmartHeader() {
   const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
   const popupAnimationRef = useRef<gsap.core.Timeline>();
   const { t } = useStaticTranslation(componentStatements);
+  const { data: session } = useSession();
   useEffect(
     () => getGsapTimeLine({ hamburgerAnimationRef, popupAnimationRef }),
     []
@@ -46,7 +48,17 @@ function SmartHeader() {
   return (
     <Container>
       <Wrapper>
-        <Signin href={`/${locale}/auth/signin`}>{t(LanguageKeys.Login)}</Signin>
+        {session ? (
+          <Avatar
+            src={session.user?.image || "/Images/placeholder.jpeg"}
+            alt={"user-profile"}
+          />
+        ) : (
+          <Signin href={`/${locale}/auth/signin`}>
+            {t(LanguageKeys.Login)}
+          </Signin>
+        )}
+
         <MenuPopupContainer id={"popup"}>
           <ScrollBox id={"scrollbox"} height={"18rem"}>
             <MenuPopupWrapper>
@@ -145,7 +157,11 @@ const MenuLink = styled(Link)`
   text-align: start;
   width: 100%;
 `;
-
+const Avatar = styled.img`
+  border-radius: 50%;
+  width: 2rem;
+  outline: 2px solid var(--color-gray7);
+`;
 const Signin = styled(MenuLink)`
   ${layer3_SubtitleStyle};
   text-align: start;

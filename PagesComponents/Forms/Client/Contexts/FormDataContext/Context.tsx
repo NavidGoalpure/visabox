@@ -1,10 +1,10 @@
-import { ClientData } from 'Interfaces/Client';
-import { useSession } from 'next-auth/react';
-import { getClientDetail } from 'Queries/client';
-import React, { useState } from 'react';
-import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
-import { UserQueryKeys } from 'Utils/query/keys';
-import { useQuery } from 'react-query';
+import { ClientData } from "Interfaces/Client";
+import { useSession } from "next-auth/react";
+import { getClientDetail } from "Queries/client";
+import React, { useEffect, useState } from "react";
+import { proxySanityClientResponseToCamelCase } from "Utils/query/clients";
+import { UserQueryKeys } from "Utils/query/keys";
+import { useQuery } from "react-query";
 
 type ContextProps = {
   children: React.ReactNode;
@@ -71,9 +71,10 @@ function FormDataContextProvider(props: ContextProps) {
   //     uni_section,
   //     `,
   //   });
-
-  if (data?.clientData[0])
-    setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));
+  useEffect(() => {
+    if (data?.clientData[0])
+      setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));
+  }, [data]);
 
   //
   return (

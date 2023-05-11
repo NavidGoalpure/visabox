@@ -143,8 +143,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "پایان فرم",
   },
   Step9Desc: {
-    en: "We value your privacy and want to ensure that you have complete control over your information. Do you want us to share your registered information with immigration lawyers?",
-    fa: "ما برای حریم خصوصی شما ارزش قائل هستیم و می خواهیم اطمینان حاصل کنیم که کنترل کاملی بر اطلاعات خود دارید. آیا مایل هستید که اطلاعات ثبت شده شما را در اختیار وکلای مهاجرت بگذاریم؟",
+    en: "Would you like us to share this information with Marabax approved immigration attorneys to contact you for a free consultation?",
+    fa: "آیا مایل هستید که این اطلاعات را در اختیار وکلای مهاجرت مورد تایید «ماراباکس» بگذاریم تا برای مشاوره رایگان با شما تماس بگیرند؟",
   },
   YesText: {
     en: "Yes",

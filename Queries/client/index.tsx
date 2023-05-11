@@ -1,7 +1,7 @@
-import { QueryClient, useQueryClient } from 'react-query';
-import { UserQueryKeys } from 'Utils/query/keys';
-import { sanityClient } from 'Utils/sanity';
-import { ClientData_Sanity } from './interface';
+import { QueryClient, useQueryClient } from "react-query";
+import { UserQueryKeys } from "Utils/query/keys";
+import { sanityClient } from "Utils/sanity";
+import { ClientData_Sanity } from "./interface";
 
 interface GetClientDetail {
   email: string;

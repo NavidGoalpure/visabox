@@ -4,9 +4,9 @@ import { WizardContext } from "../Contexts/Wizard/Context";
 import { useContext, useState } from "react";
 import { PrevButton, PrevIcon } from "./StyledComponents";
 import styled, { css } from "styled-components";
-import { Headline3Style } from "Styles/Typo";
+import { Headline3Style, Headline4Style } from "Styles/Typo";
 import theme from "styled-theming";
-import { layer2A_SubtitleStyle } from "Styles/Theme/Layers/layer2/style";
+import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import { useMutation, useQueryClient } from "react-query";
 import SuccessToast from "Elements/Toast/Success";
 import { useSession } from "next-auth/react";
@@ -17,6 +17,7 @@ import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { BsCheck2, BsFillCheckCircleFill } from "react-icons/bs";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { Loading } from "Elements/Loading";
+import { deviceMin } from "Consts/device";
 
 const Step9 = () => {
   const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
@@ -48,7 +49,7 @@ const Step9 = () => {
         })
       );
     },
-    onError: (errors) => {
+    onError: () => {
       // navid make an error handling function here
     },
   });
@@ -116,13 +117,18 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   margin-top: 2rem;
-  padding: 1.5rem 2.5rem;
+  padding: 1.5rem 1rem;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  box-sizing: border-box;
+  @media ${deviceMin.tabletS} {
+    padding: 1.5rem 2.5rem;
+    box-sizing: content-box;
+  }
 `;
 const Logo = styled(BsFillCheckCircleFill)`
   color: var(--color-primary3);
@@ -132,12 +138,19 @@ const Logo = styled(BsFillCheckCircleFill)`
   height: auto;
 `;
 const Title = styled.h1`
-  ${Headline3Style};
+  ${Headline4Style};
+  white-space: nowrap;
   color: var(--color-primary5);
+  @media ${deviceMin.tabletS} {
+    ${Headline3Style};
+  }
 `;
 const Desc = styled.p`
-  ${layer2A_SubtitleStyle};
+${layer2A_TextStyle};
   white-space: pre-line;
+  @media ${deviceMin.tabletS} {
+    ${layer2A_SubtitleStyle};
+  }
 `;
 const ButtonWrapper = styled.div`
   width: 100%;

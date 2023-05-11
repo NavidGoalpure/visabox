@@ -98,6 +98,7 @@ const SidebarPage = ({
                   name={relatedAgent.name}
                   slug={relatedAgent.slug}
                   desc={relatedAgent.desc}
+                  avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
                 />
               ))}
             </VIPContainer>

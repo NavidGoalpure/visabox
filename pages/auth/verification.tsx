@@ -12,7 +12,7 @@ const UserVerification: NextPage = () => {
   const { locale } = useLocale();
   Cookies.remove(CookieKeys?.TemporaryLocale);
   return (
-    <StyledPageLayout hasFooter={false} hasMenu={false}>
+    <StyledPageLayout hasFooter={false} hasMenu={false} hasBanner={false}>
       <Seo canonical={`https://www.marabox.com/${locale}/auth/verification`} />
       <Content />
     </StyledPageLayout>

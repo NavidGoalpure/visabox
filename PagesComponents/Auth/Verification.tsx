@@ -27,22 +27,30 @@ function Content() {
       });
     },
     onSuccess: (res) => {
+      console.log('navid success');
+
       if (!res.ok) {
         throw new Error('couldnt create the user');
       }
       const email = session?.user?.email || 'defensive';
+      // اطلاعات کاربر رو میگیریم تا بفهمیم فرم پایه رو پر کرده یا نه
+      // بر اساس اون تصمیم میگیریم کجا بفرستیمش
       getClientDetail({ email, resParams: `name` })
         .then((res) => {
-          console.log("navid success res=", res.clientData);
+          console.log('navid success res=', res.clientData);
+          console.log('navid before toast');
           SuccessToast(t(LanguageKeys.ToastMessage));
+          console.log('navid after toast');
+
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
           if (res?.clientData[0]?.name) {
+            console.log('navid success in if=', res?.clientData[0]?.name);
             router.push(`/${locale}`);
-            console.log("navid inja")
           }
           // اگر کلاینت برای اولین بار ثبت نام کرده بود
           else {
             router.push(`/${locale}/forms/client`);
+            console.log('navid in else ');
           }
         })
         .catch((err) => console.log('navid fail res=', err));

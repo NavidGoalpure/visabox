@@ -15,9 +15,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
 }
 
-export const Input = ({
+export const SearchInput = ({
   icon,
-  type = 'text',
+  type = "text",
   errorMasage,
   value,
   disabled = false,
@@ -38,7 +38,7 @@ export const Input = ({
   }, [focus]);
   return (
     <Container className={className}>
-      <InputContainer disabled={disabled} id='input-container'>
+      <InputContainer disabled={disabled} id="input-container">
         {icon ? icon : null}
         <StyledInput
           type={type}
@@ -52,7 +52,7 @@ export const Input = ({
         ></StyledInput>
         {endElement ? endElement : null}
       </InputContainer>
-      {errorMasage && <Error data-testid='error-input'>{errorMasage}</Error>}
+      {errorMasage && <Error data-testid="error-input">{errorMasage}</Error>}
     </Container>
   );
 };

@@ -13,7 +13,6 @@ import styled, { css } from 'styled-components';
 import { FcGoogle } from 'react-icons/fc';
 import theme from 'styled-theming';
 import { FaDiscord } from 'react-icons/fa';
-import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,

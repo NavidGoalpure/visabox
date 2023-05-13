@@ -5,7 +5,7 @@ import Content from "PagesComponents/Auth/Verification";
 import Seo from "Components/Seo";
 import { useLocale } from "Hooks/useLocale";
 import { CookieKeys } from "Interfaces";
-import { getValueFromCookies } from "./utils";
+import { getValueFromCookies } from "../../PagesComponents/Auth/Signin/utils";
 import Cookies from "js-cookie";
 
 const UserVerification: NextPage = () => {

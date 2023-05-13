@@ -266,7 +266,7 @@ export const NAATIES: Naati[] = [
         '88822452',
       ],
       email: 'atefeh.pashazadeh@gmail.com',
-      website: 'www.tehrannaati.com',
+      website: 'https://www.tehrannaati.com',
       telegram: '09211914685'
     },
     status: Status.ACTIVE,

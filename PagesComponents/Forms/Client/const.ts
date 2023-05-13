@@ -2,6 +2,7 @@ import { MultiLanguageText } from "Interfaces";
 export enum LanguageKeys {
   SeoTitle = "SeoTitle",
   SeoDesc = "SeoDesc",
+  FailedToastMessage = "FailedToastMessage",
   SuccessToastText = "SuccessToastText",
   NameInputLabel = "NameInputLabel",
   NameInputPlaceholder = "NameInputPlaceholder",
@@ -33,12 +34,16 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: "Request a Call from Immigration Agencies | Mara Box",
-    fa: "درخواست تماس از وکلای مهاجرت | مارا باکس",
+    en: "Immigration Information Form",
+    fa: "فرم اطلاعات مهاجرت",
   },
   SeoDesc: {
-    fa: "اطلاعات خود را ارسال کنید و منتظر تماس وکلای مهاجرت باشید",
-    en: "Submit your information and wait for a call from immigration agencies",
+    fa: "فرم مهاجرت خود را پر کنید تا وکلای معتبر مهاجرت با شما به صورت رایگان در ارتباط باشند ",
+    en: "Fill out your immigration form to have reputable immigration lawyers contact you for free",
+  },
+  FailedToastMessage: {
+    en: "Request failed! Try again later",
+    fa: "خطا! بعدا تلاش کنید",
   },
   SuccessToastText: {
     en: "Congrats! You Are Done",

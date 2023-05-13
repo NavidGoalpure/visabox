@@ -1,4 +1,5 @@
 import { Loading } from "Elements/Loading";
+import ErrorToast from "Elements/Toast/Error";
 import SuccessToast from "Elements/Toast/Success";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
@@ -18,7 +19,8 @@ function Content() {
   const router = useRouter();
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
-  const successToastMessage = t(LanguageKeys.ToastMessage);
+  const successToastMessage = t(LanguageKeys.SuccessToastMessage);
+  const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
   const { data: session } = useSession();
   const mutation = useMutation({
     mutationFn: () => {
@@ -44,11 +46,17 @@ function Content() {
           else {
             router.push(`/${locale}/forms/client`);
           }
+          SuccessToast(successToastMessage);
         })
-        .catch((err) => console.log("navid fail res=", err));
+        .catch(() => {
+          ErrorToast(FailedToastMessage);
+          setTimeout(() => {
+            router.push(`/${locale}`);
+          }, 4000);
+        });
     },
-    onError: (error) => {
-      console.log("navid error ===", error);
+    onError: () => {
+      ErrorToast(FailedToastMessage);
     },
   });
   useEffect(() => {
@@ -56,11 +64,6 @@ function Content() {
       mutation.mutate();
     }
   }, [session]);
-  useEffect(() => {
-    if (mutation.isSuccess) {
-      SuccessToast(successToastMessage);
-    }
-  }, [mutation.isSuccess]);
 
   return (
     <Container>

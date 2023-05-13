@@ -11,7 +11,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //   navid ask mobin about the desc of this page
   SeoDesc: {
-    en: "",
-    fa: "",
+    en: "Create your account",
+    fa: "حساب کاربری خود را بسازید",
   },
 };

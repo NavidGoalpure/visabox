@@ -35,7 +35,8 @@ export default function SignIn({
   return (
     <StyledPageLayout hasBanner={false}>
       <Seo
-        title={"Login/Register"}
+        title={t(LanguageKeys.SeoTitle)}
+        description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/auth/signin`}
         isNoIndex={true}
       />

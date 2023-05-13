@@ -26,6 +26,7 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
   desc: MultiLanguageText | undefined;
   slug: string;
+  avatar: string;
   // این پرابز نشون میده که لایر زمینه این کامپوننت شماره چنده. مثلا لایر یک یا لایر۲
   layerContext: '1' | '2';
 }
@@ -35,20 +36,20 @@ function VIPAgentCard({
   desc,
   slug,
   layerContext,
+  avatar,
   className,
   ...props
 }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState(`/Images/placeholder.jpeg`);
 
   useEffect(() => {
-    if (slug) setImgSrc(`/Images/lists/agent/${slug}.jpeg`);
-  }, [slug]);
+    if (avatar) setImgSrc(avatar);
+  }, [avatar]);
 
   useEffect(() => getGsapTimeLine_VipCard(slug));
-
   return (
     <Container
       {...props}

@@ -19,4 +19,5 @@ export interface Agent {
   maraNumber: string;
   featuredPlan: FeaturedPlan_Business;
   status: Status;
+  avatar?: string;
 }

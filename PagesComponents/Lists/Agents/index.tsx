@@ -30,6 +30,7 @@ function Content() {
               desc={agent.desc}
               slug={agent.slug}
               layerContext='1'
+              avatar={agent.avatar || `/Images/placeholder.jpeg`}
             />
           );
         })}

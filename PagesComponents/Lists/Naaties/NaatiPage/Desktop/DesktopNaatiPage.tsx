@@ -15,41 +15,50 @@ import {
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
-import { Agent } from 'Interfaces/Lists/agents';
+import { Naati } from 'Interfaces/Lists/naaties';
+import { useLocale } from 'Hooks/useLocale';
+import { useState, useEffect } from 'react';
+
+
 interface Props {
-  ChosenAgent?: Agent;
+  chosenNaati?: Naati;
 }
-function DesktopAgentsPage({ ChosenAgent }: Props) {
+function DesktopNaatiPage({ chosenNaati }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
+  const [imgSrc, setImgSrc] = useState<string>('/Images/placeholder.jpeg');
+  const { locale } = useLocale();
+  useEffect(() => {
+    if (chosenNaati?.avatar) setImgSrc(chosenNaati.avatar);
+  }, [chosenNaati?.avatar]);
   return (
     <Container>
       <Header>
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`}
-            alt={'agent image'}
+            src={imgSrc}
+            alt={chosenNaati?.fullName ? `${chosenNaati?.fullName?.[locale]} image` : 'naati image'}
+            onError={() => {
+              setImgSrc(`/Images/placeholder.jpeg`);
+            }}
+            quality={100}
+            sizes='96px'
           />
           <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
           </VIPBoxContainer>
         </ProfilePictureWrapper>
         <RightSide>
-          <Title>{dt(ChosenAgent?.name)}</Title>
-          <MaraNumberContainer>
-            <MaraNumberTitle>
-              {t(LanguageKeys.MaraNumber)}: &nbsp;
-            </MaraNumberTitle>
-            <MaraNumber>{ChosenAgent?.maraNumber}</MaraNumber>
-          </MaraNumberContainer>
+          <Title>{dt(chosenNaati?.fullName)}</Title>
+
           <DesktopContactComponent
-            website={ChosenAgent?.contact?.website}
-            email={ChosenAgent?.contact?.email}
-            phone={ChosenAgent?.contact?.phone}
-            telegram={ChosenAgent?.contact?.telegram}
-            instagram={ChosenAgent?.contact?.instagram}
-            linkedin={ChosenAgent?.contact?.linkedin}
+            website={chosenNaati?.contact?.website}
+            email={chosenNaati?.contact?.email}
+            phone={chosenNaati?.contact?.phone}
+            telegram={chosenNaati?.contact?.telegram}
+            instagram={chosenNaati?.contact?.instagram}
+            linkedin={chosenNaati?.contact?.linkedin}
           />
         </RightSide>
       </Header>
@@ -57,14 +66,14 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         <AboutTitle>{t(LanguageKeys.About)}</AboutTitle>
         <Desc
           dangerouslySetInnerHTML={{
-            __html: dt(ChosenAgent?.desc),
+            __html: dt(chosenNaati?.desc),
           }}
         />
       </AboutContainer>
     </Container>
   );
 }
-export default DesktopAgentsPage;
+export default DesktopNaatiPage;
 
 const TitleColor = theme('mode', {
   light: css`

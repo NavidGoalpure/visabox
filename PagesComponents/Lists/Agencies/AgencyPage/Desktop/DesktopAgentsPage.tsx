@@ -91,6 +91,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
               desc={relatedAgent.desc}
               key={relatedAgent.slug}
               layerContext='1'
+              avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
             />
           ))}
         </VIPContainer>

@@ -19,8 +19,6 @@ export const Agents: Agent[] = [
 Spoken Languages: English; Persian; Dari.`,
       fa: `
       <div>
-      <p>&nbsp;</p>
-
       <p>محمد عظیمی نماینده اصلی مهاجرت در خدمات مهاجرت و آموزش شادا است.</p>
 
       <p>او به عنوان یک کارگزار آموزشی واجد شرایط استرالیا، دارای مدرک لیسانس در مترجمی زبان انگلیسی و مدرک تحصیلات تکمیلی در قانون مهاجرت از دانشگاه ملی استرالیا است. محمد عظیمی به زبان های گفتاری و نوشتاری فارسی، دری و انگلیسی مسلط است و مترجم فارسی نااتی معتبر و دارای مجوز است. NAATI (مرجع ملی اعتباربخشی مترجمان و مترجمان) استانداردهای ملی و سازمان اعتباربخشی مترجمان و مترجمان در استرالیا است.</p>
@@ -51,6 +49,7 @@ Spoken Languages: English; Persian; Dari.`,
       phone: ['+61290025511'],
     },
     status: Status.ACTIVE,
+    avatar: "https://binsta.dev/api/v1/files/FxhB1ze6NO/transform?format=webp&size=md&quality=best",
   },
   {
     id: 'agt2',
@@ -207,6 +206,7 @@ Spoken Languages: English; Persian; Dari.`,
       website: 'https://www.ajmigration.com',
     },
     status: Status.ACTIVE,
+    avatar: "https://binsta.dev/api/v1/files/LocKxKSv-L/transform?format=webp&size=md&quality=best",
   },
   {
     id: 'agt10',
@@ -228,6 +228,7 @@ Spoken Languages: English; Persian; Dari.`,
       instagram: 'https://www.instagram.com/amirshahi.law/',
     },
     status: Status.ACTIVE,
+    avatar: "https://binsta.dev/api/v1/files/27KD3f6SPq/transform?format=webp&size=md&quality=best"
   },
   // {
   //   id: 'agt11',
@@ -313,6 +314,7 @@ Spoken Languages: English; Persian; Dari.`,
       instagram: 'https://www.instagram.com/azzyimmigration/',
     },
     status: Status.ACTIVE,
+    avatar: "https://binsta.dev/api/v1/files/0xcM-ZxWFO/transform?format=webp&size=md&quality=best"
   },
 
   {
@@ -387,6 +389,8 @@ Spoken Languages: English; Persian; Dari.`,
       telegram: 'https://t.me/uniquevisa',
     },
     status: Status.ACTIVE,
+    avatar: "https://binsta.dev/api/v1/files/lMxleRoD8M/transform?format=webp&size=md&quality=best"
+
   },
   {
     id: 'agt18',
@@ -543,6 +547,8 @@ Spoken Languages: English; Persian; Dari.`,
       instagram: 'https://www.instagram.com/visazone_naghmeh_danai/',
     },
     status: Status.ACTIVE,
+    avatar: "https://binsta.dev/api/v1/files/ib32tPxy2m/transform?format=webp&size=md&quality=best",
+
   },
   // {
   //   id: 'agt28',

@@ -7,7 +7,7 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Lists/Naaties/NaatiPage/const';
+} from 'PagesComponents/Lists/Naaties/const';
 
 const SocialPages: NextPage = () => {
   const { locale } = useLocale();

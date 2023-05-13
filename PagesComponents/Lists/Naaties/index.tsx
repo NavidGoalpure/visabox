@@ -32,6 +32,7 @@ function Content() {
                 fullname={naati.fullName}
                 desc={naati?.desc}
                 slug={slugify(naati.fullName.en)}
+                avatar={naati.avatar || `/Images/placeholder.jpeg`}
               />
             );
         })}

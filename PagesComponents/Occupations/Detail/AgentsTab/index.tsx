@@ -17,8 +17,8 @@ const AgentsComponent: React.FC = () => {
             name={agent?.name}
             desc={agent?.desc}
             slug={agent.slug}
-            layerContext='2'
-          />
+            layerContext='2' 
+            avatar={agent.avatar || "/Images/placeholder.jpeg"}/>
         ))}
       </Container>
     </>

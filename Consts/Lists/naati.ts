@@ -255,7 +255,7 @@ export const NAATIES: Naati[] = [
     ],
     desc: {
       en: `Official translator of Atefeh Pashazadeh`,
-      fa: `مترجم رسمی عاطفه پاشازاده`,
+      fa: `.مترجم رسمی عاطفه پاشازاده`,
     },
     location: {
       en: 'Iran',

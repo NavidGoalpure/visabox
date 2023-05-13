@@ -5,32 +5,58 @@ import {
   componentStatements,
 } from 'PagesComponents/Lists/Agents/AgentPage/const';
 import { useLocale } from 'Hooks/useLocale';
-import { useRouter } from 'next/router';
 import Content from 'PagesComponents/Lists/Agents/AgentPage';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
 import { Agents } from 'Consts/Lists/agents';
+import { GetStaticProps, NextPage } from 'next/types';
+import { Agent } from 'Interfaces/Lists/agents';
+import Error from 'next/error';
 
-const VipAgentPage = () => {
-  const router = useRouter();
-  const { slug } = router.query;
+interface Props {
+  chosenAgent?: Agent;
+  errorCode?: number;
+}
+const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
-  const chosenAgent = Agents.filter((agent) => agent.slug === slug);
+  if (errorCode) return <Error statusCode={errorCode} />;
 
   return (
     <PageLayout>
       <Seo
         title={t(LanguageKeys.SeoTitle, [
-          { $agent: dt(chosenAgent[0]?.name) || '' },
-          { $agent: dt(chosenAgent[0]?.name) || '' },
+          { $agent: dt(chosenAgent?.name) || '' },
+          { $agent: dt(chosenAgent?.name) || '' },
         ])}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents/${chosenAgent[0]?.slug}`}
+        canonical={`https://www.marabox.com/${locale}/lists/agents/${chosenAgent?.slug}`}
       />
-      <Content chosenAgent={chosenAgent[0]} />
+      <Content chosenAgent={chosenAgent} />
     </PageLayout>
   );
 };
 export default VipAgentPage;
+
+export const getStaticPaths = async () => {
+  const paths = Agents.map((agent) => ({
+    params: { slug: agent.slug },
+  }));
+
+  return {
+    paths: paths,
+    fallback: true,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const chosenAgent = Agents.filter((agent) => agent.slug === params?.slug);
+
+  return {
+    props: {
+      chosenAgent: chosenAgent[0],
+    },
+    revalidate: 30,
+  };
+};

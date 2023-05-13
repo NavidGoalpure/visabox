@@ -46,7 +46,7 @@ const HomeContent: React.FC = () => {
     <>
       <Hero />
       <Container id="section-container">
-        {session && !hasClientCompletedForm && (
+        {(!session || !hasClientCompletedForm )&& (
           <Banner
             navigateTo={`/${locale}/forms/client`}
             desc={

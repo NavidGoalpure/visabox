@@ -18,6 +18,7 @@ import { BsCheck2, BsFillCheckCircleFill } from "react-icons/bs";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { Loading } from "Elements/Loading";
 import { deviceMin } from "Consts/device";
+import ErrorToast from "Elements/Toast/Error";
 
 const Step9 = () => {
   const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
@@ -26,6 +27,7 @@ const Step9 = () => {
   const router = useRouter();
   const { locale } = useLocale();
   const { clientData } = useContext(FormDataContext);
+  const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const queryClient = useQueryClient();
   const { data: session } = useSession();
@@ -50,7 +52,7 @@ const Step9 = () => {
       );
     },
     onError: () => {
-      // navid make an error handling function here
+      ErrorToast(FailedToastMessage);
     },
   });
   return (

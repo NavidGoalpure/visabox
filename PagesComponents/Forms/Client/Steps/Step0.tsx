@@ -83,6 +83,7 @@ const Title = styled.h1`
   color: var(--color-primary5);
   @media ${deviceMin.tabletS} {
     ${Headline3Style};
+    white-space: normal;
   }
 `;
 const Desc = styled.p`

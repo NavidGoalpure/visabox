@@ -2,7 +2,8 @@ import { MultiLanguageText } from "Interfaces";
 export enum LanguageKeys {
   Title = "Title",
   Desc = "Desc",
-  ToastMessage = "ToastMessage",
+  SuccessToastMessage = "SuccessToastMessage",
+  FailedToastMessage = "FailedToastMessage",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title: {
@@ -13,8 +14,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "It might take a while please don’t close this tab",
     fa: " لطفا در طول پروسه از سایت خارج نشوید",
   },
-  ToastMessage: {
+  SuccessToastMessage: {
     en: "You have signed in successfully",
     fa: "شما با موفقیت ثبت نام کردید",
+  },
+  FailedToastMessage: {
+    en: "Request failed! Try again later",
+    fa: "خطا! بعدا تلاش کنید",
   },
 };

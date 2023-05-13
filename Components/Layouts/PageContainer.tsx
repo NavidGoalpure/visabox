@@ -8,7 +8,7 @@ import { Languages } from "Interfaces";
 import { useSession } from "next-auth/react";
 import { getClientDetail } from "Queries/client";
 import React, { HTMLAttributes, ReactNode, useEffect, useState } from "react";
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 import styled from "styled-components";
 import { directionStyles } from "Styles/Theme";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
@@ -58,17 +58,18 @@ const PageContainer: React.FC<Props> = ({
     <Container {...props} $locale={locale}>
       <ToasterContainer />
       {hasMenu && <Header />}
-      {hasBanner && !hasClientCompletedForm && (
-        <SmartBanner
-          navigateTo={`/${locale}/forms/client`}
-          desc={
-            <div
-              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-            ></div>
-          }
-          buttonText={t(LanguageKeys.BannerButtonText)}
-        />
-      )}
+      {(hasBanner && !hasClientCompletedForm) ||
+        (!session && (
+          <SmartBanner
+            navigateTo={`/${locale}/forms/client`}
+            desc={
+              <div
+                dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
+              ></div>
+            }
+            buttonText={t(LanguageKeys.BannerButtonText)}
+          />
+        ))}
 
       {/* <Survay.Root
         title={{

@@ -11,7 +11,7 @@ export enum LanguageKeys {
   //
   Details = 'Details',
   Anzsco = 'Anzsco',
-  Agent = 'Agent',
+  Agents = 'Agents',
   //
   TooltipTagDesc = 'TooltipTagDesc',
   AnzscoTabTitle = 'AnzscoTabTitle',
@@ -91,9 +91,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'صف',
     en: 'Backlog',
   },
-  Agent: {
-    en: 'Agent',
-    fa: 'وکیل',
+  Agents: {
+    en: 'Agents',
+    fa: 'وکلا',
   },
   SimilarOccupations: {
     en: 'Similar Occupations',
@@ -307,7 +307,7 @@ In some instances, no formal qualification or on-the-job training may be require
     en: 'Lodged',
     fa: 'لاج شده‌ها',
   },
-  LastUpdate: { en: 'LastUpdate:', fa: 'آخرین آپدیت: ' },
+  LastUpdate: { en: 'Last Update:', fa: 'آخرین آپدیت: ' },
 };
 
 //////

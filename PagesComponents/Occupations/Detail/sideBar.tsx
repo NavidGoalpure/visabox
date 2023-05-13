@@ -22,6 +22,7 @@ import {
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
 import VIPAgencyCard from 'Components/Lists/Card/Agency/VIPCard';
+import AgentsComponent from './AgentsTab';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -49,11 +50,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
-          {/* <SideBar.TabItem
-            title={t(LanguageKeys.Agent)}
+          <SideBar.TabItem
+            title={t(LanguageKeys.Agents)}
             value='agency'
             icon={<AgentIcon />}
-          /> */}
+          />
         </>
       }
       bodies={
@@ -112,7 +113,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                           <HintItem>
                             <Tag>
                               {t(LanguageKeys.LastUpdate)}
-                              <span> 28/02/2023</span>
+                              <span> May 10, 2023 </span>
                             </Tag>
                           </HintItem>
                         </AccordionContentContainer>
@@ -126,6 +127,15 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                     themeLayer='2A'
                   />
                 )}
+              </ContentWrapper>
+            </SideBar.BodyItem>
+          }
+          {/* agency body */}
+          {
+            <SideBar.BodyItem value='agency'>
+              <ContentWrapper>
+                <Header>{t(LanguageKeys.Agents)}</Header>
+                <AgentsComponent />
               </ContentWrapper>
             </SideBar.BodyItem>
           }

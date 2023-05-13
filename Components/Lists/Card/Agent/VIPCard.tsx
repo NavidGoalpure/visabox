@@ -12,7 +12,7 @@ import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { Headline7Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
 import { MultiLanguageText } from 'Interfaces';
-import { HTMLAttributes, useEffect } from 'react';
+import { HTMLAttributes, useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { deviceMin } from 'Consts/device';
@@ -20,17 +20,35 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import Link from 'next/link';
 import { getGsapTimeLine_VipCard } from '../const';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: MultiLanguageText;
   desc: MultiLanguageText | undefined;
   slug: string;
+  // این پرابز نشون میده که لایر زمینه این کامپوننت شماره چنده. مثلا لایر یک یا لایر۲
+  layerContext: '1' | '2';
 }
 
-function VIPAgentCard({ name, desc, slug, className, ...props }: Props) {
+function VIPAgentCard({
+  name,
+  desc,
+  slug,
+  layerContext,
+  className,
+  ...props
+}: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
+  const [imgSrc, setImgSrc] = useState('');
+
+  useEffect(() => {
+    if (slug) setImgSrc(`/Images/lists/agent/${slug}.jpeg`);
+  }, [slug]);
+
   useEffect(() => getGsapTimeLine_VipCard(slug));
+
   return (
     <Container
       {...props}
@@ -39,11 +57,14 @@ function VIPAgentCard({ name, desc, slug, className, ...props }: Props) {
       className={`${slug} ${className}`}
     >
       <Wrapper>
-        <ImageWrapper>
+        <ImageWrapper layerContext={layerContext}>
           <AgentLogo
             fill
-            src={`/Images/lists/agent/${slug}.jpeg`}
-            alt={` image of ${slug}`}
+            src={imgSrc}
+            alt={name ? `${name?.[locale]} image` : 'agent image'}
+            onError={() => {
+              setImgSrc(`/Images/placeholder.jpeg`);
+            }}
             quality={100}
             sizes='96px'
           />
@@ -61,7 +82,7 @@ function VIPAgentCard({ name, desc, slug, className, ...props }: Props) {
 }
 export default VIPAgentCard;
 
-const LogoBackground = theme('mode', {
+const LogoBackground_layer1 = theme('mode', {
   light: css`
     background: linear-gradient(
       -86deg,
@@ -74,6 +95,22 @@ const LogoBackground = theme('mode', {
       -86deg,
       var(--color-gray2) 0 70%,
       var(--color-gray6) 0% 100%
+    );
+  `,
+});
+const LogoBackground_layer2 = theme('mode', {
+  light: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray9) 0 70%,
+      var(--color-gray11) 0% 100%
+    );
+  `,
+  dark: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray2) 0 70%,
+      var(--color-gray8) 0% 100%
     );
   `,
 });
@@ -113,8 +150,10 @@ const Wrapper = styled.div`
     transform: scale(1.05);
   }
 `;
-const ImageWrapper = styled.div`
-  ${LogoBackground}
+const ImageWrapper = styled.div<{ layerContext: '1' | '2' }>`
+  ${({ layerContext }) =>
+    layerContext === '2' ? LogoBackground_layer2 : LogoBackground_layer1}
+
   padding: 0.5rem;
   width: 6.625rem;
   height: 6.625rem;

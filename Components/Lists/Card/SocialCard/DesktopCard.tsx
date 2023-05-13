@@ -19,7 +19,8 @@ import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { layer2B_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { Socials, SocialMediaTypes } from 'Interfaces/Lists/Socials';
+import { Socials, SocialMediaTypes } from 'Interfaces/Lists/socials';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 interface Props extends Socials {
   isRtl: boolean;
@@ -31,7 +32,7 @@ function DesktopSocialCard({
   link,
   socialmediaType,
   slug,
-  isFeatured,
+  featuredPlan,
   isRtl,
   status,
 }: Props) {
@@ -47,14 +48,20 @@ function DesktopSocialCard({
           </>
         );
       case SocialMediaTypes.INSTAGRAM:
-        return <>
-          <InstagramIcon />
-          {t(LanguageKeys.Instagram)}</>;
+        return (
+          <>
+            <InstagramIcon />
+            {t(LanguageKeys.Instagram)}
+          </>
+        );
 
       case SocialMediaTypes.YOUTUBE:
-        return <>
-          <YoutubeIcon />
-          {t(LanguageKeys.Youtube)}</>;
+        return (
+          <>
+            <YoutubeIcon />
+            {t(LanguageKeys.Youtube)}
+          </>
+        );
 
       default:
         return null;
@@ -63,21 +70,21 @@ function DesktopSocialCard({
   return (
     <Container href={link} target={'_blank'}>
       <NameTag isRtl={isRtl}>
-        {isFeatured && <Box />}
+        {featuredPlan && <Box />}
         {name}{' '}
       </NameTag>
       <ImgWrapper isRtl={isRtl}>
         <Img fill src={`/Images/socialPage/${slug}.jpg`} alt='image' />
       </ImgWrapper>
-      {isFeatured ? (
+      {featuredPlan ? (
         <>
-          <SocialMediaTag isFeatured={isFeatured} isRtl={isRtl}>
+          <SocialMediaTag featuredPlan={featuredPlan} isRtl={isRtl}>
             {SocialMediaIcon()}
           </SocialMediaTag>
-          <Wrapper isFeatured={isFeatured} isRtl={isRtl}>
-            <Desc isFeatured={isFeatured}>{desc}</Desc>
+          <Wrapper featuredPlan={featuredPlan} isRtl={isRtl}>
+            <Desc featuredPlan={featuredPlan}>{desc}</Desc>
             <BottomWrapper isRtl={isRtl}>
-              <LocationTag isFeatured={isFeatured}>
+              <LocationTag featuredPlan={featuredPlan}>
                 {locations === Locations.fa ? 'Persian' : 'English'}
               </LocationTag>
               <JoinButton>{t(LanguageKeys.Join)}</JoinButton>
@@ -86,13 +93,13 @@ function DesktopSocialCard({
         </>
       ) : (
         <DropshadowDiv>
-          <SocialMediaTag isFeatured={isFeatured} isRtl={isRtl}>
+          <SocialMediaTag featuredPlan={featuredPlan} isRtl={isRtl}>
             {SocialMediaIcon()}
           </SocialMediaTag>
-          <Wrapper isFeatured={isFeatured} isRtl={isRtl}>
-            <Desc isFeatured={isFeatured}>{desc}</Desc>
+          <Wrapper featuredPlan={featuredPlan} isRtl={isRtl}>
+            <Desc featuredPlan={featuredPlan}>{desc}</Desc>
             <BottomWrapper isRtl={isRtl}>
-              <LocationTag isFeatured={isFeatured}>
+              <LocationTag featuredPlan={featuredPlan}>
                 {locations === Locations.fa
                   ? t(LanguageKeys.Persian)
                   : t(LanguageKeys.English)}
@@ -177,7 +184,10 @@ const Box = styled(FiBox)`
     transform: rotate(-60deg);
   }
 `;
-const SocialMediaTag = styled.h4<{ isFeatured: boolean; isRtl: boolean }>`
+const SocialMediaTag = styled.h4<{
+  featuredPlan: FeaturedPlan_Business;
+  isRtl: boolean;
+}>`
   ${Headline6Style}
   display: flex;
   justify-content: center;
@@ -197,8 +207,8 @@ const SocialMediaTag = styled.h4<{ isFeatured: boolean; isRtl: boolean }>`
 
   transition: all 0.3s ease;
   ////////////////////
-  ${({ isFeatured }) =>
-    isFeatured ? layer2B_BG : NotFeaturedSocialMediaTagStyle};
+  ${({ featuredPlan }) =>
+    featuredPlan ? layer2B_BG : NotFeaturedSocialMediaTagStyle};
 
   ///////////////////
   ${Container}:hover & {
@@ -256,9 +266,9 @@ const ImgWrapper = styled.div<{ isRtl: boolean }>`
   z-index: 2;
   ${Container}:hover & {
     ${({ isRtl }) =>
-    isRtl
-      ? 'transform: rotate(0deg) translate(-70%, -52%);'
-      : 'transform: rotate(0deg) translate(70%, -52%);'}
+      isRtl
+        ? 'transform: rotate(0deg) translate(-70%, -52%);'
+        : 'transform: rotate(0deg) translate(70%, -52%);'}
   }
 `;
 ///////////////////////////////
@@ -298,7 +308,10 @@ const YoutubeIcon = styled(FaYoutube)`
 const DropshadowDiv = styled.div`
   ${ContainerDropShadow}
 `;
-const Wrapper = styled.div<{ isFeatured: boolean; isRtl: boolean }>`
+const Wrapper = styled.div<{
+  featuredPlan: FeaturedPlan_Business;
+  isRtl: boolean;
+}>`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -306,14 +319,14 @@ const Wrapper = styled.div<{ isFeatured: boolean; isRtl: boolean }>`
   align-items: center;
   gap: 1rem;
    clip-path:${({ isRtl }) =>
-    isRtl
-      ? ' polygon(0 0, 95% 0, 100% 75%, 100% 100%, 0 100%);'
-      : 'polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 75%);'}
+     isRtl
+       ? ' polygon(0 0, 95% 0, 100% 75%, 100% 100%, 0 100%);'
+       : 'polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 75%);'}
 
   padding: 3.25rem 12.5% 1.5rem;
   transition: all 0.4s ease 0s;
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? layer2B_BG
       : css`
           ${layer2A_Bg};
@@ -325,10 +338,10 @@ const Wrapper = styled.div<{ isFeatured: boolean; isRtl: boolean }>`
   }
 `;
 
-const Desc = styled.p<{ isFeatured: boolean }>`
+const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   ${layer2B_TextStyle}
   text-align: start;
-  ${({ isFeatured }) => (isFeatured ? layer2B_TextColor : layer1_TextColor)}
+  ${({ featuredPlan }) => (featuredPlan ? layer2B_TextColor : layer1_TextColor)}
 `;
 const BottomWrapper = styled.div<{ isRtl: boolean }>`
   width: 100%;
@@ -337,13 +350,13 @@ const BottomWrapper = styled.div<{ isRtl: boolean }>`
   justify-content: space-between;
   ${({ isRtl }) => (isRtl ? 'direction: ltr' : 'direction: rtl')}
 `;
-const LocationTag = styled.h3<{ isFeatured: boolean }>`
+const LocationTag = styled.h3<{ featuredPlan: FeaturedPlan_Business }>`
   ${TagBgTheme};
   ${Headline7Style};
   padding: 0.5rem 1.5rem;
   border-radius: 100px;
-  ${({ isFeatured }) =>
-    isFeatured
+  ${({ featuredPlan }) =>
+    featuredPlan
       ? `
   background: var(--color-gray7);
   color: var(--color-gray13);

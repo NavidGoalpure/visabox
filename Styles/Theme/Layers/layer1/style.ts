@@ -40,6 +40,7 @@ export const Layer1_TextStyle = css`
   ${directionStyles}
   ${layer1_TextColor}
   ${Headline6Style}
+  font-weight: normal;
   margin-bottom: 1rem;
   text-align: center;
   @media ${deviceMin.tabletS} {

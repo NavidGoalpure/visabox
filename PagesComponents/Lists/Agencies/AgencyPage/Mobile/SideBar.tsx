@@ -13,7 +13,7 @@ import { componentStatements, LanguageKeys } from '../const';
 import { FaRegHandshake } from 'react-icons/fa';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import { Agent } from 'Interfaces/Lists/agents';
-import { Socials } from 'Interfaces/Lists/Socials';
+import { Socials } from 'Interfaces/Lists/socials';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import SmartSocial from 'Components/Lists/Card/SocialCard';
 interface Props {
@@ -98,6 +98,7 @@ const SidebarPage = ({
                   name={relatedAgent.name}
                   slug={relatedAgent.slug}
                   desc={relatedAgent.desc}
+                  layerContext='1'
                 />
               ))}
             </VIPContainer>

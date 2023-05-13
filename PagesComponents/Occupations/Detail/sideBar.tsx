@@ -21,8 +21,8 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { FaRegHandshake } from 'react-icons/fa';
-import { AGENCYS } from 'Consts/Lists/agency';
 import VIPAgencyCard from 'Components/Lists/Card/Agency/VIPCard';
+import AgentsComponent from './AgentsTab';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -50,11 +50,11 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
             value='anzsco'
             icon={<AnszcoIcon />}
           />
-          {/* <SideBar.TabItem
-            title={t(LanguageKeys.Agent)}
+          <SideBar.TabItem
+            title={t(LanguageKeys.Agents)}
             value='agency'
             icon={<AgentIcon />}
-          /> */}
+          />
         </>
       }
       bodies={
@@ -113,7 +113,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                           <HintItem>
                             <Tag>
                               {t(LanguageKeys.LastUpdate)}
-                              <span> 28/02/2023</span>
+                              <span> May 10, 2023 </span>
                             </Tag>
                           </HintItem>
                         </AccordionContentContainer>
@@ -130,21 +130,15 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
               </ContentWrapper>
             </SideBar.BodyItem>
           }
-          {/* <SideBar.BodyItem value='agency'>
-            <AgentsContentWrapper>
-              {AGENCYS.filter((agent) => agent.isFeatured).map((agent) => {
-                return (
-                  <StyledVIPAgentCard
-                    key={agent.slug}
-                    name={agent.name}
-                    desc={agent.desc}
-                    slug={agent.slug}
-                  />
-                );
-              })}
-            </AgentsContentWrapper>
-          </SideBar.BodyItem> */}
-          {/*  */}
+          {/* agency body */}
+          {
+            <SideBar.BodyItem value='agency'>
+              <ContentWrapper>
+                <Header>{t(LanguageKeys.Agents)}</Header>
+                <AgentsComponent />
+              </ContentWrapper>
+            </SideBar.BodyItem>
+          }
         </>
       }
     />

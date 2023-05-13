@@ -1,4 +1,5 @@
 import { Contact, MultiLanguageText, Status } from 'Interfaces';
+import { FeaturedPlan_Business } from '.';
 
 export interface Exchange {
   fullName: MultiLanguageText;
@@ -6,9 +7,8 @@ export interface Exchange {
   //what countries they work in
   location: MultiLanguageText;
   contact: Contact;
-  isFeatured: boolean;
+  featuredPlan: FeaturedPlan_Business;
   status: Status;
   slug: string;
   logoUrl: string;
-  
 }

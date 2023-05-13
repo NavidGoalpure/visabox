@@ -72,6 +72,26 @@ export function getRowKeyValueBaseonBacklogPoints(
       rowKey: '130',
       rowValue: obj?.upper_than_130,
     });
+  if (obj?.upper_than_135)
+    res.push({
+      rowKey: '135',
+      rowValue: obj?.upper_than_135,
+    });
+  if (obj?.upper_than_140)
+    res.push({
+      rowKey: '140',
+      rowValue: obj?.upper_than_140,
+    });
+  if (obj?.upper_than_145)
+    res.push({
+      rowKey: '145',
+      rowValue: obj?.upper_than_145,
+    });
+  if (obj?.upper_than_150)
+    res.push({
+      rowKey: '150',
+      rowValue: obj?.upper_than_150,
+    });
   return res;
 }
 export function getRowKeyValueBaseOn_ByState(

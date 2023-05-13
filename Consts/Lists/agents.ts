@@ -1,4 +1,5 @@
 import { Locations, Status } from 'Interfaces';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 import { Agent } from 'Interfaces/Lists/agents';
 
 export const Agents: Agent[] = [
@@ -44,7 +45,7 @@ Spoken Languages: English; Persian; Dari.`,
     },
     maraNumber: '0958292',
     locations: [Locations.en, Locations.fa],
-    isFeatured: true,
+    featuredPlan: FeaturedPlan_Business.VIP,
     contact: {
       email: 'azimi@shada.com.au',
       phone: ['+61290025511'],
@@ -57,7 +58,7 @@ Spoken Languages: English; Persian; Dari.`,
     slug: 'damon-aryan',
     locations: [Locations.en, Locations.fa],
     maraNumber: '1384623',
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `Mr. Damon Aryan, a graduate of immigration law from the Australian National University and an official agent registered in the MARA organization with registration number 1384623 and MIA organization with number 7293, as the founder and manager of selectvisa company, insists that he personally oversees all customer affairs from the beginning of giving advice to the end of the process of immigration to Australia and getting a visa, have full supervision. MARA is presented as the only official authority License to operate and supervise the affairs of official immigration agents in Australia.`,
       fa: `آقای “مهندس دامون آرین” فارغ‌التحصیل حقوق مهاجرت از دانشگاه ملی استرالیا و ایجنت رسمی ثبت شده در سازمان MARA با شماره ثبت 1384623 و سازمان MIA با شماره 7293، به عنوان موسس و گرداننده‌ی شرکت Selectvisa، اصرار دارند که خود شخصاً بر تمامی امور مشتریان از ابتدای ارائه مشاوره‌های ابتدای تا انتهای پروسه‌ی مهاجرت به استرالیا و دریافت ویزا،‌ نظارت کامل داشته باشند و کلیه فعالیت‌های وی مشمول قانون تجارت استرالیا و نیز مرامنامه‌ی سازمان دولتی MARA به عنوان تنها مرجع رسمی ارائه مجوز فعالیت و نظارت به امور کارگزاران رسمی مهاجرت در استرالیا است..`,
@@ -82,7 +83,7 @@ Spoken Languages: English; Persian; Dari.`,
       fa: ['LLB', 'LLM', 'دکترای حقوق'],
     },
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       website: 'https://ddamigration.com/',
       email: 'info@ddamigration.com',
@@ -102,7 +103,7 @@ Spoken Languages: English; Persian; Dari.`,
 
     maraNumber: '0854826',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       email: 'info@visayab.com',
       phone: ['0288758851', '+61410070490'],
@@ -110,7 +111,7 @@ Spoken Languages: English; Persian; Dari.`,
       website: 'https://www.visayab.com/',
       instagram: 'https://www.instagram.com/visayab/',
     },
-    status: Status.ACTIVE,
+    status: Status.DEACTIVE,
   },
   {
     id: 'agt5',
@@ -119,7 +120,7 @@ Spoken Languages: English; Persian; Dari.`,
 
     maraNumber: '0955595',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       email: 'r.aein@homemigration.com',
       phone: ['02188666181'],
@@ -139,7 +140,7 @@ Spoken Languages: English; Persian; Dari.`,
     },
     maraNumber: '1169662',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       website: 'http://avestaservices.com/',
       email: 'info@avestaservices.com',
@@ -155,7 +156,7 @@ Spoken Languages: English; Persian; Dari.`,
 
   //   maraNumber: '1798674',
   //   locations: [Locations.en, Locations.fa],
-  //   isFeatured: false,
+  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
   //     website: 'https://www.edenimmigration.com.au/',
   //     email: 'mina@edenimmigration.com.au',
@@ -170,7 +171,7 @@ Spoken Languages: English; Persian; Dari.`,
 
     maraNumber: '1795035',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       email: 'info@sjmigration.com.au',
       phone: ['02122181533', '+61386169990'],
@@ -184,14 +185,25 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt9',
     name: { en: 'Azam Jafari', fa: 'اعظم جعفری' },
     slug: 'azam-jafari',
+    desc: {
+      en: `Azam Jafari is a registered immigration lawyer and a member of the Australian Immigration Institute. Mrs. Jafari has many years of experience in the field of educational counseling for people interested in continuing their studies in foreign countries. He began his academic studies in Iran in the field of law at the National University of Iran, and after immigrating to Australia, he continued his studies in the field of Master's in International Law from Macquarie University, Sydney. Mrs. Jafari also completed her post-graduate certificate in Australia in the field of immigration law at Victoria University of Melbourne and started her professional activity in the field of providing consulting services in immigration matters in 2015.
 
+      Based on the Code of Conduct, AJ Migration considers itself committed to respecting the client's interests and uses its efforts to provide the best services and advice to its clients.
+      
+      Due to the continuous changes in the field of immigration to Australia, Ms. Jafari has kept her knowledge up-to-date in the field of immigration by participating in educational workshops that are held permanently in the field of immigration by organizations affiliated with the Australian Immigration Department. and provide the most up-to-date necessary guidance to its customers.`,
+
+      fa: `اعظم جعفری، وکیل ثبت‌شده مهاجرتی و عضو انستیتو مهاجرت استرالیا است. خانم جعفری، سابقه سالها فعالیت در زمنیه مشاوره آموزشی به افراد علاقمند به ادامه تحصیل در کشورهای خارج را دارا می‌باشند. او تحصیلات آکادمیک خود را در ایران در رشته حقوق در دانشگاه ملی ایران آغاز کرد و پس از مهاجرت به استرالیا، تحصیلات خود را در رشته کارشناسی ارشد حقوق بین الملل از دانشگاه مکواری سیدنی ادامه داد. خانم جعفری همچنین گواهی تحصیلات تکمیلی در استرالیا در زمینه قوانین مهاجرت را در دانشگاه ویکتوریای ملبورن به پایان رسانید و فعالیت حرفه‌ای خود را در زمینه ارائه خدمات مشاوره در امور مهاجرتی را در سال ۲۰۱۵ آغاز نمود.
+
+      شرکت AJ Migration بر اساس Code of Conduct (منشور اخلاقی امور مهاجرتی) خود را متعهد به رعایت مصالح و منافع مشتری دانسته و تلاش خود را جهت ارائه بهترین خدمات و مشاوره به مشتریان خود بکار می‌گیرد.
+      
+      با توجه به تغییرات مستمر در زمینه امور مهاجرتی به استرالیا، خانم جعفری با شرکت در کارگاه‌های آموزشی که بطور دائمی در زمینه امور مهاجرتی توسط سازمان های وابسته به اداره مهاجرت استرالیا برگزار می‌شود، اطلاعات خود را در زمینه امور مهاجرتی بروز نگه داشته تا بتواند بهترین و بروزترین راهنمایی لازم را به مشتریان خود ارائه نماید.`,
+    },
     maraNumber: '1571733',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
       email: 'ajafari@ajmigration.com',
-      phone: ['+61280346901', '+61414187045'],
-      whatsapp: '61414187045',
+      phone: ['0414187045'],
       website: 'https://www.ajmigration.com',
     },
     status: Status.ACTIVE,
@@ -200,15 +212,20 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt10',
     name: { en: 'Matin Amirshahi', fa: 'متین امیرشاهی' },
     slug: 'matin-amirshahi',
-
+    desc: {
+      en: `Our immigration activities include acceptance of representation in immigration matters to Australia and translation and confirmation of documents related to immigration to Australia. These services are performed under the direct supervision of an official immigration lawyer and an Australian Naati translator. Our clients have the possibility to communicate directly with the lawyer group and follow the transfer process easily.`,
+      fa: `فعاليتهای مهاجرتی ما شامل قبول وکالت در امور مهاجرت به استراليا و ترجمه و تائيد مدارک مربوط به مهاجرت به اين کشور ميشوند. اين خدمات با سرپرستی مستقيم وکيل رسمی مهاجرت و مترجم ناتی استراليا انجام ميشوند. موکلین ما این امکان را دارند که به طور مستقیم با وکیل مجموعه در ارتباط باشند و روند پروسه مهاجرت را به سهولت پیگیری کنند.`,
+    },
     maraNumber: '1685110',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
       email: 'admin@amirshahi.law',
-      phone: ['02122705327', '09012800983'],
+      phone: ['+982122705217', '061457461255'],
+      telegram: '09012800983',
       whatsapp: '09012800983',
-      website: 'https://www.amirshahi.law/',
+      website: 'https://www.amirshahi.law', // full address with http
+      instagram: 'https://www.instagram.com/amirshahi.law/',
     },
     status: Status.ACTIVE,
   },
@@ -219,7 +236,7 @@ Spoken Languages: English; Persian; Dari.`,
 
   //   maraNumber: '1789771',
   //   locations: [Locations.en, Locations.fa],
-  //   isFeatured: false,
+  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
   //     email: 'team@migrationdoor.com.au',
   //     phone: ['61735188044', '61481012012'],
@@ -236,7 +253,7 @@ Spoken Languages: English; Persian; Dari.`,
     maraNumber: '1688026',
     qualifications: { en: ['M.S.'], fa: ['M.S.'] },
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       email: 'info@rkimmigrationgroup.org',
       phone: ['61615068749'],
@@ -246,15 +263,54 @@ Spoken Languages: English; Persian; Dari.`,
   },
   {
     id: 'agt13',
-    name: { en: 'Azadeh Ghorashi ', fa: 'آزاده قریشی' },
+    name: { en: 'Azadeh Ghorashi ', fa: 'آزاده قرشی' },
     slug: 'azadeh-ghorashi',
+    desc: {
+      en: `After obtaining Australian residency in 2012 and obtaining an official attorney's license from Australia Registered Migration Agent under MARN 1573151; Azzy Immigration office officially started its activity in 2013. This collection can do all the steps with the possibility of monitoring the process and solving ambiguities and questions for those people who have changed their way of living and staying in Australia.
+
+ 
+
+      Azzy Immigration Service Office, due to its experience and expertise in all types of immigration visas, can provide a suitable solution for your immigration and suit your situation with certainty. Therefore, our team is ready to sit down with you to plan with your situation in order to provide a solution, to present you what we can do in the form of a road map.
+      
+       
+      
+      Credits of Azi Immigration Service Office:
+      
+      Our official lawyer
+      Mia official member
+      Member of the Iranian Immigration Lawyers Association of Australia
+      Membership in the Iran Australia Chamber of Commerce
+       
+      
+      You experience the borderless world with Azzy Immigration.`,
+      fa: `
+      پس از اخذ اقامت استرالیا در سال 2012 و اخذ مجوز وکالت رسمی از Australia Registered Migration Agent به شمارهMARN 1573151؛ دفتر خدمات مهاجرتی Azzy Immigration فعالیت خود را بصورت رسمی از سال 2013 آغاز نمود. این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند، تمامی مراحل اقامت را با امکان نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضیان انجام دهد.
+      
+       
+      
+      دفتر خدمات مهاجرتی Azzy Immigration با توجه به تجربه و تخصصی که در انواع ویزاهای مهاجرتی دارد، می تواند یک راه حل مناسب برای معمای مهاجرت شما و متناسب با وضعیت تان که با قطعیت بالایی همراه باشد، ارائه دهد. بنابراین تیم ما آماده است که متناسب با وضعیت شما در جهت ارائه یک راه حل، با شما به مذاکره بنشیند تا آنچه که ما می توانیم انجام دهیم را در قالب یک نقشه راه به شما ارائه نماید.
+      
+       
+      
+      اعتبارات دفتر خدمات مهاجراتی آزی ایمیگریشن:
+      
+      وکیل رسمی Mara
+      عضور رسمی Mia
+      عضو انجمن وکلای مهاجرت ایران استرالیا
+      عضویت در اتاق بازرگانی ایران استرالیا
+       
+      
+      دنیای بدون مرز را با Azzy Immigration تجربه نمایید.`,
+    },
     maraNumber: '1573151',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
-      website: 'https://www.azzyimmi.com.au',
+      website: 'azzyimmi.com.au',
       email: 'info@azzyimmi.com',
-      phone: ['6145477750'],
+      phone: ['+989308719363', '+61452477750'],
+      telegram: 'https://t.me/joinchat/A6McME_tPeHKkEOLJ-VyUQ',
+      instagram: 'https://www.instagram.com/azzyimmigration/',
     },
     status: Status.ACTIVE,
   },
@@ -266,7 +322,7 @@ Spoken Languages: English; Persian; Dari.`,
 
     maraNumber: '1279450',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       website: 'https://www.arcmigration.com.au',
       email: 'eazadi@arcmigration.com.au',
@@ -285,9 +341,9 @@ Spoken Languages: English; Persian; Dari.`,
     },
     maraNumber: '1680444',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
-      website: 'www.smartmigration.com',
+      website: 'https://www.smartmigration.com',
       email: 'info@smartmigration.com',
       phone: ['+982147627828', '+61291606260', '+61477181614'],
       whatsapp: '+989027022286',
@@ -302,7 +358,7 @@ Spoken Languages: English; Persian; Dari.`,
 
   //   maraNumber: '0955242',
   //   locations: [Locations.en, Locations.fa],
-  //   isFeatured: false,
+  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
   //     website: 'https://www.clau.com.au',
   //     email: 'km@clau.com.au',
@@ -314,14 +370,21 @@ Spoken Languages: English; Persian; Dari.`,
     id: 'agt17',
     name: { en: 'Mehdi Keivani', fa: 'مهدی کیوانی' },
     slug: 'mehdi-keivani',
-
+    desc: {
+      en: `Unique Visa Immigration Organization has started its activities in the field of immigration to Australia since 2008 and has had a close relationship with various departments of the Australian Immigration Department since the beginning.
+      The lawyer of this collection is Mr. Mehdi Kivani with MARN number 2217813 in the Mara organization and the client's case is examined and carried out directly under his supervision.`,
+      fa: `
+      سازمان مهاجرتی یونیک ویزا از سال ۲۰۰۸ فعالیت خود را در زمینه مهاجرت به استرالیا آغاز نموده و از همان بدو امر ارتباط تنگاتنگی با بخش های مختلف اداره مهاجرت استرالیا داشته است.
+      وکیل این مجموعه جناب آقای مهدی کیوانی با شماره MARN 2217813 در سازمان مارا (Mara )میباشند و پرونده موکلین مستقیما زیرنظر ایشان مورد بررسی قرار گرفته و انجام می شوند.`,
+    },
     maraNumber: '2217813',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
-      website: 'https://www.uniquevisa.net/',
+      website: 'https://uniquevisa.net',
       email: 'admin@uniquevisa.net',
-      phone: ['+61413541043'],
+      phone: ['+61413541043', '+982188545324-6'],
+      telegram: 'https://t.me/uniquevisa',
     },
     status: Status.ACTIVE,
   },
@@ -332,7 +395,7 @@ Spoken Languages: English; Persian; Dari.`,
 
     maraNumber: '1278784',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     qualifications: {
       en: ['NZ 201700466.', 'MSc'],
       fa: ['NZ 201700466.', 'MSc'],
@@ -342,7 +405,7 @@ Spoken Languages: English; Persian; Dari.`,
       email: 'info@pasargadmigration.com',
       phone: ['+982188029976'],
     },
-    status: Status.ACTIVE,
+    status: Status.DEACTIVE,
   },
   // {
   //   id: 'agt19',
@@ -351,7 +414,7 @@ Spoken Languages: English; Persian; Dari.`,
 
   //   maraNumber: '1796143',
   //   locations: [Locations.en, Locations.fa],
-  //   isFeatured: false,
+  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
   //     website: 'http://www.subclass.com.au/',
   //     email: 'INFO@SUBCLASS.COM.AU',
@@ -365,7 +428,7 @@ Spoken Languages: English; Persian; Dari.`,
     slug: 'sam-lotfollahi',
     maraNumber: '0901704',
     locations: [Locations.en, Locations.fa],
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       email: 'info@mmvisa.com.au',
       phone: ['+61455242242'],
@@ -380,7 +443,7 @@ Spoken Languages: English; Persian; Dari.`,
 
     locations: [Locations.en, Locations.fa],
     maraNumber: '1687507',
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       website: 'http://www.aradimmigration.com/',
       email: 'sudihariri@gmail.com',
@@ -399,7 +462,7 @@ Spoken Languages: English; Persian; Dari.`,
       en: ['MIA 10242'],
       fa: ['MIA 10242'],
     },
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       website: 'https://www.elitemigration.com/',
       email: 'z.mavi@elitemigration.com',
@@ -413,7 +476,7 @@ Spoken Languages: English; Persian; Dari.`,
     slug: 'daniel-eskandari',
     locations: [Locations.en, Locations.fa],
     maraNumber: '0100438',
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
       email: 'daniel@australianmigration.org',
       phone: ['61282112722'],
@@ -426,7 +489,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   slug: 'hassan-izadnia',
   //   locations: [Locations.en, Locations.fa],
   //   maraNumber: '1571846',
-  //   isFeatured: false,
+  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
   //     website: 'https://www.regalmigration.com.au',
   //     email: 'h.izadnia@regalmigration.com.au',
@@ -440,7 +503,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   slug: 'roya-majd',
   //   locations: [Locations.en, Locations.fa],
   //   maraNumber: '0701239',
-  //   isFeatured: false,
+  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
   //     website: 'http://www.majdvisa.com',
   //     email: 'info@majdvisa.com',
@@ -450,39 +513,44 @@ Spoken Languages: English; Persian; Dari.`,
   // },
   {
     id: 'agt26',
-    name: { en: 'Negin Safaee', fa: 'نگین ضفایی' },
+    name: { en: 'Negin Safaee', fa: 'نگین صفایی' },
     slug: 'negin-safaee',
     locations: [Locations.en, Locations.fa],
     maraNumber: '1791573',
-    isFeatured: false,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
-      website: 'www.visayab.com',
+      website: 'https://www.visayab.com',
       email: 'n.safaee@visayab.com',
       phone: ['61296591694'],
     },
     status: Status.ACTIVE,
   },
-  // {
-  //   id: 'agt27',
-  //   name: { en: 'Naghmeh Danai', fa: 'نغمه دانای' },
-  //   slug: 'naghmeh-danai',
-  //   locations: [Locations.en, Locations.fa],
-  //   maraNumber: '748076',
-  //   isFeatured: false,
-  //   contact: {
-  //     website: 'https://www.visazone.com.au/?lang=fa#top',
-  //     email: 'naghmeh.danai@gmail.com',
-  //     phone: ['61414326277'],
-  //   },
-  //   status: Status.ACTIVE,
-  // },
+  {
+    id: 'agt27',
+    name: { en: 'Naghmeh Danai', fa: 'نغمه دانایی' },
+    slug: 'naghmeh-danai',
+    desc: {
+      en: `Over 15 years of experience in different visa and migration matters.`,
+      fa: `بیش از 15 سال تجربه در امور مختلف ویزا و مهاجرت.`,
+    },
+    locations: [Locations.en, Locations.fa],
+    maraNumber: '0748076',
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    contact: {
+      website: 'https://www.visazone.com.au',
+      email: 'naghmeh.danai@gmail.com',
+      phone: ['0414326277'],
+      instagram: 'https://www.instagram.com/visazone_naghmeh_danai/',
+    },
+    status: Status.ACTIVE,
+  },
   // {
   //   id: 'agt28',
   //   name: { en: 'Sudabeh Rahbar', fa: 'سودابه رهبر' },
   //   slug: 'sudabeh-rahbar',
   //   locations: [Locations.en, Locations.fa],
   //   maraNumber: '1386969',
-  //   isFeatured: false,
+  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
   //     website: 'https://www.keymigrationvisa.com.au',
   //     email: 'Sue@keymigrationvisa.com.au',

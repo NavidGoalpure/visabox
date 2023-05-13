@@ -1,4 +1,4 @@
-import { Socials } from 'Interfaces/Lists/Socials';
+import { Socials } from 'Interfaces/Lists/socials';
 import { HTMLAttributes } from 'react';
 import MobileSocialCard from './MobileCard';
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}

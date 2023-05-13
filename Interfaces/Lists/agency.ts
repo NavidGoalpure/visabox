@@ -6,6 +6,7 @@ import {
   MultiLanguageTextArray,
   Status,
 } from 'Interfaces';
+import { FeaturedPlan_Business } from '.';
 
 export interface Agency {
   id: string;
@@ -16,7 +17,7 @@ export interface Agency {
   country: Country[];
   desc?: MultiLanguageText;
   qualifications?: MultiLanguageTextArray;
-  isFeatured: boolean;
+  featuredPlan: FeaturedPlan_Business;
   status: Status;
   socialsId?: string[];
   agentsId?: string[];

@@ -11,6 +11,7 @@ import { slugify } from 'Utils';
 import { Status } from 'Interfaces';
 import VIPNaatiCard from 'Components/Lists/Card/Naati/VIPCard';
 import NaatiCard from 'Components/Lists/Card/Naati/Card';
+import { FeaturedPlan_Business } from 'Interfaces/Lists';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -19,7 +20,11 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {NAATIES.filter((naati) => naati.isFeatured).map((naati, i) => {
+        {NAATIES.filter(
+          (naati) =>
+            naati.featuredPlan === FeaturedPlan_Business.VIP ||
+            naati.featuredPlan === FeaturedPlan_Business.FULL_DATA
+        ).map((naati, i) => {
           if (naati.status === Status.ACTIVE)
             return (
               <VIPNaatiCard
@@ -32,7 +37,9 @@ function Content() {
         })}
       </VIPContainer>
       <NormalNaatiContainer>
-        {NAATIES.filter((naati) => !naati.isFeatured).map((naati, i) => {
+        {NAATIES.filter(
+          (naati) => naati.featuredPlan === FeaturedPlan_Business.SIMPLE
+        ).map((naati, i) => {
           if (naati.status === Status.ACTIVE)
             return (
               <NaatiCard

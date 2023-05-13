@@ -81,10 +81,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   // Note: Make sure not to redirect to the same page
   // To avoid an infinite loop!
 
-  //navid
-  // این خط باعث میشه بعد از لاگین به زبان فارسی که دیفالت هست بره
-  // باید بفهمیم زبان کاربر چی بوده تا بفرستیمش همونجا
-  console.log('***navid locale=', context.locale);
   if (session) {
     return {
       redirect: { destination: `/auth/verification` },

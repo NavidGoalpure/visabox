@@ -18,6 +18,7 @@ function Content() {
   const router = useRouter();
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
+  const successToastMessage = t(LanguageKeys.ToastMessage);
   const { data: session } = useSession();
   const mutation = useMutation({
     mutationFn: () => {
@@ -27,8 +28,6 @@ function Content() {
       });
     },
     onSuccess: (res) => {
-      console.log("navid success");
-
       if (!res.ok) {
         throw new Error("couldnt create the user");
       }
@@ -44,7 +43,6 @@ function Content() {
           // اگر کلاینت برای اولین بار ثبت نام کرده بود
           else {
             router.push(`/${locale}/forms/client`);
-            console.log("navid in else ");
           }
         })
         .catch((err) => console.log("navid fail res=", err));
@@ -57,13 +55,10 @@ function Content() {
     if (session) {
       mutation.mutate();
     }
-    if (mutation.isSuccess) {
-      SuccessToast("t(LanguageKeys.ToastMessage)");
-    }
   }, [session]);
   useEffect(() => {
     if (mutation.isSuccess) {
-      SuccessToast("t(LanguageKeys.ToastMessage)");
+      SuccessToast(successToastMessage);
     }
   }, [mutation.isSuccess]);
 

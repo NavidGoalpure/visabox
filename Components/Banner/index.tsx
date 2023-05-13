@@ -21,6 +21,7 @@ const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
         animationSpeed={60}
         DarkPrimaryColor={"var(--color-primary3)"}
         LightPrimaryColor={"var(--color-primary3)"}
+        LightSecondaryColor={"transparent"}
       >
         <Wrapper>
           <Title>{desc}</Title>{" "}

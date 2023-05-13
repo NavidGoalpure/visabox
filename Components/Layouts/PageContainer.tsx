@@ -58,18 +58,17 @@ const PageContainer: React.FC<Props> = ({
     <Container {...props} $locale={locale}>
       <ToasterContainer />
       {hasMenu && <Header />}
-      {(hasBanner && !hasClientCompletedForm) ||
-        (!session && (
-          <SmartBanner
-            navigateTo={`/${locale}/forms/client`}
-            desc={
-              <div
-                dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-              ></div>
-            }
-            buttonText={t(LanguageKeys.BannerButtonText)}
-          />
-        ))}
+      {hasBanner && (!hasClientCompletedForm || !session) && (
+        <SmartBanner
+          navigateTo={`/${locale}/forms/client`}
+          desc={
+            <div
+              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
+            ></div>
+          }
+          buttonText={t(LanguageKeys.BannerButtonText)}
+        />
+      )}
 
       {/* <Survay.Root
         title={{

@@ -1,28 +1,31 @@
 import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
-} from 'next';
-import { signIn } from 'next-auth/react';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../api/auth/[...nextauth]';
-import PageLayout from 'Components/Layouts/PageContainer';
-import { Key } from 'react';
-import Seo from 'Components/Seo';
-import MaraBgAnimation from 'Components/MaraBgAnimation';
-import styled, { css } from 'styled-components';
-import { FcGoogle } from 'react-icons/fc';
-import theme from 'styled-theming';
-import { FaDiscord } from 'react-icons/fa';
+} from "next";
+import { signIn } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../api/auth/[...nextauth]";
+import PageLayout from "Components/Layouts/PageContainer";
+import { Key } from "react";
+import Seo from "Components/Seo";
+import MaraBgAnimation from "Components/MaraBgAnimation";
+import styled, { css } from "styled-components";
+import { FcGoogle } from "react-icons/fc";
+import theme from "styled-theming";
+import { FaDiscord } from "react-icons/fa";
 import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
-} from 'Styles/Theme/Layers/layer1/style';
-import { setLocalStorage } from 'Utils';
-import { CookieKeys, LocalStorageKeys } from 'Interfaces';
-import { useLocale } from 'Hooks/useLocale';
-import Cookies from 'js-cookie';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from 'PagesComponents/Auth/Signin/const';
+} from "Styles/Theme/Layers/layer1/style";
+import { setLocalStorage } from "Utils";
+import { CookieKeys, LocalStorageKeys } from "Interfaces";
+import { useLocale } from "Hooks/useLocale";
+import Cookies from "js-cookie";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import {
+  componentStatements,
+  LanguageKeys,
+} from "PagesComponents/Auth/Signin/const";
 
 export default function SignIn({
   providers,
@@ -30,18 +33,16 @@ export default function SignIn({
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   return (
-    <StyledPageLayout>
+    <StyledPageLayout hasBanner={false}>
       <Seo
-        title={'Login/Register'}
+        title={"Login/Register"}
         canonical={`https://www.marabox.com/auth/signin`}
         isNoIndex={true}
       />
       <MaraBgAnimation>
         <BlurContainer>
           <Title>{t(LanguageKeys.Title)}</Title>
-          <Subtitle>
-            {t(LanguageKeys.Subtitle)}
-          </Subtitle>
+          <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
           {providers.map(
             (
               provider: {
@@ -62,8 +63,8 @@ export default function SignIn({
                 }}
                 key={i}
               >
-                {provider.name === 'Google' && <GoogleIcon />}
-                {provider.name === 'Discord' && <DiscordIcon />}
+                {provider.name === "Google" && <GoogleIcon />}
+                {provider.name === "Discord" && <DiscordIcon />}
                 Sign in with {provider.name}
               </SocialButton>
             )
@@ -119,7 +120,7 @@ const Title = styled.h1`
   margin-bottom:1rem;
 `;
 /////////
-const SubtitleColor = theme('mode', {
+const SubtitleColor = theme("mode", {
   light: css`
     color: var(--color-gray9);
   `,
@@ -133,7 +134,7 @@ const Subtitle = styled.h1`
   ${SubtitleColor}
     text-align: center !important;
 `;
-const SocialButtonTheme = theme('mode', {
+const SocialButtonTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);

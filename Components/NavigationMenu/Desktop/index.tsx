@@ -33,7 +33,7 @@ function Desktop() {
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
         </MenuItems>
-        <NavigationMenu.Item>
+        <StyledMenuItem>
           {session ? (
             <Avatar
               src={session.user?.image || "/Images/placeholder.jpeg"}
@@ -44,7 +44,7 @@ function Desktop() {
               {t(LanguageKeys.Login)}
             </MenuLink>
           )}
-        </NavigationMenu.Item>
+        </StyledMenuItem>
       </Wrapper>
     </Container>
   );
@@ -113,6 +113,12 @@ const MenuLink = styled(Link)`
       border-radius: 10px;
     }
   }
+`;
+const StyledMenuItem = styled(NavigationMenu.Item)`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const Avatar = styled.img`
   border-radius: 50%;

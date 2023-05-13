@@ -28,13 +28,17 @@ export function doMustActiveHotjar(currentRoute: string): boolean {
   return MUST_ACTIVE_ROUTES.includes(currentRoute);
 }
 
+/**
+ *  این فانکشن برای فعال کردن هاتجر استفاده میشود
+ *
+ * @export
+ * @param {string} currentRoute
+ */
 export function smartActiveHotjar(currentRoute: string) {
   const isActiveHotjar = doMustActiveHotjar(currentRoute);
   if (isActiveHotjar)
-    if (currentRoute === '/occupations/[slugOrCode]') {
-      hotjar.initialize(
-        Number(process.env.NEXT_PUBLIC_HJID),
-        Number(process.env.NEXT_PUBLIC_HJSV)
-      );
-    }
+    hotjar.initialize(
+      Number(process.env.NEXT_PUBLIC_HJID),
+      Number(process.env.NEXT_PUBLIC_HJSV)
+    );
 }

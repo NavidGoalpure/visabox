@@ -66,7 +66,6 @@ function MobileSocialCard({
         return null;
     }
   };
-
   return (
     <Container href={link} target={'_blank'} featuredPlan={featuredPlan}>
       <Wrapper featuredPlan={featuredPlan} {...props}>

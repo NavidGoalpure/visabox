@@ -33,8 +33,8 @@ left:30%;
 `;
 
 const Content = styled.span`
-  ${SquareCss}
+  ${SquareCss};
   top: 10%;
   left: 15%;
-  animation: ${MovingAnimation} 15s infinite ease;
+  animation: ${MovingAnimation} var(--animation-speed) infinite ease;
 `;

@@ -10,6 +10,7 @@ import visaType from './documents/occupations/visaType';
 import territory from './documents/occupations/territory';
 import unitGroup from './documents/occupations/unitGroup';
 import survey from './documents/survey';
+import client from './documents/client/client';
 
 //Objects-section
 import visaOptionObj from './objects/occupations/visaOptionObj';
@@ -44,7 +45,8 @@ export default createSchema({
       translateFields([
         // The following are document types which will appear
         // in the studio.
-        // translateFields([occupation]),
+
+        ////Occupations Related////
         surveyChoiceObj,
         unitGroup,
         anzscoObj,
@@ -53,6 +55,8 @@ export default createSchema({
         territory,
         /////Survey Related ////
         survey,
+        /////client Related ////
+        client,
       ])
     ),
 });

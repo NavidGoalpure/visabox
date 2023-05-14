@@ -16,7 +16,6 @@ interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
 
 const Root: React.FC<Props> = ({ children, title, ...props }) => {
   const { dt } = useDynamicTranslation();
-  //navid use localstorage for saving user desision
   const [isShow, setIsShow] = useState<boolean>(true);
   return (
     <Container {...props} isShow={isShow}>

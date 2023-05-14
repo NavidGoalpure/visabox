@@ -38,7 +38,7 @@ left:80%;
 100% {
   transform: rotate(45deg);
   top: 90%;
-  left: 90%
+  left: 90%;
 }
 `;
 
@@ -46,5 +46,5 @@ const Content = styled.span`
   ${TriangleCss}
   top: 90%;
   left: 90%;
-  animation: ${MovingAnimation} 15s infinite ease;
+  animation: ${MovingAnimation} var(--animation-speed) infinite ease;
 `;

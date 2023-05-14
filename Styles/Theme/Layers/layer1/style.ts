@@ -12,8 +12,8 @@ import {
 export const Layer1_TitleStyle = css<{
   color?: string;
 }>`
-  ${Headline4Style}
-  ${layer1_TitleColor}
+  ${Headline4Style};
+  ${layer1_TitleColor};
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
   margin-top: 1rem;

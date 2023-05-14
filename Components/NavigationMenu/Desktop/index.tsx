@@ -1,39 +1,50 @@
-import { Logo } from 'Elements/Logo';
-import Link from 'next/link';
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { boxShadow, directionStyles } from 'Styles/Theme';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import SwitchTheme from '../switchTheme';
-import { useLocale } from 'Hooks/useLocale';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
-import { componentStatements, LanguageKeys } from '../const';
-import DesktopLanguageChanger from './LanguageChanger';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import DesktopBoxsesDropdown from './dropdownBoxes';
-import DesktopOccupationDropdown from './dropdownOccupation';
+import { Logo } from "Elements/Logo";
+import Link from "next/link";
+import React from "react";
+import styled, { css } from "styled-components";
+import { boxShadow, directionStyles } from "Styles/Theme";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import theme from "styled-theming";
+import { useLocale } from "Hooks/useLocale";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
+import { componentStatements, LanguageKeys } from "../const";
+import DesktopLanguageChanger from "./LanguageChanger";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import DesktopBoxsesDropdown from "./dropdownBoxes";
+import DesktopOccupationDropdown from "./dropdownOccupation";
+import { useSession } from "next-auth/react";
 
 function Desktop() {
   const { locale } = useLocale();
+  const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
       <Wrapper>
-        <NavigationMenu.Item>
-          <Link href={`/${locale}`}>
-            <Logo />
-          </Link>
-        </NavigationMenu.Item>
         <MenuItems>
           <NavigationMenu.Item>
-            <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
+            <Link href={`/${locale}`}>
+              <Logo />
+            </Link>
           </NavigationMenu.Item>
+          <DesktopLanguageChanger />
+
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
-          <DesktopLanguageChanger />
-          <SwitchTheme />
         </MenuItems>
+        <StyledMenuItem>
+          {session ? (
+            <Avatar
+              src={session.user?.image || "/Images/placeholder.jpeg"}
+              alt={"user-profile"}
+            />
+          ) : (
+            <MenuLink href={`/${locale}/auth/signin`}>
+              {t(LanguageKeys.Login)}
+            </MenuLink>
+          )}
+        </StyledMenuItem>
       </Wrapper>
     </Container>
   );
@@ -49,19 +60,30 @@ const Container = styled(NavigationMenu.Root)`
   width: 100%;
   padding: 0 1rem;
 `;
+const dirFlexStyle = theme("languageDirection", {
+  ltr: css`
+    flex-direction: row;
+  `,
+  rtl: css`
+    flex-direction: row-reverse;
+  `,
+});
 const Wrapper = styled(NavigationMenu.List)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  ${dirFlexStyle}
   width: 100%;
   height: 5.5rem;
   max-width: var(--max-width-page);
   margin: 0 auto;
+  direction: ltr;
 `;
 const MenuItems = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  ${dirFlexStyle}
   width: auto;
   gap: 2rem;
 `;
@@ -69,7 +91,7 @@ const MenuLink = styled(Link)`
   ${layer3_TextStyle};
   position: relative;
   :before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -91,4 +113,15 @@ const MenuLink = styled(Link)`
       border-radius: 10px;
     }
   }
+`;
+const StyledMenuItem = styled(NavigationMenu.Item)`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const Avatar = styled.img`
+  border-radius: 50%;
+  width: 3rem;
+  outline: 2px solid var(--color-gray7);
 `;

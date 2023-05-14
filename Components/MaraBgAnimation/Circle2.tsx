@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { borderColorContent, CircleCss } from './StyledComponents';
+import {  CircleCss } from './StyledComponents';
 
 const Circle2 = () => {
   return <Content aria-hidden={true} />;
@@ -36,5 +36,5 @@ const Content = styled.span`
   ${CircleCss}
   top: 20%;
   left: 80%;
-  animation: ${MovingAnimation} 15s infinite ease;
+  animation: ${MovingAnimation} var(--animation-speed) infinite ease;
 `;

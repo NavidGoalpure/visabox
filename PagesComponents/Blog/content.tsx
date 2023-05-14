@@ -8,7 +8,6 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 
 export default function PostContent() {
-  console.log('navid props=');
   return (
     <Container>
 

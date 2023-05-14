@@ -34,7 +34,6 @@ export const config = {
 
 // // Helper function for using the current logged in user account
 // export const useCurrentUser = createCurrentUserHook(config);
-console.log('navid config=', config);
 export const sanityClient = createClient(config);
 /**
  * Set up a helper function for generating Image URLs with only the asset reference data in your documents.

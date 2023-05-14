@@ -11,41 +11,32 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   children: ReactNode;
   isLoading?: boolean;
+  icon?: ReactNode;
 }
 export const SecondaryButton = ({
   children,
   disabled = false,
   isLoading = false,
   type = 'button',
+  icon,
   ...props
 }: ButtonProps) => {
   return (
-    <Container type={type} {...props} disabled={disabled || isLoading}>
+    <Container
+      hasIcon={!!icon}
+      type={type}
+      {...props}
+      disabled={disabled || isLoading}
+    >
       {isLoading ? <Loading /> : children}
+      {!isLoading && icon}
     </Container>
   );
 };
-const secondaryButtonTheme = theme('mode', {
-  light: css`
-    color: var(--color-secondary1);
-    background: var(--color-secondary4);
-    &:hover {
-      background-color: var(--color-secondary3);
-    }
-  `,
-  dark: css`
-    color: var(--color-secondary4);
-    border: 1px solid var(--color-secondary4);
-    &:hover {
-      background-color: var(--color-secondary4);
-      color: var(--color-gray3);
-    }
-  `,
-});
 export const SecondaryButtonCss = css<{
   disabled: boolean | undefined;
+  hasIcon: boolean;
 }>`
-  ${secondaryButtonTheme}
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +47,20 @@ export const SecondaryButtonCss = css<{
   padding: 0 3rem;
   border-radius: 50px;
   font-weight: bold;
+  color: var(--color-secondary1);
+  background: var(--color-secondary4);
   transition: all 0.3s;
+  //////////////hasIcon////////////////
+  ${({ hasIcon }) =>
+    hasIcon &&
+    css`
+      padding: 0 1.5rem;
+    `}
+    /////////hover/////////////
+  &:hover {
+    background-color: var(--color-secondary3);
+  }
+  /////////////
   @media ${deviceMin.tabletS} {
     width: auto;
   }

@@ -5,7 +5,6 @@ import { Slug } from 'Interfaces/Occupation/Fields';
 import { useRouter } from 'next/router';
 import React, { Fragment } from 'react';
 import { componentStatements, LanguageKeys } from './const';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PopupTitle, StyledButton } from '../StyledComponents';
 
 interface Props {
@@ -14,7 +13,6 @@ interface Props {
 }
 const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
   const { t } = useStaticTranslation(componentStatements);
-  const { dtArray, isMultiLanguageTextArrayIsEmpty } = useDynamicTranslation();
 
   const router = useRouter();
   const { locale } = useLocale();

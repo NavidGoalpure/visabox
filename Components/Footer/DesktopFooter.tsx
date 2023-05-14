@@ -14,6 +14,7 @@ import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages } from 'Interfaces';
 import { Headline7Style } from 'Styles/Typo';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -24,6 +25,9 @@ function DesktopFooter() {
       <StyledLogo />
       <Wrapper>
         <SideContainer>
+          <SwitchButton>
+            <SwitchTheme />
+          </SwitchButton>
           <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
             {t(LanguageKeys.Home)}
           </Items>
@@ -234,6 +238,12 @@ const SideContainer = styled.div`
     right: 6%;
   }
 `;
+
+const SwitchButton = styled.div`
+position: absolute;
+bottom: 16px;
+`
+
 const ContactUs = styled.h2`
   ${layer2A_SubtitleStyle}
   color: var(--color-gray9);

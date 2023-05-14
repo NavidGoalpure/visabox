@@ -1,43 +1,57 @@
-import { HtmlHTMLAttributes } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { directionStyles } from 'Styles/Theme';
+import { HtmlHTMLAttributes } from "react";
+import styled, { css, keyframes } from "styled-components";
+import theme from "styled-theming";
+import { directionStyles } from "Styles/Theme";
 
-interface Props extends HtmlHTMLAttributes<HTMLDivElement> {}
+interface Props extends HtmlHTMLAttributes<HTMLOrSVGElement> {}
 const Loading: React.FC<Props> = ({ ...props }) => {
   return (
-    <Container {...props}>
-      <Square />
-      <Square />
-      <Square />
+    <Container width="50" height="50" viewBox="0 0 100 100" {...props}>
+      <LoadingBackgroundCircle
+        strokeWidth={7}
+        r="30"
+        cx={50}
+        cy={50}
+        x={0}
+        y={0}
+      />
+      <LoadingMovingCircle strokeWidth={7} r="30" cx={50} cy={50} x={0} y={0} />
     </Container>
   );
 };
 export { Loading };
-
-const Container = styled.div`
+const LoadingTheme = theme("mode", {
+  light: css`
+    stroke: var(--color-primary2);
+  `,
+  dark: css`
+    stroke: var(--color-primary5);
+  `,
+});
+const RotateAnimation = keyframes`
+0%{
+transform:rotate(0);
+}
+100%{
+transform:rotate(360deg);
+}
+`;
+const Container = styled.svg`
   display: flex;
-  width: 100%;
   justify-content: center;
-`;
-const Rotate = keyframes`
-0% {
-    transform: translate(0, 0) rotate(0deg);
-}
-50% {
-    transform: translate(70px, 0) rotate(360deg);
-}
-
-100% {
-    transform: translate(0, 0) rotate(0deg);
-}
+  transform-origin: center center;
+  animation: ${RotateAnimation} 1s linear infinite;
 `;
 
-const Square = styled.div`
-  ${directionStyles}
-  background: var(--color-primary2);
-  width: 12px;
-  height: 12px;
-  border-radius: 4px;
-  animation: ${Rotate} 1.5s cubic-bezier(0.17, 0.37, 0.43, 0.67) infinite;
-  margin: 0 2px;
+const LoadingBackgroundCircle = styled.circle`
+  ${LoadingTheme};
+  fill: none;
+  opacity: 0.1;
+`;
+const LoadingMovingCircle = styled.circle`
+  ${LoadingTheme};
+  fill: none;
+  z-index: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 2rem 10rem;
 `;

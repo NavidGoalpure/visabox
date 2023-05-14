@@ -2,7 +2,7 @@ import { ClientError } from '@sanity/client';
 import { Occupation } from 'Interfaces/Occupation/occupation';
 import { getOccupationsList } from 'Queries/occupations/List';
 import { useInfiniteQuery } from 'react-query';
-import { OccupationsQueryKeys } from 'Utils/query';
+import { OccupationsQueryKeys } from 'Utils/query/keys';
 import { FilteredOccupationRange } from './interfaces';
 
 type OccupationsListParams = {

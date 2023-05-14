@@ -23,7 +23,7 @@ export const layer2A_Bg = theme('mode', {
 
 export const layer2A_TitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray8);
+    color: var(--color-primary4);
   `,
   dark: css`
     color: var(--color-gray13);

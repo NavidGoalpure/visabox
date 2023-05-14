@@ -182,7 +182,6 @@ color: var(--color-gray9);
 // font-size: 12px;
 position: absolute;
 bottom: 16px;
-
 :hover {
   text-decoration: underline;
 }

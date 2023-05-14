@@ -46,5 +46,5 @@ const Content = styled.span`
   ${CircleCss}
   top: 30%;
   left: 10%;
-  animation: ${MovingAnimation} 15s infinite ease;
+  animation: ${MovingAnimation} var(--animation-speed) infinite ease;
 `;

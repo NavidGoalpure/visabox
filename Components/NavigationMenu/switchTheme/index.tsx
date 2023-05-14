@@ -38,7 +38,7 @@ const SwitchTheme = () => {
 export default SwitchTheme;
 const BorderColor = theme('mode', {
   light: css`
-    border-color: var(--color-gray12);
+    border-color: var(--color-gray10);
   `,
   dark: css`
     border-color: var(--color-gray9);
@@ -90,7 +90,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     }
   }
 `;
-const SwitchThumb = styled(RdxSwitch.Thumb)<{ direction: LanguageDirection }>`
+const SwitchThumb = styled(RdxSwitch.Thumb) <{ direction: LanguageDirection }>`
   display: block;
   width: 68%;
   height: calc(100% + 6px);

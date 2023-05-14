@@ -1,24 +1,27 @@
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useState } from "react";
-import { PrevButton, PrevIcon } from "./StyledComponents";
-import styled, { css } from "styled-components";
-import { Headline3Style, Headline4Style } from "Styles/Typo";
-import theme from "styled-theming";
-import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { useMutation, useQueryClient } from "react-query";
-import SuccessToast from "Elements/Toast/Success";
-import { useSession } from "next-auth/react";
-import { UserQueryKeys } from "Utils/query/keys";
-import { useRouter } from "next/router";
-import { useLocale } from "Hooks/useLocale";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { BsCheck2, BsFillCheckCircleFill } from "react-icons/bs";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { Loading } from "Elements/Loading";
-import { deviceMin } from "Consts/device";
-import ErrorToast from "Elements/Toast/Error";
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import { useContext, useState } from 'react';
+import { PrevButton, PrevIcon } from './StyledComponents';
+import styled, { css } from 'styled-components';
+import { Headline3Style, Headline4Style } from 'Styles/Typo';
+import theme from 'styled-theming';
+import {
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+} from 'Styles/Theme/Layers/layer2/style';
+import { useMutation, useQueryClient } from 'react-query';
+import SuccessToast from 'Elements/Toast/Success';
+import { useSession } from 'next-auth/react';
+import { UserQueryKeys } from 'Utils/query/keys';
+import { useRouter } from 'next/router';
+import { useLocale } from 'Hooks/useLocale';
+import { FormDataContext } from '../Contexts/FormDataContext/Context';
+import { BsCheck2, BsFillCheckCircleFill } from 'react-icons/bs';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { Loading } from 'Elements/Loading';
+import { deviceMin } from 'Consts/device';
+import ErrorToast from 'Elements/Toast/Error';
 
 const Step9 = () => {
   const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
@@ -34,20 +37,20 @@ const Step9 = () => {
 
   const mutation = useMutation({
     mutationFn: ({ isSharable }: { isSharable: boolean }) => {
-      return fetch("/api/forms/client", {
-        method: "POST",
+      return fetch('/api/clients/basic-form', {
+        method: 'POST',
         body: JSON.stringify({ clientData: { ...clientData, isSharable } }),
       });
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        throw new Error("couldnt patch the user");
+        throw new Error('couldnt patch the user');
       }
       router.push(`/${locale}/`);
       SuccessToast(successToastMessage);
       queryClient.removeQueries(
         UserQueryKeys.detail({
-          email: session?.user?.email || "defensive",
+          email: session?.user?.email || 'defensive',
         })
       );
     },
@@ -89,7 +92,7 @@ const Step9 = () => {
   );
 };
 export default Step9;
-const BackgroundTheme = theme("mode", {
+const BackgroundTheme = theme('mode', {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -102,7 +105,7 @@ const BackgroundTheme = theme("mode", {
     );
   `,
 });
-const NoButtonTheme = theme("mode", {
+const NoButtonTheme = theme('mode', {
   light: css`
     background: var(--color-gray12);
     color: var(--color-gray8);
@@ -148,7 +151,7 @@ const Title = styled.h1`
   }
 `;
 const Desc = styled.p`
-${layer2A_TextStyle};
+  ${layer2A_TextStyle};
   white-space: pre-line;
   @media ${deviceMin.tabletS} {
     ${layer2A_SubtitleStyle};

@@ -26,11 +26,14 @@ const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
   return (
     <PageLayout>
       <Seo
-        title={t(LanguageKeys.SeoTitle, [
-          { $agent: dt(chosenAgent?.name) || '' },
-          { $agent: dt(chosenAgent?.name) || '' },
-        ])}
-        description={t(LanguageKeys.SeoDesc)}
+        title={
+          t(LanguageKeys.SeoTitle, [
+            { $agent: dt(chosenAgent?.name) || '' },
+            { $agent: dt(chosenAgent?.name) || '' },
+          ]) + ' | Mara Box'
+        }
+        image={chosenAgent?.avatar}
+        description={dt(chosenAgent?.desc)}
         canonical={`https://www.marabox.com/${locale}/lists/agents/${chosenAgent?.slug}`}
       />
       <Content chosenAgent={chosenAgent} />

@@ -20,7 +20,6 @@ const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
   return (
     <>
       <PopupTitle>{t(LanguageKeys.Tasks)}</PopupTitle>
-      {/* navid check empty */}
       <ul style={{ direction: 'ltr' }}>
         {tasks.en?.map((task, i) => (
           <Fragment key={i}>

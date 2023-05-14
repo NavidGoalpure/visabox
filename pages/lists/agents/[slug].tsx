@@ -22,7 +22,7 @@ const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
   if (errorCode) return <Error statusCode={errorCode} />;
-
+  console.log('navid chosenAgent=', chosenAgent);
   return (
     <PageLayout>
       <Seo
@@ -31,7 +31,9 @@ const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
         ])}
         image={chosenAgent?.avatar}
         description={dt(chosenAgent?.desc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents/${chosenAgent?.slug}`}
+        canonical={`https://www.marabox.com/${locale}/lists/agents/${
+          chosenAgent?.slug ? chosenAgent?.slug : ''
+        }`}
       />
       <Content chosenAgent={chosenAgent} />
     </PageLayout>
@@ -46,17 +48,21 @@ export const getStaticPaths = async () => {
 
   return {
     paths: paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const chosenAgent = Agents.filter((agent) => agent.slug === params?.slug);
-
+  const chosenAgents = Agents.filter((agent) => agent.slug === params?.slug)[0];
+  if (!chosenAgents)
+    return {
+      props: {
+        errorCode: 404,
+      },
+    };
   return {
     props: {
-      chosenAgent: chosenAgent[0],
+      chosenAgent: chosenAgents,
     },
-    revalidate: 30,
   };
 };

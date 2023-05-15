@@ -4,24 +4,23 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import {
-    componentStatements,
-    LanguageKeys,
+  componentStatements,
+  LanguageKeys,
 } from 'PagesComponents/Lists/Agencies/const';
 import PostContent from 'PagesComponents/Blog/content';
 
 const BlogPage: NextPage = () => {
-    const { locale } = useLocale();
-    const { t } = useStaticTranslation(componentStatements);
-    return (
-        <PageLayout>
-            {/* //navid  */}
-            {/* <Seo
+  const { locale } = useLocale();
+  const { t } = useStaticTranslation(componentStatements);
+  return (
+    <PageLayout>
+      {/* <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/lists/agents`}
       /> */}
-            <PostContent />
-        </PageLayout>
-    );
+      <PostContent />
+    </PageLayout>
+  );
 };
 export default BlogPage;

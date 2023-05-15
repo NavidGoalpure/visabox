@@ -1,15 +1,15 @@
-import { NextPage } from "next";
-import PageLayout from "Components/Layouts/PageContainer";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { useLocale } from "Hooks/useLocale";
-import Seo from "Components/Seo";
-import styled from "styled-components";
-import Content from "PagesComponents/Forms/Client";
+import { NextPage } from 'next';
+import PageLayout from 'Components/Layouts/PageContainer';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useLocale } from 'Hooks/useLocale';
+import Seo from 'Components/Seo';
+import styled from 'styled-components';
+import Content from 'PagesComponents/Clients/BasicForms';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Forms/Client/const";
-import { FormDataContextProvider } from "PagesComponents/Forms/Client/Contexts/FormDataContext/Context";
+} from 'PagesComponents/Clients/BasicForms/const';
+import { FormDataContextProvider } from 'PagesComponents/Clients/BasicForms/Contexts/FormDataContext/Context';
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
@@ -19,8 +19,7 @@ const UserForms: NextPage = ({}) => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/forms/client`}
-        isNoIndex={true}
+        canonical={`https://www.marabox.com/${locale}/clients/basic-form`}
       />
       <FormDataContextProvider>
         <Content />

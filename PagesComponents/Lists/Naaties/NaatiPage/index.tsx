@@ -5,9 +5,9 @@ import DesktopAgentsPage from './Desktop/DesktopNaatiPage';
 import MobileAgentsPage from './Mobile/MobileNaatiPage';
 import { Naati } from 'Interfaces/Lists/naaties';
 interface Props {
-  chosenNaaties?: Naati;
+  chosenNaati?: Naati;
 }
-function Content({ chosenNaaties }: Props) {
+function Content({ chosenNaati }: Props) {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
 
@@ -15,7 +15,7 @@ function Content({ chosenNaaties }: Props) {
     if (isLaptop) setScreen('DESKTOP');
   });
   if (screen === 'MOBILE')
-    return <MobileAgentsPage chosenNaati={chosenNaaties} />;
-  return <DesktopAgentsPage chosenNaati={chosenNaaties} />;
+    return <MobileAgentsPage chosenNaati={chosenNaati} />;
+  return <DesktopAgentsPage chosenNaati={chosenNaati} />;
 }
 export default Content;

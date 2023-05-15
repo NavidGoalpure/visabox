@@ -39,7 +39,10 @@ function convertKeyWithValueInString({
   senttence: string;
   pair: Record<string, string>;
 }): string {
-  return senttence.replace(`${Object.keys(pair)[0]}`, Object.values(pair)[0]);
+  return senttence.replaceAll(
+    `${Object.keys(pair)[0]}`,
+    Object.values(pair)[0]
+  );
 }
 
 ////////////////

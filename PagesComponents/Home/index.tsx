@@ -1,21 +1,21 @@
-import Hero from "./Hero";
-import AgentsSection from "./AgentsSection";
-import OccupationSection from "./OccupationSection";
-import AgencysSection from "./AgencysSection";
-import ExchangesSection from "./ExchangesSection";
-import SocialsSection from "./SocialsSection";
-import NattiesSection from "./NattiesSection";
-import styled from "styled-components";
-import { useLocale } from "Hooks/useLocale";
-import { Languages } from "Interfaces";
-import Banner from "../../Components/Banner";
-import { useSession } from "next-auth/react";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { getClientDetail } from "Queries/client";
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
-import { UserQueryKeys } from "Utils/query/keys";
+import Hero from './Hero';
+import AgentsSection from './AgentsSection';
+import OccupationSection from './OccupationSection';
+import AgencysSection from './AgencysSection';
+import ExchangesSection from './ExchangesSection';
+import SocialsSection from './SocialsSection';
+import NattiesSection from './NattiesSection';
+import styled from 'styled-components';
+import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
+import Banner from '../../Components/Banner';
+import { useSession } from 'next-auth/react';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { getClientDetail } from 'Queries/client';
+import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
+import { UserQueryKeys } from 'Utils/query/keys';
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -45,10 +45,10 @@ const HomeContent: React.FC = () => {
   return (
     <>
       <Hero />
-      <Container id="section-container">
-        {(!session || !hasClientCompletedForm )&& (
+      <Container id='section-container'>
+        {(!session || !hasClientCompletedForm) && (
           <Banner
-            navigateTo={`/${locale}/forms/client`}
+            navigateTo={`/${locale}/clients/basic-form`}
             desc={
               <div
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
@@ -57,12 +57,12 @@ const HomeContent: React.FC = () => {
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
         )}
-        <OccupationSection className="section" />
-        <AgencysSection className="section" />
-        <NattiesSection className="section" />
-        <AgentsSection className="section" />
-        <ExchangesSection className="section" />
-        {locale === Languages.fa && <SocialsSection className="section" />}
+        <OccupationSection className='section' />
+        <AgencysSection className='section' />
+        <NattiesSection className='section' />
+        <AgentsSection className='section' />
+        <ExchangesSection className='section' />
+        {locale === Languages.fa && <SocialsSection className='section' />}
       </Container>
     </>
   );

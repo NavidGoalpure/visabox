@@ -85,8 +85,6 @@ export const getStaticPaths = async ({ locales }: any) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const occupation = await getOccupationDetail(getSmartparam(params));
-    // const occupation = testOccupation;
-
     return {
       props: {
         occupation,

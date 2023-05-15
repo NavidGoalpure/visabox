@@ -15,8 +15,7 @@ const Content: React.FC<Props> = ({ clientData }) => {
     if (isLaptop) setScreen('DESKTOP');
   });
 
-  if (screen === 'MOBILE')
-    return <MobileAgentsPage ClientData={clientData || ({} as ClientData)} />;
-  return <DesktopAgentsPage ClientData={clientData || ({} as ClientData)} />;
+  if (screen === 'MOBILE') return <MobileAgentsPage clientData={clientData} />;
+  return <DesktopAgentsPage clientData={clientData} />;
 };
 export default Content;

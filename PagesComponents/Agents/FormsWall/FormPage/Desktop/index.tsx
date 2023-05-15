@@ -1,42 +1,42 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   layer2A_BodyStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import { ClientData } from "Interfaces/Database/Client";
-import DescriptionSection from "../DescriptionSection";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import { ClientData } from 'Interfaces/Database/Client';
+import DescriptionSection from '../DescriptionSection';
 
 interface Props {
-  ClientData?: ClientData;
+  clientData: ClientData;
 }
-function DesktopAgentsPage({ ClientData }: Props) {
-  const dataCreatedAt = ClientData?._createdAt?.toString().substring(0, 10);
+function DesktopAgentsPage({ clientData }: Props) {
+  const dataCreatedAt = clientData?._createdAt?.toString().substring(0, 10);
   return (
     <Container>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
-            src={ClientData?.avatar || "/Images/placeholder.jpeg"}
-            alt={ClientData?.name ? `${ClientData?.name} image` : "agent image"}
+            src={clientData?.avatar || '/Images/placeholder.jpeg'}
+            alt={clientData?.name ? `${clientData?.name} image` : 'agent image'}
           />
         </ProfilePictureWrapper>
         <ProfileData>
           <Name>
-            {ClientData?.name} {ClientData?.lastName}
+            {clientData?.name} {clientData?.lastName}
           </Name>
-          <JobTitle>{ClientData?.currentJob}</JobTitle>
+          <JobTitle>{clientData?.currentJob}</JobTitle>
           <CreatedDate>{dataCreatedAt}</CreatedDate>
         </ProfileData>
       </SmallBox>
-      <DescriptionSection ClientData={ClientData} />
+      <DescriptionSection clientData={clientData} />
     </Container>
   );
 }
 export default DesktopAgentsPage;
 
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,

@@ -1,76 +1,75 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from "Styles/Theme/Layers/layer2/style";
+} from 'Styles/Theme/Layers/layer2/style';
 
-import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { Headline7Style } from "Styles/Typo";
-import { FaPhone } from "react-icons/fa";
-import { deviceMin } from "Consts/device";
-import { SiGmail } from "react-icons/si";
-import { copyContent } from "Utils";
-import { ClientData } from "Interfaces/Database/Client";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { Headline7Style } from 'Styles/Typo';
+import { FaPhone } from 'react-icons/fa';
+import { deviceMin } from 'Consts/device';
+import { SiGmail } from 'react-icons/si';
+import { copyContent } from 'Utils';
+import { ClientData } from 'Interfaces/Database/Client';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 interface Props {
-  ClientData?: ClientData;
+  clientData: ClientData;
 }
-function DescriptionSection({ ClientData }: Props) {
+function DescriptionSection({ clientData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <FormData>
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
       <Wrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
-          <Value>{ClientData?.age}</Value>
+          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{' '}
+          <Value>{clientData?.age}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
-          <Value>{ClientData?.IELTSScore}</Value>
+          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{' '}
+          <Value>{clientData?.IELTSScore}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
-          <Value>{ClientData?.marital}</Value>
+          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{' '}
+          <Value>{clientData?.marital}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{" "}
-          <Value>{ClientData?.fieldOfStudy}</Value>
+          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{' '}
+          <Value>{clientData?.fieldOfStudy}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
-          <Value>{ClientData?.degree}</Value>
+          <Label>{t(LanguageKeys.DegreeLabel)}</Label>{' '}
+          <Value>{clientData?.degree}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
-          <Value>{ClientData?.uniSection}</Value>
+          <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{' '}
+          <Value>{clientData?.uniSection}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.CurrentJobLabel)}</Label>{" "}
-          <Value>{ClientData?.currentJob}</Value>
+          <Label>{t(LanguageKeys.CurrentJobLabel)}</Label>{' '}
+          <Value>{clientData?.currentJob}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{" "}
-          <Value>{ClientData?.workExperience}</Value>
+          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{' '}
+          <Value>{clientData?.workExperience}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
-          <Value>{ClientData?.australianWorkExperience}</Value>
+          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{' '}
+          <Value>{clientData?.australianWorkExperience}</Value>
         </DataWrapper>
-        <PhoneContainer onClick={() => copyContent("")}>
+        <PhoneContainer onClick={() => copyContent(clientData?.phoneNumber)}>
           <PhoneIcon />
           <PhoneTitle>
-            <PhonesRow>{ClientData?.phoneNumber}</PhonesRow>
+            <PhonesRow>{clientData?.phoneNumber}</PhonesRow>
           </PhoneTitle>
         </PhoneContainer>
-        <GmailContainer onClick={() => copyContent("")}>
+        <GmailContainer onClick={() => copyContent(clientData.email)}>
           <GmailIcon />
-          {/* navid add email from next auth to sanity  */}
-          <GmailTitle>info@shada.com.au</GmailTitle>
+          <GmailTitle>{clientData?.email}</GmailTitle>
         </GmailContainer>
       </Wrapper>
     </FormData>
@@ -78,7 +77,7 @@ function DescriptionSection({ ClientData }: Props) {
 }
 export default DescriptionSection;
 
-const FormDataTheme = theme("mode", {
+const FormDataTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -87,7 +86,7 @@ const FormDataTheme = theme("mode", {
     background: var(--color-gray6);
   `,
 });
-const LabelTheme = theme("mode", {
+const LabelTheme = theme('mode', {
   light: css`
     color: var(--color-gray8);
   `,

@@ -24,7 +24,8 @@ export interface ClientData_Sanity extends SanityKeys {
   is_sharable: boolean;
   uni_section: UniSections;
   status: Status;
-  role: "normal" | "admin";
+  role: 'normal' | 'admin';
   avatar?: string;
   completed_forms?: ClientCompletedForms[];
+  email: string;
 }

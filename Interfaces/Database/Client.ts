@@ -53,5 +53,6 @@ export interface ClientData extends SanityKeys {
   status: Status;
   role: 'normal' | 'admin';
   completedForms?: ClientCompletedForms[];
-  avatar?:string;
+  avatar?: string;
+  email: string;
 }

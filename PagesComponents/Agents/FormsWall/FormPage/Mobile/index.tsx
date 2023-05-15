@@ -1,23 +1,20 @@
-import { deviceMin } from "Consts/device";
-import styled, { css } from "styled-components";
-import Image from "next/image";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
-import {
-  layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
+import { deviceMin } from 'Consts/device';
+import styled, { css } from 'styled-components';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
+import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import {
   layer2A_Key,
   layer2A_TextColor,
-} from "Styles/Theme/Layers/layer2/theme";
-import { ClientData } from "Interfaces/Database/Client";
-import DescriptionSection from "../DescriptionSection";
+} from 'Styles/Theme/Layers/layer2/theme';
+import { ClientData } from 'Interfaces/Database/Client';
+import DescriptionSection from '../DescriptionSection';
 
 interface Props {
-  ClientData?: ClientData;
+  clientData: ClientData;
 }
-function MobileAgentsPage({ ClientData }: Props) {
-  const dataCreatedAt = ClientData?._createdAt?.toString().substring(0, 10);
+function MobileAgentsPage({ clientData }: Props) {
+  const dataCreatedAt = clientData?._createdAt?.toString().substring(0, 10);
 
   return (
     <Container>
@@ -26,26 +23,24 @@ function MobileAgentsPage({ ClientData }: Props) {
       </StarBackground>
       <ProfilePictureWrapper>
         <ProfilePicture
-          fill
-          src={ClientData?.avatar || "/Images/placeholder.jpeg"}
-          // navid add profile alt in the languagekeys
-          alt={ClientData?.name ? `${ClientData?.name} image` : "client image"}
+          src={clientData?.avatar || '/Images/placeholder.jpeg'}
+          alt={clientData?.name ? `${clientData?.name} image` : 'agent image'}
         />
       </ProfilePictureWrapper>
       <ProfileData>
         <Name>
-          {" "}
-          {ClientData?.name} {ClientData?.lastName}
+          {' '}
+          {clientData?.name} {clientData?.lastName}
         </Name>
-        <JobTitle>{ClientData?.currentJob}</JobTitle>
+        <JobTitle>{clientData?.currentJob}</JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
       </ProfileData>
-      <DescriptionSection ClientData={ClientData} />
+      <DescriptionSection clientData={clientData} />
     </Container>
   );
 }
 export default MobileAgentsPage;
-const StarBackgroundColor = theme("mode", {
+const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -53,7 +48,7 @@ const StarBackgroundColor = theme("mode", {
     background: var(--color-gray4);
   `,
 });
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -61,7 +56,7 @@ const TitleColor = theme("mode", {
     color: var(--color-primary5);
   `,
 });
-const FormDataTheme = theme("mode", {
+const FormDataTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -70,7 +65,7 @@ const FormDataTheme = theme("mode", {
     background: var(--color-gray6);
   `,
 });
-const LabelTheme = theme("mode", {
+const LabelTheme = theme('mode', {
   light: css`
     color: var(--color-gray8);
   `,
@@ -145,7 +140,7 @@ const ProfilePictureWrapper = styled.div`
   margin-bottom: 4rem;
   position: relative;
 `;
-const ProfilePicture = styled(Image)`
+const ProfilePicture = styled.img`
   object-fit: cover;
   position: relative !important;
   border-radius: 15px;

@@ -51,15 +51,13 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       ielts_score,
       is_sharable,
       uni_section,
-      avatar
+      avatar,
+      email
       `;
 
   try {
     const client = await getClientDetail({ reqParams, resParams });
-    console.log(
-      '***navid client=',
-      proxySanityClientResponseToCamelCase(client?.clientData[0])
-    );
+
     return {
       props: {
         client: proxySanityClientResponseToCamelCase(client?.clientData[0]),

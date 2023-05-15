@@ -13,6 +13,7 @@ export const maritalStatuses: MultiLanguageText[] = [
 export const educations: MultiLanguageText[] = [
   { en: 'Diploma', fa: 'دیپلم' },
   { en: "Bachelor's degree", fa: 'لیسانس' },
+  { en: "Master's degree", fa: 'فوق لیسانس' },
   { en: 'Doctorate', fa: 'دکترا' },
 ];
 export const uniSections: MultiLanguageText[] = [

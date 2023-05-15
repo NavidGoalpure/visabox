@@ -15,7 +15,6 @@ import {
   PrevIcon,
 } from './StyledComponents';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { ages } from './consts';
 import { Input } from 'Components/Input';
 
 const Step2 = () => {

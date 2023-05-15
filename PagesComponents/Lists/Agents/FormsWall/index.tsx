@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
-import CardDesign from "./CardDesign";
 import { PrimaryButton } from "Elements/Button/Primary";
+import CardDesign from "./CardDesign";
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

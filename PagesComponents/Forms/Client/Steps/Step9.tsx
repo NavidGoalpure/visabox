@@ -6,11 +6,14 @@ import { PrevButton, PrevIcon } from "./StyledComponents";
 import styled, { css } from "styled-components";
 import { Headline3Style, Headline4Style } from "Styles/Typo";
 import theme from "styled-theming";
-import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
+import {
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+} from "Styles/Theme/Layers/layer2/style";
 import { useMutation, useQueryClient } from "react-query";
 import SuccessToast from "Elements/Toast/Success";
 import { useSession } from "next-auth/react";
-import { UserQueryKeys } from "Utils/query/keys";
+import { ClientQueryKeys } from "Utils/query/keys";
 import { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
@@ -46,7 +49,7 @@ const Step9 = () => {
       router.push(`/${locale}/`);
       SuccessToast(successToastMessage);
       queryClient.removeQueries(
-        UserQueryKeys.detail({
+        ClientQueryKeys.detail({
           email: session?.user?.email || "defensive",
         })
       );
@@ -148,7 +151,7 @@ const Title = styled.h1`
   }
 `;
 const Desc = styled.p`
-${layer2A_TextStyle};
+  ${layer2A_TextStyle};
   white-space: pre-line;
   @media ${deviceMin.tabletS} {
     ${layer2A_SubtitleStyle};

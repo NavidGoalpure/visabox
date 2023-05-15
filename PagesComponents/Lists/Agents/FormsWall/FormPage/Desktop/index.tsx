@@ -23,18 +23,16 @@ import { FaPhone } from "react-icons/fa";
 import { deviceMin } from "Consts/device";
 import { SiGmail } from "react-icons/si";
 import { copyContent } from "Utils";
+import { ClientData } from "Interfaces/Client";
 
 interface Props {
-  ChosenAgent?: Agent;
+  ClientData?: ClientData;
 }
-function DesktopAgentsPage({ ChosenAgent }: Props) {
+function DesktopAgentsPage({ ClientData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState("");
 
-  useEffect(() => {
-    setImgSrc(`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`);
-  }, [ChosenAgent]);
+    
 
   return (
     <Container>
@@ -42,15 +40,11 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         <ProfilePictureWrapper>
           <ProfilePicture
             fill
-            src={imgSrc}
-            alt={
-              ChosenAgent?.name
-                ? `${ChosenAgent?.name?.[locale]} image`
-                : "agent image"
+            src={
+              `/Images/lists/agent/${ClientData?.name}.jpeg` ||
+              "/Images/placeholder.jpeg"
             }
-            onError={() => {
-              setImgSrc(`/Images/placeholder.jpeg`);
-            }}
+            alt={ClientData?.name ? `${ClientData?.name} image` : "agent image"}
           />
         </ProfilePictureWrapper>
         <ProfileData>

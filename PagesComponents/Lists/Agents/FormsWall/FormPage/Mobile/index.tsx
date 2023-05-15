@@ -20,20 +20,20 @@ import {
 } from "Styles/Theme/Layers/layer2/style";
 import { FaPhone } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import { layer2A_Key, layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
+import {
+  layer2A_Key,
+  layer2A_TextColor,
+} from "Styles/Theme/Layers/layer2/theme";
+import { ClientData } from "Interfaces/Client";
+import { useSession } from "next-auth/react";
 
 interface Props {
-  ChosenAgent?: Agent;
+  ClientData?: ClientData;
 }
-function MobileAgentsPage({ ChosenAgent }: Props) {
-  const { dt } = useDynamicTranslation();
+function MobileAgentsPage({ ClientData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState("");
-
-  useEffect(() => {
-    setImgSrc(`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`);
-  }, [ChosenAgent]);
+  const { data: session } = useSession();
 
   return (
     <Container>
@@ -43,15 +43,9 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
       <ProfilePictureWrapper>
         <ProfilePicture
           fill
-          src={imgSrc}
-          alt={
-            ChosenAgent?.name
-              ? `${ChosenAgent?.name?.[locale]} image`
-              : "agent image"
-          }
-          onError={() => {
-            setImgSrc(`/Images/placeholder.jpeg`);
-          }}
+          src={session?.user?.image || "/Images/placeholder.jpeg"}
+          // navid add profile alt in the languagekeys
+          alt={ClientData?.name ? `${ClientData?.name} image` : "client image"}
         />
       </ProfilePictureWrapper>
       <ProfileData>
@@ -218,6 +212,7 @@ const ProfileData = styled.div`
   align-items: center;
   width: 100%;
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
 `;
 const Name = styled.h2`
   ${TitleColor}

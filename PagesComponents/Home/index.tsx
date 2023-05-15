@@ -15,7 +15,7 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { getClientDetail } from "Queries/client";
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
-import { UserQueryKeys } from "Utils/query/keys";
+import { ClientQueryKeys } from "Utils/query/keys";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -23,16 +23,17 @@ const HomeContent: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [hasClientCompletedForm, setHasClientCompletedForm] =
     useState<boolean>(true);
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const { data, isLoading } = useQuery(
-    UserQueryKeys.detail({
-      email: session?.user?.email || `defensive`,
+    ClientQueryKeys.detail({
+      reqParams,
       resParams: `
      name
       `,
     }),
     () => {
       return getClientDetail({
-        email: session?.user?.email || `defensive`,
+        reqParams,
         resParams: `
      name
       `,
@@ -46,7 +47,7 @@ const HomeContent: React.FC = () => {
     <>
       <Hero />
       <Container id="section-container">
-        {(!session || !hasClientCompletedForm )&& (
+        {(!session || !hasClientCompletedForm) && (
           <Banner
             navigateTo={`/${locale}/forms/client`}
             desc={

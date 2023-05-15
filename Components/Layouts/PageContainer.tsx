@@ -12,7 +12,7 @@ import { useQuery } from "react-query";
 import styled from "styled-components";
 import { directionStyles } from "Styles/Theme";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import { UserQueryKeys } from "Utils/query/keys";
+import { ClientQueryKeys } from "Utils/query/keys";
 import Header from "../NavigationMenu";
 import { componentStatements, LanguageKeys } from "./const";
 
@@ -35,19 +35,17 @@ const PageContainer: React.FC<Props> = ({
   const [hasClientCompletedForm, setHasClientCompletedForm] =
     useState<boolean>(true);
   const { data: session } = useSession();
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const resParams = `name`;
   const { data, isLoading } = useQuery(
-    UserQueryKeys.detail({
-      email: session?.user?.email || `defensive`,
-      resParams: `
-     name
-      `,
+    ClientQueryKeys.detail({
+      reqParams,
+      resParams,
     }),
     () => {
       return getClientDetail({
-        email: session?.user?.email || `defensive`,
-        resParams: `
-     name
-      `,
+        reqParams,
+        resParams,
       });
     }
   );

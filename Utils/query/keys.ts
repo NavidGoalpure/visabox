@@ -20,14 +20,14 @@ const OccupationsQueryKeys = {
 ////////////////////////////////
 //////user queries/////////////
 ///////////////////////////////
-const UserQueryKeys = {
+const ClientQueryKeys = {
   // this key is not useful outside of here
   key: ["user"] as const,
   // we use the detail key to return a client's data.
   // you should pass reParams when you are sending a query
   // but you do not need to send resParams when you are using removeQuery you dont need resParams
-  detail: ({ email, resParams }: { email: string; resParams?: string }) =>
-    [...UserQueryKeys.key, "detail", email, resParams] as const,
+  detail: ({ reqParams, resParams }: { reqParams: string; resParams?: string }) =>
+    [...ClientQueryKeys.key, "detail", reqParams, resParams] as const,
 };
 
-export { OccupationsQueryKeys, UserQueryKeys };
+export { OccupationsQueryKeys, ClientQueryKeys };

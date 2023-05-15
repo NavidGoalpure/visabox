@@ -1,24 +1,21 @@
 import { deviceMin } from "Consts/device";
 import styled, { css } from "styled-components";
-import {
-  Layer1_SubtitleStyle,
-  Layer1_TitleStyle,
-} from "Styles/Theme/Layers/layer1/style";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
 import {
   layer2A_BodyStyle,
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
 } from "Styles/Theme/Layers/layer2/style";
-import { layer2A_TitleColor } from "Styles/Theme/Layers/layer2/theme";
 import theme from "styled-theming";
 import Link from "next/link";
 import { Headline7Style } from "Styles/Typo";
 import { PrimaryButton } from "Elements/Button/Primary";
+import { componentStatements, LanguageKeys } from "./const";
+
 
 function CardDesign() {
   const { t } = useStaticTranslation(componentStatements);
+
   return (
     <CardContainer
       target="_blank"
@@ -30,16 +27,18 @@ function CardDesign() {
       <Wrapper>
         <Title>engineer</Title>
         <DataWrapper>
-          <Label>Name:</Label> <Value> Mobin khafane besiar bozorgsal</Value>
+          <Label>{t(LanguageKeys.NameLabel)}</Label>{" "}
+          <Value> Mobin khafane besiar bozorgsal</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>Date: </Label> <Value>23/3/23</Value>
+          <Label>{t(LanguageKeys.DateLabel)} </Label> <Value>23/3/23</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>Language Skills:</Label> <Value> Ielts 6 </Value>
+          <Label>{t(LanguageKeys.LanguageSkillsLabel)}</Label>{" "}
+          <Value> Ielts 6 </Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>Age:</Label> <Value>18</Value>
+          <Label>{t(LanguageKeys.AgeLabel)}</Label> <Value>18</Value>
         </DataWrapper>
       </Wrapper>
       <PrimaryButton style={{ margin: "0 auto" }}>View More</PrimaryButton>

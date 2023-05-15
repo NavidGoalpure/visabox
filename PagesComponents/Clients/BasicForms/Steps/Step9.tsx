@@ -1,8 +1,7 @@
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 import { WizardContext } from '../Contexts/Wizard/Context';
 import { useContext, useState } from 'react';
-import { PrevButton, PrevIcon } from './StyledComponents';
+import { PrevButton } from './StyledComponents';
 import styled, { css } from 'styled-components';
 import { Headline3Style, Headline4Style } from 'Styles/Typo';
 import theme from 'styled-theming';
@@ -13,7 +12,6 @@ import {
 import { useMutation, useQueryClient } from 'react-query';
 import SuccessToast from 'Elements/Toast/Success';
 import { useSession } from 'next-auth/react';
-import { UserQueryKeys } from 'Utils/query/keys';
 import { useRouter } from 'next/router';
 import { useLocale } from 'Hooks/useLocale';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
@@ -22,7 +20,9 @@ import { PrimaryButton } from 'Elements/Button/Primary';
 import { Loading } from 'Elements/Loading';
 import { deviceMin } from 'Consts/device';
 import ErrorToast from 'Elements/Toast/Error';
-
+import { ClientQueryKeys } from 'Utils/query/keys';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+//
 const Step9 = () => {
   const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
   const { step } = useContext(WizardContext);
@@ -49,8 +49,8 @@ const Step9 = () => {
       router.push(`/${locale}/`);
       SuccessToast(successToastMessage);
       queryClient.removeQueries(
-        UserQueryKeys.detail({
-          email: session?.user?.email || 'defensive',
+        ClientQueryKeys.detail({
+          reqParams:`email == "${session?.user?.email || "defensive"}"`,
         })
       );
     },

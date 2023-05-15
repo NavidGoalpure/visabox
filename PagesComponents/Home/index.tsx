@@ -46,7 +46,7 @@ const HomeContent: React.FC = () => {
     <>
       <Hero />
       <Container id='section-container'>
-        {/* {(!session || !hasClientCompletedForm) && (
+        {(!session || !hasClientCompletedForm) && (
           <Banner
             navigateTo={`/${locale}/clients/basic-form`}
             desc={
@@ -55,9 +55,8 @@ const HomeContent: React.FC = () => {
               ></div>
             }
             buttonText={t(LanguageKeys.BannerButtonText)}
-            navid ta moghe ke login dorost she comment bemone
           />
-        )} */}
+        )}
         <OccupationSection className='section' />
         <AgencysSection className='section' />
         <NattiesSection className='section' />

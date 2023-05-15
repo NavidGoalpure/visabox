@@ -17,7 +17,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
   const router = useRouter();
-  const [isBannerClosed, setIsBannerClosed] = useState(false);
+  const [isBannerClosed, setIsBannerClosed] = useState(true);
   useEffect(() => {
     if (
       getLocalStorage(LocalStorageKeys.Client_IsFormBannerClosed) === "true"

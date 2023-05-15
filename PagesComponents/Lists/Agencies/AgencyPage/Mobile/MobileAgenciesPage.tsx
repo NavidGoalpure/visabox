@@ -6,7 +6,7 @@ import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { Agency } from 'Interfaces/Lists/agency';
+import { Agency } from 'Interfaces/Database/Lists/agency';
 import { SidebarPage } from './SideBar';
 import { getAgencyAgents, getAgencySocials } from '../utils';
 import { useState, useEffect } from 'react';

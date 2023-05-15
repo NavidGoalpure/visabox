@@ -1,9 +1,7 @@
-import {
-  Languages,
-  MultiLanguageText,
-  MultiLanguageTextArray,
-} from 'Interfaces';
+
 import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 
 /**
  *  یک گزاره را گرفته،‌بسته به زبان کاربر که از یوارال فهمیده میشود، ترجمه مناسب را برمیگرداند

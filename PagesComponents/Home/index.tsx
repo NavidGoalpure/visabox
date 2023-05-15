@@ -49,7 +49,7 @@ const HomeContent: React.FC = () => {
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (
           <Banner
-            navigateTo={`/${locale}/forms/client`}
+            navigateTo={`/${locale}/clients/basic-form`}
             desc={
               <div
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
@@ -58,12 +58,12 @@ const HomeContent: React.FC = () => {
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
         )}
-        <OccupationSection className="section" />
-        <AgencysSection className="section" />
-        <NattiesSection className="section" />
-        <AgentsSection className="section" />
-        <ExchangesSection className="section" />
-        {locale === Languages.fa && <SocialsSection className="section" />}
+        <OccupationSection className='section' />
+        <AgencysSection className='section' />
+        <NattiesSection className='section' />
+        <AgentsSection className='section' />
+        <ExchangesSection className='section' />
+        {locale === Languages.fa && <SocialsSection className='section' />}
       </Container>
     </>
   );

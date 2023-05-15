@@ -58,7 +58,7 @@ const PageContainer: React.FC<Props> = ({
       {hasMenu && <Header />}
       {hasBanner && (!hasClientCompletedForm || !session) && (
         <SmartBanner
-          navigateTo={`/${locale}/forms/client`}
+          navigateTo={`/${locale}/clients/basic-form`}
           desc={
             <div
               dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}

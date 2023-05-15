@@ -4,7 +4,7 @@ import { AGENCYS } from 'Consts/Lists/agency';
 
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 
 import { HTMLAttributes } from 'react';
 import { componentStatements, LanguageKeys } from './const';

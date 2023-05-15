@@ -1,11 +1,11 @@
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { MultiLanguageTextArray } from 'Interfaces';
-import { Slug } from 'Interfaces/Occupation/Fields';
+import { Slug } from 'Interfaces/Database/Occupation/Fields';
 import { useRouter } from 'next/router';
 import React, { Fragment } from 'react';
 import { componentStatements, LanguageKeys } from './const';
 import { PopupTitle, StyledButton } from '../StyledComponents';
+import { MultiLanguageTextArray } from 'Interfaces/Database';
 
 interface Props {
   slug?: Slug;
@@ -20,7 +20,6 @@ const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
   return (
     <>
       <PopupTitle>{t(LanguageKeys.Tasks)}</PopupTitle>
-      {/* navid check empty */}
       <ul style={{ direction: 'ltr' }}>
         {tasks.en?.map((task, i) => (
           <Fragment key={i}>

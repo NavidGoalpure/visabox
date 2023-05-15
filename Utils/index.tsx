@@ -3,9 +3,10 @@ import SuccessToast from "Elements/Toast/Success";
 import { LocalStorageKeys, ThemeModes } from "Interfaces";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { MultiLanguageText } from "Interfaces";
+
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import crypto from 'crypto';
+import { MultiLanguageText } from "Interfaces/Database";
 
 const getThemeFromLocalStorage = (): ThemeModes => {
   const DEFAULT_THEME = ThemeModes.DARK;

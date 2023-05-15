@@ -2,8 +2,8 @@ import {
   BacklogPoints,
   ByStateTable,
   Territories,
-} from 'Interfaces/Occupation/occupation';
-import { Territory } from 'Interfaces/Occupation/territory';
+} from 'Interfaces/Database/Occupation/occupation';
+import { Territory } from 'Interfaces/Database/Occupation/territory';
 
 export function getRowKeyValueBaseonBacklogPoints(
   obj: BacklogPoints | undefined

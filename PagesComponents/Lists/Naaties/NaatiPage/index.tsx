@@ -1,13 +1,13 @@
 import useDevice from 'Hooks/useDevice';
-import { Agent } from 'Interfaces/Lists/agents';
+import { Agent } from 'Interfaces/Database/Lists/agents';
 import { useState, useEffect } from 'react';
 import DesktopAgentsPage from './Desktop/DesktopNaatiPage';
 import MobileAgentsPage from './Mobile/MobileNaatiPage';
-import { Naati } from 'Interfaces/Lists/naaties';
+import { Naati } from 'Interfaces/Database/Lists/naaties';
 interface Props {
-  chosenNaaties?: Naati;
+  chosenNaati?: Naati;
 }
-function Content({ chosenNaaties }: Props) {
+function Content({ chosenNaati }: Props) {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
 
@@ -15,7 +15,7 @@ function Content({ chosenNaaties }: Props) {
     if (isLaptop) setScreen('DESKTOP');
   });
   if (screen === 'MOBILE')
-    return <MobileAgentsPage chosenNaati={chosenNaaties} />;
-  return <DesktopAgentsPage chosenNaati={chosenNaaties} />;
+    return <MobileAgentsPage chosenNaati={chosenNaati} />;
+  return <DesktopAgentsPage chosenNaati={chosenNaati} />;
 }
 export default Content;

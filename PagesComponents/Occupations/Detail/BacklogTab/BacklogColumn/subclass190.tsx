@@ -7,7 +7,7 @@ import {
   BacklogPoints,
   BacklogSection,
   ByStateTable,
-} from 'Interfaces/Occupation/occupation';
+} from 'Interfaces/Database/Occupation/occupation';
 import {
   getRowKeyValueBaseonBacklogPoints,
   getRowKeyValueBaseOn_ByState,

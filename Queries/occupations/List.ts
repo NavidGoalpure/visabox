@@ -1,6 +1,6 @@
 import { sanityClient } from 'Utils/sanity';
 
-import { Occupation } from 'Interfaces/Occupation/occupation';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { OCCUPATION_PER_PAGE } from 'PagesComponents/Occupations/List/const';
 import { FilteredOccupationRange } from 'PagesComponents/Occupations/List/interfaces';
 import { SearchFilterContext } from 'PagesComponents/Occupations/List/Context/SearchFilter';

@@ -3,7 +3,7 @@ import {
   Minor_GROUP,
   SUB_MAJOR_GROUP,
 } from 'Consts/Occupations/anszco';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 import { LanguageKeys } from '../const';
 import { ShortageStatus } from './interfaces';
 

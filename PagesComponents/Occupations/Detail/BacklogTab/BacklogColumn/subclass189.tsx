@@ -4,7 +4,7 @@ import { componentStatements, LanguageKeys } from './const';
 import { Container, Title } from './StyledComponents';
 import { BacklogTable } from './table';
 import { getRowKeyValueBaseonBacklogPoints } from './utils';
-import { BacklogPoints } from 'Interfaces/Occupation/occupation';
+import { BacklogPoints } from 'Interfaces/Database/Occupation/occupation';
 
 interface Props {
   backlogPoints: BacklogPoints | undefined;

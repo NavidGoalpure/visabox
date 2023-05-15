@@ -1,5 +1,5 @@
 import { HTMLAttributes, useEffect } from 'react';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
 import { componentStatements, LanguageKeys } from './const';

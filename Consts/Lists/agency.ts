@@ -1,6 +1,7 @@
-import { Country, Status } from 'Interfaces';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
-import { Agency } from 'Interfaces/Lists/agency';
+import { Country } from 'Interfaces';
+import { Status } from 'Interfaces/Database';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Agency } from 'Interfaces/Database/Lists/agency';
 
 export const AGENCYS: Agency[] = [
   {
@@ -69,7 +70,7 @@ export const AGENCYS: Agency[] = [
       website: 'https://www.ajmigration.com/fa',
       phone: ['0061280346901'],
     },
-    agentsId: ['agt17'],
+    agentsId: ['agt9'],
     status: Status.ACTIVE,
     logoUrl:
       'https://binsta.dev/api/v1/files/LocKxKSv-L/transform?format=webp&size=md&quality=best',
@@ -120,7 +121,7 @@ export const AGENCYS: Agency[] = [
       fa: `این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند تمامی مراحل اقامت را با امکانات نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضی انجام دهد.`,
     },
     contact: {
-      website: 'http://azzyimmi.com.a',
+      website: 'https://azzyimmi.com.a',
       phone: ['09123252009'],
     },
     agentsId: ['agt13'],

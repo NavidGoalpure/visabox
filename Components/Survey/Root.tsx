@@ -2,12 +2,16 @@ import { deviceMin } from 'Consts/device';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import React, { HTMLAttributes, ReactNode, useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import styled, { css, keyframes } from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
-import { Module_ElementTheme, Module_Style, Module_TitleColor } from 'Styles/Theme/Modals/theme';
+import {
+  Module_ElementTheme,
+  Module_Style,
+  Module_TitleColor,
+} from 'Styles/Theme/Modals/theme';
 
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   title: MultiLanguageText;
@@ -38,12 +42,12 @@ export { Root };
 const Up = keyframes`
  0% { transform: translateY(95%); }
  100% { transform: translateY(0%);  }
-`
+`;
 
 const Down = keyframes`
  0% { transform: translateY(0%);  }
  100% { transform: translateY(95%); }
-`
+`;
 
 const Container = styled.section<{ isShow: boolean }>`
   ${Module_Style}
@@ -56,13 +60,19 @@ const Container = styled.section<{ isShow: boolean }>`
   width: 80%;
   right: 0;
   left: 0;
-  ${({ isShow }) => (isShow ? css`animation: ${Up} 0.3s linear forwards` : css`animation: ${Down} 0.3s linear forwards`)};
-  @media ${deviceMin.tabletL}
-  { 
-  width: 30%;
-  right: 3rem;
-  left: unset;
-}
+  ${({ isShow }) =>
+    isShow
+      ? css`
+          animation: ${Up} 0.3s linear forwards;
+        `
+      : css`
+          animation: ${Down} 0.3s linear forwards;
+        `};
+  @media ${deviceMin.tabletL} {
+    width: 30%;
+    right: 3rem;
+    left: unset;
+  }
 `;
 const Wrapper = styled.form`
   box-sizing: border-box;
@@ -92,8 +102,9 @@ const Trigger = styled.div`
 const ArrowContainer = styled.div<{ isShow: boolean }>`
   ${Module_ElementTheme}
   display: flex;
-  transform: ${({ isShow }) => (isShow ? "rotate(1deg)" : "rotate(1deg)rotate(180deg)")};
-`
+  transform: ${({ isShow }) =>
+    isShow ? 'rotate(1deg)' : 'rotate(1deg)rotate(180deg)'};
+`;
 
 const Title = styled.div`
   ${Module_TitleColor}

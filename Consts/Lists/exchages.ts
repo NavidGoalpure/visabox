@@ -1,6 +1,6 @@
-import { Status } from 'Interfaces';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
-import { Exchange } from 'Interfaces/Lists/exchanges';
+import { Status } from 'Interfaces/Database';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Exchange } from 'Interfaces/Database/Lists/exchanges';
 
 export const Exchanges: Exchange[] = [
   {

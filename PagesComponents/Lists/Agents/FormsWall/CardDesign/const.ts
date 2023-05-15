@@ -1,10 +1,11 @@
-import { MultiLanguageText } from "Interfaces";
+import { MultiLanguageText } from "Interfaces/Database";
 
 export enum LanguageKeys {
   NameLabel = "NameLabel",
   DateLabel = "DateLabel",
   LanguageSkillsLabel = "LanguageSkillsLabel",
   AgeLabel = "AgeLabel",
+  ViewMore = "ViewMore",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   NameLabel: {
@@ -20,8 +21,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "مهارت اینگلیسی:",
   },
   AgeLabel: {
-    en: "Age:",
-    fa: "سن:",
+    en: "Birth Date:",
+    fa: "تاریخ تولد:",
+  },
+  ViewMore: {
+    en: "View More:",
+    fa: "بیشتر:",
   },
 };
 

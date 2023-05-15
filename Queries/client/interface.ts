@@ -6,8 +6,8 @@ import {
   IELTSScore,
   UniSections,
   ClientCompletedForms,
-} from 'Interfaces/Database/Client';
-import { SanityKeys, Status } from 'Interfaces/Database';
+} from "Interfaces/Database/Client";
+import { SanityKeys, Status } from "Interfaces/Database";
 
 export interface ClientData_Sanity extends SanityKeys {
   name: string;
@@ -24,6 +24,7 @@ export interface ClientData_Sanity extends SanityKeys {
   is_sharable: boolean;
   uni_section: UniSections;
   status: Status;
-  role: 'normal' | 'admin';
+  role: "normal" | "admin";
+  avatar?: string;
   completed_forms?: ClientCompletedForms[];
 }

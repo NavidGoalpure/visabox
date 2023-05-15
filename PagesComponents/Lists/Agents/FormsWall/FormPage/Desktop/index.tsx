@@ -1,100 +1,36 @@
 import styled, { css } from "styled-components";
-import Image from "next/image";
 import theme from "styled-theming";
 import {
   layer2A_BodyStyle,
-  layer2A_SubtitleStyle,
-  layer2A_TextStyle,
   layer2A_TitleStyle,
 } from "Styles/Theme/Layers/layer2/style";
-
-import { componentStatements, LanguageKeys } from "../const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Agent } from "Interfaces/Lists/agents";
-import {
-  layer2A_Key,
-  layer2A_TextColor,
-} from "Styles/Theme/Layers/layer2/theme";
-import { useEffect, useState } from "react";
-import { useLocale } from "Hooks/useLocale";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { Headline7Style } from "Styles/Typo";
-import { FaPhone } from "react-icons/fa";
-import { deviceMin } from "Consts/device";
-import { SiGmail } from "react-icons/si";
-import { copyContent } from "Utils";
-import { ClientData } from "Interfaces/Client";
+import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
+import { ClientData } from "Interfaces/Database/Client";
+import DescriptionSection from "../DescriptionSection";
 
 interface Props {
   ClientData?: ClientData;
 }
 function DesktopAgentsPage({ ClientData }: Props) {
-  const { t } = useStaticTranslation(componentStatements);
-  const { locale } = useLocale();
-
-    
-
+  const dataCreatedAt = ClientData?._createdAt?.toString().substring(0, 10);
   return (
     <Container>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
-            fill
-            src={
-              `/Images/lists/agent/${ClientData?.name}.jpeg` ||
-              "/Images/placeholder.jpeg"
-            }
+            src={ClientData?.avatar || "/Images/placeholder.jpeg"}
             alt={ClientData?.name ? `${ClientData?.name} image` : "agent image"}
           />
         </ProfilePictureWrapper>
         <ProfileData>
-          <Name>Navid Goalpure</Name>
-          <JobTitle>Frontend Developer</JobTitle>
-          <CreatedDate>5/10/2023</CreatedDate>
+          <Name>
+            {ClientData?.name} {ClientData?.lastName}
+          </Name>
+          <JobTitle>{ClientData?.currentJob}</JobTitle>
+          <CreatedDate>{dataCreatedAt}</CreatedDate>
         </ProfileData>
       </SmallBox>
-      <FormData>
-        <Title>{t(LanguageKeys.About)}</Title>
-        <Wrapper>
-          <DataWrapper>
-            <Label>سن:</Label> <Value>14</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>سطح زبان انگیلیسی:</Label> <Value>Ielts 10</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>وضعیت تاهل:</Label> <Value>متاهل</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>رشته ی تحصیلی:</Label> <Value>کامپیوتر</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>مدرک تحصیلی:</Label> <Value>فوق لیسانس</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>دانشگاه:</Label> <Value>دانشگاه صنعتی شریف</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>شغل الان:</Label> <Value>طراحی وب</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>سابقه کاری:</Label> <Value>1-3 سال</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>سابقه کاری در استرالیا:</Label> <Value>ندارد</Value>
-          </DataWrapper>
-          <PhoneContainer onClick={() => copyContent("")}>
-            <PhoneIcon />
-            <PhoneTitle>
-              <PhonesRow>(+61) 2 9002 5511</PhonesRow>
-            </PhoneTitle>
-          </PhoneContainer>
-          <GmailContainer onClick={() => copyContent("")}>
-            <GmailIcon />
-            <GmailTitle>info@shada.com.au</GmailTitle>
-          </GmailContainer>
-        </Wrapper>
-      </FormData>
+      <DescriptionSection ClientData={ClientData} />
     </Container>
   );
 }
@@ -108,39 +44,6 @@ const TitleColor = theme("mode", {
     color: var(--color-primary5);
   `,
 });
-const FormDataTheme = theme("mode", {
-  light: css`
-    background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-  `,
-  dark: css`
-    background: var(--color-gray6);
-  `,
-});
-const LabelTheme = theme("mode", {
-  light: css`
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    color: var(--color-gray10);
-  `,
-});
-const Icon = css`
-  ${layer2A_TextColor}
-  width: 3rem;
-  height: 3rem;
-  @media ${deviceMin.tabletS} {
-    width: 2rem;
-    height: 2rem;
-  }
-`;
-const SocialsContainerCss = css`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  cursor: pointer;
-`;
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -171,9 +74,9 @@ const ProfilePictureWrapper = styled.div`
   z-index: 1;
   position: relative;
 `;
-const ProfilePicture = styled(Image)`
+const ProfilePicture = styled.img`
   object-fit: cover;
-  position: relative !important;
+  width: 100%;
   border-radius: 15px;
 `;
 const ProfileData = styled.div`
@@ -200,67 +103,3 @@ const CreatedDate = styled.div`
   margin:0;
   width: auto;
 `;
-const FormData = styled.div`
-  ${FormDataTheme};
-  width: 34.25rem;
-  border-radius: 15px;
-  padding: 2rem 5.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-`;
-const Title = styled.h3`
-  ${Layer1_TitleStyle}
-  margin-bottom:1.5rem;
-`;
-const Wrapper = styled.div`
-  display: flex;
-  gap: 2.5rem;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-const DataWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  align-items: flex-start;
-`;
-const Label = styled.h4`
-  ${LabelTheme};
-  ${Headline7Style};
-  line-height: 20px;
-`;
-const Value = styled.h4`
-  ${layer2A_TextStyle};
-  line-height: 20px;
-`;
-const PhoneContainer = styled.div`
-  ${SocialsContainerCss}
-  cursor: auto;
-`;
-const PhoneIcon = styled(FaPhone)`
-  ${Icon}
-`;
-const PhoneTitle = styled.h3`
-  ${layer2A_TextColor}
-  ${layer2A_SubtitleStyle}
-  word-break: break-all;
-  display: flex;
-  flex-direction: column;
-  direction: ltr;
-`;
-const PhonesRow = styled.div`
-  display:flex;
-  gap 1rem;
-`;
-const GmailContainer = styled.div`
-  ${SocialsContainerCss}
-  cursor: auto;
-`;
-const GmailIcon = styled(SiGmail)`
-  ${Icon}
-`;
-const GmailTitle = styled(PhoneTitle)``;

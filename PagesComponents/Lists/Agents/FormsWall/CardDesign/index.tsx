@@ -11,11 +11,14 @@ import Link from "next/link";
 import { Headline7Style } from "Styles/Typo";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { componentStatements, LanguageKeys } from "./const";
+import { ClientData } from "Interfaces/Database/Client";
 
-
-function CardDesign() {
+interface Props {
+  formData: ClientData;
+}
+function CardDesign({ formData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-
+  const dataCreatedAt = formData?._createdAt?.toString().substring(0, 10);
   return (
     <CardContainer
       target="_blank"
@@ -25,23 +28,30 @@ function CardDesign() {
       prefetch={false}
     >
       <Wrapper>
-        <Title>engineer</Title>
+        <Title>{formData.currentJob}</Title>
         <DataWrapper>
           <Label>{t(LanguageKeys.NameLabel)}</Label>{" "}
-          <Value> Mobin khafane besiar bozorgsal</Value>
+          <Value>
+            {" "}
+            {formData.name} {formData.lastName}
+          </Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.DateLabel)} </Label> <Value>23/3/23</Value>
+          <Label>{t(LanguageKeys.DateLabel)} </Label>{" "}
+          <Value>{dataCreatedAt}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.LanguageSkillsLabel)}</Label>{" "}
-          <Value> Ielts 6 </Value>
+          <Value> {formData?.IELTSScore} </Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.AgeLabel)}</Label> <Value>18</Value>
+          <Label>{t(LanguageKeys.AgeLabel)}</Label>{" "}
+          <Value>{formData?.age}</Value>
         </DataWrapper>
       </Wrapper>
-      <PrimaryButton style={{ margin: "0 auto" }}>View More</PrimaryButton>
+      <PrimaryButton style={{ margin: "0 auto" }}>
+        {t(LanguageKeys.ViewMore)}
+      </PrimaryButton>
     </CardContainer>
   );
 }
@@ -101,7 +111,7 @@ const Wrapper = styled.div`
 const Title = styled.h3`
   ${layer2A_SubtitleStyle};
   ${codeColor};
-  width: min-content;
+  width: max-content;
   padding: 0.5rem;
   align-items: center;
   border-radius: 55px;

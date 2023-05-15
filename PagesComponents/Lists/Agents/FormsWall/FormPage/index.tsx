@@ -1,5 +1,4 @@
 import useDevice from "Hooks/useDevice";
-import { Agent } from "Interfaces/Lists/agents";
 import { useState, useEffect } from "react";
 import DesktopAgentsPage from "./Desktop";
 import MobileAgentsPage from "./Mobile";
@@ -9,15 +8,16 @@ import { ClientQueryKeys } from "Utils/query/keys";
 import { useSession } from "next-auth/react";
 import { proxySanityClientResponseToCamelCase } from "Utils/query/clients";
 import { ClientData_Sanity } from "Queries/client/interface";
-import { ClientData } from "Interfaces/Client";
+import { ClientData } from "Interfaces/Database/Client";
 
 function Content() {
   const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
   const { isLaptop } = useDevice();
-  const { data: session } = useSession();
   const [clientData, setClientData] = useState<ClientData | null>(null);
+  const reqParams = `email == "farzamfara1385@gmail.com"`;
   const resParams = ` 
       _id,
+      _createdAt,
       name,
       lastname,
       age,
@@ -31,10 +31,10 @@ function Content() {
       ielts_score,
       is_sharable,
       uni_section,
+      avatar
       `;
   // navid unComment this in the end
   // const reqParams = `email == "${session?.user?.email || "defensive"}"`;
-  const reqParams = `email == "farzamfara85@gmail.com"`;
 
   const { data } = useQuery(
     ClientQueryKeys.detail({

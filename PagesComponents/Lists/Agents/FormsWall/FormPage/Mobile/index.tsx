@@ -3,37 +3,21 @@ import styled, { css } from "styled-components";
 import Image from "next/image";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import theme from "styled-theming";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { Headline4Style, Headline7Style } from "Styles/Typo";
-import { FiBox } from "react-icons/fi";
-import { Agent } from "Interfaces/Lists/agents";
-import { useEffect, useState } from "react";
-import { useLocale } from "Hooks/useLocale";
-import { copyContent } from "Utils";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
 import {
-  layer2A_SubtitleStyle,
-  layer2A_TextStyle,
   layer2A_TitleStyle,
 } from "Styles/Theme/Layers/layer2/style";
-import { FaPhone } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
 import {
   layer2A_Key,
   layer2A_TextColor,
 } from "Styles/Theme/Layers/layer2/theme";
-import { ClientData } from "Interfaces/Client";
-import { useSession } from "next-auth/react";
+import { ClientData } from "Interfaces/Database/Client";
+import DescriptionSection from "../DescriptionSection";
 
 interface Props {
   ClientData?: ClientData;
 }
 function MobileAgentsPage({ ClientData }: Props) {
-  const { t } = useStaticTranslation(componentStatements);
-  const { locale } = useLocale();
-  const { data: session } = useSession();
+  const dataCreatedAt = ClientData?._createdAt?.toString().substring(0, 10);
 
   return (
     <Container>
@@ -43,58 +27,20 @@ function MobileAgentsPage({ ClientData }: Props) {
       <ProfilePictureWrapper>
         <ProfilePicture
           fill
-          src={session?.user?.image || "/Images/placeholder.jpeg"}
+          src={ClientData?.avatar || "/Images/placeholder.jpeg"}
           // navid add profile alt in the languagekeys
           alt={ClientData?.name ? `${ClientData?.name} image` : "client image"}
         />
       </ProfilePictureWrapper>
       <ProfileData>
-        <Name>Navid Goalpure</Name>
-        <JobTitle>Frontend Developer</JobTitle>
-        <CreatedDate>5/10/2023</CreatedDate>
+        <Name>
+          {" "}
+          {ClientData?.name} {ClientData?.lastName}
+        </Name>
+        <JobTitle>{ClientData?.currentJob}</JobTitle>
+        <CreatedDate>{dataCreatedAt}</CreatedDate>
       </ProfileData>
-      <FormData>
-        <Title>{t(LanguageKeys.About)} </Title>
-        <Wrapper>
-          <DataWrapper>
-            <Label>سن:</Label> <Value>14</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>سطح زبان انگیلیسی:</Label> <Value>Ielts 10</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>وضعیت تاهل:</Label> <Value>متاهل</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>رشته ی تحصیلی:</Label> <Value>کامپیوتر</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>مدرک تحصیلی:</Label> <Value>فوق لیسانس</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>دانشگاه:</Label> <Value>دانشگاه صنعتی شریف</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>شغل الان:</Label> <Value>طراحی وب</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>سابقه کاری:</Label> <Value>1-3 سال</Value>
-          </DataWrapper>
-          <DataWrapper>
-            <Label>سابقه کاری در استرالیا:</Label> <Value>ندارد</Value>
-          </DataWrapper>
-          <PhoneContainer onClick={() => copyContent("")}>
-            <PhoneIcon />
-            <PhoneTitle>
-              <PhonesRow>(+61) 2 9002 5511</PhonesRow>
-            </PhoneTitle>
-          </PhoneContainer>
-          <GmailContainer onClick={() => copyContent("")}>
-            <GmailIcon />
-            <GmailTitle>info@shada.com.au</GmailTitle>
-          </GmailContainer>
-        </Wrapper>
-      </FormData>
+      <DescriptionSection ClientData={ClientData} />
     </Container>
   );
 }
@@ -230,67 +176,3 @@ const CreatedDate = styled.div`
   margin:0;
   width: auto;
 `;
-const FormData = styled.div`
-  ${FormDataTheme};
-  width: 100%;
-  border-radius: 15px;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-`;
-const Title = styled.h3`
-  ${Layer1_TitleStyle}
-  margin-bottom:1.5rem;
-`;
-const Wrapper = styled.div`
-  display: flex;
-  gap: 2.5rem;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-const DataWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  align-items: flex-start;
-`;
-const Label = styled.h4`
-  ${LabelTheme};
-  ${Headline7Style};
-  line-height: 20px;
-`;
-const Value = styled.h4`
-  ${layer2A_TextStyle};
-  line-height: 20px;
-`;
-const PhoneContainer = styled.div`
-  ${SocialsContainerCss}
-  cursor: auto;
-`;
-const PhoneIcon = styled(FaPhone)`
-  ${Icon}
-`;
-const PhoneTitle = styled.h3`
-  ${layer2A_TextColor}
-  ${layer2A_SubtitleStyle}
-  word-break: break-all;
-  display: flex;
-  flex-direction: column;
-  direction: ltr;
-`;
-const PhonesRow = styled.div`
-  display:flex;
-  gap 1rem;
-`;
-const GmailContainer = styled.div`
-  ${SocialsContainerCss}
-  cursor: auto;
-`;
-const GmailIcon = styled(SiGmail)`
-  ${Icon}
-`;
-const GmailTitle = styled(PhoneTitle)``;

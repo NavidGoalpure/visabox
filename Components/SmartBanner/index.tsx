@@ -23,6 +23,8 @@ const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
       getLocalStorage(LocalStorageKeys.Client_IsFormBannerClosed) === "true"
     ) {
       setIsBannerClosed(true);
+    } else {
+      setIsBannerClosed(false);
     }
   }, []);
   return (

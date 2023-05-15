@@ -9,8 +9,8 @@ interface MultiLanguageTextArray {
   [Languages.fa]?: string[];
 }
 enum Status {
-  'ACTIVE' = 'ACTIVE',
-  'DEACTIVE' = 'DEACTIVE',
+  'ACTIVE' = 'active',
+  'DEACTIVE' = 'deactive',
 }
 interface Contact {
   email?: string;

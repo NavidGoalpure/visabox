@@ -22,6 +22,11 @@ export default {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
+      name: 'avatar',
+      title: 'Avatar',
+      type: 'string',
+    },
+    {
       name: 'phone',
       title: 'Phone Number',
       type: 'string',

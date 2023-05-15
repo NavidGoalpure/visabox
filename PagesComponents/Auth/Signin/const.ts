@@ -1,26 +1,25 @@
-import { MultiLanguageText } from "Interfaces";
+import { MultiLanguageText } from 'Interfaces/Database';
 export enum LanguageKeys {
-  Title = "Title",
-  Subtitle = "Subtitle",
-  SeoTitle = "SeoTitle",
-  SeoDesc = "SeoDesc"
+  Title = 'Title',
+  Subtitle = 'Subtitle',
+  SeoTitle = 'SeoTitle',
+  SeoDesc = 'SeoDesc',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-
   Title: {
-    en: "Sign in",
-    fa: "ورود",
+    en: 'Sign in',
+    fa: 'ورود',
   },
   Subtitle: {
-    en: "Use your Google or Discord accounts for Signing or Register.",
-    fa: "برای ورود یا ساخت اکانت از حساب کاربری دیسکورد یا گوگل خود استفاده کنید.",
+    en: 'Use your Google or Discord accounts for Signing or Register.',
+    fa: 'برای ورود یا ساخت اکانت از حساب کاربری دیسکورد یا گوگل خود استفاده کنید.',
   },
   SeoTitle: {
-    en: "Creating and logging in to a user account",
-    fa: "ساخت و ورود به حساب کاربری.",
+    en: 'Use your Google or Discord accounts for Signing or Register.',
+    fa: 'برای ورود یا ساخت اکانت از حساب کاربری دیسکورد یا گوگل خود استفاده کنید.',
   },
   SeoDesc: {
-    en: "Create an account using your virtual accounts in Marabox.",
-    fa: "با استفاده از حساب های مجازی خود در ماراباکس حساب کاربری بسازید.",
+    en: 'Use your Google or Discord accounts for Signing or Register.',
+    fa: 'برای ورود یا ساخت اکانت از حساب کاربری دیسکورد یا گوگل خود استفاده کنید.',
   },
 };

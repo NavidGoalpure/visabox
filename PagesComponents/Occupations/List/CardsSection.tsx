@@ -1,6 +1,6 @@
 import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
-import { Occupation } from 'Interfaces/Occupation/occupation';
-import { UnitGroup } from 'Interfaces/Occupation/unitGroup';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
+import { UnitGroup } from 'Interfaces/Database/Occupation/unitGroup';
 import React from 'react';
 import { InfiniteData } from 'react-query';
 import styled from 'styled-components';

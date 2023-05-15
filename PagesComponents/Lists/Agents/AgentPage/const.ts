@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
@@ -11,8 +11,8 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: '$agent Migration Agent | $agent',
-    fa: '$agent وکیل مهاجرت ',
+    en: '$agent Migration Agent | Mara Box',
+    fa: '$agent وکیل مهاجرت | ماراباکس',
   },
   SeoDesc: {
     fa: 'marabox.com',

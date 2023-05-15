@@ -71,12 +71,12 @@ const sentryWebpackPluginOptions = {
 /////////////////////////////
 ///////active sentry/////////
 /////////////////////////////
-// module.exports = withSentryConfig(
-//   withImages(config),
-//   sentryWebpackPluginOptions
-// );
+module.exports = withSentryConfig(
+  withImages(config),
+  sentryWebpackPluginOptions
+);
 
 /////////////////////////////
 ///////deactive sentry/////////
 /////////////////////////////
-module.exports = withImages(config);
+// module.exports = withImages(config);

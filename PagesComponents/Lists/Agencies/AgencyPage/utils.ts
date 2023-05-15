@@ -1,6 +1,6 @@
 import { Agents } from 'Consts/Lists/agents';
 import { VipSocialMedias } from 'Consts/Lists/Socials';
-import { Agency } from 'Interfaces/Lists/agency';
+import { Agency } from 'Interfaces/Database/Lists/agency';
 
 export const getAgencyAgents = (ChosenAgency?: Agency) => {
   const agents = ChosenAgency?.agentsId?.map((agentId) => {

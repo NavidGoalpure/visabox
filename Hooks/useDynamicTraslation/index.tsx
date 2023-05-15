@@ -1,4 +1,4 @@
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 import {
   isMultiLanguageTextArrayIsEmpty,
   translatedObject,

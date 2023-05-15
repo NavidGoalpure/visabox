@@ -7,13 +7,13 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { deviceMin } from 'Consts/device';
 import { AboutComponent } from './AboutComponent';
 import { MobileContactComponent } from './MobileContactComponent';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
 import { componentStatements, LanguageKeys } from '../const';
 import { FaRegHandshake } from 'react-icons/fa';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
-import { Agent } from 'Interfaces/Lists/agents';
-import { Socials } from 'Interfaces/Lists/socials';
+import { Agent } from 'Interfaces/Database/Lists/agents';
+import { Socials } from 'Interfaces/Database/Lists/socials';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import SmartSocial from 'Components/Lists/Card/SocialCard';
 interface Props {
@@ -98,6 +98,7 @@ const SidebarPage = ({
                   name={relatedAgent.name}
                   slug={relatedAgent.slug}
                   desc={relatedAgent.desc}
+                  layerContext='1'
                   avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
                 />
               ))}

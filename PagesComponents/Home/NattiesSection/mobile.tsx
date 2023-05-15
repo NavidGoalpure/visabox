@@ -1,19 +1,19 @@
-import { useLocale } from "Hooks/useLocale";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import Link from "next/link";
-import { HTMLAttributes } from "react";
-import { componentStatements, LanguageKeys } from "./const";
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import Link from 'next/link';
+import { HTMLAttributes } from 'react';
+import { componentStatements, LanguageKeys } from './const';
 import {
   Container,
   StyledLink,
   Subtitle,
   Title,
   ViewAll,
-} from "./styledComponents";
-import NaatiCard from "Components/Lists/Card/Naati/Card";
-import { NAATIES } from "Consts/Lists/naati";
-import { slugify } from "Utils";
-import { Status } from "Interfaces";
+} from './styledComponents';
+import NaatiCard from 'Components/Lists/Card/Naati/Card';
+import { NAATIES } from 'Consts/Lists/naati';
+import { slugify } from 'Utils';
+import { Status } from 'Interfaces/Database';
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {

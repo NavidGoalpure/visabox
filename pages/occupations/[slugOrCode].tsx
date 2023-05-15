@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
 import Content from 'PagesComponents/Occupations/Detail';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Occupation } from 'Interfaces/Occupation/occupation';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { Languages } from 'Interfaces';
 import {
   getAllOccupationCodes,
@@ -85,8 +85,6 @@ export const getStaticPaths = async ({ locales }: any) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const occupation = await getOccupationDetail(getSmartparam(params));
-    // const occupation = testOccupation;
-
     return {
       props: {
         occupation,

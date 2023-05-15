@@ -1,4 +1,4 @@
-import { Occupation } from 'Interfaces/Occupation/occupation';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { getAllOccupationCodes } from 'Queries/sitemap';
 
 const OccupatopnsPage_EN = 'https://marabox.com/en/occupations';

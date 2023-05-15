@@ -1,7 +1,7 @@
 import {
   Territories,
   TerritorySection,
-} from 'Interfaces/Occupation/occupation';
+} from 'Interfaces/Database/Occupation/occupation';
 import React from 'react';
 import * as RadixTab from '@radix-ui/react-tabs';
 import * as Tab from 'Elements/Tab';

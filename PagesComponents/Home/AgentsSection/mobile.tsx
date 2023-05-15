@@ -2,8 +2,7 @@ import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import { Agents } from 'Consts/Lists/agents';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
-import Link from 'next/link';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { HTMLAttributes } from 'react';
 import { componentStatements, LanguageKeys } from './const';
 import {
@@ -31,6 +30,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           name={vipAgent?.name}
           desc={vipAgent?.desc}
           slug={vipAgent?.slug}
+          layerContext='1'
           avatar={vipAgent?.avatar || `/Images/placeholder.jpeg`}
         />
       )}

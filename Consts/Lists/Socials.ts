@@ -1,6 +1,7 @@
-import { Locations, Status } from 'Interfaces';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
-import { SocialMediaTypes, Socials } from 'Interfaces/Lists/socials';
+import { Locations } from 'Interfaces';
+import { Status } from 'Interfaces/Database';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { SocialMediaTypes, Socials } from 'Interfaces/Database/Lists/socials';
 
 export const VipSocialMedias: Socials[] = [
   {

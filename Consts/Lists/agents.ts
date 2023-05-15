@@ -1,6 +1,7 @@
-import { Locations, Status } from 'Interfaces';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
-import { Agent } from 'Interfaces/Lists/agents';
+import { Locations } from 'Interfaces';
+import { Status } from 'Interfaces/Database';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Agent } from 'Interfaces/Database/Lists/agents';
 
 export const Agents: Agent[] = [
   {
@@ -49,7 +50,8 @@ Spoken Languages: English; Persian; Dari.`,
       phone: ['+61290025511'],
     },
     status: Status.ACTIVE,
-    avatar: "https://binsta.dev/api/v1/files/FxhB1ze6NO/transform?format=webp&size=md&quality=best",
+    avatar:
+      'https://binsta.dev/api/v1/files/FxhB1ze6NO/transform?format=webp&size=md&quality=best',
   },
   {
     id: 'agt2',
@@ -141,7 +143,7 @@ Spoken Languages: English; Persian; Dari.`,
     locations: [Locations.en, Locations.fa],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
-      website: 'http://avestaservices.com/',
+      website: 'https://avestaservices.com/',
       email: 'info@avestaservices.com',
       phone: ['+61406812133'],
       whatsapp: '61424982580',
@@ -206,7 +208,8 @@ Spoken Languages: English; Persian; Dari.`,
       website: 'https://www.ajmigration.com',
     },
     status: Status.ACTIVE,
-    avatar: "https://binsta.dev/api/v1/files/LocKxKSv-L/transform?format=webp&size=md&quality=best",
+    avatar:
+      'https://binsta.dev/api/v1/files/LocKxKSv-L/transform?format=webp&size=md&quality=best',
   },
   {
     id: 'agt10',
@@ -228,7 +231,8 @@ Spoken Languages: English; Persian; Dari.`,
       instagram: 'https://www.instagram.com/amirshahi.law/',
     },
     status: Status.ACTIVE,
-    avatar: "https://binsta.dev/api/v1/files/27KD3f6SPq/transform?format=webp&size=md&quality=best"
+    avatar:
+      'https://binsta.dev/api/v1/files/27KD3f6SPq/transform?format=webp&size=md&quality=best',
   },
   // {
   //   id: 'agt11',
@@ -307,14 +311,15 @@ Spoken Languages: English; Persian; Dari.`,
     locations: [Locations.en, Locations.fa],
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
-      website: 'azzyimmi.com.au',
+      website: 'https://azzyimmi.com.au',
       email: 'info@azzyimmi.com',
       phone: ['+989308719363', '+61452477750'],
       telegram: 'https://t.me/joinchat/A6McME_tPeHKkEOLJ-VyUQ',
       instagram: 'https://www.instagram.com/azzyimmigration/',
     },
     status: Status.ACTIVE,
-    avatar: "https://binsta.dev/api/v1/files/0xcM-ZxWFO/transform?format=webp&size=md&quality=best"
+    avatar:
+      'https://binsta.dev/api/v1/files/0xcM-ZxWFO/transform?format=webp&size=md&quality=best',
   },
 
   {
@@ -389,8 +394,8 @@ Spoken Languages: English; Persian; Dari.`,
       telegram: 'https://t.me/uniquevisa',
     },
     status: Status.ACTIVE,
-    avatar: "https://binsta.dev/api/v1/files/lMxleRoD8M/transform?format=webp&size=md&quality=best"
-
+    avatar:
+      'https://binsta.dev/api/v1/files/lMxleRoD8M/transform?format=webp&size=md&quality=best',
   },
   {
     id: 'agt18',
@@ -405,7 +410,7 @@ Spoken Languages: English; Persian; Dari.`,
       fa: ['NZ 201700466.', 'MSc'],
     },
     contact: {
-      website: 'http://www.pasargadmigration.com/',
+      website: 'https://www.pasargadmigration.com/',
       email: 'info@pasargadmigration.com',
       phone: ['+982188029976'],
     },
@@ -420,7 +425,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   locations: [Locations.en, Locations.fa],
   //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
-  //     website: 'http://www.subclass.com.au/',
+  //     website: 'https://www.subclass.com.au/',
   //     email: 'INFO@SUBCLASS.COM.AU',
   //     phone: ['+61280065151'],
   //   },
@@ -449,7 +454,7 @@ Spoken Languages: English; Persian; Dari.`,
     maraNumber: '1687507',
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     contact: {
-      website: 'http://www.aradimmigration.com/',
+      website: 'https://www.aradimmigration.com/',
       email: 'sudihariri@gmail.com',
       phone: ['+982144967825'],
     },
@@ -509,7 +514,7 @@ Spoken Languages: English; Persian; Dari.`,
   //   maraNumber: '0701239',
   //  featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   contact: {
-  //     website: 'http://www.majdvisa.com',
+  //     website: 'https://www.majdvisa.com',
   //     email: 'info@majdvisa.com',
   //     phone: ['1300960326'],
   //   },
@@ -547,8 +552,8 @@ Spoken Languages: English; Persian; Dari.`,
       instagram: 'https://www.instagram.com/visazone_naghmeh_danai/',
     },
     status: Status.ACTIVE,
-    avatar: "https://binsta.dev/api/v1/files/ib32tPxy2m/transform?format=webp&size=md&quality=best",
-
+    avatar:
+      'https://binsta.dev/api/v1/files/ib32tPxy2m/transform?format=webp&size=md&quality=best',
   },
   // {
   //   id: 'agt28',

@@ -15,7 +15,7 @@ export const TabItem: React.FC<Props> = ({ title, value, icon }) => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
 
   const islaptopS = useMediaQuery({
-    maxWidth: deviceSize.laptopS,
+    maxWidth: deviceSize.laptopXS,
   });
   useEffect(() => {
     if (!islaptopS) setScreen('DESKTOP');

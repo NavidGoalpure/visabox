@@ -10,27 +10,64 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
 import { AGENCYS } from 'Consts/Lists/agency';
 import Content from 'PagesComponents/Lists/Agencies/AgencyPage';
+import { Agency } from 'Interfaces/Database/Lists/agency';
+import { GetStaticProps, NextPage } from 'next/types';
+import Error from 'next/error';
 
-const VipAgencyPage = () => {
-  const router = useRouter();
-  const { slug } = router.query;
+interface Props {
+  chosenAgency?: Agency;
+  errorCode?: number;
+}
+
+const AgencyPage: NextPage<Props> = ({ chosenAgency, errorCode }) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
-  const chosenAgency = AGENCYS.filter((agency) => agency.slug === slug);
+  if (errorCode) return <Error statusCode={errorCode} />;
 
   return (
     <PageLayout>
       <Seo
         title={t(LanguageKeys.SeoTitle, [
-          { $agent: dt(chosenAgency[0]?.name) || '' },
-          { $agent: dt(chosenAgency[0]?.name) || '' },
+          { $agent: dt(chosenAgency?.name) || '' },
         ])}
-        description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents/${chosenAgency[0]?.slug}`}
+        image={chosenAgency?.logoUrl}
+        description={dt(chosenAgency?.desc)}
+        canonical={`https://www.marabox.com/${locale}/lists/agencies/${
+          chosenAgency?.slug ? chosenAgency?.slug : ''
+        }`}
       />
-      <Content chosenAgency={chosenAgency[0]} />
+      <Content chosenAgency={chosenAgency} />
     </PageLayout>
   );
 };
-export default VipAgencyPage;
+export default AgencyPage;
+
+export const getStaticPaths = async () => {
+  const paths = AGENCYS.map((agency) => ({
+    params: { slug: agency.slug },
+  }));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const chosenAgency = AGENCYS.filter(
+    (agency) => agency.slug === params?.slug
+  )[0];
+
+  if (!chosenAgency)
+    return {
+      props: {
+        errorCode: 404,
+      },
+    };
+  return {
+    props: {
+      chosenAgency,
+    },
+  };
+};

@@ -11,7 +11,7 @@ import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
 import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { Headline7Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { HTMLAttributes, useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PrimaryButton } from 'Elements/Button/Primary';
@@ -29,7 +29,14 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
   avatar: string;
 }
 
-function VIPNaatiCard({ fullname, avatar, desc, slug, className, ...props }: Props) {
+function VIPNaatiCard({
+  fullname,
+  avatar,
+  desc,
+  slug,
+  className,
+  ...props
+}: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   useEffect(() => getGsapTimeLine_VipCard(slug));
@@ -39,7 +46,6 @@ function VIPNaatiCard({ fullname, avatar, desc, slug, className, ...props }: Pro
   useEffect(() => {
     if (avatar) setImgSrc(avatar);
   }, [avatar]);
-
 
   return (
     <Container

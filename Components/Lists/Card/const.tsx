@@ -1,6 +1,6 @@
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import gsap from 'gsap';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
   Email = 'Email',

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as RadioGroup from 'Elements/RadioGroup';
 import { RadioGroupItemProps } from '@radix-ui/react-radio-group';
 import { RadioItemProps } from 'Elements/RadioGroup/Item';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode[];

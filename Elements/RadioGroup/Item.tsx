@@ -3,8 +3,12 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 import { RadioGroupItemProps } from '@radix-ui/react-radio-group';
 import { Label } from '@radix-ui/react-label';
 import styled, { css } from 'styled-components';
-import { Module_RadioBtnBG, Module_TextColor, Module_TitleColor } from 'Styles/Theme/Modals/theme';
-import { MultiLanguageText } from 'Interfaces';
+import {
+  Module_RadioBtnBG,
+  Module_TextColor,
+  Module_TitleColor,
+} from 'Styles/Theme/Modals/theme';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import theme from 'styled-theming';
 
@@ -21,7 +25,11 @@ export const Item: React.FC<RadioItemProps> = ({
   const [isShow, setIsShow] = useState<boolean>(true);
 
   return (
-    <Container className={className} isShow={isShow} onClick={() => setIsShow((prev) => !prev)} >
+    <Container
+      className={className}
+      isShow={isShow}
+      onClick={() => setIsShow((prev) => !prev)}
+    >
       <RadioGroupItem {...props}>
         <RadioGroupIndicator />
       </RadioGroupItem>
@@ -37,15 +45,15 @@ const Container = styled.div<{ isShow: boolean }>`
   border-top: 1px solid var(--color-gray9);
   border-bottom: 1px solid var(--color-gray9);
   padding: 12px;
-  `;
+`;
 //////////////////////////////////
 const RadioGroupShadow = theme('mode', {
   light: css`
     box-shadow: none;
-    `,
+  `,
   dark: css`
     box-shadow: 0 2px 10px var(--color-gray10);
-    `,
+  `,
 });
 const RadioGroupItem = styled(RadioGroup.Item)`
   background-color: white;

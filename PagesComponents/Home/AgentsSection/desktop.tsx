@@ -2,7 +2,6 @@ import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import { Agents } from 'Consts/Lists/agents';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import Link from 'next/link';
 import styled from 'styled-components';
 import { componentStatements, LanguageKeys } from './const';
 import {
@@ -14,7 +13,7 @@ import {
 } from './styledComponents';
 import { HTMLAttributes, useEffect } from 'react';
 import { GsapSectionAnimation_1 } from '../utils';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -36,7 +35,8 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               name={vipAgent?.name}
               desc={vipAgent?.desc}
               slug={vipAgent?.slug}
-              avatar={vipAgent?.avatar || "/Images/placeholder.jpeg"}
+              layerContext='1'
+              avatar={vipAgent?.avatar || '/Images/placeholder.jpeg'}
             />
           )}
         </Side>

@@ -8,7 +8,7 @@ import {
 } from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
 import SmartSocialCard from 'Components/Lists/Card/SocialCard';
-import { Status } from 'Interfaces';
+import { Status } from 'Interfaces/Database';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

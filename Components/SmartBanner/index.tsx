@@ -64,7 +64,9 @@ const NextIconDirectionStyle = theme("languageDirection", {
     transform: rotate(180deg);
   `,
 });
+// navid ta moghe dorost shodane login in display none bashe 
 const Container = styled.div<{ isBannerClosed: boolean }>`
+  display: none;
   background: var(--color-primary1);
   text-align: center;
   position: relative;

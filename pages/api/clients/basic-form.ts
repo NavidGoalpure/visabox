@@ -9,10 +9,13 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   // اگه اولین باره که بیسیک فرم رو پر میکنه به پراپرتی کامپلیتدفرمز اضافه میکنیم
   // اگه قبلا اضافه شده دوباره کاری نمیکنیم
-  const smartCompletedForms: ClientCompletedForms[] =
-    clientData?.completedForms.includes(ClientCompletedForms.BasicForms)
-      ? clientData?.completedForms
-      : [...clientData?.completedForms, ClientCompletedForms.BasicForms];
+  function getSmartCompletedForms(
+    formsData: ClientCompletedForms[] | undefined
+  ): ClientCompletedForms[] | undefined {
+    if (!formsData) return formsData;
+    if (formsData.includes(ClientCompletedForms.BasicForms)) return formsData;
+    return [...formsData, ClientCompletedForms.BasicForms];
+  }
 
   const params: ClientData_Sanity = {
     name: clientData?.name,
@@ -30,7 +33,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     uni_section: clientData?.uniSection,
     status: Status.ACTIVE,
     role: 'normal',
-    completedForms: smartCompletedForms,
+    completed_forms: getSmartCompletedForms(clientData?.completedForms),
   };
   if (clientData?._id) {
     sanityClient

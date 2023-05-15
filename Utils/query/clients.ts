@@ -16,6 +16,7 @@ export function proxySanityClientResponseToCamelCase(
       IELTSScore: sanityResponse?.ielts_score,
       isSharable: sanityResponse?.is_sharable,
       uniSection: sanityResponse?.uni_section,
+      completedForms: sanityResponse?.completed_forms,
     });
 
   return clientData;

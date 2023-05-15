@@ -34,7 +34,7 @@ export enum IELTSScore {
   Eight = '8',
 }
 export enum ClientCompletedForms {
-  BasicForms = 'BasicForms',
+  BasicForms = 'basic_forms',
 }
 export interface ClientData extends SanityKeys {
   name: string;
@@ -52,5 +52,5 @@ export interface ClientData extends SanityKeys {
   isSharable: boolean;
   status: Status;
   role: 'normal' | 'admin';
-  completedForms: ClientCompletedForms[];
+  completedForms?: ClientCompletedForms[];
 }

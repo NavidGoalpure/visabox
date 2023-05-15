@@ -25,5 +25,5 @@ export interface ClientData_Sanity extends SanityKeys {
   uni_section: UniSections;
   status: Status;
   role: 'normal' | 'admin';
-  completedForms?: ClientCompletedForms[];
+  completed_forms?: ClientCompletedForms[];
 }

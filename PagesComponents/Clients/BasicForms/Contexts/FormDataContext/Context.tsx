@@ -37,6 +37,7 @@ function FormDataContextProvider(props: ContextProps) {
       ielts_score,
       is_sharable,
       uni_section,
+      completed_forms
       `;
   const { data } = useQuery(
     UserQueryKeys.detail({

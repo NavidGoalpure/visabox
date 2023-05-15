@@ -5,11 +5,11 @@ import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
-import { SidebarPage } from 'PagesComponents/Lists/Agents/AgentPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
 import { Agent } from 'Interfaces/Database/Lists/agents';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
+import { SidebarPage } from './SideBar';
 interface Props {
   ChosenAgent?: Agent;
 }

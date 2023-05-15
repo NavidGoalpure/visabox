@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from "Interfaces/Database";
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',

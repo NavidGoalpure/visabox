@@ -1,5 +1,5 @@
-import { sanityClient } from "Utils/sanity";
-import { ClientData_Sanity } from "./interface";
+import { sanityClient } from 'Utils/sanity';
+import { ClientData_Sanity } from './interface';
 
 interface GetClientDetail {
   reqParams: string;

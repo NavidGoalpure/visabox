@@ -9,7 +9,7 @@ import {
 import VIPAgentCard from '../../../Components/Lists/Card/Agent/VIPCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Agents } from 'Consts/Lists/agents';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

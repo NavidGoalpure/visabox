@@ -1,4 +1,4 @@
-import { Occupation } from 'Interfaces/Occupation/occupation';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { InfiniteData } from 'react-query';
 import { FilteredOccupationRange } from './interfaces';
 

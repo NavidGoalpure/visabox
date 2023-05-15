@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Locations, Status } from 'Interfaces';
+import { Locations } from 'Interfaces';
 import { FaInstagram, FaTelegramPlane, FaYoutube } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
@@ -19,8 +19,9 @@ import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { layer2B_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { Socials, SocialMediaTypes } from 'Interfaces/Lists/socials';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { Socials, SocialMediaTypes } from 'Interfaces/Database/Lists/socials';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Status } from 'Interfaces/Database';
 
 interface Props extends Socials {
   isRtl: boolean;

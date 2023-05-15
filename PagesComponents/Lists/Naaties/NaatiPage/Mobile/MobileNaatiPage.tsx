@@ -7,7 +7,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { SidebarPage } from 'PagesComponents/Lists/Naaties/NaatiPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
-import { Naati } from 'Interfaces/Lists/naaties';
+import { Naati } from 'Interfaces/Database/Lists/naaties';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
 interface Props {
@@ -30,14 +30,18 @@ function MobileNaatiPage({ chosenNaati }: Props) {
         <ProfilePicture
           fill
           src={imgSrc}
-          alt={chosenNaati?.fullName ? `${chosenNaati?.fullName?.[locale]} image` : 'naati image'}
+          alt={
+            chosenNaati?.fullName
+              ? `${chosenNaati?.fullName?.[locale]} image`
+              : 'naati image'
+          }
           onError={() => {
             setImgSrc(`/Images/placeholder.jpeg`);
           }}
           quality={100}
           sizes='96px'
         />
-        < VIPBoxContainer aria-hidden={true}>
+        <VIPBoxContainer aria-hidden={true}>
           <VIPBox aria-hidden={true} />
         </VIPBoxContainer>
       </ProfilePictureWrapper>
@@ -51,7 +55,7 @@ function MobileNaatiPage({ chosenNaati }: Props) {
         linkedin={chosenNaati?.contact?.linkedin}
         desc={chosenNaati?.desc}
       />
-    </Container >
+    </Container>
   );
 }
 export default MobileNaatiPage;

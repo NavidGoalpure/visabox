@@ -7,7 +7,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { deviceMin } from 'Consts/device';
 import { AboutComponent } from './AboutComponent';
 import { MobileContactComponent } from './MobileContactComponent';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
 import { componentStatements, LanguageKeys } from '../const';
 interface Props {

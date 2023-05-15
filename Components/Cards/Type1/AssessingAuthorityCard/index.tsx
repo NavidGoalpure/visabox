@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { HTMLAttributes, useState } from 'react';
 import PopupContent from './popupContent';
 import {
@@ -10,7 +10,7 @@ import {
   Value,
 } from '../StyledComponents';
 import Popup from '../popup';
-import { AssessingAuthorityAbv } from 'Interfaces/Occupation/occupation';
+import { AssessingAuthorityAbv } from 'Interfaces/Database/Occupation/occupation';
 
 import styled from 'styled-components';
 import { GoLinkExternal } from 'react-icons/go';

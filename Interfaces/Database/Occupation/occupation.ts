@@ -7,10 +7,11 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-import { MultiLanguageText, MultiLanguageTextArray } from '..';
+
 import { Slug } from './Fields';
 import { UnitGroup } from './unitGroup';
 import { Territory } from './territory';
+import { MultiLanguageText, MultiLanguageTextArray, SanityKeys } from '..';
 
 export enum AssessingAuthorityAbv {
   'AACA' = 'AACA',
@@ -63,12 +64,7 @@ export enum AssessingAuthorityAbv {
   'VETASSESS_E' = 'VETASSESS_E',
   'VETASSESS_F' = 'VETASSESS_F',
 }
-export interface Occupation {
-  _createdAt?: Date;
-  _id?: string;
-  _rev?: string;
-  _type?: string;
-  _updatedAt?: Date;
+export interface Occupation extends SanityKeys {
   anzsco_section?: AnzscoSection;
   assessing_authority?: AssessingAuthorityAbv;
   backlog_section?: BacklogSection;

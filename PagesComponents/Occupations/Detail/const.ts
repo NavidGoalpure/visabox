@@ -1,5 +1,5 @@
-import { MultiLanguageText } from 'Interfaces';
-import { AssessingAuthorityAbv } from 'Interfaces/Occupation/occupation';
+import { MultiLanguageText } from 'Interfaces/Database';
+import { AssessingAuthorityAbv } from 'Interfaces/Database/Occupation/occupation';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',

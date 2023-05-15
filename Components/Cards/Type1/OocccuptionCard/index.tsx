@@ -1,6 +1,6 @@
 import { useLocale } from 'Hooks/useLocale';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces';
-import { Slug } from 'Interfaces/Occupation/Fields';
+import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
+import { Slug } from 'Interfaces/Database/Occupation/Fields';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';

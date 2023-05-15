@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { DropdownItem } from './interface';
 
 export enum LanguageKeys {

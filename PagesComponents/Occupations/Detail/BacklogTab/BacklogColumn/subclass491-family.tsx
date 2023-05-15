@@ -5,7 +5,7 @@ import { Container, Title } from './StyledComponents';
 import {
   BacklogPoints,
   BacklogSection,
-} from 'Interfaces/Occupation/occupation';
+} from 'Interfaces/Database/Occupation/occupation';
 import { BacklogTable } from './table';
 import { getRowKeyValueBaseonBacklogPoints } from './utils';
 

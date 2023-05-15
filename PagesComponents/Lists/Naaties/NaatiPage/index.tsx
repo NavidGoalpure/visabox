@@ -1,9 +1,9 @@
 import useDevice from 'Hooks/useDevice';
-import { Agent } from 'Interfaces/Lists/agents';
+import { Agent } from 'Interfaces/Database/Lists/agents';
 import { useState, useEffect } from 'react';
 import DesktopAgentsPage from './Desktop/DesktopNaatiPage';
 import MobileAgentsPage from './Mobile/MobileNaatiPage';
-import { Naati } from 'Interfaces/Lists/naaties';
+import { Naati } from 'Interfaces/Database/Lists/naaties';
 interface Props {
   chosenNaati?: Naati;
 }

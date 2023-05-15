@@ -1,5 +1,4 @@
-import { MultiLanguageText, Status } from 'Interfaces';
-import { Exchange } from 'Interfaces/Lists/exchanges';
+import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',

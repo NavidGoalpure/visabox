@@ -15,10 +15,9 @@ import {
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
-import { Naati } from 'Interfaces/Lists/naaties';
+import { Naati } from 'Interfaces/Database/Lists/naaties';
 import { useLocale } from 'Hooks/useLocale';
 import { useState, useEffect } from 'react';
-
 
 interface Props {
   chosenNaati?: Naati;
@@ -38,7 +37,11 @@ function DesktopNaatiPage({ chosenNaati }: Props) {
           <ProfilePicture
             fill
             src={imgSrc}
-            alt={chosenNaati?.fullName ? `${chosenNaati?.fullName?.[locale]} image` : 'naati image'}
+            alt={
+              chosenNaati?.fullName
+                ? `${chosenNaati?.fullName?.[locale]} image`
+                : 'naati image'
+            }
             onError={() => {
               setImgSrc(`/Images/placeholder.jpeg`);
             }}

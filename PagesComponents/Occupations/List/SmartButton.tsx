@@ -2,7 +2,7 @@ import { ClientError } from '@sanity/client';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { Loading } from 'Elements/Loading';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Occupation } from 'Interfaces/Occupation/occupation';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import React, { useRef } from 'react';
 import { FetchNextPageOptions, InfiniteQueryObserverResult } from 'react-query';
 import { componentStatements, LanguageKeys } from './const';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Agents } from 'Consts/Lists/agents';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 
 const AgentsComponent: React.FC = () => {
@@ -17,8 +17,9 @@ const AgentsComponent: React.FC = () => {
             name={agent?.name}
             desc={agent?.desc}
             slug={agent.slug}
-            layerContext='2' 
-            avatar={agent.avatar || "/Images/placeholder.jpeg"}/>
+            layerContext='2'
+            avatar={agent.avatar || '/Images/placeholder.jpeg'}
+          />
         ))}
       </Container>
     </>

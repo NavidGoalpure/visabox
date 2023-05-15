@@ -2,7 +2,10 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import React from 'react';
 import { componentStatements, LanguageKeys } from './const';
 import { Container, Title } from './StyledComponents';
-import { BacklogPoints, ByStateTable } from 'Interfaces/Occupation/occupation';
+import {
+  BacklogPoints,
+  ByStateTable,
+} from 'Interfaces/Database/Occupation/occupation';
 import {
   getRowKeyValueBaseonBacklogPoints,
   getRowKeyValueBaseOn_ByState,

@@ -2,7 +2,7 @@ import NaatiCard from 'Components/Lists/Card/Naati/Card';
 import { NAATIES } from 'Consts/Lists/naati';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Status } from 'Interfaces';
+import { Status } from 'Interfaces/Database';
 import { HTMLAttributes, useEffect } from 'react';
 import styled from 'styled-components';
 import { slugify } from 'Utils';

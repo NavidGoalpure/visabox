@@ -1,12 +1,12 @@
-import { Input } from "Components/Input";
-import { MultiLanguageText } from "Interfaces";
-import styled from "styled-components";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import * as ToggleGroup from "../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useState } from "react";
+import { Input } from 'Components/Input';
+import { MultiLanguageText } from 'Interfaces/Database';
+import styled from 'styled-components';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import * as ToggleGroup from '../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import { useContext, useEffect, useState } from 'react';
 import {
   ButtonWrapper,
   NextButton,
@@ -14,21 +14,21 @@ import {
   Container,
   PrevButton,
   PrevIcon,
-} from "./StyledComponents";
-import { works } from "./consts";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { WorkExperience } from "Interfaces/Client";
+} from './StyledComponents';
+import { works } from './consts';
+import { FormDataContext } from '../Contexts/FormDataContext/Context';
+import { WorkExperience } from 'Interfaces/Database/Client';
 
 const Step6 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
- 
+
   return (
     <Container>
       <Title>{t(LanguageKeys.WorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={clientData?.workExperience}
         onValueChange={(value) =>
           clientData &&

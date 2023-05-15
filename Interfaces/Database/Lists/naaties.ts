@@ -1,5 +1,5 @@
-import { Contact, MultiLanguageText, Status } from 'Interfaces';
 import { FeaturedPlan_Business } from '.';
+import { MultiLanguageText, Contact, Status } from '..';
 
 export interface Naati {
   fullName: MultiLanguageText;

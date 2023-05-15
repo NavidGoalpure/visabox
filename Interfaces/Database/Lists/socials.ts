@@ -1,5 +1,6 @@
-import { Locations, Status } from 'Interfaces';
+import { Locations } from 'Interfaces';
 import { FeaturedPlan_Business } from '.';
+import { Status } from '..';
 export enum SocialMediaTypes {
   TELEGRAM = 'TELEGRAM',
   INSTAGRAM = 'INSTAGRAM',

@@ -1,8 +1,11 @@
 import { MaraAccordion } from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { AnzscoSection, ReferenceType } from 'Interfaces/Occupation/occupation';
-import { UnitGroup } from 'Interfaces/Occupation/unitGroup';
+import {
+  AnzscoSection,
+  ReferenceType,
+} from 'Interfaces/Database/Occupation/occupation';
+import { UnitGroup } from 'Interfaces/Database/Occupation/unitGroup';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import AccordionContent from './AnzcoTab/accordionContent';
@@ -43,14 +46,14 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
             __html: dt(occupationUnitGroup?.description),
           }}
         ></Description>
-        <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ""}>
+        <SkillLevelTitle skillLevel={occupationUnitGroup?.skill_level || ''}>
           {t(LanguageKeys.IndicativeSkillLevel)}
         </SkillLevelTitle>
         <SkillLevelDesc>
-          {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ""))}
+          {t(SkillLevelDescription(occupationUnitGroup?.skill_level || ''))}
         </SkillLevelDesc>
         <StyledAccordion
-          backgroundLayer="2A"
+          backgroundLayer='2A'
           triggerText={t(LanguageKeys.Tasks)}
           content={
             <AccordionContent
@@ -61,7 +64,7 @@ const UnitGroupCompoenent: React.FC<Props> = ({ anzscoSection }) => {
         />
         {(anzscoSection as AnzscoSection)?.priority_list?.[0]?.national ? (
           <StyledAccordion
-            backgroundLayer="2A"
+            backgroundLayer='2A'
             triggerText={t(LanguageKeys.SkillPriorityLists)}
             content={
               <div>

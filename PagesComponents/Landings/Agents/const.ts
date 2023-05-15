@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { Dispatch, SetStateAction } from 'react';
 import gsap from 'gsap';
 //@ts-ignore

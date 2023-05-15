@@ -7,7 +7,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { SidebarPage } from 'PagesComponents/Lists/Agents/AgentPage/Mobile/SideBar';
 import { FiBox } from 'react-icons/fi';
-import { Agent } from 'Interfaces/Lists/agents';
+import { Agent } from 'Interfaces/Database/Lists/agents';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
 interface Props {

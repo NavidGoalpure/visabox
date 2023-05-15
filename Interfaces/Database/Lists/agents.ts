@@ -1,11 +1,7 @@
-import {
-  Contact,
-  Locations,
-  MultiLanguageText,
-  MultiLanguageTextArray,
-  Status,
-} from 'Interfaces';
+
+import { Locations } from 'Interfaces';
 import { FeaturedPlan_Business } from '.';
+import { MultiLanguageText, Contact, MultiLanguageTextArray, Status } from '..';
 
 export interface Agent {
   id: string;

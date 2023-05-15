@@ -9,8 +9,8 @@ export default {
       type: 'string',
       options: {
         list: [
-          { title: 'Basic Form', value: 'basic form' },
-          { title: 'Extended From', value: 'extended from' },
+          { title: 'Basic Form', value: 'basic_form' },
+          { title: 'Extended From', value: 'extended_from' },
         ],
       },
       layout: 'radio',

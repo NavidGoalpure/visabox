@@ -1,7 +1,7 @@
 import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Occupation } from 'Interfaces/Occupation/occupation';
-import { UnitGroup } from 'Interfaces/Occupation/unitGroup';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
+import { UnitGroup } from 'Interfaces/Database/Occupation/unitGroup';
 import React from 'react';
 import styled from 'styled-components';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';

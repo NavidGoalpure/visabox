@@ -11,7 +11,7 @@ import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
 import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { Headline7Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { HTMLAttributes, useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PrimaryButton } from 'Elements/Button/Primary';

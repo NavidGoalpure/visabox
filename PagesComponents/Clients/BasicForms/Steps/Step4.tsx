@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import * as ToggleGroup from "../../../../Elements/ToggleGroup";
-import { Input } from "Components/Input";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useState } from "react";
+import styled from 'styled-components';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import * as ToggleGroup from '../../../../Elements/ToggleGroup';
+import { Input } from 'Components/Input';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import { useContext, useEffect, useState } from 'react';
 import {
   ButtonWrapper,
   Container,
@@ -13,10 +13,10 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-} from "./StyledComponents";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { educations, uniSections } from "./consts";
-import { ClientDegree, UniSections } from "Interfaces/Client";
+} from './StyledComponents';
+import { FormDataContext } from '../Contexts/FormDataContext/Context';
+import { educations, uniSections } from './consts';
+import { ClientDegree, UniSections } from 'Interfaces/Database/Client';
 
 const Step4 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -28,7 +28,7 @@ const Step4 = () => {
       <StyledInput
         required
         label={t(LanguageKeys.FieldOfStudyInputLabel)}
-        inputName="field-of-study"
+        inputName='field-of-study'
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
         value={clientData?.fieldOfStudy}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -41,7 +41,7 @@ const Step4 = () => {
       />
       <Title>{t(LanguageKeys.DegreeOfEducationSectionTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={clientData?.degree}
         onValueChange={(value: ClientDegree) =>
           clientData &&
@@ -65,7 +65,7 @@ const Step4 = () => {
       </ToggleGroupRoot>
       <Title>{t(LanguageKeys.UniSectionsSectionTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={clientData?.uniSection}
         onValueChange={(value: UniSections) =>
           clientData &&

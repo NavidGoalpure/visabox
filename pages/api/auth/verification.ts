@@ -11,6 +11,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         _type: 'client',
         _id: convertToMd5(email),
         email: session?.user?.email,
+        avatar: session?.user?.image,
       })
       .then(() => {
         res.status(200).json({ message: 'success' });

@@ -10,7 +10,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
 import { AGENCYS } from 'Consts/Lists/agency';
 import Content from 'PagesComponents/Lists/Agencies/AgencyPage';
-import { Agency } from 'Interfaces/Lists/agency';
+import { Agency } from 'Interfaces/Database/Lists/agency';
 import { GetStaticProps, NextPage } from 'next/types';
 import Error from 'next/error';
 

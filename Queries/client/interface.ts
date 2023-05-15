@@ -5,9 +5,11 @@ import {
   AustralianWorkExperience,
   IELTSScore,
   UniSections,
-} from "Interfaces/Client";
+  ClientCompletedForms,
+} from 'Interfaces/Database/Client';
+import { SanityKeys, Status } from 'Interfaces/Database';
 
-export type ClientData_Sanity = {
+export interface ClientData_Sanity extends SanityKeys {
   name: string;
   lastname: string;
   phone: string;
@@ -21,9 +23,7 @@ export type ClientData_Sanity = {
   ielts_score: IELTSScore;
   is_sharable: boolean;
   uni_section: UniSections;
-  _createdAt?: Date;
-  _id?: string;
-  _rev?: string;
-  _type?: string;
-  _updatedAt?: Date;
-};
+  status: Status;
+  role: 'normal' | 'admin';
+  completed_forms?: ClientCompletedForms[];
+}

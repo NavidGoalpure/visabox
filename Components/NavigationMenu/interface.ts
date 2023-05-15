@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { ReactNode } from 'react';
 
 export interface DropdownItem {

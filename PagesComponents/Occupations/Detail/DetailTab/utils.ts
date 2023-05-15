@@ -1,5 +1,5 @@
-import { TerritorySection } from 'Interfaces/Occupation/occupation';
-import { Territory } from 'Interfaces/Occupation/territory';
+import { TerritorySection } from 'Interfaces/Database/Occupation/occupation';
+import { Territory } from 'Interfaces/Database/Occupation/territory';
 
 export function getHtml_decsBaseOnAbv({
   territorySection,

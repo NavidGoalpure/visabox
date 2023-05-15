@@ -1,18 +1,18 @@
-import { MultiLanguageText } from "Interfaces";
+import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
-  SeoTitle = "SeoTitle",
-  BannerDesc = "BannerDesc",
-  BannerButtonText = "BannerButtonText",
+  SeoTitle = 'SeoTitle',
+  BannerDesc = 'BannerDesc',
+  BannerButtonText = 'BannerButtonText',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: "Mara Box | Australia immigration toolkit",
-    fa: "ماراباکس | جعبه ابزار مهاجرت به استرالیا",
+    en: 'Mara Box | Australia immigration toolkit',
+    fa: 'ماراباکس | جعبه ابزار مهاجرت به استرالیا',
   },
   BannerButtonText: {
-    en: "Fill out the form",
-    fa: "پر کردن فرم",
+    en: 'Fill out the form',
+    fa: 'پر کردن فرم',
   },
   BannerDesc: {
     en: `Are you ready to start your <span> immigration </span> journey? Now our form

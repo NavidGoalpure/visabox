@@ -20,9 +20,9 @@ import {
   componentStatements,
   LanguageKeys,
 } from '../../../../PagesComponents/Lists/Exchanges/const';
-import { Exchange } from 'Interfaces/Lists/exchanges';
+import { Exchange } from 'Interfaces/Database/Lists/exchanges';
 import { HTMLAttributes } from 'react';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 
 interface Props extends Exchange, HTMLAttributes<HTMLDivElement> {}
 

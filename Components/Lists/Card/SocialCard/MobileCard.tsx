@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Locations, Status } from 'Interfaces';
+import { Locations } from 'Interfaces';
 import { FaInstagram, FaTelegramPlane, FaYoutube } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
@@ -18,9 +18,10 @@ import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
-import { SocialMediaTypes, Socials } from 'Interfaces/Lists/socials';
+import { SocialMediaTypes, Socials } from 'Interfaces/Database/Lists/socials';
 import { HTMLAttributes } from 'react';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Status } from 'Interfaces/Database';
 
 interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
 

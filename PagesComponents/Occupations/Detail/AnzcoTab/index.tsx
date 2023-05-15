@@ -2,8 +2,8 @@ import { deviceMin } from 'Consts/device';
 import { MaraAccordion } from 'Elements/Accordion';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { AnzscoSection } from 'Interfaces/Occupation/occupation';
-import { UnitGroup } from 'Interfaces/Occupation/unitGroup';
+import { AnzscoSection } from 'Interfaces/Database/Occupation/occupation';
+import { UnitGroup } from 'Interfaces/Database/Occupation/unitGroup';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 

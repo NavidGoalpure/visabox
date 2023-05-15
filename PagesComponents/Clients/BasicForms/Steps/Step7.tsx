@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import * as ToggleGroup from "../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext} from "react";
+import styled from 'styled-components';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import * as ToggleGroup from '../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   Container,
@@ -12,10 +12,10 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-} from "./StyledComponents";
-import { australianWorks } from "./consts";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { AustralianWorkExperience } from "Interfaces/Client";
+} from './StyledComponents';
+import { australianWorks } from './consts';
+import { FormDataContext } from '../Contexts/FormDataContext/Context';
+import { AustralianWorkExperience } from 'Interfaces/Database/Client';
 
 const Step7 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -26,7 +26,7 @@ const Step7 = () => {
     <Container>
       <Title>{t(LanguageKeys.AustralianWorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={clientData?.australianWorkExperience}
         onValueChange={(value) =>
           clientData &&
@@ -59,7 +59,6 @@ const Step7 = () => {
           icon={<NextIcon />}
           onClick={() => {
             handleNextPress();
-            
           }}
           disabled={!clientData?.australianWorkExperience}
         >

@@ -1,6 +1,6 @@
-import { Status } from 'Interfaces';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
-import { Naati } from 'Interfaces/Lists/naaties';
+import { Status } from 'Interfaces/Database';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Naati } from 'Interfaces/Database/Lists/naaties';
 
 export const NAATIES: Naati[] = [
   {
@@ -8,7 +8,7 @@ export const NAATIES: Naati[] = [
       en: 'Navid Armiun',
       fa: 'نوید آرمیون',
     },
-    slug: "navid-armiun",
+    slug: 'navid-armiun',
     language: [
       {
         en: 'Persian to English',
@@ -34,7 +34,7 @@ export const NAATIES: Naati[] = [
       en: 'Behnood Olfatpour',
       fa: 'بهبود الفت پور',
     },
-    slug: "behnood-olfatpour",
+    slug: 'behnood-olfatpour',
     language: [
       {
         en: 'Persian to English',
@@ -54,7 +54,7 @@ export const NAATIES: Naati[] = [
       en: 'Hassan Amirshahi',
       fa: 'حسن امیرشاهی',
     },
-    slug: "hassan-amirshahi",
+    slug: 'hassan-amirshahi',
     language: [
       {
         en: 'Persian to English',
@@ -78,7 +78,7 @@ export const NAATIES: Naati[] = [
       en: 'Roxana Moallemian',
       fa: 'رکسانا معلمیان',
     },
-    slug: "roxana-moallemian",
+    slug: 'roxana-moallemian',
     contact: {
       email: 'roxanabarmi@gmail.com',
     },
@@ -96,7 +96,7 @@ export const NAATIES: Naati[] = [
       en: 'Matin Amirshahi',
       fa: 'متین امیرشاهی',
     },
-    slug: "matin amirshahi",
+    slug: 'matin amirshahi',
     language: [
       {
         en: 'Persian to English',
@@ -124,7 +124,7 @@ export const NAATIES: Naati[] = [
       en: 'Gholamreza Tajvidi',
       fa: 'غلامرضا تجویدی',
     },
-    slug: "gholamreza-tajvidi",
+    slug: 'gholamreza-tajvidi',
     contact: {
       phone: ['+989122151862'],
     },
@@ -146,7 +146,7 @@ export const NAATIES: Naati[] = [
       en: 'Ali Khazaee Farid',
       fa: 'علی خرایی فرید',
     },
-    slug: "ali-khazaee-farid",
+    slug: 'ali-khazaee-farid',
     contact: {
       phone: ['+989153137087', '+985138430730'],
       email: 'rezakhfarid@gmail.com',
@@ -169,7 +169,7 @@ export const NAATIES: Naati[] = [
       en: 'Khalil Motallebzadeh',
       fa: 'خلیل مطلب زاده',
     },
-    slug: "khalil-motallebzadeh",
+    slug: 'khalil-motallebzadeh',
     language: [
       {
         en: 'Persian to English',
@@ -197,7 +197,7 @@ export const NAATIES: Naati[] = [
       en: 'Somayyeh Karami',
       fa: 'صمیه کرمی',
     },
-    slug: "somayyeh-karami",
+    slug: 'somayyeh-karami',
     language: [
       {
         en: 'Persian to English',
@@ -213,7 +213,7 @@ export const NAATIES: Naati[] = [
       en: 'Mohammadreza Hosseini',
       fa: 'محمدرضا حسینی',
     },
-    slug: "mohammadreza-hosseini",
+    slug: 'mohammadreza-hosseini',
     contact: {
       phone: ['+9821665645', '+989125139310'],
       email: 'shakiba11@yahoo.com',
@@ -241,7 +241,7 @@ export const NAATIES: Naati[] = [
       en: 'Atefeh Pashazadeh',
       fa: 'عاطفه پاشازاده',
     },
-    slug: "atefeh-pashazadeh",
+    slug: 'atefeh-pashazadeh',
 
     language: [
       {
@@ -262,23 +262,22 @@ export const NAATIES: Naati[] = [
       fa: 'ایران',
     },
     contact: {
-      phone: [
-        '88822452',
-      ],
+      phone: ['88822452'],
       email: 'atefeh.pashazadeh@gmail.com',
       website: 'https://www.tehrannaati.com',
-      telegram: '09211914685'
+      telegram: '09211914685',
     },
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
-    avatar: "https://binsta.dev/api/v1/files/qMFl_s_bue/transform?format=webp&size=lg&quality=best",
+    avatar:
+      'https://binsta.dev/api/v1/files/qMFl_s_bue/transform?format=webp&size=lg&quality=best',
   },
   {
     fullName: {
       en: 'Majid Fatahipour',
       fa: 'مجید فتاحی پور',
     },
-    slug: "majid-fatahipour",
+    slug: 'majid-fatahipour',
     contact: {
       phone: ['+989122389210'],
       email: 'majifata@gmail.com',
@@ -301,7 +300,7 @@ export const NAATIES: Naati[] = [
       en: 'Shahram Mirzaei',
       fa: 'شهرام میرزایی',
     },
-    slug: "shahram-mirzaei",
+    slug: 'shahram-mirzaei',
     language: [
       {
         en: 'Persian to English',
@@ -325,7 +324,7 @@ export const NAATIES: Naati[] = [
       en: 'Alireza Mamdoohi',
       fa: 'علیرضا ممدوهی',
     },
-    slug: "alireza-mamdoohi",
+    slug: 'alireza-mamdoohi',
     contact: {
       phone: ['+989121083186'],
       email: 'mamdoohi.ar@gmail.com',
@@ -344,7 +343,7 @@ export const NAATIES: Naati[] = [
       en: 'Alireza Hassani',
       fa: 'علیرضا حسنی',
     },
-    slug: "alireza-hassani",
+    slug: 'alireza-hassani',
     language: [
       {
         en: 'Persian to English',

@@ -13,7 +13,7 @@ import {
 } from './styledComponents';
 import { HTMLAttributes, useEffect } from 'react';
 import { GsapSectionAnimation_1 } from '../utils';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
@@ -36,7 +36,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
               desc={vipAgent?.desc}
               slug={vipAgent?.slug}
               layerContext='1'
-              avatar={vipAgent?.avatar || "/Images/placeholder.jpeg"}
+              avatar={vipAgent?.avatar || '/Images/placeholder.jpeg'}
             />
           )}
         </Side>

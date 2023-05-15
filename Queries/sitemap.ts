@@ -1,5 +1,5 @@
 import { sanityClient } from 'Utils/sanity';
-import { Occupation } from 'Interfaces/Occupation/occupation';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 
 //////////////////////////
 ////////////////////////////

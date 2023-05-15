@@ -1,10 +1,10 @@
-import { ClientData } from "Interfaces/Client";
-import { useSession } from "next-auth/react";
-import { getClientDetail } from "Queries/client";
-import React, { useEffect, useState } from "react";
-import { proxySanityClientResponseToCamelCase } from "Utils/query/clients";
-import { UserQueryKeys } from "Utils/query/keys";
-import { useQuery } from "react-query";
+import { useSession } from 'next-auth/react';
+import { getClientDetail } from 'Queries/client';
+import React, { useEffect, useState } from 'react';
+import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
+import { UserQueryKeys } from 'Utils/query/keys';
+import { useQuery } from 'react-query';
+import { ClientData } from 'Interfaces/Database/Client';
 
 type ContextProps = {
   children: React.ReactNode;
@@ -37,6 +37,7 @@ function FormDataContextProvider(props: ContextProps) {
       ielts_score,
       is_sharable,
       uni_section,
+      completed_forms
       `;
   const { data } = useQuery(
     UserQueryKeys.detail({

@@ -1,7 +1,7 @@
 import {
   AssessingAuthorityAbv,
   Occupation,
-} from 'Interfaces/Occupation/occupation';
+} from 'Interfaces/Database/Occupation/occupation';
 import { ParsedUrlQuery } from 'querystring';
 import {
   MLTSSL_LIST,

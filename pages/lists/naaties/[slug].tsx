@@ -12,7 +12,7 @@ import Seo from 'Components/Seo';
 import { NAATIES } from 'Consts/Lists/naati';
 import { GetStaticProps, NextPage } from 'next/types';
 import Error from 'next/error';
-import { Naati } from 'Interfaces/Lists/naaties';
+import { Naati } from 'Interfaces/Database/Lists/naaties';
 
 interface Props {
   chosenNaati?: Naati;

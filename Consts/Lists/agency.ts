@@ -1,6 +1,7 @@
-import { Country, Status } from 'Interfaces';
-import { FeaturedPlan_Business } from 'Interfaces/Lists';
-import { Agency } from 'Interfaces/Lists/agency';
+import { Country } from 'Interfaces';
+import { Status } from 'Interfaces/Database';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Agency } from 'Interfaces/Database/Lists/agency';
 
 export const AGENCYS: Agency[] = [
   {

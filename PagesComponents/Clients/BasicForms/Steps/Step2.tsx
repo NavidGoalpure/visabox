@@ -1,11 +1,11 @@
-import { MultiLanguageText } from "Interfaces";
-import styled from "styled-components";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import * as ToggleGroup from "../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useState } from "react";
+import { MultiLanguageText } from 'Interfaces/Database';
+import styled from 'styled-components';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import * as ToggleGroup from '../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import { useContext, useEffect, useState } from 'react';
 import {
   ButtonWrapper,
   Container,
@@ -13,16 +13,15 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-} from "./StyledComponents";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { ages } from "./consts";
-import { Input } from "Components/Input";
+} from './StyledComponents';
+import { FormDataContext } from '../Contexts/FormDataContext/Context';
+import { Input } from 'Components/Input';
 
 const Step2 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { clientData, setClientData } = useContext(FormDataContext);
- 
+
   return (
     <Container>
       {/* <Title>{t(LanguageKeys.AgeSectionTitle)}</Title>
@@ -45,8 +44,8 @@ const Step2 = () => {
       </ToggleGroupRoot> */}
       <Input
         label={t(LanguageKeys.AgeSectionTitle)}
-        type={"date"}
-        inputName="age"
+        type={'date'}
+        inputName='age'
         value={clientData?.age}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           clientData &&
@@ -55,7 +54,7 @@ const Step2 = () => {
               age: e.target.value,
             });
         }}
-        id={"phone-input"}
+        id={'phone-input'}
         placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
       />
       <ButtonWrapper>

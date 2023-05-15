@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { useLocale } from 'Hooks/useLocale';
 
 /**

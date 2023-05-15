@@ -16,21 +16,15 @@ export default {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-
-      options: {
-        source: 'name',
-        maxLength: 96,
-        // isUnique: true,
-      },
-    },
-    {
       name: 'email',
       title: 'Email',
       type: 'string',
       validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
+      name: 'avatar',
+      title: 'Avatar',
+      type: 'string',
     },
     {
       name: 'phone',

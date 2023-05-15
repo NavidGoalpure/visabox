@@ -1,4 +1,4 @@
-import { AssessingAuthorityAbv } from 'Interfaces/Occupation/occupation';
+import { AssessingAuthorityAbv } from 'Interfaces/Database/Occupation/occupation';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
 export const testOccupation: OccupationDetailRes = {

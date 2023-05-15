@@ -1,4 +1,4 @@
-import { Occupation } from 'Interfaces/Occupation/occupation';
+import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 
 export interface OccupationDetailRes extends Occupation {
   similarOccupations: Occupation[];

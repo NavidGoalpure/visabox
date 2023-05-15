@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import type { SizeMode, ISourceOptions } from 'tsparticles-engine';
 export enum LanguageKeys {
   Title1 = 'Title1',

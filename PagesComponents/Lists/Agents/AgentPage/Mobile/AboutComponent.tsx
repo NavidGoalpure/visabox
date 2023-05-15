@@ -5,7 +5,7 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import theme from 'styled-theming';
-import { MultiLanguageText } from 'Interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';

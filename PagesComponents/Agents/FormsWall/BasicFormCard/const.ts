@@ -18,7 +18,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   LanguageSkillsLabel: {
     en: 'Language Skills:',
-    fa: 'مهارت اینگلیسی:',
+    fa: 'مهارت انگلیسی:',
   },
   AgeLabel: {
     en: 'Birth Date:',

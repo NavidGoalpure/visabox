@@ -1,5 +1,4 @@
 import React from 'react';
-import { ClientData } from 'Interfaces/Database/Client';
 import { InfiniteData } from 'react-query';
 import styled from 'styled-components';
 import BasicFormCard from './BasicFormCard';

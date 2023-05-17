@@ -35,6 +35,10 @@ const ClientQueryKeys = {
     resParams?: string;
   }) => [...ClientQueryKeys.key, 'detail', reqParams, resParams] as const,
   //
+  last: ({ resParams }: { resParams: string }) =>
+    [...ClientQueryKeys.key, 'last', resParams] as const,
+  listOfBasicForm: ({ resParams }: { resParams?: string }) =>
+    [...ClientQueryKeys.key, 'listOfBasicForm', resParams] as const,
 };
 
 export { OccupationsQueryKeys, ClientQueryKeys };

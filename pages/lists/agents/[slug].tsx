@@ -22,7 +22,6 @@ const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
   if (errorCode) return <Error statusCode={errorCode} />;
-  console.log('navid chosenAgent=', chosenAgent);
   // navid seo title desc
   return (
     <PageLayout>

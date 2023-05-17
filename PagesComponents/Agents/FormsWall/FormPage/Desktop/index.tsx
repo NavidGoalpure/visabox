@@ -5,19 +5,22 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
-import { ClientData } from 'Interfaces/Database/Client';
 import DescriptionSection from '../DescriptionSection';
+import Image from 'next/image';
+import { ClientData } from 'Interfaces/Database/Client';
 
 interface Props {
   clientData: ClientData;
 }
 function DesktopAgentsPage({ clientData }: Props) {
   const dataCreatedAt = clientData?._createdAt?.toString().substring(0, 10);
+  
   return (
     <Container>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
+            fill
             src={clientData?.avatar || '/Images/placeholder.jpeg'}
             alt={clientData?.name ? `${clientData?.name} image` : 'agent image'}
           />
@@ -74,7 +77,7 @@ const ProfilePictureWrapper = styled.div`
   z-index: 1;
   position: relative;
 `;
-const ProfilePicture = styled.img`
+const ProfilePicture = styled(Image)`
   object-fit: cover;
   width: 100%;
   border-radius: 15px;

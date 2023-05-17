@@ -18,6 +18,7 @@ export function proxySanityClientResponseToCamelCase(
       uniSection: sanityResponse?.uni_section,
       completedForms: sanityResponse?.completed_forms || [],
     });
-
+  console.log(' navid clientData=', clientData);
+  console.log(' navid sanityResponse=', sanityResponse);
   return clientData;
 }

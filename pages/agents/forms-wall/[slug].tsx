@@ -1,13 +1,10 @@
 import PageLayout from 'Components/Layouts/PageContainer';
 import { GetServerSideProps } from 'next';
-
 import { useLocale } from 'Hooks/useLocale';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import Seo from 'Components/Seo';
 import { NextPage } from 'next/types';
 import Error from 'next/error';
 import Content from 'PagesComponents/Agents/FormsWall/FormPage';
-import { Agent } from 'Interfaces/Database/Lists/agents';
 import { ClientData } from 'Interfaces/Database/Client';
 import { getClientDetail } from 'Queries/client';
 import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
@@ -33,8 +30,7 @@ export default VipAgentPage;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.slug;
-  // const reqParams = `_id == ${id}`;
-  const reqParams = `email == "farzamfara1385@gmail.com"`;
+  const reqParams = `_id == "${id}"`;
   const resParams = ` 
       _id,
       _createdAt,

@@ -1,0 +1,48 @@
+import { ClientError } from '@sanity/client';
+import { getlistOfBasicForm } from 'Queries/agents/ListOfForms';
+import { ClientData_Sanity } from 'Queries/client/interface';
+import { useInfiniteQuery } from 'react-query';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import { listOfBasicForm_ResParams } from './const';
+
+const resParams = listOfBasicForm_ResParams;
+
+export const useListData = (lastBasicFormId: string | undefined) => {
+  const {
+    hasNextPage,
+    fetchNextPage,
+    isLoading,
+    isError,
+    isFetching,
+    isRefetching,
+    data: forms,
+    refetch,
+  } = useInfiniteQuery<ClientData_Sanity[], ClientError>(
+    ClientQueryKeys.listOfBasicForm({ resParams }),
+    ({ pageParam }) => {
+      const _createAt = pageParam || new Date().toISOString();
+      return getlistOfBasicForm({
+        lastFormDate: _createAt,
+        resParams,
+      });
+    },
+    {
+      getNextPageParam: (lastPage: ClientData_Sanity[]) => {
+        if (lastPage?.[lastPage.length - 1]?._id == lastBasicFormId)
+          return undefined;
+        return lastPage?.[lastPage.length - 1]?._createdAt;
+      },
+      enabled: !!lastBasicFormId,
+    }
+  );
+  return {
+    fetchNextPage,
+    isLoading,
+    isError,
+    forms,
+    hasNextPage,
+    isFetching,
+    isRefetching,
+    refetch,
+  };
+};

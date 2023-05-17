@@ -11,8 +11,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'ماراباکس | جعبه ابزار مهاجرت به استرالیا',
   },
   BannerButtonText: {
-    en: 'Fill out the form',
-    fa: 'پر کردن فرم',
+    en: 'Evaluation Form',
+    fa: 'فرم ارزیابی',
   },
   BannerDesc: {
     en: `Are you ready to start your <span> immigration </span> journey? Now our form

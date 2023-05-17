@@ -93,8 +93,7 @@ const Title = styled.h2`
   ${Headline4Style};
   color: var(--color-gray13);
   @media ${deviceMin.tabletS} {
-    ${Headline3Style};
-    width: auto;
+    width: 80%;
   }
   span {
     color: var(--color-primary5);

@@ -16,6 +16,7 @@ import { getClientDetail } from 'Queries/client';
 import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { UserQueryKeys } from 'Utils/query/keys';
+import { Headline4Style } from 'Styles/Typo';
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -50,9 +51,9 @@ const HomeContent: React.FC = () => {
           <Banner
             navigateTo={`/${locale}/clients/basic-form`}
             desc={
-              <div
+              <BannerDesc
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-              ></div>
+              ></BannerDesc>
             }
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
@@ -74,3 +75,7 @@ const Container = styled.div`
   position: relative;
   margin-top: 2rem;
 `;
+
+const BannerDesc = styled.div`
+
+`

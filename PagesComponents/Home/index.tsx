@@ -1,21 +1,21 @@
-import Hero from "./Hero";
-import AgentsSection from "./AgentsSection";
-import OccupationSection from "./OccupationSection";
-import AgencysSection from "./AgencysSection";
-import ExchangesSection from "./ExchangesSection";
-import SocialsSection from "./SocialsSection";
-import NattiesSection from "./NattiesSection";
-import styled from "styled-components";
-import { useLocale } from "Hooks/useLocale";
-import { Languages } from "Interfaces";
-import Banner from "../../Components/Banner";
-import { useSession } from "next-auth/react";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { getClientDetail } from "Queries/client";
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
-import { ClientQueryKeys } from "Utils/query/keys";
+import Hero from './Hero';
+import AgentsSection from './AgentsSection';
+import OccupationSection from './OccupationSection';
+import AgencysSection from './AgencysSection';
+import ExchangesSection from './ExchangesSection';
+import SocialsSection from './SocialsSection';
+import NattiesSection from './NattiesSection';
+import styled from 'styled-components';
+import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
+import Banner from '../../Components/Banner';
+import { useSession } from 'next-auth/react';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { getClientDetail } from 'Queries/client';
+import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
+import { ClientQueryKeys } from 'Utils/query/keys';
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -51,9 +51,9 @@ const HomeContent: React.FC = () => {
           <Banner
             navigateTo={`/${locale}/clients/basic-form`}
             desc={
-              <div
+              <BannerDesc
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-              ></div>
+              ></BannerDesc>
             }
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
@@ -75,3 +75,7 @@ const Container = styled.div`
   position: relative;
   margin-top: 2rem;
 `;
+
+const BannerDesc = styled.div`
+
+`

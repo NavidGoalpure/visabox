@@ -7,7 +7,7 @@ import {
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Lists/Agencies/const';
-import PostContent from 'PagesComponents/Blog/Blogs/evaluating-organizations';
+import PostContent from 'PagesComponents/Blog/Blogs/skilled-worker';
 
 const BlogPage: NextPage = () => {
   const { locale } = useLocale();

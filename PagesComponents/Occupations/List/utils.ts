@@ -5,19 +5,19 @@ import { FilteredOccupationRange } from './interfaces';
 /**
  * به ما میگه که آیا صفحه دیگه ای هم برای پینجینیشن وجود داره یا خیر
  * @param lastOccupation  آخرین آکوپیشن
- * @param  lastFechedOccupation آخرین آکوپیشنی که فچ کردیم
+ * @param  lastFetchedOccupation آخرین آکوپیشنی که فچ کردیم
  * @returns boolean
  */
 const getHasNextPage = ({
   lastOccupation,
-  lastFechedOccupation,
+  lastFetchedOccupation,
 }: {
   lastOccupation: Occupation | undefined;
-  lastFechedOccupation: Occupation | undefined;
+  lastFetchedOccupation: Occupation | undefined;
 }): boolean => {
   if (lastOccupation?.code === undefined) return false;
-  if (lastFechedOccupation?.code === undefined) return false;
-  if (lastOccupation?.code <= lastFechedOccupation?.code) return false;
+  if (lastFetchedOccupation?.code === undefined) return false;
+  if (lastOccupation?.code <= lastFetchedOccupation?.code) return false;
   return true;
 };
 /////////////////////////
@@ -26,7 +26,7 @@ const getHasNextPage = ({
  * @param {InfiniteData<Occupation[]>|undefined} occupations همه آکوپیشن های فچ شده
  * @returns {Occupation | undefined } آخرین آکوپیشن فچ شده، اگه هیچ آکیوپیشنی فچ نشده باشه، آندیفایند برمیگردونه
  */
-const getLastFechedOccupation = (
+const getLastFetchedOccupation = (
   occupations: InfiniteData<Occupation[]> | undefined
 ): Occupation | undefined => {
   return occupations?.pages?.[occupations?.pages.length - 1][
@@ -71,7 +71,7 @@ function getNewRangeBaseOnMinorGroup(code: number): FilteredOccupationRange {
 }
 
 export {
-  getLastFechedOccupation,
+  getLastFetchedOccupation,
   getHasNextPage,
   getNewRangeBaseOnMajorGroup,
   getNewRangeBaseOnSubmajorGroup,

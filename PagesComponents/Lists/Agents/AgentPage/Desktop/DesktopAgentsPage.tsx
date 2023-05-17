@@ -16,13 +16,11 @@ import { DesktopContactComponent } from './DesktopContactComponent';
 import { Agent } from 'Interfaces/Database/Lists/agents';
 import {
   layer2A_Key,
-  layer2A_TitleColor,
   layer2A_Value,
 } from 'Styles/Theme/Layers/layer2/theme';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import Divider from 'Elements/Divider';
 
 interface Props {
   ChosenAgent?: Agent;

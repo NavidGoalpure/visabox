@@ -24,7 +24,6 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   useEffect(() => {
     GsapSectionAnimation_2('natties');
   }, []);
-  console.log('navid url=', `${locale}/lists/naaties`);
   return (
     <Container {...props}>
       <Side className='natties-card-section'>

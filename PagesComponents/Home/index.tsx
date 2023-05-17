@@ -1,21 +1,21 @@
-import Hero from './Hero';
-import AgentsSection from './AgentsSection';
-import OccupationSection from './OccupationSection';
-import AgencysSection from './AgencysSection';
-import ExchangesSection from './ExchangesSection';
-import SocialsSection from './SocialsSection';
-import NattiesSection from './NattiesSection';
-import styled from 'styled-components';
-import { useLocale } from 'Hooks/useLocale';
-import { Languages } from 'Interfaces';
-import Banner from '../../Components/Banner';
-import { useSession } from 'next-auth/react';
-import { componentStatements, LanguageKeys } from './const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { getClientDetail } from 'Queries/client';
-import { useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { UserQueryKeys } from 'Utils/query/keys';
+import Hero from "./Hero";
+import AgentsSection from "./AgentsSection";
+import OccupationSection from "./OccupationSection";
+import AgencysSection from "./AgencysSection";
+import ExchangesSection from "./ExchangesSection";
+import SocialsSection from "./SocialsSection";
+import NattiesSection from "./NattiesSection";
+import styled from "styled-components";
+import { useLocale } from "Hooks/useLocale";
+import { Languages } from "Interfaces";
+import Banner from "../../Components/Banner";
+import { useSession } from "next-auth/react";
+import { componentStatements, LanguageKeys } from "./const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { getClientDetail } from "Queries/client";
+import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
+import { ClientQueryKeys } from "Utils/query/keys";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -23,16 +23,17 @@ const HomeContent: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [hasClientCompletedForm, setHasClientCompletedForm] =
     useState<boolean>(true);
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const { data, isLoading } = useQuery(
-    UserQueryKeys.detail({
-      email: session?.user?.email || `defensive`,
+    ClientQueryKeys.detail({
+      reqParams,
       resParams: `
      name
       `,
     }),
     () => {
       return getClientDetail({
-        email: session?.user?.email || `defensive`,
+        reqParams,
         resParams: `
      name
       `,
@@ -45,7 +46,7 @@ const HomeContent: React.FC = () => {
   return (
     <>
       <Hero />
-      <Container id='section-container'>
+      <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (
           <Banner
             navigateTo={`/${locale}/clients/basic-form`}

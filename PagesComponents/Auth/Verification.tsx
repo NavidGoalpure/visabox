@@ -22,6 +22,8 @@ function Content() {
   const successToastMessage = t(LanguageKeys.SuccessToastMessage);
   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
   const { data: session } = useSession();
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const resParams = `name`;
   const mutation = useMutation({
     mutationFn: () => {
       return fetch('/api/auth/verification', {
@@ -33,10 +35,9 @@ function Content() {
       if (!res.ok) {
         throw new Error('couldnt create the user');
       }
-      const email = session?.user?.email || 'defensive';
       // اطلاعات کاربر رو میگیریم تا بفهمیم فرم پایه رو پر کرده یا نه
       // بر اساس اون تصمیم میگیریم کجا بفرستیمش
-      getClientDetail({ email, resParams: `name` })
+      getClientDetail({ reqParams, resParams })
         .then((res) => {
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
           if (res?.clientData[0]?.name) {

@@ -1,20 +1,18 @@
-import { QueryClient, useQueryClient } from "react-query";
-import { UserQueryKeys } from "Utils/query/keys";
-import { sanityClient } from "Utils/sanity";
-import { ClientData_Sanity } from "./interface";
+import { sanityClient } from 'Utils/sanity';
+import { ClientData_Sanity } from './interface';
 
 interface GetClientDetail {
-  email: string;
+  reqParams: string;
   resParams: string;
 }
 export const getClientDetail = async ({
-  email,
+  reqParams,
   resParams,
 }: GetClientDetail): Promise<{
   clientData: ClientData_Sanity[];
 }> => {
-  const clientEmail = email;
-  const queryParams = `*[_type=='client' && email == "${clientEmail}" ]{
+  const clientreqParams = reqParams;
+  const queryParams = `*[_type=='client' && ${clientreqParams} ]{
 ${resParams}
   }`;
   try {

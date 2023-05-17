@@ -5,7 +5,7 @@ import Search from './Search';
 import { PageSubtitle } from './PageSubtitle';
 import { useListData } from './useListData';
 import { useLastOccupationData } from './useLastOccupationData';
-import { getHasNextPage, getLastFechedOccupation } from './utils';
+import { getHasNextPage, getLastFetchedOccupation } from './utils';
 import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components';
@@ -34,9 +34,9 @@ const Content: React.FC = () => {
 
   const { lastOccupation } = useLastOccupationData(searchValue);
   //
-  const lastFechedOccupation = getLastFechedOccupation(occupations);
+  const lastFetchedOccupation = getLastFetchedOccupation(occupations);
   //
-  const hasNextPage = getHasNextPage({ lastOccupation, lastFechedOccupation });
+  const hasNextPage = getHasNextPage({ lastOccupation, lastFetchedOccupation });
   //
   const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);

@@ -347,7 +347,7 @@ export const NormalSocialMedias: Socials[] = [
   {
     id: 'soc34',
     name: 'Arad Immigration',
-    socialmediaType: SocialMediaTypes.YOUTUBE,
+    socialmediaType: SocialMediaTypes.TELEGRAM,
     slug: 'Arad-Immigration',
     link: 'https://t.me/Arad_immigration',
     locations: Locations.fa,

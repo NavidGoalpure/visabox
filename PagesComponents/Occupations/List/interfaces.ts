@@ -4,6 +4,7 @@ export interface FilteredOccupationRange {
   highestNumber: number;
   lowerNumber: number;
 }
+
 export interface SearchFilters_Anzsco {
   majorGroup?: AnszcoGroup;
   subMajorGroup?: AnszcoGroup;

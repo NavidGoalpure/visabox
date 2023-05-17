@@ -2,9 +2,9 @@ import { useSession } from 'next-auth/react';
 import { getClientDetail } from 'Queries/client';
 import React, { useEffect, useState } from 'react';
 import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
-import { UserQueryKeys } from 'Utils/query/keys';
 import { useQuery } from 'react-query';
 import { ClientData } from 'Interfaces/Database/Client';
+import { ClientQueryKeys } from 'Utils/query/keys';
 
 type ContextProps = {
   children: React.ReactNode;
@@ -22,6 +22,7 @@ function FormDataContextProvider(props: ContextProps) {
   );
   const { data: session } = useSession();
   //////////////
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `
       _id,
       name,
@@ -39,39 +40,20 @@ function FormDataContextProvider(props: ContextProps) {
       uni_section,
       completed_forms
       `;
+      
   const { data } = useQuery(
-    UserQueryKeys.detail({
-      email: session?.user?.email || `defensive`,
+    ClientQueryKeys.detail({
+      reqParams,
       resParams,
     }),
     () => {
       return getClientDetail({
-        email: session?.user?.email || `defensive`,
+        reqParams,
         resParams,
       });
     }
   );
-  ///////////////
-  // const getClientData = async () => {
-  //   const data = await getClientDetail({
-  //     email: session?.user?.email || `defensive`,
-  //     resParams: `
-  //     _id,
-  //     name,
-  //     lastname,
-  //     age,
-  //     phone,
-  //     marital,
-  //     field_of_study,
-  //     degree,
-  //     current_job,
-  //     work_experience,
-  //     australian_work_experience,
-  //     ielts_score,
-  //     is_sharable,
-  //     uni_section,
-  //     `,
-  //   });
+ 
   useEffect(() => {
     if (data?.clientData[0])
       setClientData(proxySanityClientResponseToCamelCase(data.clientData[0]));

@@ -1,5 +1,5 @@
 import { Status } from 'Interfaces/Database';
-import { ClientCompletedForms, ClientData } from 'Interfaces/Database/Client';
+import { ClientCompletedForms, ClientCompletedForms_obj, ClientData } from 'Interfaces/Database/Client';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { ClientData_Sanity } from 'Queries/client/interface';
 import { sanityClient } from 'Utils/sanity';
@@ -10,11 +10,22 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // اگه اولین باره که بیسیک فرم رو پر میکنه به پراپرتی کامپلیتدفرمز اضافه میکنیم
   // اگه قبلا اضافه شده دوباره کاری نمیکنیم
   function getSmartCompletedForms(
-    formsData: ClientCompletedForms[] | undefined
-  ): ClientCompletedForms[] | undefined {
-    if (!formsData) return formsData;
-    if (formsData.includes(ClientCompletedForms.BasicForms)) return formsData;
-    return [...formsData, ClientCompletedForms.BasicForms];
+    formsData: ClientCompletedForms_obj[] | undefined
+  ): ClientCompletedForms_obj[] | undefined {
+    if (!formsData) return undefined;
+    if (
+      formsData.filter(
+        (formData) => formData.forms === ClientCompletedForms.BasicForm
+      ).length > 0
+    )
+      return formsData;
+    return [
+      ...formsData,
+      {
+        forms: ClientCompletedForms.BasicForm,
+        _type: 'client_completed_forms_obj',
+      },
+    ];
   }
 
   const params: ClientData_Sanity = {
@@ -33,6 +44,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     uni_section: clientData?.uniSection,
     status: Status.ACTIVE,
     role: 'normal',
+    email: clientData?.email,
     completed_forms: getSmartCompletedForms(clientData?.completedForms),
   };
   if (clientData?._id) {

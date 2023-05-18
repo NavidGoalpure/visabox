@@ -7,7 +7,7 @@ import { listOfBasicForm_ResParams } from './const';
 
 const resParams = listOfBasicForm_ResParams;
 
-export const useListData = (lastBasicFormId: string | undefined) => {
+export const useListData = (oldestBasicFormId: string | undefined) => {
   const {
     hasNextPage,
     fetchNextPage,
@@ -28,13 +28,14 @@ export const useListData = (lastBasicFormId: string | undefined) => {
     },
     {
       getNextPageParam: (lastPage: ClientData_Sanity[]) => {
-        if (lastPage?.[lastPage.length - 1]?._id == lastBasicFormId)
+        if (lastPage?.[lastPage.length - 1]?._id == oldestBasicFormId)
           return undefined;
         return lastPage?.[lastPage.length - 1]?._createdAt;
       },
-      enabled: !!lastBasicFormId,
+      enabled: !!oldestBasicFormId,
     }
-  );
+    );
+    console.log("navid form===",forms)
   return {
     fetchNextPage,
     isLoading,

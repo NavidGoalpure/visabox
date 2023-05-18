@@ -1,8 +1,13 @@
-import { Status } from 'Interfaces/Database';
-import { ClientCompletedForms, ClientCompletedForms_obj, ClientData } from 'Interfaces/Database/Client';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { ClientData_Sanity } from 'Queries/client/interface';
-import { sanityClient } from 'Utils/sanity';
+import { Status } from "Interfaces/Database";
+import {
+  ClientCompletedForms,
+  ClientCompletedForms_obj,
+  ClientData,
+} from "Interfaces/Database/Client";
+import { NextApiRequest, NextApiResponse } from "next";
+import { ClientData_Sanity } from "Queries/client/interface";
+import { convertToMd5 } from "Utils/query";
+import { sanityClient } from "Utils/sanity";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const body = JSON.parse(req.body);
   const clientData: ClientData = body?.clientData;
@@ -23,7 +28,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       ...formsData,
       {
         forms: ClientCompletedForms.BasicForm,
-        _type: 'client_completed_forms_obj',
+        _type: "client_completed_forms_obj",
+        _key: new Date().toString() + Math.random().toString(),
       },
     ];
   }
@@ -43,7 +49,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     is_sharable: clientData?.isSharable,
     uni_section: clientData?.uniSection,
     status: Status.ACTIVE,
-    role: 'normal',
+    role: "normal",
     email: clientData?.email,
     completed_forms: getSmartCompletedForms(clientData?.completedForms),
   };
@@ -53,15 +59,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       .set(params)
       .commit()
       .then(() => {
-        res.status(200).json({ message: 'success' });
+        res.status(200).json({ message: "success" });
       })
       .catch((err) => {
         const errors = err?.response?.body?.error?.items;
-        res.status(500).send({ message: 'request failed', errors });
+        res.status(500).send({ message: "request failed", errors });
       });
   } else {
     res.status(401).send({
-      message: 'The user have not _id',
+      message: "The user have not _id",
     });
   }
 }

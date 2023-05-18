@@ -452,11 +452,16 @@ Spoken Languages: English; Persian; Dari.`,
 
     locations: [Locations.en, Locations.fa],
     maraNumber: '1687507',
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    featuredPlan: FeaturedPlan_Business.FULL_DATA,
     contact: {
       website: 'https://www.aradimmigration.com/',
       email: 'sudihariri@gmail.com',
-      phone: ['+982144967825'],
+      phone: ['0406201540', '021-44058186 & 7'],
+      telegram: 'https://t.me/Arad_immigration',
+    },
+    desc: {
+      fa: 'سرکار خانم سودابه حریری وکیل ثبت شده اداره مهاجرت استرالیا و مدیر مجموعه آراد ایمیگریشن می باشند.ایشان در سال 2006 به کشور استرالیا مهاجرت کردند و پس از مدتی به ایران بازگشتند و در سفارت های مختلف از جمله سفارت استرالیا، انگلیس و اسپانیا مشغول به کار شدند.ایشان پس از کسب تجارب ارزنده در حوزه ویزا و مهاجرت و بدلیل علاقه در این حوزه، اقدام به تحصیل در رشته حقوق مهاجرت استرالیا کردند. خانم سودابه حریری کار خود را به عنوان وکیل رسمی مهاجرت استرالیا در سال 2016 آغاز کردند و با توجه به تجارب و تحصیلات خود توانستند در مدت زمان کوتاهی به موفقیت های چشمگیری دست یابند . ایشان با اخذ اسسمنتهای مثبت فراوان در  مشاغل متنوع در بحث ویزاهای اسکیل ورکر و هچننین اخذ ویزاهای سرمایه گذاری ، ازدواج، نامزدی و توریستی موفق توانسته اند در میان وکلای مارا به خوش نامی بدرخشند. شعار ایشان همواره دقت و سرعت در پیش بردن پرونده متقاضیان است ونظرات کلاینت های ایشان نیز گواه این موضوع می باشد.',
+      en: 'Mrs. Sudabah Hariri is a registered lawyer of the Australian Immigration Department and the manager of Arad Immigration Group. She immigrated to Australia in 2006 and after some time returned to Iran and worked in different embassies including the Australian, British and Spanish embassies. are. After gaining valuable experiences in the field of visa and immigration and because of his interest in this field, he studied immigration law. Mrs. Soudabeh Hariri started her work as an official Australian immigration lawyer in 2016 and achieved significant success in a short period of time due to her business and education. By obtaining many positive names in various cases in the discussion of skilled worker visas and also obtaining investment, marriage, engagement and tourist visas, they succeed in shining a good name among our lawyers. The slogan is always precision and speed in advancing the applicants case, and this is their opinion as well.',
     },
     status: Status.ACTIVE,
   },

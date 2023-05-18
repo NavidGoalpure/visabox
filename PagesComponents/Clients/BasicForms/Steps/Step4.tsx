@@ -15,8 +15,8 @@ import {
   PrevIcon,
 } from './StyledComponents';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { educations, uniSections } from './consts';
 import { ClientDegree, UniSections } from 'Interfaces/Database/Client';
+import { educations, uniSections } from 'Consts/Client';
 
 const Step4 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);

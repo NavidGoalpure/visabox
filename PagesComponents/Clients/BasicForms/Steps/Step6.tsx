@@ -6,7 +6,7 @@ import * as ToggleGroup from '../../../../Elements/ToggleGroup';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   NextButton,
@@ -15,7 +15,7 @@ import {
   PrevButton,
   PrevIcon,
 } from './StyledComponents';
-import { works } from './consts';
+import { works} from "Consts/Client";
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
 import { WorkExperience } from 'Interfaces/Database/Client';
 

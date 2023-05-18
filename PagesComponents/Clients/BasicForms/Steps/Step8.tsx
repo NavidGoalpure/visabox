@@ -14,7 +14,7 @@ import {
   PrevIcon,
 } from './StyledComponents';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { IELTSScores } from './consts';
+import { IELTSScores } from "Consts/Client";
 import { IELTSScore } from 'Interfaces/Database/Client';
 
 const Step8 = () => {

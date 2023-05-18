@@ -13,7 +13,7 @@ import {
   PrevButton,
   PrevIcon,
 } from './StyledComponents';
-import { australianWorks } from './consts';
+import { australianWorks } from "Consts/Client";
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
 import { AustralianWorkExperience } from 'Interfaces/Database/Client';
 

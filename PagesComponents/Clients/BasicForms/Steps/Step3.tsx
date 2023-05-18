@@ -15,8 +15,8 @@ import {
   PrevIcon,
 } from './StyledComponents';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { maritalStatuses } from './consts';
 import { ClientMarital } from 'Interfaces/Database/Client';
+import { maritalStatuses } from 'Consts/Client';
 
 const Step3 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);

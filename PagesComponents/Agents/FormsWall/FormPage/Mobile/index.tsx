@@ -1,14 +1,14 @@
-import { deviceMin } from 'Consts/device';
-import styled, { css } from 'styled-components';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import theme from 'styled-theming';
-import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
+import { deviceMin } from "Consts/device";
+import styled, { css } from "styled-components";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import theme from "styled-theming";
+import { layer2A_TitleStyle } from "Styles/Theme/Layers/layer2/style";
 import {
   layer2A_Key,
   layer2A_TextColor,
-} from 'Styles/Theme/Layers/layer2/theme';
-import { ClientData } from 'Interfaces/Database/Client';
-import DescriptionSection from '../DescriptionSection';
+} from "Styles/Theme/Layers/layer2/theme";
+import { ClientData } from "Interfaces/Database/Client";
+import DescriptionSection from "../DescriptionSection";
 
 interface Props {
   clientData: ClientData;
@@ -23,13 +23,13 @@ function MobileAgentsPage({ clientData }: Props) {
       </StarBackground>
       <ProfilePictureWrapper>
         <ProfilePicture
-          src={clientData?.avatar || '/Images/placeholder.jpeg'}
-          alt={clientData?.name ? `${clientData?.name} image` : 'agent image'}
+          src={clientData?.avatar || "/Images/placeholder.jpeg"}
+          alt={clientData?.name ? `${clientData?.name} image` : "agent image"}
         />
       </ProfilePictureWrapper>
       <ProfileData>
         <Name>
-          {' '}
+          {" "}
           {clientData?.name} {clientData?.lastName}
         </Name>
         <JobTitle>{clientData?.currentJob}</JobTitle>
@@ -40,7 +40,7 @@ function MobileAgentsPage({ clientData }: Props) {
   );
 }
 export default MobileAgentsPage;
-const StarBackgroundColor = theme('mode', {
+const StarBackgroundColor = theme("mode", {
   light: css`
     background: var(--color-gray13);
   `,
@@ -48,7 +48,7 @@ const StarBackgroundColor = theme('mode', {
     background: var(--color-gray4);
   `,
 });
-const TitleColor = theme('mode', {
+const TitleColor = theme("mode", {
   light: css`
     color: var(--color-primary4);
   `,
@@ -56,39 +56,6 @@ const TitleColor = theme('mode', {
     color: var(--color-primary5);
   `,
 });
-const FormDataTheme = theme('mode', {
-  light: css`
-    background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-  `,
-  dark: css`
-    background: var(--color-gray6);
-  `,
-});
-const LabelTheme = theme('mode', {
-  light: css`
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    color: var(--color-gray10);
-  `,
-});
-const Icon = css`
-  ${layer2A_TextColor}
-  width: 2rem;
-  height: auto;
-  @media ${deviceMin.tabletS} {
-    width: 2rem;
-    height: auto;
-  }
-`;
-const SocialsContainerCss = css`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  cursor: pointer;
-`;
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -141,9 +108,11 @@ const ProfilePictureWrapper = styled.div`
   position: relative;
 `;
 const ProfilePicture = styled.img`
-  object-fit: cover;
+  object-fit: contain;
   position: relative !important;
   border-radius: 15px;
+  width: 100%;
+  height: auto;
 `;
 
 const ProfileData = styled.div`

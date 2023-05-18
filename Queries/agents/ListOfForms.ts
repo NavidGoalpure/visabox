@@ -23,7 +23,7 @@ const getlistOfBasicFormQuery = ({
    _createdAt < "${lastFormDate}" &&
    "${ClientCompletedForms.BasicForm}" in completed_forms[].forms &&
    !(_id in path('drafts.**')) &&
-   isSharable == true ]
+    is_sharable == true ]
    | order(_createdAt desc) [0...${Forms_PER_PAGE}] {
  ${resParams}
 }`;

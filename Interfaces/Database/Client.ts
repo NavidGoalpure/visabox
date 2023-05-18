@@ -7,6 +7,7 @@ export enum ClientMarital {
 export enum ClientDegree {
   Diploma = "diploma",
   Bachelorsdegree = "bachelor's degree",
+  Mastersdegree = "master's degree",
   Doctorate = "doctorate",
 }
 export enum WorkExperience {

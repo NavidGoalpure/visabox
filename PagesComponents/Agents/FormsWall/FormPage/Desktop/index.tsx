@@ -14,13 +14,12 @@ interface Props {
 }
 function DesktopAgentsPage({ clientData }: Props) {
   const dataCreatedAt = clientData?._createdAt?.toString().substring(0, 10);
-  
+
   return (
     <Container>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
-            fill
             src={clientData?.avatar || '/Images/placeholder.jpeg'}
             alt={clientData?.name ? `${clientData?.name} image` : 'agent image'}
           />
@@ -77,7 +76,7 @@ const ProfilePictureWrapper = styled.div`
   z-index: 1;
   position: relative;
 `;
-const ProfilePicture = styled(Image)`
+const ProfilePicture = styled.img`
   object-fit: cover;
   width: 100%;
   border-radius: 15px;

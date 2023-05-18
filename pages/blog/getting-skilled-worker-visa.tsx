@@ -7,13 +7,14 @@ import {
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Lists/Agencies/const';
-import PostContent from 'PagesComponents/Blog/content';
+import PostContent from 'PagesComponents/Blog/Blogs/getting-skilled-worker-visa';
 
 const BlogPage: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
+      {/* //navid  */}
       {/* <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

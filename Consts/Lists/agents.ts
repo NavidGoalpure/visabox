@@ -464,6 +464,8 @@ Spoken Languages: English; Persian; Dari.`,
       en: 'Mrs. Sudabah Hariri is a registered lawyer of the Australian Immigration Department and the manager of Arad Immigration Group. She immigrated to Australia in 2006 and after some time returned to Iran and worked in different embassies including the Australian, British and Spanish embassies. are. After gaining valuable experiences in the field of visa and immigration and because of his interest in this field, he studied immigration law. Mrs. Soudabeh Hariri started her work as an official Australian immigration lawyer in 2016 and achieved significant success in a short period of time due to her business and education. By obtaining many positive names in various cases in the discussion of skilled worker visas and also obtaining investment, marriage, engagement and tourist visas, they succeed in shining a good name among our lawyers. The slogan is always precision and speed in advancing the applicants case, and this is their opinion as well.',
     },
     status: Status.ACTIVE,
+    avatar:
+      'https://binsta.dev/api/v1/files/fKbzSPjJea/transform?format=webp&size=lg&quality=hi',
   },
   {
     id: 'agt22',

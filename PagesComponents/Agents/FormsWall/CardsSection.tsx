@@ -1,18 +1,18 @@
+import { Client } from 'Interfaces/Database/Client';
 import React from 'react';
 import { InfiniteData } from 'react-query';
 import styled from 'styled-components';
 import BasicFormCard from './BasicFormCard';
-import { Client_Sanity } from 'Queries/client/interface';
 
 interface Props {
-  forms: InfiniteData<Client_Sanity[]> | undefined;
+  forms: InfiniteData<Client[]> | undefined;
 }
 
 const CardsSection: React.FC<Props> = ({ forms }) => {
   return (
     <Container>
       {forms?.pages?.map((formPage) =>
-        formPage?.map((form: Client_Sanity) => {
+        formPage?.map((form: Client) => {
           return <BasicFormCard formData={form} />;
         })
       )}

@@ -5,9 +5,9 @@ import MobileAgentsPage from './Mobile';
 import { Client } from 'Interfaces/Database/Client';
 
 interface Props {
-  Client: Client;
+  client: Client;
 }
-const Content: React.FC<Props> = ({ Client }) => {
+const Content: React.FC<Props> = ({ client }) => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
 
@@ -15,7 +15,7 @@ const Content: React.FC<Props> = ({ Client }) => {
     if (isLaptop) setScreen('DESKTOP');
   });
 
-  if (screen === 'MOBILE') return <MobileAgentsPage Client={Client} />;
-  return <DesktopAgentsPage Client={Client} />;
+  if (screen === 'MOBILE') return <MobileAgentsPage client={client} />;
+  return <DesktopAgentsPage client={client} />;
 };
 export default Content;

@@ -6,23 +6,20 @@ type ContextProps = {
   prevData?: Client;
 };
 interface FormDataContextProps {
-  Client: Client | undefined;
+  client: Client | undefined;
   setClient: React.Dispatch<React.SetStateAction<Client>>;
 }
 const FormDataContext = React.createContext({} as FormDataContextProps);
 //
 function FormDataContextProvider(props: ContextProps) {
-  const [Client, setClient] = useState<Client>(
+  const [client, setClient] = useState<Client>(
     props.prevData || ({} as Client)
   );
-  //////////////
-  console.log('navid Client=', Client);
-
   //
   return (
     <FormDataContext.Provider
       value={{
-        Client,
+        client,
         setClient,
       }}
     >

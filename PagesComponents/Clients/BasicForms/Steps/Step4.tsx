@@ -21,7 +21,7 @@ import { educations, uniSections } from 'Consts/Client';
 const Step4 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { Client, setClient } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -30,11 +30,11 @@ const Step4 = () => {
         label={t(LanguageKeys.FieldOfStudyInputLabel)}
         inputName='field-of-study'
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        value={Client?.field_of_study}
+        value={client?.field_of_study}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          Client &&
+          client &&
           setClient({
-            ...Client,
+            ...client,
             field_of_study: e.target.value,
           })
         }
@@ -42,11 +42,11 @@ const Step4 = () => {
       <Title>{t(LanguageKeys.DegreeOfEducationSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={Client?.degree}
+        value={client?.degree}
         onValueChange={(value: ClientDegree) =>
-          Client &&
+          client &&
           setClient({
-            ...Client,
+            ...client,
             degree: value,
           })
         }
@@ -66,11 +66,11 @@ const Step4 = () => {
       <Title>{t(LanguageKeys.UniSectionsSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={Client?.uni_section}
+        value={client?.uni_section}
         onValueChange={(value: UniSections) =>
-          Client &&
+          client &&
           setClient({
-            ...Client,
+            ...client,
             uni_section: value,
           })
         }
@@ -98,7 +98,7 @@ const Step4 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!Client?.field_of_study || !Client?.degree}
+          disabled={!client?.field_of_study || !client?.degree}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

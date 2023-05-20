@@ -1,6 +1,6 @@
 import { ClientError } from '@sanity/client';
+import { Client } from 'Interfaces/Database/Client';
 import { getlistOfBasicForm } from 'Queries/agents/ListOfForms';
-import { Client_Sanity } from 'Queries/client/interface';
 import { useInfiniteQuery } from 'react-query';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import { listOfBasicForm_ResParams } from './const';
@@ -17,7 +17,7 @@ export const useListData = (oldestBasicFormId: string | undefined) => {
     isRefetching,
     data: forms,
     refetch,
-  } = useInfiniteQuery<Client_Sanity[], ClientError>(
+  } = useInfiniteQuery<Client[], ClientError>(
     ClientQueryKeys.listOfBasicForm({ resParams }),
     ({ pageParam }) => {
       const _createAt = pageParam || new Date().toISOString();
@@ -27,7 +27,7 @@ export const useListData = (oldestBasicFormId: string | undefined) => {
       });
     },
     {
-      getNextPageParam: (lastPage: Client_Sanity[]) => {
+      getNextPageParam: (lastPage: Client[]) => {
         if (lastPage?.[lastPage.length - 1]?._id == oldestBasicFormId)
           return undefined;
         return lastPage?.[lastPage.length - 1]?._createdAt;
@@ -35,7 +35,6 @@ export const useListData = (oldestBasicFormId: string | undefined) => {
       enabled: !!oldestBasicFormId,
     }
   );
-  console.log('navid form===', forms);
   return {
     fetchNextPage,
     isLoading,

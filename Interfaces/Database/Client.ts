@@ -22,9 +22,9 @@ export enum WorkExperience {
   'MoreThan8Years' = 'more than 8 years',
 }
 export enum UniSections {
-  'Section1' = 'Section 1',
-  'Section2' = 'Section 2',
-  'IDontKnow' = "I don't know",
+  'Section1' = 'section 1',
+  'Section2' = 'section 2',
+  'IDontKnow' = "i don't know",
 }
 export enum AustralianWorkExperience {
   'LessThan1Year' = 'none - less than 1 year',
@@ -47,21 +47,22 @@ export interface ClientCompletedForms_obj {
   _key: string;
 }
 export interface Client extends SanityKeys {
-  name: string;
-  lastname: string;
-  phone: string;
-  age: string;
-  marital: ClientMarital;
-  field_of_study: string;
-  degree: ClientDegree;
-  current_job: string;
-  work_experience: WorkExperience;
-  australian_work_experience: AustralianWorkExperience;
-  ielts_score: IELTSScore;
-  is_sharable: boolean;
-  uni_section: UniSections;
-  status: Status;
-  role: ClientRole;
+  name?: string;
+  lastname?: string;
+  phone?: string;
+  age?: string;
+  marital?: ClientMarital;
+  field_of_study?: string;
+  degree?: ClientDegree;
+  current_job?: string;
+  work_experience?: WorkExperience;
+  australian_work_experience?: AustralianWorkExperience;
+  ielts_score?: IELTSScore;
+  is_sharable?: boolean;
+  //سکشن دانشگاه
+  uni_section?: UniSections;
+  status?: Status;
+  role?: ClientRole;
   avatar?: string;
   completed_forms?: ClientCompletedForms_obj[];
   email: string;

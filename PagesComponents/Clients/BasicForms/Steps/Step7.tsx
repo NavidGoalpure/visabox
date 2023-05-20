@@ -20,18 +20,18 @@ import { AustralianWorkExperience } from 'Interfaces/Database/Client';
 const Step7 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { Client, setClient } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.AustralianWorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={Client?.australian_work_experience}
+        value={client?.australian_work_experience}
         onValueChange={(value) =>
-          Client &&
+          client &&
           setClient({
-            ...Client,
+            ...client,
             australian_work_experience: value as AustralianWorkExperience,
           })
         }
@@ -60,7 +60,7 @@ const Step7 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!Client?.australian_work_experience}
+          disabled={!client?.australian_work_experience}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

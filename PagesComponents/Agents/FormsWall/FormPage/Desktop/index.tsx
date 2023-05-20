@@ -10,29 +10,29 @@ import Image from 'next/image';
 import { Client } from 'Interfaces/Database/Client';
 
 interface Props {
-  Client: Client;
+  client: Client;
 }
-function DesktopAgentsPage({ Client }: Props) {
-  const dataCreatedAt = Client?._createdAt?.toString().substring(0, 10);
+function DesktopAgentsPage({ client }: Props) {
+  const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
 
   return (
     <Container>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
-            src={Client?.avatar || '/Images/placeholder.jpeg'}
-            alt={Client?.name ? `${Client?.name} image` : 'agent image'}
+            src={client?.avatar || '/Images/placeholder.jpeg'}
+            alt={client?.name ? `${client?.name} image` : 'agent image'}
           />
         </ProfilePictureWrapper>
         <ProfileData>
           <Name>
-            {Client?.name} {Client?.lastname}
+            {client?.name} {client?.lastname}
           </Name>
-          <JobTitle>{Client?.current_job}</JobTitle>
+          <JobTitle>{client?.current_job}</JobTitle>
           <CreatedDate>{dataCreatedAt}</CreatedDate>
         </ProfileData>
       </SmallBox>
-      <DescriptionSection Client={Client} />
+      <DescriptionSection client={client} />
     </Container>
   );
 }

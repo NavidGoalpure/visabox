@@ -16,8 +16,7 @@ import {
 const Step1 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { Client, setClient } = useContext(FormDataContext);
-  console.log('navid Client=', Client);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -27,11 +26,11 @@ const Step1 = () => {
         label={t(LanguageKeys.NameInputLabel)}
         inputName='name'
         placeholder={t(LanguageKeys.NameInputPlaceholder)}
-        value={Client?.name}
+        value={client?.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          Client &&
+          client &&
             setClient({
-              ...Client,
+              ...client,
               name: e.target.value,
             });
         }}
@@ -41,11 +40,11 @@ const Step1 = () => {
         required
         label={t(LanguageKeys.LastNameInputLabel)}
         inputName='lname'
-        value={Client?.lastname}
+        value={client?.lastname}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          Client &&
+          client &&
           setClient({
-            ...Client,
+            ...client,
             lastname: e.target.value,
           })
         }
@@ -54,11 +53,11 @@ const Step1 = () => {
       {/* //////////phone-number-input//////////// */}
       <Input
         label={t(LanguageKeys.PhoneInputLabel)}
-        value={Client?.phone}
+        value={client?.phone}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          Client &&
+          client &&
           setClient({
-            ...Client,
+            ...client,
             phone: e.target.value,
           })
         }
@@ -77,7 +76,7 @@ const Step1 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!Client?.name || !Client?.lastname || !Client?.phone}
+          disabled={!client?.name || !client?.lastname || !client?.phone}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

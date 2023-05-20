@@ -20,41 +20,25 @@ import { Input } from 'Components/Input';
 const Step2 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { Client, setClient } = useContext(FormDataContext);
-
+  const { client, setClient } = useContext(FormDataContext);
+  var mydate = client?.age
+    ? new Date(client?.age).toISOString().slice(0, 10)
+    : '';
   return (
     <Container>
-      {/* <Title>{t(LanguageKeys.AgeSectionTitle)}</Title>
-      <ToggleGroupRoot
-        value={ageValue}
-        type="single"
-        onValueChange={(value) => setAgeValue(value as ClientAge)}
-      >
-        {
-          <>
-            {ages.map((age, i) => (
-              <ToggleGroup.Item
-                text={age}
-                key={i}
-                value={age.en.replaceAll(" ", "")}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot> */}
       <Input
         label={t(LanguageKeys.AgeSectionTitle)}
         type={'date'}
         inputName='age'
-        value={Client?.age}
+        value={mydate}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          Client &&
+          client &&
             setClient({
-              ...Client,
+              ...client,
               age: e.target.value,
             });
         }}
-        id={'phone-input'}
+        id={'date-input'}
         placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
       />
       <ButtonWrapper>
@@ -69,7 +53,7 @@ const Step2 = () => {
             handleNextPress();
           }}
           icon={<NextIcon />}
-          disabled={!Client?.age}
+          disabled={!client?.age}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

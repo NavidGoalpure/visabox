@@ -21,7 +21,7 @@ const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
       <Seo
         canonical={`https://www.marabox.com/${locale}/agents/${client?._id}`}
       />
-      <Content Client={client} />
+      <Content client={client} />
     </PageLayout>
   );
 };
@@ -55,7 +55,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
     return {
       props: {
-        client: client?.Client[0],
+        client: client?.client[0],
       },
     };
   } catch (error) {

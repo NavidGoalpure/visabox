@@ -20,24 +20,25 @@ import { GetLabelsProps } from './interface';
 export function getMaritalLabel({
   marital,
 }: {
-  marital: ClientMarital;
+  marital: ClientMarital | undefined;
 }): MultiLanguageText | undefined {
   switch (marital) {
     case ClientMarital.Married:
       return maritalStatuses.find(
         (maritalStatus) => maritalStatus.en === 'Married'
       );
-    // handeled single in default
-    default:
+    case ClientMarital.Single:
       return maritalStatuses.find(
         (maritalStatus) => maritalStatus.en === 'Single'
       );
+    default:
+      return undefined;
   }
 }
 export function getdegreeLabel({
   degree,
 }: {
-  degree: ClientDegree;
+  degree: ClientDegree | undefined;
 }): MultiLanguageText | undefined {
   switch (degree) {
     case ClientDegree.Diploma:
@@ -46,15 +47,18 @@ export function getdegreeLabel({
       return educations.find((degree) => degree.en === "Bachelor's degree");
     case ClientDegree.Mastersdegree:
       return educations.find((degree) => degree.en === "Master's degree");
+    case ClientDegree.Doctorate:
+      return educations.find((degree) => degree.en === 'Doctorate');
+
     // handeld doctorate in default
     default:
-      return educations.find((degree) => degree.en === 'Doctorate');
+      return undefined;
   }
 }
 export function getUniSectionLabel({
   UniSection,
 }: {
-  UniSection: UniSections;
+  UniSection: UniSections | undefined;
 }): MultiLanguageText | undefined {
   switch (UniSection) {
     case UniSections.Section1:
@@ -62,14 +66,16 @@ export function getUniSectionLabel({
     case UniSections.Section2:
       return uniSections.find((section) => section.en === 'Section 2');
     // handeled I dont know option in default
-    default:
+    case UniSections.IDontKnow:
       return uniSections.find((section) => section.en === "I don't know");
+    default:
+      return undefined;
   }
 }
 export function getWorkExperienceLabel({
   workExperience,
 }: {
-  workExperience: WorkExperience;
+  workExperience: WorkExperience | undefined;
 }): MultiLanguageText | undefined {
   switch (workExperience) {
     case WorkExperience['1To3Years']:
@@ -80,15 +86,17 @@ export function getWorkExperienceLabel({
       return works.find((experience) => experience.en === '5 to 8 years');
     case WorkExperience.Below1Year:
       return works.find((experience) => experience.en === 'Below 1 year');
+    case WorkExperience.MoreThan8Years:
+      return works.find((experience) => experience.en === 'More than 8 years');
     // handeled more than 8 years option in default
     default:
-      return works.find((experience) => experience.en === 'More than 8 years');
+      return undefined;
   }
 }
 export function getAustralianWorkExperienceLabel({
   australianWorkExp,
 }: {
-  australianWorkExp: AustralianWorkExperience;
+  australianWorkExp: AustralianWorkExperience | undefined;
 }): MultiLanguageText | undefined {
   switch (australianWorkExp) {
     case AustralianWorkExperience.LessThan1Year:
@@ -108,30 +116,31 @@ export function getAustralianWorkExperienceLabel({
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === '5 to 8 years'
       );
-    // handeled more than 8 years option in default
-    default:
+    case AustralianWorkExperience.MoreThan8Years:
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === 'More than 8 years'
       );
+    default:
+      return undefined;
   }
 }
-export function getMultiLanguageLabels(Client: Client): GetLabelsProps {
+export function getMultiLanguageLabels(client: Client): GetLabelsProps {
   //   turns sanity data to multilanguage texts so we can show more detailed data
   const showableData = {
-    marital: getMaritalLabel({ marital: Client?.marital }),
-    degree: getdegreeLabel({ degree: Client?.degree }),
-    uniSection: getUniSectionLabel({ UniSection: Client?.uni_section }),
+    marital: getMaritalLabel({ marital: client?.marital }),
+    degree: getdegreeLabel({ degree: client?.degree }),
+    uniSection: getUniSectionLabel({ UniSection: client?.uni_section }),
     workExperience: getWorkExperienceLabel({
-      workExperience: Client?.work_experience,
+      workExperience: client?.work_experience,
     }),
     australianWorkExperience: getAustralianWorkExperienceLabel({
-      australianWorkExp: Client?.australian_work_experience,
+      australianWorkExp: client?.australian_work_experience,
     }),
-    age: Client?.age,
-    IELTSScore: Client?.ielts_score,
-    phoneNumber: Client?.phone,
-    email: Client?.email,
-    fieldOfStudy: Client?.field_of_study,
+    age: client?.age ,
+    IELTSScore: client?.ielts_score,
+    phoneNumber: client?.phone ,
+    email: client?.email ,
+    fieldOfStudy: client?.field_of_study ,
   };
   return showableData;
 }

@@ -1,6 +1,5 @@
 import { sanityClient } from 'Utils/sanity';
 import { ClientCompletedForms, Client } from 'Interfaces/Database/Client';
-import { Client_Sanity } from 'Queries/client/interface';
 
 export const Forms_PER_PAGE = 9;
 
@@ -42,7 +41,7 @@ type QueryParams = {
 const getlistOfBasicForm = async ({
   lastFormDate = '',
   resParams,
-}: QueryParams): Promise<Client_Sanity[]> => {
+}: QueryParams): Promise<Client[]> => {
   const data = await sanityClient.fetch(
     getlistOfBasicFormQuery({
       lastFormDate,

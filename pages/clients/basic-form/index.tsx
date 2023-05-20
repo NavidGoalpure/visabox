@@ -21,7 +21,6 @@ const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
-  //navid check logout user
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `
       _id,
@@ -70,7 +69,7 @@ const UserForms: NextPage = ({}) => {
       {isLoading ? (
         <Loading style={{ width: 'auto' }} />
       ) : (
-        <FormDataContextProvider prevData={data?.Client?.[0]}>
+        <FormDataContextProvider prevData={data?.client?.[0]}>
           <ContentOrError isError={isError} content={<Content />} />
         </FormDataContextProvider>
       )}

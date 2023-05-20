@@ -20,18 +20,18 @@ import { IELTSScore } from 'Interfaces/Database/Client';
 const Step8 = () => {
   const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { Client, setClient } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.IELTSScoreSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={Client?.ielts_score}
+        value={client?.ielts_score}
         onValueChange={(value) =>
-          Client &&
+          client &&
           setClient({
-            ...Client,
+            ...client,
             ielts_score: value as IELTSScore,
           })
         }
@@ -58,7 +58,7 @@ const Step8 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!Client?.ielts_score}
+          disabled={!client?.ielts_score}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

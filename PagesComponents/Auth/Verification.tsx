@@ -40,7 +40,7 @@ function Content() {
       getClientDetail({ reqParams, resParams })
         .then((res) => {
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
-          if (res?.Client[0]?.name) {
+          if (res?.client[0]?.name) {
             router.push(`/${locale}`);
           }
           // اگر کلاینت برای اولین بار ثبت نام کرده بود

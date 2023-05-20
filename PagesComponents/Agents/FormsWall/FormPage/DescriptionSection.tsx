@@ -19,11 +19,11 @@ import { getMultiLanguageLabels } from './utils';
 import { useLocale } from 'Hooks/useLocale';
 
 interface Props {
-  Client: Client;
+  client: Client;
 }
-function DescriptionSection({ Client }: Props) {
+function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-  const data = getMultiLanguageLabels(Client);
+  const data = getMultiLanguageLabels(client);
   const { locale } = useLocale();
   return (
     <FormData>
@@ -67,7 +67,7 @@ function DescriptionSection({ Client }: Props) {
             <PhonesRow>{data?.phoneNumber}</PhonesRow>
           </PhoneTitle>
         </PhoneContainer>
-        <GmailContainer onClick={() => copyContent(data.email)}>
+        <GmailContainer onClick={() => copyContent(data?.email)}>
           <GmailIcon />
           <GmailTitle>{data?.email}</GmailTitle>
         </GmailContainer>

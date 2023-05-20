@@ -5,16 +5,15 @@ import theme from 'styled-theming';
 import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import {
   layer2A_Key,
-  layer2A_TextColor,
 } from 'Styles/Theme/Layers/layer2/theme';
 import { Client } from 'Interfaces/Database/Client';
 import DescriptionSection from '../DescriptionSection';
 
 interface Props {
-  Client: Client;
+  client: Client;
 }
-function MobileAgentsPage({ Client }: Props) {
-  const dataCreatedAt = Client?._createdAt?.toString().substring(0, 10);
+function MobileAgentsPage({ client }: Props) {
+  const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
 
   return (
     <Container>
@@ -23,19 +22,18 @@ function MobileAgentsPage({ Client }: Props) {
       </StarBackground>
       <ProfilePictureWrapper>
         <ProfilePicture
-          src={Client?.avatar || '/Images/placeholder.jpeg'}
-          alt={Client?.name ? `${Client?.name} image` : 'agent image'}
+          src={client?.avatar || '/Images/placeholder.jpeg'}
+          alt={client?.name ? `${client?.name} image` : 'agent image'}
         />
       </ProfilePictureWrapper>
       <ProfileData>
         <Name>
-          {' '}
-          {Client?.name} {Client?.lastname}
+          {client?.name} {client?.lastname}
         </Name>
-        <JobTitle>{Client?.current_job}</JobTitle>
+        <JobTitle>{client?.current_job}</JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
       </ProfileData>
-      <DescriptionSection Client={Client} />
+      <DescriptionSection client={client} />
     </Container>
   );
 }

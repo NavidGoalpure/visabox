@@ -1,12 +1,9 @@
 import styled from 'styled-components';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import * as ToggleGroup from '../../../../Elements/ToggleGroup';
-import { MultiLanguageText } from 'Interfaces/Database';
 import { Input } from 'Components/Input';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   NextButton,
@@ -20,7 +17,7 @@ import { FormDataContext } from '../Contexts/FormDataContext/Context';
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -29,12 +26,12 @@ const Step5 = () => {
         label={t(LanguageKeys.CurrentJobInputLabel)}
         inputName='current-job'
         placeholder={t(LanguageKeys.CurrentJobInputPlaceholder)}
-        value={clientData?.currentJob}
+        value={client?.current_job}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            currentJob: e.target.value,
+          client &&
+          setClient({
+            ...client,
+            current_job: e.target.value,
           })
         }
       />
@@ -49,7 +46,7 @@ const Step5 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!clientData?.currentJob}
+          disabled={!client?.current_job}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

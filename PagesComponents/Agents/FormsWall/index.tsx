@@ -1,25 +1,25 @@
-import { deviceMin } from 'Consts/device';
-import styled from 'styled-components';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { PrimaryButton } from 'Elements/Button/Primary';
+import { deviceMin } from "Consts/device";
+import styled from "styled-components";
+import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { PrimaryButton } from "Elements/Button/Primary";
 
-import { useListData } from './useListData';
-import NoData from 'Components/NoData';
-import { ContentOrError } from 'Components/contentOrError';
-import { SmartButton } from './SmartButton';
-import { useLastBasicForm } from './useLastBasicForm';
-import { useEffect, useState } from 'react';
-import BasicFormCard from './BasicFormCard';
-import CardsSection from './CardsSection';
+import { useListData } from "./useListData";
+import NoData from "Components/NoData";
+import { ContentOrError } from "Components/contentOrError";
+import { SmartButton } from "./SmartButton";
+import { useEffect, useState } from "react";
+import BasicFormCard from "./BasicFormCard";
+import CardsSection from "./CardsSection";
+import { useOldestBasicForm } from "./useOldestBasicForm";
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
-  const [lastBasicFormId, setLastBasicFormId] = useState<string | undefined>();
-  const { lastBasicForm } = useLastBasicForm({ resParams: `_id` });
+  const [oldestBasicFormId, setOldestBasicFormId] = useState<string | undefined>();
+  const { lastBasicForm } = useOldestBasicForm({ resParams: `_id` });
   useEffect(() => {
-    if (lastBasicForm?._id) setLastBasicFormId(lastBasicForm?._id);
+    if (lastBasicForm?._id) setOldestBasicFormId(lastBasicForm?._id);
   }, [lastBasicForm]);
   //این هوکیه که لیست بسیک فرم ها رو برمیگردونه
   const {
@@ -30,13 +30,13 @@ function Content() {
     isError,
     isLoading,
     hasNextPage,
-  } = useListData(lastBasicFormId);
+  } = useListData(oldestBasicFormId);
   return (
     <Container>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <CardContainer>
         {!forms?.pages?.[0]?.length && !isFetching && !isLoading ? (
-          <NoData hasIcon={false} themeLayer='1' />
+          <NoData hasIcon={false} themeLayer="1" />
         ) : (
           <>
             <ContentOrError

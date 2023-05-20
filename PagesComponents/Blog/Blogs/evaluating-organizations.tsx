@@ -1,19 +1,21 @@
 import { ReactNode } from 'react';
-import { ArticleMetaData } from './interfaces';
+import { ArticleMetaData } from '../interfaces';
 import styled from 'styled-components';
 import { Layer1_SubtitleStyle, Layer1_TextStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { th_a_Color } from 'PagesComponents/Occupations/Detail/DetailTab/styledComponents';
 import { borderTheme } from 'Styles/Theme';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
+import { useLocale } from 'Hooks/useLocale';
 
 export default function PostContent() {
+  const { locale } = useLocale();
   return (
     <Container>
 
       <h1> آنچه باید در مورد سازمانهای ارزیاب استرالیا بدانیم </h1>
 
-      <p>در استرالیا  بیش از 40 سازمان ارزیاب وجود دارد. که می توانید اسامی آنها  و اطلاعات مرتبط با هر یک را در این <a href="https://www.marabox.com/fa/occupations/assssing-authorities">صفحه</a>  مشاهده کنید.</p>
+      <p>در استرالیا  بیش از 40 سازمان ارزیاب وجود دارد. که می توانید اسامی آنها  و اطلاعات مرتبط با هر یک را در این <a href={`/${locale}/occupations/assssing-authorities`}>صفحه</a>  مشاهده کنید.</p>
 
       <p>
         در اینجا می خواهیم به خصوصیات کلی  برخی از سازمانهای ارزیاب که بیشترین کد های شغلی را پوشش می دهند، بپردازیم :
@@ -92,8 +94,6 @@ export default function PostContent() {
       <p>
         شامل مشاغلی هستند که متقاضی می بایست AQF Diploma داشته باشد،مدرک تحصیلی وسابقه کارمتقاضی میبایست کاملا مرتبط باشد ، متقاضی میبایست درطول پنج سال گذشته حداقل یک سال سابقه کارداشته باشد.
       </p>
-
-      ##
 
       <p>
         یکی از مزیت های معادل سازی مدارک توسط این سازمان، عدم نیاز به ارائه مدرک زبان می باشد. برای معادل سازی مدارک توسط وت اسس استرالیا، متقاضیان باید کد رشته مربوط به رشته خود را انتخاب و در این خصوص اقدام نمایند. انتخاب مناسب ترین کد رشته از اهمیت بالایی برخوردار است

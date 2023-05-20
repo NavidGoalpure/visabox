@@ -4,7 +4,7 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
 } from 'Styles/Theme/Layers/layer2/style';
-
+import { maritalStatuses } from 'Consts/Client';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { Headline7Style } from 'Styles/Typo';
@@ -12,64 +12,64 @@ import { FaPhone } from 'react-icons/fa';
 import { deviceMin } from 'Consts/device';
 import { SiGmail } from 'react-icons/si';
 import { copyContent } from 'Utils';
-import { ClientData } from 'Interfaces/Database/Client';
+import { Client } from 'Interfaces/Database/Client';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { getMultiLanguageLabels } from './utils';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props {
-  clientData: ClientData;
+  client: Client;
 }
-function DescriptionSection({ clientData }: Props) {
+function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
+  const data = getMultiLanguageLabels(client);
+  const { locale } = useLocale();
   return (
     <FormData>
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
       <Wrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{' '}
-          <Value>{clientData?.age}</Value>
+          <Value>{data?.age}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{' '}
-          <Value>{clientData?.IELTSScore}</Value>
+          <Value>{data?.IELTSScore}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{' '}
-          <Value>{clientData?.marital}</Value>
+          <Value>{data?.marital?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{' '}
-          <Value>{clientData?.fieldOfStudy}</Value>
+          <Value>{data?.fieldOfStudy}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.DegreeLabel)}</Label>{' '}
-          <Value>{clientData?.degree}</Value>
+          <Value>{data?.degree?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{' '}
-          <Value>{clientData?.uniSection}</Value>
-        </DataWrapper>
-        <DataWrapper>
-          <Label>{t(LanguageKeys.CurrentJobLabel)}</Label>{' '}
-          <Value>{clientData?.currentJob}</Value>
+          <Value>{data?.uniSection?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{' '}
-          <Value>{clientData?.workExperience}</Value>
+          <Value>{data?.workExperience?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{' '}
-          <Value>{clientData?.australianWorkExperience}</Value>
+          <Value>{data?.australianWorkExperience?.[locale]}</Value>
         </DataWrapper>
-        <PhoneContainer onClick={() => copyContent(clientData?.phoneNumber)}>
+        <PhoneContainer onClick={() => copyContent(data?.phoneNumber)}>
           <PhoneIcon />
           <PhoneTitle>
-            <PhonesRow>{clientData?.phoneNumber}</PhonesRow>
+            <PhonesRow>{data?.phoneNumber}</PhonesRow>
           </PhoneTitle>
         </PhoneContainer>
-        <GmailContainer onClick={() => copyContent(clientData.email)}>
+        <GmailContainer onClick={() => copyContent(data?.email)}>
           <GmailIcon />
-          <GmailTitle>{clientData?.email}</GmailTitle>
+          <GmailTitle>{data?.email}</GmailTitle>
         </GmailContainer>
       </Wrapper>
     </FormData>

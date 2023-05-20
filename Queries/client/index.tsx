@@ -1,5 +1,5 @@
+import { Client } from 'Interfaces/Database/Client';
 import { sanityClient } from 'Utils/sanity';
-import { ClientData_Sanity } from './interface';
 
 interface GetClientDetail {
   reqParams: string;
@@ -9,7 +9,7 @@ export const getClientDetail = async ({
   reqParams,
   resParams,
 }: GetClientDetail): Promise<{
-  clientData: ClientData_Sanity[];
+  client: Client[];
 }> => {
   const clientreqParams = reqParams;
   const queryParams = `*[_type=='client' && ${clientreqParams} ]{
@@ -18,7 +18,7 @@ ${resParams}
   try {
     const data = await sanityClient.fetch(queryParams);
 
-    return { clientData: data };
+    return { client: data };
   } catch (error) {
     throw error;
   }

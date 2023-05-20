@@ -7,33 +7,32 @@ import {
 import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import DescriptionSection from '../DescriptionSection';
 import Image from 'next/image';
-import { ClientData } from 'Interfaces/Database/Client';
+import { Client } from 'Interfaces/Database/Client';
 
 interface Props {
-  clientData: ClientData;
+  client: Client;
 }
-function DesktopAgentsPage({ clientData }: Props) {
-  const dataCreatedAt = clientData?._createdAt?.toString().substring(0, 10);
-  
+function DesktopAgentsPage({ client }: Props) {
+  const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
+
   return (
     <Container>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
-            fill
-            src={clientData?.avatar || '/Images/placeholder.jpeg'}
-            alt={clientData?.name ? `${clientData?.name} image` : 'agent image'}
+            src={client?.avatar || '/Images/placeholder.jpeg'}
+            alt={client?.name ? `${client?.name} image` : 'agent image'}
           />
         </ProfilePictureWrapper>
         <ProfileData>
           <Name>
-            {clientData?.name} {clientData?.lastName}
+            {client?.name} {client?.lastname}
           </Name>
-          <JobTitle>{clientData?.currentJob}</JobTitle>
+          <JobTitle>{client?.current_job}</JobTitle>
           <CreatedDate>{dataCreatedAt}</CreatedDate>
         </ProfileData>
       </SmallBox>
-      <DescriptionSection clientData={clientData} />
+      <DescriptionSection client={client} />
     </Container>
   );
 }
@@ -77,7 +76,7 @@ const ProfilePictureWrapper = styled.div`
   z-index: 1;
   position: relative;
 `;
-const ProfilePicture = styled(Image)`
+const ProfilePicture = styled.img`
   object-fit: cover;
   width: 100%;
   border-radius: 15px;

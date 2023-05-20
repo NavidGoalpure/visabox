@@ -1,6 +1,5 @@
 import { sanityClient } from 'Utils/sanity';
-import { ClientCompletedForms, ClientData } from 'Interfaces/Database/Client';
-import { ClientData_Sanity } from 'Queries/client/interface';
+import { ClientCompletedForms, Client } from 'Interfaces/Database/Client';
 
 export const Forms_PER_PAGE = 9;
 
@@ -19,7 +18,12 @@ const getlistOfBasicFormQuery = ({
   lastFormDate: string;
   resParams: string;
 }): string => {
-  const query = `*[_type=='client' && _createdAt< "${lastFormDate}" && "${ClientCompletedForms.BasicForm}" in completed_forms[].forms ]| order(_createdAt) [0...${Forms_PER_PAGE}] {
+  const query = `*[_type=='client' &&
+   _createdAt < "${lastFormDate}" &&
+   "${ClientCompletedForms.BasicForm}" in completed_forms[].forms &&
+   !(_id in path('drafts.**')) &&
+    is_sharable == true ]
+   | order(_createdAt desc) [0...${Forms_PER_PAGE}] {
  ${resParams}
 }`;
   return query;
@@ -37,7 +41,7 @@ type QueryParams = {
 const getlistOfBasicForm = async ({
   lastFormDate = '',
   resParams,
-}: QueryParams): Promise<ClientData_Sanity[]> => {
+}: QueryParams): Promise<Client[]> => {
   const data = await sanityClient.fetch(
     getlistOfBasicFormQuery({
       lastFormDate,

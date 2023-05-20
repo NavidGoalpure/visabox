@@ -54,16 +54,16 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'نام:',
   },
   NameInputPlaceholder: {
-    en: 'Simon',
-    fa: 'علی',
+    en: 'Example: Simon',
+    fa: 'مثال: علی',
   },
   LastNameInputLabel: {
     en: 'Last Name:',
     fa: 'نام خانوادگی:',
   },
   LastNameInputPlaceholder: {
-    en: 'Smith',
-    fa: 'محمدی',
+    en: 'Example: Smith',
+    fa: 'مثال: محمدی',
   },
   PhoneInputLabel: {
     en: 'Phone Number:',

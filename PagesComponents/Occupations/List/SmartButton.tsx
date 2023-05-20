@@ -6,6 +6,7 @@ import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import React, { useRef } from 'react';
 import { FetchNextPageOptions, InfiniteQueryObserverResult } from 'react-query';
 import { componentStatements, LanguageKeys } from './const';
+import styled from 'styled-components';
 
 interface Props {
   isError: boolean;
@@ -24,7 +25,7 @@ export const SmartButton: React.FC<Props> = ({
   const { t } = useStaticTranslation(componentStatements);
 
   if (isError) return null;
-  if (isFetching) return <Loading />;
+  if (isFetching) return <IsLoading />;
   if (hasNextPage)
     return (
       <PrimaryButton
@@ -36,3 +37,8 @@ export const SmartButton: React.FC<Props> = ({
     );
   return null;
 };
+
+
+const IsLoading = styled(Loading)`
+margin: auto;
+`

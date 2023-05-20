@@ -11,11 +11,11 @@ import Link from 'next/link';
 import { Headline7Style } from 'Styles/Typo';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { componentStatements, LanguageKeys } from './const';
-import { ClientData } from 'Interfaces/Database/Client';
+import { Client } from 'Interfaces/Database/Client';
 import { useLocale } from 'Hooks/useLocale';
 
 interface Props {
-  formData: ClientData;
+  formData: Client;
 }
 function BasicFormCard({ formData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
@@ -31,12 +31,12 @@ function BasicFormCard({ formData }: Props) {
       prefetch={false}
     >
       <Wrapper>
-        <Title>{formData.currentJob}</Title>
+        <Title>{formData.current_job}</Title>
         <DataWrapper>
           <Label>{t(LanguageKeys.NameLabel)}</Label>{' '}
           <Value>
             {' '}
-            {formData.name} {formData.lastName}
+            {formData.name} {formData.lastname}
           </Value>
         </DataWrapper>
         <DataWrapper>
@@ -45,7 +45,7 @@ function BasicFormCard({ formData }: Props) {
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.LanguageSkillsLabel)}</Label>{' '}
-          <Value> {formData?.IELTSScore} </Value>
+          <Value> {formData?.ielts_score} </Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.AgeLabel)}</Label>{' '}

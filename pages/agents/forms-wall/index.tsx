@@ -7,14 +7,25 @@ import Content from 'PagesComponents/Agents/FormsWall';
 import { withCSR } from 'Hoc/withCSR';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import { getlistOfBasicForm } from 'Queries/agents/ListOfForms';
-import { listOfBasicForm_ResParams } from 'PagesComponents/Agents/FormsWall/const';
+import {
+  listOfBasicForm_ResParams,
+  componentStatements,
+  LanguageKeys,
+} from 'PagesComponents/Agents/FormsWall/const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 const FormsWall: NextPage = () => {
   const { locale } = useLocale();
+  const { t } = useStaticTranslation(componentStatements);
+
   return (
     <PageLayout>
-      {/* navid seo title and desc */}
-      <Seo canonical={`https://www.marabox.com/${locale}/agents/forms-wall`} />
+      <Seo
+        title={t(LanguageKeys.SeoTitle)}
+        description={t(LanguageKeys.SeoDesc)}
+        canonical={`https://www.marabox.com/${locale}/agents/forms-wall`}
+        isNoIndex={true}
+      />
       <Content />
     </PageLayout>
   );
@@ -30,7 +41,11 @@ export const getServerSideProps: GetServerSideProps = withCSR(
     try {
       await queryClient.fetchQuery(
         ClientQueryKeys.listOfBasicForm({ resParams }),
-        () => getlistOfBasicForm({ lastFormDate: new Date().toISOString(), resParams })
+        () =>
+          getlistOfBasicForm({
+            lastFormDate: new Date().toISOString(),
+            resParams,
+          })
       );
     } catch (error: any) {
       if (ctx.res) ctx.res.statusCode = error?.response?.status;

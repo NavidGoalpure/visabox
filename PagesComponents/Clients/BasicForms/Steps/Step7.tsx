@@ -13,26 +13,26 @@ import {
   PrevButton,
   PrevIcon,
 } from './StyledComponents';
-import { australianWorks } from "Consts/Client";
+import { australianWorks } from 'Consts/Client';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
 import { AustralianWorkExperience } from 'Interfaces/Database/Client';
 
 const Step7 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { Client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.AustralianWorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={clientData?.australianWorkExperience}
+        value={Client?.australian_work_experience}
         onValueChange={(value) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            australianWorkExperience: value as AustralianWorkExperience,
+          Client &&
+          setClient({
+            ...Client,
+            australian_work_experience: value as AustralianWorkExperience,
           })
         }
       >
@@ -60,7 +60,7 @@ const Step7 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!clientData?.australianWorkExperience}
+          disabled={!Client?.australian_work_experience}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

@@ -7,32 +7,32 @@ import {
 import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import DescriptionSection from '../DescriptionSection';
 import Image from 'next/image';
-import { ClientData } from 'Interfaces/Database/Client';
+import { Client } from 'Interfaces/Database/Client';
 
 interface Props {
-  clientData: ClientData;
+  Client: Client;
 }
-function DesktopAgentsPage({ clientData }: Props) {
-  const dataCreatedAt = clientData?._createdAt?.toString().substring(0, 10);
+function DesktopAgentsPage({ Client }: Props) {
+  const dataCreatedAt = Client?._createdAt?.toString().substring(0, 10);
 
   return (
     <Container>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
-            src={clientData?.avatar || '/Images/placeholder.jpeg'}
-            alt={clientData?.name ? `${clientData?.name} image` : 'agent image'}
+            src={Client?.avatar || '/Images/placeholder.jpeg'}
+            alt={Client?.name ? `${Client?.name} image` : 'agent image'}
           />
         </ProfilePictureWrapper>
         <ProfileData>
           <Name>
-            {clientData?.name} {clientData?.lastName}
+            {Client?.name} {Client?.lastname}
           </Name>
-          <JobTitle>{clientData?.currentJob}</JobTitle>
+          <JobTitle>{Client?.current_job}</JobTitle>
           <CreatedDate>{dataCreatedAt}</CreatedDate>
         </ProfileData>
       </SmallBox>
-      <DescriptionSection clientData={clientData} />
+      <DescriptionSection Client={Client} />
     </Container>
   );
 }

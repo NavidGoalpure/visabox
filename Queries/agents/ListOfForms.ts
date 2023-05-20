@@ -1,6 +1,6 @@
-import { sanityClient } from "Utils/sanity";
-import { ClientCompletedForms, ClientData } from "Interfaces/Database/Client";
-import { ClientData_Sanity } from "Queries/client/interface";
+import { sanityClient } from 'Utils/sanity';
+import { ClientCompletedForms, Client } from 'Interfaces/Database/Client';
+import { Client_Sanity } from 'Queries/client/interface';
 
 export const Forms_PER_PAGE = 9;
 
@@ -27,7 +27,6 @@ const getlistOfBasicFormQuery = ({
    | order(_createdAt desc) [0...${Forms_PER_PAGE}] {
  ${resParams}
 }`;
-  console.log("navid lastFormDate ===", lastFormDate);
   return query;
 };
 /////////////////
@@ -41,9 +40,9 @@ type QueryParams = {
   resParams: string;
 };
 const getlistOfBasicForm = async ({
-  lastFormDate = "",
+  lastFormDate = '',
   resParams,
-}: QueryParams): Promise<ClientData_Sanity[]> => {
+}: QueryParams): Promise<Client_Sanity[]> => {
   const data = await sanityClient.fetch(
     getlistOfBasicFormQuery({
       lastFormDate,

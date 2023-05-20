@@ -17,7 +17,7 @@ import { FormDataContext } from '../Contexts/FormDataContext/Context';
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { Client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -26,12 +26,12 @@ const Step5 = () => {
         label={t(LanguageKeys.CurrentJobInputLabel)}
         inputName='current-job'
         placeholder={t(LanguageKeys.CurrentJobInputPlaceholder)}
-        value={clientData?.currentJob}
+        value={Client?.current_job}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            currentJob: e.target.value,
+          Client &&
+          setClient({
+            ...Client,
+            current_job: e.target.value,
           })
         }
       />
@@ -46,7 +46,7 @@ const Step5 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!clientData?.currentJob}
+          disabled={!Client?.current_job}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

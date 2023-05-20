@@ -16,7 +16,9 @@ import {
 const Step1 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { Client, setClient } = useContext(FormDataContext);
+  console.log('navid Client=', Client);
+
   return (
     <Container>
       {/* //////////name-input//////////// */}
@@ -25,12 +27,11 @@ const Step1 = () => {
         label={t(LanguageKeys.NameInputLabel)}
         inputName='name'
         placeholder={t(LanguageKeys.NameInputPlaceholder)}
-        value={clientData?.name}
+        value={Client?.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-
-          clientData &&
-            setClientData({
-              ...clientData,
+          Client &&
+            setClient({
+              ...Client,
               name: e.target.value,
             });
         }}
@@ -40,30 +41,28 @@ const Step1 = () => {
         required
         label={t(LanguageKeys.LastNameInputLabel)}
         inputName='lname'
-        value={clientData?.lastName}
+        value={Client?.lastname}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            lastName: e.target.value,
+          Client &&
+          setClient({
+            ...Client,
+            lastname: e.target.value,
           })
         }
         placeholder={t(LanguageKeys.LastNameInputPlaceholder)}
       />
       {/* //////////phone-number-input//////////// */}
       <Input
-        inputMode={'numeric'}
         label={t(LanguageKeys.PhoneInputLabel)}
-        value={clientData?.phoneNumber}
+        value={Client?.phone}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            phoneNumber: e.target.value.replace(/[^\d]/g, ''),
+          Client &&
+          setClient({
+            ...Client,
+            phone: e.target.value,
           })
         }
         inputName='phoneNumber'
-        isNumberOnly={true}
         id={'phone-input'}
         placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
       />
@@ -78,11 +77,7 @@ const Step1 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={
-            !clientData?.name ||
-            !clientData?.lastName ||
-            !clientData?.phoneNumber
-          }
+          disabled={!Client?.name || !Client?.lastname || !Client?.phone}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

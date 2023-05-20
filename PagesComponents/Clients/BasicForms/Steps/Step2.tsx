@@ -20,7 +20,7 @@ import { Input } from 'Components/Input';
 const Step2 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { Client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -46,11 +46,11 @@ const Step2 = () => {
         label={t(LanguageKeys.AgeSectionTitle)}
         type={'date'}
         inputName='age'
-        value={clientData?.age}
+        value={Client?.age}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          clientData &&
-            setClientData({
-              ...clientData,
+          Client &&
+            setClient({
+              ...Client,
               age: e.target.value,
             });
         }}
@@ -69,7 +69,7 @@ const Step2 = () => {
             handleNextPress();
           }}
           icon={<NextIcon />}
-          disabled={!clientData?.age}
+          disabled={!Client?.age}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

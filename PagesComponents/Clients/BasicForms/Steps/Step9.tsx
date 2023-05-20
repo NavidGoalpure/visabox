@@ -22,24 +22,82 @@ import { deviceMin } from 'Consts/device';
 import ErrorToast from 'Elements/Toast/Error';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { object, string, number, date, mixed, boolean, array } from 'yup';
+import {
+  AustralianWorkExperience,
+  ClientCompletedForms,
+  Client,
+  ClientDegree,
+  ClientMarital,
+  ClientRole,
+  IELTSScore,
+  UniSections,
+  WorkExperience,
+} from 'Interfaces/Database/Client';
+import { Status } from 'Interfaces/Database';
 //
 const Step9 = () => {
+  let userSchema = object({
+    name: string().required(),
+    lastName: string().required(),
+    phoneNumber: string().required(),
+    age: date().required(),
+    marital: mixed<ClientMarital>()
+      .oneOf(Object.values(ClientMarital))
+      .required(),
+    fieldOfStudy: string().required(),
+    degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
+    currentJob: string().required(),
+    workExperience: mixed<WorkExperience>()
+      .oneOf(Object.values(WorkExperience))
+      .required(),
+    australianWorkExperience: mixed<AustralianWorkExperience>()
+      .oneOf(Object.values(AustralianWorkExperience))
+      .required(),
+    IELTSScore: mixed<IELTSScore>().oneOf(Object.values(IELTSScore)).required(),
+    uniSection: mixed<UniSections>()
+      .oneOf(Object.values(UniSections))
+      .required(),
+    isSharable: boolean(),
+    status: mixed<Status>().oneOf(Object.values(Status)).required(),
+    role: mixed<ClientRole>().oneOf(Object.values(ClientRole)).required(),
+    completedForms: array().of(
+      object().shape({
+        forms: mixed<ClientCompletedForms>()
+          .oneOf(Object.values(ClientCompletedForms))
+          .required(),
+        _type: string().required(),
+        _key: string().required(),
+      })
+    ),
+    avatar: string(),
+    email: string().email().required(),
+    //
+  });
+  //
+  //
   const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
   const { step } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
   const { locale } = useLocale();
-  const { clientData } = useContext(FormDataContext);
+  const { Client } = useContext(FormDataContext);
   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const queryClient = useQueryClient();
   const { data: session } = useSession();
+  try {
+    console.log('navid data=', Client);
+    userSchema.validateSync(Client);
+  } catch (error) {
+    console.log('navid error=', error);
+  }
 
   const mutation = useMutation({
     mutationFn: ({ isSharable }: { isSharable: boolean }) => {
       return fetch('/api/clients/basic-form', {
         method: 'POST',
-        body: JSON.stringify({ clientData: { ...clientData, isSharable } }),
+        body: JSON.stringify({ Client: { ...Client, isSharable } }),
       });
     },
     onSuccess: (res) => {
@@ -50,7 +108,7 @@ const Step9 = () => {
       SuccessToast(successToastMessage);
       queryClient.removeQueries(
         ClientQueryKeys.detail({
-          reqParams:`email == "${session?.user?.email || "defensive"}"`,
+          reqParams: `email == "${session?.user?.email || 'defensive'}"`,
         })
       );
     },
@@ -70,7 +128,7 @@ const Step9 = () => {
           <NoButton
             step={step}
             onClick={() => {
-              clientData && mutation.mutate({ isSharable: false });
+              Client && mutation.mutate({ isSharable: false });
             }}
           >
             {t(LanguageKeys.NoText)}
@@ -80,7 +138,7 @@ const Step9 = () => {
           step={step}
           onClick={() => {
             setIsYesClicked(true);
-            clientData && mutation.mutate({ isSharable: true });
+            Client && mutation.mutate({ isSharable: true });
           }}
           icon={<CheckIcon />}
           isLoading={isYesClicked && mutation.isLoading}

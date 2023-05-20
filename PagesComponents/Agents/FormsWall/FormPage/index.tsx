@@ -2,12 +2,12 @@ import useDevice from 'Hooks/useDevice';
 import { useState, useEffect } from 'react';
 import DesktopAgentsPage from './Desktop';
 import MobileAgentsPage from './Mobile';
-import { ClientData } from 'Interfaces/Database/Client';
+import { Client } from 'Interfaces/Database/Client';
 
 interface Props {
-  clientData: ClientData;
+  Client: Client;
 }
-const Content: React.FC<Props> = ({ clientData }) => {
+const Content: React.FC<Props> = ({ Client }) => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
 
@@ -15,7 +15,7 @@ const Content: React.FC<Props> = ({ clientData }) => {
     if (isLaptop) setScreen('DESKTOP');
   });
 
-  if (screen === 'MOBILE') return <MobileAgentsPage clientData={clientData} />;
-  return <DesktopAgentsPage clientData={clientData} />;
+  if (screen === 'MOBILE') return <MobileAgentsPage Client={Client} />;
+  return <DesktopAgentsPage Client={Client} />;
 };
 export default Content;

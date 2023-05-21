@@ -12,6 +12,12 @@ enum Status {
   'ACTIVE' = 'active',
   'DEACTIVE' = 'deactive',
 }
+enum UserRole {
+  Normal = 'normal',
+  Admin = 'admin',
+  Client = 'Client',
+  Agent = 'Agent',
+}
 interface Contact {
   email?: string;
   phone?: string[];
@@ -32,4 +38,4 @@ interface SanityKeys {
   _updatedAt?: Date;
 }
 export type { MultiLanguageText, MultiLanguageTextArray, Contact, SanityKeys };
-export { Status };
+export { Status, UserRole };

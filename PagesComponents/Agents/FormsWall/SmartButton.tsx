@@ -2,10 +2,8 @@ import { ClientError } from '@sanity/client';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { Loading } from 'Elements/Loading';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { ClientData } from 'Interfaces/Database/Client';
-import { Occupation } from 'Interfaces/Database/Occupation/occupation';
-import { ClientData_Sanity } from 'Queries/client/interface';
-import React, { useRef } from 'react';
+import { Client } from 'Interfaces/Database/Client';
+import React from 'react';
 import { FetchNextPageOptions, InfiniteQueryObserverResult } from 'react-query';
 import { componentStatements, LanguageKeys } from './const';
 
@@ -15,7 +13,7 @@ interface Props {
   hasNextPage: boolean;
   fetchNextPage: (
     options?: FetchNextPageOptions | undefined
-  ) => Promise<InfiniteQueryObserverResult<ClientData_Sanity[], ClientError>>;
+  ) => Promise<InfiniteQueryObserverResult<Client[], ClientError>>;
 }
 export const SmartButton: React.FC<Props> = ({
   isError,

@@ -22,7 +22,7 @@ function Content() {
   const successToastMessage = t(LanguageKeys.SuccessToastMessage);
   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
   const { data: session } = useSession();
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `name`;
   const mutation = useMutation({
     mutationFn: () => {
@@ -40,7 +40,7 @@ function Content() {
       getClientDetail({ reqParams, resParams })
         .then((res) => {
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
-          if (res?.clientData[0]?.name) {
+          if (res?.client[0]?.name) {
             router.push(`/${locale}`);
           }
           // اگر کلاینت برای اولین بار ثبت نام کرده بود

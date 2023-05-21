@@ -1,20 +1,19 @@
-import { deviceMin } from "Consts/device";
-import styled, { css } from "styled-components";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
-import { layer2A_TitleStyle } from "Styles/Theme/Layers/layer2/style";
+import { deviceMin } from 'Consts/device';
+import styled, { css } from 'styled-components';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
+import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import {
   layer2A_Key,
-  layer2A_TextColor,
-} from "Styles/Theme/Layers/layer2/theme";
-import { ClientData } from "Interfaces/Database/Client";
-import DescriptionSection from "../DescriptionSection";
+} from 'Styles/Theme/Layers/layer2/theme';
+import { Client } from 'Interfaces/Database/Client';
+import DescriptionSection from '../DescriptionSection';
 
 interface Props {
-  clientData: ClientData;
+  client: Client;
 }
-function MobileAgentsPage({ clientData }: Props) {
-  const dataCreatedAt = clientData?._createdAt?.toString().substring(0, 10);
+function MobileAgentsPage({ client }: Props) {
+  const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
 
   return (
     <Container>
@@ -23,24 +22,23 @@ function MobileAgentsPage({ clientData }: Props) {
       </StarBackground>
       <ProfilePictureWrapper>
         <ProfilePicture
-          src={clientData?.avatar || "/Images/placeholder.jpeg"}
-          alt={clientData?.name ? `${clientData?.name} image` : "agent image"}
+          src={client?.avatar || '/Images/placeholder.jpeg'}
+          alt={client?.name ? `${client?.name} image` : 'agent image'}
         />
       </ProfilePictureWrapper>
       <ProfileData>
         <Name>
-          {" "}
-          {clientData?.name} {clientData?.lastName}
+          {client?.name} {client?.lastname}
         </Name>
-        <JobTitle>{clientData?.currentJob}</JobTitle>
+        <JobTitle>{client?.current_job}</JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
       </ProfileData>
-      <DescriptionSection clientData={clientData} />
+      <DescriptionSection client={client} />
     </Container>
   );
 }
 export default MobileAgentsPage;
-const StarBackgroundColor = theme("mode", {
+const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -48,7 +46,7 @@ const StarBackgroundColor = theme("mode", {
     background: var(--color-gray4);
   `,
 });
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,

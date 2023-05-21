@@ -1,8 +1,8 @@
-import { ClientError } from "@sanity/client";
-import { ClientData } from "Interfaces/Database/Client";
-import { getOldestBasicForm } from "Queries/agents/getOldestBasicForm";
-import { useQuery } from "react-query";
-import { ClientQueryKeys } from "Utils/query/keys";
+import { ClientError } from '@sanity/client';
+import { Client } from 'Interfaces/Database/Client';
+import { getOldestBasicForm } from 'Queries/agents/getOldestBasicForm';
+import { useQuery } from 'react-query';
+import { ClientQueryKeys } from 'Utils/query/keys';
 
 export const useOldestBasicForm = ({ resParams }: { resParams: string }) => {
   const {
@@ -10,9 +10,8 @@ export const useOldestBasicForm = ({ resParams }: { resParams: string }) => {
     isError,
     // آخرین بسیک فرمی که دیتابیس موجود است
     data: lastBasicForm,
-  } = useQuery<ClientData, ClientError>(
-    ClientQueryKeys.last({ resParams }),
-    () => getOldestBasicForm({ resParams })
+  } = useQuery<Client, ClientError>(ClientQueryKeys.last({ resParams }), () =>
+    getOldestBasicForm({ resParams })
   );
 
   return {

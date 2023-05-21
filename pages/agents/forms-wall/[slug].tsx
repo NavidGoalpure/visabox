@@ -5,24 +5,25 @@ import Seo from 'Components/Seo';
 import { NextPage } from 'next/types';
 import Error from 'next/error';
 import Content from 'PagesComponents/Agents/FormsWall/FormPage';
-import { ClientData } from 'Interfaces/Database/Client';
+import { Client } from 'Interfaces/Database/Client';
 import { getClientDetail } from 'Queries/client';
-import { proxySanityClientResponseToCamelCase } from 'Utils/query/clients';
 
 interface Props {
-  client: ClientData;
+  client: Client;
   errorCode?: number;
 }
 const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
   const { locale } = useLocale();
   if (errorCode) return <Error statusCode={errorCode} />;
-
+  const fullname = `${client?.name || ''} ${client?.lastname || ''}`;
   return (
     <PageLayout>
       <Seo
+        title={fullname + ' | Mara Box'}
         canonical={`https://www.marabox.com/${locale}/agents/${client?._id}`}
+        isNoIndex={true}
       />
-      <Content clientData={client} />
+      <Content client={client} />
     </PageLayout>
   );
 };
@@ -56,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
     return {
       props: {
-        client: proxySanityClientResponseToCamelCase(client?.clientData[0]),
+        client: client?.client[0],
       },
     };
   } catch (error) {

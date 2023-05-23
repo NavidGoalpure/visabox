@@ -7,7 +7,7 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title: {
     fa: 'جعبه ابزاری برای مهاجرت به <span> استرالیا </span>',
-    en: 'Build a Bridge To span> Australia </span>',
+    en: 'Build a Bridge To <span> Australia </span>',
   },
 
   Subtitle: {

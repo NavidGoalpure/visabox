@@ -33,12 +33,16 @@ function Content() {
     isLoading,
     hasNextPage,
   } = useListData(oldestBasicFormId);
+  console.log('navid oldestBasicFormId=', oldestBasicFormId);
   return (
     <Container>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageSubtitle)}</PageSubtitle>
       <CardContainer>
-        {!forms?.pages?.[0]?.length && !isFetching && !isLoading ? (
+        {!forms?.pages?.[0]?.length &&
+        !isFetching &&
+        !isLoading &&
+        oldestBasicFormId ? (
           <NoData hasIcon={false} themeLayer='1' />
         ) : (
           <>

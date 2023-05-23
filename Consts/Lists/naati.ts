@@ -238,8 +238,8 @@ export const NAATIES: Naati[] = [
   },
   {
     fullName: {
-      en: 'Atefeh Pashazadeh',
-      fa: 'عاطفه پاشازاده',
+      en: 'Tehran Naati translation office',
+      fa: 'دفتر ترجمه تهران ناتی',
     },
     slug: 'atefeh-pashazadeh',
 
@@ -254,8 +254,8 @@ export const NAATIES: Naati[] = [
       },
     ],
     desc: {
-      en: `Official translator of Atefeh Pashazadeh`,
-      fa: `.مترجم رسمی عاطفه پاشازاده`,
+      en: `Official translation office Tehran Naati `,
+      fa: `دفتر ترجمه رسمی تهران ناتی.`,
     },
     location: {
       en: 'Iran',
@@ -270,7 +270,7 @@ export const NAATIES: Naati[] = [
     status: Status.ACTIVE,
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     avatar:
-      'https://binsta.dev/api/v1/files/qMFl_s_bue/transform?format=webp&size=lg&quality=best',
+      'https://binsta.dev/api/v1/files/BfwJTqNqkN/transform?format=webp&size=lg&quality=best',
   },
   {
     fullName: {

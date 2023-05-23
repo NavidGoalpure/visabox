@@ -33,7 +33,7 @@ function Desktop() {
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
         </MenuItems>
-        <StyledMenuItem>
+        <StyledMenuItem as={'div'}>
           {session ? (
             <Avatar
               src={session.user?.image || '/Images/placeholder.jpeg'}

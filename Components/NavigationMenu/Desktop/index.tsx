@@ -1,19 +1,19 @@
-import { Logo } from "Elements/Logo";
-import Link from "next/link";
-import React from "react";
-import styled, { css } from "styled-components";
-import { boxShadow, directionStyles } from "Styles/Theme";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import theme from "styled-theming";
-import { useLocale } from "Hooks/useLocale";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
-import { componentStatements, LanguageKeys } from "../const";
-import DesktopLanguageChanger from "./LanguageChanger";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import DesktopBoxsesDropdown from "./dropdownBoxes";
-import DesktopOccupationDropdown from "./dropdownOccupation";
-import { useSession } from "next-auth/react";
+import { Logo } from 'Elements/Logo';
+import Link from 'next/link';
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { boxShadow, directionStyles } from 'Styles/Theme';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import theme from 'styled-theming';
+import { useLocale } from 'Hooks/useLocale';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
+import { componentStatements, LanguageKeys } from '../const';
+import DesktopLanguageChanger from './LanguageChanger';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import DesktopBoxsesDropdown from './dropdownBoxes';
+import DesktopOccupationDropdown from './dropdownOccupation';
+import { useSession } from 'next-auth/react';
 
 function Desktop() {
   const { locale } = useLocale();
@@ -36,8 +36,8 @@ function Desktop() {
         <StyledMenuItem>
           {session ? (
             <Avatar
-              src={session.user?.image || "/Images/placeholder.jpeg"}
-              alt={"user-profile"}
+              src={session.user?.image || '/Images/placeholder.jpeg'}
+              alt={'user-profile'}
             />
           ) : (
             <MenuLink href={`/${locale}/auth/signin`}>
@@ -60,7 +60,7 @@ const Container = styled(NavigationMenu.Root)`
   width: 100%;
   padding: 0 1rem;
 `;
-const dirFlexStyle = theme("languageDirection", {
+const dirFlexStyle = theme('languageDirection', {
   ltr: css`
     flex-direction: row;
   `,
@@ -68,7 +68,7 @@ const dirFlexStyle = theme("languageDirection", {
     flex-direction: row-reverse;
   `,
 });
-const Wrapper = styled(NavigationMenu.List)`
+const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -79,7 +79,7 @@ const Wrapper = styled(NavigationMenu.List)`
   margin: 0 auto;
   direction: ltr;
 `;
-const MenuItems = styled.div`
+const MenuItems = styled(NavigationMenu.List)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -91,7 +91,7 @@ const MenuLink = styled(Link)`
   ${layer3_TextStyle};
   position: relative;
   :before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0px;
     left: 0;

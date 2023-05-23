@@ -8,6 +8,7 @@ import IranFlag from '../Images/IranFlag.svg';
 import { useRouter } from 'next/router';
 import { ImSphere } from 'react-icons/im';
 import dynamic from 'next/dynamic';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 function DesktopLanguageChanger() {
   const { locale } = useLocale();
@@ -20,34 +21,41 @@ function DesktopLanguageChanger() {
     router.push(router.asPath, router.asPath, { locale: value });
   }
   return (
-    <StyledMaraSelectRoot
-      noScroll
-      triggerProps={{
-        id: 'language-trigger',
-        placeholder: smartTextObj[locale],
-        icon: <SphereIcon />,
-      }}
-      onValueChange={onClickHandler}
-    >
-      <MaraSelect.Item
-        icon={
-          <FlagWrapper>
-            <Flag fill src={BritishFlag} alt={'england flag'} sizes='2.25rem' />
-          </FlagWrapper>
-        }
-        text={smartTextObj.en}
-        value={Languages.en}
-      ></MaraSelect.Item>
-      <MaraSelect.Item
-        text={smartTextObj.fa}
-        value={Languages.fa}
-        icon={
-          <FlagWrapper>
-            <Flag fill src={IranFlag} alt={'iran flag'} sizes='2.25rem' />
-          </FlagWrapper>
-        }
-      ></MaraSelect.Item>
-    </StyledMaraSelectRoot>
+    <NavigationMenu.Item>
+      <StyledMaraSelectRoot
+        noScroll
+        triggerProps={{
+          id: 'language-trigger',
+          placeholder: smartTextObj[locale],
+          icon: <SphereIcon />,
+        }}
+        onValueChange={onClickHandler}
+      >
+        <MaraSelect.Item
+          icon={
+            <FlagWrapper>
+              <Flag
+                fill
+                src={BritishFlag}
+                alt={'england flag'}
+                sizes='2.25rem'
+              />
+            </FlagWrapper>
+          }
+          text={smartTextObj.en}
+          value={Languages.en}
+        ></MaraSelect.Item>
+        <MaraSelect.Item
+          text={smartTextObj.fa}
+          value={Languages.fa}
+          icon={
+            <FlagWrapper>
+              <Flag fill src={IranFlag} alt={'iran flag'} sizes='2.25rem' />
+            </FlagWrapper>
+          }
+        ></MaraSelect.Item>
+      </StyledMaraSelectRoot>
+    </NavigationMenu.Item>
   );
 }
 

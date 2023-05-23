@@ -74,12 +74,9 @@ function MobileFooter() {
           >
             <TelegramLogo />
           </a>
-          <button
+          <GmailLogo
             onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}
-            aria-label='Email of Marabox'
-          >
-            <GmailLogo />
-          </button>
+          />
         </LogosContainer>
         <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
       </ContactUsContainer>
@@ -181,6 +178,7 @@ const LogosContainer = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
+  
 `;
 
 const Privacy = styled.a`
@@ -189,6 +187,7 @@ const Privacy = styled.a`
   // font-size: 12px;
   position: absolute;
   bottom: 16px;
+  position: relative;
   :hover {
     text-decoration: underline;
   }

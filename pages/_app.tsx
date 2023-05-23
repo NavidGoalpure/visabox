@@ -1,20 +1,21 @@
-import { useLocale } from 'Hooks/useLocale';
 import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
+import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { Montserrat } from '@next/font/google';
+import { useRouter } from 'next/router';
+
+import { useLocale } from 'Hooks/useLocale';
 import '../Styles/global.css';
 import 'vazirmatn/Vazirmatn-font-face.css';
 import { LanguageDirection, Languages } from 'Interfaces';
-import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useEffect, useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { globalStyles } from 'Styles/Theme';
-import { Montserrat } from '@next/font/google';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`

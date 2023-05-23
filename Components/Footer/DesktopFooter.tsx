@@ -78,9 +78,9 @@ function DesktopFooter() {
             <a target={'_blank'} href='https://www.t.me/maraboxmigration' aria-label='Telegram logo' >
               <TelegramLogo />
             </a>
-            <a onClick={() => copyContent('mailto:maraboxmigration@gmail.com')} aria-label='Email of Marabox'>
+            <button onClick={() => copyContent('mailto:maraboxmigration@gmail.com')} aria-label='Email of Marabox'>
               <GmailLogo />
-            </a>
+            </button>
           </LogosContainer>
           <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
         </SideContainer>
@@ -89,7 +89,7 @@ function DesktopFooter() {
   );
 }
 
-export default DesktopFooter;
+export default DesktopFooter; 
 const Container = styled.footer`
   position: relative;
   width: 100%;

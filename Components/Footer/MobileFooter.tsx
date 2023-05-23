@@ -67,12 +67,19 @@ function MobileFooter() {
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
-          <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
+          <a
+            target={'_blank'}
+            href='https://www.t.me/maraboxmigration'
+            aria-label='Telegram logo'
+          >
             <TelegramLogo />
           </a>
-          <a onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}>
+          <button
+            onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}
+            aria-label='Email of Marabox'
+          >
             <GmailLogo />
-          </a>
+          </button>
         </LogosContainer>
         <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
       </ContactUsContainer>

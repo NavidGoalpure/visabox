@@ -12,6 +12,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 function DesktopLanguageChanger() {
   const { locale } = useLocale();
+
   const router = useRouter();
   const smartTextObj: Record<Languages, string> = {
     en: 'English',
@@ -30,6 +31,7 @@ function DesktopLanguageChanger() {
           icon: <SphereIcon />,
         }}
         onValueChange={onClickHandler}
+        aria-label={smartTextObj?.[locale]}
       >
         <MaraSelect.Item
           icon={
@@ -44,7 +46,7 @@ function DesktopLanguageChanger() {
           }
           text={smartTextObj.en}
           value={Languages.en}
-        ></MaraSelect.Item>
+        />
         <MaraSelect.Item
           text={smartTextObj.fa}
           value={Languages.fa}

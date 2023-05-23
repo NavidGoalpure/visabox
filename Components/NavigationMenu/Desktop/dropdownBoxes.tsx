@@ -22,6 +22,7 @@ function DesktopBusinessDropdown() {
           id: 'bussiness-trigger',
           placeholder: t(LanguageKeys.Lists),
         }}
+        aria-label={t(LanguageKeys.Lists)}
       >
         <MaraSelect.Item
           text={listsItems[0].title[locale]}

@@ -11,7 +11,7 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     en: 'Pending Migration Inquiries| Mara Box',
-    fa: 'متقاضیان مهاجرت | مارا باکس',
+    fa: 'لیست متقاضیان مهاجرت | مارا باکس',
   },
   SeoDesc: {
     fa: 'لیست جامع افرادی که از طریق پلتفرم ما برای مهاجرت به استرالیا ابراز علاقه کرده اند. به سرعت با آنها ارتباط برقرار کنید تا آنها را به مشتریان راضی بعدی خود تبدیل کنید.',
@@ -19,7 +19,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: 'متقاضیان مهاجرت',
+    fa: 'لیست متقاضیان مهاجرت',
     en: 'Pending Migration Inquiries',
   },
   PageSubtitle: {

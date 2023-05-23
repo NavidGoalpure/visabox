@@ -33,7 +33,6 @@ function Content() {
     isLoading,
     hasNextPage,
   } = useListData(oldestBasicFormId);
-  console.log('navid oldestBasicFormId=', oldestBasicFormId);
   return (
     <Container>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>

@@ -31,7 +31,6 @@ function DesktopLanguageChanger() {
           icon: <SphereIcon />,
         }}
         onValueChange={onClickHandler}
-        aria-label={smartTextObj?.[locale]}
       >
         <MaraSelect.Item
           icon={

@@ -19,7 +19,6 @@ function DesktopOccupationDropdown() {
           id: 'occupation-trigger',
           placeholder: t(LanguageKeys.Occupations),
         }}
-        aria-label={t(LanguageKeys.Occupations)}
       >
         <MaraSelect.Item
           text={occupationItems[0].title[locale]}

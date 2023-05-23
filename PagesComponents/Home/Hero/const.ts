@@ -1,24 +1,15 @@
 import { MultiLanguageText } from 'Interfaces/Database';
 import type { SizeMode, ISourceOptions } from 'tsparticles-engine';
 export enum LanguageKeys {
-  Title1 = 'Title1',
-  Title2 = 'Title2',
-  Title3 = 'Title3',
+  Title = 'Title' ,
   Subtitle = 'Subtitle',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  Title1: {
-    fa: 'جعبه ابزاری',
-    en: 'Build a',
+  Title: {
+    fa: 'جعبه ابزاری برای مهاجرت به <span> استرالیا </span>',
+    en: 'Build a Bridge To span> Australia </span>',
   },
-  Title2: {
-    fa: 'برای مهاجرت به',
-    en: 'Bridge To',
-  },
-  Title3: {
-    fa: 'استرالیا',
-    en: 'Australia',
-  },
+
   Subtitle: {
     fa: 'بررسی شرایط ویزا برای <span>نیروی متخصص, لیست وکلای مهاجرت معتبر, شبکه های اجتماعی</span> مناسب و امکانات جذاب دیگر برای مهاجرت به استرالیا',
     en: 'A toolbox for <span>immigrating </span> via <span>skilled worker</span> visa. You can find any of your requirements in this box',

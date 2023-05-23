@@ -75,10 +75,10 @@ function DesktopFooter() {
         <SideContainer>
           <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
           <LogosContainer>
-            <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
+            <a target={'_blank'} href='https://www.t.me/maraboxmigration' aria-label='Telegram logo' >
               <TelegramLogo />
             </a>
-            <a onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}>
+            <a onClick={() => copyContent('mailto:maraboxmigration@gmail.com')} aria-label='Email of Marabox'>
               <GmailLogo />
             </a>
           </LogosContainer>
@@ -244,7 +244,7 @@ position: absolute;
 bottom: 16px;
 `
 
-const ContactUs = styled.h2`
+const ContactUs = styled.h6`
   ${layer2A_SubtitleStyle}
   color: var(--color-gray9);
 `;

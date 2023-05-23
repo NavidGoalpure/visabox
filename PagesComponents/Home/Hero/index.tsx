@@ -1,5 +1,5 @@
 import { deviceMin } from 'Consts/device';
-import { useCallback,  useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -43,15 +43,19 @@ const Hero: React.FC = () => {
         />
       </ImageContainer>
       <ContentContainer>
-        <PlaneMobile src={planeMobile} />
-        <PlaneDesktop src={planeDesktop} />
+        <PlaneMobile src={planeMobile} alt='airplane' />
+        <PlaneDesktop src={planeDesktop} alt='airplane' />
         <TitleContainer>
-          <Title>{t(LanguageKeys.Title1)}</Title>
-          <Title>{t(LanguageKeys.Title2)}</Title>
-          <Title3>{t(LanguageKeys.Title3)}</Title3>
+          <Title
+            dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Title) }}
+            role='heading'
+            aria-level={1}
+          />
         </TitleContainer>
         <Subtitle
           dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Subtitle) }}
+          role='heading'
+          aria-level={2}
         />
       </ContentContainer>
       <Blured1 />
@@ -164,7 +168,16 @@ const TitleContainer = styled.div`
     margin-top: -7.5rem;
   }
 `;
-const Title = styled.h2`
+////////////
+const spanColor = theme('mode', {
+  light: css`
+    color: var(--color-secondary3);
+  `,
+  dark: css`
+    color: var(--color-primary4);
+  `,
+});
+const Title = styled.div`
   ${titleFont}
   display: grid;
   font-style: normal;
@@ -178,6 +191,7 @@ const Title = styled.h2`
 
   span {
     margin-left: 0.5rem;
+    ${spanColor}
   }
   @media ${deviceMin.mobileL} {
     font-size: 61px;
@@ -187,17 +201,7 @@ const Title = styled.h2`
   }
 `;
 ///////////
-const title3Color = theme('mode', {
-  light: css`
-    color: var(--color-secondary3);
-  `,
-  dark: css`
-    color: var(--color-primary4);
-  `,
-});
-const Title3 = styled(Title)`
-  ${title3Color}
-`;
+
 ///////////////////////////////
 const subtitleColor = theme('mode', {
   light: css`
@@ -208,7 +212,7 @@ const subtitleColor = theme('mode', {
   `,
 });
 const Subtitle = styled.div`
-  color:var(--color-gray13);
+  color: var(--color-gray13);
   font-style: normal;
   font-weight: 500;
   font-size: 24px;

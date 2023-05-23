@@ -6,7 +6,7 @@ import 'vazirmatn/Vazirmatn-font-face.css';
 import { LanguageDirection, Languages } from 'Interfaces';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useTheme from 'Hooks/useTheme';
 import ErrorBoundary from 'Components/errorBoundary';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
@@ -15,7 +15,7 @@ import { Montserrat } from '@next/font/google';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
-// import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
+import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`
 ${globalStyles}
@@ -28,9 +28,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
-  // useEffect(() => {
-  //   smartActiveHotjar(router.route);
-  // }, []);
+  useEffect(() => {
+    smartActiveHotjar(router.route);
+  }, []);
 
   return (
     <>

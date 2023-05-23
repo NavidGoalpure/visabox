@@ -165,7 +165,7 @@ const ContactUsContainer = styled.div`
   align-items: center;
   gap: 2rem;
 `;
-const ContactUs = styled.h2`
+const ContactUs = styled.h6`
   ${Headline5Style};
   ${TextColor};
   font-weight: bold;
@@ -177,15 +177,15 @@ const LogosContainer = styled.div`
 `;
 
 const Privacy = styled.a`
-${layer2A_TextStyle}
-color: var(--color-gray9);
-// font-size: 12px;
-position: absolute;
-bottom: 16px;
-:hover {
-  text-decoration: underline;
-}
-`
+  ${layer2A_TextStyle}
+  color: var(--color-gray9);
+  // font-size: 12px;
+  position: absolute;
+  bottom: 16px;
+  :hover {
+    text-decoration: underline;
+  }
+`;
 
 const TelegramLogo = styled(FaTelegramPlane)`
   color: var(--color-gray9);

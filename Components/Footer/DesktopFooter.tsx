@@ -248,7 +248,7 @@ const SwitchButton = styled.div`
   bottom: 16px;
 `;
 
-const ContactUs = styled.h6`
+const ContactUs = styled.h5`
   ${layer2A_SubtitleStyle}
   color: var(--color-gray9);
 `;

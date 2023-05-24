@@ -1,23 +1,24 @@
-import { useContext } from "react";
-import styled from "styled-components";
-import Step1 from "./Step1";
-import Step2 from "./Step2";
-import Step3 from "./Step3";
-import Step4 from "./Step4";
-import Step5 from "./Step5";
-import Step6 from "./Step6";
-import Step7 from "./Step7";
-import Step8 from "./Step8";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import Slider from "Components/SliderComponent";
-import Wizard from "../Contexts/Wizard";
-import { deviceMin } from "Consts/device";
-import Step0 from "./Step0";
-import Step9 from "./Step9";
+import { useContext } from 'react';
+import styled from 'styled-components';
+import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
+import Step4 from './Step4';
+import Step5 from './Step5';
+import Step6 from './Step6';
+import Step7 from './Step7';
+import Step8 from './Step8';
+import { WizardContext } from '../Contexts/Wizard/Context';
+import Slider from 'Components/SliderComponent';
+import Wizard from '../Contexts/Wizard';
+import { deviceMin } from 'Consts/device';
+import Step0 from './Step0';
+import Step9 from './Step9';
 
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
   const maxStep = 9;
+  //navid
   const steps = [
     <Step0 />,
     <Step1 />,

@@ -21,18 +21,18 @@ import { maritalStatuses } from 'Consts/Client';
 const Step3 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.maritalStatusSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={clientData?.marital}
+        value={client?.marital}
         onValueChange={(value) =>
-          clientData &&
-          setClientData({
-            ...clientData,
+          client &&
+          setClient({
+            ...client,
             marital: value as ClientMarital,
           })
         }
@@ -60,7 +60,7 @@ const Step3 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!clientData?.marital}
+          disabled={!client?.marital}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

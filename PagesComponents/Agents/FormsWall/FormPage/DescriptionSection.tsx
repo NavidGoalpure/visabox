@@ -1,64 +1,64 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { maritalStatuses } from "Consts/Client";
-import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { Headline7Style } from "Styles/Typo";
-import { FaPhone } from "react-icons/fa";
-import { deviceMin } from "Consts/device";
-import { SiGmail } from "react-icons/si";
-import { copyContent } from "Utils";
-import { ClientData } from "Interfaces/Database/Client";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { getMultiLanguageLabels } from "./utils";
-import { useLocale } from "Hooks/useLocale";
+} from 'Styles/Theme/Layers/layer2/style';
+import { maritalStatuses } from 'Consts/Client';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { Headline7Style } from 'Styles/Typo';
+import { FaPhone } from 'react-icons/fa';
+import { deviceMin } from 'Consts/device';
+import { SiGmail } from 'react-icons/si';
+import { copyContent } from 'Utils';
+import { Client } from 'Interfaces/Database/Client';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { getMultiLanguageLabels } from './utils';
+import { useLocale } from 'Hooks/useLocale';
 
 interface Props {
-  clientData: ClientData;
+  client: Client;
 }
-function DescriptionSection({ clientData }: Props) {
+function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-  const data = getMultiLanguageLabels(clientData);
-  const {locale} =useLocale()
+  const data = getMultiLanguageLabels(client);
+  const { locale } = useLocale();
   return (
     <FormData>
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
       <Wrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{' '}
           <Value>{data?.age}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{' '}
           <Value>{data?.IELTSScore}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{' '}
           <Value>{data?.marital?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{' '}
           <Value>{data?.fieldOfStudy}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.DegreeLabel)}</Label>{' '}
           <Value>{data?.degree?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{' '}
           <Value>{data?.uniSection?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{' '}
           <Value>{data?.workExperience?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{' '}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
         </DataWrapper>
         <PhoneContainer onClick={() => copyContent(data?.phoneNumber)}>
@@ -67,7 +67,7 @@ function DescriptionSection({ clientData }: Props) {
             <PhonesRow>{data?.phoneNumber}</PhonesRow>
           </PhoneTitle>
         </PhoneContainer>
-        <GmailContainer onClick={() => copyContent(data.email)}>
+        <GmailContainer onClick={() => copyContent(data?.email)}>
           <GmailIcon />
           <GmailTitle>{data?.email}</GmailTitle>
         </GmailContainer>
@@ -77,7 +77,7 @@ function DescriptionSection({ clientData }: Props) {
 }
 export default DescriptionSection;
 
-const FormDataTheme = theme("mode", {
+const FormDataTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -86,7 +86,7 @@ const FormDataTheme = theme("mode", {
     background: var(--color-gray6);
   `,
 });
-const LabelTheme = theme("mode", {
+const LabelTheme = theme('mode', {
   light: css`
     color: var(--color-gray8);
   `,

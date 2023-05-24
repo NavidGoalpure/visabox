@@ -75,12 +75,16 @@ function DesktopFooter() {
         <SideContainer>
           <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
           <LogosContainer>
-            <a target={'_blank'} href='https://www.t.me/maraboxmigration'>
+            <a
+              target={'_blank'}
+              href='https://www.t.me/maraboxmigration'
+              aria-label='Telegram logo'
+            >
               <TelegramLogo />
             </a>
-            <a onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}>
-              <GmailLogo />
-            </a>
+            <GmailLogo
+              onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}
+            />
           </LogosContainer>
           <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
         </SideContainer>
@@ -240,11 +244,11 @@ const SideContainer = styled.div`
 `;
 
 const SwitchButton = styled.div`
-position: absolute;
-bottom: 16px;
-`
+  position: absolute;
+  bottom: 16px;
+`;
 
-const ContactUs = styled.h2`
+const ContactUs = styled.h5`
   ${layer2A_SubtitleStyle}
   color: var(--color-gray9);
 `;
@@ -255,16 +259,16 @@ const LogosContainer = styled.div`
 `;
 
 const Privacy = styled.a`
-${layer2A_TextStyle}
-color: var(--color-gray9);
-font-size: 12px;
-position: absolute;
-bottom: 8px;
+  ${layer2A_TextStyle}
+  color: var(--color-gray9);
+  font-size: 12px;
+  position: absolute;
+  bottom: 8px;
 
-:hover {
-  text-decoration: underline;
-}
-`
+  :hover {
+    text-decoration: underline;
+  }
+`;
 
 const TelegramLogo = styled(FaTelegramPlane)`
   color: var(--color-gray9);

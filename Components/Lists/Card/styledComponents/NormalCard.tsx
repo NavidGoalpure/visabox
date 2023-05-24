@@ -117,7 +117,7 @@ export const CopyIcon = styled(IoMdCopy)`
   width: 1.5rem;
   height: auto;
 `;
-export const EmailUrl = styled.a`
+export const EmailUrl = styled.h5`
   ${layer2A_TextColor};
   ${Headline6Style};
   display: -webkit-box;

@@ -21,7 +21,7 @@ import { educations, uniSections } from 'Consts/Client';
 const Step4 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -30,23 +30,23 @@ const Step4 = () => {
         label={t(LanguageKeys.FieldOfStudyInputLabel)}
         inputName='field-of-study'
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        value={clientData?.fieldOfStudy}
+        value={client?.field_of_study}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            fieldOfStudy: e.target.value,
+          client &&
+          setClient({
+            ...client,
+            field_of_study: e.target.value,
           })
         }
       />
       <Title>{t(LanguageKeys.DegreeOfEducationSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={clientData?.degree}
+        value={client?.degree}
         onValueChange={(value: ClientDegree) =>
-          clientData &&
-          setClientData({
-            ...clientData,
+          client &&
+          setClient({
+            ...client,
             degree: value,
           })
         }
@@ -66,12 +66,12 @@ const Step4 = () => {
       <Title>{t(LanguageKeys.UniSectionsSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={clientData?.uniSection}
+        value={client?.uni_section}
         onValueChange={(value: UniSections) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            uniSection: value,
+          client &&
+          setClient({
+            ...client,
+            uni_section: value,
           })
         }
       >
@@ -98,7 +98,7 @@ const Step4 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!clientData?.fieldOfStudy || !clientData?.degree}
+          disabled={!client?.field_of_study || !client?.degree}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

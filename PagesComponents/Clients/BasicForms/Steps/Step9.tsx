@@ -1,6 +1,6 @@
 import { componentStatements, LanguageKeys } from '../const';
 import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { PrevButton } from './StyledComponents';
 import styled, { css } from 'styled-components';
 import { Headline3Style, Headline4Style } from 'Styles/Typo';
@@ -22,24 +22,69 @@ import { deviceMin } from 'Consts/device';
 import ErrorToast from 'Elements/Toast/Error';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { validateClientDataWithYup } from './utils';
+import {
+  Client,
+  ClientCompletedForms,
+  ClientCompletedForms_obj,
+  ClientRole,
+} from 'Interfaces/Database/Client';
+import { Status } from 'Interfaces/Database';
+
 //
 const Step9 = () => {
+  //
+  //
   const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
   const { step } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
   const { locale } = useLocale();
-  const { clientData } = useContext(FormDataContext);
+  const { client } = useContext(FormDataContext);
   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const queryClient = useQueryClient();
   const { data: session } = useSession();
+  // اگه اولین باره که بیسیک فرم رو پر میکنه به پراپرتی کامپلیتدفرمز اضافه میکنیم
+  // اگه قبلا اضافه شده دوباره کاری نمیکنیم
+  function getSmartCompletedForms(
+    formsData: ClientCompletedForms_obj[] | undefined
+  ): ClientCompletedForms_obj[] | undefined {
+    if (!formsData) return undefined;
+    if (
+      formsData.filter(
+        (formData) => formData.forms === ClientCompletedForms.BasicForm
+      ).length > 0
+    )
+      return formsData;
+    return [
+      ...formsData,
+      {
+        forms: ClientCompletedForms.BasicForm,
+        _type: 'client_completed_forms_obj',
+        _key: new Date().toString() + Math.random().toString(),
+      },
+    ];
+  }
 
   const mutation = useMutation({
-    mutationFn: ({ isSharable }: { isSharable: boolean }) => {
+    mutationFn: ({ is_sharable }: { is_sharable: boolean }) => {
+      const fullData: Client | undefined = client
+        ? {
+            ...client,
+            is_sharable,
+            role: ClientRole.Normal,
+            status: Status.ACTIVE,
+            completed_forms: getSmartCompletedForms(client?.completed_forms),
+          }
+        : undefined;
+
+      // ولیدیت دیتایی که به سرور فرستاده میشه
+      const validatedData = validateClientDataWithYup(fullData);
+      //
       return fetch('/api/clients/basic-form', {
         method: 'POST',
-        body: JSON.stringify({ clientData: { ...clientData, isSharable } }),
+        body: JSON.stringify({ client: validatedData }),
       });
     },
     onSuccess: (res) => {
@@ -50,7 +95,7 @@ const Step9 = () => {
       SuccessToast(successToastMessage);
       queryClient.removeQueries(
         ClientQueryKeys.detail({
-          reqParams:`email == "${session?.user?.email || "defensive"}"`,
+          reqParams: `email == "${session?.user?.email || 'defensive'}"`,
         })
       );
     },
@@ -70,7 +115,7 @@ const Step9 = () => {
           <NoButton
             step={step}
             onClick={() => {
-              clientData && mutation.mutate({ isSharable: false });
+              client && mutation.mutate({ is_sharable: false });
             }}
           >
             {t(LanguageKeys.NoText)}
@@ -80,7 +125,7 @@ const Step9 = () => {
           step={step}
           onClick={() => {
             setIsYesClicked(true);
-            clientData && mutation.mutate({ isSharable: true });
+            client && mutation.mutate({ is_sharable: true });
           }}
           icon={<CheckIcon />}
           isLoading={isYesClicked && mutation.isLoading}

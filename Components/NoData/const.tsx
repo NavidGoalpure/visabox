@@ -6,6 +6,6 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   NoData: {
     en: 'There is nothing here.',
-    fa: 'اطلاعاتی یافت نشد',
+    fa: 'اطلاعاتی یافت نشد. مطمئن شوید از فیلترشکن مناسبی استفاده میکنید ',
   },
 };

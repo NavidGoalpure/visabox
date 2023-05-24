@@ -15,26 +15,26 @@ import {
   PrevButton,
   PrevIcon,
 } from './StyledComponents';
-import { works} from "Consts/Client";
+import { works } from 'Consts/Client';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
 import { WorkExperience } from 'Interfaces/Database/Client';
 
 const Step6 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { clientData, setClientData } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.WorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={clientData?.workExperience}
+        value={client?.work_experience}
         onValueChange={(value) =>
-          clientData &&
-          setClientData({
-            ...clientData,
-            workExperience: value as WorkExperience,
+          client &&
+          setClient({
+            ...client,
+            work_experience: value as WorkExperience,
           })
         }
       >
@@ -61,7 +61,7 @@ const Step6 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!clientData?.workExperience}
+          disabled={!client?.work_experience}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

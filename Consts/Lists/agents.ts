@@ -150,21 +150,7 @@ Spoken Languages: English; Persian; Dari.`,
     },
     status: Status.ACTIVE,
   },
-  // {
-  //   id: 'agt7',
-  //   name: { en: 'Mina Madani', fa: 'مینا مدنی' },
-  //   slug: 'mina-madani',
-
-  //   maraNumber: '1798674',
-  //   locations: [Locations.en, Locations.fa],
-  //  featuredPlan: FeaturedPlan_Business.SIMPLE,
-  //   contact: {
-  //     website: 'https://www.edenimmigration.com.au/',
-  //     email: 'mina@edenimmigration.com.au',
-  //     phone: ['02126851051', '+61420564370'],
-  //   },
-  //   status: Status.ACTIVE,
-  // },
+  
   {
     id: 'agt8',
     name: { en: 'Soodeh Jafari', fa: 'سوده جعفری' },

@@ -70,12 +70,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'شماره تلفن:',
   },
   PhoneInputPlaceholder: {
-    en: '+98 0000 000 0000',
-    fa: '0000 000 0900',
+    en: 'Example: +98 0000 000 0000',
+    fa: '0000 000 0900 مثال:',
   },
   AgeSectionTitle: {
-    en: 'Age:',
-    fa: 'سن:',
+    en: 'Birth Day:',
+    fa: 'تاریخ تولد:',
   },
   maritalStatusSectionTitle: {
     en: 'marital Status:',
@@ -83,11 +83,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   FieldOfStudyInputLabel: {
     en: 'Field of Study:',
-    fa: 'حوزه تحصیلات:',
+    fa: 'رشته تحصیلی:',
   },
   FieldOfStudyInputPlaceholder: {
-    en: 'Math',
-    fa: 'ریاضیات',
+    en: 'Example: Math',
+    fa: 'مثال: ریاضیات',
   },
   DegreeOfEducationSectionTitle: {
     en: 'Degree of education :',
@@ -102,8 +102,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'کار فعلی:',
   },
   CurrentJobInputPlaceholder: {
-    en: 'Web Developer',
-    fa: 'برنامه نویس اپلیکیشن موبایل',
+    en: 'Example: Web Developer',
+    fa: 'مثال: برنامه نویس اپلیکیشن موبایل',
   },
   WorkExperienceSectionTitle: {
     en: 'Work Experience :',

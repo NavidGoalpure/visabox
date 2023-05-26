@@ -13,6 +13,7 @@ import { SmartButton } from './SmartButton';
 import { useEffect, useState } from 'react';
 import CardsSection from './CardsSection';
 import { useOldestBasicForm } from './useOldestBasicForm';
+import { Loading } from 'Elements/Loading';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -33,6 +34,7 @@ function Content() {
     isLoading,
     hasNextPage,
   } = useListData(oldestBasicFormId);
+  if (!oldestBasicFormId) return <Loading />;
   return (
     <Container>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>

@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
-    <StyledPageLayout hasBanner={true}>
+    <StyledPageLayout hasBanner={false}>
       <Head>
         <title>{t(LanguageKeys.SeoTitle)}</title>
         <link rel="icon" href="/favicon.ico" />

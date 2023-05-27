@@ -35,7 +35,7 @@ const Step2 = () => {
           client &&
             setClient({
               ...client,
-              age: e.target.value,
+              age: e.target.value?.slice(0, 10),
             });
         }}
         id={'date-input'}

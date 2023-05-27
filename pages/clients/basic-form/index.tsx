@@ -18,6 +18,7 @@ import { Loading } from 'Elements/Loading';
 import { ContentOrError } from 'Components/contentOrError';
 import ErrorToast from 'Elements/Toast/Error';
 import { useRouter } from 'next/router';
+import { signOut } from 'next-auth/react';
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
@@ -63,7 +64,7 @@ const UserForms: NextPage = ({}) => {
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
         if (!data?.client?.[0]?._id || !data?.client?.[0]?.email) {
           ErrorToast('We have troble with your accunt. Please login again');
-          router.push(`/${locale}/auth/signin`);
+          signOut();
         }
       },
     }

@@ -16,9 +16,14 @@ import { useQuery } from 'react-query';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import { Loading } from 'Elements/Loading';
 import { ContentOrError } from 'Components/contentOrError';
+import { signOut } from 'next-auth/react';
+import ErrorToast from 'Elements/Toast/Error';
+import { useRouter } from 'next/router';
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
+  const router = useRouter();
+
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
@@ -54,6 +59,15 @@ const UserForms: NextPage = ({}) => {
     },
     {
       enabled: !!session?.user?.email,
+      onSuccess: (data) => {
+        // اگه تو بروز کاربر ایمیلی وجود داشت اما توی دیتابیس کاربری نبود،  لاگ اوت کن
+        // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
+        if (!data?.client?.[0]?._id) {
+          ErrorToast('We have troble with your accunt. Please login again');
+          signOut();
+          router.push(`/${locale}/auth/signin`);
+        }
+      },
     }
   );
 

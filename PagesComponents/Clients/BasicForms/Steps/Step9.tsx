@@ -30,6 +30,7 @@ import {
   ClientRole,
 } from 'Interfaces/Database/Client';
 import { Status } from 'Interfaces/Database';
+import { object } from 'yup';
 
 //
 const Step9 = () => {
@@ -107,7 +108,9 @@ const Step9 = () => {
         })
       );
     },
-    onError: () => {
+    onError: (error: unknown) => {
+      //@ts-ignore
+      console.log('navid error=', Object.keys(error));
       ErrorToast(FailedToastMessage);
     },
   });

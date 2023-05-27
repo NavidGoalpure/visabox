@@ -15,11 +15,13 @@ interface Props {
 const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
   const { locale } = useLocale();
   if (errorCode) return <Error statusCode={errorCode} />;
-
+  const fullname = `${client?.name || ''} ${client?.lastname || ''}`;
   return (
     <PageLayout>
       <Seo
+        title={fullname + ' | Mara Box'}
         canonical={`https://www.marabox.com/${locale}/agents/${client?._id}`}
+        isNoIndex={true}
       />
       <Content client={client} />
     </PageLayout>

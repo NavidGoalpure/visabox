@@ -2,6 +2,7 @@ import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
+  SeoDesc = 'SeoDesc',
   BannerDesc = 'BannerDesc',
   BannerButtonText = 'BannerButtonText',
 }
@@ -9,6 +10,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     en: 'Mara Box | Australia immigration toolkit',
     fa: 'ماراباکس | جعبه ابزار مهاجرت به استرالیا',
+  },
+  SeoDesc: {
+    fa: 'بررسی شرایط ویزا برای نیروی متخصص, لیست وکلای مهاجرت معتبر, شبکه های اجتماعی مناسب و امکانات جذاب دیگر برای مهاجرت به استرالیا',
+    en: 'A toolbox for immigrating  via skilled worker visa. You can find any of your requirements in this box',
   },
   BannerButtonText: {
     en: 'Evaluation Form',

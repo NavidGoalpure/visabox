@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode, RefObject } from "react";
+import { InputHTMLAttributes, ReactNode, RefObject } from 'react';
 import {
   Container,
   InputContainer,
@@ -7,9 +7,8 @@ import {
   ErrorIcon,
   Label,
   InputWrapper,
-  LoadingBackgroundCircle,
-  LoadingMovingCircle,
-} from "./styles";
+} from './styles';
+import { InputLoading } from './inputLoading';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,7 +30,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input = ({
-  type = "text",
+  type = 'text',
   isNumberOnly = false,
   focus = false,
   disabled = false,
@@ -50,8 +49,8 @@ export const Input = ({
 }: InputProps) => {
   return (
     <Container className={className}>
-      <InputContainer disabled={disabled} id="input-container">
-        {!!label && <Label htmlFor={inputName || ""}>{label}</Label>}
+      <InputContainer disabled={disabled} id='input-container'>
+        {!!label && <Label htmlFor={inputName || ''}>{label}</Label>}
         <InputWrapper>
           <StyledInput
             id={id}
@@ -61,7 +60,7 @@ export const Input = ({
             hasError={!!errorMasage}
             value={
               isNumberOnly && value
-                ? value.toString().replace(/[^\d]/g, "")
+                ? value.toString().replace(/[^\d]/g, '')
                 : value
             }
             disabled={disabled || isLoading}
@@ -69,31 +68,12 @@ export const Input = ({
             name={inputName}
             {...props}
           />
-          {isLoading && (
-            <svg width="50" height="50" viewBox="0 0 100 100">
-              <LoadingBackgroundCircle
-                strokeWidth={7}
-                r="30"
-                cx={50}
-                cy={50}
-                x={0}
-                y={0}
-              />
-              <LoadingMovingCircle
-                strokeWidth={7}
-                r="30"
-                cx={50}
-                cy={50}
-                x={0}
-                y={0}
-              />
-            </svg>
-          )}
+          {isLoading && <InputLoading />}
         </InputWrapper>
         {!!errorMasage && (
           <ErrorElement>
             <ErrorIcon />
-            {errorMasage}{" "}
+            {errorMasage}{' '}
           </ErrorElement>
         )}
         {endElement ? endElement : null}

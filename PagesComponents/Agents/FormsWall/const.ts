@@ -5,21 +5,26 @@ export enum LanguageKeys {
   SeoDesc = 'SeoDesc',
   //
   PageTitle = 'PageTitle',
+  PageSubtitle = 'PageSubtitle',
   LoadMore = 'LoadMore',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: 'Find the most authentic migration agents for australia| Mara Box',
-    fa: 'معتبر ترین وکلای ایرانی مهاجرت به استرالیا و نیوزلند را پیدا کنید | مارا باکس',
+    en: 'Pending Migration Inquiries| Mara Box',
+    fa: 'لیست متقاضیان مهاجرت | مارا باکس',
   },
   SeoDesc: {
-    fa: 'اسامی بهترین وکلای ایرانی برای اقامت و مهاجرت به استرالیا و نیوزلند، ویزای سرمایه گذاری، مهارتی، خانواده و ازدواج، تجاری و تحصیلی',
-    en: 'name and info of some of the best migration agents for migration to australia,investment visa,work visa,marriage and student visa',
+    fa: 'لیست جامع افرادی که از طریق پلتفرم ما برای مهاجرت به استرالیا ابراز علاقه کرده اند. به سرعت با آنها ارتباط برقرار کنید تا آنها را به مشتریان راضی بعدی خود تبدیل کنید.',
+    en: 'The comprehensive list of individuals who have expressed interest in migrating to Australia through our platform. Connect with them promptly to turn them into your next satisfied clients.',
   },
   //
   PageTitle: {
-    fa: 'مشتریان',
-    en: 'Customers',
+    fa: 'لیست متقاضیان مهاجرت',
+    en: 'Pending Migration Inquiries',
+  },
+  PageSubtitle: {
+    fa: 'لیست جامع افرادی که از طریق پلتفرم ما برای مهاجرت به استرالیا ابراز علاقه کرده اند. به سرعت با آنها ارتباط برقرار کنید تا آنها را به مشتریان راضی بعدی خود تبدیل کنید.',
+    en: 'The comprehensive list of individuals who have expressed interest in migrating to Australia through our platform. Connect with them promptly to turn them into your next satisfied clients.',
   },
   LoadMore: {
     fa: 'بیشتر',

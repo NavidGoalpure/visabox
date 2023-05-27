@@ -98,7 +98,9 @@ const Step4 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.field_of_study || !client?.degree}
+          disabled={
+            !client?.field_of_study || !client?.degree || !client?.uni_section
+          }
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

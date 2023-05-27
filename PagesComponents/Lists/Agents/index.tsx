@@ -1,3 +1,4 @@
+
 import AgentCard from 'Components/Lists/Card/Agent/Card';
 import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
@@ -72,7 +73,7 @@ const PageTitle = styled.h1`
     text-align: start;
   }
 `;
-const PageSubtitle = styled.h4`
+const PageSubtitle = styled.h2`
   ${Layer1_SubtitleStyle};
 `;
 const VIPContainer = styled.div`

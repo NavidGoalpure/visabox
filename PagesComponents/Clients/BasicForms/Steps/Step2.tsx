@@ -62,12 +62,3 @@ const Step2 = () => {
   );
 };
 export default Step2;
-
-const ToggleGroupRoot = styled(ToggleGroup.Root)`
-  gap: 1rem;
-`;
-const Title = styled.h1`
-  ${Layer1_SubtitleStyle};
-  margin: 0;
-  margin-top: 1rem;
-`;

@@ -71,7 +71,7 @@ const PageTitle = styled.h1`
     text-align: start;
   }
 `;
-const PageSubtitle = styled.h4`
+const PageSubtitle = styled.h2`
   ${Layer1_SubtitleStyle};
 `;
 const VIPContainer = styled.div`

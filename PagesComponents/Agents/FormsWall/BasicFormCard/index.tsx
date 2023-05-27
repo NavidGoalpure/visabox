@@ -114,7 +114,10 @@ const Wrapper = styled.div`
 const Title = styled.h3`
   ${layer2A_SubtitleStyle};
   ${codeColor};
-  width: max-content;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
   padding: 0.5rem;
   align-items: center;
   border-radius: 55px;

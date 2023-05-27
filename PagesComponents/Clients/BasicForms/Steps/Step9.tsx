@@ -30,6 +30,7 @@ import {
   ClientRole,
 } from 'Interfaces/Database/Client';
 import { Status } from 'Interfaces/Database';
+import { object } from 'yup';
 
 //
 const Step9 = () => {
@@ -85,7 +86,6 @@ const Step9 = () => {
             completed_forms: getSmartCompletedForms(client?.completed_forms),
           }
         : undefined;
-      console.log('navid fullData ===', fullData);
 
       // ولیدیت دیتایی که به سرور فرستاده میشه
       const validatedData = validateClientDataWithYup(fullData);

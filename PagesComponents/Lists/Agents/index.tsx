@@ -1,4 +1,3 @@
-
 import AgentCard from 'Components/Lists/Card/Agent/Card';
 import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
@@ -11,9 +10,11 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Agents } from 'Consts/Lists/agents';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
+import { useLocale } from 'Hooks/useLocale';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
   return (
     <Container>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>

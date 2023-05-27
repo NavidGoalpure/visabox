@@ -86,7 +86,6 @@ const Step9 = () => {
             completed_forms: getSmartCompletedForms(client?.completed_forms),
           }
         : undefined;
-      console.log('navid fullData ===', fullData);
 
       // ولیدیت دیتایی که به سرور فرستاده میشه
       const validatedData = validateClientDataWithYup(fullData);
@@ -108,9 +107,7 @@ const Step9 = () => {
         })
       );
     },
-    onError: (error: unknown) => {
-      //@ts-ignore
-      console.log('navid error=', Object.keys(error));
+    onError: () => {
       ErrorToast(FailedToastMessage);
     },
   });

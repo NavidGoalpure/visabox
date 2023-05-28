@@ -51,7 +51,7 @@ const PageContainer: React.FC<Props> = ({
   );
   useEffect(() => {
     console.log('navid data=', data);
-    if (!!data) setHasClientCompletedForm(true);
+    if (data?.client?.[0]?.completed_forms) setHasClientCompletedForm(true);
   }, [isLoading]);
   return (
     <Container {...props} $locale={locale}>

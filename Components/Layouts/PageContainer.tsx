@@ -36,7 +36,8 @@ const PageContainer: React.FC<Props> = ({
     useState<boolean>(true);
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
-  const resParams = `name`;
+  const resParams = `name,
+                  completed_forms`;
   const { data, isLoading } = useQuery(
     ClientQueryKeys.detail({
       reqParams,
@@ -50,7 +51,6 @@ const PageContainer: React.FC<Props> = ({
     }
   );
   useEffect(() => {
-    console.log('navid data=', data);
     if (data?.client?.[0]?.completed_forms) setHasClientCompletedForm(true);
   }, [isLoading]);
   return (

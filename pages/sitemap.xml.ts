@@ -14,9 +14,7 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-     <!------------------------------------->
      <!--The URLs realated to Occupations-->
-     <!------------------------------------->
      <url>
        <loc>${OccupatopnsPage_EN}</loc>
      </url>
@@ -39,9 +37,7 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
         })
         .join('')}
 
-     <!------------------------------------->
      <!--The URLs realated to Lists-->
-     <!------------------------------------->
      <url>
        <loc>${Domain_FA}/lists/social-pages</loc>
      </url>

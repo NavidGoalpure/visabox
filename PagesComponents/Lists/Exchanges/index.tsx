@@ -52,5 +52,9 @@ const PageSubtitle = styled.h2`
   ${Layer1_SubtitleStyle};
 `;
 const StyledExchangeCard = styled(ExchangeCard)`
-  width: 32%;
+  width: 100%;
+  @media ${deviceMin.laptopXS} {
+    width: 32%;
+    text-align: start;
+  }
 `;

@@ -98,17 +98,18 @@ const InputContainer = styled.div<{
   width: 100%;
   height: 100%;
 
-  input[type='date']::-webkit-calendar-picker-indicator {
-    background: transparent;
-    bottom: 0;
-    color: transparent;
-    cursor: pointer;
-    height: auto;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: auto;
+  // navid تصمیم بگیریم این باشه یا نه
+  // input[type='date']::-webkit-calendar-picker-indicator {
+  //   background: transparent;
+  //   bottom: 0;
+  //   color: transparent;
+  //   cursor: pointer;
+  //   height: auto;
+  //   left: 0;
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   width: auto;
   ////////////disabled////////////
   ${({ disabled }) => disabled && 'border-color:var(--color-gray5); '};
 `;

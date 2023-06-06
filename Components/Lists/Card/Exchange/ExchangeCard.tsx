@@ -145,9 +145,7 @@ const NotFeaturedSocialMediaTagStyle = css`
   box-shadow: unset;
 `;
 const Container = styled.div`
-  @media ${deviceMin.laptopXS} {
     max-width: 25rem;
-  }
 `;
 
 const Wrapper = styled.a<{ featuredPlan: FeaturedPlan_Business }>`

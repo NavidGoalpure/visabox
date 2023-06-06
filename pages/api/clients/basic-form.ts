@@ -1,15 +1,9 @@
-import {
-  ClientCompletedForms,
-  ClientCompletedForms_obj,
-  Client,
-  ClientRole,
-} from 'Interfaces/Database/Client';
+import { Client } from 'Interfaces/Database/Client';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sanityClient } from 'Utils/sanity';
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const body = JSON.parse(req.body);
   const client: Client = body?.client;
-
 
   if (client?._id) {
     sanityClient

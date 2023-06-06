@@ -15,7 +15,9 @@ interface Props {
 const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
   const { locale } = useLocale();
   if (errorCode) return <Error statusCode={errorCode} />;
-  const fullname = `${client?.name || ''} ${client?.lastname || ''}`;
+  const fullname = `${client?.name || ''} ${client?.lastname || ''}`; 
+  // نوید
+  // بعدا از لاگین کردن وکیل ها این آدرس باید عوض بشه چون انگار شماره وکیله نه کلاینت
   return (
     <PageLayout>
       <Seo

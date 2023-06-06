@@ -34,7 +34,7 @@ export const Exchanges: Exchange[] = [
       telegram: 'sarafiaubot@',
       email: 'info@rosecap.com.au',
       instagram: 'rosecap_official',
-      website: 'https://rosecap.com.au/',
+      website: 'https://rosecap.com.au',
     },
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     status: Status.ACTIVE,
@@ -61,7 +61,7 @@ Ashna Exchange has started its activity with the aim of providing the best servi
       telegram: '@sarrafiashena',
       instagram: 'ashena_sarrafi',
       email: 'ashena.exchange@gmali.com',
-      website: 'https://ashenaexchange.com/',
+      website: 'https://ashenaexchange.com',
     },
     logoUrl:
       'https://ashenaexchange.com/assets/images/62fde46ecfd4c-newlogo-site.png',

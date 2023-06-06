@@ -314,20 +314,20 @@ export const AGENCYS: Agency[] = [
     },
     status: Status.ACTIVE,
   },
-  {
-    id: 'agc19',
-    name: { en: 'Selectvisa', fa: 'سلکت ویزا' },
-    slug: 'select-visa',
-    country: [Country.Global, Country.Iran],
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: {
-      en: `Immigration to Australia under the direct supervision of Mr. Damon Arin, an Australian immigration lawyer and approved by the Australian Immigration Department and registered in Mara Australia with registration number 1384623, will greatly reduce the risk of your case and provide you with the highest quality immigration guidance and advice in Enjoy your entire process. In this way, you will go through the process of obtaining your visa with the highest level of confidence. Taking advantage of the experience and knowledge of an Australian immigration lawyer who has numerous work records in the field of obtaining various types of Australian residence visas in various fields, as well as the support and support of a caring and committed team, step on this path with confidence. Using the experiences and work records of Mr. Damon Arin and his team, choose your immigration path and benefit from their valuable services.`,
-      fa: `مهاجرت به استرالیا زیر نظارت مستقیم آقای دامون آرین وکیل مهاجرت استرالیا و مورد تایید اداره مهاجرت استرالیا و ثبت شده در سازمان مارا استرالیا با شماره ثبت 1384623 باعث می شود تا ریسک پرونده شما به شدت کاهش یابد و از با کیفیت ترین راهنمایی و مشاوره مهاجرت در طول پروسه خود بهره مند شوید. از این طریق شما با بالاترین سطح از اطمینان خاطر مراحل و پروسه اخذ ویزای خود را پیش خواهید برد. با بهره­ گیری از تجارب و دانش وکیل مهاجرت استرالیا که دارای سوابق کاری متعدد در زمینه اخذ انواع ویزاهای اقامتی استرالیا در زمینه های مختلف است، و همچنین پشتیبانی و حمایت تیمی دلسوز و متعهد، در این راه با اطمینان گام بردارید. با استفاده از تجارب و سوابق کاری جناب آقای دامون آرین و تیم ایشان، مسیر مهاجرت خود را انتخاب کرده و از خدمات ارزشمند آنها بهره مند شوید.`,
-    },
-    contact: {
-      website: 'https://selectvisa.com/fa',
-      phone: ['47706'],
-    },
-    status: Status.ACTIVE,
-  },
+  // {
+  //   id: 'agc19',
+  //   name: { en: 'Selectvisa', fa: 'سلکت ویزا' },
+  //   slug: 'select-visa',
+  //   country: [Country.Global, Country.Iran],
+  //   featuredPlan: FeaturedPlan_Business.SIMPLE,
+  //   desc: {
+  //     en: `Immigration to Australia under the direct supervision of Mr. Damon Arin, an Australian immigration lawyer and approved by the Australian Immigration Department and registered in Mara Australia with registration number 1384623, will greatly reduce the risk of your case and provide you with the highest quality immigration guidance and advice in Enjoy your entire process. In this way, you will go through the process of obtaining your visa with the highest level of confidence. Taking advantage of the experience and knowledge of an Australian immigration lawyer who has numerous work records in the field of obtaining various types of Australian residence visas in various fields, as well as the support and support of a caring and committed team, step on this path with confidence. Using the experiences and work records of Mr. Damon Arin and his team, choose your immigration path and benefit from their valuable services.`,
+  //     fa: `مهاجرت به استرالیا زیر نظارت مستقیم آقای دامون آرین وکیل مهاجرت استرالیا و مورد تایید اداره مهاجرت استرالیا و ثبت شده در سازمان مارا استرالیا با شماره ثبت 1384623 باعث می شود تا ریسک پرونده شما به شدت کاهش یابد و از با کیفیت ترین راهنمایی و مشاوره مهاجرت در طول پروسه خود بهره مند شوید. از این طریق شما با بالاترین سطح از اطمینان خاطر مراحل و پروسه اخذ ویزای خود را پیش خواهید برد. با بهره­ گیری از تجارب و دانش وکیل مهاجرت استرالیا که دارای سوابق کاری متعدد در زمینه اخذ انواع ویزاهای اقامتی استرالیا در زمینه های مختلف است، و همچنین پشتیبانی و حمایت تیمی دلسوز و متعهد، در این راه با اطمینان گام بردارید. با استفاده از تجارب و سوابق کاری جناب آقای دامون آرین و تیم ایشان، مسیر مهاجرت خود را انتخاب کرده و از خدمات ارزشمند آنها بهره مند شوید.`,
+  //   },
+  //   contact: {
+  //     website: 'https://selectvisa.com/fa',
+  //     phone: ['47706'],
+  //   },
+  //   status: Status.ACTIVE,
+  // },
 ];

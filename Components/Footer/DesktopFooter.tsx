@@ -19,7 +19,6 @@ import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 function DesktopFooter() {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
-
   return (
     <Container>
       <StyledLogo />
@@ -83,7 +82,12 @@ function DesktopFooter() {
               <TelegramLogo />
             </a>
             <GmailLogo
-              onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}
+              onClick={() =>
+                copyContent({
+                  text: 'maraboxmigration@gmail.com',
+                  toastMessage: t(LanguageKeys.copyEmailToastMessage),
+                })
+              }
             />
           </LogosContainer>
           <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>

@@ -8,6 +8,8 @@ export enum LanguageKeys {
   Contacts = 'Contacts',
   MaraNumber = 'MaraNumber',
   Socials = 'Socials',
+  copyEmailToastMessage = 'copyEmailToastMessage',
+  copyPhoneToastMessage = 'copyPhoneToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -34,5 +36,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Socials: {
     en: 'Socials',
     fa: 'ارتباطات',
+  },
+  copyEmailToastMessage: {
+    en: 'Copied email to clipboard',
+    fa: 'ایمیل در حافظه کپی شد',
+  },
+  copyPhoneToastMessage: {
+    en: 'Copied Phone number to clipboard',
+    fa: 'شماره تلفن در حافظه کپی شد',
   },
 };

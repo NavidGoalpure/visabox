@@ -9,6 +9,8 @@ import { deviceMin } from 'Consts/device';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
 import { copyContent } from 'Utils';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
 interface Props {
   website?: string;
   email?: string;
@@ -25,6 +27,8 @@ const DesktopContactComponent = ({
   instagram,
   linkedin,
 }: Props) => {
+  const { t } = useStaticTranslation(componentStatements);
+
   return (
     <Container>
       {website && (
@@ -36,7 +40,14 @@ const DesktopContactComponent = ({
         </InternetContainer>
       )}
       {phone && (
-        <PhoneContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <PhoneContainer
+          onClick={() =>
+            copyContent({
+              text: phone?.[0] || '',
+              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+            })
+          }
+        >
           <PhoneIcon />
           <PhoneTitle>
             <PhonesRow>
@@ -48,7 +59,14 @@ const DesktopContactComponent = ({
         </PhoneContainer>
       )}
       {email && (
-        <GmailContainer onClick={() => copyContent(email || '')}>
+        <GmailContainer
+          onClick={() =>
+            copyContent({
+              text: email || '',
+              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+            })
+          }
+        >
           <GmailIcon />
           <GmailTitle>{email}</GmailTitle>
         </GmailContainer>

@@ -61,13 +61,27 @@ function DescriptionSection({ client }: Props) {
           <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{' '}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
         </DataWrapper>
-        <PhoneContainer onClick={() => copyContent(data?.phoneNumber)}>
+        <PhoneContainer
+          onClick={() =>
+            copyContent({
+              text: data.phoneNumber || '',
+              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+            })
+          }
+        >
           <PhoneIcon />
           <PhoneTitle>
             <PhonesRow>{data?.phoneNumber}</PhonesRow>
           </PhoneTitle>
         </PhoneContainer>
-        <GmailContainer onClick={() => copyContent(data?.email)}>
+        <GmailContainer
+          onClick={() =>
+            copyContent({
+              text: data.email || '',
+              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+            })
+          }
+        >
           <GmailIcon />
           <GmailTitle>{data?.email}</GmailTitle>
         </GmailContainer>

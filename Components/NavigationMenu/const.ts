@@ -32,19 +32,19 @@ export const listsItems: DropdownItem[] = [
       en: 'Agencies',
       fa: 'لیست موسسات مهاجرتی',
     },
-    href: 'lists/agencies',
+    href: '/lists/agencies',
   },
   {
     title: { en: 'Agents', fa: 'لیست وکلا' },
-    href: 'lists/agents',
+    href: '/lists/agents',
   },
   {
     title: { en: 'Naati', fa: 'لیست مترجمین' },
-    href: 'lists/naaties',
+    href: '/lists/naaties',
   },
   {
     title: { en: 'Exchanges', fa: 'لیست صرافی‌ها' },
-    href: 'lists/exchanges',
+    href: '/lists/exchanges',
   },
 
   {

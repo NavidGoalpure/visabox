@@ -61,10 +61,15 @@ const Container = styled(ToggleGroup.Item)`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   border-radius: 1000px;
   padding: 1rem 3rem;
-  width: max-content;
+  width: fit-content;
   height: fit-content;
+  @supports (-webkit-touch-callout: none) {
+    width: 40%;
+    height: 1rem;
+  }
   transition: all 0.5s ease;
   backdrop-filter: blur(15px);
   span {

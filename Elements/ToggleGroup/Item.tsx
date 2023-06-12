@@ -64,7 +64,7 @@ const Container = styled(ToggleGroup.Item)`
   border-radius: 1000px;
   padding: 1rem 3rem;
   width: max-content;
-  height: 1rem;
+  height: fit-content;
   transition: all 0.5s ease;
   backdrop-filter: blur(15px);
   span {

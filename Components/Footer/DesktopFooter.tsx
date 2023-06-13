@@ -82,6 +82,7 @@ function DesktopFooter() {
             >
               <TelegramLogo />
             </a>
+            
             <GmailLogo
               onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}
             />

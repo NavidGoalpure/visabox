@@ -1,19 +1,19 @@
-import styled, { css } from "styled-components";
-import { useLocale } from "Hooks/useLocale";
-import { useRef, useState } from "react";
-import useOnClickOutside from "Hooks/useOnClickOutside";
-import { BsChevronDown } from "react-icons/bs";
+import styled, { css } from 'styled-components';
+import { useLocale } from 'Hooks/useLocale';
+import { useRef, useState } from 'react';
+import useOnClickOutside from 'Hooks/useOnClickOutside';
+import { BsChevronDown } from 'react-icons/bs';
 import {
   layer3_SubtitleStyle,
   layer3_TextStyle,
   layer3_TitleStyle,
-} from "Styles/Theme/Layers/layer3/style";
-import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
-import theme from "styled-theming";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys, listsItems } from "../const";
-import Link from "next/link";
-import { Languages } from "Interfaces";
+} from 'Styles/Theme/Layers/layer3/style';
+import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
+import theme from 'styled-theming';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys, listsItems } from '../const';
+import Link from 'next/link';
+import { Languages } from 'Interfaces';
 const MobileBusinessDropdown = ({}) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
@@ -25,7 +25,7 @@ const MobileBusinessDropdown = ({}) => {
   useOnClickOutside(containerRef, closePopup);
 
   return (
-    <Container id={"container"} ref={containerRef}>
+    <Container id={'container'} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>
         <TriggerText>{t(LanguageKeys.Lists)}</TriggerText>
         <ArrowIcon $isOpen={isOpen} />
@@ -128,7 +128,7 @@ const PopupContainer = styled.div`
   gap: 1rem;
 `;
 ////////////////////////////////////
-const popUpTheme = theme("mode", {
+const popUpTheme = theme('mode', {
   light: css`
     color: var(--color-gray7);
   `,
@@ -149,7 +149,7 @@ const PopupItem = styled.h4`
   }
 `;
 ///////////////
-const hrTheme = theme("mode", {
+const hrTheme = theme('mode', {
   light: css`
     background: var(--color-gray12);
   `,

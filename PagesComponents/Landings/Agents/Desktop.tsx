@@ -37,13 +37,14 @@ import {
   TitleSpanTheme,
   VipAgentCard,
 } from './styledComponents';
-import { getGsapTimeLine_Hero } from './const';
+import { LanguageKeys, componentStatements, getGsapTimeLine_Hero } from './const';
 import Link from 'next/link';
 import theme from 'styled-theming';
 import Particles from 'react-tsparticles';
 import { tsParticleOption_Desktop } from './const';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -60,6 +61,7 @@ function Desktop() {
     await loadFull(engine);
   }, []);
   const particlesContainer = useRef(null);
+  const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container className='container'>
@@ -268,7 +270,14 @@ function Desktop() {
               باشید,از راه های زیر با ما در ارتباط باشید.
             </ContactsDesc>
             <ContactsWrapper>
-              <GmailContainer onClick={() => copyContent('redneck')}>
+              <GmailContainer
+                onClick={() =>
+                  copyContent({
+                    text: 'maraboxmigration@gmail.com',
+                    toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+                  })
+                }
+              >
                 <GmailIcon />
                 <GmailLink>maraboxmigration@gmail.com</GmailLink>
               </GmailContainer>

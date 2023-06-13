@@ -53,26 +53,26 @@ Spoken Languages: English; Persian; Dari.`,
     avatar:
       'https://binsta.dev/api/v1/files/FxhB1ze6NO/transform?format=webp&size=md&quality=best',
   },
-  {
-    id: 'agt2',
-    name: { en: 'Damon Aryan', fa: 'دامون ارین' },
-    slug: 'damon-aryan',
-    locations: [Locations.en, Locations.fa],
-    maraNumber: '1384623',
-    featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: {
-      en: `Mr. Damon Aryan, a graduate of immigration law from the Australian National University and an official agent registered in the MARA organization with registration number 1384623 and MIA organization with number 7293, as the founder and manager of selectvisa company, insists that he personally oversees all customer affairs from the beginning of giving advice to the end of the process of immigration to Australia and getting a visa, have full supervision. MARA is presented as the only official authority License to operate and supervise the affairs of official immigration agents in Australia.`,
-      fa: `آقای “مهندس دامون آرین” فارغ‌التحصیل حقوق مهاجرت از دانشگاه ملی استرالیا و ایجنت رسمی ثبت شده در سازمان MARA با شماره ثبت 1384623 و سازمان MIA با شماره 7293، به عنوان موسس و گرداننده‌ی شرکت Selectvisa، اصرار دارند که خود شخصاً بر تمامی امور مشتریان از ابتدای ارائه مشاوره‌های ابتدای تا انتهای پروسه‌ی مهاجرت به استرالیا و دریافت ویزا،‌ نظارت کامل داشته باشند و کلیه فعالیت‌های وی مشمول قانون تجارت استرالیا و نیز مرامنامه‌ی سازمان دولتی MARA به عنوان تنها مرجع رسمی ارائه مجوز فعالیت و نظارت به امور کارگزاران رسمی مهاجرت در استرالیا است..`,
-    },
-    contact: {
-      website: 'https://selectvisa.com',
-      email: 'aryan@selectvisa.com',
-      phone: ['611800047706'],
-      linkedin: 'https://au.linkedin.com/in/damon-aryan',
-      instagram: 'https://www.instagram.com/damonaryan',
-    },
-    status: Status.ACTIVE,
-  },
+  // {
+  //   id: 'agt2',
+  //   name: { en: 'Damon Aryan', fa: 'دامون ارین' },
+  //   slug: 'damon-aryan',
+  //   locations: [Locations.en, Locations.fa],
+  //   maraNumber: '1384623',
+  //   featuredPlan: FeaturedPlan_Business.SIMPLE,
+  //   desc: {
+  //     en: `Mr. Damon Aryan, a graduate of immigration law from the Australian National University and an official agent registered in the MARA organization with registration number 1384623 and MIA organization with number 7293, as the founder and manager of selectvisa company, insists that he personally oversees all customer affairs from the beginning of giving advice to the end of the process of immigration to Australia and getting a visa, have full supervision. MARA is presented as the only official authority License to operate and supervise the affairs of official immigration agents in Australia.`,
+  //     fa: `آقای “مهندس دامون آرین” فارغ‌التحصیل حقوق مهاجرت از دانشگاه ملی استرالیا و ایجنت رسمی ثبت شده در سازمان MARA با شماره ثبت 1384623 و سازمان MIA با شماره 7293، به عنوان موسس و گرداننده‌ی شرکت Selectvisa، اصرار دارند که خود شخصاً بر تمامی امور مشتریان از ابتدای ارائه مشاوره‌های ابتدای تا انتهای پروسه‌ی مهاجرت به استرالیا و دریافت ویزا،‌ نظارت کامل داشته باشند و کلیه فعالیت‌های وی مشمول قانون تجارت استرالیا و نیز مرامنامه‌ی سازمان دولتی MARA به عنوان تنها مرجع رسمی ارائه مجوز فعالیت و نظارت به امور کارگزاران رسمی مهاجرت در استرالیا است..`,
+  //   },
+  //   contact: {
+  //     website: 'https://selectvisa.com',
+  //     email: 'aryan@selectvisa.com',
+  //     phone: ['611800047706'],
+  //     linkedin: 'https://au.linkedin.com/in/damon-aryan',
+  //     instagram: 'https://www.instagram.com/damonaryan',
+  //   },
+  //   status: Status.ACTIVE,
+  // },
 
   {
     id: 'agt3',

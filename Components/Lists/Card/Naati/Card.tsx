@@ -42,13 +42,27 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
       <Wrapper>
         <Title>{dt(fullName)}</Title>
         <Socials>
-          <EmailWrapper onClick={() => copyContent(email || BLANK_SYMBOL)}>
+          <EmailWrapper
+            onClick={() =>
+              copyContent({
+                text: email || '',
+                toastMessage: t(LanguageKeys.copyEmailToastMessage),
+              })
+            }
+          >
             <EmailTitle>
               {t(LanguageKeys.Email)}:{!!email && <CopyIcon />}
             </EmailTitle>
             <EmailUrl>{!!email ? email : BLANK_SYMBOL}</EmailUrl>
           </EmailWrapper>
-          <PhoneWrapper onClick={() => copyContent(phone?.[0] || BLANK_SYMBOL)}>
+          <PhoneWrapper
+            onClick={() =>
+              copyContent({
+                text: phone?.[0] || '',
+                toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+              })
+            }
+          >
             <PhoneTitle>
               {t(LanguageKeys.Phone)}:{!!phone?.[0] && <CopyIcon />}
             </PhoneTitle>

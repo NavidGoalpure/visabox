@@ -1,6 +1,6 @@
 import ErrorToast from 'Elements/Toast/Error';
 import SuccessToast from 'Elements/Toast/Success';
-import { LocalStorageKeys, ThemeModes } from 'Interfaces';
+import { Languages, LocalStorageKeys, Locations, ThemeModes } from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
@@ -52,24 +52,19 @@ function getLocalStorage(key: LocalStorageKeys): string | null {
   return window.localStorage.getItem(key);
   //
 }
-enum LanguageKeys {
-  toastMessage = 'toastMessage',
-}
-const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  toastMessage: {
-    en: 'Copied to clipboard',
-    fa: 'کپی شد',
-  },
-};
 
-const copyContent = async (text: string | undefined) => {
+const copyContent = async ({
+  text,
+  toastMessage,
+}: {
+  text: string | undefined;
+  toastMessage: string;
+}) => {
   if (!text) return null;
-  const { t } = useStaticTranslation(componentStatements);
-  const toastMessage = t(LanguageKeys.toastMessage);
   await navigator.clipboard
     .writeText(text)
     .then(() => SuccessToast(toastMessage));
-  //   ErrorToast("Copying to clipboard was not successful!");
+  
 };
 function getGsapTimeLine_FadeUp(id: string | number) {
   gsap.registerPlugin(ScrollTrigger);

@@ -11,6 +11,8 @@ export enum LanguageKeys {
   Agent = 'Agent',
   RelatedTo = 'RelatedTo',
   SocialMedia = 'SocialMedia',
+  copyEmailToastMessage = 'copyEmailToastMessage',
+  copyPhoneToastMessage = 'copyPhoneToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -49,5 +51,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SocialMedia: {
     en: 'Social Media',
     fa: 'شبکه های اجتماعی',
+  },
+  copyEmailToastMessage: {
+    en: 'Copied email to clipboard',
+    fa: 'ایمیل در حافظه کپی شد',
+  },
+  copyPhoneToastMessage: {
+    en: 'Copied Phone number to clipboard',
+    fa: 'شماره تلفن در حافظه کپی شد',
   },
 };

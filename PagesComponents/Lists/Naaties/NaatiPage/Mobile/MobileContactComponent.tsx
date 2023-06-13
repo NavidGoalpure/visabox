@@ -48,7 +48,14 @@ const MobileContactComponent = ({
         </InternetContainer>
       )}
       {phone && (
-        <PhoneContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <PhoneContainer
+          onClick={() =>
+            copyContent({
+              text: phone?.[0] || '',
+              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+            })
+          }
+        >
           <PhoneIcon />
           <PhoneTitle>
             {phone?.map((phoneNumber) => (
@@ -58,7 +65,14 @@ const MobileContactComponent = ({
         </PhoneContainer>
       )}
       {email && (
-        <GmailContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <GmailContainer
+          onClick={() =>
+            copyContent({
+              text: email || '',
+              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+            })
+          }
+        >
           <GmailIcon />
           <GmailTitle>{email}</GmailTitle>
         </GmailContainer>

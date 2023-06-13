@@ -8,6 +8,7 @@ import type { SizeMode, ISourceOptions } from 'tsparticles-engine';
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',
+  copyPhoneToastMessage = 'copyPhoneToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -17,6 +18,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoDesc: {
     fa: 'اسپانسر ماراباکس شدن چگونه می‌تواند به کسب و کار مهاجرتی کمک کند',
     en: 'In this page we show you the benefits of buying our vip account',
+  },
+  copyPhoneToastMessage: {
+    en: 'Copied Phone number to clipboard',
+    fa: 'شماره تلفن در حافظه کپی شد',
   },
 };
 

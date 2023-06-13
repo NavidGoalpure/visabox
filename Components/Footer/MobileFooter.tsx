@@ -75,7 +75,12 @@ function MobileFooter() {
             <TelegramLogo />
           </a>
           <GmailLogo
-            onClick={() => copyContent('mailto:maraboxmigration@gmail.com')}
+            onClick={() =>
+              copyContent({
+                text: 'maraboxmigration@gmail.com',
+                toastMessage: t(LanguageKeys.copyEmailToastMessage),
+              })
+            }
           />
         </LogosContainer>
         <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
@@ -178,7 +183,6 @@ const LogosContainer = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
-  
 `;
 
 const Privacy = styled.a`

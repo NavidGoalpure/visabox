@@ -33,8 +33,9 @@ import { useCallback, useRef } from 'react';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import Particles from 'react-tsparticles';
-import { tsParticleOption_Mobile } from './const';
+import { LanguageKeys, componentStatements, tsParticleOption_Mobile } from './const';
 import Link from 'next/link';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function MobileAgentsPage() {
   const { theme } = useTheme();
@@ -48,6 +49,7 @@ function MobileAgentsPage() {
     await loadFull(engine);
   }, []);
   const particlesContainer = useRef(null);
+  const { t } = useStaticTranslation(componentStatements);
 
   return (
     <Container>
@@ -208,7 +210,14 @@ function MobileAgentsPage() {
               باشید,از راه های زیر با ما در ارتباط باشید.
             </StyledContactsDesc>
             <StyledContactsWrapper>
-              <StyledGmailContainer onClick={() => copyContent('redneck')}>
+              <StyledGmailContainer
+                onClick={() =>
+                  copyContent({
+                    text: 'maraboxmigration@gmail.com',
+                    toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+                  })
+                }
+              >
                 <GmailIcon />
                 <GmailLink>maraboxmigration@gmail.com</GmailLink>
               </StyledGmailContainer>

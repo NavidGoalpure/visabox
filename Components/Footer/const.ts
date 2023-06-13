@@ -10,6 +10,7 @@ export enum LanguageKeys {
   AgenciesBox = 'AgenciesBox',
   SocialNetWorksBox = 'SocialNetWorksBox',
   BecomeSponser = 'BecomeSponser',
+  copyEmailToastMessage = 'copyEmailToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Occupations: {
@@ -47,5 +48,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   BecomeSponser: {
     fa: 'اسپانسر شوید',
     en: 'Become Our Sponser',
+  },
+  copyEmailToastMessage: {
+    en: 'Copied email to clipboard',
+    fa: 'ایمیل در حافظه کپی شد',
   },
 };

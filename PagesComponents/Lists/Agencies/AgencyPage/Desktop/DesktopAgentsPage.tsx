@@ -10,7 +10,7 @@ import {
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 
-import { layer2A_BodyStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_BodyStyle, layer2A_TextStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -98,15 +98,15 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
             ))}
           </VIPContainer>
 
-          {relatedSocials?.map((relatedSocial, i) => (
-            <SmartSocial
-              key={i}
-              {...relatedSocial}
-              style={{ minHeight: '24.5rem', scale: '0.97' }}
-            />
-          ))}
         </Row>
       </SecondSection>
+      {relatedSocials?.map((relatedSocial, i) => (
+        <SmartSocial
+          key={i}
+          {...relatedSocial}
+          style={{ minHeight: '24.5rem', scale: '0.97' }}
+        />
+      ))}
     </Container>
   );
 }
@@ -239,7 +239,7 @@ ${Layer1_TitleStyle}
   margin-bottom:1.5rem;
 `;
 const Desc = styled.p`
-  ${Layer1_TextStyle}
+${layer2A_TextStyle}
 `;
 const RelatedTo = styled.h2`
   ${Layer1_TitleStyle};

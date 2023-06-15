@@ -28,7 +28,7 @@ export default function NotFound() {
             <Desc>You weren't supposed to be here</Desc>
             <Desc>Maybe you need to use a proxy</Desc>
             <Desc>{`You can go to the Homepage if you feel you're lost`}</Desc>
-            <Link href='/occupations'>
+            <Link href='/'>
               <PrimaryButton>Home</PrimaryButton>
             </Link>
           </BlurContainer>

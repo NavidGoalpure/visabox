@@ -10,7 +10,7 @@ import {
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 
-import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_BodyStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -38,27 +38,38 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
 
   return (
     <Container>
-      <Header>
-        <ProfilePictureWrapper>
-          <ProfilePicture
-            fill
-            src={imgSrc}
-            alt={
-              ChosenAgency?.name
-                ? `${ChosenAgency?.name?.[locale]} image`
-                : 'agent image'
-            }
-            onError={() => {
-              setImgSrc(`/Images/placeholder.jpeg`);
+      <FirstSection>
+        <SmallBox>
+          <ProfilePictureWrapper>
+            <ProfilePicture
+              fill
+              src={imgSrc}
+              alt={
+                ChosenAgency?.name
+                  ? `${ChosenAgency?.name?.[locale]} image`
+                  : 'agent image'
+              }
+              onError={() => {
+                setImgSrc(`/Images/placeholder.jpeg`);
+              }}
+            />
+            <VIPBoxContainer aria-hidden={true}>
+              <VIPBox aria-hidden={true} />
+            </VIPBoxContainer>
+          </ProfilePictureWrapper>
+          <Data>
+            <Name>{dt(ChosenAgency?.name)}</Name>
+          </Data>
+        </SmallBox>
+      </FirstSection>
+      <SecondSection>
+        <AboutContainer>
+          <AboutTitle>{t(LanguageKeys.About)}</AboutTitle>
+          <Desc
+            dangerouslySetInnerHTML={{
+              __html: dt(ChosenAgency?.desc),
             }}
           />
-          <VIPBoxContainer aria-hidden={true}>
-            <VIPBox aria-hidden={true} />
-          </VIPBoxContainer>
-        </ProfilePictureWrapper>
-        <RightSide>
-          <Title>{dt(ChosenAgency?.name)}</Title>
-
           <DesktopContactComponent
             website={ChosenAgency?.contact?.website}
             email={ChosenAgency?.contact?.email}
@@ -67,43 +78,35 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
             instagram={ChosenAgency?.contact?.instagram}
             linkedin={ChosenAgency?.contact?.linkedin}
           />
-        </RightSide>
-      </Header>
-      <AboutContainer>
-        <AboutTitle>{t(LanguageKeys.About)}</AboutTitle>
-        <Desc
-          dangerouslySetInnerHTML={{
-            __html: dt(ChosenAgency?.desc),
-          }}
-        />
-      </AboutContainer>
-      {/* Related */}
-      <Row>
-        <RelatedTo>{t(LanguageKeys.RelatedTo)}</RelatedTo>
-        <AgentTitle>{dt(ChosenAgency?.name)}</AgentTitle>
-      </Row>
-      <Row style={{ gap: '4rem', flexWrap: 'nowrap', width: 'auto' }}>
-        <VIPContainer>
-          {relatedAgents?.map((relatedAgent) => (
-            <VIPAgentCard
-              name={relatedAgent.name}
-              slug={relatedAgent.slug}
-              desc={relatedAgent.desc}
-              key={relatedAgent.slug}
-              layerContext='1'
-              avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
+        </AboutContainer>
+        {/* Related */}
+        <Row>
+          <RelatedTo>{t(LanguageKeys.RelatedTo)}</RelatedTo>
+          <AgentTitle>{dt(ChosenAgency?.name)}</AgentTitle>
+        </Row>
+        <Row style={{ gap: '4rem', flexWrap: 'nowrap', width: 'auto' }}>
+          <VIPContainer>
+            {relatedAgents?.map((relatedAgent) => (
+              <VIPAgentCard
+                name={relatedAgent.name}
+                slug={relatedAgent.slug}
+                desc={relatedAgent.desc}
+                key={relatedAgent.slug}
+                layerContext='1'
+                avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
+              />
+            ))}
+          </VIPContainer>
+
+          {relatedSocials?.map((relatedSocial, i) => (
+            <SmartSocial
+              key={i}
+              {...relatedSocial}
+              style={{ minHeight: '24.5rem', scale: '0.97' }}
             />
           ))}
-        </VIPContainer>
-
-        {relatedSocials?.map((relatedSocial, i) => (
-          <SmartSocial
-            key={i}
-            {...relatedSocial}
-            style={{ minHeight: '24.5rem', scale: '0.97' }}
-          />
-        ))}
-      </Row>
+        </Row>
+      </SecondSection>
     </Container>
   );
 }
@@ -125,32 +128,38 @@ const HeaderBackground = theme('mode', {
     border: 1px var(--color-gray6) solid;
   `,
 });
-const DescBackground = theme('mode', {
-  light: css`
-    background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  `,
-  dark: css`
-    background: var(--color-gray6);
-  `,
-});
 
 const Container = styled.div`
-  width: 100%;
+   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  padding: 4rem 0;
+  gap: 1rem;
+`;
+const FirstSection = styled.div`
+
+`
+const SecondSection = styled.div`
+
+`
+const SmallBox = styled.header`
+  ${layer2A_BodyStyle}
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 4rem 0;
-  @media ${deviceMin.tabletS} {
-    justify-content: space-between;
-  }
+
+  width: 21rem;
+  border-radius: 15px;
+  padding: 1.5rem;
+  gap: 2rem;
+  margin-bottom: 4rem;
 `;
 const Header = styled.header`
   ${HeaderBackground}
   display: flex;
-  width: 55rem;
   border-radius: 15px;
   padding: 1.5rem;
   justify-content: flex-start;
@@ -159,8 +168,8 @@ const Header = styled.header`
 `;
 const ProfilePictureWrapper = styled.div`
   flex-shrink: 0;
-  width: 12rem;
-  height: 16rem;
+  width: 100%;
+  height: 100%;
   z-index: 1;
   position: relative;
 `;
@@ -187,7 +196,19 @@ const VIPBox = styled(FiBox)`
   width: 70%;
   height: auto;
 `;
-
+const Data = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //   justify-content: center;
+  //   align-items: center;
+`;
+const Name = styled.h2`
+  ${TitleColor}
+  ${layer2A_TitleStyle}
+  z-index:1;
+  margin-bottom: 1.5rem;
+`;
 const RightSide = styled.div`
   display: flex;
   flex-direction: column;
@@ -204,18 +225,18 @@ const Title = styled.h2`
 `;
 
 const AboutContainer = styled.div`
-  ${DescBackground}
   border-radius: 15px;
   width: 55rem;
-  padding: 1.5rem 1rem;
+  padding: 0rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.5rem;
 `;
 const AboutTitle = styled.h3`
-  ${layer2A_TitleStyle}
+${Layer1_TitleStyle}
+  margin-bottom:1.5rem;
 `;
 const Desc = styled.p`
   ${Layer1_TextStyle}

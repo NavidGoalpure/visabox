@@ -1,21 +1,18 @@
-import * as RdxSwitch from '@radix-ui/react-switch';
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import Sun from './Images/Sun.svg';
-import Moon from './Images/Moon.svg';
-import MoonLogo from './MoonLogo';
-import SunLogo from './SunLogo';
-import theme from 'styled-theming';
-import {  ThemeModes } from 'Interfaces';
-import useTheme from 'Hooks/useTheme';
-import { Loading } from 'Elements/Loading';   
-
+import * as RdxSwitch from "@radix-ui/react-switch";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { ThemeModes } from "Interfaces";
+import useTheme from "Hooks/useTheme";
+import { Loading } from "Elements/Loading";
+import { IoMdClose } from "react-icons/io";
 
 const SwitchTheme = () => {
+  // navid ask mobin if this design is going to be used in other places
   const { theme, setTheme } = useTheme();
   const isChecked = theme === ThemeModes.LIGHT;
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  if (isLoading) return <Loading style={{ width: 'auto' }} />;
+  if (isLoading) return <Loading style={{ width: "auto" }} />;
   return (
     <SwitchRoot
       aria-label={theme as string}
@@ -27,15 +24,16 @@ const SwitchTheme = () => {
           : setTheme(ThemeModes.DARK);
       }}
     >
-      <MoonLogo id='moon' />
-      <SwitchThumb />
-      {!isChecked && <SunLogo id='sun' />}
+      <SwitchThumb>
+        {" "}
+        <IoMdClose />
+      </SwitchThumb>
     </SwitchRoot>
   );
 };
 
 export default SwitchTheme;
-const BorderColor = theme('mode', {
+const BorderColor = theme("mode", {
   light: css`
     border-color: var(--color-gray10);
   `,
@@ -79,7 +77,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
       stroke: var(--color-gray9);
     }
   }
-  &[data-state='checked'] {
+  &[data-state="checked"] {
     justify-content: flex-end;
     .sun {
       display: none;
@@ -102,22 +100,6 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
   align-items: center;
   justify-content: center;
   background-color: var(--color-gray9);
-  :before {
-    content: '';
-    z-index: 2;
-    width: 70%;
-    background-size: contain;
-    height: 71%;
-    background-repeat: no-repeat;
-    background-image: url(${Moon});
-  }
-  &[data-state='checked'] {
-    transform: translateX(3px);
-    background-color: var(--color-secondary4);
-    :before {
-      background-image: url(${Sun});
-    }
-    span {
-    }
-  }
+  
+  
 `;

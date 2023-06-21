@@ -42,7 +42,6 @@ const MobileContactComponent = ({
         <MaraNumber>{maraNumber}</MaraNumber>
       </MaraNumberContainer>
 
-
       {website && (
         <InternetContainer href={website} target={'_blank'}>
           <InternetIcon />
@@ -50,7 +49,14 @@ const MobileContactComponent = ({
         </InternetContainer>
       )}
       {phone && (
-        <PhoneContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <PhoneContainer
+          onClick={() =>
+            copyContent({
+              text: phone?.[0] || '',
+              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+            })
+          }
+        >
           <PhoneIcon />
           <PhoneTitle>
             {phone?.map((phoneNumber) => (
@@ -60,7 +66,14 @@ const MobileContactComponent = ({
         </PhoneContainer>
       )}
       {email && (
-        <GmailContainer onClick={() => copyContent(email || '')}>
+        <GmailContainer
+          onClick={() =>
+            copyContent({
+              text: email || '',
+              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+            })
+          }
+        >
           <GmailIcon />
           <GmailTitle>{email}</GmailTitle>
         </GmailContainer>

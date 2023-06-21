@@ -44,13 +44,27 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
       <Wrapper>
         <Title>{dt(name)}</Title>
         <Socials>
-          <EmailWrapper onClick={() => copyContent(email || '')}>
+          <EmailWrapper
+            onClick={() =>
+              copyContent({
+                text: email || '',
+                toastMessage: t(LanguageKeys.copyEmailToastMessage),
+              })
+            }
+          >
             <EmailTitle>
               {t(LanguageKeys.Email)}:{!!email && <CopyIcon />}
             </EmailTitle>
             <EmailUrl>{!!email ? email : BLANK_SYMBOL}</EmailUrl>
           </EmailWrapper>
-          <PhoneWrapper onClick={() => copyContent(phone?.[0] || '')}>
+          <PhoneWrapper
+            onClick={() =>
+              copyContent({
+                text: phone?.[0] || '',
+                toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+              })
+            }
+          >
             <PhoneTitle>
               {t(LanguageKeys.Phone)}:<CopyIcon />
             </PhoneTitle>

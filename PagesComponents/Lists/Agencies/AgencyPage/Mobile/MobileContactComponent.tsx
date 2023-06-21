@@ -9,7 +9,7 @@ import { deviceMin } from 'Consts/device';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
 import { copyContent } from 'Utils';
-import { componentStatements } from '../const';
+import { LanguageKeys, componentStatements } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 interface Props {
   website?: string;
@@ -37,7 +37,14 @@ const MobileContactComponent = ({
         </InternetContainer>
       )}
       {phone && (
-        <PhoneContainer onClick={() => copyContent(phone?.[0] || '')}>
+        <PhoneContainer
+          onClick={() =>
+            copyContent({
+              text: email || '',
+              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+            })
+          }
+        >
           <PhoneIcon />
           <PhoneTitle>
             {phone?.map((phoneNumber) => (
@@ -47,7 +54,14 @@ const MobileContactComponent = ({
         </PhoneContainer>
       )}
       {email && (
-        <GmailContainer onClick={() => copyContent(email || '')}>
+        <GmailContainer
+          onClick={() =>
+            copyContent({
+              text: email || '',
+              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+            })
+          }
+        >
           <GmailIcon />
           <GmailTitle>{email}</GmailTitle>
         </GmailContainer>

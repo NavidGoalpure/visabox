@@ -7,6 +7,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import theme from 'styled-theming';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { Headline7Style } from 'Styles/Typo';
+import { deviceTypes } from 'Consts/device';
 
 export interface RadioItemProps extends ToggleGroup.ToggleGroupItemProps {
   text: MultiLanguageText;
@@ -61,9 +62,15 @@ const Container = styled(ToggleGroup.Item)`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   border-radius: 1000px;
   padding: 1rem 3rem;
   width: fit-content;
+  height: fit-content;
+  @supports ${deviceTypes.Ios} {
+    width: 40%;
+    height: 1rem;
+  }
   transition: all 0.5s ease;
   backdrop-filter: blur(15px);
   span {
@@ -79,6 +86,11 @@ const Container = styled(ToggleGroup.Item)`
     .label {
       transform: translateX(0.5rem);
     }
+  }
+  ///
+  svg {
+    max-width: 1rem;
+    max-height: 1rem;
   }
 `;
 //////////////////////////////////

@@ -1,4 +1,3 @@
-
 import AgentCard from 'Components/Lists/Card/Agent/Card';
 import { deviceMin } from 'Consts/device';
 import { componentStatements, LanguageKeys } from './const';
@@ -11,6 +10,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Agents } from 'Consts/Lists/agents';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
+import { getSmartSimpleAgent, getSmartVIPAgent } from './utils';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);
@@ -19,11 +19,7 @@ function Content() {
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <PageSubtitle>{t(LanguageKeys.PageDesc)}</PageSubtitle>
       <VIPContainer>
-        {Agents.filter(
-          (agent) =>
-            agent.featuredPlan === FeaturedPlan_Business.VIP ||
-            agent.featuredPlan === FeaturedPlan_Business.FULL_DATA
-        ).map((agent) => {
+        {getSmartVIPAgent(Agents).map((agent) => {
           return (
             <VIPAgentCard
               key={agent.slug}
@@ -37,9 +33,7 @@ function Content() {
         })}
       </VIPContainer>
       <NormalAgentContainer>
-        {Agents.filter(
-          (agent) => agent.featuredPlan === FeaturedPlan_Business.SIMPLE
-        ).map((agent) => {
+        {getSmartSimpleAgent(Agents).map((agent) => {
           return (
             <AgentCard
               key={agent.slug}

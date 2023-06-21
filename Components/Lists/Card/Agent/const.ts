@@ -7,6 +7,8 @@ export enum LanguageKeys {
   ViewMore = 'ViewMore',
   Mara = 'Mara',
   Agent = 'Agent',
+  copyEmailToastMessage = 'copyEmailToastMessage',
+  copyPhoneToastMessage = 'copyPhoneToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Email: {
@@ -33,6 +35,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Agent: {
     fa: 'وکیل',
     en: 'Agent',
+  },
+  copyEmailToastMessage: {
+    en: 'Copied email to clipboard',
+    fa: 'ایمیل در حافظه کپی شد',
+  },
+  copyPhoneToastMessage: {
+    en: 'Copied Phone number to clipboard',
+    fa: 'شماره تلفن در حافظه کپی شد',
   },
 };
 

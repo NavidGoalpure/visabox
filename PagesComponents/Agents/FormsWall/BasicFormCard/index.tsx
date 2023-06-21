@@ -33,23 +33,22 @@ function BasicFormCard({ formData }: Props) {
       <Wrapper>
         <Title>{formData.current_job}</Title>
         <DataWrapper>
-          <Label>{t(LanguageKeys.NameLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.NameLabel)}</Label>
           <Value>
-            {' '}
             {formData.name} {formData.lastname}
           </Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.DateLabel)} </Label>{' '}
+          <Label>{t(LanguageKeys.DateLabel)} </Label>
           <Value>{dataCreatedAt}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.LanguageSkillsLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.LanguageSkillsLabel)}</Label>
           <Value> {formData?.ielts_score} </Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.AgeLabel)}</Label>{' '}
-          <Value>{formData?.age}</Value>
+          <Label>{t(LanguageKeys.AgeLabel)}</Label>
+          <Value>{formData?.age?.slice(0, 10)}</Value>
         </DataWrapper>
       </Wrapper>
       <PrimaryButton style={{ margin: '0 auto' }}>

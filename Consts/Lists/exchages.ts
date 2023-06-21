@@ -34,7 +34,7 @@ export const Exchanges: Exchange[] = [
       telegram: 'sarafiaubot@',
       email: 'info@rosecap.com.au',
       instagram: 'rosecap_official',
-      website: 'https://rosecap.com.au/',
+      website: 'https://rosecap.com.au',
     },
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     status: Status.ACTIVE,
@@ -61,7 +61,7 @@ Ashna Exchange has started its activity with the aim of providing the best servi
       telegram: '@sarrafiashena',
       instagram: 'ashena_sarrafi',
       email: 'ashena.exchange@gmali.com',
-      website: 'https://ashenaexchange.com/',
+      website: 'https://ashenaexchange.com',
     },
     logoUrl:
       'https://ashenaexchange.com/assets/images/62fde46ecfd4c-newlogo-site.png',
@@ -87,6 +87,109 @@ Ashna Exchange has started its activity with the aim of providing the best servi
     status: Status.ACTIVE,
     slug: 'baloch',
     logoUrl:
-      'https://www.baloch.com.au/wp-content/uploads/2022/10/baloch_en_logo.png',
+      'https://binsta.dev/api/v1/files/PZ-vcflN38/transform?format=webp&size=lg&quality=hi',
+  },
+  {
+    fullName: { en: 'KayhanEx', fa: 'صرافی کیهان' },
+    desc: {
+      en: 'The minimum remittance is $3,000. The rates are for amounts over $10,000. We coordinate your prices. Working hours are from 9:00 a.m. to 8:00 p.m.',
+      fa: 'حداقل ارسال حواله ۳۰۰۰ دلار می باشد نرخها برای مبالغ بیش از ۱۰۰۰۰ دلار است ما قیمتهای شما را هماهنگ می نماییم ساعت کار از ۹ صبح تا ۸ شب.',
+    },
+    location: { en: 'Australia', fa: 'استرالیا' },
+    contact: {
+      phone: ['+61-419303415', '+61-448555551'],
+      telegram: '@KayhanMoneyExchange',
+      email: 'info@kayhanex.com',
+      instagram: 'kayhan.ex',
+      website: '',
+    },
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    status: Status.ACTIVE,
+    slug: 'Kayhan',
+    logoUrl:
+      'https://binsta.dev/api/v1/files/cYWUKmrcnx/transform?format=webp&size=lg&quality=hi',
+  },
+  {
+    fullName: { en: 'AfshaRex', fa: 'صرافی افشار' },
+    desc: {
+      en: 'Buy and sell Australian dollars and send a white money order with an official invoice. Fair rates, fast deposit (officially licensed by the Australian government)',
+      fa: 'خرید و فروش دلار استرالیا و ارسال حواله سفید با اینویس رسمی. نرخ های منصفانه، واریز سریع (دارای مجوز رسمی از دولت استرالیا)',
+    },
+    location: { en: 'Australia', fa: 'استرالیا' },
+    contact: {
+      phone: ['+61-405303041'],
+      telegram: '@afsharsarafi',
+      email: 'info@afsharex.com.au',
+      instagram: '',
+      website: 'https://www.afsharex.com.au/',
+    },
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    status: Status.ACTIVE,
+    slug: 'AfshaR',
+    logoUrl:
+      'https://binsta.dev/api/v1/files/wZApiAVHDk/transform?format=webp&size=lg&quality=hi',
+  },
+  {
+    fullName: { en: 'Sarafi NeoEx', fa: 'صرافی نیواکس' },
+    desc: {
+      en: 'The assurance you were looking for...',
+      fa: 'اطمینانی که به دنبالش بودید...',
+    },
+    location: { en: 'Australia', fa: 'استرالیا' },
+    contact: {
+      phone: ['+61-1300777177'],
+      telegram: '@sarafijavadi',
+      email: '',
+      instagram: '',
+      website: 'https://www.neoex.com.au/',
+    },
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    status: Status.ACTIVE,
+    slug: 'Neo',
+    logoUrl:
+      'https://binsta.dev/api/v1/files/-qCLdo4PCu/transform?format=webp&size=lg&quality=hi',
+  },
+  {
+    fullName: { en: 'Sam Exchange', fa: 'صرافی‌ سام' },
+    desc: {
+      en: 'Transactions without any fees',
+      fa: 'انجام معاملات بدون هیچگونه کارمزد'
+    },
+    location: { en: 'Australia', fa: 'استرالیا' },
+    contact: {
+      phone: ['+61-1800954358'],
+      telegram: '@SamExchange',
+      email: 'transfer@SamExchange.com.au',
+      instagram: '',
+      website: 'www.SamExchange.com.au',
+    },
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    status: Status.ACTIVE,
+    slug: 'Sam',
+    logoUrl:
+      'https://binsta.dev/api/v1/files/_woxiTaZ1n/transform?format=webp&size=lg&quality=hi',
+  },
+  {
+    fullName: { en: 'ExpressEX', fa: 'صرافی اکسپرس' },
+    desc: {
+      en: 'Transactions without any fees',
+      fa: 'انجام معاملات بدون هیچگونه کارمزد'
+    },
+    location: { en: 'Australia', fa: 'استرالیا' },
+    contact: {
+      phone: ['+61-1800723417'],
+      telegram: '@expressaustralia',
+      email: 'info@sarafi.com.au',
+      instagram: 'https://www.instagram.com/sarafiexpress/',
+      website: 'www.sarafi.com.au',
+    },
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    status: Status.ACTIVE,
+    slug: 'Express',
+    logoUrl:
+      'https://binsta.dev/api/v1/files/t0VyEwVB8H/transform?format=webp&size=lg&quality=hi',
   },
 ];
+
+
+// navid aksa roo too binsta add bedim

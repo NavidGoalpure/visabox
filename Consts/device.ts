@@ -41,3 +41,6 @@ export const deviceSize = {
   laptopL: 1440,
   desktop: 2560,
 };
+export enum deviceTypes {
+  Ios = `(-webkit-touch-callout: none)`,
+}

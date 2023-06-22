@@ -14,7 +14,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import DesktopBoxsesDropdown from './dropdownBoxes';
 import DesktopOccupationDropdown from './dropdownOccupation';
 import { useSession } from 'next-auth/react';
-import AvatarComponent from './AvatarComponent';
+import AvatarComponent from '../AvatarComponent';
 
 function Desktop() {
   const { locale } = useLocale();

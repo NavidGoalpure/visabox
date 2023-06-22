@@ -29,10 +29,10 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
 
   useEffect(() => {
-    setImgSrc(`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`);
+    if (ChosenAgent?.avatar) setImgSrc(ChosenAgent?.avatar);
   }, [ChosenAgent]);
 
   return (
@@ -83,6 +83,7 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         />
       </AboutContainer>
     </Container>
+
   );
 }
 export default DesktopAgentsPage;
@@ -97,7 +98,7 @@ const TitleColor = theme('mode', {
 });
 
 const Container = styled.div`
-  width: 100%;
+   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -111,7 +112,6 @@ const SmallBox = styled.header`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   width: 21rem;
   border-radius: 15px;
   padding: 1.5rem;

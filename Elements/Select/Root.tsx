@@ -19,11 +19,14 @@ interface Props extends SelectProps {
   maxHeightInRem?: number;
   // اگه ترو باشه، کانتینر آیتم ها رو اسکرول نمیکنه و به اندازه کل آیتم ها کش میده
   noScroll?: boolean;
+  //this is a props whichs controls the small arrow icon beside
+  //the placeholder text
+  hasArrowIcon?: boolean;
   contentProps?: {
     // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره
-    align?: 'start' | 'center' | 'end';
+    align?: "start" | "center" | "end";
     // این پراپز توی داک نوشته و کار هم میکنه اما توی تایپ های رادیکس وجود نداره. البته فول اسکرین رو من اضافه کردم
-    position?: 'popper' | 'item-aligned';
+    position?: "popper" | "item-aligned";
     ariaLabel?: string;
     dataId?: string;
   };
@@ -47,6 +50,7 @@ const Root: React.FC<Props> = ({
   triggerProps,
   valueProps,
   className,
+  hasArrowIcon = true,
   ...props
 }) => {
   const { isLaptop } = useDevice();
@@ -68,9 +72,11 @@ const Root: React.FC<Props> = ({
               placeholder={triggerProps?.placeholder}
               aria-label={triggerProps?.placeholder}
             />
+            {hasArrowIcon &&
             <Icon>
               <ArrowIcon />
             </Icon>
+            }
           </Trigger>
         )}
         {/* ////////////// */}

@@ -18,6 +18,7 @@ import { componentStatements, getGsapTimeLine, LanguageKeys } from "../const";
 import OccupationDropdown from "./dropdownOccupation";
 import MobileBoxesDropdown from "./dropdownBoxes";
 import { useSession } from "next-auth/react";
+import AvatarComponent from "../AvatarComponent";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -49,10 +50,7 @@ function SmartHeader() {
     <Container>
       <Wrapper>
         {session ? (
-          <Avatar
-            src={session.user?.image || "/Images/placeholder.jpeg"}
-            alt={"user-profile"}
-          />
+          <AvatarComponent />
         ) : (
           <Signin href={`/${locale}/auth/signin`}>
             {t(LanguageKeys.Login)}
@@ -157,11 +155,7 @@ const MenuLink = styled(Link)`
   text-align: start;
   width: 100%;
 `;
-const Avatar = styled.img`
-  border-radius: 50%;
-  width: 2rem;
-  outline: 2px solid var(--color-gray7);
-`;
+
 const Signin = styled(MenuLink)`
   ${layer3_SubtitleStyle};
   text-align: start;

@@ -3,24 +3,28 @@ import styled, { css } from 'styled-components';
 import Image from 'next/image';
 import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { Headline4Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
 import {
-  Layer1_TextStyle,
-  Layer1_TitleStyle,
-} from 'Styles/Theme/Layers/layer1/style';
-
-import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
+  layer2A_BodyStyle,
+  layer2A_TextStyle,
+  layer2A_TitleStyle,
+} from 'Styles/Theme/Layers/layer2/style';
 
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
-import { Agency } from 'Interfaces/Database/Lists/agency';
-import { getAgencyAgents, getAgencySocials } from '../utils';
-import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
-import SmartSocial from 'Components/Lists/Card/SocialCard';
+import {
+  layer2A_Key,
+  layer2A_Value,
+} from 'Styles/Theme/Layers/layer2/theme';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { Agency } from 'Interfaces/Database/Lists/agency';
+import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
+import SmartSocial from 'Components/Lists/Card/SocialCard';
+import { getAgencyAgents, getAgencySocials } from '../utils';
+
 interface Props {
   ChosenAgency?: Agency;
 }
@@ -30,35 +34,44 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
+  const [imgSrc, setImgSrc] = useState('');
 
   useEffect(() => {
-    if (ChosenAgency?.logoUrl) setImgSrc(ChosenAgency?.logoUrl);
+    setImgSrc(`/Images/lists/agent/${ChosenAgency?.slug}.jpeg`);
   }, [ChosenAgency]);
 
   return (
     <Container>
-      <Header>
-        <ProfilePictureWrapper>
-          <ProfilePicture
-            fill
-            src={imgSrc}
-            alt={
-              ChosenAgency?.name
-                ? `${ChosenAgency?.name?.[locale]} image`
-                : 'agent image'
-            }
-            onError={() => {
-              setImgSrc(`/Images/placeholder.jpeg`);
+      <FirstContainer>
+        <SmallBox>
+          <ProfilePictureWrapper>
+            <ProfilePicture
+              fill
+              src={imgSrc}
+              alt={
+                ChosenAgency?.name
+                  ? `${ChosenAgency?.name?.[locale]} image`
+                  : 'agent image'
+              }
+              onError={() => {
+                setImgSrc(`/Images/placeholder.jpeg`);
+              }}
+            />
+            <VIPBoxContainer aria-hidden={true}>
+              <VIPBox aria-hidden={true} />
+            </VIPBoxContainer>
+          </ProfilePictureWrapper>
+          <Data>
+            <Name>{dt(ChosenAgency?.name)}</Name>
+          </Data>
+        </SmallBox>
+        <AboutContainer>
+          <Title>{t(LanguageKeys.About)}</Title>
+          <Desc
+            dangerouslySetInnerHTML={{
+              __html: dt(ChosenAgency?.desc),
             }}
           />
-          <VIPBoxContainer aria-hidden={true}>
-            <VIPBox aria-hidden={true} />
-          </VIPBoxContainer>
-        </ProfilePictureWrapper>
-        <RightSide>
-          <Title>{dt(ChosenAgency?.name)}</Title>
-
           <DesktopContactComponent
             website={ChosenAgency?.contact?.website}
             email={ChosenAgency?.contact?.email}
@@ -67,23 +80,13 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
             instagram={ChosenAgency?.contact?.instagram}
             linkedin={ChosenAgency?.contact?.linkedin}
           />
-        </RightSide>
-      </Header>
-      <AboutContainer>
-        <AboutTitle>{t(LanguageKeys.About)}</AboutTitle>
-        <Desc
-          dangerouslySetInnerHTML={{
-            __html: dt(ChosenAgency?.desc),
-          }}
-        />
-      </AboutContainer>
-      {/* Related */}
+        </AboutContainer>
+      </FirstContainer>
       <Row>
         <RelatedTo>{t(LanguageKeys.RelatedTo)}</RelatedTo>
         <AgentTitle>{dt(ChosenAgency?.name)}</AgentTitle>
       </Row>
       <Row style={{ gap: '4rem', flexWrap: 'nowrap', width: 'auto' }}>
-        <VIPContainer>
           {relatedAgents?.map((relatedAgent) => (
             <VIPAgentCard
               name={relatedAgent.name}
@@ -94,17 +97,16 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
               avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
             />
           ))}
-        </VIPContainer>
-
-        {relatedSocials?.map((relatedSocial, i) => (
-          <SmartSocial
-            key={i}
-            {...relatedSocial}
-            style={{ minHeight: '24.5rem', scale: '0.97' }}
-          />
-        ))}
+          {relatedSocials?.map((relatedSocial, i) => (
+            <SmartSocial
+              key={i}
+              {...relatedSocial}
+              style={{ minHeight: '24.5rem', scale: '0.97' }}
+            />
+          ))}
       </Row>
     </Container>
+
   );
 }
 export default DesktopAgentsPage;
@@ -117,49 +119,40 @@ const TitleColor = theme('mode', {
     color: var(--color-primary5);
   `,
 });
-const HeaderBackground = theme('mode', {
-  light: css`
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  `,
-  dark: css`
-    border: 1px var(--color-gray6) solid;
-  `,
-});
-const DescBackground = theme('mode', {
-  light: css`
-    background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  `,
-  dark: css`
-    background: var(--color-gray6);
-  `,
-});
 
+const FirstContainer = styled.div`
+   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  gap: 1rem;
+`;
 const Container = styled.div`
-  width: 100%;
+   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   padding: 4rem 0;
-  @media ${deviceMin.tabletS} {
-    justify-content: space-between;
-  }
+  gap: 1rem;
 `;
-const Header = styled.header`
-  ${HeaderBackground}
+const SmallBox = styled.header`
+  ${layer2A_BodyStyle}
   display: flex;
-  width: 55rem;
+  flex-direction: column;
+  justify-content: center;
+  width: 21rem;
   border-radius: 15px;
   padding: 1.5rem;
-  justify-content: flex-start;
   gap: 2rem;
   margin-bottom: 4rem;
 `;
 const ProfilePictureWrapper = styled.div`
   flex-shrink: 0;
-  width: 12rem;
+  width: 16rem;
   height: 16rem;
   z-index: 1;
   position: relative;
@@ -168,12 +161,12 @@ const ProfilePicture = styled(Image)`
   object-fit: cover;
   position: relative !important;
   border-radius: 15px;
-  background: white;
 `;
 const VIPBoxContainer = styled.div`
   width: 3rem;
   height: 3rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: var(--color-gray5);
@@ -188,37 +181,29 @@ const VIPBox = styled(FiBox)`
   height: auto;
 `;
 
-const RightSide = styled.div`
+const Data = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   //   justify-content: center;
   //   align-items: center;
 `;
-const Title = styled.h2`
+const Name = styled.h2`
   ${TitleColor}
-  ${Headline4Style}
+  ${layer2A_TitleStyle}
   z-index:1;
-  font-weight: 900;
   margin-bottom: 1.5rem;
 `;
-
 const AboutContainer = styled.div`
-  ${DescBackground}
-  border-radius: 15px;
-  width: 55rem;
-  padding: 1.5rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+  padding: 0 1rem;
 `;
-const AboutTitle = styled.h3`
-  ${layer2A_TitleStyle}
+const Title = styled.h3`
+  ${Layer1_TitleStyle}
+  margin-bottom:1.5rem;
 `;
 const Desc = styled.p`
-  ${Layer1_TextStyle}
+  ${layer2A_TextStyle}
+  margin-bottom:1.5rem;
 `;
 const RelatedTo = styled.h2`
   ${Layer1_TitleStyle};
@@ -230,14 +215,6 @@ const AgentTitle = styled.h2`
   margin-inline-start: 0.5rem;
   color: var(--color-primary4);
 `;
-const VIPContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  row-gap: 1rem;
-  column-gap: 5rem;
-`;
-
 const Row = styled.div`
   display: flex;
   flex-wrap: wrap;

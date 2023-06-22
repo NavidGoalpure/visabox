@@ -18,7 +18,6 @@ import Step9 from './Step9';
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
   const maxStep = 9;
-  //navid
   const steps = [
     <Step0 />,
     <Step1 />,

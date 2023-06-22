@@ -6,16 +6,15 @@ import Moon from './Images/Moon.svg';
 import MoonLogo from './MoonLogo';
 import SunLogo from './SunLogo';
 import theme from 'styled-theming';
-import { LanguageDirection, ThemeModes } from 'Interfaces';
+import {  ThemeModes } from 'Interfaces';
 import useTheme from 'Hooks/useTheme';
-import { Loading } from 'Elements/Loading';
-import { useLocale } from 'Hooks/useLocale';
+import { Loading } from 'Elements/Loading';   
+
 
 const SwitchTheme = () => {
   const { theme, setTheme } = useTheme();
   const isChecked = theme === ThemeModes.LIGHT;
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { direction } = useLocale();
   if (isLoading) return <Loading style={{ width: 'auto' }} />;
   return (
     <SwitchRoot
@@ -29,7 +28,7 @@ const SwitchTheme = () => {
       }}
     >
       <MoonLogo id='moon' />
-      <SwitchThumb direction={direction} />
+      <SwitchThumb />
       {!isChecked && <SunLogo id='sun' />}
     </SwitchRoot>
   );
@@ -90,7 +89,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
     }
   }
 `;
-const SwitchThumb = styled(RdxSwitch.Thumb) <{ direction: LanguageDirection }>`
+const SwitchThumb = styled(RdxSwitch.Thumb)`
   display: block;
   width: 68%;
   height: calc(100% + 6px);

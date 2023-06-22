@@ -1,0 +1,26 @@
+import { Client } from "Interfaces/Database/Client";
+import { NextApiRequest, NextApiResponse } from "next";
+import { sanityClient } from "Utils/sanity";
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  const body = JSON.parse(req.body);
+  const isSharable: boolean = body?.is_sharable;
+  const id = body?._id;
+  console.log("navid isSharable ===", isSharable);
+  if (isSharable !== undefined && id) {
+    sanityClient
+      .patch(id)
+      .set({ is_sharable: isSharable })
+      .commit()
+      .then(() => {
+        res.status(200).json({ message: "success" });
+      })
+      .catch((err) => {
+        const errors = err?.response?.body?.error?.items;
+        res.status(500).send({ message: "request failed", errors });
+      });
+  } else {
+    res.status(401).send({
+      message: "The user have not _id",
+    });
+  }
+}

@@ -1,7 +1,7 @@
 import useDevice from 'Hooks/useDevice';
 import { Agency } from 'Interfaces/Database/Lists/agency';
 import { useState, useEffect } from 'react';
-import DesktopAgentsPage from './Desktop/DesktopAgentsPage';
+import DesktopAgentsPage from './Desktop/DesktopAgencyPage';
 import MobileAgenciesPage from './Mobile/MobileAgenciesPage';
 interface Props {
   chosenAgency?: Agency;

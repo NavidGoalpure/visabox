@@ -113,9 +113,8 @@ const SocialsContainerCss = css`
 `;
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
   justify-items: start;
-  row-gap: 1rem;
+  row-gap: 2rem;
   column-gap: 2rem;
 `;
 const InternetContainer = styled.a`

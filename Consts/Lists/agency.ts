@@ -68,7 +68,7 @@ export const AGENCYS: Agency[] = [
     },
     contact: {
       website: 'https://www.ajmigration.com/fa',
-      phone: ['0061280346901'],
+      phone: ['+61280346901'],
     },
     agentsId: ['agt9'],
     status: Status.ACTIVE,

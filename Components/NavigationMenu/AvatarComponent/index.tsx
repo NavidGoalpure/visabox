@@ -80,7 +80,7 @@ function DesktopProfileOptions() {
   /////////////
   useEffect(() => {
     setIsSharableChecked(data?.client?.[0]?.is_sharable);
-  }, [isSharableLoading]);
+  }, [data]);
   return (
     <StyledNavigationMenuItem>
       <PopOver

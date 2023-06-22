@@ -52,7 +52,7 @@ function DesktopProfileOptions() {
       return fetch("/api/clients/is-sharable", {
         method: "POST",
         body: JSON.stringify({
-          is_sharable: !data?.client?.[0]?.is_sharable,
+          is_sharable: !isSharableChecked,
           _id: data?.client?.[0]?._id,
         }),
       });

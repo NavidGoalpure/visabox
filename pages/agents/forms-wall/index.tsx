@@ -8,11 +8,11 @@ import { withCSR } from 'Hoc/withCSR';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import { getlistOfBasicForm } from 'Queries/agents/ListOfForms';
 import {
-  listOfBasicForm_ResParams,
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Agents/FormsWall/const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { listOfBasicForm_ResParams } from 'Consts/agents';
 
 const FormsWall: NextPage = () => {
   const { locale } = useLocale();

@@ -31,13 +31,3 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Load More',
   },
 };
-export const listOfBasicForm_ResParams = `
-      _id,
-      _createdAt,
-      name,
-      lastname,
-      age,
-      current_job,
-      ielts_score,
-      completed_forms`;
-////////////

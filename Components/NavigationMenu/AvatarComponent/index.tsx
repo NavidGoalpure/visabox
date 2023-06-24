@@ -19,6 +19,7 @@ import { ClientCompletedForms } from "Interfaces/Database/Client";
 import SuccessToast from "Elements/Toast/Success";
 import ErrorToast from "Elements/Toast/Error";
 import { deviceMin } from "Consts/device";
+import { listOfBasicForm_ResParams } from "Consts/agents";
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);
@@ -72,6 +73,11 @@ function DesktopProfileOptions() {
           reqParams: `email == "${session?.user?.email || "defensive"}"`,
         })
       );
+       queryClient.removeQueries(
+         ClientQueryKeys.listOfBasicForm({
+           resParams: listOfBasicForm_ResParams,
+         })
+       );
     },
     onError: () => {
       ErrorToast(FailedToastMessage);

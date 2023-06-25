@@ -13,6 +13,8 @@ export default function PostContent() {
   return (
     <Container>
 
+      <img src='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'></img>
+
       <h1> آنچه باید در مورد سازمانهای ارزیاب استرالیا بدانیم </h1>
 
       <p>در استرالیا  بیش از 40 سازمان ارزیاب وجود دارد. که می توانید اسامی آنها  و اطلاعات مرتبط با هر یک را در این <a href={`/${locale}/occupations/assssing-authorities`}>صفحه</a>  مشاهده کنید.</p>
@@ -88,6 +90,8 @@ export default function PostContent() {
       <p>
         محاسبه سابقه کارقبل از اخذمدرک- اگرتمامی سابقه کارمتقاضی قبل از اخذ مدرک AQF Certificate III ویا Certificate IV معادل باشد3 سال سابقه کارمرتبط با مدرک قبل ازاخذمدرک مورد نیازاست ولازم است متقاضی پس ازاخذمدرک نیزحداقل یکسال کارکرده باشد.
       </p>
+
+      <img src='https://binsta.dev/api/v1/files/lxIVJdLhgF/transform?format=webp&size=lg&quality=best'></img>
 
       <h2> گروه E </h2>
 
@@ -187,6 +191,8 @@ export default function PostContent() {
         هزینه ارزیابی مدارک توسط سازمان ACS 530 دلار استرالیا می باشد.
       </p>
 
+      <img src='https://binsta.dev/api/v1/files/GpcrMjbVoc/transform?format=webp&size=lg&quality=best'></img>
+
       <h2> سازمان مدیران استرالیا (Institute of Manager and Leaders)  IML </h2>
 
       <p>
@@ -220,10 +226,22 @@ export default function PostContent() {
   );
 }
 const Container = styled.main`
+display: flex;
+justify-content: center;
+flex-direction: column;
+img{
+  margin-bottom: 2rem;
+  width: 80%;
+  height: 25rem;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  align-self: center;
+}
 p{
   ${Layer1_TextStyle}
   // line-height: 40px !important;
-}
+ }
 h1 {
   ${Layer1_TitleStyle}
   margin-top: 2rem;

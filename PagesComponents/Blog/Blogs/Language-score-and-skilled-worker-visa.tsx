@@ -57,6 +57,7 @@ display: flex;
 justify-content: center;
 flex-direction: column;
 img{
+  margin-bottom: 2rem;
   width: 80%;
   height: 25rem;
   border-radius: 15px;

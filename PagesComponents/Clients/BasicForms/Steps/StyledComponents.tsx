@@ -1,8 +1,11 @@
 import { deviceMin } from "Consts/device";
 import { PrimaryButton } from "Elements/Button/Primary";
+import { FaCalculator } from "react-icons/fa";
+import { IoIosInformationCircleOutline } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { Headline7Style } from "Styles/Typo";
 
 const PrevIconDirectionStyle = theme("languageDirection", {
@@ -25,6 +28,14 @@ const PrevButtonTheme = theme("mode", {
     color: var(--color-gray10);
   `,
 });
+const IconTheme = theme("mode", {
+  light: css`
+    color: var(--color-primary3);
+  `,
+  dark: css`
+    color: var(--color-primary4);
+  `,
+});
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -32,6 +43,27 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+`;
+export const Title = styled.h2`
+  ${Layer1_SubtitleStyle};
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  margin-top: 1rem;
+`;
+
+export const CalculatorIcon = styled(FaCalculator)`
+  ${IconTheme};
+  height: 1.1rem;
+  width: auto;
+  cursor: pointer;
+`;
+export const InformationIcon = styled(IoIosInformationCircleOutline)`
+  ${IconTheme};
+  height: 1.5rem;
+  width: auto;
+  cursor: pointer;
 `;
 export const ButtonWrapper = styled.div`
   width: 100%;

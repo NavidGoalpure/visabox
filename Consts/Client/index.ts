@@ -6,6 +6,11 @@ export const ages: MultiLanguageText[] = [
   { en: "40-44", fa: "40-44" },
   { en: "45+", fa: "45+" },
 ];
+export const VisaSubclasses: MultiLanguageText[] = [
+  { en: "189", fa: "189" },
+  { en: "190", fa: "190" },
+  { en: "491", fa: "491" },
+];
 export const maritalStatuses: MultiLanguageText[] = [
     { en: "Married", fa: "متاهل" },
     { en: "Single", fa: "مجرد" },
@@ -20,6 +25,10 @@ export const uniSections: MultiLanguageText[] = [
   { en: "Section 1", fa: "سکشن ۱" },
   { en: "Section 2", fa: "سکشن ۲" },
   { en: "I don't know", fa: "نمیدانم" },
+];
+export const YesOrNo: MultiLanguageText[] = [
+  { en: "No", fa: "نه" },
+  { en: "Yes", fa: "آره" },
 ];
 export const works: MultiLanguageText[] = [
   { en: "Below 1 year", fa: "زیر یک سال" },

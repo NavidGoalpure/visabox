@@ -15,6 +15,7 @@ function FormDataContextProvider(props: ContextProps) {
   const [client, setClient] = useState<Client>(
     props.prevData || ({} as Client)
   );
+  console.log("navid clientData ===,",client)
   //
   return (
     <FormDataContext.Provider

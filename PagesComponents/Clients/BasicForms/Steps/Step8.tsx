@@ -12,37 +12,38 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
+  Title,
 } from './StyledComponents';
+import { australianWorks } from 'Consts/Client';
 import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { IELTSScores } from 'Consts/Client';
-import { IELTSScore } from 'Interfaces/Database/Client';
+import { AustralianWorkExperience } from 'Interfaces/Database/Client';
 
 const Step8 = () => {
-  const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
-      <Title>{t(LanguageKeys.IELTSScoreSectionTitle)}</Title>
+      <Title>{t(LanguageKeys.AustralianWorkExperienceSectionTitle)}</Title>
       <ToggleGroupRoot
         type='single'
-        value={client?.ielts_score}
+        value={client?.australian_work_experience}
         onValueChange={(value) =>
           client &&
           setClient({
             ...client,
-            ielts_score: value as IELTSScore,
+            australian_work_experience: value as AustralianWorkExperience,
           })
         }
       >
         {
           <>
-            {IELTSScores.map((IELTSScore, i) => (
+            {australianWorks.map((australianWork, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={IELTSScore}
-                value={IELTSScore.en.toLowerCase()}
+                text={australianWork}
+                value={australianWork.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -53,13 +54,14 @@ const Step8 = () => {
           <PrevIcon />
           {t(LanguageKeys.PrevButtonTitle)}
         </PrevButton>
+
         <NextButton
           step={step}
+          icon={<NextIcon />}
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.ielts_score}
-          icon={<NextIcon />}
+          disabled={!client?.australian_work_experience}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>
@@ -70,9 +72,4 @@ const Step8 = () => {
 export default Step8;
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
-`;
-const Title = styled.h1`
-  ${Layer1_SubtitleStyle};
-  margin: 0;
-  margin-top: 1rem;
 `;

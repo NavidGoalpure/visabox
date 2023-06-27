@@ -49,6 +49,10 @@ export function validateClientDataWithYup(client: Client | undefined) {
         _key: string().required(),
       })
     ),
+    australian_educational_qualification: boolean().required(),
+    designated_regional_area_study: boolean().notRequired(),
+    specialist_educational_qualification: boolean().required(),
+    professional_year_in_australia: boolean().required(),
     avatar: string(),
     email: string().email().required(),
     //

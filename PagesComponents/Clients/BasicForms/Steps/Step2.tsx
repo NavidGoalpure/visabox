@@ -1,42 +1,60 @@
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext} from 'react';
+import styled from "styled-components";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
+import * as ToggleGroup from "../../../../Elements/ToggleGroup";
+import { MultiLanguageText } from "Interfaces/Database";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import { WizardContext } from "../Contexts/Wizard/Context";
+import { useContext, useEffect, useState } from "react";
 import {
   ButtonWrapper,
+  CalculatorIcon,
   Container,
+  InformationIcon,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
-} from './StyledComponents';
-import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { Input } from 'Components/Input';
+  Title,
+} from "./StyledComponents";
+import { FormDataContext } from "../Contexts/FormDataContext/Context";
+import { ClientMarital } from "Interfaces/Database/Client";
+import { maritalStatuses, VisaSubclasses } from "Consts/Client";
 
 const Step2 = () => {
-  const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+  const { t } = useStaticTranslation(componentStatements);
   const { client, setClient } = useContext(FormDataContext);
-  var mydate = client?.age
-    ? new Date(client?.age).toISOString().slice(0, 10)
-    : '';
+
   return (
     <Container>
-      <Input
-        label={t(LanguageKeys.AgeSectionTitle)}
-        type={'date'}
-        inputName='age'
-        value={mydate}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          client &&
-            setClient({
-              ...client,
-              age: e.target.value?.slice(0, 10),
-            });
-        }}
-        id={'date-input'}
-        placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
-      />
+      <Title>
+        {t(LanguageKeys.VisaSubclassTitle)} <CalculatorIcon />{" "}
+        <InformationIcon />
+      </Title>
+      <ToggleGroupRoot
+        type="single"
+        // value={client?.marital}
+        // onValueChange={(value) =>
+        //   client &&
+        //   setClient({
+        //     ...client,
+        //     marital: value as ClientMarital,
+        //   })
+        // }
+      >
+        {
+          <>
+            {VisaSubclasses.map((VisaSubclass, i) => (
+              <ToggleGroup.Item
+                key={i}
+                text={VisaSubclass}
+                value={VisaSubclass.en.toLowerCase()}
+              ></ToggleGroup.Item>
+            ))}
+          </>
+        }
+      </ToggleGroupRoot>
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -48,8 +66,8 @@ const Step2 = () => {
           onClick={() => {
             handleNextPress();
           }}
+          disabled={!client?.marital}
           icon={<NextIcon />}
-          disabled={!client?.age}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>
@@ -58,3 +76,8 @@ const Step2 = () => {
   );
 };
 export default Step2;
+
+const ToggleGroupRoot = styled(ToggleGroup.Root)`
+  gap: 1rem;
+  width: 100%;
+`;

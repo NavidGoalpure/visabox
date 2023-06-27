@@ -61,6 +61,10 @@ export interface Client extends SanityKeys {
   is_sharable?: boolean;
   //سکشن دانشگاه
   uni_section?: UniSections;
+  australian_educational_qualification:boolean;
+  designated_regional_area_study?:boolean;
+  specialist_educational_qualification:boolean;
+  professional_year_in_australia:boolean;
   status?: Status;
   role?: ClientRole;
   avatar?: string;

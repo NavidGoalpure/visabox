@@ -1,12 +1,9 @@
-import ErrorToast from 'Elements/Toast/Error';
 import SuccessToast from 'Elements/Toast/Success';
-import { Languages, LocalStorageKeys, Locations, ThemeModes } from 'Interfaces';
+import { LocalStorageKeys, ThemeModes } from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import crypto from 'crypto';
-import { MultiLanguageText } from 'Interfaces/Database';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
   const DEFAULT_THEME = ThemeModes.DARK;
@@ -64,7 +61,6 @@ const copyContent = async ({
   await navigator.clipboard
     .writeText(text)
     .then(() => SuccessToast(toastMessage));
-  
 };
 function getGsapTimeLine_FadeUp(id: string | number) {
   gsap.registerPlugin(ScrollTrigger);

@@ -78,11 +78,11 @@ export function getWorkExperienceLabel({
   workExperience: WorkExperience | undefined;
 }): MultiLanguageText | undefined {
   switch (workExperience) {
-    case WorkExperience['1To3Years']:
+    case WorkExperience['1To2Years']:
       return works.find((experience) => experience.en === '1 to 3 years');
-    case WorkExperience['3To5Years']:
+    case WorkExperience['3To4Years']:
       return works.find((experience) => experience.en === '3 to 5 years');
-    case WorkExperience['5To8Years']:
+    case WorkExperience['5To7Years']:
       return works.find((experience) => experience.en === '5 to 8 years');
     case WorkExperience.Below1Year:
       return works.find((experience) => experience.en === 'Below 1 year');
@@ -104,15 +104,15 @@ export function getAustralianWorkExperienceLabel({
         (australianWorkExp) =>
           australianWorkExp.en === 'none - less than 1 year'
       );
-    case AustralianWorkExperience['1To3Years']:
+    case AustralianWorkExperience['1To2Years']:
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === '1 to 3 years'
       );
-    case AustralianWorkExperience['3To5Years']:
+    case AustralianWorkExperience['3To4Years']:
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === '3 to 5 years'
       );
-    case AustralianWorkExperience['5To8Years']:
+    case AustralianWorkExperience['5To7Years']:
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === '5 to 8 years'
       );
@@ -136,11 +136,11 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
     australianWorkExperience: getAustralianWorkExperienceLabel({
       australianWorkExp: client?.australian_work_experience,
     }),
-    age: client?.age ,
+    age: client?.age,
     IELTSScore: client?.ielts_score,
-    phoneNumber: client?.phone ,
-    email: client?.email ,
-    fieldOfStudy: client?.field_of_study ,
+    phoneNumber: client?.phone,
+    email: client?.email,
+    fieldOfStudy: client?.field_of_study,
   };
   return showableData;
 }

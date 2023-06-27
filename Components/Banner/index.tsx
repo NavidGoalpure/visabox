@@ -59,6 +59,7 @@ span {
 color: var(--color-secondary1);
 }
 ${Headline7Style};
+rotate: -10deg;
 scale: 0.7;
 display: flex;
 flex-direction: column;

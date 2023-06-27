@@ -66,6 +66,7 @@ const PageContainer: React.FC<Props> = ({
             ></div>
           }
           buttonText={t(LanguageKeys.BannerButtonText)}
+          stampText={t(LanguageKeys.StampText)}
         />
       )}
 

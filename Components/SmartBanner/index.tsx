@@ -8,14 +8,16 @@ import { IoCloseOutline } from "react-icons/io5";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
-import { Headline5Style } from "Styles/Typo";
+import { Headline5Style, Headline7Style } from "Styles/Typo";
 import { getLocalStorage, setLocalStorage } from "Utils";
+import BannerStamp from "./Images/BannerStamp.svg"
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
   buttonText: string;
+  stampText: string;
 }
-const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
+const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) => {
   const router = useRouter();
   const [isBannerClosed, setIsBannerClosed] = useState(true);
   useEffect(() => {
@@ -29,42 +31,90 @@ const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
   }, []);
   return (
     <Container isBannerClosed={isBannerClosed}>
-      {" "}
-      <MaraBgAnimation
-        animationSpeed={60}
-        DarkPrimaryColor={"var(--color-primary3)"}
-        LightPrimaryColor={"var(--color-primary3)"}
-        LightSecondaryColor={"transparent"}
+      <Stamp
+        dangerouslySetInnerHTML={{ __html: stampText }}
       >
-        <Wrapper>
-          <Title>{desc}</Title>{" "}
-          <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
-            {buttonText}
-          </Button>
-          <CloseIconWrapper
-            onClick={() => {
-              setLocalStorage({
-                key: LocalStorageKeys.Client_IsFormBannerClosed,
-                value: "true",
-              });
-              setIsBannerClosed(true);
-            }}
-          >
-            <CloseIcon />
-          </CloseIconWrapper>
-        </Wrapper>
-      </MaraBgAnimation>
+      </Stamp>
+      <Wrapper>
+        {" "}
+        <MaraBgAnimation
+          animationSpeed={60}
+          DarkPrimaryColor={"var(--color-primary3)"}
+          LightPrimaryColor={"var(--color-primary3)"}
+          LightSecondaryColor={"transparent"}
+        >
+          <Content>
+            <Title>{desc}</Title>{" "}
+            <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
+              {buttonText}
+            </Button>
+            <CloseIconWrapper
+              onClick={() => {
+                setLocalStorage({
+                  key: LocalStorageKeys.Client_IsFormBannerClosed,
+                  value: "true",
+                });
+                setIsBannerClosed(true);
+              }}
+            >
+              <CloseIcon />
+            </CloseIconWrapper>
+          </Content>
+        </MaraBgAnimation>
+      </Wrapper>
     </Container>
   );
 };
 export default SmartBanner;
+
+const Container = styled.div<{ isBannerClosed: boolean }>`
+position: relative;
+width: 100%;
+///////////
+${({ isBannerClosed }) => isBannerClosed && `display:none;`}
+///////
+`
+
+const Stamp = styled.div`
+span {
+color: var(--color-secondary1);
+}
+${Headline7Style};
+rotate: -10deg;
+scale: 0.7;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: space-around;
+text-align: center;
+position: absolute;
+background-image: url(${BannerStamp});
+background-repeat: no-repeat;
+background-size: contain;
+width: 112px;
+height: 112px;
+bottom: -4rem;
+left: -0.5rem;
+z-index: 1;
+font-weight: 900;
+color: var(--color-secondary1);
+@media ${deviceMin.tabletS} {
+  ${Headline7Style};
+  left: 5rem;
+  width: 112px;
+  height: 112px;
+  font-weight: 900;
+  bottom: -4rem;
+}
+`
 const NextIconDirectionStyle = theme("languageDirection", {
   ltr: css``,
   rtl: css`
     transform: rotate(180deg);
   `,
 });
-const Container = styled.div<{ isBannerClosed: boolean }>`
+
+const Wrapper = styled.div`
   background: var(--color-primary1);
   text-align: center;
   position: relative;
@@ -72,9 +122,6 @@ const Container = styled.div<{ isBannerClosed: boolean }>`
   height: max-content;
   z-index: 0;
   overflow: hidden;
-  ///////////
-  ${({ isBannerClosed }) => isBannerClosed && `display:none;`}
-  ///////
   :before {
     content: "";
     width: 20%;
@@ -102,7 +149,7 @@ const Container = styled.div<{ isBannerClosed: boolean }>`
     z-index: 0;
   }
 `;
-const Wrapper = styled.div`
+const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem 0.3rem 1rem;

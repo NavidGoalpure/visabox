@@ -29,10 +29,10 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
 
   useEffect(() => {
-    setImgSrc(`/Images/lists/agent/${ChosenAgent?.slug}.jpeg`);
+    if (ChosenAgent?.avatar) setImgSrc(ChosenAgent?.avatar);
   }, [ChosenAgent]);
 
   return (

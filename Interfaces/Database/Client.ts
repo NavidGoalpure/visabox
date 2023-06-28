@@ -56,7 +56,7 @@ export interface Client extends SanityKeys {
   lastname?: string;
   phone?: string;
   age?: string;
-  visaSubclass:VisaSubclass;
+  visa_subclass: VisaSubclass;
   marital?: ClientMarital;
   field_of_study?: string;
   degree?: ClientDegree;
@@ -67,10 +67,12 @@ export interface Client extends SanityKeys {
   is_sharable?: boolean;
   //سکشن دانشگاه
   uni_section?: UniSections;
+  ///
   australian_educational_qualification: boolean;
   designated_regional_area_study?: boolean;
   specialist_educational_qualification: boolean;
   professional_year_in_australia: boolean;
+  ///
   status?: Status;
   role?: ClientRole;
   avatar?: string;

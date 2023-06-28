@@ -18,7 +18,7 @@ import {
   Title,
 } from "./StyledComponents";
 import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { ClientMarital } from "Interfaces/Database/Client";
+import { ClientMarital, VisaSubclass } from "Interfaces/Database/Client";
 import { maritalStatuses, VisaSubclasses } from "Consts/Client";
 
 const Step2 = () => {
@@ -34,14 +34,14 @@ const Step2 = () => {
       </Title>
       <ToggleGroupRoot
         type="single"
-        // value={client?.marital}
-        // onValueChange={(value) =>
-        //   client &&
-        //   setClient({
-        //     ...client,
-        //     marital: value as ClientMarital,
-        //   })
-        // }
+        value={client?.visa_subclass}
+        onValueChange={(value) =>
+          client &&
+          setClient({
+            ...client,
+            visa_subclass: value as VisaSubclass,
+          })
+        }
       >
         {
           <>
@@ -66,7 +66,7 @@ const Step2 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.marital}
+          disabled={!client?.visa_subclass}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

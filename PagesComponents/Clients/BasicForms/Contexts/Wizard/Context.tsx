@@ -18,7 +18,7 @@ type Props = {
 const WizardContext = React.createContext({} as WizardState);
 //
 function WizardContextProvider(props: Props) {
-  const [step, setStep] = useState<number>(5);
+  const [step, setStep] = useState<number>(0);
   const [isBackPressed, setIsBackPressed] = useState<boolean>(false);
   const [isOut, setIsOut] = useState<boolean>(false);
 

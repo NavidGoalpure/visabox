@@ -37,6 +37,20 @@ export default {
       type: "date",
     },
     {
+      name: "visa_subclass",
+      title: "Visa Subclass",
+      type: "string",
+      options: {
+        list: [
+          { title: "189", value: "189" },
+          { title: "190", value: "190" },
+          { title: "491", value: "491" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    },
+    {
       name: "status",
       title: "Status",
       type: "string",

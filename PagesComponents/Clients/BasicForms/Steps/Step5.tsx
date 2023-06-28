@@ -235,7 +235,16 @@ const Step5 = () => {
             handleNextPress();
           }}
           disabled={
-            !client?.field_of_study || !client?.degree || !client?.uni_section
+            !client?.field_of_study ||
+            !client?.degree ||
+            !client?.uni_section ||
+            client?.australian_educational_qualification === undefined ||
+            client?.professional_year_in_australia === undefined ||
+            client?.specialist_educational_qualification === undefined ||
+            // designated regional area study is not required 
+            // unless australian educational qualification === true
+            (client?.australian_educational_qualification === true &&
+              client?.designated_regional_area_study === undefined)
           }
           icon={<NextIcon />}
         >

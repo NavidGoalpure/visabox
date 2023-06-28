@@ -16,10 +16,10 @@ export enum ClientRole {
 }
 export enum WorkExperience {
   'Below1Year' = 'below 1 year',
-  '1To3Years' = '1 to 3 years',
-  '3To5Years' = '3 to 5 years',
-  '5To8Years' = '5 to 8 years',
-  'MoreThan8Years' = 'more than 8 years',
+  '1To2Years' = '1 to 2 years',
+  '3To4Years' = '3 to 4 years',
+  '5To7Years' = '5 to 7 years',
+  'MoreThan8Years' = '8 years or More',
 }
 export enum UniSections {
   'Section1' = 'section 1',
@@ -27,10 +27,10 @@ export enum UniSections {
   'IDontKnow' = "i don't know",
 }
 export enum AustralianWorkExperience {
-  'LessThan1Year' = 'none - less than 1 year',
-  '1To3Years' = '1 to 3 years',
-  '3To5Years' = '3 to 5 years',
-  '5To8Years' = '5 to 8 years',
+  'LessThan1Year' = 'below 1 year',
+  '1To2Years' = '1 to 3 years',
+  '3To4Years' = '3 to 5 years',
+  '5To7Years' = '5 to 8 years',
   'MoreThan8Years' = 'more than 8 years',
 }
 export enum IELTSScore {
@@ -67,10 +67,10 @@ export interface Client extends SanityKeys {
   is_sharable?: boolean;
   //سکشن دانشگاه
   uni_section?: UniSections;
-  australian_educational_qualification:boolean;
-  designated_regional_area_study?:boolean;
-  specialist_educational_qualification:boolean;
-  professional_year_in_australia:boolean;
+  australian_educational_qualification: boolean;
+  designated_regional_area_study?: boolean;
+  specialist_educational_qualification: boolean;
+  professional_year_in_australia: boolean;
   status?: Status;
   role?: ClientRole;
   avatar?: string;

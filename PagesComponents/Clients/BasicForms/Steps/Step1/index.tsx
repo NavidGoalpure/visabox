@@ -1,8 +1,6 @@
 import { Input } from 'Components/Input';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { WizardContext } from '../Contexts/Wizard/Context';
+import { componentStatements, LanguageKeys } from "./const";
 import { useContext } from 'react';
 import {
   ButtonWrapper,
@@ -11,7 +9,9 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-} from './StyledComponents';
+} from '../StyledComponents';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../Contexts/Wizard/Context';
 
 const Step1 = () => {
   const { t } = useStaticTranslation(componentStatements);

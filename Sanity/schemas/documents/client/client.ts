@@ -95,6 +95,21 @@ export default {
       },
     },
     {
+      name: "marital_situation",
+      title: "Marital Status",
+      type: "string",
+      options: {
+        list: [
+          { title: "1", value: "1" },
+          { title: "2", value: "2" },
+          { title: "3", value: "3" },
+          { title: "4", value: "4" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    },
+    {
       name: "field_of_study",
       title: "Field Of Study",
       type: "string",
@@ -133,6 +148,11 @@ export default {
     {
       name: "professional_year_in_australia",
       title: "Professional Year in Australia",
+      type: "boolean",
+    },
+    {
+      name: "accredited_community_language",
+      title: "Accredited Community Language",
       type: "boolean",
     },
     {

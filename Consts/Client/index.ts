@@ -15,6 +15,12 @@ export const maritalStatuses: MultiLanguageText[] = [
     { en: "Married", fa: "متاهل" },
     { en: "Single", fa: "مجرد" },
 ];
+export const maritalSituations: MultiLanguageText[] = [
+  { en: "1", fa: "1" },
+  { en: "2", fa: "2" },
+  { en: "3", fa: "3" },
+  { en: "4", fa: "4" },
+];
 export const educations: MultiLanguageText[] = [
   { en: "Diploma", fa: "دیپلم" },
   { en: "Bachelor's degree", fa: "لیسانس" },
@@ -27,8 +33,8 @@ export const uniSections: MultiLanguageText[] = [
   { en: "I don't know", fa: "نمیدانم" },
 ];
 export const YesOrNo: MultiLanguageText[] = [
-  { en: "No", fa: "نه" },
-  { en: "Yes", fa: "آره" },
+  { en: "No", fa: "خیر" },
+  { en: "Yes", fa: "بله" },
 ];
 export const works: MultiLanguageText[] = [
   { en: "Below 1 year", fa: "زیر یک سال" },

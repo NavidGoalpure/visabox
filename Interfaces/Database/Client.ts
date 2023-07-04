@@ -1,42 +1,48 @@
-import { SanityKeys, Status } from '.';
+import { SanityKeys, Status } from ".";
 
 export enum ClientMarital {
-  Married = 'married',
-  Single = 'single',
+  Married = "married",
+  Single = "single",
+}
+export enum MaritalSituationType {
+  One = "1",
+  Two = "2",
+  Three = "3",
+  Four = "4",
 }
 export enum ClientDegree {
-  Diploma = 'diploma',
+  Diploma = "diploma",
   Bachelorsdegree = "bachelor's degree",
   Mastersdegree = "master's degree",
-  Doctorate = 'doctorate',
+  Doctorate = "doctorate",
 }
 export enum ClientRole {
-  Normal = 'normal',
-  Admin = 'admin',
+  Normal = "normal",
+  Admin = "admin",
 }
 export enum WorkExperience {
-  'Below1Year' = 'below 1 year',
-  '1To2Years' = '1 to 2 years',
-  '3To4Years' = '3 to 4 years',
-  '5To7Years' = '5 to 7 years',
-  'MoreThan8Years' = '8 years or More',
+  "Below1Year" = "below 1 year",
+  "1To3Years" = "1 to 3 years",
+  "3To5Years" = "3 to 5 years",
+  "5To8Years" = "5 to 8 years",
+  "MoreThan8Years" = "8 years or More",
 }
 export enum UniSections {
-  'Section1' = 'section 1',
-  'Section2' = 'section 2',
-  'IDontKnow' = "i don't know",
+  "Section1" = "section 1",
+  "Section2" = "section 2",
+  "IDontKnow" = "i don't know",
 }
 export enum AustralianWorkExperience {
-  'LessThan1Year' = 'below 1 year',
-  '1To2Years' = '1 to 3 years',
-  '3To4Years' = '3 to 5 years',
-  '5To7Years' = '5 to 8 years',
-  'MoreThan8Years' = 'more than 8 years',
+  "LessThan1Year" = "below 1 year",
+  "1To3Years" = "1 to 3 years",
+  "3To5Years" = "3 to 5 years",
+  "5To8Years" = "5 to 8 years",
+  "MoreThan8Years" = "more than 8 years",
 }
 export enum IELTSScore {
-  Six = '6',
-  Seven = '7',
-  Eight = '8',
+  Six = "6",
+  Seven = "7",
+  Eight = "8",
 }
 export enum VisaSubclass {
   "189Subclass" = "189",
@@ -44,11 +50,11 @@ export enum VisaSubclass {
   "491Subclass" = "491",
 }
 export enum ClientCompletedForms {
-  BasicForm = 'basic_form',
+  BasicForm = "basic_form",
 }
 export interface ClientCompletedForms_obj {
   forms: ClientCompletedForms;
-  _type: 'client_completed_forms_obj';
+  _type: "client_completed_forms_obj";
   _key: string;
 }
 export interface Client extends SanityKeys {
@@ -58,6 +64,7 @@ export interface Client extends SanityKeys {
   age?: string;
   visa_subclass: VisaSubclass;
   marital?: ClientMarital;
+  marital_situation: MaritalSituationType;
   field_of_study?: string;
   degree?: ClientDegree;
   current_job?: string;
@@ -72,6 +79,7 @@ export interface Client extends SanityKeys {
   designated_regional_area_study?: boolean;
   specialist_educational_qualification: boolean;
   professional_year_in_australia: boolean;
+  accredited_community_language: boolean;
   ///
   status?: Status;
   role?: ClientRole;

@@ -29,9 +29,9 @@ export function validateClientDataWithYup(client: Client | undefined) {
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
     current_job: string().required(),
-    // work_experience: mixed<WorkExperience>()
-    //   .oneOf(Object.values(WorkExperience))
-    //   .required(),
+    work_experience: mixed<WorkExperience>()
+      .oneOf(Object.values(WorkExperience))
+      .required(),
     australian_work_experience: mixed<AustralianWorkExperience>()
       .oneOf(Object.values(AustralianWorkExperience))
       .required(),
@@ -57,6 +57,7 @@ export function validateClientDataWithYup(client: Client | undefined) {
     designated_regional_area_study: boolean().notRequired(),
     specialist_educational_qualification: boolean().required(),
     professional_year_in_australia: boolean().required(),
+    accredited_community_language: boolean().required(),
     avatar: string(),
     email: string().email().required(),
     //

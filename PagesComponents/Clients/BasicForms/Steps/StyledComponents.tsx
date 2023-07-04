@@ -1,7 +1,8 @@
 import { deviceMin } from "Consts/device";
 import { PrimaryButton } from "Elements/Button/Primary";
-import { FaCalculator } from "react-icons/fa";
-import { IoIosInformationCircleOutline } from "react-icons/io";
+import TooltipTag from "Elements/TooltipTag";
+import { HiOutlineCalculator } from "react-icons/hi2";
+import { FiInfo } from "react-icons/fi";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
@@ -30,10 +31,10 @@ const PrevButtonTheme = theme("mode", {
 });
 const IconTheme = theme("mode", {
   light: css`
-    color: var(--color-primary3);
+    color: var(--color-primary13);
   `,
   dark: css`
-    color: var(--color-primary4);
+    color: var(--color-primary1);
   `,
 });
 export const Container = styled.div`
@@ -51,15 +52,29 @@ export const Title = styled.h2`
   gap: 0.5rem;
   margin: 0;
   margin-top: 1rem;
+  flex-direction: column;
+  @media ${deviceMin.tabletL} {
+    white-space: pre;
+    flex-direction: row;
+  }
 `;
-
-export const CalculatorIcon = styled(FaCalculator)`
+export const StyledTooltipTag = styled(TooltipTag)`
+  cursor: pointer;
+  #trigger_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.75rem;
+  }
+`;
+export const CalculatorIcon = styled(HiOutlineCalculator)`
   ${IconTheme};
-  height: 1.1rem;
+  height: 1.5rem;
   width: auto;
   cursor: pointer;
 `;
-export const InformationIcon = styled(IoIosInformationCircleOutline)`
+export const InformationIcon = styled(FiInfo)`
   ${IconTheme};
   height: 1.5rem;
   width: auto;

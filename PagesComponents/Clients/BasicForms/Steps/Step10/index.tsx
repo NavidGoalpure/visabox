@@ -1,7 +1,6 @@
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useState } from "react";
-import { PrevButton } from "./StyledComponents";
+import { componentStatements, LanguageKeys } from "./const";
+import { useContext,  useState } from "react";
+import { PrevButton } from "../StyledComponents";
 import styled, { css } from "styled-components";
 import { Headline3Style, Headline4Style } from "Styles/Typo";
 import theme from "styled-theming";
@@ -14,7 +13,6 @@ import SuccessToast from "Elements/Toast/Success";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
 import { BsCheck2, BsFillCheckCircleFill } from "react-icons/bs";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { Loading } from "Elements/Loading";
@@ -22,16 +20,16 @@ import { deviceMin } from "Consts/device";
 import ErrorToast from "Elements/Toast/Error";
 import { ClientQueryKeys } from "Utils/query/keys";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { validateClientDataWithYup } from "./utils";
 import {
   Client,
   ClientCompletedForms,
   ClientCompletedForms_obj,
   ClientRole,
-  VisaSubclass,
 } from "Interfaces/Database/Client";
 import { Status } from "Interfaces/Database";
-import { object } from "yup";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
+import { validateClientDataWithYup } from "./utils";
 
 //
 const Step10 = () => {

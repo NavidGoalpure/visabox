@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <>
       <style jsx global>{`
         html {
-          font-family: ${montserrat.style.fontFamily};
+          font-family: ${montserrat.style.fontFamily}, var(--font-family__fa);
         }
       `}</style>
       {/* ////////////////////////////////////////////
@@ -73,8 +73,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
               <ErrorBoundary>
                 <Head>
                   <meta
-                    name='viewport'
-                    content='width=device-width, initial-scale=1'
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
                   />
                 </Head>
                 <Component {...pageProps} />

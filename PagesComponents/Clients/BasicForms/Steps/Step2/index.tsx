@@ -1,47 +1,53 @@
 import styled from "styled-components";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import * as ToggleGroup from "../../../../Elements/ToggleGroup";
-import { MultiLanguageText } from "Interfaces/Database";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
-import { useContext, useEffect, useState } from "react";
+import { componentStatements, LanguageKeys } from "./const";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
-  InformationIcon,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
+  StyledTooltipTag,
   Title,
-} from "./StyledComponents";
-import { FormDataContext } from "../Contexts/FormDataContext/Context";
-import { ClientMarital, VisaSubclass } from "Interfaces/Database/Client";
-import { maritalStatuses, VisaSubclasses } from "Consts/Client";
+} from "../StyledComponents";
+import { VisaSubclass } from "Interfaces/Database/Client";
+import { VisaSubclasses } from "Consts/Client";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
 
 const Step2 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient } = useContext(FormDataContext);
+  const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>
-        {t(LanguageKeys.VisaSubclassTitle)} <CalculatorIcon />{" "}
-        <InformationIcon />
+        {t(LanguageKeys.VisaSubclassTitle)}
+        <StyledTooltipTag
+          content={
+            <>
+              <CalculatorIcon />
+            </>
+          }
+          popupContent={"red blue purple but not black navid"}
+        />
       </Title>
       <ToggleGroupRoot
         type="single"
         value={client?.visa_subclass}
-        onValueChange={(value) =>
+        onValueChange={(value) => {
           client &&
-          setClient({
-            ...client,
-            visa_subclass: value as VisaSubclass,
-          })
-        }
+            setClient({
+              ...client,
+              visa_subclass: value as VisaSubclass,
+            });
+          console.log("navid score ===", score);
+        }}
       >
         {
           <>
@@ -65,6 +71,8 @@ const Step2 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+            console.log("navid score ===", score);
+            console.log("navid client ===", client);
           }}
           disabled={!client?.visa_subclass}
           icon={<NextIcon />}

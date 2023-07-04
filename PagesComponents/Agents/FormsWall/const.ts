@@ -14,7 +14,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'لیست متقاضیان مهاجرت | مارا باکس',
   },
   SeoDesc: {
-    fa: 'لیست جامع افرادی که از طریق پلتفرم ما برای مهاجرت به استرالیا ابراز علاقه کرده اند. به سرعت با آنها ارتباط برقرار کنید تا آنها را به مشتریان راضی بعدی خود تبدیل کنید.',
+    fa: 'لیست افرادی که از طریق پلتفرم «ماراباکس» برای مهاجرت به استرالیا ابراز علاقه کرده اند. به سرعت با آنها ارتباط برقرار کنید تا آنها را به مشتریان راضی بعدی خود تبدیل کنید.',
     en: 'The comprehensive list of individuals who have expressed interest in migrating to Australia through our platform. Connect with them promptly to turn them into your next satisfied clients.',
   },
   //
@@ -23,7 +23,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Pending Migration Inquiries',
   },
   PageSubtitle: {
-    fa: 'لیست جامع افرادی که از طریق پلتفرم ما برای مهاجرت به استرالیا ابراز علاقه کرده اند. به سرعت با آنها ارتباط برقرار کنید تا آنها را به مشتریان راضی بعدی خود تبدیل کنید.',
+    fa: 'لیست افرادی که از طریق پلتفرم «ماراباکس» برای مهاجرت به استرالیا ابراز علاقه کرده اند. به سرعت با آنها ارتباط برقرار کنید تا آنها را به مشتریان راضی بعدی خود تبدیل کنید.',
     en: 'The comprehensive list of individuals who have expressed interest in migrating to Australia through our platform. Connect with them promptly to turn them into your next satisfied clients.',
   },
   LoadMore: {

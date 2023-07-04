@@ -72,7 +72,7 @@ function VIPAgencyCard({
         <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
         <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
         <AgencyElement>
-          Agency <Box />
+        {t(LanguageKeys.Agency)} <Box />
         </AgencyElement>
         <MaraElement>Mara</MaraElement>
       </Wrapper>

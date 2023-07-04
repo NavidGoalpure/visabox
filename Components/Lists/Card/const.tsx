@@ -2,6 +2,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import gsap from 'gsap';
 import { MultiLanguageText } from 'Interfaces/Database';
 
+
 export enum LanguageKeys {
   Email = 'Email',
   Phone = 'Phone',
@@ -11,6 +12,7 @@ export enum LanguageKeys {
   Translator = 'Translator',
   copyEmailToastMessage = 'copyEmailToastMessage',
   copyPhoneToastMessage = 'copyPhoneToastMessage',
+  Agency = "Agency"
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Email: {
@@ -44,6 +46,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   copyPhoneToastMessage: {
     en: 'Copied Phone number to clipboard',
     fa: 'شماره تلفن در حافظه کپی شد',
+  },
+  Agency: {
+    fa: 'موسسه',
+    en: 'Agency',
   },
 };
 

@@ -77,7 +77,7 @@ ${({ isBannerClosed }) => isBannerClosed && `display:none;`}
 
 const Stamp = styled.div`
 span {
-color: var(--color-secondary1);
+color: color: var(--color-secondary1);;
 }
 ${Headline7Style};
 rotate: -10deg;

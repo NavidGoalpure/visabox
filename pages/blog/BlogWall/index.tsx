@@ -10,11 +10,16 @@ function BlogsWall() {
     return (
         <PageLayout>
             <Container>
-                <BlogCardMobile />
+                {/* <BlogCardMobile /> */}
+                <Wrapper>
+                    {/* <First> */}
+
+                    <BlogCardType2Slim />
+                    <BlogCardType2Slim />
+                    <BlogCardType1Slim />
+                    {/* </First> */}
+                </Wrapper>
                 <BlogCardType1Wide />
-                <BlogCardType1Slim />
-                <BlogCardType2Slim />
-                <BlogCardType2Wide />
             </Container>
         </PageLayout>
     )
@@ -24,8 +29,28 @@ export default BlogsWall;
 
 const Container = styled.div`
 width: 100%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+display: grid;
 `
+const Wrapper = styled.div`
+// width: 100%;
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
+// align-items: center;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+`
+
+    // const First = styled.div`
+    // display: flex;
+    // gap: 2rem;
+    // flex-direction: row-reverse;
+    // `
+
+    // const Leftside = styled.div`
+    // display: flex;
+    // flex-direction: column;
+    // gap: 2rem;
+    // `
+

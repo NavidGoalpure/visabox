@@ -23,7 +23,6 @@ export default BlogCardType1Slim;
 
 const Container = styled.div`
 ${layer2A_Bg}
-margin-top: 5rem;
 display: flex;
 justify-content: center;
 width: 30%;

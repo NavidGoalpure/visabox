@@ -23,7 +23,6 @@ export default BlogCardType2Slim;
 
 const Container = styled.div`
 ${layer2A_Bg}
-margin-top: 5rem;
 display: flex;
 justify-content: center;
 width: 75%;
@@ -43,7 +42,7 @@ object-fit: cover;
 
 const Content = styled.div`
 gap: 1rem;
-padding: 3rem 1rem;
+padding: 2rem 1rem;
 display: flex;
 flex-direction: column;
 justify-content: space-between;

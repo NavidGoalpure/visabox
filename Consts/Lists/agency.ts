@@ -298,8 +298,9 @@ export const AGENCYS: Agency[] = [
     },
     socialsId: ['soc34'],
     agentsId: ['agt21'],
-    logoUrl: 'https://binsta.dev/api/v1/files/UXd4An4X7m/transform?format=webp&size=lg&quality=best',
     status: Status.ACTIVE,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/UXd4An4X7m/transform?format=webp&size=lg&quality=best',
   },
   {
     id: 'agc18',

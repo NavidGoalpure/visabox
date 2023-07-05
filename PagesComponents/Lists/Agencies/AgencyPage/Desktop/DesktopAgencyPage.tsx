@@ -34,10 +34,10 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
   const relatedAgents = getAgencyAgents(ChosenAgency);
   const relatedSocials = getAgencySocials(ChosenAgency);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('');
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
 
   useEffect(() => {
-    setImgSrc(`/Images/lists/agent/${ChosenAgency?.slug}.jpeg`);
+    if (ChosenAgency?.logoUrl) setImgSrc(ChosenAgency?.logoUrl);
   }, [ChosenAgency]);
 
   return (
@@ -87,23 +87,23 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
         <AgentTitle>{dt(ChosenAgency?.name)}</AgentTitle>
       </Row>
       <Row style={{ gap: '4rem', flexWrap: 'nowrap', width: 'auto' }}>
-          {relatedAgents?.map((relatedAgent) => (
-            <VIPAgentCard
-              name={relatedAgent.name}
-              slug={relatedAgent.slug}
-              desc={relatedAgent.desc}
-              key={relatedAgent.slug}
-              layerContext='1'
-              avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
-            />
-          ))}
-          {relatedSocials?.map((relatedSocial, i) => (
-            <SmartSocial
-              key={i}
-              {...relatedSocial}
-              style={{ minHeight: '24.5rem', scale: '0.97' }}
-            />
-          ))}
+        {relatedAgents?.map((relatedAgent) => (
+          <VIPAgentCard
+            name={relatedAgent.name}
+            slug={relatedAgent.slug}
+            desc={relatedAgent.desc}
+            key={relatedAgent.slug}
+            layerContext='1'
+            avatar={relatedAgent.avatar || `/Images/placeholder.jpeg`}
+          />
+        ))}
+        {relatedSocials?.map((relatedSocial, i) => (
+          <SmartSocial
+            key={i}
+            {...relatedSocial}
+            style={{ minHeight: '24.5rem', scale: '0.97' }}
+          />
+        ))}
       </Row>
     </Container>
 

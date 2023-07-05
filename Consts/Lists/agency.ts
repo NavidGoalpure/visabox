@@ -296,6 +296,8 @@ export const AGENCYS: Agency[] = [
       website: 'https://aradimmigration.com',
       phone: ['02144058186'],
     },
+    socialsId: ['soc34'],
+    agentsId: ['agt21'],
     status: Status.ACTIVE,
   },
   {

@@ -13,6 +13,7 @@ export default function PostContent() {
   return (
     <Container>
 
+      <img src='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best'></img>
 
       <h1> قدم به قدم تا ویزای اسکیل ورکر (مهارتی) </h1>
 
@@ -28,6 +29,8 @@ export default function PostContent() {
       <p> امتیاز بعدی در خصوص مدارک دانشگاهی هست، امتیازی که شما بر اساس سطح تحصیلات خود قادر به کسب آن هستید به شرح زیر است : </p>
 
       <table><thead><tr><th>مدرک تحصیلی</th><th>امتیاز دانشگاه سکشن یک</th><th>امتیاز دانشگاه سکشن دو</th></tr></thead><tbody><tr><td>کاردانی یا معادل کاردانی</td><td>10 امتیاز</td><td>-</td></tr><tr><td>لیسانس</td><td>15 امتیاز</td><td>10 امتیاز</td></tr><tr><td>فوق لیسانس</td><td>15 امتیاز</td><td>10 امتیاز</td></tr><tr><td>دکترا</td><td>20 امتیاز</td><td>امتیازی اضافه ندارد</td></tr></tbody></table>
+
+      <img src='https://binsta.dev/api/v1/files/rXo2phKowl/transform?format=webp&size=lg&quality=best'></img>
 
       <p> امتیاز تحصیلات بر اساس سکشن دانشگاه آخرین مدرک تحصیلی که ارائه می دهید محاسبه می شود.</p>
 
@@ -53,6 +56,8 @@ export default function PostContent() {
       <h2> امتیازات نمره زبان </h2>
 
       <table><thead><tr><th>نمره IELTS ( مشخص شود general /academic)	نمره PTE	نمره - iBT   TOEFL	امتیاز کسب شده</th><th>نمره PTE</th><th>نمره - iBT   TOEFL</th><th>امتیاز کسب شده</th></tr></thead><tbody><tr><td>6 هر اسکیل</td><td>50 در هر اسکیل</td><td>L12,R13,W21,S18</td><td>صفر امتیاز</td></tr><tr><td>7 هر اسکیل</td><td>65 در هر اسکیل</td><td>L24,R24,W27,S23</td><td>10 امتیاز</td></tr><tr><td>8 اسکیل</td><td>79 در هر اسکیل</td><td>L28,R29,W30,S26</td><td>20 امتیاز</td></tr></tbody></table>
+      
+      <img src='https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best'></img>
 
       <p>
         نکته قابل توجه این است که اگر شما حتی در یک اسکیل کمتر از نمره مورد نظر اخذ کنید امتیاز آن نمره شامل شما نمی شود.
@@ -69,6 +74,7 @@ export default function PostContent() {
 
         حالا که قادر به محاسبه امتیاز احتمالی خود شدید، به سراغ پارامترهای مهم در انتخاب شغل می رویم. ممکن است شغلهای مختلفی با رشته تحصیلی یا شرح وظایف و سابقه کار شما همخوانی داشته باشند، در این حالت  بهتر است فاکتورهای زیر را در نظر بگیرید:
       </p>
+
 
       <ol>
         <li>
@@ -105,10 +111,22 @@ export default function PostContent() {
   );
 }
 const Container = styled.main`
+display: flex;
+justify-content: center;
+flex-direction: column;
+img{
+  margin-bottom: 2rem;
+  width: 80%;
+  height: 25rem;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  align-self: center;
+}
 p{
   ${Layer1_TextStyle}
   // line-height: 40px !important;
-}
+ }
 h1 {
   ${Layer1_TitleStyle}
   margin-top: 2rem;

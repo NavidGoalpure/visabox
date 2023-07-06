@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode, RefObject } from 'react';
+import { InputHTMLAttributes, ReactNode, RefObject } from "react";
 import {
   Container,
   InputContainer,
@@ -7,8 +7,8 @@ import {
   ErrorIcon,
   Label,
   InputWrapper,
-} from './styles';
-import { InputLoading } from './inputLoading';
+} from "./styles";
+import { InputLoading } from "./inputLoading";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,14 +23,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   isLoading?: boolean;
   placeholder?: string;
   inputName?: string;
-  label?: string;
+  label?: string | ReactNode;
   // isNumberOnly detemines if value can only accept numbers
   isNumberOnly?: boolean;
   ref?: RefObject<HTMLInputElement>;
 }
 
 export const Input = ({
-  type = 'text',
+  type = "text",
   isNumberOnly = false,
   focus = false,
   disabled = false,
@@ -49,8 +49,8 @@ export const Input = ({
 }: InputProps) => {
   return (
     <Container className={className}>
-      <InputContainer disabled={disabled} id='input-container'>
-        {!!label && <Label htmlFor={inputName || ''}>{label}</Label>}
+      <InputContainer disabled={disabled} id="input-container">
+        {!!label && <Label htmlFor={inputName || ""}>{label}</Label>}
         <InputWrapper>
           <StyledInput
             id={id}
@@ -60,7 +60,7 @@ export const Input = ({
             hasError={!!errorMasage}
             value={
               isNumberOnly && value
-                ? value.toString().replace(/[^\d]/g, '')
+                ? value.toString().replace(/[^\d]/g, "")
                 : value
             }
             disabled={disabled || isLoading}
@@ -73,7 +73,7 @@ export const Input = ({
         {!!errorMasage && (
           <ErrorElement>
             <ErrorIcon />
-            {errorMasage}{' '}
+            {errorMasage}{" "}
           </ErrorElement>
         )}
         {endElement ? endElement : null}

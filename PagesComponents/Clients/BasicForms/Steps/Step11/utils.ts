@@ -1,4 +1,4 @@
-import { object, string, date, mixed, boolean, array } from 'yup';
+import { object, string, date, mixed, boolean, array } from "yup";
 import {
   AustralianWorkExperience,
   ClientCompletedForms,
@@ -9,18 +9,30 @@ import {
   IELTSScore,
   UniSections,
   WorkExperience,
-} from 'Interfaces/Database/Client';
-import { Status } from 'Interfaces/Database';
-import ErrorToast from 'Elements/Toast/Error';
+  VisaSubclass,
+  MaritalSituationType,
+  ClientCountry,
+} from "Interfaces/Database/Client";
+import { Status } from "Interfaces/Database";
+import ErrorToast from "Elements/Toast/Error";
 
 export function validateClientDataWithYup(client: Client | undefined) {
   let userSchema = object({
+    country: mixed<ClientCountry>()
+      .oneOf(Object.values(ClientCountry))
+      .required(),
     name: string().required(),
     lastname: string().required(),
     phone: string().required(),
+    visa_subclass: mixed<VisaSubclass>()
+      .oneOf(Object.values(VisaSubclass))
+      .required(),
     age: date().required(),
     marital: mixed<ClientMarital>()
       .oneOf(Object.values(ClientMarital))
+      .required(),
+    marital_situation: mixed<MaritalSituationType>()
+      .oneOf(Object.values(MaritalSituationType))
       .required(),
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
@@ -49,6 +61,11 @@ export function validateClientDataWithYup(client: Client | undefined) {
         _key: string().required(),
       })
     ),
+    australian_educational_qualification: boolean().required(),
+    designated_regional_area_study: boolean().notRequired(),
+    specialist_educational_qualification: boolean().required(),
+    professional_year_in_australia: boolean().required(),
+    accredited_community_language: boolean().required(),
     avatar: string(),
     email: string().email().required(),
     //
@@ -56,7 +73,7 @@ export function validateClientDataWithYup(client: Client | undefined) {
   try {
     return userSchema.validateSync(client);
   } catch (error: unknown) {
-    ErrorToast('Data is wrong. Please try again');
+    ErrorToast("Data is wrong. Please try again");
     throw new Error(error as string);
   }
 }

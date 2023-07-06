@@ -1,17 +1,17 @@
-import styled, { css, keyframes } from 'styled-components';
-import * as Select from '@radix-ui/react-select';
-import { BsChevronDown } from 'react-icons/bs';
-import { layer3_TextColor } from 'Styles/Theme/Layers/layer3/theme';
-import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
-import { SelectProps } from '@radix-ui/react-select';
-import theme from 'styled-theming';
-import { ReactNode, useRef } from 'react';
-import { ScrollBox } from 'Elements/ScrollBox';
-import React from 'react';
-import { findSmartHeight } from './utils';
-import { device } from 'Consts/device';
-import useDevice from 'Hooks/useDevice';
-import { useLocale } from 'Hooks/useLocale';
+import styled, { css, keyframes } from "styled-components";
+import * as Select from "@radix-ui/react-select";
+import { BsChevronDown } from "react-icons/bs";
+import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
+import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
+import { SelectProps } from "@radix-ui/react-select";
+import theme from "styled-theming";
+import { ReactNode, useRef } from "react";
+import { ScrollBox } from "Elements/ScrollBox";
+import React from "react";
+import { findSmartHeight } from "./utils";
+import { device } from "Consts/device";
+import useDevice from "Hooks/useDevice";
+import { useLocale } from "Hooks/useLocale";
 
 interface Props extends SelectProps {
   className?: string;
@@ -60,7 +60,7 @@ const Root: React.FC<Props> = ({
       <Select.Root
         onOpenChange={(isOpen) => {
           if (isOpen) {
-            document.body.style.pointerEvents = 'none';
+            document.body.style.pointerEvents = "none";
           }
         }}
         {...props}
@@ -72,25 +72,25 @@ const Root: React.FC<Props> = ({
               placeholder={triggerProps?.placeholder}
               aria-label={triggerProps?.placeholder}
             />
-            {hasArrowIcon &&
-            <Icon>
-              <ArrowIcon />
-            </Icon>
-            }
+            {hasArrowIcon && (
+              <Icon>
+                <ArrowIcon />
+              </Icon>
+            )}
           </Trigger>
         )}
         {/* ////////////// */}
         <Portal>
           <Content
-            align={direction === 'rtl' ? 'end' : 'start'}
-            data-id={contentProps?.dataId || 'select-content'}
+            align={direction === "rtl" ? "end" : "start"}
+            data-id={contentProps?.dataId || "select-content"}
             position={
-              isLaptop || contentProps?.position === 'popper'
-                ? 'popper'
-                : 'item-aligned'
+              isLaptop || contentProps?.position === "popper"
+                ? "popper"
+                : "item-aligned"
             }
             onCloseAutoFocus={() =>
-              (document.body.style.pointerEvents = 'auto')
+              (document.body.style.pointerEvents = "auto")
             }
           >
             {!isLaptop && <MobileTopIcon />}
@@ -115,7 +115,7 @@ const Root: React.FC<Props> = ({
 export { Root };
 const Container = styled.div``;
 
-const ContainerBorder = theme('mode', {
+const ContainerBorder = theme("mode", {
   light: css`
     border: 1px solid var(--color-gray12);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -167,7 +167,7 @@ to{
 }
 `;
 const Content = styled(Select.Content)<{
-  $position?: 'popper' | 'item-aligned';
+  $position?: "popper" | "item-aligned";
 }>`
   width: 100%;
   height: 100%;
@@ -178,7 +178,7 @@ const Content = styled(Select.Content)<{
   padding: 1rem;
   align-items: center;
   gap: 0.5rem;
-  &[data-state='open'] {
+  &[data-state="open"] {
     position: relative;
     @media ${device.tabletS} {
       position: fixed;

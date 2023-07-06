@@ -1,8 +1,12 @@
 import { deviceMin } from "Consts/device";
 import { PrimaryButton } from "Elements/Button/Primary";
+import TooltipTag from "Elements/TooltipTag";
+import { HiOutlineCalculator } from "react-icons/hi2";
+import { FiInfo } from "react-icons/fi";
 import { MdNavigateNext } from "react-icons/md";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { Headline7Style } from "Styles/Typo";
 
 const PrevIconDirectionStyle = theme("languageDirection", {
@@ -25,6 +29,14 @@ const PrevButtonTheme = theme("mode", {
     color: var(--color-gray10);
   `,
 });
+const IconTheme = theme("mode", {
+  light: css`
+    color: var(--color-primary13);
+  `,
+  dark: css`
+    color: var(--color-primary1);
+  `,
+});
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -32,6 +44,41 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+`;
+export const Title = styled.h2`
+  ${Layer1_SubtitleStyle};
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  margin-top: 1rem;
+  flex-direction: column;
+  @media ${deviceMin.tabletL} {
+    white-space: pre;
+    flex-direction: row;
+  }
+`;
+export const StyledTooltipTag = styled(TooltipTag)`
+  cursor: pointer;
+  #trigger_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.75rem;
+  }
+`;
+export const CalculatorIcon = styled(HiOutlineCalculator)`
+  ${IconTheme};
+  height: 1.5rem;
+  width: auto;
+  cursor: pointer;
+`;
+export const InformationIcon = styled(FiInfo)`
+  ${IconTheme};
+  height: 1.5rem;
+  width: auto;
+  cursor: pointer;
 `;
 export const ButtonWrapper = styled.div`
   width: 100%;

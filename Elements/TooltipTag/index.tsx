@@ -1,29 +1,77 @@
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { HTMLAttributes, ReactNode } from "react";
+import { deviceMin } from "Consts/device";
+import useDevice from "Hooks/useDevice";
+import {
+  HTMLAttributes,
+  ReactNode,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styled, { css, keyframes } from "styled-components";
 import theme from "styled-theming";
-import { TagTheme } from "Styles/Theme";
+import { directionStyles, TagTheme } from "Styles/Theme";
 import { BorderSvg } from "./BorderSvg";
+import { Montserrat } from "@next/font/google";
+import { Headline7Style } from "Styles/Typo";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  content: string;
+  content: string | ReactNode;
   popupContent?: ReactNode | string;
   delayDuration?: number;
 }
-
+const montserrat = Montserrat({ subsets: ["latin"] });
 const TooltipTag: React.FC<Props> = ({
   content,
   popupContent,
   delayDuration = 0,
   ...props
 }) => {
+  const { isLaptop } = useDevice();
+  const [isContentOpen, setIsContentOpen] = useState<boolean>(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (isLaptop) {
+      if (triggerRef?.current) {
+        triggerRef?.current?.addEventListener("mouseover", () =>
+          setIsContentOpen(true)
+        );
+      }
+      if (triggerRef?.current) {
+        triggerRef?.current?.addEventListener("mouseout", () =>
+          setIsContentOpen(false)
+        );
+      }
+    }
+  }, [triggerRef]);
+  const handleClick = (event: MouseEvent) => {
+    if (
+      triggerRef.current &&
+      !triggerRef.current.contains(event?.target as Node)
+    ) {
+      setIsContentOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  });
   return (
     <Tooltip.Provider delayDuration={delayDuration}>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild>
+      <Tooltip.Root open={isContentOpen}>
+        <Tooltip.Trigger
+          ref={triggerRef}
+          asChild
+          onClick={() => setIsContentOpen((prevState) => !prevState)}
+        >
           <ButtonContainer {...props}>
             <LeftBorder aria-hidden={true} />
-            <Button>{content}</Button>
+            <Button id={"trigger_button"}>{content}</Button>
             <RightBorder aria-hidden={true} />
           </ButtonContainer>
         </Tooltip.Trigger>
@@ -104,11 +152,18 @@ const RightBorder = styled(LeftBorder)`
   transform: rotate(180deg);
 `;
 const TooltipContent = styled(Tooltip.Content)`
-  ${TooltipContentTheme}
-
+  ${TooltipContentTheme};
+  ${directionStyles};
+  ${Headline7Style};
+  z-index: 1000;
+  white-space: break-spaces;
   padding: 0.75em 1em;
   transition: all 0.3s linear;
   border-radius: 10px;
+  max-width: 19rem;
+  @media ${deviceMin.tabletS} {
+    max-width: 37rem;
+  }
   &[data-state="delayed-open"] {
     animation: ${FadeInAnimation} 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }

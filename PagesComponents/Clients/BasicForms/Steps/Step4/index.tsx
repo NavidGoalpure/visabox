@@ -1,31 +1,46 @@
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext} from 'react';
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { WizardContext } from "../../Contexts/Wizard/Context";
+import { useContext } from "react";
 import {
   ButtonWrapper,
+  CalculatorIcon,
   Container,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
-} from './StyledComponents';
-import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { Input } from 'Components/Input';
+  StyledTooltipTag,
+} from "../StyledComponents";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { Input } from "Components/Input";
 
-const Step2 = () => {
+const Step4 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient } = useContext(FormDataContext);
+  const { client, setClient,score } = useContext(FormDataContext);
   var mydate = client?.age
     ? new Date(client?.age).toISOString().slice(0, 10)
-    : '';
+    : "";
   return (
     <Container>
       <Input
-        label={t(LanguageKeys.AgeSectionTitle)}
-        type={'date'}
-        inputName='age'
+        label={
+          <>
+            {t(LanguageKeys.AgeSectionTitle)}
+            &nbsp;
+            <StyledTooltipTag
+              content={
+                <>
+                  <CalculatorIcon />
+                </>
+              }
+              popupContent={t(LanguageKeys.AgePopupContent)}
+            />
+          </>
+        }
+        type={"date"}
+        inputName="age"
         value={mydate}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           client &&
@@ -33,9 +48,9 @@ const Step2 = () => {
               ...client,
               age: e.target.value?.slice(0, 10),
             });
+            console.log("navid score ===", score);
         }}
-        id={'date-input'}
-        placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
+        id={"date-input"}
       />
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
@@ -57,4 +72,4 @@ const Step2 = () => {
     </Container>
   );
 };
-export default Step2;
+export default Step4;

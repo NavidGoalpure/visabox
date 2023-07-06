@@ -78,11 +78,11 @@ export function getWorkExperienceLabel({
   workExperience: WorkExperience | undefined;
 }): MultiLanguageText | undefined {
   switch (workExperience) {
-    case WorkExperience['1To2Years']:
+    case WorkExperience['1To3Years']:
       return works.find((experience) => experience.en === '1 to 3 years');
-    case WorkExperience['3To4Years']:
+    case WorkExperience['3To5Years']:
       return works.find((experience) => experience.en === '3 to 5 years');
-    case WorkExperience['5To7Years']:
+    case WorkExperience['5To8Years']:
       return works.find((experience) => experience.en === '5 to 8 years');
     case WorkExperience.Below1Year:
       return works.find((experience) => experience.en === 'Below 1 year');
@@ -104,15 +104,15 @@ export function getAustralianWorkExperienceLabel({
         (australianWorkExp) =>
           australianWorkExp.en === 'none - less than 1 year'
       );
-    case AustralianWorkExperience['1To2Years']:
+    case AustralianWorkExperience['1To3Years']:
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === '1 to 3 years'
       );
-    case AustralianWorkExperience['3To4Years']:
+    case AustralianWorkExperience['3To5Years']:
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === '3 to 5 years'
       );
-    case AustralianWorkExperience['5To7Years']:
+    case AustralianWorkExperience['5To8Years']:
       return australianWorks.find(
         (australianWorkExp) => australianWorkExp.en === '5 to 8 years'
       );

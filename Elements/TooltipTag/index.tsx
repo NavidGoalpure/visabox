@@ -11,9 +11,10 @@ import {
 } from "react";
 import styled, { css, keyframes } from "styled-components";
 import theme from "styled-theming";
-import { TagTheme } from "Styles/Theme";
+import { directionStyles, TagTheme } from "Styles/Theme";
 import { BorderSvg } from "./BorderSvg";
 import { Montserrat } from "@next/font/google";
+import { Headline7Style } from "Styles/Typo";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   content: string | ReactNode;
@@ -28,18 +29,18 @@ const TooltipTag: React.FC<Props> = ({
   ...props
 }) => {
   const { isLaptop } = useDevice();
-  const [isTriggerClicked, setIsTriggerClicked] = useState<boolean>(false);
+  const [isContentOpen, setIsContentOpen] = useState<boolean>(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     if (isLaptop) {
       if (triggerRef?.current) {
         triggerRef?.current?.addEventListener("mouseover", () =>
-          setIsTriggerClicked(true)
+          setIsContentOpen(true)
         );
       }
       if (triggerRef?.current) {
         triggerRef?.current?.addEventListener("mouseout", () =>
-          setIsTriggerClicked(false)
+          setIsContentOpen(false)
         );
       }
     }
@@ -49,7 +50,7 @@ const TooltipTag: React.FC<Props> = ({
       triggerRef.current &&
       !triggerRef.current.contains(event?.target as Node)
     ) {
-      setIsTriggerClicked(false);
+      setIsContentOpen(false);
     }
   };
 
@@ -62,11 +63,11 @@ const TooltipTag: React.FC<Props> = ({
   });
   return (
     <Tooltip.Provider delayDuration={delayDuration}>
-      <Tooltip.Root open={isTriggerClicked}>
+      <Tooltip.Root open={isContentOpen}>
         <Tooltip.Trigger
           ref={triggerRef}
           asChild
-          onClick={() => setIsTriggerClicked((prevState) => !prevState)}
+          onClick={() => setIsContentOpen((prevState) => !prevState)}
         >
           <ButtonContainer {...props}>
             <LeftBorder aria-hidden={true} />
@@ -152,6 +153,8 @@ const RightBorder = styled(LeftBorder)`
 `;
 const TooltipContent = styled(Tooltip.Content)`
   ${TooltipContentTheme};
+  ${directionStyles};
+  ${Headline7Style};
   z-index: 1000;
   white-space: break-spaces;
   padding: 0.75em 1em;
@@ -159,7 +162,7 @@ const TooltipContent = styled(Tooltip.Content)`
   border-radius: 10px;
   max-width: 19rem;
   @media ${deviceMin.tabletS} {
-    max-width: unset;
+    max-width: 37rem;
   }
   &[data-state="delayed-open"] {
     animation: ${FadeInAnimation} 0.4s cubic-bezier(0.16, 1, 0.3, 1);

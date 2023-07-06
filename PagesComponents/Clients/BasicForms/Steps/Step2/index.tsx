@@ -1,66 +1,70 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Input } from 'Components/Input';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from "./const";
-import { useContext } from "react";
+import { useContext } from 'react';
 import {
   ButtonWrapper,
-  CalculatorIcon,
   Container,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
-  StyledTooltipTag,
-  Title,
-} from "../StyledComponents";
-import { VisaSubclass } from "Interfaces/Database/Client";
-import { VisaSubclasses } from "Consts/Client";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { WizardContext } from "../../Contexts/Wizard/Context";
+} from '../StyledComponents';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../Contexts/Wizard/Context';
 
 const Step2 = () => {
-  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
-      <Title>
-        {t(LanguageKeys.VisaSubclassTitle)}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon />
-            </>
-          }
-          popupContent={"red blue purple but not black navid"}
-        />
-      </Title>
-      <ToggleGroupRoot
-        type="single"
-        value={client?.visa_subclass}
-        onValueChange={(value) => {
+      {/* //////////name-input//////////// */}
+      <Input
+        required
+        label={t(LanguageKeys.NameInputLabel)}
+        inputName='name'
+        placeholder={t(LanguageKeys.NameInputPlaceholder)}
+        value={client?.name}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           client &&
             setClient({
               ...client,
-              visa_subclass: value as VisaSubclass,
+              name: e.target.value,
             });
-          console.log("navid score ===", score);
         }}
-      >
-        {
-          <>
-            {VisaSubclasses.map((VisaSubclass, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={VisaSubclass}
-                value={VisaSubclass.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
+      />
+      {/* //////////last-name-input//////////// */}
+      <Input
+        required
+        label={t(LanguageKeys.LastNameInputLabel)}
+        inputName='lname'
+        value={client?.lastname}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          client &&
+          setClient({
+            ...client,
+            lastname: e.target.value,
+          })
         }
-      </ToggleGroupRoot>
+        placeholder={t(LanguageKeys.LastNameInputPlaceholder)}
+      />
+      {/* //////////phone-number-input//////////// */}
+      <Input
+        label={t(LanguageKeys.PhoneInputLabel)}
+        value={client?.phone}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          client &&
+          setClient({
+            ...client,
+            phone: e.target.value,
+          })
+        }
+        inputName='phoneNumber'
+        id={'phone-input'}
+        placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
+      />
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -71,10 +75,8 @@ const Step2 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
-            console.log("navid client ===", client);
           }}
-          disabled={!client?.visa_subclass}
+          disabled={!client?.name || !client?.lastname || !client?.phone}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -84,8 +86,3 @@ const Step2 = () => {
   );
 };
 export default Step2;
-
-const ToggleGroupRoot = styled(ToggleGroup.Root)`
-  gap: 1rem;
-  width: 100%;
-`;

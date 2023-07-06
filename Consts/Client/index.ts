@@ -1,4 +1,11 @@
 import { MultiLanguageText } from "Interfaces/Database";
+
+export const Countries: MultiLanguageText[] = [
+  { en: "Iran", fa: "ایران" },
+  { en: "China", fa: "چین" },
+  { en: "India", fa: "هند" },
+  { en: "Other", fa: "سایر موارد" },
+];
 export const ages: MultiLanguageText[] = [
   { en: "18-24", fa: "18-24" },
   { en: "25-32", fa: "25-32" },

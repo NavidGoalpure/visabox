@@ -10,12 +10,17 @@ import {
   UniSections,
   WorkExperience,
   VisaSubclass,
+  MaritalSituationType,
+  ClientCountry,
 } from "Interfaces/Database/Client";
 import { Status } from "Interfaces/Database";
 import ErrorToast from "Elements/Toast/Error";
 
 export function validateClientDataWithYup(client: Client | undefined) {
   let userSchema = object({
+    country: mixed<ClientCountry>()
+      .oneOf(Object.values(ClientCountry))
+      .required(),
     name: string().required(),
     lastname: string().required(),
     phone: string().required(),
@@ -25,6 +30,9 @@ export function validateClientDataWithYup(client: Client | undefined) {
     age: date().required(),
     marital: mixed<ClientMarital>()
       .oneOf(Object.values(ClientMarital))
+      .required(),
+    marital_situation: mixed<MaritalSituationType>()
+      .oneOf(Object.values(MaritalSituationType))
       .required(),
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),

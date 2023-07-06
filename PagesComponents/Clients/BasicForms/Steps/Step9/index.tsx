@@ -7,6 +7,7 @@ import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
+  InformationIcon,
   NextButton,
   NextIcon,
   PrevButton,
@@ -14,48 +15,49 @@ import {
   StyledTooltipTag,
   Title,
 } from '../StyledComponents';
-import { IELTSScores } from 'Consts/Client';
-import { IELTSScore } from 'Interfaces/Database/Client';
+import { australianWorks } from 'Consts/Client';
+import { AustralianWorkExperience } from 'Interfaces/Database/Client';
 import { FormDataContext } from '../../Contexts/FormDataContext/Context';
 import { WizardContext } from '../../Contexts/Wizard/Context';
 
 const Step9 = () => {
-  const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient,score } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>
-        {t(LanguageKeys.IELTSScoreSectionTitle)}{" "}
+        {t(LanguageKeys.AustralianWorkExperienceSectionTitle)}{" "}
         <StyledTooltipTag
           content={
             <>
               <CalculatorIcon />
+              <InformationIcon />
             </>
           }
-          popupContent={"red blue purple but not black navid"}
+          popupContent={t(LanguageKeys.AstralianPopupContent)}
         />
       </Title>
       <ToggleGroupRoot
         type="single"
-        value={client?.ielts_score}
+        value={client?.australian_work_experience}
         onValueChange={(value) =>{
           client &&
           setClient({
             ...client,
-            ielts_score: value as IELTSScore,
+            australian_work_experience: value as AustralianWorkExperience,
           })
           console.log("navid score ===", score);}
         }
       >
         {
           <>
-            {IELTSScores.map((IELTSScore, i) => (
+            {australianWorks.map((australianWork, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={IELTSScore}
-                value={IELTSScore.en.toLowerCase()}
+                text={australianWork}
+                value={australianWork.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -66,13 +68,14 @@ const Step9 = () => {
           <PrevIcon />
           {t(LanguageKeys.PrevButtonTitle)}
         </PrevButton>
+
         <NextButton
           step={step}
+          icon={<NextIcon />}
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.ielts_score}
-          icon={<NextIcon />}
+          disabled={!client?.australian_work_experience}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>

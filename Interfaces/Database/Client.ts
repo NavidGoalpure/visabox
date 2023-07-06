@@ -1,5 +1,10 @@
 import { SanityKeys, Status } from ".";
-
+export enum ClientCountry {
+  Iran = "iran",
+  China = "china",
+  India = "india",
+  Other = "other",
+}
 export enum ClientMarital {
   Married = "married",
   Single = "single",
@@ -58,6 +63,7 @@ export interface ClientCompletedForms_obj {
   _key: string;
 }
 export interface Client extends SanityKeys {
+  country: CLientCountry;
   name?: string;
   lastname?: string;
   phone?: string;

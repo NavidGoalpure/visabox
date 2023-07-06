@@ -82,6 +82,21 @@ export default {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
+      name: "country",
+      title: "Country",
+      type: "string",
+      options: {
+        list: [
+          { title: "Iran", value: "iran" },
+          { title: "China", value: "china" },
+          { title: "India", value: "india" },
+          { title: "Other", value: "other" },
+        ],
+        layout: "radio",
+        direction: "horizontal",
+      },
+    },
+    {
       name: "marital",
       title: "Marital Status",
       type: "string",

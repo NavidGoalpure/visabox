@@ -29,6 +29,7 @@ const UserForms: NextPage = ({}) => {
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `
       _id,
+      country,
       email,
       name,
       lastname,

@@ -1,13 +1,18 @@
 import { MultiLanguageText } from "Interfaces/Database";
 export enum LanguageKeys {
-  AgeSectionTitle = "AgeSectionTitle",
+  VisaSubclassPopupContent="VisaSubclassPopupContent",
+  VisaSubclassTitle = "VisaSubclassTitle",
   NextButtonTitle = "NextButtonTitle",
   PrevButtonTitle = "PrevButtonTitle",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  AgeSectionTitle: {
-    en: "Birth Day:",
-    fa: "تاریخ تولد:",
+  VisaSubclassPopupContent:{
+    en:"Your answer to this question affects your immigration score",
+    fa:"جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است"
+  },
+  VisaSubclassTitle: {
+    en: "Visa Subclass:",
+    fa: "زیر کلاس ویزا:",
   },
 
   NextButtonTitle: {

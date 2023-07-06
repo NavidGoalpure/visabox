@@ -1,8 +1,5 @@
-import { Input } from "Components/Input";
-import { MultiLanguageText } from "Interfaces/Database";
 import styled from "styled-components";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
+import { Input } from "Components/Input";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
 import { useContext } from "react";
@@ -13,59 +10,32 @@ import {
   Container,
   PrevButton,
   PrevIcon,
-  Title,
-  CalculatorIcon,
-  StyledTooltipTag,
-  InformationIcon,
 } from "../StyledComponents";
-import { works } from "Consts/Client";
-import { WorkExperience } from "Interfaces/Database/Client";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import { WizardContext } from "../../Contexts/Wizard/Context";
 
 const Step7 = () => {
-  const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { t } = useStaticTranslation(componentStatements);
+  const { client, setClient,score } = useContext(FormDataContext);
 
   return (
     <Container>
-      <Title>
-        {t(LanguageKeys.WorkExperienceSectionTitle)}{" "}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon />
-              <InformationIcon />
-            </>
-          }
-          popupContent={"red blue purple but not black navid"}
-        />
-      </Title>
-      <ToggleGroupRoot
-        type="single"
-        value={client?.work_experience}
-        onValueChange={(value) => {
+      <StyledInput
+        required
+        label={t(LanguageKeys.CurrentJobInputLabel)}
+        inputName="current-job"
+        placeholder={t(LanguageKeys.CurrentJobInputPlaceholder)}
+        value={client?.current_job}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           client &&
             setClient({
               ...client,
-              work_experience: value as WorkExperience,
+              current_job: e.target.value,
             });
           console.log("navid score ===", score);
         }}
-      >
-        {
-          <>
-            {works.map((work, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={work}
-                value={work.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
+      />
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -77,7 +47,7 @@ const Step7 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.work_experience}
+          disabled={!client?.current_job}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -88,6 +58,6 @@ const Step7 = () => {
 };
 export default Step7;
 
-const ToggleGroupRoot = styled(ToggleGroup.Root)`
-  gap: 1rem;
+const StyledInput = styled(Input)`
+  margin-top: 1rem;
 `;

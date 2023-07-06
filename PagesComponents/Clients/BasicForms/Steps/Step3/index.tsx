@@ -1,6 +1,7 @@
+import styled from "styled-components";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
-import { WizardContext } from "../../Contexts/Wizard/Context";
 import { useContext } from "react";
 import {
   ButtonWrapper,
@@ -11,47 +12,55 @@ import {
   PrevButton,
   PrevIcon,
   StyledTooltipTag,
+  Title,
 } from "../StyledComponents";
+import { VisaSubclass } from "Interfaces/Database/Client";
+import { VisaSubclasses } from "Consts/Client";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { Input } from "Components/Input";
+import { WizardContext } from "../../Contexts/Wizard/Context";
 
 const Step3 = () => {
-  const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient,score } = useContext(FormDataContext);
-  var mydate = client?.age
-    ? new Date(client?.age).toISOString().slice(0, 10)
-    : "";
+  const { t } = useStaticTranslation(componentStatements);
+  const { client, setClient, score } = useContext(FormDataContext);
+
   return (
     <Container>
-      <Input
-        label={
-          <>
-            {t(LanguageKeys.AgeSectionTitle)}
-            &nbsp;
-            <StyledTooltipTag
-              content={
-                <>
-                  <CalculatorIcon />
-                </>
-              }
-              popupContent={"red blue purple but not black navid"}
-            />
-          </>
-        }
-        type={"date"}
-        inputName="age"
-        value={mydate}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+      <Title>
+        {t(LanguageKeys.VisaSubclassTitle)}
+        <StyledTooltipTag
+          content={
+            <>
+              <CalculatorIcon />
+            </>
+          }
+          popupContent={t(LanguageKeys.VisaSubclassPopupContent)}
+        />
+      </Title>
+      <ToggleGroupRoot
+        type="single"
+        value={client?.visa_subclass}
+        onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              age: e.target.value?.slice(0, 10),
+              visa_subclass: value as VisaSubclass,
             });
-            console.log("navid score ===", score);
+          console.log("navid score ===", score);
         }}
-        id={"date-input"}
-      />
+      >
+        {
+          <>
+            {VisaSubclasses.map((VisaSubclass, i) => (
+              <ToggleGroup.Item
+                key={i}
+                text={VisaSubclass}
+                value={VisaSubclass.en.toLowerCase()}
+              ></ToggleGroup.Item>
+            ))}
+          </>
+        }
+      </ToggleGroupRoot>
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -62,9 +71,11 @@ const Step3 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+            console.log("navid score ===", score);
+            console.log("navid client ===", client);
           }}
+          disabled={!client?.visa_subclass}
           icon={<NextIcon />}
-          disabled={!client?.age}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>
@@ -73,3 +84,8 @@ const Step3 = () => {
   );
 };
 export default Step3;
+
+const ToggleGroupRoot = styled(ToggleGroup.Root)`
+  gap: 1rem;
+  width: 100%;
+`;

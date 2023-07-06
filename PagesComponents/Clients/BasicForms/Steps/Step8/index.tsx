@@ -1,34 +1,34 @@
-import styled from 'styled-components';
-import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { useContext } from 'react';
+import styled from "styled-components";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { useContext } from "react";
 import {
   ButtonWrapper,
-  CalculatorIcon,
-  Container,
-  InformationIcon,
   NextButton,
   NextIcon,
+  Container,
   PrevButton,
   PrevIcon,
-  StyledTooltipTag,
   Title,
-} from '../StyledComponents';
-import { australianWorks } from 'Consts/Client';
-import { AustralianWorkExperience } from 'Interfaces/Database/Client';
-import { FormDataContext } from '../../Contexts/FormDataContext/Context';
-import { WizardContext } from '../../Contexts/Wizard/Context';
+  CalculatorIcon,
+  StyledTooltipTag,
+  InformationIcon,
+} from "../StyledComponents";
+import { works } from "Consts/Client";
+import { WorkExperience } from "Interfaces/Database/Client";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
 
 const Step8 = () => {
-  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient,score } = useContext(FormDataContext);
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+  const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>
-        {t(LanguageKeys.AustralianWorkExperienceSectionTitle)}{" "}
+        {t(LanguageKeys.WorkExperienceSectionTitle)}{" "}
         <StyledTooltipTag
           content={
             <>
@@ -36,28 +36,28 @@ const Step8 = () => {
               <InformationIcon />
             </>
           }
-          popupContent={"red blue purple but not black navid"}
+          popupContent={t(LanguageKeys.OverseasPopupContent)}
         />
       </Title>
       <ToggleGroupRoot
         type="single"
-        value={client?.australian_work_experience}
-        onValueChange={(value) =>{
+        value={client?.work_experience}
+        onValueChange={(value) => {
           client &&
-          setClient({
-            ...client,
-            australian_work_experience: value as AustralianWorkExperience,
-          })
-          console.log("navid score ===", score);}
-        }
+            setClient({
+              ...client,
+              work_experience: value as WorkExperience,
+            });
+          console.log("navid score ===", score);
+        }}
       >
         {
           <>
-            {australianWorks.map((australianWork, i) => (
+            {works.map((work, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={australianWork}
-                value={australianWork.en.toLowerCase()}
+                text={work}
+                value={work.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -71,11 +71,11 @@ const Step8 = () => {
 
         <NextButton
           step={step}
-          icon={<NextIcon />}
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.australian_work_experience}
+          disabled={!client?.work_experience}
+          icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
         </NextButton>
@@ -84,6 +84,7 @@ const Step8 = () => {
   );
 };
 export default Step8;
+
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
 `;

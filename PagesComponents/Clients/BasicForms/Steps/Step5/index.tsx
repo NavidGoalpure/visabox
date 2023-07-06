@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { Input } from "Components/Input";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
 import { WizardContext } from "../../Contexts/Wizard/Context";
@@ -18,8 +17,14 @@ import {
   Title,
 } from "../StyledComponents";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { ClientDegree, UniSections } from "Interfaces/Database/Client";
-import { educations, uniSections, YesOrNo } from "Consts/Client";
+import {
+  ClientMarital,
+  MaritalSituationType,
+} from "Interfaces/Database/Client";
+import { maritalSituations, maritalStatuses } from "Consts/Client";
+import { FiInfo } from "react-icons/fi";
+import theme from "styled-theming";
+import { Hint_TextStyle } from "Styles/Theme/Hint/style";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -28,297 +33,115 @@ const Step5 = () => {
 
   return (
     <Container>
-      <StyledInput
-        required
-        label={t(LanguageKeys.FieldOfStudyInputLabel)}
-        inputName="field-of-study"
-        placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        value={client?.field_of_study}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          client &&
-            setClient({
-              ...client,
-              field_of_study: e.target.value,
-            });
-          console.log("navid score ===", score);
-        }}
-      />
-      <StyledTitle>{t(LanguageKeys.UniSectionsSectionTitle)} </StyledTitle>
-      <ToggleGroupRoot
-        type="single"
-        value={client?.uni_section}
-        onValueChange={(value: UniSections) => {
-          client &&
-            setClient({
-              ...client,
-              uni_section: value,
-            });
-          console.log("navid score ===", score);
-        }}
-      >
-        {
-          <>
-            {uniSections.map((uniSection, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={uniSection}
-                value={uniSection.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
       <Title>
-        {t(LanguageKeys.DegreeOfEducationSectionTitle)}{" "}
+        {t(LanguageKeys.maritalStatusSectionTitle)}{" "}
         <StyledTooltipTag
           content={
             <>
               <CalculatorIcon />
             </>
           }
-          popupContent={"red blue purple but not black navid"}
+          popupContent={t(LanguageKeys.maritalStatusPopupContent)}
         />
       </Title>
       <ToggleGroupRoot
         type="single"
-        value={client?.degree}
-        onValueChange={(value: ClientDegree) => {
+        value={client?.marital}
+        onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              degree: value,
+              marital: value as ClientMarital,
             });
           console.log("navid score ===", score);
         }}
       >
         {
           <>
-            {educations.map((education, i) => (
+            {maritalStatuses.map((maritalStatus, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={education}
-                value={education.en.toLowerCase()}
+                text={maritalStatus}
+                value={maritalStatus.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
         }
       </ToggleGroupRoot>
-
-      <StyledTitle>
-        {t(LanguageKeys.AustralianEducationalQualificationTitle)}{" "}
+      <Title>
+        {t(LanguageKeys.maritalSituationTitle)}{" "}
         <StyledTooltipTag
           content={
             <>
               <CalculatorIcon /> <InformationIcon />
             </>
           }
-          popupContent={"red blue purple but not black navid"}
+          popupContent={t(LanguageKeys.maritalSituationPopupContent)}
         />
-      </StyledTitle>
+      </Title>
       <ToggleGroupRoot
         type="single"
-        value={
-          client?.australian_educational_qualification !== null
-            ? client?.australian_educational_qualification === true
-              ? "yes"
-              : "no"
-            : undefined
-        }
-        onValueChange={(value: string) => {
+        value={client?.marital_situation}
+        onValueChange={(value) =>{
           client &&
-            setClient({
-              ...client,
-              australian_educational_qualification:
-                value === "yes" ? true : false,
-              //this shouldnt have a value if australian educational qulification === false
-              designated_regional_area_study: value === "no" && undefined,
-            });
-          console.log("navid score ===", score);
-        }}
+          setClient({
+            ...client,
+            marital_situation: value as MaritalSituationType,
+          })
+        console.log("navid score ===", score);
+        }
+        }
       >
         {
           <>
-            {YesOrNo.map((option, i) => (
+            {maritalSituations.map((maritalSituation, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={option}
-                value={option.en.toLowerCase()}
+                text={maritalSituation}
+                value={maritalSituation.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
         }
       </ToggleGroupRoot>
-      {client?.australian_educational_qualification && (
-        <>
-          <StyledTitle>
-            {t(LanguageKeys.DesignatedRegionalAreaStudy)}{" "}
-            <StyledTooltipTag
-              content={
-                <>
-                  <CalculatorIcon /> <InformationIcon />
-                </>
-              }
-              popupContent={"red blue purple but not black navid"}
-            />
-          </StyledTitle>
-          <ToggleGroupRoot
-            type="single"
-            value={
-              client?.designated_regional_area_study !== null
-                ? client?.designated_regional_area_study === true
-                  ? "yes"
-                  : "no"
-                : undefined
-            }
-            onValueChange={(value: string) => {
-              client &&
-                setClient({
-                  ...client,
-                  designated_regional_area_study:
-                    value === "yes" ? true : false,
-                });
-              console.log("navid score ===", score);
-            }}
-          >
-            {
-              <>
-                {YesOrNo.map((option, i) => (
-                  <ToggleGroup.Item
-                    key={i}
-                    text={option}
-                    value={option.en.toLowerCase()}
-                  ></ToggleGroup.Item>
-                ))}
-              </>
-            }
-          </ToggleGroupRoot>
-        </>
+      {client?.marital_situation === MaritalSituationType.One && (
+        <HintSection>
+          <HintInfoIcon />
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation1_FirstLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation1_SecondLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation1_ThirdLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation1_ForthLine)}</HintLi>
+          </HintUl>
+        </HintSection>
       )}
-
-      <StyledTitle>
-        {t(LanguageKeys.SpecialistEducationalQualification)}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon /> <InformationIcon />
-            </>
-          }
-          popupContent={"red blue purple but not black navid"}
-        />
-      </StyledTitle>
-      <ToggleGroupRoot
-        type="single"
-        value={
-          client?.specialist_educational_qualification !== null
-            ? client?.specialist_educational_qualification === true
-              ? "yes"
-              : "no"
-            : undefined
-        }
-        onValueChange={(value: string) => {
-          client &&
-            setClient({
-              ...client,
-              specialist_educational_qualification:
-                value === "yes" ? true : false,
-            });
-          console.log("navid score ===", score);
-        }}
-      >
-        {
-          <>
-            {YesOrNo.map((option, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={option}
-                value={option.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
-      <StyledTitle>
-        {t(LanguageKeys.ProfessionalYearInAustralia)}{" "}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon /> <InformationIcon />
-            </>
-          }
-          popupContent={"red blue purple but not black navid"}
-        />
-      </StyledTitle>
-      <ToggleGroupRoot
-        type="single"
-        value={
-          client?.professional_year_in_australia !== null
-            ? client?.professional_year_in_australia === true
-              ? "yes"
-              : "no"
-            : undefined
-        }
-        onValueChange={(value: string) => {
-          client &&
-            setClient({
-              ...client,
-              professional_year_in_australia: value === "yes" ? true : false,
-            });
-          console.log("navid score ===", score);
-        }}
-      >
-        {
-          <>
-            {YesOrNo.map((option, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={option}
-                value={option.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
-      <StyledTitle>
-        {t(LanguageKeys.AccreditedCommunityLanguage)}{" "}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon /> <InformationIcon />
-            </>
-          }
-          popupContent={"red blue purple but not black navid"}
-        />
-      </StyledTitle>
-      <ToggleGroupRoot
-        type="single"
-        value={
-          client?.accredited_community_language !== null
-            ? client?.accredited_community_language === true
-              ? "yes"
-              : "no"
-            : undefined
-        }
-        onValueChange={(value: string) => {
-          client &&
-            setClient({
-              ...client,
-              accredited_community_language: value === "yes" ? true : false,
-            });
-          console.log("navid score ===", score);
-        }}
-      >
-        {
-          <>
-            {YesOrNo.map((option, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={option}
-                value={option.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
+      {client?.marital_situation === MaritalSituationType.Two && (
+        <HintSection>
+          <HintInfoIcon />
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation2_FirstLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_SecondLine)}</HintLi>
+          </HintUl>
+        </HintSection>
+      )}
+      {client?.marital_situation === MaritalSituationType.Three && (
+        <HintSection>
+          <HintInfoIcon />
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation3_FirstLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation3_SecondLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation3_ThirdLine)}</HintLi>
+          </HintUl>
+        </HintSection>
+      )}
+      {client?.marital_situation === MaritalSituationType.Four && (
+        <HintSection>
+          <HintInfoIcon />
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation4)}</HintLi>
+          </HintUl>
+        </HintSection>
+      )}
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -329,21 +152,12 @@ const Step5 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+            console.log(
+              "navid marital_situation ===",
+              client?.marital_situation
+            );
           }}
-          disabled={
-            !client?.field_of_study ||
-            !client?.degree ||
-            !client?.uni_section ||
-            client?.australian_educational_qualification === null ||
-            client?.professional_year_in_australia === null ||
-            client?.specialist_educational_qualification === null ||
-            client?.accredited_community_language === null ||
-            // designated regional area study is not required
-            // unless australian educational qualification === true
-            (client?.australian_educational_qualification === true &&
-              (client?.designated_regional_area_study === null ||
-                client?.designated_regional_area_study === undefined))
-          }
+          disabled={!client?.marital_situation || !client?.marital}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -353,13 +167,44 @@ const Step5 = () => {
   );
 };
 export default Step5;
-
+const HintIconTheme = theme("mode", {
+  light: css`
+    color: var(--color-secondary2);
+  `,
+  dark: css`
+    color: var(--color-secondary4);
+  `,
+});
+const HintLiTheme = theme("mode", {
+  light: css`
+    color: var(--color-secondary2);
+  `,
+  dark: css`
+    color: var(--color-secondary3);
+  `,
+});
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
+  width: 100%;
 `;
-const StyledTitle = styled(Title)`
-  margin: 0;
+
+const HintSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
 `;
-const StyledInput = styled(Input)`
-  margin-top: 1rem;
+const HintInfoIcon = styled(FiInfo)`
+  ${HintIconTheme};
+  width: 2.4rem;
+  height: auto;
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+`;
+const HintUl = styled.ul`
+  list-style: disc;
+`;
+const HintLi = styled.li`
+  ${Hint_TextStyle};
+  ${HintLiTheme};
 `;

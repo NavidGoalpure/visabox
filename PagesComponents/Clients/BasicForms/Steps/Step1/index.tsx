@@ -1,70 +1,56 @@
-import { Input } from 'Components/Input';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from "./const";
-import { useContext } from 'react';
+import styled from "styled-components";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { useContext } from "react";
 import {
   ButtonWrapper,
+  CalculatorIcon,
   Container,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
-} from '../StyledComponents';
-import { FormDataContext } from '../../Contexts/FormDataContext/Context';
-import { WizardContext } from '../../Contexts/Wizard/Context';
+  StyledTooltipTag,
+  Title,
+} from "../StyledComponents";
+import { ClientCountry, VisaSubclass } from "Interfaces/Database/Client";
+import { Countries, VisaSubclasses } from "Consts/Client";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
+import { componentStatements, LanguageKeys } from "./const";
 
-const Step1 = () => {
-  const { t } = useStaticTranslation(componentStatements);
+const Step3 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient } = useContext(FormDataContext);
+  const { t } = useStaticTranslation(componentStatements);
+  const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
-      {/* //////////name-input//////////// */}
-      <Input
-        required
-        label={t(LanguageKeys.NameInputLabel)}
-        inputName='name'
-        placeholder={t(LanguageKeys.NameInputPlaceholder)}
-        value={client?.name}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+      <Title>{t(LanguageKeys.VisaSubclassTitle)}</Title>
+      <ToggleGroupRoot
+        type="single"
+        value={client?.country}
+        onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              name: e.target.value,
+              country: value as ClientCountry,
             });
+          console.log("navid client ===", client);
         }}
-      />
-      {/* //////////last-name-input//////////// */}
-      <Input
-        required
-        label={t(LanguageKeys.LastNameInputLabel)}
-        inputName='lname'
-        value={client?.lastname}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          client &&
-          setClient({
-            ...client,
-            lastname: e.target.value,
-          })
+      >
+        {
+          <>
+            {Countries.map((option, i) => (
+              <ToggleGroup.Item
+                key={i}
+                text={option}
+                value={option.en.toLowerCase()}
+              ></ToggleGroup.Item>
+            ))}
+          </>
         }
-        placeholder={t(LanguageKeys.LastNameInputPlaceholder)}
-      />
-      {/* //////////phone-number-input//////////// */}
-      <Input
-        label={t(LanguageKeys.PhoneInputLabel)}
-        value={client?.phone}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          client &&
-          setClient({
-            ...client,
-            phone: e.target.value,
-          })
-        }
-        inputName='phoneNumber'
-        id={'phone-input'}
-        placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
-      />
+      </ToggleGroupRoot>
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -75,8 +61,10 @@ const Step1 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+            console.log("navid score ===", score);
+            console.log("navid client ===", client);
           }}
-          disabled={!client?.name || !client?.lastname || !client?.phone}
+          disabled={!client?.visa_subclass}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -85,4 +73,9 @@ const Step1 = () => {
     </Container>
   );
 };
-export default Step1;
+export default Step3;
+
+const ToggleGroupRoot = styled(ToggleGroup.Root)`
+  gap: 1rem;
+  width: 100%;
+`;

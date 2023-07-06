@@ -63,7 +63,7 @@ export interface ClientCompletedForms_obj {
   _key: string;
 }
 export interface Client extends SanityKeys {
-  country: CLientCountry;
+  country: ClientCountry;
   name?: string;
   lastname?: string;
   phone?: string;

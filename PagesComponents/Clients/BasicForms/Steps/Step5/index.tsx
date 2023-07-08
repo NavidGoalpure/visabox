@@ -53,7 +53,6 @@ const Step5 = () => {
               ...client,
               marital: value as ClientMarital,
             });
-          console.log("navid score ===", score);
         }}
       >
         {
@@ -88,7 +87,6 @@ const Step5 = () => {
             ...client,
             marital_situation: value as MaritalSituationType,
           })
-        console.log("navid score ===", score);
         }
         }
       >
@@ -152,10 +150,8 @@ const Step5 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log(
-              "navid marital_situation ===",
-              client?.marital_situation
-            );
+        console.log("navid score ===", score);
+        
           }}
           disabled={!client?.marital_situation || !client?.marital}
           icon={<NextIcon />}

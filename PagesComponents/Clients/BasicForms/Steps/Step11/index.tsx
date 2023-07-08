@@ -1,5 +1,5 @@
 import { componentStatements, LanguageKeys } from "./const";
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import { PrevButton } from "../StyledComponents";
 import styled, { css } from "styled-components";
 import { Headline3Style, Headline4Style } from "Styles/Typo";
@@ -36,7 +36,7 @@ const Step11 = () => {
   const [isYesClicked, setIsYesClicked] = useState<boolean>(false);
   const { step, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client } = useContext(FormDataContext);
+  const { client,score } = useContext(FormDataContext);
   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const queryClient = useQueryClient();
@@ -129,6 +129,7 @@ const Step11 = () => {
           onClick={() => {
             setIsYesClicked(true);
             client && mutation.mutate({ is_sharable: true });
+            console.log("navid score ===", score);
             console.log("navid client ===", client);
           }}
           icon={<CheckIcon />}

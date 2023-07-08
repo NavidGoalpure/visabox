@@ -33,7 +33,6 @@ const Step7 = () => {
               ...client,
               current_job: e.target.value,
             });
-          console.log("navid score ===", score);
         }}
       />
       <ButtonWrapper>
@@ -45,6 +44,7 @@ const Step7 = () => {
         <NextButton
           step={step}
           onClick={() => {
+          console.log("navid score ===", score);
             handleNextPress();
           }}
           disabled={!client?.current_job}

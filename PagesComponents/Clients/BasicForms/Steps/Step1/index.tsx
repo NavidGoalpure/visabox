@@ -36,7 +36,6 @@ const Step3 = () => {
               ...client,
               country: value as ClientCountry,
             });
-          console.log("navid client ===", client);
         }}
       >
         {

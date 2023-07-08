@@ -8,20 +8,20 @@ import type { SizeMode, ISourceOptions } from 'tsparticles-engine';
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',
-  copyPhoneToastMessage = 'copyPhoneToastMessage',
+  copyGmailToastMessage = 'copyGmailToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: 'sponsership of lawyers in our site | Mara Box',
-    fa: 'اسپانسر شوید | مارا باکس',
+    en: "sponsership of lawyers in our site | Mara Box",
+    fa: "اسپانسر شوید | مارا باکس",
   },
   SeoDesc: {
-    fa: 'اسپانسر ماراباکس شدن چگونه می‌تواند به کسب و کار مهاجرتی کمک کند',
-    en: 'In this page we show you the benefits of buying our vip account',
+    fa: "اسپانسر ماراباکس شدن چگونه می‌تواند به کسب و کار مهاجرتی کمک کند",
+    en: "In this page we show you the benefits of buying our vip account",
   },
-  copyPhoneToastMessage: {
-    en: 'Copied Phone number to clipboard',
-    fa: 'شماره تلفن در حافظه کپی شد',
+  copyGmailToastMessage: {
+    en: "Copied Gmail number to clipboard",
+    fa: "ایمیل در حافظه کپی شد",
   },
 };
 

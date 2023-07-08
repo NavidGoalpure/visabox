@@ -1,9 +1,9 @@
-import { deviceMin } from 'Consts/device';
-import { IoPersonAdd } from 'react-icons/io5';
-import { MdPersonSearch, MdOutlineScreenSearchDesktop } from 'react-icons/md';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { deviceMin } from "Consts/device";
+import { IoPersonAdd } from "react-icons/io5";
+import { MdPersonSearch, MdOutlineScreenSearchDesktop } from "react-icons/md";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
 import {
   ContactsDesc,
   ContactsWrapper,
@@ -20,22 +20,26 @@ import {
   TelegramIcon,
   TelegramLink,
   TitleSpanTheme,
-} from './styledComponents';
+} from "./styledComponents";
 
-import { ThemeModes } from 'Interfaces';
-import SocialMediaBranch from './Images/SocialMediaBranch.svg';
-import MobileDarkAgentProfile from './Images/MobileDarkAgentProfile.svg';
-import MobileLightAgentProfile from './Images/MobileLightAgentProfile.svg';
-import Image from 'next/image';
-import useTheme from 'Hooks/useTheme';
-import { copyContent } from 'Utils';
-import { useCallback, useRef } from 'react';
-import { loadFull } from 'tsparticles';
-import type { Engine } from 'tsparticles-engine';
-import Particles from 'react-tsparticles';
-import { LanguageKeys, componentStatements, tsParticleOption_Mobile } from './const';
-import Link from 'next/link';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { ThemeModes } from "Interfaces";
+import SocialMediaBranch from "./Images/SocialMediaBranch.svg";
+import MobileDarkAgentProfile from "./Images/MobileDarkAgentProfile.svg";
+import MobileLightAgentProfile from "./Images/MobileLightAgentProfile.svg";
+import Image from "next/image";
+import useTheme from "Hooks/useTheme";
+import { copyContent } from "Utils";
+import { useCallback, useRef } from "react";
+import { loadFull } from "tsparticles";
+import type { Engine } from "tsparticles-engine";
+import Particles from "react-tsparticles";
+import {
+  LanguageKeys,
+  componentStatements,
+  tsParticleOption_Mobile,
+} from "./const";
+import Link from "next/link";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 
 function MobileAgentsPage() {
   const { theme } = useTheme();
@@ -50,19 +54,19 @@ function MobileAgentsPage() {
   }, []);
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
-
+  const gmailToastMessage = t(LanguageKeys.copyGmailToastMessage);
   return (
     <Container>
-      <div ref={particlesContainer} style={{ position: 'relative' }}>
+      <div ref={particlesContainer} style={{ position: "relative" }}>
         <StyledParticles
           container={particlesContainer}
-          id='tsparticles'
+          id="tsparticles"
           init={particlesInit}
           options={tsParticleOption_Mobile}
         />
         <Hero>
           <RightPlaceTitle>
-            {' '}
+            {" "}
             در جای&nbsp;
             <span>درست</span>
             &nbsp;باش
@@ -94,11 +98,11 @@ function MobileAgentsPage() {
             ماراباکس موجود است. با خرید اکانت <span>ویژه</span> نسبت به رقبای
             خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار خواهید شد.
           </StyledDesc>
-          <StyledDesc style={{ zIndex: '10' }}>
+          <StyledDesc style={{ zIndex: "10" }}>
             <Link
-              href={'/lists/agencies'}
-              rel='noopener noreferrer'
-              target='_blank'
+              href={"/lists/agencies"}
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <span>مشاهده صفحه موسسات مهاجرتی</span>
             </Link>
@@ -116,17 +120,17 @@ function MobileAgentsPage() {
             width={291}
             height={304}
             src={SocialMediaBranch}
-            alt='social-media-branch-image'
+            alt="social-media-branch-image"
           />
           <StyledDesc>
             با خرید اکانت <span>ویژه</span> وکلای ماراباکس شبکه های اجتماعی شما
             نسبت به رقبای خود از جایگاه و نحوه نمایش زیباتری برخودار خواهند شد.
           </StyledDesc>
-          <StyledDesc style={{ zIndex: '10' }}>
+          <StyledDesc style={{ zIndex: "10" }}>
             <Link
-              href={'/lists/social-pages'}
-              rel='noopener noreferrer'
-              target='_blank'
+              href={"/lists/social-pages"}
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <span>مشاهده صفحه شبکه‌های اجتماعی</span>
             </Link>
@@ -150,7 +154,7 @@ function MobileAgentsPage() {
           <StyledDesc>
             <span>
               مشاهده صفحه وکلا
-              <Link href={'/list/agents'} />
+              <Link href={"/list/agents"} />
             </span>
           </StyledDesc>
         </StyledSection>
@@ -166,16 +170,16 @@ function MobileAgentsPage() {
             height={304}
             src={
               theme === ThemeModes.DARK
-                ? '/Images/landing/Agents/MobileDarkOccupationList.webp'
-                : '/Images/landing/Agents/MobileLightOccupationList.webp'
+                ? "/Images/landing/Agents/MobileDarkOccupationList.webp"
+                : "/Images/landing/Agents/MobileLightOccupationList.webp"
             }
-            alt='occupation-image'
+            alt="occupation-image"
           />
           <Desc>
             با خرید اکانت <span>ویژه</span> وکلای ماراباکس میتوانید تبلیغات خود
             را در صفحه اختصاصی هر شغل نشان دهید. در این حالت, کاربری که در حال
             بررسی شرایط یک شغل خاص میباشد, در صفحه ی همان شغل با خدمات شما آشنا
-            خواهد شد.{' '}
+            خواهد شد.{" "}
           </Desc>
         </StyledSection>
         <StyledSectionDivider />
@@ -194,7 +198,7 @@ function MobileAgentsPage() {
                 ? MobileDarkAgentProfile
                 : MobileLightAgentProfile
             }
-            alt='agent-profile'
+            alt="agent-profile"
           />
           <Desc>
             وکلای <span>ویژه</span> در صفحه اختصاصی خود میتوانند توضیحات تکمیلی
@@ -213,8 +217,8 @@ function MobileAgentsPage() {
               <StyledGmailContainer
                 onClick={() =>
                   copyContent({
-                    text: 'maraboxmigration@gmail.com',
-                    toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+                    text: "maraboxmigration@gmail.com",
+                    toastMessage: gmailToastMessage,
                   })
                 }
               >
@@ -222,8 +226,8 @@ function MobileAgentsPage() {
                 <GmailLink>maraboxmigration@gmail.com</GmailLink>
               </StyledGmailContainer>
               <StyledTelegramContainer
-                href={'https://t.me/maraboxmigration'}
-                target={'_blank'}
+                href={"https://t.me/maraboxmigration"}
+                target={"_blank"}
               >
                 <TelegramIcon />
                 <TelegramLink>@maraboxmigration</TelegramLink>
@@ -243,7 +247,7 @@ const StyledParticles = styled(Particles)`
   width: 100%;
   height: 100%;
 `;
-const LogoTheme = theme('mode', {
+const LogoTheme = theme("mode", {
   light: css`
     color: var(--color-gray8);
   `,
@@ -344,6 +348,7 @@ const StyledContactsDesc = styled(ContactsDesc)``;
 const StyledContactsWrapper = styled(ContactsWrapper)`
   flex-direction: column;
   gap: 1.5rem;
+  z-index: 1000;
 `;
 const StyledGmailContainer = styled(GmailContainer)`
   flex-direction: column;

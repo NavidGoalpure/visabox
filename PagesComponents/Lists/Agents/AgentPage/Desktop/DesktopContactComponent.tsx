@@ -28,14 +28,16 @@ const DesktopContactComponent = ({
   linkedin,
 }: Props) => {
   const { t } = useStaticTranslation(componentStatements);
+const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
+const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
 
   return (
     <Container>
       {website && (
-        <InternetContainer href={website} target={'_blank'}>
+        <InternetContainer href={website} target={"_blank"}>
           <InternetIcon />
           <InternetTitle>
-            {website.replaceAll('https://', '').replaceAll('http://', '')}
+            {website.replaceAll("https://", "").replaceAll("http://", "")}
           </InternetTitle>
         </InternetContainer>
       )}
@@ -43,8 +45,8 @@ const DesktopContactComponent = ({
         <PhoneContainer
           onClick={() =>
             copyContent({
-              text: phone?.[0] || '',
-              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+              text: phone?.[0] || "",
+              toastMessage: phoneToastMessage,
             })
           }
         >
@@ -62,8 +64,8 @@ const DesktopContactComponent = ({
         <GmailContainer
           onClick={() =>
             copyContent({
-              text: email || '',
-              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+              text: email || "",
+              toastMessage: gmailToastMessage,
             })
           }
         >
@@ -72,24 +74,24 @@ const DesktopContactComponent = ({
         </GmailContainer>
       )}
       {telegram && (
-        <TelegramContainer href={telegram} target={'_blank'}>
+        <TelegramContainer href={telegram} target={"_blank"}>
           <TelegramIcon />
           <TelegramTitle>{telegram}</TelegramTitle>
         </TelegramContainer>
       )}
       {instagram && (
-        <InstagramContainer href={instagram} target={'_blank'}>
+        <InstagramContainer href={instagram} target={"_blank"}>
           <InstagramIcon />
           <InstagramTitle>
-            {instagram.replaceAll('https://www.instagram.com/', '@')}
+            {instagram.replaceAll("https://www.instagram.com/", "@")}
           </InstagramTitle>
         </InstagramContainer>
       )}
       {linkedin && (
-        <LinkedinContainer href={linkedin} target={'_blank'}>
+        <LinkedinContainer href={linkedin} target={"_blank"}>
           <LinkedinIcon />
           <LinkedinTitle>
-            {linkedin.replaceAll('https://au.linkedin.com/in/', '')}
+            {linkedin.replaceAll("https://au.linkedin.com/in/", "")}
           </LinkedinTitle>
         </LinkedinContainer>
       )}

@@ -25,47 +25,49 @@ function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const data = getMultiLanguageLabels(client);
   const { locale } = useLocale();
+  const phoneToastMessage =t(LanguageKeys.copyPhoneToastMessage);
+  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage)
   return (
     <FormData>
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
       <Wrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
           <Value>{data?.age?.slice(0, 10)}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
           <Value>{data?.IELTSScore}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
           <Value>{data?.marital?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{" "}
           <Value>{data?.fieldOfStudy}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.DegreeLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
           <Value>{data?.degree?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
           <Value>{data?.uniSection?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{" "}
           <Value>{data?.workExperience?.[locale]}</Value>
         </DataWrapper>
         <DataWrapper>
-          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{' '}
+          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
         </DataWrapper>
         <PhoneContainer
           onClick={() =>
             copyContent({
-              text: data.phoneNumber || '',
-              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+              text: data.phoneNumber || "",
+              toastMessage: phoneToastMessage,
             })
           }
         >
@@ -77,8 +79,8 @@ function DescriptionSection({ client }: Props) {
         <GmailContainer
           onClick={() =>
             copyContent({
-              text: data.email || '',
-              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+              text: data.email || "",
+              toastMessage: gmailToastMessage,
             })
           }
         >

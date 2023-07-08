@@ -38,7 +38,9 @@ export enum UniSections {
   "IDontKnow" = "i don't know",
 }
 export enum AustralianWorkExperience {
-  "LessThan1Year" = "below 1 year",
+  // dont change this its required in order for step 9 to work properly
+  "LessThan1Year" = "none - less than 1 year",
+  //
   "1To3Years" = "1 to 3 years",
   "3To5Years" = "3 to 5 years",
   "5To8Years" = "5 to 8 years",

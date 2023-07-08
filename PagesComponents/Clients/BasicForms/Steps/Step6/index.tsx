@@ -40,7 +40,6 @@ const Step5 = () => {
               ...client,
               field_of_study: e.target.value,
             });
-          console.log("navid score ===", score);
         }}
       />
       <StyledTitle>{t(LanguageKeys.UniSectionsSectionTitle)} </StyledTitle>
@@ -53,7 +52,6 @@ const Step5 = () => {
               ...client,
               uni_section: value,
             });
-          console.log("navid score ===", score);
         }}
       >
         {
@@ -88,7 +86,6 @@ const Step5 = () => {
               ...client,
               degree: value,
             });
-          console.log("navid score ===", score);
         }}
       >
         {
@@ -133,9 +130,9 @@ const Step5 = () => {
               australian_educational_qualification:
                 value === "yes" ? true : false,
               //this shouldnt have a value if australian educational qulification === false
-              designated_regional_area_study: value === "no" && undefined,
+              designated_regional_area_study: value === "no" && false,
             });
-          console.log("navid score ===", score);
+          console.log("navid value ===", client);
         }}
       >
         {
@@ -181,7 +178,6 @@ const Step5 = () => {
                   designated_regional_area_study:
                     value === "yes" ? true : false,
                 });
-              console.log("navid score ===", score);
             }}
           >
             {
@@ -228,7 +224,6 @@ const Step5 = () => {
               specialist_educational_qualification:
                 value === "yes" ? true : false,
             });
-          console.log("navid score ===", score);
         }}
       >
         {
@@ -269,7 +264,6 @@ const Step5 = () => {
               ...client,
               professional_year_in_australia: value === "yes" ? true : false,
             });
-          console.log("navid score ===", score);
         }}
       >
         {
@@ -292,9 +286,7 @@ const Step5 = () => {
               <CalculatorIcon /> <InformationIcon />
             </>
           }
-          popupContent={t(
-            LanguageKeys.AccreditedCommunityLanguagePopupContent
-          )}
+          popupContent={t(LanguageKeys.AccreditedCommunityLanguagePopupContent)}
         />
       </StyledTitle>
       <ToggleGroupRoot
@@ -312,7 +304,6 @@ const Step5 = () => {
               ...client,
               accredited_community_language: value === "yes" ? true : false,
             });
-          console.log("navid score ===", score);
         }}
       >
         {
@@ -336,6 +327,8 @@ const Step5 = () => {
         <NextButton
           step={step}
           onClick={() => {
+          console.log("navid score ===", score);
+          console.log("navid client ===", client);
             handleNextPress();
           }}
           disabled={

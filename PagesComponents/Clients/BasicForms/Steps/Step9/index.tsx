@@ -48,7 +48,7 @@ const Step9 = () => {
             ...client,
             australian_work_experience: value as AustralianWorkExperience,
           })
-          console.log("navid score ===", score);}
+        }
         }
       >
         {
@@ -73,6 +73,8 @@ const Step9 = () => {
           step={step}
           icon={<NextIcon />}
           onClick={() => {
+          console.log("navid score ===", score);
+
             handleNextPress();
           }}
           disabled={!client?.australian_work_experience}

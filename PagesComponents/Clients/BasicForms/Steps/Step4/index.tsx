@@ -48,7 +48,6 @@ const Step4 = () => {
               ...client,
               age: e.target.value?.slice(0, 10),
             });
-            console.log("navid score ===", score);
         }}
         id={"date-input"}
       />
@@ -61,6 +60,7 @@ const Step4 = () => {
         <NextButton
           step={step}
           onClick={() => {
+            console.log("navid score ===", score);
             handleNextPress();
           }}
           icon={<NextIcon />}

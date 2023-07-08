@@ -46,7 +46,7 @@ const Step10 = () => {
             ...client,
             ielts_score: value as IELTSScore,
           })
-          console.log("navid score ===", score);}
+        }
         }
       >
         {
@@ -70,6 +70,8 @@ const Step10 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+          console.log("navid score ===", score);
+
           }}
           disabled={!client?.ielts_score}
           icon={<NextIcon />}

@@ -46,7 +46,6 @@ const Step3 = () => {
               ...client,
               visa_subclass: value as VisaSubclass,
             });
-          console.log("navid score ===", score);
         }}
       >
         {

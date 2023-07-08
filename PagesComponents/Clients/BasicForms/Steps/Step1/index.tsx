@@ -36,7 +36,6 @@ const Step3 = () => {
               ...client,
               country: value as ClientCountry,
             });
-          console.log("navid client ===", client);
         }}
       >
         {
@@ -62,9 +61,8 @@ const Step3 = () => {
           onClick={() => {
             handleNextPress();
             console.log("navid score ===", score);
-            console.log("navid client ===", client);
           }}
-          disabled={!client?.visa_subclass}
+          disabled={!client?.country}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

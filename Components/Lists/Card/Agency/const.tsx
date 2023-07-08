@@ -16,6 +16,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Website',
     fa: 'وبسایت',
   },
+ 
   copyPhoneToastMessage: {
     en: 'Copied Phone number to clipboard',
     fa: 'شماره تلفن در حافظه کپی شد',

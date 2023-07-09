@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ArticleMetaData } from '../interfaces';
+import { ArticleMetaData } from '../../interfaces';
 import styled from 'styled-components';
 import { Layer1_SubtitleStyle, Layer1_TextStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { th_a_Color } from 'PagesComponents/Occupations/Detail/DetailTab/styledComponents';
@@ -7,11 +7,24 @@ import { borderTheme } from 'Styles/Theme';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import { useLocale } from 'Hooks/useLocale';
+import {
+  componentStatements,
+  LanguageKeys,
+} from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import Seo from 'Components/Seo';
 
 export default function PostContent() {
   const { locale } = useLocale();
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
+
+      <Seo
+        title={t(LanguageKeys.SeoTitle)}
+        canonical={`https://www.marabox.com/${locale}/blog`}
+        description={t(LanguageKeys.SeoDesc)}
+      />
 
       <img src='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best'></img>
 
@@ -56,7 +69,7 @@ export default function PostContent() {
       <h2> امتیازات نمره زبان </h2>
 
       <table><thead><tr><th>نمره IELTS ( مشخص شود general /academic)	نمره PTE	نمره - iBT   TOEFL	امتیاز کسب شده</th><th>نمره PTE</th><th>نمره - iBT   TOEFL</th><th>امتیاز کسب شده</th></tr></thead><tbody><tr><td>6 هر اسکیل</td><td>50 در هر اسکیل</td><td>L12,R13,W21,S18</td><td>صفر امتیاز</td></tr><tr><td>7 هر اسکیل</td><td>65 در هر اسکیل</td><td>L24,R24,W27,S23</td><td>10 امتیاز</td></tr><tr><td>8 اسکیل</td><td>79 در هر اسکیل</td><td>L28,R29,W30,S26</td><td>20 امتیاز</td></tr></tbody></table>
-      
+
       <img src='https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best'></img>
 
       <p>

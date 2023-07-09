@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ArticleMetaData } from '../interfaces';
+import { ArticleMetaData } from '../../interfaces';
 import styled from 'styled-components';
 import { Layer1_SubtitleStyle, Layer1_TextStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { th_a_Color } from 'PagesComponents/Occupations/Detail/DetailTab/styledComponents';
@@ -7,11 +7,24 @@ import { borderTheme } from 'Styles/Theme';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import { useLocale } from 'Hooks/useLocale';
+import {
+  componentStatements,
+  LanguageKeys,
+} from './const';
+import Seo from 'Components/Seo';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 export default function PostContent() {
   const { locale } = useLocale();
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
+
+      <Seo
+        title={t(LanguageKeys.SeoTitle)}
+        canonical={`https://www.marabox.com/${locale}/blog`}
+        description={t(LanguageKeys.SeoDesc)}
+      />
 
       <img src='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'></img>
 

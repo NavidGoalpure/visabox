@@ -1,16 +1,30 @@
 import { layer2A_SubtitleStyle, layer2A_TextStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
+import { HTMLAttributes } from 'react';
 import { BsShare } from 'react-icons/bs';
 import styled from 'styled-components';
 
+interface Props extends HTMLAttributes<HTMLAnchorElement> {
+    title: string;
+    desc: string;
+    img: string;
+    href: string;
+}
 
-function BlogCardType1Slim() {
+
+const BlogCardType1Slim: React.FC<Props> = ({
+    title,
+    desc,
+    img,
+    href,
+    ...props
+}) => {
     return (
-        <Container>
-            <BlogImg src="https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best" alt="image-source" />
+        <Container href={href} {...props}>
+            <BlogImg src={img} alt="image-source" />
             <Content>
-                <Title>آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم</Title>
-                <SubTitle>ویزای اسکیل ورکر یا مهارتی سه مرحله دارد که اسسمنت مرحله اول آن است. اسسمنت به معنای ارزیابی است، شما برای شروع فرایند مهاجرت از طریق ویزای اسکیل ورکر ....</SubTitle>
+                <Title>{title}</Title>
+                <Desc>{desc}</Desc>
             </Content>
             <ShareBtn>
                 <BsShare />
@@ -21,17 +35,18 @@ function BlogCardType1Slim() {
 
 export default BlogCardType1Slim;
 
-const Container = styled.div`
+const Container = styled.a`
 ${layer2A_Bg}
 display: flex;
 justify-content: center;
-width: 30%;
+width: 100%;
 height: 100%;
 border-radius: 15px;
 overflow: hidden;
 position: relative;
 flex-direction: column;
 gap: 1rem;
+padding-bottom: 1rem;
 `
 
 const BlogImg = styled.img`
@@ -51,9 +66,13 @@ ${layer2A_SubtitleStyle}
 width: 100%;
 `
 
-const SubTitle = styled.div`
+const Desc = styled.div`
 ${layer2A_TextStyle}
 text-align: Start;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
 `
 
 const ShareBtn = styled.div`

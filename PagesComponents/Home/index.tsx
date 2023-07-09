@@ -55,6 +55,8 @@ const HomeContent: React.FC = () => {
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
               ></BannerDesc>
             }
+            stampText={t(LanguageKeys.StampText)}
+
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
         )}
@@ -79,3 +81,4 @@ const Container = styled.div`
 const BannerDesc = styled.div`
 
 `
+

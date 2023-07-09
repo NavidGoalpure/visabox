@@ -1,20 +1,21 @@
-import { Logo } from 'Elements/Logo';
-import Link from 'next/link';
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { boxShadow, directionStyles } from 'Styles/Theme';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import theme from 'styled-theming';
-import { useLocale } from 'Hooks/useLocale';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
-import { componentStatements, LanguageKeys } from '../const';
-import DesktopLanguageChanger from './LanguageChanger';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import DesktopBoxsesDropdown from './dropdownBoxes';
-import DesktopOccupationDropdown from './dropdownOccupation';
-import { useSession } from 'next-auth/react';
-import AvatarComponent from '../AvatarComponent';
+import { Logo } from "Elements/Logo";
+import Link from "next/link";
+import React from "react";
+import styled, { css } from "styled-components";
+import { boxShadow, directionStyles } from "Styles/Theme";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import theme from "styled-theming";
+import { useLocale } from "Hooks/useLocale";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
+import { componentStatements, LanguageKeys } from "../const";
+import DesktopLanguageChanger from "./LanguageChanger";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import DesktopBoxsesDropdown from "./dropdownBoxes";
+import DesktopOccupationDropdown from "./dropdownOccupation";
+import { useSession } from "next-auth/react";
+import AvatarComponent from "../AvatarComponent";
+import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 
 function Desktop() {
   const { locale } = useLocale();
@@ -29,15 +30,20 @@ function Desktop() {
               <Logo />
             </Link>
           </NavigationMenu.Item>
+
           <DesktopLanguageChanger />
 
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
+          <NavigationMenu.Item>
+            <Link href={`/${locale}/blog`}>
+              <Item>{t(LanguageKeys.Blogs)}</Item>
+            </Link>
+          </NavigationMenu.Item>
         </MenuItems>
-        <StyledMenuItem as={'div'}>
+        <StyledMenuItem as={"div"}>
           {session ? (
-            <AvatarComponent
-            />
+            <AvatarComponent />
           ) : (
             <MenuLink href={`/${locale}/auth/signin`}>
               {t(LanguageKeys.Login)}
@@ -59,12 +65,20 @@ const Container = styled(NavigationMenu.Root)`
   width: 100%;
   padding: 0 1rem;
 `;
-const dirFlexStyle = theme('languageDirection', {
+const dirFlexStyle = theme("languageDirection", {
   ltr: css`
     flex-direction: row;
   `,
   rtl: css`
     flex-direction: row-reverse;
+  `,
+});
+const itemHover = theme("mode", {
+  light: css`
+    color: var(--color-gray6);
+  `,
+  dark: css`
+    color: var(--color-gray13);
   `,
 });
 const Wrapper = styled.div`
@@ -90,7 +104,7 @@ const MenuLink = styled(Link)`
   ${layer3_TextStyle};
   position: relative;
   :before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -119,8 +133,37 @@ const StyledMenuItem = styled(NavigationMenu.Item)`
   justify-content: center;
   align-items: center;
 `;
-const Avatar = styled.img`
-  border-radius: 50%;
-  width: 3rem;
-  outline: 2px solid var(--color-gray7);
+const Item = styled.h4`
+  ${layer2A_TextStyle}
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  max-width: max-content;
+  transition: all 400ms ease;
+  margin: auto;
+  :before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 5px;
+    width: 100%;
+    overflow: hidden;
+    transition: all 400ms ease;
+    border-radius: 10px;
+  }
+  :hover {
+    ${itemHover}
+
+    :before {
+      bottom: -10px;
+      background-color: var(--color-primary4);
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
 `;

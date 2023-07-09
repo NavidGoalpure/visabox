@@ -1,49 +1,26 @@
-import MaraBgAnimation from 'Components/MaraBgAnimation';
+import { NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
-import React from 'react';
-import styled from 'styled-components';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useLocale } from 'Hooks/useLocale';
+import Seo from 'Components/Seo';
 import {
-  Layer1_SubtitleStyle,
-  Layer1_TextStyle,
-  Layer1_TitleStyle,
-} from 'Styles/Theme/Layers/layer1/style';
+    componentStatements,
+    LanguageKeys,
+} from 'PagesComponents/Blog/const';
+import SmartBlogWall from 'Components/Cards/Type1/BlogCards';
 
-export default function NotFound() {
-  return (
-    <PageLayout>
-      <Container>
-        <MaraBgAnimation>
-          <BlurContainer>
-            <Title>لیست مقاله ها باید اینجا نشون داده بشه</Title>
-          </BlurContainer>
-        </MaraBgAnimation>
-      </Container>
-    </PageLayout>
-  );
-}
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 4.5rem 0;
-  position: relative;
-`;
-
-const BlurContainer = styled.div`
-  padding: 32px 24px;
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const Title = styled.h1`
-  ${Layer1_TitleStyle}
-`;
-const Subtitle = styled.h2`
-  ${Layer1_SubtitleStyle}
-  text-align: center !important;
-`;
-const Desc = styled.h3`
-  ${Layer1_TextStyle}
-`;
+const BlogPage: NextPage = () => {
+    const { locale } = useLocale();
+    const { t } = useStaticTranslation(componentStatements);
+    return (
+        <PageLayout>
+            <Seo
+                title={t(LanguageKeys.SeoTitle)}
+                canonical={`https://www.marabox.com/${locale}/blog`}
+                description={t(LanguageKeys.SeoDesc)}
+            />
+            <SmartBlogWall />
+        </PageLayout>
+    );
+};
+export default BlogPage;

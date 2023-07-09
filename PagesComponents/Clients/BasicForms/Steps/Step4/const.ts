@@ -4,6 +4,8 @@ export enum LanguageKeys {
   AgeSectionTitle = "AgeSectionTitle",
   NextButtonTitle = "NextButtonTitle",
   PrevButtonTitle = "PrevButtonTitle",
+  BackToHomepage = "BackToHomepage",
+  HintText = "HintText",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   AgePopupContent: {
@@ -14,7 +16,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "Birth Day:",
     fa: "تاریخ تولد:",
   },
-
+  BackToHomepage: {
+    en: "Back to home page",
+    fa: "بازگشت به صفحه اصلی",
+  },
+  HintText: {
+    en: "According to your age, you can only immigrate through investment visa .",
+    fa: "با توجه به سن شما فقط از طریق ویزای سرمایه گذاری می توانید مهاجرت کنید.",
+  },
   NextButtonTitle: {
     en: "Next",
     fa: "بعدی",

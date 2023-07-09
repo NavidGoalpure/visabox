@@ -1,4 +1,5 @@
 import { SanityKeys, Status } from ".";
+// the enum values should be the same as sanity document name and toggle group english text
 export enum ClientCountry {
   Iran = "iran",
   China = "china",
@@ -30,7 +31,7 @@ export enum WorkExperience {
   "1To3Years" = "1 to 3 years",
   "3To5Years" = "3 to 5 years",
   "5To8Years" = "5 to 8 years",
-  "MoreThan8Years" = "8 years or More",
+  "MoreThan8Years" = "more than 8 years",
 }
 export enum UniSections {
   "Section1" = "section 1",

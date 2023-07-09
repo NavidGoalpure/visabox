@@ -8,6 +8,7 @@ import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { Headline7Style } from "Styles/Typo";
+import { Hint_TextStyle } from "Styles/Theme/Hint/style";
 
 const PrevIconDirectionStyle = theme("languageDirection", {
   ltr: css``,
@@ -35,6 +36,22 @@ const IconTheme = theme("mode", {
   `,
   dark: css`
     color: var(--color-primary1);
+  `,
+});
+export const HintIconTheme = theme("mode", {
+  light: css`
+    color: var(--color-secondary2);
+  `,
+  dark: css`
+    color: var(--color-secondary4);
+  `,
+});
+export const HintLiTheme = theme("mode", {
+  light: css`
+    color: var(--color-secondary2);
+  `,
+  dark: css`
+    color: var(--color-secondary3);
   `,
 });
 export const Container = styled.div`
@@ -143,4 +160,25 @@ export const PrevIcon = styled(NextIcon)`
   transform: rotate(180deg);
   margin: 0;
   ${PrevIconDirectionStyle};
+`;
+
+export const HintSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+`;
+export const HintInfoIcon = styled(FiInfo)`
+  ${HintIconTheme};
+  width: 2.4rem;
+  height: auto;
+  flex-shrink: 0;
+  margin-top: 0.5rem;
+`;
+export const HintUl = styled.ul`
+  list-style: disc;
+`;
+export const HintLi = styled.li`
+  ${Hint_TextStyle};
+  ${HintLiTheme};
 `;

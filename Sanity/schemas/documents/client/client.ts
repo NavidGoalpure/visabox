@@ -136,6 +136,7 @@ export default {
       type: "string",
       options: {
         list: [
+          { title: "I Dont Have Any", value: "I dont have any" },
           { title: "Diploma", value: "diploma" },
           { title: "Bachelor's degree", value: "bachelor's degree" },
           { title: "Master degree", value: "master degree" },

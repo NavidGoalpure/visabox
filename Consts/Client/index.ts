@@ -29,6 +29,7 @@ export const maritalSituations: MultiLanguageText[] = [
   { en: "4", fa: "4" },
 ];
 export const educations: MultiLanguageText[] = [
+  { en: "I dont have any", fa: "ندارم" },
   { en: "Diploma", fa: "دیپلم" },
   { en: "Bachelor's degree", fa: "لیسانس" },
   { en: "Master's degree", fa: "فوق لیسانس" },

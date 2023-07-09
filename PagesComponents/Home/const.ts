@@ -5,6 +5,7 @@ export enum LanguageKeys {
   SeoDesc = 'SeoDesc',
   BannerDesc = 'BannerDesc',
   BannerButtonText = 'BannerButtonText',
+  StampText = 'StampText'
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -27,4 +28,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
                 را پر کنید تا وکلای مهاجرت با شما به صورت <span>رایگان</span> با
                 شما در ارتباط باشند.`,
   },
+  StampText: {
+    fa: `<span>همراه</span>ماشین حساب امتیازات`,
+    en: `With Point Calculator`
+  }
 };

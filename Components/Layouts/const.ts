@@ -3,6 +3,7 @@ import { MultiLanguageText } from 'Interfaces/Database';
 export enum LanguageKeys {
   BannerDesc = 'BannerDesc',
   BannerButtonText = 'BannerButtonText',
+  StampText = 'StampText',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   BannerDesc: {
@@ -12,5 +13,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   BannerButtonText: {
     en: 'Assessment form',
     fa: 'فرم ارزیابی',
+  },
+  StampText: {
+    en: 'With Point Calculator',
+    fa: 'همراه <br/> ماشین حساب امتیازات',
   },
 };

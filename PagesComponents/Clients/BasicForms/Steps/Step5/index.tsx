@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
@@ -8,6 +8,10 @@ import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
+  HintInfoIcon,
+  HintLi,
+  HintSection,
+  HintUl,
   InformationIcon,
   NextButton,
   NextIcon,
@@ -22,9 +26,6 @@ import {
   MaritalSituationType,
 } from "Interfaces/Database/Client";
 import { maritalSituations, maritalStatuses } from "Consts/Client";
-import { FiInfo } from "react-icons/fi";
-import theme from "styled-theming";
-import { Hint_TextStyle } from "Styles/Theme/Hint/style";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -163,44 +164,8 @@ const Step5 = () => {
   );
 };
 export default Step5;
-const HintIconTheme = theme("mode", {
-  light: css`
-    color: var(--color-secondary2);
-  `,
-  dark: css`
-    color: var(--color-secondary4);
-  `,
-});
-const HintLiTheme = theme("mode", {
-  light: css`
-    color: var(--color-secondary2);
-  `,
-  dark: css`
-    color: var(--color-secondary3);
-  `,
-});
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
   width: 100%;
 `;
 
-const HintSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 3rem;
-`;
-const HintInfoIcon = styled(FiInfo)`
-  ${HintIconTheme};
-  width: 2.4rem;
-  height: auto;
-  flex-shrink: 0;
-  margin-top: 0.5rem;
-`;
-const HintUl = styled.ul`
-  list-style: disc;
-`;
-const HintLi = styled.li`
-  ${Hint_TextStyle};
-  ${HintLiTheme};
-`;

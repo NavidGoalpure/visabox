@@ -13,12 +13,11 @@ import { copyContent } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { ThemeModes } from "Interfaces";
-import useTheme from "Hooks/useTheme";
+import { ThemeModes } from 'Interfaces';
+import useTheme from 'Hooks/useTheme';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { directionStyles } from 'Styles/Theme';
-
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -79,9 +78,9 @@ function DesktopFooter() {
           <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
           <LogosContainer>
             <a
-              target={"_blank"}
-              href="https://www.t.me/maraboxmigration"
-              aria-label="Telegram logo"
+              target={'_blank'}
+              href='https://www.t.me/maraboxmigration'
+              aria-label='Telegram logo'
             >
               <TelegramLogo />
             </a>
@@ -89,7 +88,7 @@ function DesktopFooter() {
             <GmailLogo
               onClick={() =>
                 copyContent({
-                  text: "maraboxmigration@gmail.com",
+                  text: 'maraboxmigration@gmail.com',
                   toastMessage: gmailToastMessage,
                 })
               }
@@ -104,7 +103,7 @@ function DesktopFooter() {
           >
             <SwitchTheme />
           </SwitchThemeContainer>
-          <Privacy href="/privacy-policy">Privacy and Policy</Privacy>
+          <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
         </LeftSideContainer>
       </Wrapper>
     </Container>
@@ -262,7 +261,7 @@ const SideContainer = styled.div`
 `;
 
 const LeftSideContainer = styled(SideContainer)`
-margin-top: 6rem !important;
+  margin-top: 6rem !important;
 `;
 
 const SwitchButton = styled.div`
@@ -280,8 +279,7 @@ const LogosContainer = styled.div`
   align-items: center;
 `;
 
-const SwitchThemeContainer = styled.div`
-`
+const SwitchThemeContainer = styled.div``;
 
 const MaraItemTitle = styled.h4`
   ${Headline7Style};

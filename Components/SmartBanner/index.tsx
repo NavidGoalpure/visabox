@@ -1,28 +1,28 @@
-import MaraBgAnimation from "Components/MaraBgAnimation";
-import { deviceMin } from "Consts/device";
-import { SecondaryButton } from "Elements/Button/Secondary";
-import { LocalStorageKeys } from "Interfaces";
-import { useRouter } from "next/router";
-import { HTMLAttributes, ReactNode, useEffect, useState } from "react";
-import { IoCloseOutline } from "react-icons/io5";
-import { MdNavigateNext } from "react-icons/md";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import { Headline5Style, Headline7Style } from "Styles/Typo";
-import { getLocalStorage, setLocalStorage } from "Utils";
-import BannerStamp from "./Images/BannerStamp.svg"
+import MaraBgAnimation from 'Components/MaraBgAnimation';
+import { deviceMin } from 'Consts/device';
+import { SecondaryButton } from 'Elements/Button/Secondary';
+import { LocalStorageKeys } from 'Interfaces';
+import { useRouter } from 'next/router';
+import { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import { IoCloseOutline } from 'react-icons/io5';
+import { MdNavigateNext } from 'react-icons/md';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { Headline5Style, Headline7Style } from 'Styles/Typo';
+import { getLocalStorage, setLocalStorage } from 'Utils';
+import BannerStamp from './Images/BannerStamp.svg';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
   buttonText: string;
-  stampText: string;
+  stampText?: string;
 }
-const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) => {
+const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
   const router = useRouter();
   const [isBannerClosed, setIsBannerClosed] = useState(true);
   useEffect(() => {
     if (
-      getLocalStorage(LocalStorageKeys.Client_IsFormBannerClosed) === "true"
+      getLocalStorage(LocalStorageKeys.Client_IsFormBannerClosed) === 'true'
     ) {
       setIsBannerClosed(true);
     } else {
@@ -31,21 +31,21 @@ const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText 
   }, []);
   return (
     <Container isBannerClosed={isBannerClosed}>
-      {/* <Stamp
+      {/* {stampText && <Stamp
         dangerouslySetInnerHTML={{ __html: stampText }}
       >
       navid uncommend when calc is added
-      </Stamp> */}
+      </Stamp>} */}
       <Wrapper>
-        {" "}
+        {' '}
         <MaraBgAnimation
           animationSpeed={60}
-          DarkPrimaryColor={"var(--color-primary3)"}
-          LightPrimaryColor={"var(--color-primary3)"}
-          LightSecondaryColor={"transparent"}
+          DarkPrimaryColor={'var(--color-primary3)'}
+          LightPrimaryColor={'var(--color-primary3)'}
+          LightSecondaryColor={'transparent'}
         >
           <Content>
-            <Title>{desc}</Title>{" "}
+            <Title>{desc}</Title>{' '}
             <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
               {buttonText}
             </Button>
@@ -53,7 +53,7 @@ const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText 
               onClick={() => {
                 setLocalStorage({
                   key: LocalStorageKeys.Client_IsFormBannerClosed,
-                  value: "true",
+                  value: 'true',
                 });
                 setIsBannerClosed(true);
               }}
@@ -69,12 +69,11 @@ const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText 
 export default SmartBanner;
 
 const Container = styled.div<{ isBannerClosed: boolean }>`
-position: relative;
-width: 100%;
-///////////
-${({ isBannerClosed }) => isBannerClosed && `display:none;`}
-///////
-`
+  position: relative;
+  width: 100%;
+  ///////////
+  ${({ isBannerClosed }) => isBannerClosed && `display:none;`}///////
+`;
 
 const Stamp = styled.div`
 span {
@@ -107,8 +106,8 @@ color: var(--color-secondary1);
   font-weight: 900;
   bottom: -4rem;
 }
-`
-const NextIconDirectionStyle = theme("languageDirection", {
+`;
+const NextIconDirectionStyle = theme('languageDirection', {
   ltr: css``,
   rtl: css`
     transform: rotate(180deg);
@@ -124,7 +123,7 @@ const Wrapper = styled.div`
   z-index: 0;
   overflow: hidden;
   :before {
-    content: "";
+    content: '';
     width: 20%;
     height: 50%;
     background: var(--color-primary3);
@@ -137,7 +136,7 @@ const Wrapper = styled.div`
     z-index: 0;
   }
   :after {
-    content: "";
+    content: '';
     width: 20%;
     height: 50%;
     background: var(--color-primary3);

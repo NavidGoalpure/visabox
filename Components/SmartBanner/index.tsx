@@ -31,10 +31,11 @@ const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText 
   }, []);
   return (
     <Container isBannerClosed={isBannerClosed}>
-      <Stamp
+      {/* <Stamp
         dangerouslySetInnerHTML={{ __html: stampText }}
       >
-      </Stamp>
+      navid uncommend when calc is added
+      </Stamp> */}
       <Wrapper>
         {" "}
         <MaraBgAnimation

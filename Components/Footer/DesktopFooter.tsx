@@ -13,10 +13,17 @@ import { copyContent } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import { ThemeModes } from "Interfaces";
+import useTheme from "Hooks/useTheme";
+import SwitchTheme from 'Components/NavigationMenu/switchTheme';
+import { Headline6Style, Headline7Style } from 'Styles/Typo';
+import { directionStyles } from 'Styles/Theme';
+
 
 function DesktopFooter() {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
+  const { theme, setTheme } = useTheme();
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <Container>
@@ -68,7 +75,7 @@ function DesktopFooter() {
             </Items>
           )} */}
         </CenterItemsContainer>
-        <SideContainer>
+        <LeftSideContainer>
           <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
           <LogosContainer>
             <a
@@ -88,8 +95,17 @@ function DesktopFooter() {
               }
             />
           </LogosContainer>
+          <SwitchThemeContainer
+            onClick={() => {
+              theme === ThemeModes.DARK
+                ? setTheme(ThemeModes.LIGHT)
+                : setTheme(ThemeModes.DARK);
+            }}
+          >
+            <SwitchTheme />
+          </SwitchThemeContainer>
           <Privacy href="/privacy-policy">Privacy and Policy</Privacy>
-        </SideContainer>
+        </LeftSideContainer>
       </Wrapper>
     </Container>
   );
@@ -245,6 +261,10 @@ const SideContainer = styled.div`
   }
 `;
 
+const LeftSideContainer = styled(SideContainer)`
+margin-top: 6rem !important;
+`;
+
 const SwitchButton = styled.div`
   position: absolute;
   bottom: 16px;
@@ -258,6 +278,17 @@ const LogosContainer = styled.div`
   display: flex;
   gap: 1.5rem;
   align-items: center;
+`;
+
+const SwitchThemeContainer = styled.div`
+`
+
+const MaraItemTitle = styled.h4`
+  ${Headline7Style};
+  color: var(--color-gray4);
+  @media ${deviceMin.tabletS} {
+    ${Headline6Style};
+  }
 `;
 
 const Privacy = styled.a`

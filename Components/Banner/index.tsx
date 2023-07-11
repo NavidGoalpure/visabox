@@ -18,11 +18,11 @@ const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) =>
   const router = useRouter();
   return (
     <Container>
-      <Stamp
+      {/* <Stamp
         dangerouslySetInnerHTML={{ __html: stampText }}
       >
-
-      </Stamp>
+      navid uncommend when calc is added
+      </Stamp> */}
       <Wrapper>
         {" "}
         <MaraBgAnimation

@@ -6,7 +6,6 @@ import BlogCardType2Wide from './Type2Wide';
 import { Layer1_SubtitleStyle, Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { useLocale } from 'Hooks/useLocale';
 
-
 function DesktopCards() {
     const { locale } = useLocale();
     return (
@@ -15,7 +14,7 @@ function DesktopCards() {
                 بلاگ های مهاجرت
             </Title>
             <Subtitle>
-             صفحه وبلاگ های ما خوش آمدید، جایی که ما اطلاعات، نکات و اخبار مربوط به مهاجرت خود را به اشتراک می گذاریم. 
+                صفحه وبلاگ های ما خوش آمدید، جایی که ما اطلاعات، نکات و اخبار مربوط به مهاجرت خود را به اشتراک می گذاریم.
             </Subtitle>
             <ThreeItemWrapper>
                 <StyledBlogCardType2Slim

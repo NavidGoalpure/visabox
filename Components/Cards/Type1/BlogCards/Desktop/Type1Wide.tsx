@@ -1,10 +1,11 @@
 import { layer2A_SubtitleStyle, layer2A_TextStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
+import { copyContent } from 'Utils';
 import { HTMLAttributes } from 'react';
 import { BsShare } from 'react-icons/bs';
 import styled from 'styled-components';
 
-interface Props extends HTMLAttributes<HTMLAnchorElement> {
+interface Props extends HTMLAttributes<HTMLDivElement> {
     title: string;
     desc: string;
     img: string;
@@ -19,13 +20,21 @@ const BlogCardType1Wide: React.FC<Props> = ({
     ...props
 }) => {
     return (
-        <Container href={href} {...props}>
-            <BlogImg src={img} alt="image-source" />
-            <Content>
-                <Title>{title}</Title>
-                <Desc>{desc}</Desc>
-            </Content>
-            <ShareBtn>
+        <Container {...props}>
+            <Wrapper href={href}>
+                <BlogImg src={img} alt="image-source" />
+                <Content>
+                    <Title>{title}</Title>
+                    <Desc>{desc}</Desc>
+                </Content>
+            </Wrapper>
+            <ShareBtn
+                onClick={() =>
+                    copyContent({
+                        text: `www.marabox.com/${href}`,
+                        toastMessage: "لینک بلاگ در حافظه کپی شد",
+                    })
+                }>
                 <BsShare />
             </ShareBtn>
         </Container>
@@ -34,7 +43,7 @@ const BlogCardType1Wide: React.FC<Props> = ({
 
 export default BlogCardType1Wide;
 
-const Container = styled.a`
+const Container = styled.div`
 ${layer2A_Bg}
 display: flex;
 justify-content: center;
@@ -51,6 +60,9 @@ const BlogImg = styled.img`
 width: 100%;
 height: 16rem;
 object-fit: cover;
+`
+
+const Wrapper = styled.a`
 `
 
 const Content = styled.div`
@@ -88,6 +100,8 @@ align-items: center;
 justify-content: center;
 transition: 0.7s;
 box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.50);
+cursor: pointer;
+z-index: 1000;
 ${Container}:hover & {
     top: 0;
     left: 0;    

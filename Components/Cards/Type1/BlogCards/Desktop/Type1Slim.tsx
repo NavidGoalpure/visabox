@@ -1,4 +1,4 @@
-import { layer2A_SubtitleStyle, layer2A_TextStyle, layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_SubtitleStyle, layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
 import { copyContent } from 'Utils';
 import { HTMLAttributes } from 'react';

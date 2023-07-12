@@ -16,7 +16,7 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 function MobileFooter() {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-
+const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <Container>
       <StyledLogo />
@@ -68,22 +68,22 @@ function MobileFooter() {
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
           <a
-            target={'_blank'}
-            href='https://www.t.me/maraboxmigration'
-            aria-label='Telegram logo'
+            target={"_blank"}
+            href="https://www.t.me/maraboxmigration"
+            aria-label="Telegram logo"
           >
             <TelegramLogo />
           </a>
           <GmailLogo
             onClick={() =>
               copyContent({
-                text: 'maraboxmigration@gmail.com',
-                toastMessage: t(LanguageKeys.copyEmailToastMessage),
+                text: "maraboxmigration@gmail.com",
+                toastMessage: gmailToastMessage,
               })
             }
           />
         </LogosContainer>
-        <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
+        <Privacy href="/privacy-policy">Privacy and Policy</Privacy>
       </ContactUsContainer>
     </Container>
   );

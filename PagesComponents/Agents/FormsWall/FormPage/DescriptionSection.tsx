@@ -27,10 +27,8 @@ function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const data = getMultiLanguageLabels(client);
   const { locale } = useLocale();
-  console.log(
-    "navid typeof client?.australian_educational_qualification ===",
-    typeof client?.australian_educational_qualification
-  );
+  const phoneToastMessage =t(LanguageKeys.copyPhoneToastMessage);
+  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage)
   return (
     <FormData>
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
@@ -142,7 +140,7 @@ function DescriptionSection({ client }: Props) {
           onClick={() =>
             copyContent({
               text: data.phoneNumber || "",
-              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+              toastMessage: phoneToastMessage,
             })
           }
         >
@@ -155,7 +153,7 @@ function DescriptionSection({ client }: Props) {
           onClick={() =>
             copyContent({
               text: data.email || "",
-              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+              toastMessage: gmailToastMessage,
             })
           }
         >

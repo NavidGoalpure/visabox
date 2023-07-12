@@ -31,7 +31,7 @@ function Content() {
                 key={i}
                 fullname={naati.fullName}
                 desc={naati?.desc}
-                slug={slugify(naati.fullName.en)}
+                slug={naati.slug}
                 avatar={naati.avatar || `/Images/placeholder.jpeg`}
               />
             );

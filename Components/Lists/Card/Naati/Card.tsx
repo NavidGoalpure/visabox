@@ -34,7 +34,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
-
+const emailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+const phoneToastMessage =t(LanguageKeys.copyPhoneToastMessage);
   useEffect(() => getGsapTimeLine_FadeUp(slug));
 
   return (
@@ -45,8 +46,8 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
           <EmailWrapper
             onClick={() =>
               copyContent({
-                text: email || '',
-                toastMessage: t(LanguageKeys.copyEmailToastMessage),
+                text: email || "",
+                toastMessage: emailToastMessage,
               })
             }
           >
@@ -58,8 +59,8 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
           <PhoneWrapper
             onClick={() =>
               copyContent({
-                text: phone?.[0] || '',
-                toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+                text: phone?.[0] || "",
+                toastMessage: phoneToastMessage,
               })
             }
           >
@@ -71,11 +72,11 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
-              as={!!website ? 'a' : 'div'}
+              as={!!website ? "a" : "div"}
               href={
-                !!website ? `https://${website?.replace('https://', '')}` : ''
+                !!website ? `https://${website?.replace("https://", "")}` : ""
               }
-              target={'_blank'}
+              target={"_blank"}
               $hasWebsite={!!website}
             >
               {!!website ? website : BLANK_SYMBOL}

@@ -11,7 +11,7 @@ import { borderTheme } from 'Styles/Theme';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import { useLocale } from 'Hooks/useLocale';
-import { componentStatements, LanguageKeys } from './const';
+import { componentStatements, LanguageKeys, structuredData } from './const';
 import Seo from 'Components/Seo';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Link from 'next/link';
@@ -22,9 +22,10 @@ export default function PostContent() {
   return (
     <Container>
       <Seo
-        title={t(LanguageKeys.SeoTitle)}
+        title={t(LanguageKeys.SeoTitle) + ` | ${new Date().getFullYear()}`}
         canonical={`https://www.marabox.com/${locale}/blog`}
         description={t(LanguageKeys.SeoDesc)}
+        structuredData={structuredData}
       />
 
       <img src='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'></img>

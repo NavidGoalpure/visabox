@@ -1,13 +1,18 @@
 import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
-  NameLabel = 'NameLabel',
-  DateLabel = 'DateLabel',
-  LanguageSkillsLabel = 'LanguageSkillsLabel',
-  AgeLabel = 'AgeLabel',
-  ViewMore = 'ViewMore',
+  Score = "Score",
+  NameLabel = "NameLabel",
+  DateLabel = "DateLabel",
+  LanguageSkillsLabel = "LanguageSkillsLabel",
+  AgeLabel = "AgeLabel",
+  ViewMore = "ViewMore",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  Score:{
+    en:"Score:",
+    fa:"امتیاز:"
+  },
   NameLabel: {
     en: 'Name:',
     fa: 'نام:',

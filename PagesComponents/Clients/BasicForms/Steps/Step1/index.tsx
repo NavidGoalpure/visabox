@@ -26,7 +26,7 @@ const Step3 = () => {
 
   return (
     <Container>
-      <Title>{t(LanguageKeys.VisaSubclassTitle)}</Title>
+      <Title>{t(LanguageKeys.CountryTitle)}</Title>
       <ToggleGroupRoot
         type="single"
         value={client?.country}

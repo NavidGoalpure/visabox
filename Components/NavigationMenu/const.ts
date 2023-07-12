@@ -35,7 +35,7 @@ export const listsItems: DropdownItem[] = [
   {
     title: {
       en: 'Agencies',
-      fa: 'لیست موسسات مهاجرتی',
+      fa: 'موسسات مهاجرت',
     },
     href: '/lists/agencies',
   },

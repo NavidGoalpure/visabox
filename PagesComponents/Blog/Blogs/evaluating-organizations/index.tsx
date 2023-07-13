@@ -528,7 +528,7 @@ const Container = styled.main`
       color: var(--color-secondary3);
     }
     em {
-      color: var(--color-gray12);
+      color: var(--color-gray10);
     }
   }
   h1 {

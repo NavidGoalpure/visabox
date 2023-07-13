@@ -53,7 +53,12 @@ border-radius: 15px;
 overflow: hidden;
 position: relative;
 flex-direction: row-reverse;
+transition: 0.3s;
 gap: 1rem;
+:hover {
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.5rem);
+}
 `
 
 const Wrapper = styled.a`
@@ -63,6 +68,10 @@ display: flex;
 const BlogImg = styled.img`
 width: 30%;
 object-fit: cover;
+transition: 0.3s;
+${Container}:hover & {
+    transform: scale(1.05);
+}
 `
 
 const Content = styled.div`
@@ -99,7 +108,7 @@ left: -10%;
 display: flex;
 align-items: center;
 justify-content: center;
-transition: 0.7s;
+transition: 0.3s;
 box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.50);
 cursor: pointer;
 z-index: 1000;

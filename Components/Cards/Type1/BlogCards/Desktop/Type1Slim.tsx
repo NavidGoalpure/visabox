@@ -56,6 +56,11 @@ position: relative;
 flex-direction: column;
 gap: 1rem;
 padding-bottom: 1rem;
+transition: 0.3s;
+:hover {
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.5rem);
+}
 `
 
 const Wrapper = styled.a`
@@ -64,6 +69,10 @@ const Wrapper = styled.a`
 const BlogImg = styled.img`
 height: 16rem;
 object-fit: cover;
+transition: 0.3s;
+${Container}:hover & {
+    transform: scale(1.05);
+}
 `
 
 const Content = styled.a`
@@ -99,7 +108,7 @@ left: -10%;
 display: flex;
 align-items: center;
 justify-content: center;
-transition: 0.7s;
+transition: 0.3s;
 box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.50);
 cursor: pointer;
 z-index: 1000;

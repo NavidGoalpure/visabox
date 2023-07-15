@@ -1,42 +1,42 @@
 import { MultiLanguageText } from "Interfaces/Database";
 export enum LanguageKeys {
-  maritalStatusPopupContent="maritalStatusPopupContent",
-  maritalSituationPopupContent ="maritalSituationPopupContent",
+  maritalStatusPopupContent = "maritalStatusPopupContent",
+  maritalSituationPopupContent = "maritalSituationPopupContent",
   maritalStatusSectionTitle = "maritalStatusSectionTitle",
   maritalSituationTitle = "maritalSituationTitle",
   situation1_FirstLine = "situation1_FirstLine",
   situation1_SecondLine = "situation1_SecondLine",
   situation1_ThirdLine = "situation1_ThirdLine",
   situation1_ForthLine = "situation1_ForthLine",
-  situation2_FirstLine = "situation2_FirstLine",
-  situation2_SecondLine = "situation2_SecondLine",
+  situation2 = "situation2",
   situation3_FirstLine = "situation3_FirstLine",
   situation3_SecondLine = "situation3_SecondLine",
   situation3_ThirdLine = "situation3_ThirdLine",
   situation4 = "situation4",
+  situation5 = "situation5",
   NextButtonTitle = "NextButtonTitle",
   PrevButtonTitle = "PrevButtonTitle",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  maritalStatusPopupContent:{
-    en:"Your answer to this question affects your immigration score",
-    fa:"جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است"
+  maritalStatusPopupContent: {
+    en: "Your answer to this question affects your immigration score",
+    fa: "جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است",
   },
-  maritalSituationPopupContent:{
-    en:`Your answer to this question affects your immigration score,
+  maritalSituationPopupContent: {
+    en: `Your answer to this question affects your immigration score,
     The description of each item is displayed after selecting them
     `,
-    fa:`.جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است
+    fa: `.جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است
     
-    توضیحات هر کدام از موارد پس از انتخاب آنها نمایش داده میشود`
+    توضیحات هر کدام از موارد پس از انتخاب آنها نمایش داده میشود`,
   },
   maritalStatusSectionTitle: {
     en: "marital Status:",
     fa: "وضعیت تاهل:",
   },
   maritalSituationTitle: {
-    en: "Which one describes your situation?",
-    fa: "کدام یک وضعیت شما را توصیف می کند؟",
+    en: "Which one describes your marital situation?",
+    fa: "کدام یک وضعیت تاهل شما را توصیف می کند؟",
   },
   situation1_FirstLine: {
     en: "My partner is aged under 45, and",
@@ -54,13 +54,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: " My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)",
     fa: "شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای زیر کلاس 485 نیست)",
   },
-  situation2_FirstLine: {
-    en: "I don’t have a spouse or de facto partner, or",
-    fa: "من همسر یا شریک ندارم، یا",
-  },
-  situation2_SecondLine: {
-    en: "My partner is an Australian permanent resident or an Australian citizen",
-    fa: "شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا است",
+  situation2: {
+    en: "I don’t have a spouse or de facto partner",
+    fa: "من همسر یا شریک ندارم",
   },
   situation3_FirstLine: {
     en: "My partner has Competent English, and",
@@ -74,9 +70,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "My partner is not an Australian permanent resident or an Australian citizen",
     fa: "شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا نیست",
   },
-  situation4:{
-    en:"None of the other",
-    fa:"هیچ کدام از موارد"
+  situation4: {
+    en: "My partner is an Australian permanent resident or an Australian citizen",
+    fa: "شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا است",
+  },
+  situation5: {
+    en: "None of the other",
+    fa: "هیچ کدام از موارد",
   },
   NextButtonTitle: {
     en: "Next",

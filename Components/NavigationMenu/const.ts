@@ -7,23 +7,28 @@ export enum LanguageKeys {
   Lists = 'Lists',
   Occupations = 'Occupations',
   Login = 'Login',
+  Blogs = 'Blogs',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
-    en: 'Home',
-    fa: 'صفحه اصلی',
+    en: "Home",
+    fa: "صفحه اصلی",
   },
   Lists: {
-    en: 'Lists',
-    fa: 'لیست‌ها',
+    en: "Lists",
+    fa: "لیست‌ها",
   },
   Occupations: {
-    en: 'Skilled Worker Visa',
-    fa: 'ویزای مهارتی',
+    en: "Skilled Worker Visa",
+    fa: "ویزای مهارتی",
   },
   Login: {
-    en: 'Sign in',
-    fa: 'ورود',
+    en: "Sign in",
+    fa: "ورود",
+  },
+  Blogs: {
+    en: "Blogs",
+    fa: "مقاله ها",
   },
 };
 export const listsItems: DropdownItem[] = [

@@ -1,16 +1,13 @@
 import styled from "styled-components";
 import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
 import { WizardContext } from "../../Contexts/Wizard/Context";
 import { useContext } from "react";
 import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
-  HintInfoIcon,
   HintLi,
-  HintSection,
   HintUl,
   InformationIcon,
   NextButton,
@@ -26,6 +23,8 @@ import {
   MaritalSituationType,
 } from "Interfaces/Database/Client";
 import { maritalSituations, maritalStatuses } from "Consts/Client";
+import HintComponent from "Components/HintComponent";
+import { componentStatements, LanguageKeys } from "./const";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -34,40 +33,6 @@ const Step5 = () => {
 
   return (
     <Container>
-      <Title>
-        {t(LanguageKeys.maritalStatusSectionTitle)}{" "}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon />
-            </>
-          }
-          popupContent={t(LanguageKeys.maritalStatusPopupContent)}
-        />
-      </Title>
-      <ToggleGroupRoot
-        type="single"
-        value={client?.marital}
-        onValueChange={(value) => {
-          client &&
-            setClient({
-              ...client,
-              marital: value as ClientMarital,
-            });
-        }}
-      >
-        {
-          <>
-            {maritalStatuses.map((maritalStatus, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={maritalStatus}
-                value={maritalStatus.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
       <Title>
         {t(LanguageKeys.maritalSituationTitle)}{" "}
         <StyledTooltipTag
@@ -82,14 +47,13 @@ const Step5 = () => {
       <ToggleGroupRoot
         type="single"
         value={client?.marital_situation}
-        onValueChange={(value) =>{
+        onValueChange={(value) => {
           client &&
-          setClient({
-            ...client,
-            marital_situation: value as MaritalSituationType,
-          })
-        }
-        }
+            setClient({
+              ...client,
+              marital_situation: value as MaritalSituationType,
+            });
+        }}
       >
         {
           <>
@@ -104,43 +68,46 @@ const Step5 = () => {
         }
       </ToggleGroupRoot>
       {client?.marital_situation === MaritalSituationType.One && (
-        <HintSection>
-          <HintInfoIcon />
+        <HintComponent>
           <HintUl>
             <HintLi>{t(LanguageKeys.situation1_FirstLine)}</HintLi>
             <HintLi>{t(LanguageKeys.situation1_SecondLine)}</HintLi>
             <HintLi>{t(LanguageKeys.situation1_ThirdLine)}</HintLi>
             <HintLi>{t(LanguageKeys.situation1_ForthLine)}</HintLi>
           </HintUl>
-        </HintSection>
+        </HintComponent>
       )}
       {client?.marital_situation === MaritalSituationType.Two && (
-        <HintSection>
-          <HintInfoIcon />
+        <HintComponent>
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation2_FirstLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation2_SecondLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2)}</HintLi>
           </HintUl>
-        </HintSection>
+        </HintComponent>
       )}
       {client?.marital_situation === MaritalSituationType.Three && (
-        <HintSection>
-          <HintInfoIcon />
+        <HintComponent>
           <HintUl>
             <HintLi>{t(LanguageKeys.situation3_FirstLine)}</HintLi>
             <HintLi>{t(LanguageKeys.situation3_SecondLine)}</HintLi>
             <HintLi>{t(LanguageKeys.situation3_ThirdLine)}</HintLi>
           </HintUl>
-        </HintSection>
+        </HintComponent>
       )}
       {client?.marital_situation === MaritalSituationType.Four && (
-        <HintSection>
-          <HintInfoIcon />
+        <HintComponent>
           <HintUl>
             <HintLi>{t(LanguageKeys.situation4)}</HintLi>
           </HintUl>
-        </HintSection>
+        </HintComponent>
       )}
+      {client?.marital_situation === MaritalSituationType.Five && (
+        <HintComponent>
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation5)}</HintLi>
+          </HintUl>
+        </HintComponent>
+      )}
+
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -151,8 +118,6 @@ const Step5 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-        console.log("navid score ===", score);
-        
           }}
           disabled={!client?.marital_situation || !client?.marital}
           icon={<NextIcon />}
@@ -168,4 +133,3 @@ const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
   width: 100%;
 `;
-

@@ -32,6 +32,8 @@ else if (clientData?.marital_situation === MaritalSituationType.Two)
 else if (clientData?.marital_situation === MaritalSituationType.Three)
   finalScore = finalScore + 5;
 else if (clientData?.marital_situation === MaritalSituationType.Four)
+  finalScore = finalScore + 10;
+else if (clientData?.marital_situation === MaritalSituationType.Five)
   finalScore = finalScore + 0;
   ///////////  Overseas Work Experience /////////////////
   if (clientData?.work_experience === WorkExperience["3To5Years"])
@@ -90,6 +92,5 @@ else if (clientData?.marital_situation === MaritalSituationType.Four)
   /////////// accredited_community_language /////////////////
   if (clientData?.accredited_community_language) finalScore = finalScore + 5;
   // navid remember to add marital
-  //////////marital/////////////
   return finalScore;
 }

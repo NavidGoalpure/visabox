@@ -38,22 +38,7 @@ const IconTheme = theme("mode", {
     color: var(--color-primary1);
   `,
 });
-export const HintIconTheme = theme("mode", {
-  light: css`
-    color: var(--color-secondary2);
-  `,
-  dark: css`
-    color: var(--color-secondary4);
-  `,
-});
-export const HintLiTheme = theme("mode", {
-  light: css`
-    color: var(--color-secondary2);
-  `,
-  dark: css`
-    color: var(--color-secondary3);
-  `,
-});
+
 export const Container = styled.div`
   width: 100%;
   display: flex;
@@ -161,24 +146,10 @@ export const PrevIcon = styled(NextIcon)`
   margin: 0;
   ${PrevIconDirectionStyle};
 `;
-
-export const HintSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 3rem;
-`;
-export const HintInfoIcon = styled(FiInfo)`
-  ${HintIconTheme};
-  width: 2.4rem;
-  height: auto;
-  flex-shrink: 0;
-  margin-top: 0.5rem;
-`;
 export const HintUl = styled.ul`
   list-style: disc;
 `;
 export const HintLi = styled.li`
   ${Hint_TextStyle};
-  ${HintLiTheme};
+  color: inherit;
 `;

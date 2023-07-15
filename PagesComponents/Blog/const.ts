@@ -1,16 +1,16 @@
-import { Locations } from 'Interfaces';
-import { convertToMd5 } from 'Utils';
-import { ArticleMetaData, ArticleTags } from './interfaces';
+import { MultiLanguageText } from 'Interfaces/Database';
 
-export const articleMetadatas: ArticleMetaData[] = [
-  {
-    title: 'ویزای مهارتی استرالیا',
-    tags: [ArticleTags.INVESTIGATE],
-    summary:
-      'استرالیا به دلیل کیفیت بالای زندگی، فرهنگ متنوع و فرصت‌های شغلی فراوان، مقصدی محبوب برای مهاجران از سراسر جهان است. در مطلب پیش رو می خواهیم ، مهاجرت به استرالیا از طریق تخصص...',
-    slug: 'skilled-worker',
-    id: convertToMd5('skilled-worker'),
-    locale: Locations.fa,
-    date: new Date,
+export enum LanguageKeys {
+  SeoTitle = 'SeoTitle',
+  SeoDesc = 'SeoDesc',
+}
+export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  SeoTitle: {
+    en: 'Helpful blogs and articles for immigrating to Australia | Mara Box',
+    fa: 'بلاگ ها و مقاله های کمکی مهاجرت به استرالیا | مارا باکس',
   },
-];
+  SeoDesc: {
+    fa: 'مقاله های کاربردی و کمکی برای مهاجران به استرالیا',
+    en: 'Practical and helpful articles for immigrants to Australia',
+  },
+};

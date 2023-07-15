@@ -1,15 +1,15 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { Headline6Style } from 'Styles/Typo';
-import { ImSphere } from 'react-icons/im';
-import { FaPhone, FaTelegramPlane } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
-import { deviceMin } from 'Consts/device';
-import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
-import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
-import { copyContent } from 'Utils';
-import { LanguageKeys, componentStatements } from '../const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import React from "react";
+import styled, { css } from "styled-components";
+import { Headline6Style } from "Styles/Typo";
+import { ImSphere } from "react-icons/im";
+import { FaPhone, FaTelegramPlane } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { deviceMin } from "Consts/device";
+import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
+import { AiFillLinkedin, AiOutlineInstagram } from "react-icons/ai";
+import { copyContent } from "Utils";
+import { LanguageKeys, componentStatements } from "../const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 interface Props {
   website?: string;
   email?: string;
@@ -27,14 +27,15 @@ const DesktopContactComponent = ({
   linkedin,
 }: Props) => {
   const { t } = useStaticTranslation(componentStatements);
-
+  const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
+  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <Container>
       {website && (
-        <InternetContainer href={website} target={'_blank'}>
+        <InternetContainer href={website} target={"_blank"}>
           <InternetIcon />
           <InternetTitle>
-            {website.replaceAll('https://', '').replaceAll('http://', '')}
+            {website.replaceAll("https://", "").replaceAll("http://", "")}
           </InternetTitle>
         </InternetContainer>
       )}
@@ -42,8 +43,8 @@ const DesktopContactComponent = ({
         <PhoneContainer
           onClick={() =>
             copyContent({
-              text: email || '',
-              toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+              text: phone[0],
+              toastMessage: phoneToastMessage,
             })
           }
         >
@@ -59,8 +60,8 @@ const DesktopContactComponent = ({
         <GmailContainer
           onClick={() =>
             copyContent({
-              text: email || '',
-              toastMessage: t(LanguageKeys.copyEmailToastMessage),
+              text: email || "",
+              toastMessage: gmailToastMessage,
             })
           }
         >
@@ -69,24 +70,24 @@ const DesktopContactComponent = ({
         </GmailContainer>
       )}
       {telegram && (
-        <TelegramContainer href={telegram} target={'_blank'}>
+        <TelegramContainer href={telegram} target={"_blank"}>
           <TelegramIcon />
           <TelegramTitle>{telegram}</TelegramTitle>
         </TelegramContainer>
       )}
       {instagram && (
-        <InstagramContainer href={instagram} target={'_blank'}>
+        <InstagramContainer href={instagram} target={"_blank"}>
           <InstagramIcon />
           <InstagramTitle>
-            {instagram.replaceAll('https://www.instagram.com/', '@')}
+            {instagram.replaceAll("https://www.instagram.com/", "@")}
           </InstagramTitle>
         </InstagramContainer>
       )}
       {linkedin && (
-        <LinkedinContainer href={linkedin} target={'_blank'}>
+        <LinkedinContainer href={linkedin} target={"_blank"}>
           <LinkedinIcon />
           <LinkedinTitle>
-            {linkedin.replaceAll('https://au.linkedin.com/in/', '')}
+            {linkedin.replaceAll("https://au.linkedin.com/in/", "")}
           </LinkedinTitle>
         </LinkedinContainer>
       )}
@@ -130,7 +131,8 @@ const InternetTitle = styled.h3`
   cursor: pointer;
 `;
 const PhoneContainer = styled.div`
-  ${SocialsContainerCss}
+  ${SocialsContainerCss};
+  z-index: 100;
 `;
 const PhoneIcon = styled(FaPhone)`
   ${Icon}

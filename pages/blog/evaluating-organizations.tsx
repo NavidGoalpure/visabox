@@ -14,12 +14,11 @@ const BlogPage: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
-      {/* //navid  */}
-      {/* <Seo
+      <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/lists/agents`}
-      /> */}
+      />
       <PostContent />
     </PageLayout>
   );

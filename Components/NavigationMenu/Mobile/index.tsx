@@ -70,6 +70,11 @@ function SmartHeader() {
               <Hr />
               <MobileLanguageChanger />
               <Hr />
+              <MenuLink href={`/${locale}/blog`}>
+                {t(LanguageKeys.Blogs)}
+              </MenuLink>
+
+              <Hr />
               <SwitchTheme />
             </MenuPopupWrapper>
           </ScrollBox>
@@ -144,7 +149,6 @@ const Nav = styled.nav`
   gap: 1rem;
   width: 100%;
 `;
-
 const Hr = styled.hr`
   width: 100%;
   height: 1px;

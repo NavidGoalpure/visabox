@@ -12,19 +12,18 @@ import { useLocale } from 'Hooks/useLocale';
 import { copyContent } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages } from 'Interfaces';
-import { Headline7Style } from 'Styles/Typo';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 function DesktopFooter() {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
+  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <Container>
       <StyledLogo />
       <Wrapper>
         <SideContainer>
-          <SwitchButton>
-          </SwitchButton>
+          <SwitchButton></SwitchButton>
           <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
             {t(LanguageKeys.Home)}
           </Items>
@@ -73,23 +72,23 @@ function DesktopFooter() {
           <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
           <LogosContainer>
             <a
-              target={'_blank'}
-              href='https://www.t.me/maraboxmigration'
-              aria-label='Telegram logo'
+              target={"_blank"}
+              href="https://www.t.me/maraboxmigration"
+              aria-label="Telegram logo"
             >
               <TelegramLogo />
             </a>
-            
+
             <GmailLogo
               onClick={() =>
                 copyContent({
-                  text: 'maraboxmigration@gmail.com',
-                  toastMessage: t(LanguageKeys.copyEmailToastMessage),
+                  text: "maraboxmigration@gmail.com",
+                  toastMessage: gmailToastMessage,
                 })
               }
             />
           </LogosContainer>
-          <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
+          <Privacy href="/privacy-policy">Privacy and Policy</Privacy>
         </SideContainer>
       </Wrapper>
     </Container>

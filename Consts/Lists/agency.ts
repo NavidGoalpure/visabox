@@ -106,6 +106,7 @@ export const AGENCYS: Agency[] = [
       phone: ['0414326277'],
     },
     agentsId: ['agt27'],
+    socialsId: ['soc35'],
     status: Status.ACTIVE,
     logoUrl:
       'https://binsta.dev/api/v1/files/cLmt8U6IyD/transform?format=webp&size=md&quality=best',
@@ -121,9 +122,10 @@ export const AGENCYS: Agency[] = [
       fa: `این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند تمامی مراحل اقامت را با امکانات نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضی انجام دهد.`,
     },
     contact: {
-      website: 'https://azzyimmi.com.a',
+      website: 'https://azzyimmi.com.au',
       phone: ['09123252009'],
     },
+    socialsId: ['soc36'],
     agentsId: ['agt13'],
     status: Status.ACTIVE,
     logoUrl:
@@ -262,6 +264,7 @@ export const AGENCYS: Agency[] = [
       phone: ['02188545324'],
     },
     agentsId: ['agt17'],
+    socialsId: ['soc37'],
     status: Status.ACTIVE,
     logoUrl:
       'https://binsta.dev/api/v1/files/BOIbrUTlLL/transform?format=webp&size=md&quality=best',
@@ -297,6 +300,8 @@ export const AGENCYS: Agency[] = [
       phone: ['02144058186'],
     },
     status: Status.ACTIVE,
+    socialsId: ['soc34'],
+    agentsId: ['agt21'],
     logoUrl:
       'https://binsta.dev/api/v1/files/UXd4An4X7m/transform?format=webp&size=lg&quality=best',
   },

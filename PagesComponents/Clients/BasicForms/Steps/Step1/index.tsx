@@ -26,7 +26,7 @@ const Step3 = () => {
 
   return (
     <Container>
-      <Title>{t(LanguageKeys.VisaSubclassTitle)}</Title>
+      <Title>{t(LanguageKeys.CountryTitle)}</Title>
       <ToggleGroupRoot
         type="single"
         value={client?.country}
@@ -60,7 +60,6 @@ const Step3 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
           }}
           disabled={!client?.country}
           icon={<NextIcon />}

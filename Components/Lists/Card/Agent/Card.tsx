@@ -38,7 +38,8 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
 
   useEffect(() => getGsapTimeLine_FadeUp(slug));
   const hasWebsite: boolean = website !== BLANK_SYMBOL;
-
+const emailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
   return (
     <Container className={slug} {...props}>
       <Wrapper>
@@ -47,8 +48,8 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
           <EmailWrapper
             onClick={() =>
               copyContent({
-                text: email || '',
-                toastMessage: t(LanguageKeys.copyEmailToastMessage),
+                text: email || "",
+                toastMessage: emailToastMessage,
               })
             }
           >
@@ -60,8 +61,8 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
           <PhoneWrapper
             onClick={() =>
               copyContent({
-                text: phone?.[0] || '',
-                toastMessage: t(LanguageKeys.copyPhoneToastMessage),
+                text: phone?.[0] || "",
+                toastMessage: phoneToastMessage,
               })
             }
           >
@@ -73,11 +74,11 @@ function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
-              as={hasWebsite ? 'a' : 'div'}
+              as={hasWebsite ? "a" : "div"}
               href={
-                hasWebsite ? `https://${website?.replace('https://', '')}` : ''
+                hasWebsite ? `https://${website?.replace("https://", "")}` : ""
               }
-              target={'_blank'}
+              target={"_blank"}
               $hasWebsite={hasWebsite}
             >
               {!!website ? website : BLANK_SYMBOL}

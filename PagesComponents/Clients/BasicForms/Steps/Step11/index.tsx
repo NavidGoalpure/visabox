@@ -129,8 +129,6 @@ const Step11 = () => {
           onClick={() => {
             setIsYesClicked(true);
             client && mutation.mutate({ is_sharable: true });
-            console.log("navid score ===", score);
-            console.log("navid client ===", client);
           }}
           icon={<CheckIcon />}
           isLoading={isYesClicked && mutation.isLoading}

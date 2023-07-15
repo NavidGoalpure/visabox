@@ -60,7 +60,6 @@ const Step3 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
           }}
           disabled={!client?.country}
           icon={<NextIcon />}

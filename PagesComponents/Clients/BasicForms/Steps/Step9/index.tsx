@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { useContext } from 'react';
+import styled from "styled-components";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -14,16 +14,16 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from '../StyledComponents';
-import { australianWorks } from 'Consts/Client';
-import { AustralianWorkExperience } from 'Interfaces/Database/Client';
-import { FormDataContext } from '../../Contexts/FormDataContext/Context';
-import { WizardContext } from '../../Contexts/Wizard/Context';
+} from "../StyledComponents";
+import { australianWorks } from "Consts/Client";
+import { AustralianWorkExperience } from "Interfaces/Database/Client";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
 
 const Step9 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient,score } = useContext(FormDataContext);
+  const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -42,14 +42,13 @@ const Step9 = () => {
       <ToggleGroupRoot
         type="single"
         value={client?.australian_work_experience}
-        onValueChange={(value) =>{
+        onValueChange={(value) => {
           client &&
-          setClient({
-            ...client,
-            australian_work_experience: value as AustralianWorkExperience,
-          })
-        }
-        }
+            setClient({
+              ...client,
+              australian_work_experience: value as AustralianWorkExperience,
+            });
+        }}
       >
         {
           <>
@@ -73,8 +72,6 @@ const Step9 = () => {
           step={step}
           icon={<NextIcon />}
           onClick={() => {
-          console.log("navid score ===", score);
-
             handleNextPress();
           }}
           disabled={!client?.australian_work_experience}

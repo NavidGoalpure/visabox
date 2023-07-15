@@ -7,9 +7,11 @@ export enum LanguageKeys {
   ScoreTitle = "ScoreTitle",
   VisaSubclassTitle = "VisaSubclassTitle",
   AboutLabel = "AboutLabel",
+  NotCompletedHint = "NotCompletedHint",
   BirthDateLabel = "BirthDateLabel",
   EnglishSkillsLabel = "EnglishSkillsLabel",
   MarriageStatusLabel = "MarriageStatusLabel",
+  MarriageSituationLabel = "MarriageSituationLabel",
   CountryLabel = "CountryLabel",
   FieldOfStudyLabel = "FieldOfStudyLabel",
   DegreeLabel = "DegreeLabel",
@@ -24,6 +26,16 @@ export enum LanguageKeys {
   AustralianWorkExperienceLabel = "AustralianWorkExperienceLabel",
   copyEmailToastMessage = "copyEmailToastMessage",
   copyPhoneToastMessage = "copyPhoneToastMessage",
+  MaritalSituation1_FirstLine = "MaritalSituation1_FirstLine",
+  MaritalSituation1_SecondLine = "MaritalSituation1_SecondLine",
+  MaritalSituation1_ThirdLine = "MaritalSituation1_ThirdLine",
+  MaritalSituation1_ForthLine = "MaritalSituation1_ForthLine",
+  MaritalSituation2 = "MaritalSituation2",
+  MaritalSituation3_FirstLine = "MaritalSituation3_FirstLine",
+  MaritalSituation3_SecondLine = "MaritalSituation3_SecondLine",
+  MaritalSituation3_ThirdLine = "MaritalSituation3_ThirdLine",
+  MaritalSituation4 = "MaritalSituation4",
+  MaritalSituation5 = "MaritalSituation5",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -47,7 +59,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "About",
     fa: "توضیحات",
   },
-
+  NotCompletedHint: {
+    en: `This user has registered information before the new update of "Marabox" form. For this reason, this profile may not be complete.`,
+    fa: `            این کاربر قبل از بروزرسانی فرم «ماراباکس» ثبت اطلاعات نموده
+            است. به همین دلیل پروفایل او کامل نمیباشد.`,
+  },
   BirthDateLabel: {
     en: "Birth Date:",
     fa: "تاریخ تولد:",
@@ -59,6 +75,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   MarriageStatusLabel: {
     en: "Marriage Status:",
     fa: "وضعیت تاهل:",
+  },
+  MarriageSituationLabel: {
+    en: "Situation:",
+    fa: "وضعیت:",
   },
   CountryLabel: {
     en: "Country:",
@@ -115,5 +135,46 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   copyPhoneToastMessage: {
     en: "Copied Phone number to clipboard",
     fa: "شماره تلفن در حافظه کپی شد",
+  },
+  MaritalSituation1_FirstLine: {
+    en: "My partner is aged under 45, and",
+    fa: "شریک زندگی من زیر 45 سال سن دارد و",
+  },
+  MaritalSituation1_SecondLine: {
+    en: "My partner has Competent English, and",
+    fa: "شریک من دارای زبان انگلیسی خوب(Ielts6) است و",
+  },
+  MaritalSituation1_ThirdLine: {
+    en: "My partner is an applicant of the same subclass of visa as me, and",
+    fa: "متقاضی همان زیر کلاس ویزا با من است و",
+  },
+  MaritalSituation1_ForthLine: {
+    en: " My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)",
+    fa: "شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای زیر کلاس 485 نیست)",
+  },
+  MaritalSituation2: {
+    en: "I don’t have a spouse or de facto partner",
+    fa: "من همسر یا شریک ندارم",
+  },
+
+  MaritalSituation3_FirstLine: {
+    en: "My partner has Competent English, and",
+    fa: "شریک من دارای زبان انگلیسی خوب است و",
+  },
+  MaritalSituation3_SecondLine: {
+    en: "My partner is an applicant of the same subclass of visa as me, and",
+    fa: "شریک من متقاضی همان زیر کلاس ویزا با من است و",
+  },
+  MaritalSituation3_ThirdLine: {
+    en: "My partner is not an Australian permanent resident or an Australian citizen",
+    fa: "شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا نیست",
+  },
+  MaritalSituation4: {
+    en: "My partner is an Australian permanent resident or an Australian citizen",
+    fa: "شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا است",
+  },
+  MaritalSituation5: {
+    en: "This user has not received any points from this section.",
+    fa: "این کاربر از این قسمت امتیازی دریافت نکرده است.",
   },
 };

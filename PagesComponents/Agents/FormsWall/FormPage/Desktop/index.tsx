@@ -14,6 +14,7 @@ import { Headline7Style } from "Styles/Typo";
 import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Contexts/FormDataContext/utils";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
+import HintComponent from "Components/HintComponent";
 interface Props {
   client: Client;
 }
@@ -22,38 +23,47 @@ function DesktopAgentsPage({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
-      <SmallBox hasBorderRadiusAllAround={!client?.visa_subclass}>
-        <ProfilePictureWrapper>
-          <ProfilePicture
-            src={client?.avatar || "/Images/placeholder.jpeg"}
-            alt={client?.name ? `${client?.name} image` : "agent image"}
-          />
-        </ProfilePictureWrapper>
-        <ProfileData>
-          <Name>
-            {client?.name} {client?.lastname}
-          </Name>
-          <JobTitle>{client?.current_job}</JobTitle>
-          <CreatedDate>{dataCreatedAt}</CreatedDate>
-        </ProfileData>
-        {client?.visa_subclass && (
-          <ScoreWrapper>
-            <HeaderLabel>
-              {t(LanguageKeys.ScoreTitle)}{" "}
-              <span id="score">{CalculateClientScore(client)}</span>
-            </HeaderLabel>
-          </ScoreWrapper>
-        )}
-        {client?.visa_subclass && (
-          <SubclassWrapper>
-            <HeaderLabel>
-              {t(LanguageKeys.VisaSubclassTitle)}{" "}
-              <span id="visa-subclass">{client?.visa_subclass}</span>
-            </HeaderLabel>{" "}
-          </SubclassWrapper>
-        )}
-      </SmallBox>
-      <DescriptionSection client={client} />
+      {!client?.visa_subclass && (
+        <StyledHintComponent>
+          <HintContent>
+{t(LanguageKeys.NotCompletedHint)}
+          </HintContent>
+        </StyledHintComponent>
+      )}
+      <Wrapper>
+        <SmallBox hasBorderRadiusAllAround={!client?.visa_subclass}>
+          <ProfilePictureWrapper>
+            <ProfilePicture
+              src={client?.avatar || "/Images/placeholder.jpeg"}
+              alt={client?.name ? `${client?.name} image` : "agent image"}
+            />
+          </ProfilePictureWrapper>
+          <ProfileData>
+            <Name>
+              {client?.name} {client?.lastname}
+            </Name>
+            <JobTitle>{client?.current_job}</JobTitle>
+            <CreatedDate>{dataCreatedAt}</CreatedDate>
+          </ProfileData>
+          {client?.visa_subclass && (
+            <ScoreWrapper>
+              <HeaderLabel>
+                {t(LanguageKeys.ScoreTitle)}{" "}
+                <span id="score">{CalculateClientScore(client)}</span>
+              </HeaderLabel>
+            </ScoreWrapper>
+          )}
+          {client?.visa_subclass && (
+            <SubclassWrapper>
+              <HeaderLabel>
+                {t(LanguageKeys.VisaSubclassTitle)}{" "}
+                <span id="visa-subclass">{client?.visa_subclass}</span>
+              </HeaderLabel>{" "}
+            </SubclassWrapper>
+          )}
+        </SmallBox>
+        <DescriptionSection client={client} />
+      </Wrapper>
     </Container>
   );
 }
@@ -93,13 +103,29 @@ const HeaderScoreTheme = theme("mode", {
   `,
 });
 const Container = styled.div`
+  padding: 0 0 4rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+`;
+const StyledHintComponent = styled(HintComponent)`
+  align-items: center;
+  gap: 1rem;
+  #icon {
+    width: 1.5rem;
+    margin: 0;
+  }
+`;
+const HintContent = styled.h3`
+  ${Headline7Style};
+`;
+const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  padding: 4rem 0;
   gap: 1rem;
 `;
 const SmallBox = styled.header<{ hasBorderRadiusAllAround: boolean }>`

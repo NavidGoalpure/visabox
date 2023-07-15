@@ -6,6 +6,8 @@ import {
   uniSections,
   works,
 } from "Consts/Client";
+import { componentStatements, LanguageKeys } from "./const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Languages } from "Interfaces";
 import { MultiLanguageText } from "Interfaces/Database";
 import {
@@ -14,9 +16,11 @@ import {
   ClientCountry,
   ClientDegree,
   ClientMarital,
+  MaritalSituationType,
   UniSections,
   WorkExperience,
 } from "Interfaces/Database/Client";
+import { ReactNode } from "react";
 import { GetLabelsProps } from "./interface";
 
 export function getMaritalLabel({
@@ -149,7 +153,13 @@ export function getCountryLabel({
 export function getMultiLanguageLabels(client: Client): GetLabelsProps {
   //   turns sanity data to multilanguage texts so we can show more detailed data
   const showableData: GetLabelsProps = {
-    marital: getMaritalLabel({ marital: client?.marital }),
+    marital: getMaritalLabel({
+      marital:
+        (client?.marital_situation === MaritalSituationType.Two
+          ? ClientMarital.Single
+          : ClientMarital.Married) || client?.marital,
+    }),
+    maritalSituation: client?.marital_situation,
     degree: getdegreeLabel({ degree: client?.degree }),
     uniSection: getUniSectionLabel({ UniSection: client?.uni_section }),
     workExperience: getWorkExperienceLabel({
@@ -169,9 +179,52 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
     designated_regional_area_study: client?.designated_regional_area_study,
     specialist_educational_qualification:
       client?.specialist_educational_qualification,
-    professional_year_in_australia:
-      client?.professional_year_in_australia,
+    professional_year_in_australia: client?.professional_year_in_australia,
     accredited_community_language: client?.accredited_community_language,
   };
   return showableData;
 }
+export const getSmartMaritalSitutationPopupContent = (
+  marital_situation: MaritalSituationType
+): ReactNode => {
+  const { t } = useStaticTranslation(componentStatements);
+  switch (marital_situation) {
+    case MaritalSituationType.One:
+      return (
+        <ul>
+          <li>{t(LanguageKeys.MaritalSituation1_FirstLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation1_SecondLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation1_ThirdLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation1_ForthLine)}</li>
+        </ul>
+      );
+    case MaritalSituationType.Two:
+      return (
+        <ul>
+          <li>{t(LanguageKeys.MaritalSituation2)}</li>
+        </ul>
+      );
+    case MaritalSituationType.Three:
+      return (
+        <ul>
+          <li>{t(LanguageKeys.MaritalSituation3_FirstLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation3_SecondLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation3_ThirdLine)}</li>
+        </ul>
+      );
+    case MaritalSituationType.Four:
+      return (
+        <ul>
+          <li>{t(LanguageKeys.MaritalSituation4)}</li>
+        </ul>
+      );
+    case MaritalSituationType.Five:
+      return (
+        <ul id="option-five">
+          <li>{t(LanguageKeys.MaritalSituation5)}</li>
+        </ul>
+      );
+    default:
+      return <div></div>;
+  }
+};

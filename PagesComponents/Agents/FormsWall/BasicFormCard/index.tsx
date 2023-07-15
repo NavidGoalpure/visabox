@@ -14,6 +14,7 @@ import { componentStatements, LanguageKeys } from "./const";
 import { Client } from "Interfaces/Database/Client";
 import { useLocale } from "Hooks/useLocale";
 import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Contexts/FormDataContext/utils";
+import { calculateAge } from "Utils/clients";
 
 interface Props {
   formData: Client;
@@ -54,7 +55,7 @@ function BasicFormCard({ formData }: Props) {
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.AgeLabel)}</Label>
-          <Value>{formData?.age?.slice(0, 10)}</Value>
+          <Value>{calculateAge(new Date(formData?.age || "1800-01-01"))}</Value>
         </DataWrapper>
       </Wrapper>
       <PrimaryButton style={{ margin: "0 auto" }}>

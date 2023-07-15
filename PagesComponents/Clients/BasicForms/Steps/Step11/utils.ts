@@ -28,9 +28,9 @@ export function validateClientDataWithYup(client: Client | undefined) {
       .oneOf(Object.values(VisaSubclass))
       .required(),
     age: date().required(),
-    marital: mixed<ClientMarital>()
-      .oneOf(Object.values(ClientMarital))
-      .required(),
+    // marital: mixed<ClientMarital>()
+    //   .oneOf(Object.values(ClientMarital))
+    //   .required(),
     marital_situation: mixed<MaritalSituationType>()
       .oneOf(Object.values(MaritalSituationType))
       .required(),

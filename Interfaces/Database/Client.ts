@@ -15,9 +15,10 @@ export enum MaritalSituationType {
   Two = "2",
   Three = "3",
   Four = "4",
+  Five = "5",
 }
 export enum ClientDegree {
-  IDontHaveAny ="I dont have any",
+  IDontHaveAny = "I dont have any",
   Diploma = "diploma",
   Bachelorsdegree = "bachelor's degree",
   Mastersdegree = "master's degree",
@@ -71,8 +72,10 @@ export interface Client extends SanityKeys {
   name?: string;
   lastname?: string;
   phone?: string;
+  // navid make another one of these named birthday
   age?: string;
   visa_subclass: VisaSubclass;
+  // navid delete this in a few months because we use marital_situation instead
   marital?: ClientMarital;
   marital_situation: MaritalSituationType;
   field_of_study?: string;

@@ -9,29 +9,29 @@ export enum LanguageKeys {
   ViewMore = "ViewMore",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  Score:{
-    en:"Score:",
-    fa:"امتیاز:"
+  Score: {
+    en: "Score:",
+    fa: "امتیاز:",
   },
   NameLabel: {
-    en: 'Name:',
-    fa: 'نام:',
+    en: "Name:",
+    fa: "نام:",
   },
   DateLabel: {
-    en: 'Date:',
-    fa: 'تاریخ:',
+    en: "Date:",
+    fa: "تاریخ:",
   },
   LanguageSkillsLabel: {
-    en: 'Language Skills:',
-    fa: 'مهارت انگلیسی:',
+    en: "Language Skills:",
+    fa: "مهارت انگلیسی:",
   },
   AgeLabel: {
-    en: 'Birth Date:',
-    fa: 'تاریخ تولد:',
+    en: "Age:",
+    fa: "سن:",
   },
   ViewMore: {
-    en: 'View More',
-    fa: 'مشاهده',
+    en: "View More",
+    fa: "مشاهده",
   },
 };
 

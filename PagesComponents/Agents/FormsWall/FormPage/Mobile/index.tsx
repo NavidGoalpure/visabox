@@ -2,7 +2,10 @@ import { deviceMin } from "Consts/device";
 import styled, { css } from "styled-components";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import theme from "styled-theming";
-import { layer2A_TextStyle, layer2A_TitleStyle } from "Styles/Theme/Layers/layer2/style";
+import {
+  layer2A_TextStyle,
+  layer2A_TitleStyle,
+} from "Styles/Theme/Layers/layer2/style";
 import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
 import { Client } from "Interfaces/Database/Client";
 import DescriptionSection from "../DescriptionSection";
@@ -16,7 +19,7 @@ interface Props {
 }
 function MobileAgentsPage({ client }: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
-const { t } = useStaticTranslation(componentStatements);
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
       <StarBackground aria-hidden={true}>
@@ -34,14 +37,18 @@ const { t } = useStaticTranslation(componentStatements);
         </Name>
         <JobTitle>{client?.current_job}</JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
-        <HeaderLabel>
-          {t(LanguageKeys.ScoreTitle)}{" "}
-          <span id="score">{CalculateClientScore(client)}</span>
-        </HeaderLabel>
-        <HeaderLabel>
-          {t(LanguageKeys.VisaSubclassTitle)}{" "}
-          <span id="visa-subclass">{client?.visa_subclass}</span>
-        </HeaderLabel>{" "}
+        {!!client?.visa_subclass && (
+          <HeaderLabel>
+            {t(LanguageKeys.ScoreTitle)}{" "}
+            <span id="score">{CalculateClientScore(client)}</span>
+          </HeaderLabel>
+        )}
+        {!!client?.visa_subclass && (
+          <HeaderLabel>
+            {t(LanguageKeys.VisaSubclassTitle)}{" "}
+            <span id="visa-subclass">{client?.visa_subclass}</span>
+          </HeaderLabel>
+        )}
       </ProfileData>
       <DescriptionSection client={client} />
     </Container>

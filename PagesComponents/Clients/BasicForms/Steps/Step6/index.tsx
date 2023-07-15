@@ -132,7 +132,6 @@ const Step5 = () => {
               //this shouldnt have a value if australian educational qulification === false
               designated_regional_area_study: value === "no" && false,
             });
-          console.log("navid value ===", client);
         }}
       >
         {
@@ -327,8 +326,6 @@ const Step5 = () => {
         <NextButton
           step={step}
           onClick={() => {
-          console.log("navid score ===", score);
-          console.log("navid client ===", client);
             handleNextPress();
           }}
           disabled={

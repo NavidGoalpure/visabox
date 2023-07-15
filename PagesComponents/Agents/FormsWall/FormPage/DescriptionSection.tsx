@@ -12,13 +12,22 @@ import { FaPhone } from "react-icons/fa";
 import { deviceMin } from "Consts/device";
 import { SiGmail } from "react-icons/si";
 import { copyContent } from "Utils";
-import { Client } from "Interfaces/Database/Client";
+import {
+  Client,
+  ClientMarital,
+  MaritalSituationType,
+} from "Interfaces/Database/Client";
 import { componentStatements, LanguageKeys } from "./const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { getMultiLanguageLabels } from "./utils";
+import {
+  getMultiLanguageLabels,
+  getSmartMaritalSitutationPopupContent,
+} from "./utils";
 import { useLocale } from "Hooks/useLocale";
 import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
+import TooltipTag from "Elements/TooltipTag";
+import { FiInfo } from "react-icons/fi";
 
 interface Props {
   client: Client;
@@ -27,8 +36,8 @@ function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const data = getMultiLanguageLabels(client);
   const { locale } = useLocale();
-  const phoneToastMessage =t(LanguageKeys.copyPhoneToastMessage);
-  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage)
+  const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
+  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <FormData>
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
@@ -43,8 +52,28 @@ function DescriptionSection({ client }: Props) {
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
-          <Value>{data?.marital?.[locale]}</Value>
+          <Value>
+            {data?.marital?.[locale]} {data?.maritalSituation}
+            {data?.maritalSituation && (
+              <StyledTooltipTag
+                content={
+                  <>
+                    <InformationIcon />
+                  </>
+                }
+                popupContent={
+                  <MaritalSituationTooltipPopupContainer>
+                    <CloseIcon />
+                    {getSmartMaritalSitutationPopupContent(
+                      data?.maritalSituation
+                    )}
+                  </MaritalSituationTooltipPopupContainer>
+                }
+              />
+            )}
+          </Value>
         </DataWrapper>
+
         {client?.country && (
           <DataWrapper>
             <Label>{t(LanguageKeys.CountryLabel)}</Label>{" "}
@@ -86,44 +115,44 @@ function DescriptionSection({ client }: Props) {
               </Value>
             </DataWrapper>
           )}
-          {typeof client?.specialist_educational_qualification === "boolean" &&
-        <DataWrapper>
-          <Label>
-            {t(LanguageKeys.SpecialistEducationalQualificationLabel)}
-          </Label>{" "}
-          <Value>
-            {data?.specialist_educational_qualification ? (
-              <Checkmark />
-            ) : (
-              <CloseIcon />
-            )}
-          </Value>
-        </DataWrapper>
-}
-{typeof client?.professional_year_in_australia === "boolean" &&
-        <DataWrapper>
-          <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{" "}
-          <Value>
-            {data?.professional_year_in_australia ? (
-              <Checkmark />
-            ) : (
-              <CloseIcon />
-            )}
-          </Value>
-        </DataWrapper>
-}
-{typeof client?.accredited_community_language === "boolean" &&
-        <DataWrapper>
-          <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{" "}
-          <Value>
-            {data?.accredited_community_language ? (
-              <Checkmark />
-            ) : (
-              <CloseIcon />
-            )}
-          </Value>
-        </DataWrapper>
-}
+        {typeof client?.specialist_educational_qualification === "boolean" && (
+          <DataWrapper>
+            <Label>
+              {t(LanguageKeys.SpecialistEducationalQualificationLabel)}
+            </Label>{" "}
+            <Value>
+              {data?.specialist_educational_qualification ? (
+                <Checkmark />
+              ) : (
+                <CloseIcon />
+              )}
+            </Value>
+          </DataWrapper>
+        )}
+        {typeof client?.professional_year_in_australia === "boolean" && (
+          <DataWrapper>
+            <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{" "}
+            <Value>
+              {data?.professional_year_in_australia ? (
+                <Checkmark />
+              ) : (
+                <CloseIcon />
+              )}
+            </Value>
+          </DataWrapper>
+        )}
+        {typeof client?.accredited_community_language === "boolean" && (
+          <DataWrapper>
+            <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{" "}
+            <Value>
+              {data?.accredited_community_language ? (
+                <Checkmark />
+              ) : (
+                <CloseIcon />
+              )}
+            </Value>
+          </DataWrapper>
+        )}
         <DataWrapper>
           <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
           <Value>{data?.uniSection?.[locale]}</Value>
@@ -188,6 +217,14 @@ const LabelTheme = theme("mode", {
     color: var(--color-gray10);
   `,
 });
+const IconTheme = theme("mode", {
+  light: css`
+    color: var(--color-primary13);
+  `,
+  dark: css`
+    color: var(--color-primary1);
+  `,
+});
 const Icon = css`
   ${layer2A_TextColor}
   width: 3rem;
@@ -248,6 +285,32 @@ const Value = styled.h4`
   ${layer2A_TextStyle};
   line-height: 20px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+`;
+const StyledTooltipTag = styled(TooltipTag)`
+  cursor: pointer;
+  #trigger_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.75rem;
+  }
+`;
+const MaritalSituationTooltipPopupContainer = styled.div`
+  display: flex;
+  jusitify-content: center;
+  align-items: center;
+  flex-direction: column;
+  ul {
+    list-style: disc;
+    padding-inline-start: 1rem;
+  }
+  #option-five {
+    list-style: none;
+  }
 `;
 const PhoneContainer = styled.div`
   ${SocialsContainerCss};
@@ -304,4 +367,10 @@ const CloseIcon = styled(IoCloseOutline)`
   color: var(--color-fail1);
   width: 1.5rem;
   height: auto;
+`;
+const InformationIcon = styled(FiInfo)`
+  ${IconTheme};
+  height: 1.5rem;
+  width: auto;
+  cursor: pointer;
 `;

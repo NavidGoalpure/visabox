@@ -19,6 +19,7 @@ import { ClientCompletedForms } from "Interfaces/Database/Client";
 import SuccessToast from "Elements/Toast/Success";
 import ErrorToast from "Elements/Toast/Error";
 import { deviceMin } from "Consts/device";
+import Image from 'next/image';
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);

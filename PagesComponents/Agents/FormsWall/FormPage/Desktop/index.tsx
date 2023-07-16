@@ -1,21 +1,21 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   layer2A_BodyStyle,
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import DescriptionSection from "../DescriptionSection";
-import { Client } from "Interfaces/Database/Client";
-import DarkBackground from "./Images/DarkBackground.svg";
-import LightBackground from "./Images/LightBackground.svg";
-import { Headline7Style } from "Styles/Typo";
-import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Contexts/FormDataContext/utils";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import HintComponent from "Components/HintComponent";
-import { BsPersonCircle } from "react-icons/bs";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import DescriptionSection from '../DescriptionSection';
+import { Client } from 'Interfaces/Database/Client';
+import DarkBackground from './Images/DarkBackground.svg';
+import LightBackground from './Images/LightBackground.svg';
+import { Headline7Style } from 'Styles/Typo';
+import { CalculateClientScore } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import HintComponent from 'Components/HintComponent';
+import { BsPersonCircle } from 'react-icons/bs';
 interface Props {
   client: Client;
 }
@@ -34,11 +34,11 @@ function DesktopAgentsPage({ client }: Props) {
           <ProfilePictureWrapper>
             {client?.avatar ? (
               <ProfilePicture
-              src={client?.avatar}
-              alt={client?.name ? `${client?.name} image` : "agent image"}
+                src={client?.avatar}
+                alt={client?.name ? `${client?.name} image` : 'agent image'}
               />
-              ) : (
-                <ImagePlaceholder />
+            ) : (
+              <ImagePlaceholder />
             )}
           </ProfilePictureWrapper>
           <ProfileData>
@@ -51,17 +51,17 @@ function DesktopAgentsPage({ client }: Props) {
           {client?.visa_subclass && (
             <ScoreWrapper>
               <HeaderLabel>
-                {t(LanguageKeys.ScoreTitle)}{" "}
-                <span id="score">{CalculateClientScore(client)}</span>
+                {t(LanguageKeys.ScoreTitle)}{' '}
+                <span id='score'>{CalculateClientScore(client)}</span>
               </HeaderLabel>
             </ScoreWrapper>
           )}
           {client?.visa_subclass && (
             <SubclassWrapper>
               <HeaderLabel>
-                {t(LanguageKeys.VisaSubclassTitle)}{" "}
-                <span id="visa-subclass">{client?.visa_subclass}</span>
-              </HeaderLabel>{" "}
+                {t(LanguageKeys.VisaSubclassTitle)}{' '}
+                <span id='visa-subclass'>{client?.visa_subclass}</span>
+              </HeaderLabel>{' '}
             </SubclassWrapper>
           )}
         </SmallBox>
@@ -72,7 +72,7 @@ function DesktopAgentsPage({ client }: Props) {
 }
 export default DesktopAgentsPage;
 
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -80,7 +80,7 @@ const TitleColor = theme("mode", {
     color: var(--color-primary5);
   `,
 });
-const HeaderBackground = theme("mode", {
+const HeaderBackground = theme('mode', {
   light: css`
     background-image: url(${LightBackground});
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
@@ -89,7 +89,7 @@ const HeaderBackground = theme("mode", {
     background-image: url(${DarkBackground});
   `,
 });
-const HeaderLabelTheme = theme("mode", {
+const HeaderLabelTheme = theme('mode', {
   light: css`
     color: var(--color-gray10);
   `,
@@ -97,7 +97,7 @@ const HeaderLabelTheme = theme("mode", {
     color: var(--color-gray11);
   `,
 });
-const HeaderScoreTheme = theme("mode", {
+const HeaderScoreTheme = theme('mode', {
   light: css`
     color: var(--color-secondary2);
   `,
@@ -140,7 +140,7 @@ const SmallBox = styled.header<{ hasBorderRadiusAllAround: boolean }>`
   justify-content: center;
   width: 18rem;
   border-radius: ${({ hasBorderRadiusAllAround }) =>
-    hasBorderRadiusAllAround ? "15px" : "15px 15px 0 0"};
+    hasBorderRadiusAllAround ? '15px' : '15px 15px 0 0'};
   padding: 1.5rem;
   gap: 2rem;
   margin-bottom: 4rem;

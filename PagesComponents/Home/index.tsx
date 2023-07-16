@@ -49,7 +49,7 @@ const HomeContent: React.FC = () => {
       <Container id='section-container'>
         {(!session || !hasClientCompletedForm) && (
           <Banner
-            navigateTo={`/${locale}/clients/basic-form`}
+            navigateTo={`/${locale}/clients/point-calculator`}
             desc={
               <BannerDesc
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}

@@ -2,7 +2,7 @@ import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { BlogContainer } from '../StyledComponents';
+import { BlogContainer, ImageContainer, Images } from '../StyledComponents';
 import styled from 'styled-components';
 import Image from 'next/image';
 
@@ -160,17 +160,3 @@ export default function PostContent() {
     </BlogContainer>
   );
 }
-const Images = styled(Image)`
-  border-radius: 15px;
-  object-fit: cover;
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  width: 80%;
-  margin-bottom: 2rem;
-  height: 25rem;
-  border-radius: 15px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
-  align-self: center;
-`;

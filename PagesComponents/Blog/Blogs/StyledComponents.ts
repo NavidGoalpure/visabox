@@ -1,6 +1,7 @@
 import { th_a_Color } from 'PagesComponents/Occupations/Detail/DetailTab/styledComponents';
 import { borderTheme } from 'Styles/Theme';
-import { Hint_BG } from 'Styles/Theme/ Hint/theme';
+import Image from 'next/image';
+
 import {
   Hint_BGStyle,
   Hint_TextStyle,
@@ -129,4 +130,17 @@ export const HintTitle = styled.p`
 `;
 export const HintText = styled.p`
   ${Hint_TextStyle}
+`;
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 80%;
+  margin-bottom: 2rem;
+  height: 25rem;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  align-self: center;
+`;
+export const Images = styled(Image)`
+  border-radius: 15px;
+  object-fit: cover;
 `;

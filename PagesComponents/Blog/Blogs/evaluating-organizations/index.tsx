@@ -8,6 +8,8 @@ import {
   HintBG,
   HintText,
   HintTitle,
+  ImageContainer,
+  Images,
 } from '../StyledComponents';
 import styled from 'styled-components';
 
@@ -501,16 +503,3 @@ export default function PostContent() {
     </BlogContainer>
   );
 }
-const ImageContainer = styled.div`
-  position: relative;
-  width: 80%;
-  margin-bottom: 2rem;
-  height: 25rem;
-  border-radius: 15px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
-  align-self: center;
-`;
-const Images = styled(Image)`
-  border-radius: 15px;
-  object-fit: cover;
-`;

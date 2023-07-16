@@ -1,5 +1,6 @@
+import styled from "styled-components";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
 import { WizardContext } from "../../Contexts/Wizard/Context";
 import { useContext } from "react";
 import {
@@ -8,66 +9,105 @@ import {
   Container,
   HintLi,
   HintUl,
+  InformationIcon,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
   StyledTooltipTag,
+  Title,
 } from "../StyledComponents";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { Input } from "Components/Input";
-import { calculateAge } from "Utils/clients";
-import { useRouter } from "next/router";
-import { useLocale } from "Hooks/useLocale";
+import {
+  ClientMarital,
+  MaritalSituationType,
+} from "Interfaces/Database/Client";
+import { maritalSituations, maritalStatuses } from "Consts/Client";
 import HintComponent from "Components/HintComponent";
+import { componentStatements, LanguageKeys } from "./const";
 
-const Step4 = () => {
-  const { t } = useStaticTranslation(componentStatements);
+const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient, score } = useContext(FormDataContext);
-  const router = useRouter();
-  const { locale } = useLocale();
-  var mydate = client?.age
-    ? new Date(client?.age).toISOString().slice(0, 10)
-    : "";
-  const birthday = new Date(client?.age || "1800-01-01");
-  const clientAge = calculateAge(new Date(birthday));
+  const { t } = useStaticTranslation(componentStatements);
+  const { client, setClient } = useContext(FormDataContext);
+
   return (
     <Container>
-      <Input
-        label={
-          <>
-            {t(LanguageKeys.AgeSectionTitle)}
-            &nbsp;
-            <StyledTooltipTag
-              content={
-                <>
-                  <CalculatorIcon />
-                </>
-              }
-              popupContent={t(LanguageKeys.AgePopupContent)}
-            />
-          </>
-        }
-        type={"date"}
-        inputName="age"
-        value={mydate}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+      <Title>
+        {t(LanguageKeys.maritalSituationTitle)}{" "}
+        <StyledTooltipTag
+          content={
+            <>
+              <CalculatorIcon /> <InformationIcon />
+            </>
+          }
+          popupContent={t(LanguageKeys.maritalSituationPopupContent)}
+        />
+      </Title>
+      <ToggleGroupRoot
+        type="single"
+        value={client?.marital_situation}
+        onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              age: e.target.value?.slice(0, 10),
+              marital_situation: value as MaritalSituationType,
             });
         }}
-        id={"date-input"}
-      />
-      {clientAge > 44 && (
+      >
+        {
+          <>
+            {maritalSituations.map((maritalSituation, i) => (
+              <ToggleGroup.Item
+                key={i}
+                text={maritalSituation}
+                value={maritalSituation.en.toLowerCase()}
+              ></ToggleGroup.Item>
+            ))}
+          </>
+        }
+      </ToggleGroupRoot>
+      {client?.marital_situation === MaritalSituationType.One && (
         <HintComponent>
           <HintUl>
-            <HintLi>{t(LanguageKeys.HintText)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation1)}</HintLi>
           </HintUl>
         </HintComponent>
       )}
+      {client?.marital_situation === MaritalSituationType.Two && (
+        <HintComponent>
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation2_FirstLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_SecondLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_ThirdLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_ForthLine)}</HintLi>
+          </HintUl>
+        </HintComponent>
+      )}
+      {client?.marital_situation === MaritalSituationType.Three && (
+        <HintComponent>
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation3_FirstLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation3_SecondLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation3_ThirdLine)}</HintLi>
+          </HintUl>
+        </HintComponent>
+      )}
+      {client?.marital_situation === MaritalSituationType.Four && (
+        <HintComponent>
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation4)}</HintLi>
+          </HintUl>
+        </HintComponent>
+      )}
+      {client?.marital_situation === MaritalSituationType.Five && (
+        <HintComponent>
+          <HintUl>
+            <HintLi>{t(LanguageKeys.situation5)}</HintLi>
+          </HintUl>
+        </HintComponent>
+      )}
+
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -77,17 +117,19 @@ const Step4 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            clientAge > 44 ? router.push(`/${locale}/`) : handleNextPress();
+            handleNextPress();
           }}
+          disabled={!client?.marital_situation || !client?.marital}
           icon={<NextIcon />}
-          disabled={!client?.age}
         >
-          {clientAge > 44
-            ? t(LanguageKeys.BackToHomepage)
-            : t(LanguageKeys.NextButtonTitle)}
+          {t(LanguageKeys.NextButtonTitle)}
         </NextButton>
       </ButtonWrapper>
     </Container>
   );
 };
-export default Step4;
+export default Step5;
+const ToggleGroupRoot = styled(ToggleGroup.Root)`
+  gap: 1rem;
+  width: 100%;
+`;

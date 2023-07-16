@@ -1,65 +1,73 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
+import { WizardContext } from "../../Contexts/Wizard/Context";
 import { useContext } from "react";
 import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
+  HintLi,
+  HintUl,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
   StyledTooltipTag,
-  Title,
 } from "../StyledComponents";
-import { VisaSubclass } from "Interfaces/Database/Client";
-import { VisaSubclasses } from "Consts/Client";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { WizardContext } from "../../Contexts/Wizard/Context";
+import { Input } from "Components/Input";
+import { calculateAge } from "Utils/clients";
+import { useRouter } from "next/router";
+import { useLocale } from "Hooks/useLocale";
+import HintComponent from "Components/HintComponent";
 
-const Step3 = () => {
-  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+const Step4 = () => {
   const { t } = useStaticTranslation(componentStatements);
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { client, setClient, score } = useContext(FormDataContext);
-
+  const router = useRouter();
+  const { locale } = useLocale();
+  var mydate = client?.age
+    ? new Date(client?.age).toISOString().slice(0, 10)
+    : "";
+  const birthday = new Date(client?.age || "1800-01-01");
+  const clientAge = calculateAge(new Date(birthday));
   return (
     <Container>
-      <Title>
-        {t(LanguageKeys.VisaSubclassTitle)}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon />
-            </>
-          }
-          popupContent={t(LanguageKeys.VisaSubclassPopupContent)}
-        />
-      </Title>
-      <ToggleGroupRoot
-        type="single"
-        value={client?.visa_subclass}
-        onValueChange={(value) => {
+      <Input
+        label={
+          <>
+            {t(LanguageKeys.AgeSectionTitle)}
+            &nbsp;
+            <StyledTooltipTag
+              content={
+                <>
+                  <CalculatorIcon />
+                </>
+              }
+              popupContent={t(LanguageKeys.AgePopupContent)}
+            />
+          </>
+        }
+        type={"date"}
+        inputName="age"
+        value={mydate}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           client &&
             setClient({
               ...client,
-              visa_subclass: value as VisaSubclass,
+              age: e.target.value?.slice(0, 10),
             });
         }}
-      >
-        {
-          <>
-            {VisaSubclasses.map((VisaSubclass, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={VisaSubclass}
-                value={VisaSubclass.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
+        id={"date-input"}
+      />
+      {clientAge > 44 && (
+        <HintComponent>
+          <HintUl>
+            <HintLi>{t(LanguageKeys.HintText)}</HintLi>
+          </HintUl>
+        </HintComponent>
+      )}
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -69,20 +77,17 @@ const Step3 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            handleNextPress();
+            clientAge > 44 ? router.push(`/${locale}/`) : handleNextPress();
           }}
-          disabled={!client?.visa_subclass}
           icon={<NextIcon />}
+          disabled={!client?.age}
         >
-          {t(LanguageKeys.NextButtonTitle)}
+          {clientAge > 44
+            ? t(LanguageKeys.BackToHomepage)
+            : t(LanguageKeys.NextButtonTitle)}
         </NextButton>
       </ButtonWrapper>
     </Container>
   );
 };
-export default Step3;
-
-const ToggleGroupRoot = styled(ToggleGroup.Root)`
-  gap: 1rem;
-  width: 100%;
-`;
+export default Step4;

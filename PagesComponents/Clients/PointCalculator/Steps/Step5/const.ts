@@ -1,90 +1,120 @@
-import { MultiLanguageText } from 'Interfaces/Database';
+import { MultiLanguageText } from "Interfaces/Database";
 export enum LanguageKeys {
-  maritalStatusPopupContent = 'maritalStatusPopupContent',
-  maritalSituationPopupContent = 'maritalSituationPopupContent',
-  maritalStatusSectionTitle = 'maritalStatusSectionTitle',
-  maritalSituationTitle = 'maritalSituationTitle',
-  situation1 = 'situation1',
-  situation2_FirstLine = 'situation2_FirstLine',
-  situation2_SecondLine = 'situation2_SecondLine',
-  situation2_ThirdLine = 'situation2_ThirdLine',
-  situation2_ForthLine = 'situation2_ForthLine',
-  situation3_FirstLine = 'situation3_FirstLine',
-  situation3_SecondLine = 'situation3_SecondLine',
-  situation3_ThirdLine = 'situation3_ThirdLine',
-  situation4 = 'situation4',
-  situation5 = 'situation5',
-  NextButtonTitle = 'NextButtonTitle',
-  PrevButtonTitle = 'PrevButtonTitle',
+  /////////////popupSection////////////////////
+  DegreePopupContent = "DegreePopupContent",
+  AustralianEducationalQualificationPopupContent = "AustralianEducationalQualificationPopupContent",
+  DesignatedRegionalAreaStudyPopupContent = "DesignatedRegionalAreaStudyPopupContent",
+  SpecialistEducationalQualificationPopupContent = "SpecialistEducationalQualificationPopupContent",
+  ProfessionalYearInAustraliaPopupContent = "ProfessionalYearInAustraliaPopupContent",
+  AccreditedCommunityLanguagePopupContent = "AccreditedCommunityLanguagePopupContent",
+  //////////////////////////////////////
+  FieldOfStudyInputLabel = "FieldOfStudyInputLabel",
+  FieldOfStudyInputPlaceholder = "FieldOfStudyInputPlaceholder",
+  DegreeOfEducationSectionTitle = "DegreeOfEducationSectionTitle",
+  UniSectionsSectionTitle = "UniSectionsSectionTitle",
+  AustralianEducationalQualificationTitle = "AustralianEducationalQualificationTitle",
+  DesignatedRegionalAreaStudy = "DesignatedRegionalAreaStudy",
+  SpecialistEducationalQualification = "SpecialistEducationalQualification",
+  ProfessionalYearInAustralia = "ProfessionalYearInAustralia",
+  AccreditedCommunityLanguage = "AccreditedCommunityLanguage",
+  NextButtonTitle = "NextButtonTitle",
+  PrevButtonTitle = "PrevButtonTitle",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  maritalStatusPopupContent: {
-    en: 'Your answer to this question affects your immigration score',
-    fa: 'جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است',
+  DegreePopupContent: {
+    en: "Your answer to this question affects your immigration score",
+    fa: "جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است",
   },
-  maritalSituationPopupContent: {
+  AustralianEducationalQualificationPopupContent: {
     en: `Your answer to this question affects your immigration score,
-    The description of each item is displayed after selecting them
-    `,
-    fa: `.جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است
     
-    توضیحات هر کدام از موارد پس از انتخاب آنها نمایش داده میشود`,
+    Degree, diploma, advanced diploma or trade qualification from an Australian educational institution which took at least 2 years of full-time study and was taught in English.`,
+    fa: `جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است.
+    
+    مدرک، دیپلم، دیپلم پیشرفته یا مدرک تجاری از یک موسسه آموزشی استرالیایی که حداقل 2 سال تحصیلی تمام وقت طول کشیده و به زبان انگلیسی تدریس می شود.`,
   },
-  maritalStatusSectionTitle: {
-    en: 'marital Status:',
-    fa: 'وضعیت تاهل:',
+  DesignatedRegionalAreaStudyPopupContent: {
+    en: `Your answer to this question affects your immigration score,
+    
+    Did you live and study in a ‘designated regional area’ of Australia and complete a course which meets the ‘Australian study requirement’ at the time of invitation to apply for the visa?`,
+    fa: `جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است.
+    
+    آیا در «منطقه منطقه‌ای تعیین‌شده» استرالیا زندگی و تحصیل کرده‌اید و دوره‌ای را گذرانده‌اید که در زمان پر کردن این فرم، «شرایط تحصیل استرالیا» را برآورده می‌کند؟`,
   },
-  maritalSituationTitle: {
-    en: 'Which one describes your marital situation?',
-    fa: 'کدام یک وضعیت تاهل شما را توصیف می کند؟',
+  SpecialistEducationalQualificationPopupContent: {
+    en: `Your answer to this question affects your immigration score,
+    
+    A Masters degree by research or a Doctorate degree from an Australian educational institution that included at least two academic years in a relevant field (Natural and Physical Sciences, Information Technology or Engineering and Related Technologies).`,
+    fa: `جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است.
+    
+    مدرک کارشناسی ارشد توسط تحقیقات یا مدرک دکترا از یک موسسه آموزشی استرالیا که شامل حداقل دو سال تحصیلی در یک زمینه مرتبط (علوم طبیعی و فیزیکی، فناوری اطلاعات یا مهندسی و فناوری‌های مرتبط) باشد.`,
   },
-  situation1: {
-    en: 'I don’t have a spouse or de facto partner',
-    fa: 'مجرد',
+  ProfessionalYearInAustraliaPopupContent: {
+    en: `Your answer to this question affects your immigration score,
+    
+    Did you complete a professional year program in Australia in your nominated skilled occupation for at least 12 months in the 48 months immediately before the time of invitation to apply for the visa?`,
+    fa: `جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است.
+    
+    آیا یک برنامه سال حرفه ای را در استرالیا در شغل ماهر معرفی شده خود به مدت حداقل 12 ماه در 48 ماه بلافاصله قبل از زمان دعوت برای درخواست ویزا تکمیل کرده اید؟`,
   },
-  situation2_FirstLine: {
-    en: 'My partner is aged under 45, and',
-    fa: 'شریک زندگی من زیر 45 سال سن دارد و',
-  },
-  situation2_SecondLine: {
-    en: 'My partner has Competent English, and',
-    fa: 'شریک من دارای زبان انگلیسی خوب(Ielts6) است و',
-  },
-  situation2_ThirdLine: {
-    en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'متقاضی همان زیر کلاس ویزا با من است و',
-  },
-  situation2_ForthLine: {
-    en: ' My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)',
-    fa: 'شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای زیر کلاس 485 نیست)',
-  },
+  AccreditedCommunityLanguagePopupContent: {
+    en: `Your answer to this question affects your immigration score,
+    
+    Do you hold any one of the following?
 
-  situation3_FirstLine: {
-    en: 'My partner has Competent English, and',
-    fa: 'شریک من دارای زبان انگلیسی خوب است و',
+Accreditation at the paraprofessional level or above;
+Certification at the certified provisional level or above;
+A community language credential`,
+    fa: `جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است.
+    
+    آیا شما یکی از موارد زیر را دارید؟
+
+اعتباربخشی در سطح فوق حرفه ای یا بالاتر؛
+صدور گواهینامه در سطح گواهی موقت یا بالاتر؛
+اعتبار زبان جامعه`,
   },
-  situation3_SecondLine: {
-    en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'شریک من متقاضی همان زیر کلاس ویزا با من است و',
+  FieldOfStudyInputLabel: {
+    en: "Field of Study:",
+    fa: "رشته تحصیلی:",
   },
-  situation3_ThirdLine: {
-    en: 'My partner is not an Australian permanent resident or an Australian citizen',
-    fa: 'شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا نیست',
+  FieldOfStudyInputPlaceholder: {
+    en: "Example: Math",
+    fa: "مثال: ریاضیات",
   },
-  situation4: {
-    en: 'My partner is an Australian permanent resident or an Australian citizen',
-    fa: 'شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا است',
+  DegreeOfEducationSectionTitle: {
+    en: "Degree of education :",
+    fa: "درجه تحصیلات:",
   },
-  situation5: {
-    en: 'None of the other',
-    fa: 'هیچ کدام از موارد',
+  UniSectionsSectionTitle: {
+    en: "University Section:",
+    fa: "سکشن دانشگاه:",
+  },
+  AustralianEducationalQualificationTitle: {
+    en: "Australian Educational Qualification:",
+    fa: "مدرک تحصیلی استرالیا:",
+  },
+  DesignatedRegionalAreaStudy: {
+    en: "Designated regional area study:",
+    fa: "مطالعه منطقه ای تعیین شده:",
+  },
+  SpecialistEducationalQualification: {
+    en: "Specialist Educational Qualification:",
+    fa: "مدرک تحصیلی تخصصی:",
+  },
+  ProfessionalYearInAustralia: {
+    en: "Professional Year in Australia:",
+    fa: "سال حرفه ای در استرالیا:",
+  },
+  AccreditedCommunityLanguage: {
+    en: "Accredited Community Language",
+    fa: "زبان انجمن معتبر",
   },
   NextButtonTitle: {
-    en: 'Next',
-    fa: 'بعدی',
+    en: "Next",
+    fa: "بعدی",
   },
   PrevButtonTitle: {
-    en: 'Prev',
-    fa: 'قبلی',
+    en: "Prev",
+    fa: "قبلی",
   },
 };

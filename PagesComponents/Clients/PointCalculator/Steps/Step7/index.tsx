@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Input } from "Components/Input";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
 import { useContext } from "react";
@@ -10,31 +10,58 @@ import {
   Container,
   PrevButton,
   PrevIcon,
+  Title,
+  CalculatorIcon,
+  StyledTooltipTag,
+  InformationIcon,
 } from "../StyledComponents";
+import { works } from "Consts/Client";
+import { WorkExperience } from "Interfaces/Database/Client";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import { WizardContext } from "../../Contexts/Wizard/Context";
 
-const Step7 = () => {
-  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+const Step8 = () => {
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient,score } = useContext(FormDataContext);
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
+  const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
-      <StyledInput
-        required
-        label={t(LanguageKeys.CurrentJobInputLabel)}
-        inputName="current-job"
-        placeholder={t(LanguageKeys.CurrentJobInputPlaceholder)}
-        value={client?.current_job}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+      <Title>
+        {t(LanguageKeys.WorkExperienceSectionTitle)}{" "}
+        <StyledTooltipTag
+          content={
+            <>
+              <CalculatorIcon />
+              <InformationIcon />
+            </>
+          }
+          popupContent={t(LanguageKeys.OverseasPopupContent)}
+        />
+      </Title>
+      <ToggleGroupRoot
+        type="single"
+        value={client?.work_experience}
+        onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              current_job: e.target.value,
+              work_experience: value as WorkExperience,
             });
         }}
-      />
+      >
+        {
+          <>
+            {works.map((work, i) => (
+              <ToggleGroup.Item
+                key={i}
+                text={work}
+                value={work.en.toLowerCase()}
+              ></ToggleGroup.Item>
+            ))}
+          </>
+        }
+      </ToggleGroupRoot>
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -45,8 +72,9 @@ const Step7 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+
           }}
-          disabled={!client?.current_job}
+          disabled={!client?.work_experience}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -55,8 +83,8 @@ const Step7 = () => {
     </Container>
   );
 };
-export default Step7;
+export default Step8;
 
-const StyledInput = styled(Input)`
-  margin-top: 1rem;
+const ToggleGroupRoot = styled(ToggleGroup.Root)`
+  gap: 1rem;
 `;

@@ -53,7 +53,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   VisaSubclassTitle: {
     en: 'Subclass:',
-    fa: 'زیر کلاس ویزا:',
+    fa: 'سابکلاس ویزا:',
   },
   AboutLabel: {
     en: 'About',
@@ -150,11 +150,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   MaritalSituation2_ThirdLine: {
     en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'متقاضی همان زیر کلاس ویزا با من است و',
+    fa: 'متقاضی همان سابکلاس ویزا با من است و',
   },
   MaritalSituation2_ForthLine: {
     en: ' My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)',
-    fa: 'شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای زیر کلاس 485 نیست)',
+    fa: 'شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای سابکلاس 485 نیست)',
   },
 
   MaritalSituation3_FirstLine: {
@@ -163,7 +163,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   MaritalSituation3_SecondLine: {
     en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'شریک من متقاضی همان زیر کلاس ویزا با من است و',
+    fa: 'شریک من متقاضی همان سابکلاس ویزا با من است و',
   },
   MaritalSituation3_ThirdLine: {
     en: 'My partner is not an Australian permanent resident or an Australian citizen',

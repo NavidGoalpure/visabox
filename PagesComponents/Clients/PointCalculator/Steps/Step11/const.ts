@@ -1,42 +1,22 @@
 import { MultiLanguageText } from "Interfaces/Database";
 export enum LanguageKeys {
-  FailedToastMessage = "FailedToastMessage",
-  SuccessToastText = "SuccessToastText",
   ConfirmButtonTitle = "ConfirmButtonTitle",
-  Step11Title = "Step11Title",
-  Step11Desc = "Step11Desc",
-  YesText = "YesText",
-  NoText = "NoText",
+  Step12Title = "Step12Title",
+  Step12Desc = "Step12Desc",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  FailedToastMessage: {
-    en: "Request failed! Try again later",
-    fa: "خطا! بعدا تلاش کنید",
-  },
-  SuccessToastText: {
-    en: "Congrats! You Are Done",
-    fa: "تبریک! فرم کامل شد",
-  },
-
   ConfirmButtonTitle: {
-    en: "Send",
-    fa: "ارسال",
+    en: "Back to home page",
+    fa: "بازگشت به صفحه اصلی",
   },
 
-  Step11Title: {
-    en: "Last Step",
-    fa: "پایان فرم",
+  Step12Title: {
+    en: "Your immigration score",
+    fa: "امتیاز مهاجرتی شما",
   },
-  Step11Desc: {
+  Step12Desc: {
     en: "Would you like us to share this information with Marabax approved immigration attorneys to contact you for a free consultation?",
-    fa: "آیا مایل هستید که این اطلاعات را در اختیار وکلای مهاجرت مورد تایید «ماراباکس» بگذاریم تا برای مشاوره رایگان با شما تماس بگیرند؟",
-  },
-  YesText: {
-    en: "Yes",
-    fa: "بله",
-  },
-  NoText: {
-    en: "No",
-    fa: "خیر",
+    fa: `از شما ممنونیم که فرممون رو کامل کردید.
+    امتیاز شما در صفحه شخصیتون نمایش داده میشه.`,
   },
 };

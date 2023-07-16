@@ -1,10 +1,9 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
-  CalculatorIcon,
   Container,
   NextButton,
   NextIcon,
@@ -12,14 +11,15 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { ClientCountry, VisaSubclass } from "Interfaces/Database/Client";
-import { Countries, VisaSubclasses } from "Consts/Client";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { WizardContext } from "../../Contexts/Wizard/Context";
-import { componentStatements, LanguageKeys } from "./const";
+} from '../StyledComponents';
+import { ClientCountry } from 'Interfaces/Database/Client';
+import { Countries } from 'Consts/Client';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../Contexts/Wizard/Context';
+import { componentStatements, LanguageKeys } from './const';
+import { directionStyles } from 'Styles/Theme';
 
-const Step3 = () => {
+const Step1 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient, score } = useContext(FormDataContext);
@@ -28,7 +28,7 @@ const Step3 = () => {
     <Container>
       <Title>{t(LanguageKeys.CountryTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={client?.country}
         onValueChange={(value) => {
           client &&
@@ -70,9 +70,10 @@ const Step3 = () => {
     </Container>
   );
 };
-export default Step3;
+export default Step1;
 
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
   width: 100%;
+  
 `;

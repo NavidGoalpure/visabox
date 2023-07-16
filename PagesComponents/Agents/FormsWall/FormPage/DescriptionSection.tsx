@@ -63,7 +63,9 @@ function DescriptionSection({ client }: Props) {
                 }
                 popupContent={
                   <MaritalSituationTooltipPopupContainer>
-                    <CloseIcon />
+                    {data?.maritalSituation === MaritalSituationType.Five && (
+                      <CloseIcon />
+                    )}
                     {getSmartMaritalSitutationPopupContent(
                       data?.maritalSituation
                     )}

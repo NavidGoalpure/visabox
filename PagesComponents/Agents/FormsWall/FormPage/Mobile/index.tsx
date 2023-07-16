@@ -13,6 +13,7 @@ import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Context
 import { componentStatements, LanguageKeys } from "../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Headline7Style } from "Styles/Typo";
+import { BsPersonCircle } from "react-icons/bs";
 
 interface Props {
   client: Client;
@@ -26,10 +27,14 @@ function MobileAgentsPage({ client }: Props) {
         <Star aria-hidden={true} />
       </StarBackground>
       <ProfilePictureWrapper>
-        <ProfilePicture
-          src={client?.avatar || "/Images/placeholder.jpeg"}
-          alt={client?.name ? `${client?.name} image` : "agent image"}
-        />
+        {client?.avatar ? (
+          <ProfilePicture
+            src={client?.avatar || "/Images/placeholder.jpeg"}
+            alt={client?.name ? `${client?.name} image` : "agent image"}
+          />
+          ) : (
+          <ImagePlaceholder />
+        )}
       </ProfilePictureWrapper>
       <ProfileData>
         <Name>
@@ -146,7 +151,12 @@ const ProfilePicture = styled.img`
   height: auto;
   border-radius: 50%;
 `;
-
+const ImagePlaceholder = styled(BsPersonCircle)`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  color: var(--color-gray11);
+`;
 const ProfileData = styled.div`
   display: flex;
   flex-direction: column;

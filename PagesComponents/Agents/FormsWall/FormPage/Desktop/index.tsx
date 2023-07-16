@@ -15,6 +15,7 @@ import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Context
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
 import HintComponent from "Components/HintComponent";
+import { BsPersonCircle } from "react-icons/bs";
 interface Props {
   client: Client;
 }
@@ -25,18 +26,20 @@ function DesktopAgentsPage({ client }: Props) {
     <Container>
       {!client?.visa_subclass && (
         <StyledHintComponent>
-          <HintContent>
-{t(LanguageKeys.NotCompletedHint)}
-          </HintContent>
+          <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
         </StyledHintComponent>
       )}
       <Wrapper>
         <SmallBox hasBorderRadiusAllAround={!client?.visa_subclass}>
           <ProfilePictureWrapper>
-            <ProfilePicture
-              src={client?.avatar || "/Images/placeholder.jpeg"}
+            {client?.avatar ? (
+              <ProfilePicture
+              src={client?.avatar}
               alt={client?.name ? `${client?.name} image` : "agent image"}
-            />
+              />
+              ) : (
+                <ImagePlaceholder />
+            )}
           </ProfilePictureWrapper>
           <ProfileData>
             <Name>
@@ -154,8 +157,13 @@ const ProfilePictureWrapper = styled.div`
 const ProfilePicture = styled.img`
   object-fit: cover;
   width: 100%;
-  border-radius: 15px;
   border-radius: 50%;
+`;
+const ImagePlaceholder = styled(BsPersonCircle)`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  color: var(--color-gray11);
 `;
 const ProfileData = styled.div`
   display: flex;

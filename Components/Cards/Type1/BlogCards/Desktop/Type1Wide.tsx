@@ -4,6 +4,8 @@ import { copyContent } from 'Utils';
 import { HTMLAttributes } from 'react';
 import { BsShare } from 'react-icons/bs';
 import styled from 'styled-components';
+import Image from 'next/image';
+
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     title: string;
@@ -22,7 +24,13 @@ const BlogCardType1Wide: React.FC<Props> = ({
     return (
         <Container {...props}>
             <Wrapper href={href}>
-                <BlogImg src={img} alt="image-source" />
+                <ImageContainer>
+                    <BlogImg
+                        fill
+                        src={img}
+                        alt='image-source'
+                    />
+                </ImageContainer>
                 <Content>
                     <Title>{title}</Title>
                     <Desc>{desc}</Desc>
@@ -53,13 +61,27 @@ border-radius: 15px;
 overflow: hidden;
 position: relative;
 flex-direction: column;
+transition: 0.3s;
 gap: 1rem;
+:hover {
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+    transform: translateY(-0.5rem);
+}
 `
 
-const BlogImg = styled.img`
+const ImageContainer = styled.div`
+height: 16rem;
+position: relative;
 width: 100%;
+`
+
+const BlogImg = styled(Image)`
 height: 16rem;
 object-fit: cover;
+transition: 0.3s;
+${Container}:hover & {
+    transform: scale(1.05);
+}
 `
 
 const Wrapper = styled.a`
@@ -98,7 +120,7 @@ left: -10%;
 display: flex;
 align-items: center;
 justify-content: center;
-transition: 0.7s;
+transition: 0.3s;
 box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.50);
 cursor: pointer;
 z-index: 1000;
@@ -106,5 +128,8 @@ ${Container}:hover & {
     top: 0;
     left: 0;    
     border-radius: 0px 0px 20px 0px;
+}
+:hover {
+    background-color: var(--color-primary2);
 }
 `

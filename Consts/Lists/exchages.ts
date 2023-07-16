@@ -20,7 +20,7 @@ export const Exchanges: Exchange[] = [
     status: Status.ACTIVE,
     slug: "moneymex",
     logoUrl:
-      "https://www.moneymex.com/Content/business/Default/images/moneymex_logo.png",
+      "https://binsta.dev/api/v1/files/1uCCW1iaXs/transform?format=webp&size=lg&quality=best",
   },
   {
     fullName: { en: "ROSECAP", fa: "رزکپ" },
@@ -40,7 +40,7 @@ export const Exchanges: Exchange[] = [
     status: Status.ACTIVE,
     slug: "rosecap",
     logoUrl:
-      "https://lh6.googleusercontent.com/-EWGiO5krhRM/AAAAAAAAAAI/AAAAAAAAAAA/4L0fxrrHYCs/s160-c-k-mo/photo.jpg",
+      "https://binsta.dev/api/v1/files/n2qJJhQIoT/transform?format=webp&size=lg&quality=best",
   },
   {
     fullName: { en: "Ashena", fa: "آشنا" },
@@ -64,7 +64,7 @@ Ashna Exchange has started its activity with the aim of providing the best servi
       website: "https://ashenaexchange.com",
     },
     logoUrl:
-      "https://ashenaexchange.com/assets/images/62fde46ecfd4c-newlogo-site.png",
+      "https://binsta.dev/api/v1/files/VyQLqHZ66y/transform?format=webp&size=lg&quality=best",
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     status: Status.ACTIVE,
     slug: "ashena",

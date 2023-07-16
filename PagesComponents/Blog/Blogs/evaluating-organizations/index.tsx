@@ -9,6 +9,7 @@ import {
   HintText,
   HintTitle,
 } from '../StyledComponents';
+import styled from 'styled-components';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -22,7 +23,13 @@ export default function PostContent() {
         structuredData={structuredData}
       />
 
-      <img src='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'
+          alt='evaluating-organizations'
+        />
+      </ImageContainer>
 
       <h1> آنچه باید در مورد سازمانهای ارزیاب استرالیا بدانیم </h1>
 
@@ -172,11 +179,13 @@ export default function PostContent() {
         معادل باشد، ۳ سال سابقه کار مرتبط با مدرک قبل از اخذ مدرک مورد نیاز است
         و لازم است متقاضی پس از اخذ مدرک نیز حداقل یکسال کار کرده باشد.
       </p>
-
-      <img
-        src='https://binsta.dev/api/v1/files/lxIVJdLhgF/transform?format=webp&size=lg&quality=best'
-        loading='lazy'
-      ></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/lxIVJdLhgF/transform?format=webp&size=lg&quality=best'
+          alt='evaluating-organizations'
+        />
+      </ImageContainer>
 
       <h2> گروه E </h2>
 
@@ -348,10 +357,10 @@ export default function PostContent() {
         مهندسین یا فارغ التحصیلان رشته های کامپیوتر و IT می توانند با سرعت
         بیشتری پروسه مهاجرت خود را دنبال کنند. انجمن کامپیوتر استرالیا (
         <em>{` ACS `}</em>) ابتدا مدارک تحصیلی شما را با توجه به مقطع تحصیلی و
-        واحد های گذرانده شده در دانشگاه بررسی می کند و سپس در یکی از دسته های 
+        واحد های گذرانده شده در دانشگاه بررسی می کند و سپس در یکی از دسته های
         <b>{` ICT Major `}</b> یا <b>{` ICT Minor `}</b> یا{' '}
         <b>{` None-ICT `}</b>
-         قرار می دهد:
+        قرار می دهد:
       </p>
 
       <ul>
@@ -408,7 +417,13 @@ export default function PostContent() {
         سازمان در سال ۲۰۲۳ <b>{` ۵۳۰ دلار استرالیا `}</b> می باشد.
       </p>
 
-      <img src='https://binsta.dev/api/v1/files/GpcrMjbVoc/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/GpcrMjbVoc/transform?format=webp&size=lg&quality=best'
+          alt='evaluating-organizations'
+        />
+      </ImageContainer>
 
       <h2>
         {' '}
@@ -486,3 +501,16 @@ export default function PostContent() {
     </BlogContainer>
   );
 }
+const ImageContainer = styled.div`
+  position: relative;
+  width: 80%;
+  margin-bottom: 2rem;
+  height: 25rem;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  align-self: center;
+`;
+const Images = styled(Image)`
+  border-radius: 15px;
+  object-fit: cover;
+`;

@@ -3,6 +3,8 @@ import Seo from 'Components/Seo';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { BlogContainer } from '../StyledComponents';
+import styled from 'styled-components';
+import Image from 'next/image';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -15,7 +17,13 @@ export default function PostContent() {
         description={t(LanguageKeys.SeoDesc)}
       />
 
-      <img src='https://binsta.dev/api/v1/files/Jbb2xZFcyX/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/Jbb2xZFcyX/transform?format=webp&size=lg&quality=best'
+          alt='evaluation-of-documents-in-australia'
+        />
+      </ImageContainer>
 
       <h1> آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم </h1>
 
@@ -58,7 +66,13 @@ export default function PostContent() {
         <li>ترجمه رسمی شناسنامه و کارت ملی</li>
       </ul>
 
-      <img src='https://binsta.dev/api/v1/files/aP4IF1K_-t/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/aP4IF1K_-t/transform?format=webp&size=lg&quality=best'
+          alt='evaluation-of-documents-in-australia'
+        />
+      </ImageContainer>
 
       <p>
         در جواب این سوال که برای انجام اسسمنت نمره زبان لازم است یا نه ، این
@@ -94,7 +108,15 @@ export default function PostContent() {
         قراردادهای با مشتری و ... بسته به مدارکی که سازمان ارزیابتان مشخص کرده
         اقدام کنید.
       </p>
-      <img src='https://binsta.dev/api/v1/files/zeyqeLv4D6/transform?format=webp&size=lg&quality=best'></img>
+
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/zeyqeLv4D6/transform?format=webp&size=lg&quality=best'
+          alt='evaluation-of-documents-in-australia'
+        />
+      </ImageContainer>
+
       <p>
         موضوعی که ذهن بسیاری از متقاضیان را درگیر می کند ، موضوع بیمه شغلی و
         اهمیت آن است. آیا می توان بدون داشتن بیمه شغلی برای مهاجرت با ویزای
@@ -138,3 +160,17 @@ export default function PostContent() {
     </BlogContainer>
   );
 }
+const Images = styled(Image)`
+  border-radius: 15px;
+  object-fit: cover;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 80%;
+  margin-bottom: 2rem;
+  height: 25rem;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+  align-self: center;
+`;

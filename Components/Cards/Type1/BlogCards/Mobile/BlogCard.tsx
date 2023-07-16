@@ -4,6 +4,7 @@ import { copyContent } from 'Utils';
 import { HTMLAttributes } from 'react';
 import { BsShare } from 'react-icons/bs';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     title: string;
@@ -22,7 +23,13 @@ const BlogCardMobile: React.FC<Props> = ({
     return (
         <Container {...props}>
             <Wrapper href={href} >
-                <BlogImg src={img} alt="image-source" />
+                <ImageContainer>
+                    <BlogImg
+                        fill
+                        src={img}
+                        alt='image-source'
+                    />
+                </ImageContainer>
                 <Content>
                     <Title>{title}</Title>
                     <Desc>{desc}</Desc>
@@ -52,12 +59,17 @@ height: 27.5rem;
 position: relative;
 `
 
-const BlogImg = styled.img`
-border-radius: 15px;
+const ImageContainer = styled.div`
+position: relative;
 width: 90%;
 height: 50%;
+`
+
+const BlogImg = styled(Image)`
+border-radius: 15px;
 transform: translateY(-30%);
 box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.50);
+object-fit: cover !important;
 `
 
 const Wrapper = styled.a`

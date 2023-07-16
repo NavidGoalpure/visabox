@@ -23,8 +23,9 @@ import {
 import { Exchange } from 'Interfaces/Database/Lists/exchanges';
 import { HTMLAttributes } from 'react';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import Image from 'next/image';
 
-interface Props extends Exchange, HTMLAttributes<HTMLDivElement> {}
+interface Props extends Exchange, HTMLAttributes<HTMLDivElement> { }
 
 function MobileExchangeCard({
   desc,
@@ -233,7 +234,7 @@ const ImgWrapper = styled.div`
     transform: translate(-50%, -52%) rotate(0);
   }
 `;
-const Img = styled.img`
+const Img = styled(Image)`
   object-fit: cover;
   transition: all 0.3s ease;
   height: 92px;

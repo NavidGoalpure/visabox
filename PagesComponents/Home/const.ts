@@ -29,7 +29,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
                 شما در ارتباط باشند.`,
   },
   StampText: {
-    fa: `<span>همراه</span>ماشین حساب امتیازات`,
+    fa: `ماشین حساب امتیازات`,
     en: `With Point Calculator`
   }
 };

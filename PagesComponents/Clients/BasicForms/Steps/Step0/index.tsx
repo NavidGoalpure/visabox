@@ -1,10 +1,6 @@
-import { Input } from "Components/Input";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { WizardContext } from "../Contexts/Wizard/Context";
 import { useContext } from "react";
 import Image from "next/image";
-import { NextButton, NextIcon } from "./StyledComponents";
 import styled, { css } from "styled-components";
 import useTheme from "Hooks/useTheme";
 import DarkKangorooLogo from "./Images/DarkKangorooLogo.svg";
@@ -14,6 +10,9 @@ import { ThemeModes } from "Interfaces";
 import theme from "styled-theming";
 import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import { deviceMin } from "Consts/device";
+import { WizardContext } from "../../Contexts/Wizard/Context";
+import { NextIcon, NextButton } from "../StyledComponents";
+import { componentStatements, LanguageKeys } from "./const";
 
 const Step0 = () => {
   const { theme } = useTheme();

@@ -1,39 +1,52 @@
 import styled from 'styled-components';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import * as ToggleGroup from '../../../../Elements/ToggleGroup';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { WizardContext } from '../Contexts/Wizard/Context';
+import { componentStatements, LanguageKeys } from './const';
 import { useContext } from 'react';
 import {
   ButtonWrapper,
+  CalculatorIcon,
   Container,
   NextButton,
   NextIcon,
   PrevButton,
   PrevIcon,
-} from './StyledComponents';
-import { FormDataContext } from '../Contexts/FormDataContext/Context';
+  StyledTooltipTag,
+  Title,
+} from '../StyledComponents';
 import { IELTSScores } from 'Consts/Client';
 import { IELTSScore } from 'Interfaces/Database/Client';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../Contexts/Wizard/Context';
 
-const Step8 = () => {
+const Step10 = () => {
   const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient } = useContext(FormDataContext);
+  const { client, setClient,score } = useContext(FormDataContext);
 
   return (
     <Container>
-      <Title>{t(LanguageKeys.IELTSScoreSectionTitle)}</Title>
+      <Title>
+        {t(LanguageKeys.IELTSScoreSectionTitle)}{" "}
+        <StyledTooltipTag
+          content={
+            <>
+              <CalculatorIcon />
+            </>
+          }
+          popupContent={t(LanguageKeys.IeltsPopupContent)}
+        />
+      </Title>
       <ToggleGroupRoot
-        type='single'
+        type="single"
         value={client?.ielts_score}
-        onValueChange={(value) =>
+        onValueChange={(value) =>{
           client &&
           setClient({
             ...client,
             ielts_score: value as IELTSScore,
           })
+        }
         }
       >
         {
@@ -57,6 +70,7 @@ const Step8 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+
           }}
           disabled={!client?.ielts_score}
           icon={<NextIcon />}
@@ -67,12 +81,7 @@ const Step8 = () => {
     </Container>
   );
 };
-export default Step8;
+export default Step10;
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
-`;
-const Title = styled.h1`
-  ${Layer1_SubtitleStyle};
-  margin: 0;
-  margin-top: 1rem;
 `;

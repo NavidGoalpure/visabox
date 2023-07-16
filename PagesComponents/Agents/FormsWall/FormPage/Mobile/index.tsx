@@ -1,30 +1,40 @@
-import { deviceMin } from 'Consts/device';
-import styled, { css } from 'styled-components';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import theme from 'styled-theming';
-import { layer2A_TitleStyle } from 'Styles/Theme/Layers/layer2/style';
+import { deviceMin } from "Consts/device";
+import styled, { css } from "styled-components";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import theme from "styled-theming";
 import {
-  layer2A_Key,
-} from 'Styles/Theme/Layers/layer2/theme';
-import { Client } from 'Interfaces/Database/Client';
-import DescriptionSection from '../DescriptionSection';
+  layer2A_TextStyle,
+  layer2A_TitleStyle,
+} from "Styles/Theme/Layers/layer2/style";
+import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
+import { Client } from "Interfaces/Database/Client";
+import DescriptionSection from "../DescriptionSection";
+import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Contexts/FormDataContext/utils";
+import { componentStatements, LanguageKeys } from "../const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Headline7Style } from "Styles/Typo";
+import { BsPersonCircle } from "react-icons/bs";
 
 interface Props {
   client: Client;
 }
 function MobileAgentsPage({ client }: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
-
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
       <StarBackground aria-hidden={true}>
         <Star aria-hidden={true} />
       </StarBackground>
       <ProfilePictureWrapper>
-        <ProfilePicture
-          src={client?.avatar || '/Images/placeholder.jpeg'}
-          alt={client?.name ? `${client?.name} image` : 'agent image'}
-        />
+        {client?.avatar ? (
+          <ProfilePicture
+            src={client?.avatar || "/Images/placeholder.jpeg"}
+            alt={client?.name ? `${client?.name} image` : "agent image"}
+          />
+          ) : (
+          <ImagePlaceholder />
+        )}
       </ProfilePictureWrapper>
       <ProfileData>
         <Name>
@@ -32,13 +42,25 @@ function MobileAgentsPage({ client }: Props) {
         </Name>
         <JobTitle>{client?.current_job}</JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
+        {!!client?.visa_subclass && (
+          <HeaderLabel>
+            {t(LanguageKeys.ScoreTitle)}{" "}
+            <span id="score">{CalculateClientScore(client)}</span>
+          </HeaderLabel>
+        )}
+        {!!client?.visa_subclass && (
+          <HeaderLabel>
+            {t(LanguageKeys.VisaSubclassTitle)}{" "}
+            <span id="visa-subclass">{client?.visa_subclass}</span>
+          </HeaderLabel>
+        )}
       </ProfileData>
       <DescriptionSection client={client} />
     </Container>
   );
 }
 export default MobileAgentsPage;
-const StarBackgroundColor = theme('mode', {
+const StarBackgroundColor = theme("mode", {
   light: css`
     background: var(--color-gray13);
   `,
@@ -46,12 +68,28 @@ const StarBackgroundColor = theme('mode', {
     background: var(--color-gray4);
   `,
 });
-const TitleColor = theme('mode', {
+const TitleColor = theme("mode", {
   light: css`
     color: var(--color-primary4);
   `,
   dark: css`
     color: var(--color-primary5);
+  `,
+});
+const HeaderLabelTheme = theme("mode", {
+  light: css`
+    color: var(--color-gray10);
+  `,
+  dark: css`
+    color: var(--color-gray11);
+  `,
+});
+const HeaderScoreTheme = theme("mode", {
+  light: css`
+    color: var(--color-secondary2);
+  `,
+  dark: css`
+    color: var(--color-secondary4);
   `,
 });
 const Container = styled.div`
@@ -99,8 +137,8 @@ const Star = styled.div`
   );
 `;
 const ProfilePictureWrapper = styled.div`
-  width: 14rem;
-  height: 14rem;
+  width: 12rem;
+  height: 12rem;
   z-index: 1;
   margin-bottom: 4rem;
   position: relative;
@@ -111,8 +149,14 @@ const ProfilePicture = styled.img`
   border-radius: 15px;
   width: 100%;
   height: auto;
+  border-radius: 50%;
 `;
-
+const ImagePlaceholder = styled(BsPersonCircle)`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  color: var(--color-gray11);
+`;
 const ProfileData = styled.div`
   display: flex;
   flex-direction: column;
@@ -127,7 +171,16 @@ const Name = styled.h2`
   ${layer2A_TitleStyle}
   z-index:1;
 `;
-
+const HeaderLabel = styled.h4`
+  ${Headline7Style};
+  ${HeaderLabelTheme}
+  #score {
+    ${HeaderScoreTheme};
+  }
+  #visa-subclass {
+    ${layer2A_TextStyle}
+  }
+`;
 const JobTitle = styled.h3`
   ${layer2A_Key}
   margin:0;

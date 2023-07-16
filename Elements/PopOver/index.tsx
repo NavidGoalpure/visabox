@@ -5,9 +5,10 @@ import theme from "styled-theming";
 interface Props {
   trigger: ReactNode;
   content: ReactNode;
+  modal?: boolean;
 }
-const PopOver: React.FC<Props> = ({ trigger, content }) => (
-  <Popover.Root>
+const PopOver: React.FC<Props> = ({ trigger, content, modal = true }) => (
+  <Popover.Root modal={modal}>
     <Popover.Trigger asChild>{trigger}</Popover.Trigger>
     <Portal>
       <Content className="PopoverContent" sideOffset={5}>

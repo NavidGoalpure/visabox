@@ -1,4 +1,11 @@
 import { MultiLanguageText } from "Interfaces/Database";
+
+export const Countries: MultiLanguageText[] = [
+  { en: "Iran", fa: "ایران" },
+  { en: "China", fa: "چین" },
+  { en: "India", fa: "هند" },
+  { en: "Other", fa: "سایر موارد" },
+];
 export const ages: MultiLanguageText[] = [
   { en: "18-24", fa: "18-24" },
   { en: "25-32", fa: "25-32" },
@@ -6,11 +13,24 @@ export const ages: MultiLanguageText[] = [
   { en: "40-44", fa: "40-44" },
   { en: "45+", fa: "45+" },
 ];
+export const VisaSubclasses: MultiLanguageText[] = [
+  { en: "189", fa: "189" },
+  { en: "190", fa: "190" },
+  { en: "491", fa: "491" },
+];
 export const maritalStatuses: MultiLanguageText[] = [
     { en: "Married", fa: "متاهل" },
     { en: "Single", fa: "مجرد" },
 ];
+export const maritalSituations: MultiLanguageText[] = [
+  { en: "1", fa: "1" },
+  { en: "2", fa: "2" },
+  { en: "3", fa: "3" },
+  { en: "4", fa: "4" },
+  { en: "5", fa: "5" },
+];
 export const educations: MultiLanguageText[] = [
+  { en: "I dont have any", fa: "ندارم" },
   { en: "Diploma", fa: "دیپلم" },
   { en: "Bachelor's degree", fa: "لیسانس" },
   { en: "Master's degree", fa: "فوق لیسانس" },
@@ -20,6 +40,10 @@ export const uniSections: MultiLanguageText[] = [
   { en: "Section 1", fa: "سکشن ۱" },
   { en: "Section 2", fa: "سکشن ۲" },
   { en: "I don't know", fa: "نمیدانم" },
+];
+export const YesOrNo: MultiLanguageText[] = [
+  { en: "No", fa: "خیر" },
+  { en: "Yes", fa: "بله" },
 ];
 export const works: MultiLanguageText[] = [
   { en: "Below 1 year", fa: "زیر یک سال" },

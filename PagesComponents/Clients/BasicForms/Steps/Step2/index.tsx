@@ -1,9 +1,7 @@
-import { Input } from 'Components/Input';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { FormDataContext } from '../Contexts/FormDataContext/Context';
-import { WizardContext } from '../Contexts/Wizard/Context';
-import { useContext } from 'react';
+import { Input } from "Components/Input";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   Container,
@@ -11,9 +9,11 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-} from './StyledComponents';
+} from "../StyledComponents";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
 
-const Step1 = () => {
+const Step2 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { client, setClient } = useContext(FormDataContext);
@@ -24,7 +24,7 @@ const Step1 = () => {
       <Input
         required
         label={t(LanguageKeys.NameInputLabel)}
-        inputName='name'
+        inputName="name"
         placeholder={t(LanguageKeys.NameInputPlaceholder)}
         value={client?.name}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +39,7 @@ const Step1 = () => {
       <Input
         required
         label={t(LanguageKeys.LastNameInputLabel)}
-        inputName='lname'
+        inputName="lname"
         value={client?.lastname}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           client &&
@@ -54,15 +54,18 @@ const Step1 = () => {
       <Input
         label={t(LanguageKeys.PhoneInputLabel)}
         value={client?.phone}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        isNumberOnly={true}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           client &&
-          setClient({
-            ...client,
-            phone: e.target.value,
-          })
-        }
-        inputName='phoneNumber'
-        id={'phone-input'}
+            setClient({
+              ...client,
+              // replace will make it so the client?.phone only gets numbers as value
+              phone: e.target.value.replace(/[^\d]/g, ""),
+            });
+          console.log("navid client phone ===", client?.phone);
+        }}
+        inputName="phoneNumber"
+        id={"phone-input"}
         placeholder={t(LanguageKeys.PhoneInputPlaceholder)}
       />
       <ButtonWrapper>
@@ -85,4 +88,4 @@ const Step1 = () => {
     </Container>
   );
 };
-export default Step1;
+export default Step2;

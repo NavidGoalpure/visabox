@@ -8,6 +8,7 @@ import { Hint_BG } from "Styles/Theme/ Hint/theme";
 import { Hint_SubTitleStyle } from "Styles/Theme/ Hint/style";
 import { FaTelegramPlane } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+
 const HeroTheme = theme("mode", {
   light: css`
     background: linear-gradient(

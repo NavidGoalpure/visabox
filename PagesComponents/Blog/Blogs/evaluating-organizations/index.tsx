@@ -1,26 +1,20 @@
-import { ReactNode } from 'react';
-import { ArticleMetaData } from '../../interfaces';
-import styled from 'styled-components';
-import {
-  Layer1_SubtitleStyle,
-  Layer1_TextStyle,
-  Layer1_TitleStyle,
-} from 'Styles/Theme/Layers/layer1/style';
-import { th_a_Color } from 'PagesComponents/Occupations/Detail/DetailTab/styledComponents';
-import { borderTheme } from 'Styles/Theme';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import { useLocale } from 'Hooks/useLocale';
 import { componentStatements, LanguageKeys, structuredData } from './const';
 import Seo from 'Components/Seo';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Link from 'next/link';
+import {
+  BlogContainer,
+  HintBG,
+  HintText,
+  HintTitle,
+} from '../StyledComponents';
 
 export default function PostContent() {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <Container>
+    <BlogContainer>
       <Seo
         title={t(LanguageKeys.SeoTitle) + ` | ${new Date().getFullYear()}`}
         canonical={`https://www.marabox.com/${locale}/blog`}
@@ -473,11 +467,9 @@ export default function PostContent() {
         سال می‌باشد.
       </p>
       <br />
-      <p>
-        <b>توجه:</b>
-      </p>
-      <p>
-        <em>
+      <HintBG>
+        <HintTitle>توجه:</HintTitle>
+        <HintText>
           اطلاعات ارائه شده در این بلاگ، فقط برای اطلاعاتی عمومی است و نباید به
           عنوان مشاوره حقوقی تلقی شود. ما تمام تلاش خود را می کنیم تا از صحت و
           به روز بودن محتوای خود اطمینان حاصل کنیم، اما نمی توانیم کامل بودن یا
@@ -489,113 +481,8 @@ export default function PostContent() {
             {` لیست موسسات مهاجرتی قانونی مربوط به استرالیا `}
           </Link>
           را می‌توانید از طریق این لینک پیدا کنید.
-        </em>
-      </p>
-    </Container>
+        </HintText>
+      </HintBG>
+    </BlogContainer>
   );
 }
-const Container = styled.main`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  img {
-    margin-bottom: 2rem;
-    width: 80%;
-    height: 25rem;
-    border-radius: 15px;
-    object-fit: cover;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
-    align-self: center;
-  }
-  p {
-    ${Layer1_TextStyle} // line-height: 40px !important;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-    b {
-      color: var(--color-secondary3);
-    }
-    em {
-      color: var(--color-gray9);
-    }
-  }
-  h1 {
-    ${Layer1_TitleStyle}
-    margin-top: 2rem;
-  }
-  table {
-    ${borderTheme}
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 4rem;
-    margin-top: 4rem;
-    border-spacing: 0px;
-  }
-
-  tbody {
-    margin: 0 0 20px;
-    padding: 0;
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    overflow: hidden;
-  }
-  tr {
-    width: auto;
-    height: 4rem;
-    th {
-      max-width: 278px;
-    }
-  }
-  td {
-    text-align: center;
-    ${layer2A_TextStyle}
-    direction: ltr;
-    height: 2rem;
-    padding: 0.5rem;
-    line-height: 1.5rem;
-  }
-
-  th {
-    ${layer2A_HeaderBG}
-    ${layer2A_TextStyle}
-  direction: ltr;
-    text-align: center;
-    font-weight: 500;
-    padding-inline-start: 32px;
-    padding-inline-end: 32px;
-    line-height: 1.5rem;
-    border-color: #ececec;
-    :last-child {
-      border-right: none;
-    }
-    a {
-      ${th_a_Color}
-    }
-  }
-  h3,
-  h2 {
-    ${Layer1_SubtitleStyle}
-    margin-top: 4rem;
-    margin-bottom: 1.5rem;
-  }
-  h3 {
-    font-size: larger;
-  }
-  ul {
-    ${Layer1_TextStyle}
-    list-style: disc !important;
-    padding-inline-start: 2rem;
-  }
-  ol {
-    ${Layer1_TextStyle}
-    list-style: arabic-indic !important;
-    padding-inline-start: 2rem;
-    ul {
-      padding-inline-start: 3rem;
-    }
-  }
-  li {
-    margin-bottom: 1rem;
-  }
-  :last-child {
-    margin-bottom: 2rem;
-  }
-`;

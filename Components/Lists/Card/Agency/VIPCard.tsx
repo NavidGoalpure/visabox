@@ -170,7 +170,7 @@ const Desc = styled.div`
   margin-bottom:0.75rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   overflow: hidden;
   @media ${deviceMin.tabletS} {
     margin-bottom: 2.5rem;

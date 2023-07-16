@@ -29,7 +29,7 @@ import { componentStatements, LanguageKeys } from "./const";
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -70,17 +70,17 @@ const Step5 = () => {
       {client?.marital_situation === MaritalSituationType.One && (
         <HintComponent>
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation1_FirstLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation1_SecondLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation1_ThirdLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation1_ForthLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation1)}</HintLi>
           </HintUl>
         </HintComponent>
       )}
       {client?.marital_situation === MaritalSituationType.Two && (
         <HintComponent>
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation2)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_FirstLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_SecondLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_ThirdLine)}</HintLi>
+            <HintLi>{t(LanguageKeys.situation2_ForthLine)}</HintLi>
           </HintUl>
         </HintComponent>
       )}

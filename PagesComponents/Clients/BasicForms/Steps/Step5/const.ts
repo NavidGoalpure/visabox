@@ -4,11 +4,11 @@ export enum LanguageKeys {
   maritalSituationPopupContent = "maritalSituationPopupContent",
   maritalStatusSectionTitle = "maritalStatusSectionTitle",
   maritalSituationTitle = "maritalSituationTitle",
-  situation1_FirstLine = "situation1_FirstLine",
-  situation1_SecondLine = "situation1_SecondLine",
-  situation1_ThirdLine = "situation1_ThirdLine",
-  situation1_ForthLine = "situation1_ForthLine",
-  situation2 = "situation2",
+  situation1 = "situation1",
+  situation2_FirstLine = "situation2_FirstLine",
+  situation2_SecondLine = "situation2_SecondLine",
+  situation2_ThirdLine = "situation2_ThirdLine",
+  situation2_ForthLine = "situation2_ForthLine",
   situation3_FirstLine = "situation3_FirstLine",
   situation3_SecondLine = "situation3_SecondLine",
   situation3_ThirdLine = "situation3_ThirdLine",
@@ -38,26 +38,27 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "Which one describes your marital situation?",
     fa: "کدام یک وضعیت تاهل شما را توصیف می کند؟",
   },
-  situation1_FirstLine: {
-    en: "My partner is aged under 45, and",
-    fa: "شریک زندگی من زیر 45 سال سن دارد و",
-  },
-  situation1_SecondLine: {
-    en: "My partner has Competent English, and",
-    fa: "شریک من دارای زبان انگلیسی خوب(Ielts6) است و",
-  },
-  situation1_ThirdLine: {
-    en: "My partner is an applicant of the same subclass of visa as me, and",
-    fa: "متقاضی همان زیر کلاس ویزا با من است و",
-  },
-  situation1_ForthLine: {
-    en: " My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)",
-    fa: "شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای زیر کلاس 485 نیست)",
-  },
-  situation2: {
+  situation1: {
     en: "I don’t have a spouse or de facto partner",
     fa: "من همسر یا شریک ندارم",
   },
+  situation2_FirstLine: {
+    en: "My partner is aged under 45, and",
+    fa: "شریک زندگی من زیر 45 سال سن دارد و",
+  },
+  situation2_SecondLine: {
+    en: "My partner has Competent English, and",
+    fa: "شریک من دارای زبان انگلیسی خوب(Ielts6) است و",
+  },
+  situation2_ThirdLine: {
+    en: "My partner is an applicant of the same subclass of visa as me, and",
+    fa: "متقاضی همان زیر کلاس ویزا با من است و",
+  },
+  situation2_ForthLine: {
+    en: " My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)",
+    fa: "شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای زیر کلاس 485 نیست)",
+  },
+
   situation3_FirstLine: {
     en: "My partner has Competent English, and",
     fa: "شریک من دارای زبان انگلیسی خوب است و",

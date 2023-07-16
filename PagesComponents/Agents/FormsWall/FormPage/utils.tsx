@@ -155,7 +155,7 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
   const showableData: GetLabelsProps = {
     marital: getMaritalLabel({
       marital:
-        (client?.marital_situation === MaritalSituationType.Two
+        (client?.marital_situation === MaritalSituationType.One
           ? ClientMarital.Single
           : ClientMarital.Married) || client?.marital,
     }),
@@ -192,16 +192,17 @@ export const getSmartMaritalSitutationPopupContent = (
     case MaritalSituationType.One:
       return (
         <ul>
-          <li>{t(LanguageKeys.MaritalSituation1_FirstLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation1_SecondLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation1_ThirdLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation1_ForthLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation1)}</li>
+          
         </ul>
       );
     case MaritalSituationType.Two:
       return (
         <ul>
-          <li>{t(LanguageKeys.MaritalSituation2)}</li>
+          <li>{t(LanguageKeys.MaritalSituation2_FirstLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation2_SecondLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation2_ThirdLine)}</li>
+          <li>{t(LanguageKeys.MaritalSituation2_ForthLine)}</li>
         </ul>
       );
     case MaritalSituationType.Three:

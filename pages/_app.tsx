@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Montserrat } from '@next/font/google';
 import { useRouter } from 'next/router';
-
 import { useLocale } from 'Hooks/useLocale';
 import '../Styles/global.css';
 import 'vazirmatn/Vazirmatn-font-face.css';

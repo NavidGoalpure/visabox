@@ -13,6 +13,7 @@ import { NAATIES } from 'Consts/Lists/naati';
 import { GetStaticProps, NextPage } from 'next/types';
 import Error from 'next/error';
 import { Naati } from 'Interfaces/Database/Lists/naaties';
+import { Languages } from 'Interfaces';
 
 interface Props {
   chosenNaati?: Naati;
@@ -41,17 +42,20 @@ const NaatiPage: NextPage<Props> = ({ chosenNaati, errorCode }) => {
 };
 export default NaatiPage;
 
-export const getStaticPaths = async () => {
-  const paths = NAATIES.map((naati) => ({
-    params: { slug: naati.slug },
-  }));
+export const getStaticPaths = async ({ locales }: any) => {
+  let paths: { params: { slug: string }; locale: Languages }[] = [];
+
+  NAATIES.map((naati) => {
+    locales.map((locale: Languages) => {
+      if (naati?.slug) paths.push({ params: { slug: naati.slug }, locale });
+    });
+  });
 
   return {
     paths: paths,
     fallback: false,
   };
 };
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const chosenNaati = NAATIES.filter((naati) => naati.slug === params?.slug)[0];
 

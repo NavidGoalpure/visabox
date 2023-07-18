@@ -23,7 +23,7 @@ const HomeContent: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [hasClientCompletedForm, setHasClientCompletedForm] =
     useState<boolean>(true);
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const { data, isLoading } = useQuery(
     ClientQueryKeys.detail({
       reqParams,
@@ -46,16 +46,16 @@ const HomeContent: React.FC = () => {
   return (
     <>
       <Hero />
-      <Container id="section-container">
+      <Container id='section-container'>
         {(!session || !hasClientCompletedForm) && (
           <Banner
-            navigateTo={`/${locale}/clients/basic-form`}
+            navigateTo={`/${locale}/clients/point-calculator`}
             desc={
               <BannerDesc
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
               ></BannerDesc>
             }
-            stampText={t(LanguageKeys.StampText)}
+            // stampText={t(LanguageKeys.StampText)}
 
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
@@ -78,7 +78,4 @@ const Container = styled.div`
   margin-top: 2rem;
 `;
 
-const BannerDesc = styled.div`
-
-`
-
+const BannerDesc = styled.div``;

@@ -1,38 +1,37 @@
-import MaraBgAnimation from "Components/MaraBgAnimation";
-import { deviceMin } from "Consts/device";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { useRouter } from "next/router";
-import { HTMLAttributes, ReactNode } from "react";
-import { MdNavigateNext } from "react-icons/md";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import BannerStamp from "./Images/BannerStamp.svg"
-import { Headline3Style, Headline4Style, Headline7Style } from "Styles/Typo";
+import MaraBgAnimation from 'Components/MaraBgAnimation';
+import { deviceMin } from 'Consts/device';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { useRouter } from 'next/router';
+import { HTMLAttributes, ReactNode } from 'react';
+import { MdNavigateNext } from 'react-icons/md';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import BannerStamp from './Images/BannerStamp.svg';
+import { Headline4Style, Headline7Style } from 'Styles/Typo';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
   buttonText: string;
-  stampText: string;
+  stampText?: string;
 }
-const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) => {
+const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
   const router = useRouter();
   return (
     <Container>
-      <Stamp
+      {/* {stampText && <Stamp
         dangerouslySetInnerHTML={{ __html: stampText }}
       >
-
-      </Stamp>
+      navid uncommend when calc is added
+      </Stamp>} */}
       <Wrapper>
-        {" "}
         <MaraBgAnimation
           animationSpeed={60}
-          DarkPrimaryColor={"var(--color-primary3)"}
-          LightPrimaryColor={"var(--color-primary3)"}
-          LightSecondaryColor={"transparent"}
+          DarkPrimaryColor={'var(--color-primary3)'}
+          LightPrimaryColor={'var(--color-primary3)'}
+          LightSecondaryColor={'transparent'}
         >
           <Content>
-            <Title>{desc}</Title>{" "}
+            <Title>{desc}</Title>{' '}
             <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
               {buttonText}
             </Button>
@@ -43,7 +42,7 @@ const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) =>
   );
 };
 export default Banner;
-const NextIconDirectionStyle = theme("languageDirection", {
+const NextIconDirectionStyle = theme('languageDirection', {
   ltr: css``,
   rtl: css`
     transform: rotate(180deg);
@@ -51,41 +50,41 @@ const NextIconDirectionStyle = theme("languageDirection", {
 });
 
 const Container = styled.div`
-position: relative;
-`
+  position: relative;
+`;
 
 const Stamp = styled.div`
-span {
-color: var(--color-secondary1);
-}
-${Headline7Style};
-rotate: -10deg;
-scale: 0.7;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: space-around;
-text-align: center;
-position: absolute;
-background-image: url(${BannerStamp});
-background-repeat: no-repeat;
-background-size: contain;
-width: 128px;
-height: 128px;
-bottom: -2rem;
-left: -0.5rem;
-z-index: 1;
-font-weight: 900;
-color: var(--color-secondary1);
-@media ${deviceMin.tabletS} {
+  span {
+    color: var(--color-secondary1);
+  }
   ${Headline7Style};
-  scale: 1;
-  left: 5rem;
+  rotate: -10deg;
+  scale: 0.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+  text-align: center;
+  position: absolute;
+  background-image: url(${BannerStamp});
+  background-repeat: no-repeat;
+  background-size: contain;
   width: 128px;
   height: 128px;
+  bottom: -2rem;
+  left: -0.5rem;
+  z-index: 1;
   font-weight: 900;
-}
-`
+  color: var(--color-secondary1);
+  @media ${deviceMin.tabletS} {
+    ${Headline7Style};
+    scale: 1;
+    left: 5rem;
+    width: 128px;
+    height: 128px;
+    font-weight: 900;
+  }
+`;
 const Wrapper = styled.div`
   background: var(--color-primary1);
   text-align: center;
@@ -97,7 +96,7 @@ const Wrapper = styled.div`
   z-index: 0;
   overflow: hidden;
   :before {
-    content: "";
+    content: '';
     width: 20%;
     height: 50%;
     background: var(--color-primary3);
@@ -110,7 +109,7 @@ const Wrapper = styled.div`
     z-index: 10;
   }
   :after {
-    content: "";
+    content: '';
     width: 20%;
     height: 50%;
     background: var(--color-primary3);

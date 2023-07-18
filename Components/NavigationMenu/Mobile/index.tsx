@@ -68,14 +68,14 @@ function SmartHeader() {
               <Hr />
               <OccupationDropdown />
               <Hr />
-              <MobileLanguageChanger />
-              <Hr />
               <MenuLink href={`/${locale}/blog`}>
                 {t(LanguageKeys.Blogs)}
               </MenuLink>
-
               <Hr />
-              <SwitchTheme />
+              <RowContainer>
+                <MobileLanguageChanger />
+                <SwitchTheme />
+              </RowContainer>
             </MenuPopupWrapper>
           </ScrollBox>
         </MenuPopupContainer>
@@ -158,6 +158,12 @@ const MenuLink = styled(Link)`
   ${layer3_TitleStyle};
   text-align: start;
   width: 100%;
+`;
+
+const RowContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 const Signin = styled(MenuLink)`

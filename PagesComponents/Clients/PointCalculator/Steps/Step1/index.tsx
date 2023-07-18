@@ -1,11 +1,9 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
-  CalculatorIcon,
   Container,
   NextButton,
   NextIcon,
@@ -13,48 +11,40 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { VisaSubclass } from "Interfaces/Database/Client";
-import { VisaSubclasses } from "Consts/Client";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { WizardContext } from "../../Contexts/Wizard/Context";
+} from '../StyledComponents';
+import { ClientCountry } from 'Interfaces/Database/Client';
+import { Countries } from 'Consts/Client';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../Contexts/Wizard/Context';
+import { componentStatements, LanguageKeys } from './const';
+import { directionStyles } from 'Styles/Theme';
 
-const Step3 = () => {
+const Step1 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
-      <Title>
-        {t(LanguageKeys.VisaSubclassTitle)}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon />
-            </>
-          }
-          popupContent={t(LanguageKeys.VisaSubclassPopupContent)}
-        />
-      </Title>
+      <Title>{t(LanguageKeys.CountryTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
-        value={client?.visa_subclass}
+        type='single'
+        value={client?.country}
         onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              visa_subclass: value as VisaSubclass,
+              country: value as ClientCountry,
             });
         }}
       >
         {
           <>
-            {VisaSubclasses.map((VisaSubclass, i) => (
+            {Countries.map((option, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={VisaSubclass}
-                value={VisaSubclass.en.toLowerCase()}
+                text={option}
+                value={option.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -71,7 +61,7 @@ const Step3 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.visa_subclass}
+          disabled={!client?.country}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -80,9 +70,10 @@ const Step3 = () => {
     </Container>
   );
 };
-export default Step3;
+export default Step1;
 
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
   width: 100%;
+  
 `;

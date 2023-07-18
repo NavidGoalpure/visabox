@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           //وقتی این رو آنکامنت میکنیم  باید جیتگ/پارتیتاون رو از توی کاستوم داکیومنت کامنت کنیم
           //////////////////////////////////////////// */}
 
-      <Script id='google-tag-manager' strategy='afterInteractive'>
+      {/* <Script id='google-tag-manager' strategy='afterInteractive'>
         {`
          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
       `}
-      </Script>
+      </Script> */}
       <NextNProgress height={2} />
 
       <SessionProvider session={session}>

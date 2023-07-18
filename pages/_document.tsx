@@ -40,7 +40,7 @@ export default class MyDocument extends Document {
           /////////////GTAG With Partytown////////////
           //وقتی این رو آنکامنت میکنیم  باید جیتگ رو از توی آندرلاین اپ کامنت کنیم
           //////////////////////////////////////////// */}
-          {/* <Partytown
+          <Partytown
             debug={true}
             forward={['dataLayer.push']}
             set={(opts) => {
@@ -55,9 +55,9 @@ export default class MyDocument extends Document {
               }
               return opts.continue;
             }}
-          /> */}
+          />
 
-          {/* <script
+          <script
             defer
             type='text/partytown'
             dangerouslySetInnerHTML={{
@@ -69,18 +69,18 @@ export default class MyDocument extends Document {
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
       `,
             }}
-          /> */}
+          />
         </Head>
         <body>
           <Main />
           <NextScript />
-          {/* {isItOnLive() && (
+          {isItOnLive() && (
             <noscript
               dangerouslySetInnerHTML={{
                 __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTM}" height="0" width="0" style="display: none; visibility: hidden;" />`,
               }}
             />
-          )} */}
+          )}
         </body>
       </Html>
     );

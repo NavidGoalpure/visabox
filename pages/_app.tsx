@@ -15,6 +15,7 @@ import ErrorBoundary from 'Components/errorBoundary';
 import { globalStyles } from 'Styles/Theme';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
+import Script from 'next/script';
 // import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`
@@ -43,7 +44,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           /////////////GTAG Without Partytown////////////
           //وقتی این رو آنکامنت میکنیم  باید جیتگ/پارتیتاون رو از توی کاستوم داکیومنت کامنت کنیم
           //////////////////////////////////////////// */}
-      {/* 
+
       <Script id='google-tag-manager' strategy='afterInteractive'>
         {`
          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -52,7 +53,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM}');
       `}
-      </Script> */}
+      </Script>
       <NextNProgress height={2} />
 
       <SessionProvider session={session}>

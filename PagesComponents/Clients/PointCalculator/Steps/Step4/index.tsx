@@ -20,7 +20,6 @@ import {
 } from "../StyledComponents";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import {
-  ClientMarital,
   MaritalSituationType,
 } from "Interfaces/Database/Client";
 import { maritalSituations, maritalStatuses } from "Consts/Client";

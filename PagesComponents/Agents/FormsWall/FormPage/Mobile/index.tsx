@@ -14,6 +14,12 @@ import { componentStatements, LanguageKeys } from "../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Headline7Style } from "Styles/Typo";
 import { BsPersonCircle } from "react-icons/bs";
+import {
+  Hint_SecondaryContainer,
+  Hint_SecondaryIcon,
+  Hint_SecondaryTextStyle,
+} from "Styles/Theme/Hint/style";
+import { FiInfo } from "react-icons/fi";
 
 interface Props {
   client: Client;
@@ -32,7 +38,7 @@ function MobileAgentsPage({ client }: Props) {
             src={client?.avatar || "/Images/placeholder.jpeg"}
             alt={client?.name ? `${client?.name} image` : "agent image"}
           />
-          ) : (
+        ) : (
           <ImagePlaceholder />
         )}
       </ProfilePictureWrapper>
@@ -53,6 +59,12 @@ function MobileAgentsPage({ client }: Props) {
             {t(LanguageKeys.VisaSubclassTitle)}{" "}
             <span id="visa-subclass">{client?.visa_subclass}</span>
           </HeaderLabel>
+        )}
+        {!client?.visa_subclass && (
+          <HintContainer>
+            <HintInfoIcon />
+            <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
+          </HintContainer>
         )}
       </ProfileData>
       <DescriptionSection client={client} />
@@ -156,6 +168,16 @@ const ImagePlaceholder = styled(BsPersonCircle)`
   width: 100%;
   height: 100%;
   color: var(--color-gray11);
+`;
+const HintContainer = styled.div`
+  ${Hint_SecondaryContainer};
+  gap: 2rem;
+`;
+const HintInfoIcon = styled(FiInfo)`
+  ${Hint_SecondaryIcon};
+`;
+const HintContent = styled.h3`
+  ${Hint_SecondaryTextStyle};
 `;
 const ProfileData = styled.div`
   display: flex;

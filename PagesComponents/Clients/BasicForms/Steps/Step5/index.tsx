@@ -7,8 +7,9 @@ import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
-  HintLi,
+  HintContainer,
   HintUl,
+  InfoHintIcon,
   InformationIcon,
   NextButton,
   NextIcon,
@@ -23,7 +24,6 @@ import {
   MaritalSituationType,
 } from "Interfaces/Database/Client";
 import { maritalSituations, maritalStatuses } from "Consts/Client";
-import HintComponent from "Components/HintComponent";
 import { componentStatements, LanguageKeys } from "./const";
 
 const Step5 = () => {
@@ -68,44 +68,49 @@ const Step5 = () => {
         }
       </ToggleGroupRoot>
       {client?.marital_situation === MaritalSituationType.One && (
-        <HintComponent>
+        <HintContainer>
+          <InfoHintIcon />
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation1)}</HintLi>
+            <li>{t(LanguageKeys.situation1)}</li>
           </HintUl>
-        </HintComponent>
+        </HintContainer>
       )}
       {client?.marital_situation === MaritalSituationType.Two && (
-        <HintComponent>
+        <HintContainer>
+          <InfoHintIcon />
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation2_FirstLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation2_SecondLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation2_ThirdLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation2_ForthLine)}</HintLi>
+            <li>{t(LanguageKeys.situation2_FirstLine)}</li>
+            <li>{t(LanguageKeys.situation2_SecondLine)}</li>
+            <li>{t(LanguageKeys.situation2_ThirdLine)}</li>
+            <li>{t(LanguageKeys.situation2_ForthLine)}</li>
           </HintUl>
-        </HintComponent>
+        </HintContainer>
       )}
       {client?.marital_situation === MaritalSituationType.Three && (
-        <HintComponent>
+        <HintContainer>
+          <InfoHintIcon />
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation3_FirstLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation3_SecondLine)}</HintLi>
-            <HintLi>{t(LanguageKeys.situation3_ThirdLine)}</HintLi>
+            <li>{t(LanguageKeys.situation3_FirstLine)}</li>
+            <li>{t(LanguageKeys.situation3_SecondLine)}</li>
+            <li>{t(LanguageKeys.situation3_ThirdLine)}</li>
           </HintUl>
-        </HintComponent>
+        </HintContainer>
       )}
       {client?.marital_situation === MaritalSituationType.Four && (
-        <HintComponent>
+        <HintContainer>
+          <InfoHintIcon />
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation4)}</HintLi>
+            <li>{t(LanguageKeys.situation4)}</li>
           </HintUl>
-        </HintComponent>
+        </HintContainer>
       )}
       {client?.marital_situation === MaritalSituationType.Five && (
-        <HintComponent>
+        <HintContainer>
+          <InfoHintIcon />
           <HintUl>
-            <HintLi>{t(LanguageKeys.situation5)}</HintLi>
+            <li>{t(LanguageKeys.situation5)}</li>
           </HintUl>
-        </HintComponent>
+        </HintContainer>
       )}
 
       <ButtonWrapper>

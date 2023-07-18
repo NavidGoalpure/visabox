@@ -14,8 +14,13 @@ import { Headline7Style } from "Styles/Typo";
 import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Contexts/FormDataContext/utils";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
-import HintComponent from "Components/HintComponent";
 import { BsPersonCircle } from "react-icons/bs";
+import {
+  Hint_SecondaryContainer,
+  Hint_SecondaryIcon,
+  Hint_SecondaryTextStyle,
+} from "Styles/Theme/Hint/style";
+import { FiInfo } from "react-icons/fi";
 interface Props {
   client: Client;
 }
@@ -25,20 +30,21 @@ function DesktopAgentsPage({ client }: Props) {
   return (
     <Container>
       {!client?.visa_subclass && (
-        <StyledHintComponent>
+        <HintContainer>
+          <HintInfoIcon />
           <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
-        </StyledHintComponent>
+        </HintContainer>
       )}
       <Wrapper>
         <SmallBox hasBorderRadiusAllAround={!client?.visa_subclass}>
           <ProfilePictureWrapper>
             {client?.avatar ? (
               <ProfilePicture
-              src={client?.avatar}
-              alt={client?.name ? `${client?.name} image` : "agent image"}
+                src={client?.avatar}
+                alt={client?.name ? `${client?.name} image` : "agent image"}
               />
-              ) : (
-                <ImagePlaceholder />
+            ) : (
+              <ImagePlaceholder />
             )}
           </ProfilePictureWrapper>
           <ProfileData>
@@ -111,16 +117,15 @@ const Container = styled.div`
   gap: 1rem;
   flex-direction: column;
 `;
-const StyledHintComponent = styled(HintComponent)`
-  align-items: center;
-  gap: 1rem;
-  #icon {
-    width: 1.5rem;
-    margin: 0;
-  }
+const HintContainer = styled.div`
+  ${Hint_SecondaryContainer};
+  gap: 2rem;
+`;
+const HintInfoIcon = styled(FiInfo)`
+  ${Hint_SecondaryIcon};
 `;
 const HintContent = styled.h3`
-  ${Headline7Style};
+  ${Hint_SecondaryTextStyle};
 `;
 const Wrapper = styled.div`
   width: 100%;

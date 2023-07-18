@@ -8,7 +8,7 @@ import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { Headline7Style } from "Styles/Typo";
-import { Hint_TextStyle } from "Styles/Theme/Hint/style";
+import { Hint_SecondaryIcon, Hint_SecondaryTextStyle } from "Styles/Theme/Hint/style";
 
 const PrevIconDirectionStyle = theme("languageDirection", {
   ltr: css``,
@@ -146,10 +146,16 @@ export const PrevIcon = styled(NextIcon)`
   margin: 0;
   ${PrevIconDirectionStyle};
 `;
+export const HintContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 3rem;
+`;
+export const InfoHintIcon = styled(FiInfo)`
+  ${Hint_SecondaryIcon};
+`;
 export const HintUl = styled.ul`
-  list-style: disc;
+  ${Hint_SecondaryTextStyle};
 `;
-export const HintLi = styled.li`
-  ${Hint_TextStyle};
-  color: inherit;
-`;
+

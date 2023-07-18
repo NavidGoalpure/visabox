@@ -6,7 +6,7 @@ import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
-  HintLi,
+  HintContainer,
   HintUl,
   NextButton,
   NextIcon,
@@ -19,7 +19,6 @@ import { Input } from "Components/Input";
 import { calculateAge } from "Utils/clients";
 import { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
-import HintComponent from "Components/HintComponent";
 
 const Step4 = () => {
   const { t } = useStaticTranslation(componentStatements);
@@ -62,11 +61,11 @@ const Step4 = () => {
         id={"date-input"}
       />
       {clientAge > 44 && (
-        <HintComponent>
+        <HintContainer>
           <HintUl>
-            <HintLi>{t(LanguageKeys.HintText)}</HintLi>
+            <li>{t(LanguageKeys.HintText)}</li>
           </HintUl>
-        </HintComponent>
+        </HintContainer>
       )}
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>

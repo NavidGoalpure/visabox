@@ -13,6 +13,8 @@ import { PrimaryButton } from 'Elements/Button/Primary';
 import { componentStatements, LanguageKeys } from './const';
 import { Client } from 'Interfaces/Database/Client';
 import { useLocale } from 'Hooks/useLocale';
+import { CalculateClientScore } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils';
+import { calculateAge } from 'Utils/clients';
 
 interface Props {
   formData: Client;
@@ -21,6 +23,7 @@ function BasicFormCard({ formData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const dataCreatedAt = formData?._createdAt?.toString().substring(0, 10);
+  const clientScore = CalculateClientScore(formData);
   return (
     <CardContainer
       target='_blank'
@@ -32,6 +35,10 @@ function BasicFormCard({ formData }: Props) {
     >
       <Wrapper>
         <Title>{formData.current_job}</Title>
+        <DataWrapper>
+          <Label>{t(LanguageKeys.Score)}</Label>
+          <ScoreValue>{clientScore}</ScoreValue>
+        </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.NameLabel)}</Label>
           <Value>
@@ -48,7 +55,7 @@ function BasicFormCard({ formData }: Props) {
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.AgeLabel)}</Label>
-          <Value>{formData?.age?.slice(0, 10)}</Value>
+          <Value>{calculateAge(new Date(formData?.age || '1800-01-01'))}</Value>
         </DataWrapper>
       </Wrapper>
       <PrimaryButton style={{ margin: '0 auto' }}>
@@ -77,7 +84,14 @@ const LabelTheme = theme('mode', {
     color: var(--color-gray10);
   `,
 });
-
+const ScoreValueTheme = theme('mode', {
+  light: css`
+    color: var(--color-secondary1);
+  `,
+  dark: css`
+    color: var(--color-secondary4);
+  `,
+});
 const CardContainer = styled(Link)`
   ${layer2A_BodyStyle};
   display: flex;
@@ -139,4 +153,7 @@ const Label = styled.h4`
 const Value = styled.h4`
   ${layer2A_TextStyle};
   line-height: 20px;
+`;
+const ScoreValue = styled(Value)`
+  ${ScoreValueTheme};
 `;

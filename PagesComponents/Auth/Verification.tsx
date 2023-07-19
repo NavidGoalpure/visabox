@@ -45,7 +45,7 @@ function Content() {
           }
           // اگر کلاینت برای اولین بار ثبت نام کرده بود
           else {
-            router.push(`/${locale}/clients/basic-form`);
+            router.push(`/${locale}/clients/point-calculator`);
           }
           SuccessToast(successToastMessage);
         })

@@ -5,7 +5,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const body = JSON.parse(req.body);
   const isSharable: boolean = body?.is_sharable;
   const id = body?._id;
-  console.log("navid isSharable ===", isSharable);
   if (isSharable !== undefined && id) {
     sanityClient
       .patch(id)

@@ -8,6 +8,7 @@ import theme from 'styled-theming';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { Headline7Style } from 'Styles/Typo';
 import { deviceTypes } from 'Consts/device';
+import { directionStyles } from 'Styles/Theme';
 
 export interface RadioItemProps extends ToggleGroup.ToggleGroupItemProps {
   text: MultiLanguageText;
@@ -55,8 +56,9 @@ opacity:1;
 }
 `;
 const Container = styled(ToggleGroup.Item)`
-  ${ContainerTheme};
-  ${Headline7Style};
+  ${ContainerTheme}
+  ${Headline7Style}
+  direction: ltr;
   cursor: pointer;
   position: relative;
   display: flex;

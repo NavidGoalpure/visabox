@@ -1,21 +1,32 @@
-import { MultiLanguageText } from "Interfaces/Database";
+import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',
   //
+  ScoreTitle = 'ScoreTitle',
+  VisaSubclassTitle = 'VisaSubclassTitle',
   AboutLabel = 'AboutLabel',
+  NotCompletedHint = 'NotCompletedHint',
   BirthDateLabel = 'BirthDateLabel',
   EnglishSkillsLabel = 'EnglishSkillsLabel',
   MarriageStatusLabel = 'MarriageStatusLabel',
+  MarriageSituationLabel = 'MarriageSituationLabel',
+  CountryLabel = 'CountryLabel',
   FieldOfStudyLabel = 'FieldOfStudyLabel',
   DegreeLabel = 'DegreeLabel',
+  AustralianEducationalQualificationLabel = 'AustralianEducationalQualificationLabel',
+  DesignatedRegionalAreaStudyLabel = 'DesignatedRegionalAreaStudyLabel',
+  SpecialistEducationalQualificationLabel = 'SpecialistEducationalQualificationLabel',
+  ProfessionalYearInAustraliaLabel = 'ProfessionalYearInAustraliaLabel',
+  AccreditedCommunityLanguageLabel = 'AccreditedCommunityLanguageLabel',
   UniversitySectionLabel = 'UniversitySectionLabel',
   CurrentJobLabel = 'CurrentJobLabel',
   WorkExperienceLabel = 'WorkExperienceLabel',
   AustralianWorkExperienceLabel = 'AustralianWorkExperienceLabel',
   copyEmailToastMessage = 'copyEmailToastMessage',
   copyPhoneToastMessage = 'copyPhoneToastMessage',
+
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -27,11 +38,23 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'marabox.com',
   },
   //
+  ScoreTitle: {
+    en: 'Score:',
+    fa: 'امتیاز:',
+  },
+  VisaSubclassTitle: {
+    en: 'Subclass:',
+    fa: 'سابکلاس ویزا:',
+  },
   AboutLabel: {
     en: 'About',
     fa: 'توضیحات',
   },
-
+  NotCompletedHint: {
+    en: `This user has registered information before the new update of "Marabox" form. For this reason, this profile may not be complete.`,
+    fa: `            این کاربر قبل از بروزرسانی فرم «ماراباکس» ثبت اطلاعات نموده
+            است. به همین دلیل پروفایل او کامل نمیباشد.`,
+  },
   BirthDateLabel: {
     en: 'Birth Date:',
     fa: 'تاریخ تولد:',
@@ -44,13 +67,41 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Marriage Status:',
     fa: 'وضعیت تاهل:',
   },
+  MarriageSituationLabel: {
+    en: 'Situation:',
+    fa: 'وضعیت:',
+  },
+  CountryLabel: {
+    en: 'Country:',
+    fa: 'کشور:',
+  },
   FieldOfStudyLabel: {
     en: 'Field of study:',
     fa: 'رشته ی تحصیلی:',
   },
   DegreeLabel: {
-    en: 'Degree',
+    en: 'Degree:',
     fa: 'مدرک تحصیلی:',
+  },
+  AustralianEducationalQualificationLabel: {
+    en: 'Australian Educational Qualification:',
+    fa: 'مدرک تحصیلی استرالیا:',
+  },
+  DesignatedRegionalAreaStudyLabel: {
+    en: 'Designated regional area study:',
+    fa: 'مطالعه منطقه ای تعیین شده:',
+  },
+  SpecialistEducationalQualificationLabel: {
+    en: 'Specialist Educational Qualification:',
+    fa: 'مدرک تحصیلی تخصصی:',
+  },
+  ProfessionalYearInAustraliaLabel: {
+    en: 'Professional Year in Australia:',
+    fa: 'سال حرفه ای در استرالیا:',
+  },
+  AccreditedCommunityLanguageLabel: {
+    en: 'Accredited Community Language',
+    fa: 'زبان انجمن معتبر',
   },
   UniversitySectionLabel: {
     en: 'University Section:',
@@ -76,4 +127,5 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Copied Phone number to clipboard',
     fa: 'شماره تلفن در حافظه کپی شد',
   },
+  
 };

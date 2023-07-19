@@ -18,11 +18,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   DoesPartnerHaveAssessmentPopup: {
     en: "If you don't know what this means just select No",
-    fa:"اگر در این زمینه اطلاعات ندارید",
+    fa:"اگر در این زمینه اطلاعات نداری این گزینه را خالی بگذارید",
   },
   PartnerEnglishTitle: {
     en: "Can your partner obtain IELTS 6 or above?",
-    fa: "آیا شریک شما می تواند آیلتس 6 یا بالاتر را دریافت کند؟",
+    fa: "آیا همسر شما می تواند آیلتس 6 یا بالاتر را دریافت کند؟",
   },
   NextButtonTitle: {
     en: "Next",

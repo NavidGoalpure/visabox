@@ -13,7 +13,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است",
   },
   AgeSectionTitle: {
-    en: "Birth Day:",
+    en: "Date Of Birth:",
     fa: "تاریخ تولد:",
   },
   BackToHomepage: {

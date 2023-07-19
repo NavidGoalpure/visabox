@@ -14,14 +14,11 @@ import { SiGmail } from "react-icons/si";
 import { copyContent } from "Utils";
 import {
   Client,
-  ClientMarital,
-  MaritalSituationType,
 } from "Interfaces/Database/Client";
 import { componentStatements, LanguageKeys } from "./const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import {
   getMultiLanguageLabels,
-  getSmartMaritalSitutationPopupContent,
 } from "./utils";
 import { useLocale } from "Hooks/useLocale";
 import { BsCheck } from "react-icons/bs";
@@ -50,31 +47,7 @@ function DescriptionSection({ client }: Props) {
           <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
           <Value>{data?.IELTSScore}</Value>
         </DataWrapper>
-        <DataWrapper>
-          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
-          <Value>
-            {data?.marital?.[locale]} {data?.maritalSituation}
-            {data?.maritalSituation && (
-              <StyledTooltipTag
-                content={
-                  <>
-                    <InformationIcon />
-                  </>
-                }
-                popupContent={
-                  <MaritalSituationTooltipPopupContainer>
-                    {data?.maritalSituation === MaritalSituationType.Five && (
-                      <CloseIcon />
-                    )}
-                    {getSmartMaritalSitutationPopupContent(
-                      data?.maritalSituation
-                    )}
-                  </MaritalSituationTooltipPopupContainer>
-                }
-              />
-            )}
-          </Value>
-        </DataWrapper>
+       
 
         {client?.country && (
           <DataWrapper>
@@ -291,29 +264,7 @@ const Value = styled.h4`
   align-items: center;
   gap: 1rem;
 `;
-const StyledTooltipTag = styled(TooltipTag)`
-  cursor: pointer;
-  #trigger_button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.2rem 0.75rem;
-  }
-`;
-const MaritalSituationTooltipPopupContainer = styled.div`
-  display: flex;
-  jusitify-content: center;
-  align-items: center;
-  flex-direction: column;
-  ul {
-    list-style: disc;
-    padding-inline-start: 1rem;
-  }
-  #option-five {
-    list-style: none;
-  }
-`;
+
 const PhoneContainer = styled.div`
   ${SocialsContainerCss};
   cursor: auto;

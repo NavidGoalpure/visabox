@@ -7,9 +7,6 @@ import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
-  HintContainer,
-  HintUl,
-  InfoHintIcon,
   InformationIcon,
   NextButton,
   NextIcon,
@@ -19,10 +16,8 @@ import {
   Title,
 } from "../StyledComponents";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import {
-  MaritalSituationType,
-} from "Interfaces/Database/Client";
-import { maritalSituations, maritalStatuses } from "Consts/Client";
+import { ClientMarital } from "Interfaces/Database/Client";
+import { maritalStatuses, YesOrNo } from "Consts/Client";
 import { componentStatements, LanguageKeys } from "./const";
 
 const Step5 = () => {
@@ -32,86 +27,74 @@ const Step5 = () => {
 
   return (
     <Container>
-      <Title>
-        {t(LanguageKeys.maritalSituationTitle)}{" "}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon /> <InformationIcon />
-            </>
-          }
-          popupContent={t(LanguageKeys.maritalSituationPopupContent)}
-        />
-      </Title>
+      <Title>{t(LanguageKeys.maritalStatusTitle)}</Title>
       <ToggleGroupRoot
         type="single"
-        value={client?.marital_situation}
-        onValueChange={(value) => {
+        value={client?.marital}
+        onValueChange={(value) =>
           client &&
-            setClient({
-              ...client,
-              marital_situation: value as MaritalSituationType,
-            });
-        }}
+          setClient({
+            ...client,
+            marital: value as ClientMarital,
+          })
+        }
       >
         {
           <>
-            {maritalSituations.map((maritalSituation, i) => (
+            {maritalStatuses.map((maritalStatus, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={maritalSituation}
-                value={maritalSituation.en.toLowerCase()}
+                text={maritalStatus}
+                value={maritalStatus.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
         }
       </ToggleGroupRoot>
-      {client?.marital_situation === MaritalSituationType.One && (
-        <HintContainer>
-          <InfoHintIcon />
-          <HintUl>
-            <li>{t(LanguageKeys.situation1)}</li>
-          </HintUl>
-        </HintContainer>
+      {client?.marital === ClientMarital.Married && (
+        <>
+          <StyledTitle>
+            {t(LanguageKeys.DoesPartnerHaveAssessmentTitle)}{" "}
+            <StyledTooltipTag
+              content={
+                <>
+                  <CalculatorIcon /> <InformationIcon />
+                </>
+              }
+              popupContent={t(LanguageKeys.DoesPartnerHaveAssessmentPopup)}
+            />
+          </StyledTitle>
+          <ToggleGroupRoot
+            type="single"
+            value={
+              client?.does_partner_have_assessment !== null
+                ? client?.does_partner_have_assessment === true
+                  ? "yes"
+                  : "no"
+                : undefined
+            }
+            onValueChange={(value: string) => {
+              client &&
+                setClient({
+                  ...client,
+                  does_partner_have_assessment: value === "yes" ? true : false,
+                });
+            }}
+          >
+            {
+              <>
+                {YesOrNo.map((option, i) => (
+                  <ToggleGroup.Item
+                    key={i}
+                    text={option}
+                    value={option.en.toLowerCase()}
+                  ></ToggleGroup.Item>
+                ))}
+              </>
+            }
+          </ToggleGroupRoot>
+        </>
       )}
-      {client?.marital_situation === MaritalSituationType.Two && (
-        <HintContainer>
-          <InfoHintIcon />
-          <HintUl>
-            <li>{t(LanguageKeys.situation2_FirstLine)}</li>
-            <li>{t(LanguageKeys.situation2_SecondLine)}</li>
-            <li>{t(LanguageKeys.situation2_ThirdLine)}</li>
-            <li>{t(LanguageKeys.situation2_ForthLine)}</li>
-          </HintUl>
-        </HintContainer>
-      )}
-      {client?.marital_situation === MaritalSituationType.Three && (
-        <HintContainer>
-          <InfoHintIcon />
-          <HintUl>
-            <li>{t(LanguageKeys.situation3_FirstLine)}</li>
-            <li>{t(LanguageKeys.situation3_SecondLine)}</li>
-            <li>{t(LanguageKeys.situation3_ThirdLine)}</li>
-          </HintUl>
-        </HintContainer>
-      )}
-      {client?.marital_situation === MaritalSituationType.Four && (
-        <HintContainer>
-          <InfoHintIcon />
-          <HintUl>
-            <li>{t(LanguageKeys.situation4)}</li>
-          </HintUl>
-        </HintContainer>
-      )}
-      {client?.marital_situation === MaritalSituationType.Five && (
-        <HintContainer>
-          <InfoHintIcon />
-          <HintUl>
-            <li>{t(LanguageKeys.situation5)}</li>
-          </HintUl>
-        </HintContainer>
-      )}
-
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -123,7 +106,11 @@ const Step5 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.marital_situation || !client?.marital}
+          disabled={
+            !client?.marital ||
+            client?.does_partner_have_assessment === null ||
+            client?.is_partner_competent_english_speaker === null
+          }
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -136,4 +123,7 @@ export default Step5;
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
   width: 100%;
+`;
+const StyledTitle = styled(Title)`
+  margin: 0;
 `;

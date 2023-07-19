@@ -26,16 +26,7 @@ export enum LanguageKeys {
   AustralianWorkExperienceLabel = 'AustralianWorkExperienceLabel',
   copyEmailToastMessage = 'copyEmailToastMessage',
   copyPhoneToastMessage = 'copyPhoneToastMessage',
-  MaritalSituation1 = 'MaritalSituation1',
-  MaritalSituation2_FirstLine = 'MaritalSituation2_FirstLine',
-  MaritalSituation2_SecondLine = 'MaritalSituation2_SecondLine',
-  MaritalSituation2_ThirdLine = 'MaritalSituation2_ThirdLine',
-  MaritalSituation2_ForthLine = 'MaritalSituation2_ForthLine',
-  MaritalSituation3_FirstLine = 'MaritalSituation3_FirstLine',
-  MaritalSituation3_SecondLine = 'MaritalSituation3_SecondLine',
-  MaritalSituation3_ThirdLine = 'MaritalSituation3_ThirdLine',
-  MaritalSituation4 = 'MaritalSituation4',
-  MaritalSituation5 = 'MaritalSituation5',
+
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -136,45 +127,5 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Copied Phone number to clipboard',
     fa: 'شماره تلفن در حافظه کپی شد',
   },
-  MaritalSituation1: {
-    en: 'I don’t have a spouse or de facto partner',
-    fa: 'مجرد',
-  },
-  MaritalSituation2_FirstLine: {
-    en: 'My partner is aged under 45, and',
-    fa: 'شریک زندگی من زیر 45 سال سن دارد و',
-  },
-  MaritalSituation2_SecondLine: {
-    en: 'My partner has Competent English, and',
-    fa: 'شریک من دارای زبان انگلیسی خوب(Ielts6) است و',
-  },
-  MaritalSituation2_ThirdLine: {
-    en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'متقاضی همان سابکلاس ویزا با من است و',
-  },
-  MaritalSituation2_ForthLine: {
-    en: ' My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)',
-    fa: 'شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای سابکلاس 485 نیست)',
-  },
-
-  MaritalSituation3_FirstLine: {
-    en: 'My partner has Competent English, and',
-    fa: 'شریک من دارای زبان انگلیسی خوب است و',
-  },
-  MaritalSituation3_SecondLine: {
-    en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'شریک من متقاضی همان سابکلاس ویزا با من است و',
-  },
-  MaritalSituation3_ThirdLine: {
-    en: 'My partner is not an Australian permanent resident or an Australian citizen',
-    fa: 'شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا نیست',
-  },
-  MaritalSituation4: {
-    en: 'My partner is an Australian permanent resident or an Australian citizen',
-    fa: 'شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا است',
-  },
-  MaritalSituation5: {
-    en: 'This user has not received any points from this section.',
-    fa: 'این کاربر از این قسمت امتیازی دریافت نکرده است.',
-  },
+  
 };

@@ -5,7 +5,6 @@ import {
   AustralianWorkExperience,
   VisaSubclass,
   ClientDegree,
-  MaritalSituationType,
 } from "Interfaces/Database/Client";
 import { calculateAge } from "Utils/clients";
 
@@ -24,17 +23,6 @@ export function CalculateClientScore(clientData: Client): number {
     finalScore = finalScore + 10;
   else if (clientData?.ielts_score === IELTSScore.Eight)
     finalScore = finalScore + 20;
-////////////// marital situation /////////////////////
-if (clientData?.marital_situation === MaritalSituationType.One)
-  finalScore = finalScore + 10;
-else if (clientData?.marital_situation === MaritalSituationType.Two)
-  finalScore = finalScore + 10;
-else if (clientData?.marital_situation === MaritalSituationType.Three)
-  finalScore = finalScore + 5;
-else if (clientData?.marital_situation === MaritalSituationType.Four)
-  finalScore = finalScore + 10;
-else if (clientData?.marital_situation === MaritalSituationType.Five)
-  finalScore = finalScore + 0;
   ///////////  Overseas Work Experience /////////////////
   if (clientData?.work_experience === WorkExperience["3To5Years"])
     finalScore = finalScore + 5;

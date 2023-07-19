@@ -1,90 +1,35 @@
-import { MultiLanguageText } from 'Interfaces/Database';
+import { MultiLanguageText } from "Interfaces/Database";
 export enum LanguageKeys {
-  maritalStatusPopupContent = 'maritalStatusPopupContent',
-  maritalSituationPopupContent = 'maritalSituationPopupContent',
-  maritalStatusSectionTitle = 'maritalStatusSectionTitle',
-  maritalSituationTitle = 'maritalSituationTitle',
-  situation1 = 'situation1',
-  situation2_FirstLine = 'situation2_FirstLine',
-  situation2_SecondLine = 'situation2_SecondLine',
-  situation2_ThirdLine = 'situation2_ThirdLine',
-  situation2_ForthLine = 'situation2_ForthLine',
-  situation3_FirstLine = 'situation3_FirstLine',
-  situation3_SecondLine = 'situation3_SecondLine',
-  situation3_ThirdLine = 'situation3_ThirdLine',
-  situation4 = 'situation4',
-  situation5 = 'situation5',
-  NextButtonTitle = 'NextButtonTitle',
-  PrevButtonTitle = 'PrevButtonTitle',
+  maritalStatusTitle = "maritalStatusTitle",
+  PartnerEnglishTitle = "PartnerEnglishTitle",
+  DoesPartnerHaveAssessmentTitle = "DoesPartnerHaveAssessmentTitle",
+  DoesPartnerHaveAssessmentPopup="DoesPartnerHaveAssessmentPopup",
+  NextButtonTitle = "NextButtonTitle",
+  PrevButtonTitle = "PrevButtonTitle",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  maritalStatusPopupContent: {
-    en: 'Your answer to this question affects your immigration score',
-    fa: 'جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است',
+  maritalStatusTitle: {
+    en: "Your answer to this question affects your immigration score",
+    fa: "جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است",
   },
-  maritalSituationPopupContent: {
-    en: `Your answer to this question affects your immigration score,
-    The description of each item is displayed after selecting them
-    `,
-    fa: `.جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است
-    
-    توضیحات هر کدام از موارد پس از انتخاب آنها نمایش داده میشود`,
+  DoesPartnerHaveAssessmentTitle: {
+    en: "Does your partner has an assessment of documents?",
+    fa: "آیا همسر شما اسسمنت مدارک دارد؟",
   },
-  maritalStatusSectionTitle: {
-    en: 'marital Status:',
-    fa: 'وضعیت تاهل:',
+  DoesPartnerHaveAssessmentPopup: {
+    en: "If you don't know what this means just select No",
+    fa:"اگر در این زمینه اطلاعات ندارید",
   },
-  maritalSituationTitle: {
-    en: 'Which one describes your marital situation?',
-    fa: 'کدام یک وضعیت تاهل شما را توصیف می کند؟',
-  },
-  situation1: {
-    en: 'I don’t have a spouse or de facto partner',
-    fa: 'مجرد',
-  },
-  situation2_FirstLine: {
-    en: 'My partner is aged under 45, and',
-    fa: 'شریک زندگی من زیر 45 سال سن دارد و',
-  },
-  situation2_SecondLine: {
-    en: 'My partner has Competent English, and',
-    fa: 'دارای مدرک زبان انگلیسی معادل آیلتس ۶ یا بالاتر است و',
-  },
-  situation2_ThirdLine: {
-    en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'متقاضی همان سابکلاس ویزا با من است و',
-  },
-  situation2_ForthLine: {
-    en: ' My partner nominated a suitable skilled occupation and obtained a positive skills assessment (that is not for a Subclass 485 visa)',
-    fa: 'شریک من یک شغل ماهر مناسب را معرفی کرد و یک ارزیابی مهارت مثبت به دست آورد (که برای ویزای سابکلاس 485 نیست)',
-  },
-
-  situation3_FirstLine: {
-    en: 'My partner has Competent English, and',
-    fa: 'شریک من دارای زبان انگلیسی خوب است و',
-  },
-  situation3_SecondLine: {
-    en: 'My partner is an applicant of the same subclass of visa as me, and',
-    fa: 'شریک من متقاضی همان سابکلاس ویزا با من است و',
-  },
-  situation3_ThirdLine: {
-    en: 'My partner is not an Australian permanent resident or an Australian citizen',
-    fa: 'شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا نیست',
-  },
-  situation4: {
-    en: 'My partner is an Australian permanent resident or an Australian citizen',
-    fa: 'شریک زندگی من مقیم دائم استرالیا یا شهروند استرالیا است',
-  },
-  situation5: {
-    en: 'None of the other',
-    fa: 'هیچ کدام از موارد',
+  PartnerEnglishTitle: {
+    en: "Can your partner obtain IELTS 6 or above?",
+    fa: "آیا شریک شما می تواند آیلتس 6 یا بالاتر را دریافت کند؟",
   },
   NextButtonTitle: {
-    en: 'Next',
-    fa: 'بعدی',
+    en: "Next",
+    fa: "بعدی",
   },
   PrevButtonTitle: {
-    en: 'Prev',
-    fa: 'قبلی',
+    en: "Prev",
+    fa: "قبلی",
   },
 };

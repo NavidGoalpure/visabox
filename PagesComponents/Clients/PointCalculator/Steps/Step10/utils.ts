@@ -9,8 +9,6 @@ import {
   IELTSScore,
   UniSections,
   WorkExperience,
-  VisaSubclass,
-  MaritalSituationType,
   ClientCountry,
 } from "Interfaces/Database/Client";
 import { Status } from "Interfaces/Database";
@@ -28,12 +26,10 @@ export function validateClientDataWithYup(client: Client | undefined) {
     //   .oneOf(Object.values(VisaSubclass))
     //   .required(),
     age: date().required(),
-    // marital: mixed<ClientMarital>()
-    //   .oneOf(Object.values(ClientMarital))
-    //   .required(),
-    marital_situation: mixed<MaritalSituationType>()
-      .oneOf(Object.values(MaritalSituationType))
+    marital: mixed<ClientMarital>()
+      .oneOf(Object.values(ClientMarital))
       .required(),
+    does_partner_have_assessment: boolean().required(),
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
     current_job: string().required(),

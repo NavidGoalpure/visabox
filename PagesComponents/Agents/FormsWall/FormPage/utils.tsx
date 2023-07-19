@@ -16,7 +16,6 @@ import {
   ClientCountry,
   ClientDegree,
   ClientMarital,
-  MaritalSituationType,
   UniSections,
   WorkExperience,
 } from "Interfaces/Database/Client";
@@ -154,12 +153,8 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
   //   turns sanity data to multilanguage texts so we can show more detailed data
   const showableData: GetLabelsProps = {
     marital: getMaritalLabel({
-      marital:
-        (client?.marital_situation === MaritalSituationType.One
-          ? ClientMarital.Single
-          : ClientMarital.Married) || client?.marital,
+      marital: client?.marital,
     }),
-    maritalSituation: client?.marital_situation,
     degree: getdegreeLabel({ degree: client?.degree }),
     uniSection: getUniSectionLabel({ UniSection: client?.uni_section }),
     workExperience: getWorkExperienceLabel({
@@ -184,48 +179,3 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
   };
   return showableData;
 }
-export const getSmartMaritalSitutationPopupContent = (
-  marital_situation: MaritalSituationType
-): ReactNode => {
-  const { t } = useStaticTranslation(componentStatements);
-  switch (marital_situation) {
-    case MaritalSituationType.One:
-      return (
-        <ul>
-          <li>{t(LanguageKeys.MaritalSituation1)}</li>
-          
-        </ul>
-      );
-    case MaritalSituationType.Two:
-      return (
-        <ul>
-          <li>{t(LanguageKeys.MaritalSituation2_FirstLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation2_SecondLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation2_ThirdLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation2_ForthLine)}</li>
-        </ul>
-      );
-    case MaritalSituationType.Three:
-      return (
-        <ul>
-          <li>{t(LanguageKeys.MaritalSituation3_FirstLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation3_SecondLine)}</li>
-          <li>{t(LanguageKeys.MaritalSituation3_ThirdLine)}</li>
-        </ul>
-      );
-    case MaritalSituationType.Four:
-      return (
-        <ul>
-          <li>{t(LanguageKeys.MaritalSituation4)}</li>
-        </ul>
-      );
-    case MaritalSituationType.Five:
-      return (
-        <ul id="option-five">
-          <li>{t(LanguageKeys.MaritalSituation5)}</li>
-        </ul>
-      );
-    default:
-      return <div></div>;
-  }
-};

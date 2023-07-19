@@ -47,6 +47,7 @@ export enum IELTSScore {
   Six = "6",
   Seven = "7",
   Eight = "8",
+  none = "none",
 }
 export enum VisaSubclass {
   "189Subclass" = "189",
@@ -70,8 +71,8 @@ export interface Client extends SanityKeys {
   age?: string;
   visa_subclass: VisaSubclass;
   marital: ClientMarital;
-  does_partner_have_assessment:boolean;
-  is_partner_competent_english_speaker:boolean;
+  does_partner_have_assessment?: boolean;
+  is_partner_competent_english_speaker?: boolean;
   field_of_study?: string;
   degree?: ClientDegree;
   current_job?: string;

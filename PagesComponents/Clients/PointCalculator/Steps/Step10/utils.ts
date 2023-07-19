@@ -29,7 +29,8 @@ export function validateClientDataWithYup(client: Client | undefined) {
     marital: mixed<ClientMarital>()
       .oneOf(Object.values(ClientMarital))
       .required(),
-    does_partner_have_assessment: boolean().required(),
+    does_partner_have_assessment: boolean().notRequired(),
+    is_partner_competent_english_speaker:boolean().notRequired(),
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
     current_job: string().required(),

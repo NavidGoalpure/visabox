@@ -111,12 +111,12 @@ export default {
     },
     {
       name: "is_partner_competent_english_speaker",
-      title: "is_partner_competent_english_speaker",
+      title: "is partner competent english speaker",
       type: "boolean",
     },
     {
       name: "does_partner_have_assessment",
-      title: "is_partner_competent_english_speaker",
+      title: "does partner have assessment",
       type: "boolean",
     },
     {
@@ -214,6 +214,7 @@ export default {
       type: "string",
       options: {
         list: [
+          { title: "none", value: "none" },
           { title: "6", value: "6" },
           { title: "7", value: "7" },
           { title: "8", value: "8" },

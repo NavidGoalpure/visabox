@@ -54,6 +54,7 @@ export const australianWorks: MultiLanguageText[] = [
   { en: "More than 8 years", fa: "بیشتر از ۸ سال" },
 ];
 export const IELTSScores: MultiLanguageText[] = [
+  { en: "None", fa: "هیچکدام" },
   { en: "6", fa: "6" },
   { en: "7", fa: "7" },
   { en: "8", fa: "8" },

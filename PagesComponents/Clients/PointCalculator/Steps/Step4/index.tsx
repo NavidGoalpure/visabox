@@ -24,7 +24,6 @@ const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient } = useContext(FormDataContext);
-
   return (
     <Container>
       <Title>{t(LanguageKeys.maritalStatusTitle)}</Title>
@@ -36,6 +35,10 @@ const Step5 = () => {
           setClient({
             ...client,
             marital: value as ClientMarital,
+            is_partner_competent_english_speaker:
+              value === ClientMarital.Single && undefined,
+            does_partner_have_assessment:
+              value === ClientMarital.Single && undefined,
           })
         }
       >
@@ -53,31 +56,23 @@ const Step5 = () => {
       </ToggleGroupRoot>
       {client?.marital === ClientMarital.Married && (
         <>
-          <StyledTitle>
-            {t(LanguageKeys.DoesPartnerHaveAssessmentTitle)}{" "}
-            <StyledTooltipTag
-              content={
-                <>
-                  <CalculatorIcon /> <InformationIcon />
-                </>
-              }
-              popupContent={t(LanguageKeys.DoesPartnerHaveAssessmentPopup)}
-            />
-          </StyledTitle>
+          <StyledTitle>{t(LanguageKeys.PartnerEnglishTitle)} </StyledTitle>
           <ToggleGroupRoot
             type="single"
             value={
-              client?.does_partner_have_assessment !== null
-                ? client?.does_partner_have_assessment === true
-                  ? "yes"
-                  : "no"
-                : undefined
+              client?.is_partner_competent_english_speaker === undefined
+                ? undefined
+                : client?.is_partner_competent_english_speaker === true
+                ? "yes"
+                : "no"
             }
             onValueChange={(value: string) => {
               client &&
                 setClient({
                   ...client,
-                  does_partner_have_assessment: value === "yes" ? true : false,
+                  is_partner_competent_english_speaker:
+                    value === "yes" ? true : false,
+                  does_partner_have_assessment: value === "no" && undefined,
                 });
             }}
           >
@@ -95,6 +90,52 @@ const Step5 = () => {
           </ToggleGroupRoot>
         </>
       )}
+      {client?.marital === ClientMarital.Married &&
+        client?.is_partner_competent_english_speaker && (
+          <>
+            <StyledTitle>
+              {t(LanguageKeys.DoesPartnerHaveAssessmentTitle)}{" "}
+              <StyledTooltipTag
+                content={
+                  <>
+                    <CalculatorIcon /> <InformationIcon />
+                  </>
+                }
+                popupContent={t(LanguageKeys.DoesPartnerHaveAssessmentPopup)}
+              />
+            </StyledTitle>
+            <ToggleGroupRoot
+              type="single"
+              value={
+                client?.does_partner_have_assessment !== undefined
+                  ? client?.does_partner_have_assessment === true
+                    ? "yes"
+                    : "no"
+                  : undefined
+              }
+              onValueChange={(value: string) => {
+                client &&
+                  setClient({
+                    ...client,
+                    does_partner_have_assessment:
+                      value === "yes" ? true : false,
+                  });
+              }}
+            >
+              {
+                <>
+                  {YesOrNo.map((option, i) => (
+                    <ToggleGroup.Item
+                      key={i}
+                      text={option}
+                      value={option.en.toLowerCase()}
+                    ></ToggleGroup.Item>
+                  ))}
+                </>
+              }
+            </ToggleGroupRoot>
+          </>
+        )}
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />
@@ -108,8 +149,10 @@ const Step5 = () => {
           }}
           disabled={
             !client?.marital ||
-            client?.does_partner_have_assessment === null ||
-            client?.is_partner_competent_english_speaker === null
+            (client?.marital === ClientMarital.Married &&
+              client?.is_partner_competent_english_speaker === null) ||
+            (client?.is_partner_competent_english_speaker &&
+              client?.does_partner_have_assessment === null)
           }
           icon={<NextIcon />}
         >

@@ -282,7 +282,7 @@ const Step5 = () => {
         <StyledTooltipTag
           content={
             <>
-              <CalculatorIcon /> <InformationIcon />
+              <CalculatorIcon /> 
             </>
           }
           popupContent={t(LanguageKeys.AccreditedCommunityLanguagePopupContent)}

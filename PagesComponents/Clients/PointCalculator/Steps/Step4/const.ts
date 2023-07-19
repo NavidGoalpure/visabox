@@ -9,8 +9,8 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   maritalStatusTitle: {
-    en: "Your answer to this question affects your immigration score",
-    fa: "جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است",
+    en: "Marital Status:",
+    fa: "وضعیت تاهل:",
   },
   DoesPartnerHaveAssessmentTitle: {
     en: "Does your partner has an assessment of documents?",
@@ -18,7 +18,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   DoesPartnerHaveAssessmentPopup: {
     en: "If you don't know what this means just select No",
-    fa:"اگر در این زمینه اطلاعات نداری این گزینه را خالی بگذارید",
+    fa: "اگر در این زمینه اطلاعات نداری این گزینه را خالی بگذارید",
   },
   PartnerEnglishTitle: {
     en: "Can your partner obtain IELTS 6 or above?",

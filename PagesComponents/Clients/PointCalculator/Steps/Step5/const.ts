@@ -59,19 +59,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   AccreditedCommunityLanguagePopupContent: {
     en: `Your answer to this question affects your immigration score,
-    
-    Do you hold any one of the following?
-
-Accreditation at the paraprofessional level or above;
-Certification at the certified provisional level or above;
-A community language credential`,
+`,
     fa: `جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است.
-    
-    آیا شما یکی از موارد زیر را دارید؟
-
-اعتباربخشی در سطح فوق حرفه ای یا بالاتر؛
-صدور گواهینامه در سطح گواهی موقت یا بالاتر؛
-اعتبار زبان جامعه`,
+`,
   },
   FieldOfStudyInputLabel: {
     en: "Field of Study:",
@@ -83,7 +73,7 @@ A community language credential`,
   },
   DegreeOfEducationSectionTitle: {
     en: "Degree of education :",
-    fa: "درجه تحصیلات:",
+    fa: "آخرین مدرک تحصیلی و دانشگاهی:",
   },
   UniSectionsSectionTitle: {
     en: "University Section:",
@@ -91,23 +81,23 @@ A community language credential`,
   },
   AustralianEducationalQualificationTitle: {
     en: "Australian Educational Qualification:",
-    fa: "مدرک تحصیلی استرالیا:",
+    fa: "دارای حداقل دو سال تحصیل تمام وقت در استرالیا میباشم::",
   },
   DesignatedRegionalAreaStudy: {
     en: "Designated regional area study:",
-    fa: "مطالعه منطقه ای تعیین شده:",
+    fa: "تحصیل در مناطق کم جمعیت استرالیا به مدت حداقل دو سال:",
   },
   SpecialistEducationalQualification: {
     en: "Specialist Educational Qualification:",
-    fa: "مدرک تحصیلی تخصصی:",
+    fa: "تحصیل در رشته های خاص تخصصی در مقاطع فوق لیسانس (تحقیقی) یا دکترا حداقل بمدت دو سال:",
   },
   ProfessionalYearInAustralia: {
     en: "Professional Year in Australia:",
-    fa: "سال حرفه ای در استرالیا:",
+    fa: "یک سال حرفه ای در استرالیا بعد از تحصیلات خود و مرتبط به رشته خود گذرانده ام.",
   },
   AccreditedCommunityLanguage: {
-    en: "Accredited Community Language",
-    fa: "زبان انجمن معتبر",
+    en: "Accredited Community Language:",
+    fa: "گواهی نامه زبان ناتی:",
   },
   NextButtonTitle: {
     en: "Next",

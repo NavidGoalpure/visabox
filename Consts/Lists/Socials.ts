@@ -434,4 +434,18 @@ export const NormalSocialMedias: Socials[] = [
     زن زندگی آزادی`,
     status: Status.ACTIVE,
   },
+  {
+    id: 'soc38',
+    name: 'شروع نیمه دوم زندگی',
+    socialmediaType: SocialMediaTypes.TELEGRAM,
+    slug: 'the-second-half-of-my-life',
+    link: 'https://t.me/thesecondhalfofmylife',
+    locations: Locations.fa,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    desc: `کانال من بدون نظم و تابو شکنه
+    گاهی چند تا پست پشت هم دارم و گاهی هم روزها ممکنه چیزی نباشه
+    به حال دل خودم‌ بستگی داره
+    اینجا خود خودمم`,
+    status: Status.ACTIVE,
+  },
 ];

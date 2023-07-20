@@ -56,7 +56,6 @@ export const Title = styled.h2`
   margin-top: 1rem;
   flex-direction: column;
   @media ${deviceMin.tabletL} {
-    white-space: pre;
     flex-direction: row;
   }
 `;

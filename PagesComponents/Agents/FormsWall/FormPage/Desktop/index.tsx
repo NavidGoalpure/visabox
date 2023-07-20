@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
 import {
   layer2A_BodyStyle,
   layer2A_TextStyle,
@@ -36,7 +36,7 @@ function DesktopAgentsPage({ client }: Props) {
         </HintContainer>
       )}
       <Wrapper>
-        <SmallBox hasBorderRadiusAllAround={!client?.visa_subclass}>
+        <SmallBox>
           <ProfilePictureWrapper>
             {client?.avatar ? (
               <ProfilePicture
@@ -53,23 +53,15 @@ function DesktopAgentsPage({ client }: Props) {
             </Name>
             <JobTitle>{client?.current_job}</JobTitle>
             <CreatedDate>{dataCreatedAt}</CreatedDate>
+            {client?.visa_subclass && (
+              <ScoreWrapper>
+                <HeaderLabel>
+                  {t(LanguageKeys.ScoreTitle)}{" "}
+                  <span id="score">{CalculateClientScore(client)}</span>
+                </HeaderLabel>
+              </ScoreWrapper>
+            )}
           </ProfileData>
-          {client?.visa_subclass && (
-            <ScoreWrapper>
-              <HeaderLabel>
-                {t(LanguageKeys.ScoreTitle)}{' '}
-                <span id='score'>{CalculateClientScore(client)}</span>
-              </HeaderLabel>
-            </ScoreWrapper>
-          )}
-          {client?.visa_subclass && (
-            <SubclassWrapper>
-              <HeaderLabel>
-                {t(LanguageKeys.VisaSubclassTitle)}{' '}
-                <span id='visa-subclass'>{client?.visa_subclass}</span>
-              </HeaderLabel>{' '}
-            </SubclassWrapper>
-          )}
         </SmallBox>
         <DescriptionSection client={client} />
       </Wrapper>
@@ -78,7 +70,7 @@ function DesktopAgentsPage({ client }: Props) {
 }
 export default DesktopAgentsPage;
 
-const TitleColor = theme('mode', {
+const TitleColor = theme("mode", {
   light: css`
     color: var(--color-primary4);
   `,
@@ -86,7 +78,7 @@ const TitleColor = theme('mode', {
     color: var(--color-primary5);
   `,
 });
-const HeaderBackground = theme('mode', {
+const HeaderBackground = theme("mode", {
   light: css`
     background-image: url(${LightBackground});
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
@@ -95,7 +87,7 @@ const HeaderBackground = theme('mode', {
     background-image: url(${DarkBackground});
   `,
 });
-const HeaderLabelTheme = theme('mode', {
+const HeaderLabelTheme = theme("mode", {
   light: css`
     color: var(--color-gray10);
   `,
@@ -103,7 +95,7 @@ const HeaderLabelTheme = theme('mode', {
     color: var(--color-gray11);
   `,
 });
-const HeaderScoreTheme = theme('mode', {
+const HeaderScoreTheme = theme("mode", {
   light: css`
     color: var(--color-secondary2);
   `,
@@ -136,7 +128,7 @@ const Wrapper = styled.div`
   position: relative;
   gap: 1rem;
 `;
-const SmallBox = styled.header<{ hasBorderRadiusAllAround: boolean }>`
+const SmallBox = styled.header`
   ${layer2A_BodyStyle};
   ${HeaderBackground};
   position: relative;
@@ -144,8 +136,7 @@ const SmallBox = styled.header<{ hasBorderRadiusAllAround: boolean }>`
   flex-direction: column;
   justify-content: center;
   width: 18rem;
-  border-radius: ${({ hasBorderRadiusAllAround }) =>
-    hasBorderRadiusAllAround ? '15px' : '15px 15px 0 0'};
+  border-radius: 15px;
   padding: 1.5rem;
   gap: 2rem;
   margin-bottom: 4rem;
@@ -178,20 +169,7 @@ const ProfileData = styled.div`
   width: 100%;
   gap: 1.5rem;
 `;
-const ScoreWrapper = styled.div`
-  ${layer2A_BodyStyle};
-  position: absolute;
-  bottom: 0;
-  inset-inline-start: 0;
-  transform: translateY(90%);
-  padding: 0.5rem;
-  border-radius: 0 0 15px 15px;
-  box-shadow: unset;
-`;
-const SubclassWrapper = styled(ScoreWrapper)`
-  inset-inline-start: unset;
-  inset-inline-end: 0;
-`;
+const ScoreWrapper = styled.div``;
 const HeaderLabel = styled.h4`
   ${Headline7Style};
   ${HeaderLabelTheme}

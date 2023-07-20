@@ -81,7 +81,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   AustralianEducationalQualificationTitle: {
     en: "Australian Educational Qualification:",
-    fa: "دارای حداقل دو سال تحصیل تمام وقت در استرالیا میباشم::",
+    fa: "دارای حداقل دو سال تحصیل تمام وقت در استرالیا میباشم:",
   },
   DesignatedRegionalAreaStudy: {
     en: "Designated regional area study:",

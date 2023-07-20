@@ -47,7 +47,10 @@ function DescriptionSection({ client }: Props) {
           <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
           <Value>{data?.IELTSScore}</Value>
         </DataWrapper>
-       
+        <DataWrapper>
+          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
+          <Value>{data?.marital?.[locale]}</Value>
+        </DataWrapper>
 
         {client?.country && (
           <DataWrapper>

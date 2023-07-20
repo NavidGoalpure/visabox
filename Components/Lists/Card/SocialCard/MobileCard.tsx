@@ -293,7 +293,7 @@ const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   text-align: center;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   text-align: start;
 `;
 const JoinButton = styled(PrimaryButton)`

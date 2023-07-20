@@ -1,19 +1,17 @@
-import { HtmlHTMLAttributes } from 'react';
 import darkLogo from './darkLogo.svg';
+import Image from 'next/image';
+import { ImageProps as NextImageProps } from 'next/image';
 
-interface Props extends HtmlHTMLAttributes<HTMLImageElement> {
-  height?: number;
-  width?: number;
-}
+interface Props extends Omit<NextImageProps, 'src' | 'alt'> {}
 const Logo: React.FC<Props> = ({ height = 60, width = 60, ...props }) => {
   return (
-    <img
+    <Image
       {...props}
       height={height}
       width={width}
-      alt={'Marabox'}
+      alt={'Marabox Logo'}
       src={darkLogo}
-    ></img>
+    />
   );
 };
 export { Logo };

@@ -6,11 +6,11 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: 'Evaluation-of-documents-in-australia | Mara Box',
-    fa: 'ارزیابی اسناد در استرالیا | مارا باکس',
+    en: 'What we need to know about assessment or evaluation of documents in Australia | Mara Box',
+    fa: 'آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم | مارا باکس',
   },
   SeoDesc: {
-    fa: 'مقاله های کاربردی و کمکی برای مهاجران به استرالیا',
+    fa: 'ویزای اسکیل ورکر یا مهارتی سه مرحله دارد که اسسمنت مرحله اول آن است. اسسمنت به معنای ارزیابی است، شما برای شروع فرایند مهاجرت از طریق ویزای اسکیل ورکر ابتدا لازم است اسسمنت یا ارزیابی مثبت بگیرد. بنابراین با توجه به رزومه و تحصیلات و سابقه کاریتان اسسمنت مثبت می گیرید...',
     en: 'Practical and helpful articles for immigrants to Australia',
   },
 };

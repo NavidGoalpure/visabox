@@ -18,7 +18,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: 'موسسات مهاجرت',
+    fa: 'موسسات مهاجرتی معتبر',
     en: 'Migration Agencies',
   },
   PageDesc: {

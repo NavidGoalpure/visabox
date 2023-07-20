@@ -14,6 +14,7 @@ export const VipSocialMedias: Socials[] = [
     desc: `گروه بحث و تبادل نظر در مورد ویزاهای سرمایه گذاری و کارآفرینی استرالیا. زیر نظر وکیل رسمی مهاجرت استرالیا، آقای محمد رضا عظیمی.
   `,
     link: 'https://t.me/ShadaBusinessVisaGroup',
+    logoUrl: "https://binsta.dev/api/v1/files/myKXD_aopK/transform?format=webp&size=lg&quality=best",
     status: Status.ACTIVE,
   },
   {
@@ -23,8 +24,9 @@ export const VipSocialMedias: Socials[] = [
     slug: 'Arad-Immigration',
     link: 'https://t.me/Arad_immigration',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA, //Full_data
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `این گروه جهت پاسخگویی به سوالات شما عزیزان در حوزه ویزا و اقامت استرالیا می باشد. جهت ارتباط با وکیل رسمی مهاجرت سرکار خانم سودابه حریری از راه های زیر با ما در تماس باشید`,
+    logoUrl: "https://binsta.dev/api/v1/files/_Lx6raK9eI/transform?format=webp&size=lg&quality=best",
     status: Status.ACTIVE,
   },
   {
@@ -34,8 +36,9 @@ export const VipSocialMedias: Socials[] = [
     slug: 'visazone',
     link: 'https://t.me/VisazoneAustralia',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `اخذ انواع ویزای استرالیا با نغمه دانایی وكيل رسمى مهاجرتى عضو MARA با بیش از ١٢ سال تجربه`,
+    logoUrl: "https://binsta.dev/api/v1/files/_Pmhp51eym/transform?format=webp&size=lg&quality=best",
     status: Status.ACTIVE,
   },
   {
@@ -45,8 +48,9 @@ export const VipSocialMedias: Socials[] = [
     slug: 'azzyimmigration',
     link: 'https://t.me/azzyimmigration',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `خدمات مهاجرتى و اخذ اقامت استراليا توسط وكيل رسمى مهاجرت`,
+    logoUrl: "https://binsta.dev/api/v1/files/HpRV7Xp_1Z/transform?format=webp&size=lg&quality=best",
     status: Status.ACTIVE,
   },
   {
@@ -56,9 +60,10 @@ export const VipSocialMedias: Socials[] = [
     slug: 'uniquevisa',
     link: 'https://t.me/uniquevisa',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `مشاوره تخصصی اخذ ویزاهای کارآفرینی، تخصص و مهارت و سایر ویزاهای استرالیا
     زیر نظر وکیل ثبت شده اداره مهاجرت استرالیا (عضو سازمان MARA) انجام میگردد.`,
+    logoUrl: "https://binsta.dev/api/v1/files/PaO_vXW-8o/transform?format=webp&size=lg&quality=best",
     status: Status.ACTIVE,
   },
 ];

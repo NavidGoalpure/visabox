@@ -80,7 +80,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Details',
   },
   TooltipTagDesc: {
-    fa: 'در این سایت میتوانید اطلاعات بیشتری درباره موسسات ارزیابی استرالیا پیدا کنید.',
+    fa: 'در این سایت می‌توانید اطلاعات بیشتری درباره موسسات ارزیابی استرالیا پیدا کنید.',
     en: 'You can find more information about the Assessing Authorities here.',
   },
   Anzsco: {
@@ -175,7 +175,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   specialisations_description: {
     en: 'specialisations are any commonly used titles which refer to a subset of jobs belonging to the occupation designated in the principal title. These jobs involve the performance of specialised tasks rather than the broader range of tasks usually performed in the occupation.',
-    fa: 'تخصص‌ها، عناوین رایجی هستند که به زیرمجموعه ای از مشاغل متعلق به شغل تعیین شده در عنوان اصلی اشاره می کنند. این مشاغل شامل انجام وظایف تخصصی به جای گستره وسیع تری از وظایفی است که معمولاً در شغل انجام می شود.',
+    fa: 'تخصص‌ها، عناوین رایجی هستند که به زیرمجموعه ای از مشاغل متعلق به شغل تعیین شده در عنوان اصلی اشاره می کنند. این مشاغل شامل انجام وظایف تخصصی به جای گستره وسیع تری از وظایفی است که معمولاً در شغل انجام می‌شود.',
   },
   IndicativeSkillLevel_1: {
     en: `In Australia and New Zealand:
@@ -278,7 +278,7 @@ In some instances, no formal qualification or on-the-job training may be require
   },
   NoDataMessage: {
     en: 'Since there are no submissions or invitations registered  in the backlog of this ANZSCO code, there is no visa table in these visa subclasses Any changes will be shown here as soon as the information is updated by the Department of Home Affairs.',
-    fa: 'از آنجایی که هیچ ارسال یا دعوت نامه ای در بک لاگ این کد anzsco ثبت نشده است، هیچ جدول ویزا در این زیر کلاس های ویزا وجود ندارد. هر گونه تغییر به محض به روز رسانی اطلاعات -توسط مراجع زیربط استرالیا- در اینجا نشان داده می شود.',
+    fa: 'از آنجایی که هیچ ارسال یا دعوت نامه ای در بک لاگ این کد anzsco ثبت نشده است، هیچ جدول ویزا در این زیر کلاس های ویزا وجود ندارد. هر گونه تغییر به محض به روز رسانی اطلاعات -توسط مراجع زیربط استرالیا- در اینجا نشان داده می‌شود.',
   },
   HintsTitle: {
     en: 'Hints',

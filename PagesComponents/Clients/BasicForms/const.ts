@@ -137,7 +137,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: `Dear user
           By spending two minutes and filling out this form, you can provide your information to the best immigration lawyers so that they can provide you with the best immigration solutions by examining your conditions more closely.`,
     fa: `کاربر گرامی
-         با صرف زمان دو دقیقه و پر کردن این فرم می توانید اطلاعات خود را در اختیار بهترین وکلای مهاجرت قرار دهید تا با بررسی  دقیق تر شرایط شما بتوانند بهترین راهکارهای مهاجرت را در اختیارتان قرار دهند.`,
+         با صرف زمان دو دقیقه و پر کردن این فرم می‌توانید اطلاعات خود را در اختیار بهترین وکلای مهاجرت قرار دهید تا با بررسی  دقیق تر شرایط شما بتوانند بهترین راهکارهای مهاجرت را در اختیارتان قرار دهند.`,
   },
   Step0Button: {
     en: `Start`,

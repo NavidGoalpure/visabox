@@ -29,7 +29,7 @@ export function doMustActiveHotjar(currentRoute: string): boolean {
 }
 
 /**
- *  این فانکشن برای فعال کردن هاتجر استفاده میشود
+ *  این فانکشن برای فعال کردن هاتجر استفاده می‌شود
  *
  * @export
  * @param {string} currentRoute

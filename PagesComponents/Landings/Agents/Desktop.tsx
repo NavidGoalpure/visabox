@@ -1,24 +1,24 @@
-import { deviceMin } from "Consts/device";
-import { useCallback, useEffect, useRef, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { MdPersonSearch } from "react-icons/md";
+import { deviceMin } from 'Consts/device';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { MdPersonSearch } from 'react-icons/md';
 
-import DarkHeroImage from "./Images/DarkHeroImage.svg";
-import LightHeroImage from "./Images/LightHeroImage.svg";
-import { BiMouse } from "react-icons/bi";
-import DarkAgentCard from "./Images/DarkAgentCard.svg";
-import LightAgentCard from "./Images/LightAgentCard.svg";
-import DarkVipAgentCard from "./Images/DarkVipAgentCard.svg";
-import LightVipAgentCard from "./Images/LightVipAgentCard.svg";
-import DarkProfileComponent from "./Images/DarkProfileComponent.svg";
-import LightProfileComponent from "./Images/LightProfileComponent.svg";
-import DarkAboutComponent from "./Images/DarkAboutComponent.svg";
-import LightAboutComponent from "./Images/LightAboutComponent.svg";
-import Image from "next/image";
-import { copyContent, getThemeFromLocalStorage } from "Utils";
-import { ThemeModes } from "Interfaces";
-import SocialMediaBranch from "./Images/SocialMediaBranch.svg";
+import DarkHeroImage from './Images/DarkHeroImage.svg';
+import LightHeroImage from './Images/LightHeroImage.svg';
+import { BiMouse } from 'react-icons/bi';
+import DarkAgentCard from './Images/DarkAgentCard.svg';
+import LightAgentCard from './Images/LightAgentCard.svg';
+import DarkVipAgentCard from './Images/DarkVipAgentCard.svg';
+import LightVipAgentCard from './Images/LightVipAgentCard.svg';
+import DarkProfileComponent from './Images/DarkProfileComponent.svg';
+import LightProfileComponent from './Images/LightProfileComponent.svg';
+import DarkAboutComponent from './Images/DarkAboutComponent.svg';
+import LightAboutComponent from './Images/LightAboutComponent.svg';
+import Image from 'next/image';
+import { copyContent, getThemeFromLocalStorage } from 'Utils';
+import { ThemeModes } from 'Interfaces';
+import SocialMediaBranch from './Images/SocialMediaBranch.svg';
 import {
   ContactsDesc,
   ContactsWrapper,
@@ -36,19 +36,19 @@ import {
   TelegramLink,
   TitleSpanTheme,
   VipAgentCard,
-} from "./styledComponents";
+} from './styledComponents';
 import {
   LanguageKeys,
   componentStatements,
   getGsapTimeLine_Hero,
-} from "./const";
-import Link from "next/link";
-import theme from "styled-theming";
-import Particles from "react-tsparticles";
-import { tsParticleOption_Desktop } from "./const";
-import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+} from './const';
+import Link from 'next/link';
+import theme from 'styled-theming';
+import Particles from 'react-tsparticles';
+import { tsParticleOption_Desktop } from './const';
+import { loadFull } from 'tsparticles';
+import type { Engine } from 'tsparticles-engine';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -68,8 +68,8 @@ function Desktop() {
   const { t } = useStaticTranslation(componentStatements);
   const phoneToastMessage = t(LanguageKeys.copyGmailToastMessage);
   return (
-    <Container className="container">
-      <Hero className="hero" $isActive={isActive}>
+    <Container className='container'>
+      <Hero className='hero' $isActive={isActive}>
         <HeroWrapper>
           <MonthlyUsersWrapper>
             <HeroTitle>افزایش مشتریان</HeroTitle>
@@ -80,7 +80,7 @@ function Desktop() {
             </Desc>
           </MonthlyUsersWrapper>
           <HeroPicture
-            id={"hero-image"}
+            id={'hero-image'}
             width={431}
             height={272}
             src={
@@ -88,7 +88,7 @@ function Desktop() {
                 ? DarkHeroImage
                 : LightHeroImage
             }
-            alt={"hero-image"}
+            alt={'hero-image'}
           />
           <MouseSection>
             <Line />
@@ -98,10 +98,10 @@ function Desktop() {
         </HeroWrapper>
       </Hero>
       <SectionDivider />
-      <div ref={particlesContainer} style={{ position: "relative" }}>
+      <div ref={particlesContainer} style={{ position: 'relative' }}>
         <StyledParticles
           container={particlesContainer}
-          id="tsparticles"
+          id='tsparticles'
           init={particlesInit}
           options={tsParticleOption_Desktop}
         />
@@ -120,7 +120,7 @@ function Desktop() {
                     ? DarkAgentCard
                     : LightAgentCard
                 }
-                alt="normal-agent-card"
+                alt='normal-agent-card'
               />
               <VipAgentCard
                 width={291}
@@ -130,7 +130,7 @@ function Desktop() {
                     ? DarkVipAgentCard
                     : LightVipAgentCard
                 }
-                alt="vip-agent-card"
+                alt='vip-agent-card'
               />
               <AgentCard
                 width={250}
@@ -140,7 +140,7 @@ function Desktop() {
                     ? DarkAgentCard
                     : LightAgentCard
                 }
-                alt="normal-agent-card"
+                alt='normal-agent-card'
               />
             </CardContainer>
 
@@ -150,11 +150,11 @@ function Desktop() {
               نسبت به رقبای خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار
               خواهید شد.
             </StyledDesc>
-            <StyledDesc style={{ zIndex: "10" }}>
+            <StyledDesc style={{ zIndex: '10' }}>
               <Link
-                href={"/lists/agencies"}
-                rel="noopener noreferrer"
-                target="_blank"
+                href={'/lists/agencies'}
+                rel='noopener noreferrer'
+                target='_blank'
               >
                 <span>مشاهده صفحه موسسات مهاجرتی</span>
               </Link>
@@ -171,7 +171,7 @@ function Desktop() {
                 width={450}
                 height={400}
                 src={SocialMediaBranch}
-                alt="vip-agent-card"
+                alt='vip-agent-card'
               />
             </SocialMediaBranchContainer>
 
@@ -180,11 +180,11 @@ function Desktop() {
               شما نسبت به رقبای خود از جایگاه و نحوه نمایش زیباتری برخودار
               خواهند شد.
             </StyledDesc>
-            <StyledDesc style={{ zIndex: "10" }}>
+            <StyledDesc style={{ zIndex: '10' }}>
               <Link
-                href={"/lists/social-pages"}
-                rel="noopener noreferrer"
-                target="_blank"
+                href={'/lists/social-pages'}
+                rel='noopener noreferrer'
+                target='_blank'
               >
                 <span>مشاهده صفحه شبکه‌های اجتماعی</span>
               </Link>
@@ -207,7 +207,7 @@ function Desktop() {
             <StyledDesc>
               <span>
                 مشاهده صفحه وکلا
-                <Link href={"/list/agents"} />
+                <Link href={'/list/agents'} />
               </span>
             </StyledDesc>
           </Section>
@@ -220,7 +220,7 @@ function Desktop() {
             <OccupationCardSection_Img
               width={768}
               height={638}
-              alt="occupation-agent-card"
+              alt='occupation-agent-card'
               src={
                 getThemeFromLocalStorage() === ThemeModes.DARK
                   ? `/Images/landing/Agents/DarkOccupationList.webp`
@@ -228,10 +228,10 @@ function Desktop() {
               }
             />
             <Desc>
-              با خرید اکانت <span>ویژه</span> وکلای ماراباکس میتوانید تبلیغات
+              با خرید اکانت <span>ویژه</span> وکلای ماراباکس می‌توانید تبلیغات
               خود را در صفحه اختصاصی هر شغل نشان دهید. در این حالت, کاربری که در
-              حال بررسی شرایط یک شغل خاص میباشد, در صفحه ی همان شغل با خدمات شما
-              آشنا خواهد شد.{" "}
+              حال بررسی شرایط یک شغل خاص می‌باشد, در صفحه ی همان شغل با خدمات
+              شما آشنا خواهد شد.{' '}
             </Desc>
           </Section>
           <SectionDivider />
@@ -246,7 +246,7 @@ function Desktop() {
                   ? DarkProfileComponent
                   : LightProfileComponent
               }
-              alt={"profile-component"}
+              alt={'profile-component'}
               width={736}
               height={213}
             />
@@ -256,7 +256,7 @@ function Desktop() {
                   ? DarkAboutComponent
                   : LightAboutComponent
               }
-              alt={"about-component"}
+              alt={'about-component'}
               width={734}
               height={213}
             />
@@ -277,7 +277,7 @@ function Desktop() {
               <GmailContainer
                 onClick={() =>
                   copyContent({
-                    text: "maraboxmigration@gmail.com",
+                    text: 'maraboxmigration@gmail.com',
                     toastMessage: phoneToastMessage,
                   })
                 }
@@ -286,8 +286,8 @@ function Desktop() {
                 <GmailLink>maraboxmigration@gmail.com</GmailLink>
               </GmailContainer>
               <TelegramContainer
-                href={"https://t.me/maraboxmigration"}
-                target={"_blank"}
+                href={'https://t.me/maraboxmigration'}
+                target={'_blank'}
               >
                 <TelegramIcon />
                 <TelegramLink>@maraboxmigration</TelegramLink>
@@ -437,7 +437,7 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-const LogoTheme = theme("mode", {
+const LogoTheme = theme('mode', {
   light: css`
     color: var(--color-gray8);
   `,

@@ -113,6 +113,11 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
        <url>
        <loc>${Domain_FA}/blog/document-assessment-in-australia</loc>
      </url>
+     </url>
+       <url>
+       <loc>${Domain_FA}/blog/getting-skilled-worker-visa</loc>
+     </url>
+     
    </urlset>
  `;
 }

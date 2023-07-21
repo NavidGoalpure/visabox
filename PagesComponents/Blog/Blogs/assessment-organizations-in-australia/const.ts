@@ -7,7 +7,7 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     fa: 'آنچه باید در مورد سازمانهای ارزیاب استرالیا بدانیم | مارا باکس',
-    en: 'What we need to know about Australian Evaluating-Organizations | Mara Box',
+    en: 'What we need to know about Australian assessment-organizations-in-australia | Mara Box',
   },
   SeoDesc: {
     fa: 'در استرالیا بیش از 40 سازمان ارزیاب وجود دارد.در اینجا می خواهیم به خصوصیات کلی برخی از سازمانهای ارزیاب که بیشترین کد های شغلی را پوشش می دهند، بپردازیم ',

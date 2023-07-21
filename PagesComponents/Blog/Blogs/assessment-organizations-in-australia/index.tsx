@@ -11,25 +11,17 @@ import {
   ImageContainer,
   Images,
 } from '../StyledComponents';
-import styled from 'styled-components';
 
 export default function PostContent() {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <BlogContainer>
-      <Seo
-        title={t(LanguageKeys.SeoTitle) + ` | ${new Date().getFullYear()}`}
-        canonical={`https://www.marabox.com/${locale}/blog`}
-        description={t(LanguageKeys.SeoDesc)}
-        structuredData={structuredData}
-      />
-
       <ImageContainer>
         <Images
           fill
           src='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'
-          alt='evaluating-organizations'
+          alt='assessment-organizations-in-australia'
         />
       </ImageContainer>
 
@@ -185,7 +177,7 @@ export default function PostContent() {
         <Images
           fill
           src='https://binsta.dev/api/v1/files/lxIVJdLhgF/transform?format=webp&size=lg&quality=best'
-          alt='evaluating-organizations'
+          alt='assessment-organizations-in-australia'
         />
       </ImageContainer>
 
@@ -423,7 +415,7 @@ export default function PostContent() {
         <Images
           fill
           src='https://binsta.dev/api/v1/files/GpcrMjbVoc/transform?format=webp&size=lg&quality=best'
-          alt='evaluating-organizations'
+          alt='assessment-organizations-in-australia'
         />
       </ImageContainer>
 

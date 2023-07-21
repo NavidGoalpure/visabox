@@ -17,7 +17,7 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import styled from 'styled-components';
 
-export const BlogContainer = styled.main`
+export const BlogContainer = styled.article`
   display: flex;
   justify-content: center;
   flex-direction: column;

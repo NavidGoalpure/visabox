@@ -6,8 +6,9 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Lists/Agencies/const';
-import PostContent from 'PagesComponents/Blog/Blogs/evaluating-organizations';
+  structuredData,
+} from 'PagesComponents/Blog/Blogs/assessment-organizations-in-australia/const';
+import PostContent from 'PagesComponents/Blog/Blogs/assessment-organizations-in-australia';
 
 const BlogPage: NextPage = () => {
   const { locale } = useLocale();
@@ -17,8 +18,10 @@ const BlogPage: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents`}
+        canonical={`https://www.marabox.com/${locale}/blog/assessment-organizations-in-australia`}
+        structuredData={structuredData}
       />
+
       <PostContent />
     </PageLayout>
   );

@@ -6,20 +6,21 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Lists/Agencies/const';
-import PostContent from 'PagesComponents/Blog/Blogs/evaluation-of-documents-in-australia';
+  structuredData,
+} from 'PagesComponents/Blog/Blogs/document-assessment-in-australia/const';
+import PostContent from 'PagesComponents/Blog/Blogs/document-assessment-in-australia';
 
 const BlogPage: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
-      {/* //navid  */}
-      {/* <Seo
+      <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents`}
-      /> */}
+        canonical={`https://www.marabox.com/${locale}/blog/document-assessment-in-australia`}
+        structuredData={structuredData}
+      />
       <PostContent />
     </PageLayout>
   );

@@ -255,16 +255,18 @@ export default function PostContent() {
         ساکنین استرالیا امتیازات بیشتری را به ارمغان بیاورند.ر مجموع شما هر چه
         قدر امتیاز خود را بالاتر ببرید، احتمال و سرعت اخذ دعوتنامه را بالاتر
         می‌برید.
-        <br />
-        <br />
-        <ImageContainer>
-          <Images
-            fill
-            src='https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best'
-            alt='getting-skilled-worker-visa'
-          />
-        </ImageContainer>
-        <h2>انتخاب شغل</h2>
+      </p>
+      <br />
+      <br />
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best'
+          alt='getting-skilled-worker-visa'
+        />
+      </ImageContainer>
+      <h2>انتخاب شغل</h2>
+      <p>
         حالا که قادر به محاسبه امتیاز احتمالی خود شدید، به سراغ پارامترهای مهم
         در انتخاب شغل می رویم. ممکن است شغلهای مختلفی با رشته تحصیلی یا شرح
         وظایف و سابقه کار شما همخوانی داشته باشند، در این حالت بهتر است

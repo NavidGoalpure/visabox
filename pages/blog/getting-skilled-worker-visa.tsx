@@ -5,7 +5,7 @@ import { useLocale } from 'Hooks/useLocale';
 import {
   componentStatements,
   LanguageKeys,
-  // structuredData,
+  structuredData,
 } from 'PagesComponents/Blog/Blogs/getting-skilled-worker-visa/const';
 import PostContent from 'PagesComponents/Blog/Blogs/getting-skilled-worker-visa';
 import Seo from 'Components/Seo';
@@ -19,7 +19,7 @@ const BlogPage: NextPage = () => {
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/blog/getting-skilled-worker-visa`}
-        // structuredData={structuredData}
+        structuredData={structuredData}
       />
       <PostContent />
     </PageLayout>

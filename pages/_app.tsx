@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { Montserrat } from '@next/font/google';
 import { useRouter } from 'next/router';
-
 import { useLocale } from 'Hooks/useLocale';
 import '../Styles/global.css';
 import 'vazirmatn/Vazirmatn-font-face.css';
@@ -16,6 +15,7 @@ import ErrorBoundary from 'Components/errorBoundary';
 import { globalStyles } from 'Styles/Theme';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
+import Script from 'next/script';
 // import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`
@@ -44,8 +44,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           /////////////GTAG Without Partytown////////////
           //وقتی این رو آنکامنت میکنیم  باید جیتگ/پارتیتاون رو از توی کاستوم داکیومنت کامنت کنیم
           //////////////////////////////////////////// */}
-      {/* 
-      <Script id='google-tag-manager' strategy='afterInteractive'>
+
+      {/* <Script id='google-tag-manager' strategy='afterInteractive'>
         {`
          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

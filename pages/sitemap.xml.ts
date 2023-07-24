@@ -106,7 +106,8 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
      <url>
        <loc>${Domain_FA}/lists/exchanges</loc>
      </url>
-    
+  <!--The URLs realated to Blogs-->
+  
    </urlset>
  `;
 }

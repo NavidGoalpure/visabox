@@ -43,8 +43,18 @@ const Hero: React.FC = () => {
         />
       </ImageContainer>
       <ContentContainer>
-        <PlaneMobile src={planeMobile} alt='airplane' />
-        <PlaneDesktop src={planeDesktop} alt='airplane' />
+        <PlaneMobileContainer>
+          <PlaneMobile
+            fill
+            src={planeMobile}
+            alt='airplane' />
+        </PlaneMobileContainer>
+        <PlaneDesktopContainer>
+          <PlaneDesktop
+            fill
+            src={planeDesktop}
+            alt='airplane' />
+        </PlaneDesktopContainer>
         <TitleContainer>
           <Title
             dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Title) }}
@@ -135,7 +145,17 @@ const ContentContainer = styled.div`
     margin-left: 2%;
   }
 `;
-const PlaneMobile = styled.img`
+
+const PlaneMobileContainer = styled.div`
+position: relative;
+width: 100%;
+height: 100%;
+@media ${deviceMin.laptopM} {
+  display: none;
+}
+`
+
+const PlaneMobile = styled(Image)`
   display: initial;
   max-width: 30rem;
   margin: 0 auto;
@@ -143,7 +163,21 @@ const PlaneMobile = styled.img`
     display: none;
   }
 `;
-const PlaneDesktop = styled.img`
+
+const PlaneDesktopContainer = styled.div`
+display: none;
+@media ${deviceMin.laptopM} {
+  width: 100%;
+  height: 40%;
+  display: initial;
+  position: relative;
+}
+@media ${deviceMin.laptopL} {
+  height: 20%;
+}
+`
+
+const PlaneDesktop = styled(Image)`
   display: none;
   @media ${deviceMin.laptopM} {
     display: initial;

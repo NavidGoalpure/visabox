@@ -12,7 +12,7 @@ import IranFlag from "../Images/IranFlag.svg";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import theme from "styled-theming";
-const MobileLanguageChanger = ({}) => {
+const MobileLanguageChanger = ({ }) => {
   const { locale } = useLocale();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -75,7 +75,6 @@ const MobileLanguageChanger = ({}) => {
 };
 export default MobileLanguageChanger;
 const Container = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,6 +83,7 @@ const Container = styled.div`
 const TriggerContainer = styled.div`
   width: 100%;
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
 `;
@@ -99,7 +99,7 @@ const SphereIcon = styled(ImSphere)`
   height: auto;
   margin-bottom: 0.4rem;
 `;
-const ArrowIcon = styled(BsChevronDown)<{ $isOpen: boolean }>`
+const ArrowIcon = styled(BsChevronDown) <{ $isOpen: boolean }>`
   ${layer3_TextColor};
   transition: all 0.3s ease;
   ${({ $isOpen }) => $isOpen && `transform:rotate(180deg);`}

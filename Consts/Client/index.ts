@@ -19,16 +19,10 @@ export const VisaSubclasses: MultiLanguageText[] = [
   { en: "491", fa: "491" },
 ];
 export const maritalStatuses: MultiLanguageText[] = [
-    { en: "Married", fa: "متاهل" },
-    { en: "Single", fa: "مجرد" },
+  { en: "Married", fa: "متاهل" },
+  { en: "Single", fa: "مجرد" },
 ];
-export const maritalSituations: MultiLanguageText[] = [
-  { en: "1", fa: "1" },
-  { en: "2", fa: "2" },
-  { en: "3", fa: "3" },
-  { en: "4", fa: "4" },
-  { en: "5", fa: "5" },
-];
+
 export const educations: MultiLanguageText[] = [
   { en: "I dont have any", fa: "ندارم" },
   { en: "Diploma", fa: "دیپلم" },
@@ -47,19 +41,20 @@ export const YesOrNo: MultiLanguageText[] = [
 ];
 export const works: MultiLanguageText[] = [
   { en: "Below 1 year", fa: "زیر یک سال" },
-  { en: "1 to 3 years", fa: "۱ تا ۳ سال" },
-  { en: "3 to 5 years", fa: "۳ تا ۵ سال" },
-  { en: "5 to 8 years", fa: "۵ تا ۸ سال" },
-  { en: "More than 8 years", fa: "بیشتر از ۸ سال" },
+  { en: "1 to 3 years", fa: "یک تا سه سال" },
+  { en: "3 to 5 years", fa: "سه تا پنج سال" },
+  { en: "5 to 8 years", fa: "پنج تا هشت سال" },
+  { en: "More than 8 years", fa: "بیشتر از هشت سال" },
 ];
 export const australianWorks: MultiLanguageText[] = [
   { en: "none - less than 1 year", fa: "هیچی - کمتر از یکسال" },
-  { en: "1 to 3 years", fa: "۱ تا ۳ سال" },
-  { en: "3 to 5 years", fa: "۳ تا ۵ سال" },
-  { en: "5 to 8 years", fa: "۵ تا ۸ سال" },
-  { en: "More than 8 years", fa: "بیشتر از ۸ سال" },
+  { en: "1 to 3 years", fa: "یک تا سه سال" },
+  { en: "3 to 5 years", fa: "سه تا پنج سال" },
+  { en: "5 to 8 years", fa: "پنج تا هشت سال" },
+  { en: "More than 8 years", fa: "بیشتر از هشت سال" },
 ];
 export const IELTSScores: MultiLanguageText[] = [
+  { en: "None", fa: "هیچکدام" },
   { en: "6", fa: "6" },
   { en: "7", fa: "7" },
   { en: "8", fa: "8" },

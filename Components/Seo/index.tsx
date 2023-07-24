@@ -9,6 +9,7 @@ interface Props {
   image?: string;
   canonical: string;
   isNoIndex?: boolean;
+  structuredData?: Record<string, any>;
 }
 
 function Seo({
@@ -18,6 +19,7 @@ function Seo({
   image,
   canonical,
   isNoIndex = false,
+  structuredData,
 }: Props) {
   const { locale } = useLocale();
   const { defaultTitle, defaultDescription } = siteMetadata;
@@ -45,6 +47,13 @@ function Seo({
       <meta name='twitter:image' content={smartImage} />
       {/*  */}
       {isNoIndex && <meta name='robots' content='noindex' />}
+      {structuredData && (
+        <script
+          key='structured-data'
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      )}
     </Head>
   );
 }

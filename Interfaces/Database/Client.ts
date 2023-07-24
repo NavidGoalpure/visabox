@@ -10,13 +10,7 @@ export enum ClientMarital {
   Married = "married",
   Single = "single",
 }
-export enum MaritalSituationType {
-  One = "1",
-  Two = "2",
-  Three = "3",
-  Four = "4",
-  Five = "5",
-}
+
 export enum ClientDegree {
   IDontHaveAny = "I dont have any",
   Diploma = "diploma",
@@ -53,6 +47,7 @@ export enum IELTSScore {
   Six = "6",
   Seven = "7",
   Eight = "8",
+  none = "none",
 }
 export enum VisaSubclass {
   "189Subclass" = "189",
@@ -75,9 +70,9 @@ export interface Client extends SanityKeys {
   // navid make another one of these named birthday
   age?: string;
   visa_subclass: VisaSubclass;
-  // navid delete this in a few months because we use marital_situation instead
-  marital?: ClientMarital;
-  marital_situation: MaritalSituationType;
+  marital: ClientMarital;
+  does_partner_have_assessment?: boolean;
+  is_partner_competent_english_speaker?: boolean;
   field_of_study?: string;
   degree?: ClientDegree;
   current_job?: string;

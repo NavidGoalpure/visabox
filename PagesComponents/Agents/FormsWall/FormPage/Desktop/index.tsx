@@ -11,11 +11,16 @@ import { Client } from "Interfaces/Database/Client";
 import DarkBackground from "./Images/DarkBackground.svg";
 import LightBackground from "./Images/LightBackground.svg";
 import { Headline7Style } from "Styles/Typo";
-import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Contexts/FormDataContext/utils";
+import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "../const";
-import HintComponent from "Components/HintComponent";
 import { BsPersonCircle } from "react-icons/bs";
+import {
+  Hint_SecondaryContainer,
+  Hint_SecondaryIcon,
+  Hint_SecondaryTextStyle,
+} from "Styles/Theme/Hint/style";
+import { FiInfo } from "react-icons/fi";
 interface Props {
   client: Client;
 }
@@ -25,20 +30,21 @@ function DesktopAgentsPage({ client }: Props) {
   return (
     <Container>
       {!client?.visa_subclass && (
-        <StyledHintComponent>
+        <HintContainer>
+          <HintInfoIcon />
           <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
-        </StyledHintComponent>
+        </HintContainer>
       )}
       <Wrapper>
-        <SmallBox hasBorderRadiusAllAround={!client?.visa_subclass}>
+        <SmallBox>
           <ProfilePictureWrapper>
             {client?.avatar ? (
               <ProfilePicture
-              src={client?.avatar}
-              alt={client?.name ? `${client?.name} image` : "agent image"}
+                src={client?.avatar}
+                alt={client?.name ? `${client?.name} image` : "agent image"}
               />
-              ) : (
-                <ImagePlaceholder />
+            ) : (
+              <ImagePlaceholder />
             )}
           </ProfilePictureWrapper>
           <ProfileData>
@@ -47,23 +53,15 @@ function DesktopAgentsPage({ client }: Props) {
             </Name>
             <JobTitle>{client?.current_job}</JobTitle>
             <CreatedDate>{dataCreatedAt}</CreatedDate>
+            {client?.visa_subclass && (
+              <ScoreWrapper>
+                <HeaderLabel>
+                  {t(LanguageKeys.ScoreTitle)}{" "}
+                  <span id="score">{CalculateClientScore(client)}</span>
+                </HeaderLabel>
+              </ScoreWrapper>
+            )}
           </ProfileData>
-          {client?.visa_subclass && (
-            <ScoreWrapper>
-              <HeaderLabel>
-                {t(LanguageKeys.ScoreTitle)}{" "}
-                <span id="score">{CalculateClientScore(client)}</span>
-              </HeaderLabel>
-            </ScoreWrapper>
-          )}
-          {client?.visa_subclass && (
-            <SubclassWrapper>
-              <HeaderLabel>
-                {t(LanguageKeys.VisaSubclassTitle)}{" "}
-                <span id="visa-subclass">{client?.visa_subclass}</span>
-              </HeaderLabel>{" "}
-            </SubclassWrapper>
-          )}
         </SmallBox>
         <DescriptionSection client={client} />
       </Wrapper>
@@ -111,16 +109,15 @@ const Container = styled.div`
   gap: 1rem;
   flex-direction: column;
 `;
-const StyledHintComponent = styled(HintComponent)`
-  align-items: center;
-  gap: 1rem;
-  #icon {
-    width: 1.5rem;
-    margin: 0;
-  }
+const HintContainer = styled.div`
+  ${Hint_SecondaryContainer};
+  gap: 2rem;
+`;
+const HintInfoIcon = styled(FiInfo)`
+  ${Hint_SecondaryIcon};
 `;
 const HintContent = styled.h3`
-  ${Headline7Style};
+  ${Hint_SecondaryTextStyle};
 `;
 const Wrapper = styled.div`
   width: 100%;
@@ -131,7 +128,7 @@ const Wrapper = styled.div`
   position: relative;
   gap: 1rem;
 `;
-const SmallBox = styled.header<{ hasBorderRadiusAllAround: boolean }>`
+const SmallBox = styled.header`
   ${layer2A_BodyStyle};
   ${HeaderBackground};
   position: relative;
@@ -139,8 +136,7 @@ const SmallBox = styled.header<{ hasBorderRadiusAllAround: boolean }>`
   flex-direction: column;
   justify-content: center;
   width: 18rem;
-  border-radius: ${({ hasBorderRadiusAllAround }) =>
-    hasBorderRadiusAllAround ? "15px" : "15px 15px 0 0"};
+  border-radius: 15px;
   padding: 1.5rem;
   gap: 2rem;
   margin-bottom: 4rem;
@@ -173,20 +169,7 @@ const ProfileData = styled.div`
   width: 100%;
   gap: 1.5rem;
 `;
-const ScoreWrapper = styled.div`
-  ${layer2A_BodyStyle};
-  position: absolute;
-  bottom: 0;
-  inset-inline-start: 0;
-  transform: translateY(90%);
-  padding: 0.5rem;
-  border-radius: 0 0 15px 15px;
-  box-shadow: unset;
-`;
-const SubclassWrapper = styled(ScoreWrapper)`
-  inset-inline-start: unset;
-  inset-inline-end: 0;
-`;
+const ScoreWrapper = styled.div``;
 const HeaderLabel = styled.h4`
   ${Headline7Style};
   ${HeaderLabelTheme}

@@ -1,5 +1,5 @@
 import { MultiLanguageText } from "Interfaces/Database";
-import { IELTSScore, MaritalSituationType } from "Interfaces/Database/Client";
+import { IELTSScore} from "Interfaces/Database/Client";
 
 export interface GetLabelsProps {
   age?: string;
@@ -8,7 +8,8 @@ export interface GetLabelsProps {
   email?: string;
   fieldOfStudy?: string;
   marital: MultiLanguageText | undefined;
-  maritalSituation: MaritalSituationType;
+  does_partner_have_assessment?: boolean;
+  is_partner_competent_english_speaker?: boolean;
   degree: MultiLanguageText | undefined;
   uniSection: MultiLanguageText | undefined;
   workExperience: MultiLanguageText | undefined;

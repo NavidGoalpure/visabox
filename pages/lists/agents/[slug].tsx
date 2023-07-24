@@ -12,6 +12,7 @@ import { Agents } from 'Consts/Lists/agents';
 import { GetStaticProps, NextPage } from 'next/types';
 import { Agent } from 'Interfaces/Database/Lists/agents';
 import Error from 'next/error';
+import { Languages } from 'Interfaces';
 
 interface Props {
   chosenAgent?: Agent;
@@ -40,10 +41,14 @@ const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
 };
 export default VipAgentPage;
 
-export const getStaticPaths = async () => {
-  const paths = Agents.map((agent) => ({
-    params: { slug: agent.slug },
-  }));
+export const getStaticPaths = async ({ locales }: any) => {
+  let paths: { params: { slug: string }; locale: Languages }[] = [];
+
+  Agents.map((agent) => {
+    locales.map((locale: Languages) => {
+      if (agent?.slug) paths.push({ params: { slug: agent.slug }, locale });
+    });
+  });
 
   return {
     paths: paths,

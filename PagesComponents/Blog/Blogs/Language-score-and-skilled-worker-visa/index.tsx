@@ -13,6 +13,8 @@ import {
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Seo from 'Components/Seo';
 import { useLocale } from 'Hooks/useLocale';
+import Image from 'next/image';
+
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -26,7 +28,13 @@ export default function PostContent() {
         description={t(LanguageKeys.SeoDesc)}
       />
 
-      <img src='https://binsta.dev/api/v1/files/z7jW9EIqKf/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/z7jW9EIqKf/transform?format=webp&size=lg&quality=best'
+          alt='Language-score-and-skilled-worker-visa'
+        />
+      </ImageContainer>
 
       <h1> نمره زبان  و ویزای مهارتی یا اسکیل ورکر  </h1>
 
@@ -40,7 +48,13 @@ export default function PostContent() {
         <li>آزمون OET نوع خاصی از آزمون زبان است که در کنار محک زدن زبان انگلیسی افراد به مباحث تخصصی رشته افراد پرداخته و در مهاجرت از طریق مشاغلی همچون پرستاری، پزشکی و پیرا پزشکی مورد تأیید و استفاده می باشد. پزشکان و یا کارکنان مراکز درمانی که قصد مهاجرت از طریق ویزای نیروی متخصص و یا کار کردن در مراکز پزشکی و درمانی خارج از کشور را دارند، می بایست برای اثبات توانایی زبانی خود در سطوح مورد نظر، در این آزمون شرکت نمایند. این آزمون که توسط مرکز آزمون های بین المللی دانشگاه کمبریج طراحی گردیده است، توانایی افراد متخصص در حوزه درمان و علوم پزشکی را در زمینه تخصصی آنها می سنجد.</li>
       </ul>
 
-      <img src='https://binsta.dev/api/v1/files/xUnxiQUc00/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/xUnxiQUc00/transform?format=webp&size=lg&quality=best'
+          alt='Language-score-and-skilled-worker-visa'
+        />
+      </ImageContainer>
 
       <p>
         در مورد این سوال که کدوم یک از این آزمونهای زبان  برای ویزای اسکیل ورکر مناسب است ، باید تاکید کنیم که داشتن حداقل نمره 6آیلتس (جنرال یا آکادمیک) در هر مهارت  یا معادل 50 پی تی ای در هر مهارت  و یا معادل تافل (L12,R13,W21,S18) و یا معادل های دیگر الزامی است و امتیازی ندارد.
@@ -50,7 +64,15 @@ export default function PostContent() {
 
       <table><thead><tr><th>نمره IELTS ( مشخص شود general /academic)	نمره PTE	نمره - iBT   TOEFL	امتیاز کسب شده</th><th>نمره PTE</th><th>نمره - iBT   TOEFL</th><th>امتیاز کسب شده</th></tr></thead><tbody><tr><td>6 هر اسکیل</td><td>50 در هر اسکیل</td><td>L12,R13,W21,S18</td><td>صفر امتیاز</td></tr><tr><td>7 هر اسکیل</td><td>65 در هر اسکیل</td><td>L24,R24,W27,S23</td><td>10 امتیاز</td></tr><tr><td>8 اسکیل</td><td>79 در هر اسکیل</td><td>L28,R29,W30,S26</td><td>20 امتیاز</td></tr></tbody></table>
 
-      <img src='https://binsta.dev/api/v1/files/H8g7UulJPS/transform?format=webp&size=lg&quality=best'></img>
+
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/H8g7UulJPS/transform?format=webp&size=lg&quality=best'
+          alt='Language-score-and-skilled-worker-visa'
+        />
+      </ImageContainer>
+
 
       <p>
         اینکه برای اقدام جهت ویزای اسکیل ورکر به چه نمره ای نیاز دارید بسته به رشته شما و امتیازی که نیاز دارید متفاوت است . در  برخی از رشته های فنی احتمال رسیدن به دعوتنامه با نمره زبان آیلتس 6 یا معادل آن  با توجه به رقابت کم این رشته و نیاز بالای ایالتها امکان پذیر باشد اما  در خصوص برخی رشته های تخصصی مثل مهندسی یا  رشته های مدیریتی که اخذ نمره زبان 7 یا 8آیلتس یا معادل آن ، جهت اخذ دعوتنامه لازم به نظر می رسد، شاید  کسب این نمره از طریق آزمون PTE ، به دلیل تصحیح آن توسط هوش مصنوعی و تکنیک های مختص آن دست یافتنی تر  به نظر برسد. البته انتخاب آزمون زبان، برای هر شخصی بنا به توانایی های زبان و توانایی ها کار با کامپیوتر و کیبورد  و یا توانمندی آزمون کتبی و شفاهی میتواند متفات باشد. ولی در مجموع برای کسانی که ویزای اسکیل ورکر اقدام کرده اند ، و نیاز به نمره زبان 7 یا بالاتر دارند ، آزمون PTE  دست یافتنی تر به نظر می رسد و برای دوستانی که رشته های پزشکی و پیراپزشکی می خواهند اقدام کنند ، آزمون PTE یا آزمون OET  پیشنهاد می شود.
@@ -162,4 +184,19 @@ margin-bottom: 1rem;
 :last-child {
   margin-bottom: 2rem;
 }
+`
+
+const Images = styled(Image)`
+border-radius: 15px;
+object-fit: cover;
+`
+
+const ImageContainer = styled.div`
+position: relative;
+width: 80%;
+margin-bottom: 2rem;
+height: 25rem;
+border-radius: 15px;
+box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+align-self: center;
 `

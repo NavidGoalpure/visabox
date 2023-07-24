@@ -110,20 +110,14 @@ export default {
       },
     },
     {
-      name: "marital_situation",
-      title: "Marital Status",
-      type: "string",
-      options: {
-        list: [
-          { title: "1", value: "1" },
-          { title: "2", value: "2" },
-          { title: "3", value: "3" },
-          { title: "4", value: "4" },
-          { title: "5", value: "5" },
-        ],
-        layout: "radio",
-        direction: "horizontal",
-      },
+      name: "is_partner_competent_english_speaker",
+      title: "is partner competent english speaker",
+      type: "boolean",
+    },
+    {
+      name: "does_partner_have_assessment",
+      title: "does partner have assessment",
+      type: "boolean",
     },
     {
       name: "field_of_study",
@@ -220,6 +214,7 @@ export default {
       type: "string",
       options: {
         list: [
+          { title: "none", value: "none" },
           { title: "6", value: "6" },
           { title: "7", value: "7" },
           { title: "8", value: "8" },

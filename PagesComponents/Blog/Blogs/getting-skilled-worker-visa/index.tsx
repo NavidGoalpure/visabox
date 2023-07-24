@@ -13,6 +13,7 @@ import {
 } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Seo from 'Components/Seo';
+import Image from 'next/image';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -26,7 +27,13 @@ export default function PostContent() {
         description={t(LanguageKeys.SeoDesc)}
       />
 
-      <img src='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best'
+          alt='getting-skilled-worker-visa'
+        />
+      </ImageContainer>
 
       <h1> قدم به قدم تا ویزای اسکیل ورکر (مهارتی) </h1>
 
@@ -43,7 +50,13 @@ export default function PostContent() {
 
       <table><thead><tr><th>مدرک تحصیلی</th><th>امتیاز دانشگاه سکشن یک</th><th>امتیاز دانشگاه سکشن دو</th></tr></thead><tbody><tr><td>کاردانی یا معادل کاردانی</td><td>10 امتیاز</td><td>-</td></tr><tr><td>لیسانس</td><td>15 امتیاز</td><td>10 امتیاز</td></tr><tr><td>فوق لیسانس</td><td>15 امتیاز</td><td>10 امتیاز</td></tr><tr><td>دکترا</td><td>20 امتیاز</td><td>امتیازی اضافه ندارد</td></tr></tbody></table>
 
-      <img src='https://binsta.dev/api/v1/files/rXo2phKowl/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/rXo2phKowl/transform?format=webp&size=lg&quality=best'
+          alt='getting-skilled-worker-visa'
+        />
+      </ImageContainer>
 
       <p> امتیاز تحصیلات بر اساس سکشن دانشگاه آخرین مدرک تحصیلی که ارائه می دهید محاسبه می شود.</p>
 
@@ -70,7 +83,13 @@ export default function PostContent() {
 
       <table><thead><tr><th>نمره IELTS ( مشخص شود general /academic)	نمره PTE	نمره - iBT   TOEFL	امتیاز کسب شده</th><th>نمره PTE</th><th>نمره - iBT   TOEFL</th><th>امتیاز کسب شده</th></tr></thead><tbody><tr><td>6 هر اسکیل</td><td>50 در هر اسکیل</td><td>L12,R13,W21,S18</td><td>صفر امتیاز</td></tr><tr><td>7 هر اسکیل</td><td>65 در هر اسکیل</td><td>L24,R24,W27,S23</td><td>10 امتیاز</td></tr><tr><td>8 اسکیل</td><td>79 در هر اسکیل</td><td>L28,R29,W30,S26</td><td>20 امتیاز</td></tr></tbody></table>
 
-      <img src='https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best'
+          alt='getting-skilled-worker-visa'
+        />
+      </ImageContainer>
 
       <p>
         نکته قابل توجه این است که اگر شما حتی در یک اسکیل کمتر از نمره مورد نظر اخذ کنید امتیاز آن نمره شامل شما نمی شود.
@@ -127,15 +146,6 @@ const Container = styled.main`
 display: flex;
 justify-content: center;
 flex-direction: column;
-img{
-  margin-bottom: 2rem;
-  width: 80%;
-  height: 25rem;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
-  align-self: center;
-}
 p{
   ${Layer1_TextStyle}
   // line-height: 40px !important;
@@ -218,4 +228,19 @@ margin-bottom: 1rem;
 :last-child {
   margin-bottom: 2rem;
 }
+`
+
+const Images = styled(Image)`
+border-radius: 15px;
+object-fit: cover;
+`
+
+const ImageContainer = styled.div`
+position: relative;
+width: 80%;
+margin-bottom: 2rem;
+height: 25rem;
+border-radius: 15px;
+box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+align-self: center;
 `

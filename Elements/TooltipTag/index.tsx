@@ -139,6 +139,9 @@ const ButtonContainer = styled.div`
 `;
 const Button = styled.button`
   ${TagTheme};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem 1rem;
   width: max-content;
   border-radius: 30px;

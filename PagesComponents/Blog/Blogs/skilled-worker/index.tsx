@@ -13,6 +13,7 @@ import {
 } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Seo from 'Components/Seo';
+import Image from 'next/image';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -26,7 +27,14 @@ export default function PostContent() {
         description={t(LanguageKeys.SeoDesc)}
       />
 
-      <img src='https://binsta.dev/api/v1/files/A-YzruQXR1/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/A-YzruQXR1/transform?format=webp&size=lg&quality=best'
+          alt='skilled-worker'
+        />
+      </ImageContainer>
+
 
       <h1> ویزای مهارتی استرالیا (Skilled worker) </h1>
 
@@ -62,7 +70,13 @@ export default function PostContent() {
         ویزای دوم که می توانید به صورت همزمان اعلام کنید ، ویزای 190 می باشد که اسپانسر  ایالتی نیاز دارد، در این ویزا ، بعد از اینکه ایالتی کد شغلی منتخب شما را در لیست خود اعلام کرد ، شما می توانید در صورتی که به حداقل امتیاز مورد نظر دست پیدا کرده باشید ، برای این ویزا در ایالتهای مختلف درخواست دهید. در صورتی که ایالت به شما دعوتنامه بدهد شما می توانید برای این ویزا اقدام کنید. این ویزا نیز اقامت دائم است و شما متعهد می شوید دو سال در آن ایالت کار و زندگی نمائید. متقاضی دریافت این ویزای کار استرالیا باید حداقل 60 امتیاز دریافت کنند تا بتوانند با 5 امتیاز اسپانسر ایالتی به حداقل امتیاز 65 برسند. افرادی که موفق به دریافت ویزای کاری استرالیا و اقامت دائم با ویزای 190 استرالیا می‌شوند؛  و می‌توانند به همراه همسر و فرزندان خو اقامت دائم استرالیا را داشته اند.
       </p>
 
-      <img src='https://binsta.dev/api/v1/files/HyKyGBCdPp/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/HyKyGBCdPp/transform?format=webp&size=lg&quality=best'
+          alt='skilled-worker'
+        />
+      </ImageContainer>
 
       <h2> مزایای ویزای 190: </h2>
 
@@ -95,7 +109,13 @@ export default function PostContent() {
         </li>
       </ol>
 
-      <img src='https://binsta.dev/api/v1/files/vKh6Jmtu72/transform?format=webp&size=lg&quality=best'></img>
+      <ImageContainer>
+        <Images
+          fill
+          src='https://binsta.dev/api/v1/files/vKh6Jmtu72/transform?format=webp&size=lg&quality=best'
+          alt='skilled-worker'
+        />
+      </ImageContainer>
 
       <p>
         فلسفۀ حامی‌شدن افراد از این قرار است که آن‌ها باید بتوانند فرد متقاضی را از نظر مالی، تأمین محل زندگی و شرکت در برنامۀ زبان انگلیسی به مدت دو سال حمایت کنند. البته، در عمل این تعهد چندان کاربردی ندارد و شما بعد از ورود به استرالیا طبیعتاً زندگی خودتان را با تکیه بر خودتان شروع می‌کنید اما دولت استرالیا صرفاً برای اطمینان، این تعهد کلی را به دوش حامی گذاشته است ولی نیازی نیست حامی مبلغی به کسی پرداخت کند.
@@ -206,4 +226,18 @@ margin-bottom: 1rem;
 :last-child {
   margin-bottom: 2rem;
 }
+`
+const Images = styled(Image)`
+border-radius: 15px;
+object-fit: cover;
+`
+
+const ImageContainer = styled.div`
+position: relative;
+width: 80%;
+margin-bottom: 2rem;
+height: 25rem;
+border-radius: 15px;
+box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+align-self: center;
 `

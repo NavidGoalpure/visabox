@@ -6,9 +6,9 @@ import Moon from './Images/Moon.svg';
 import MoonLogo from './MoonLogo';
 import SunLogo from './SunLogo';
 import theme from 'styled-theming';
-import {  ThemeModes } from 'Interfaces';
+import { ThemeModes } from 'Interfaces';
 import useTheme from 'Hooks/useTheme';
-import { Loading } from 'Elements/Loading';   
+import { Loading } from 'Elements/Loading';
 
 
 const SwitchTheme = () => {
@@ -44,6 +44,7 @@ const BorderColor = theme('mode', {
   `,
 });
 const SwitchRoot = styled(RdxSwitch.Root)`
+cursor: pointer;
   border: 3px solid;
   ${BorderColor};
   position: relative;

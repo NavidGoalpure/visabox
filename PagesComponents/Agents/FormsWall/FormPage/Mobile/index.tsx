@@ -1,19 +1,25 @@
-import { deviceMin } from "Consts/device";
-import styled, { css } from "styled-components";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
+import { deviceMin } from 'Consts/device';
+import styled, { css } from 'styled-components';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import { Client } from "Interfaces/Database/Client";
-import DescriptionSection from "../DescriptionSection";
-import { CalculateClientScore } from "PagesComponents/Clients/BasicForms/Contexts/FormDataContext/utils";
-import { componentStatements, LanguageKeys } from "../const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Headline7Style } from "Styles/Typo";
-import { BsPersonCircle } from "react-icons/bs";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import { Client } from 'Interfaces/Database/Client';
+import DescriptionSection from '../DescriptionSection';
+import { CalculateClientScore } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils';
+import { componentStatements, LanguageKeys } from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Headline7Style } from 'Styles/Typo';
+import { BsPersonCircle } from 'react-icons/bs';
+import {
+  Hint_SecondaryContainer,
+  Hint_SecondaryIcon,
+  Hint_SecondaryTextStyle,
+} from "Styles/Theme/Hint/style";
+import { FiInfo } from 'react-icons/fi';
 
 interface Props {
   client: Client;
@@ -29,10 +35,10 @@ function MobileAgentsPage({ client }: Props) {
       <ProfilePictureWrapper>
         {client?.avatar ? (
           <ProfilePicture
-            src={client?.avatar || "/Images/placeholder.jpeg"}
-            alt={client?.name ? `${client?.name} image` : "agent image"}
+            src={client?.avatar || '/Images/placeholder.jpeg'}
+            alt={client?.name ? `${client?.name} image` : 'agent image'}
           />
-          ) : (
+        ) : (
           <ImagePlaceholder />
         )}
       </ProfilePictureWrapper>
@@ -44,15 +50,21 @@ function MobileAgentsPage({ client }: Props) {
         <CreatedDate>{dataCreatedAt}</CreatedDate>
         {!!client?.visa_subclass && (
           <HeaderLabel>
-            {t(LanguageKeys.ScoreTitle)}{" "}
-            <span id="score">{CalculateClientScore(client)}</span>
+            {t(LanguageKeys.ScoreTitle)}{' '}
+            <span id='score'>{CalculateClientScore(client)}</span>
           </HeaderLabel>
         )}
         {!!client?.visa_subclass && (
           <HeaderLabel>
-            {t(LanguageKeys.VisaSubclassTitle)}{" "}
-            <span id="visa-subclass">{client?.visa_subclass}</span>
+            {t(LanguageKeys.VisaSubclassTitle)}{' '}
+            <span id='visa-subclass'>{client?.visa_subclass}</span>
           </HeaderLabel>
+        )}
+        {!client?.visa_subclass && (
+          <HintContainer>
+            <HintInfoIcon />
+            <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
+          </HintContainer>
         )}
       </ProfileData>
       <DescriptionSection client={client} />
@@ -60,7 +72,7 @@ function MobileAgentsPage({ client }: Props) {
   );
 }
 export default MobileAgentsPage;
-const StarBackgroundColor = theme("mode", {
+const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -68,7 +80,7 @@ const StarBackgroundColor = theme("mode", {
     background: var(--color-gray4);
   `,
 });
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -76,7 +88,7 @@ const TitleColor = theme("mode", {
     color: var(--color-primary5);
   `,
 });
-const HeaderLabelTheme = theme("mode", {
+const HeaderLabelTheme = theme('mode', {
   light: css`
     color: var(--color-gray10);
   `,
@@ -84,7 +96,7 @@ const HeaderLabelTheme = theme("mode", {
     color: var(--color-gray11);
   `,
 });
-const HeaderScoreTheme = theme("mode", {
+const HeaderScoreTheme = theme('mode', {
   light: css`
     color: var(--color-secondary2);
   `,
@@ -156,6 +168,16 @@ const ImagePlaceholder = styled(BsPersonCircle)`
   width: 100%;
   height: 100%;
   color: var(--color-gray11);
+`;
+const HintContainer = styled.div`
+  ${Hint_SecondaryContainer};
+  gap: 2rem;
+`;
+const HintInfoIcon = styled(FiInfo)`
+  ${Hint_SecondaryIcon};
+`;
+const HintContent = styled.h3`
+  ${Hint_SecondaryTextStyle};
 `;
 const ProfileData = styled.div`
   display: flex;

@@ -13,6 +13,7 @@ import Content from 'PagesComponents/Lists/Agencies/AgencyPage';
 import { Agency } from 'Interfaces/Database/Lists/agency';
 import { GetStaticProps, NextPage } from 'next/types';
 import Error from 'next/error';
+import { Languages } from 'Interfaces';
 
 interface Props {
   chosenAgency?: Agency;
@@ -43,10 +44,14 @@ const AgencyPage: NextPage<Props> = ({ chosenAgency, errorCode }) => {
 };
 export default AgencyPage;
 
-export const getStaticPaths = async () => {
-  const paths = AGENCYS.map((agency) => ({
-    params: { slug: agency.slug },
-  }));
+export const getStaticPaths = async ({ locales }: any) => {
+  let paths: { params: { slug: string }; locale: Languages }[] = [];
+
+  AGENCYS.map((agency) => {
+    locales.map((locale: Languages) => {
+      if (agency?.slug) paths.push({ params: { slug: agency.slug }, locale });
+    });
+  });
 
   return {
     paths: paths,
@@ -58,7 +63,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const chosenAgency = AGENCYS.filter(
     (agency) => agency.slug === params?.slug
   )[0];
-
   if (!chosenAgency)
     return {
       props: {

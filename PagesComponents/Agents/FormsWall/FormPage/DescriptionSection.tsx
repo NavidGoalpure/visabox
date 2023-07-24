@@ -12,17 +12,10 @@ import { FaPhone } from "react-icons/fa";
 import { deviceMin } from "Consts/device";
 import { SiGmail } from "react-icons/si";
 import { copyContent } from "Utils";
-import {
-  Client,
-  ClientMarital,
-  MaritalSituationType,
-} from "Interfaces/Database/Client";
+import { Client } from "Interfaces/Database/Client";
 import { componentStatements, LanguageKeys } from "./const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import {
-  getMultiLanguageLabels,
-  getSmartMaritalSitutationPopupContent,
-} from "./utils";
+import { getMultiLanguageLabels } from "./utils";
 import { useLocale } from "Hooks/useLocale";
 import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
@@ -53,23 +46,41 @@ function DescriptionSection({ client }: Props) {
         <DataWrapper>
           <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
           <Value>
-            {data?.marital?.[locale]} {data?.maritalSituation}
-            {data?.maritalSituation && (
-              <StyledTooltipTag
+            {data?.marital?.[locale]}{" "}
+            {data?.marital?.en === "Married" && (
+              <TooltipTag
+                popupContent={
+                  <>
+                    {data?.is_partner_competent_english_speaker !==
+                      undefined && (
+                      <PartnerPopupContent>
+                        <PartnerPopupLabel>
+                          {t(LanguageKeys.PartnerAssesmentLabel)}
+                        </PartnerPopupLabel>
+                        {data?.does_partner_have_assessment ? (
+                          <Checkmark />
+                        ) : (
+                          <CloseIcon />
+                        )}
+                      </PartnerPopupContent>
+                    )}
+                    <PartnerPopupContent>
+                      <PartnerPopupLabel>
+                        {" "}
+                        {t(LanguageKeys.PartnerEnglishLabel)}
+                      </PartnerPopupLabel>
+                      {data?.is_partner_competent_english_speaker ? (
+                        <Checkmark />
+                      ) : (
+                        <CloseIcon />
+                      )}
+                    </PartnerPopupContent>
+                  </>
+                }
                 content={
                   <>
                     <InformationIcon />
                   </>
-                }
-                popupContent={
-                  <MaritalSituationTooltipPopupContainer>
-                    {data?.maritalSituation === MaritalSituationType.Five && (
-                      <CloseIcon />
-                    )}
-                    {getSmartMaritalSitutationPopupContent(
-                      data?.maritalSituation
-                    )}
-                  </MaritalSituationTooltipPopupContainer>
                 }
               />
             )}
@@ -291,28 +302,14 @@ const Value = styled.h4`
   align-items: center;
   gap: 1rem;
 `;
-const StyledTooltipTag = styled(TooltipTag)`
-  cursor: pointer;
-  #trigger_button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.2rem 0.75rem;
-  }
-`;
-const MaritalSituationTooltipPopupContainer = styled.div`
+const PartnerPopupContent = styled.div`
   display: flex;
-  jusitify-content: center;
   align-items: center;
-  flex-direction: column;
-  ul {
-    list-style: disc;
-    padding-inline-start: 1rem;
-  }
-  #option-five {
-    list-style: none;
-  }
+  justify-content: space-between;
+  gap: 0.5rem;
+`;
+const PartnerPopupLabel = styled.div`
+  ${Headline7Style};
 `;
 const PhoneContainer = styled.div`
   ${SocialsContainerCss};
@@ -375,4 +372,5 @@ const InformationIcon = styled(FiInfo)`
   height: 1.5rem;
   width: auto;
   cursor: pointer;
+  margin: 0;
 `;

@@ -11,7 +11,8 @@ export enum LanguageKeys {
   BirthDateLabel = 'BirthDateLabel',
   EnglishSkillsLabel = 'EnglishSkillsLabel',
   MarriageStatusLabel = 'MarriageStatusLabel',
-  MarriageSituationLabel = 'MarriageSituationLabel',
+  PartnerEnglishLabel = "PartnerEnglishLabel",
+  PartnerAssesmentLabel="PartnerAssesmentLabel",
   CountryLabel = 'CountryLabel',
   FieldOfStudyLabel = 'FieldOfStudyLabel',
   DegreeLabel = 'DegreeLabel',
@@ -67,9 +68,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "Marriage Status:",
     fa: "وضعیت تاهل:",
   },
-  MarriageSituationLabel: {
-    en: "Situation:",
-    fa: "وضعیت:",
+  PartnerEnglishLabel: {
+    en: "Is spouse's IELTS score 6?",
+    fa: " آیا نمره ایلتس همسر ۶ هست؟",
+  },
+  PartnerAssesmentLabel: {
+    en: "Does the spouse have an assessment of documents?",
+    fa: "آیا همسر دارای اسسمنت مدارک است؟",
   },
   CountryLabel: {
     en: "Country:",

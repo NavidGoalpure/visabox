@@ -62,9 +62,6 @@ export const Title = styled.h2`
 export const StyledTooltipTag = styled(TooltipTag)`
   cursor: pointer;
   #trigger_button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0.5rem;
     padding: 0.2rem 0.75rem;
   }

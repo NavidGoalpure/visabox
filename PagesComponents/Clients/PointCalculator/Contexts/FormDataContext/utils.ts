@@ -24,7 +24,7 @@ export function CalculateClientScore(clientData: Client): number {
     finalScore = finalScore + 10;
   else if (clientData?.is_partner_competent_english_speaker)
     finalScore = finalScore + 5;
-  else if (clientData?.does_partner_have_assessment)
+  if (clientData?.does_partner_have_assessment)
     finalScore = finalScore + 5;
     
   /////////// English Language ///////////////////////
@@ -88,6 +88,5 @@ export function CalculateClientScore(clientData: Client): number {
   if (clientData?.professional_year_in_australia) finalScore = finalScore + 5;
   /////////// accredited_community_language /////////////////
   if (clientData?.accredited_community_language) finalScore = finalScore + 5;
-  // navid remember to add marital
   return finalScore;
 }

@@ -15,8 +15,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "امتیاز مهاجرتی شما",
   },
   Step12Desc: {
-    en: "Would you like us to share this information with Marabax approved immigration attorneys to contact you for a free consultation?",
-    fa: `از شما ممنونیم که فرممون رو کامل کردید.
-    امتیاز شما در صفحه شخصیتون نمایش داده میشه.`,
+    en: "This is your pure score. If you apply for a 190 visa, 5 points will be added to your score, however if you apply for a 491 visa, 15 points will be added to your score.",
+    fa: `این امتیاز خالص شماست. اگر برای ویزای ۱۹۰ اقدام کنید ۵ امتیاز به و در صورتی که برای ویزای ۴۹۱ اقدام کنید ۱۵ امتیاز از طرف ایالت به امتیاز شما اضافه خواهد شد.`,
   },
 };

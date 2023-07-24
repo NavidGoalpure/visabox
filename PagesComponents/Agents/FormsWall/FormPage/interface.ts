@@ -8,6 +8,8 @@ export interface GetLabelsProps {
   email?: string;
   fieldOfStudy?: string;
   marital: MultiLanguageText | undefined;
+  does_partner_have_assessment?: boolean;
+  is_partner_competent_english_speaker?: boolean;
   degree: MultiLanguageText | undefined;
   uniSection: MultiLanguageText | undefined;
   workExperience: MultiLanguageText | undefined;

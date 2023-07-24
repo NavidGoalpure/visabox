@@ -62,7 +62,6 @@ const Step2 = () => {
               // replace will make it so the client?.phone only gets numbers as value
               phone: e.target.value.replace(/[^\d]/g, ""),
             });
-          console.log("navid client phone ===", client?.phone);
         }}
         inputName="phoneNumber"
         id={"phone-input"}

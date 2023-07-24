@@ -155,6 +155,9 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
     marital: getMaritalLabel({
       marital: client?.marital,
     }),
+    does_partner_have_assessment: client?.does_partner_have_assessment,
+    is_partner_competent_english_speaker:
+      client?.is_partner_competent_english_speaker,
     degree: getdegreeLabel({ degree: client?.degree }),
     uniSection: getUniSectionLabel({ UniSection: client?.uni_section }),
     workExperience: getWorkExperienceLabel({

@@ -6,7 +6,7 @@ import {
   Hint_BGStyle,
   Hint_TextStyle,
   Hint_TitleStyle,
-} from 'Styles/Theme/ Hint/style';
+} from 'Styles/Theme/Hint/style';
 
 import {
   Layer1_TextStyle,
@@ -16,6 +16,7 @@ import {
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import styled from 'styled-components';
+import { Headline4Style } from 'Styles/Typo';
 
 export const BlogContainer = styled.main`
   display: flex;
@@ -123,9 +124,9 @@ export const BlogContainer = styled.main`
   }
 `;
 export const HintBG = styled.section`
-  ${Hint_BGStyle}
+${Hint_BGStyle}
 `;
-export const HintTitle = styled.p`
+export const HintTitle = styled.h4`
   ${Hint_TitleStyle}
 `;
 export const HintText = styled.p`

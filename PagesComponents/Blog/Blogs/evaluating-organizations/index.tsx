@@ -17,6 +17,7 @@ export default function PostContent() {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
+    <>
     <BlogContainer>
       <Seo
         title={t(LanguageKeys.SeoTitle) + ` | ${new Date().getFullYear()}`}
@@ -484,6 +485,7 @@ export default function PostContent() {
         سال می‌باشد.
       </p>
       <br />
+    </BlogContainer>
       <HintBG>
         <HintTitle>توجه:</HintTitle>
         <HintText>
@@ -500,6 +502,6 @@ export default function PostContent() {
           را می‌توانید از طریق این لینک پیدا کنید.
         </HintText>
       </HintBG>
-    </BlogContainer>
+      </>
   );
 }

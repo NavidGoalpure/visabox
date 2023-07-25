@@ -34,8 +34,8 @@ export const Item: React.FC<RadioItemProps> = ({
 };
 const ContainerTheme = theme('mode', {
   light: css`
-    border: 2px solid var(--color-gray11);
-    color: var(--color-gray11);
+    border: 2px solid var(--color-gray9);
+    color: var(--color-gray9);
   `,
   dark: css`
     color: var(--color-gray10);

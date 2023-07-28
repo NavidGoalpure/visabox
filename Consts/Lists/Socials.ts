@@ -66,7 +66,7 @@ export const VipSocialMedias: Socials[] = [
     locations: Locations.fa,
     featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `مشاوره تخصصی اخذ ویزاهای کارآفرینی، تخصص و مهارت و سایر ویزاهای استرالیا
-    زیر نظر وکیل ثبت شده اداره مهاجرت استرالیا (عضو سازمان MARA) انجام میگردد.`,
+    زیر نظر وکیل ثبت شده اداره مهاجرت استرالیا (عضو سازمان MARA) انجام می‌گردد.`,
     logoUrl:
       'https://binsta.dev/api/v1/files/PaO_vXW-8o/transform?format=webp&size=lg&quality=best',
     status: Status.ACTIVE,

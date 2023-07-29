@@ -168,6 +168,7 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
     }),
     country: getCountryLabel({ country: client?.country }),
     age: client?.age,
+    birthday: client?.birthday,
     IELTSScore: client?.ielts_score,
     phoneNumber: client?.phone,
     email: client?.email,

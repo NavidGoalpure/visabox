@@ -1,21 +1,47 @@
 import { MultiLanguageText } from "Interfaces/Database";
 export enum LanguageKeys {
+  FailedToastMessage = "FailedToastMessage",
+  SuccessToastText = "SuccessToastText",
   ConfirmButtonTitle = "ConfirmButtonTitle",
-  Step12Title = "Step12Title",
-  Step12Desc = "Step12Desc",
+  Step11Title = "Step11Title",
+  Step11Desc = "Step11Desc",
+  HintText= "HintText",
+  YesText = "YesText",
+  NoText = "NoText",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  ConfirmButtonTitle: {
-    en: "Back to home page",
-    fa: "بازگشت به صفحه اصلی",
+  FailedToastMessage: {
+    en: "Request failed! Try again later",
+    fa: "خطا! بعدا تلاش کنید",
+  },
+  SuccessToastText: {
+    en: "Congrats! You Are Done",
+    fa: "تبریک! فرم کامل شد",
   },
 
-  Step12Title: {
-    en: "Your immigration score",
-    fa: "امتیاز مهاجرتی شما",
+  ConfirmButtonTitle: {
+    en: "Send",
+    fa: "ارسال",
   },
-  Step12Desc: {
-    en: "This is your pure score. If you apply for a 190 visa, 5 points will be added to your score, however if you apply for a 491 visa, 15 points will be added to your score.",
-    fa: `این امتیاز خالص شماست. اگر برای ویزای ۱۹۰ اقدام کنید ۵ امتیاز به و در صورتی که برای ویزای ۴۹۱ اقدام کنید ۱۵ امتیاز از طرف ایالت به امتیاز شما اضافه خواهد شد.`,
+
+  Step11Title: {
+    en: "Cooperating with immigration agents",
+    fa: "همکاری با وکلای مهاجرت",
+  },
+  Step11Desc: {
+    en: "Would you like us to share this information with Marabax approved immigration attorneys to contact you for a free consultation?",
+    fa: "آیا مایل هستید که این اطلاعات را در اختیار وکلای مهاجرت مورد تایید «ماراباکس» بگذاریم تا برای مشاوره رایگان با شما تماس بگیرند؟",
+  },
+  HintText: {
+    en: "Your immigration score will be displayed on the next page.",
+    fa: "امتیاز مهاجرتی شما در صفحه بعد نمایش داده میشه.",
+  },
+  YesText: {
+    en: "Yes",
+    fa: "بله",
+  },
+  NoText: {
+    en: "No",
+    fa: "خیر",
   },
 };

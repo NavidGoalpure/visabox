@@ -37,6 +37,11 @@ export default {
       type: "date",
     },
     {
+      name: "birthday",
+      title: "Birthday",
+      type: "date",
+    },
+    {
       name: "visa_subclass",
       title: "Visa Subclass",
       type: "string",

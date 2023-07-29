@@ -1,8 +1,9 @@
 import { MultiLanguageText } from "Interfaces/Database";
-import { IELTSScore} from "Interfaces/Database/Client";
+import { IELTSScore } from "Interfaces/Database/Client";
 
 export interface GetLabelsProps {
   age?: string;
+  birthday?: string;
   IELTSScore?: IELTSScore;
   phoneNumber?: string;
   email?: string;

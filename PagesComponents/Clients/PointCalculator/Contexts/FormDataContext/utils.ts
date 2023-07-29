@@ -13,7 +13,9 @@ export function CalculateClientScore(clientData: Client): number {
   let finalScore = 0;
   let hasEmptyField = false;
   /////////// age//////////////
-  const birthday = new Date(clientData.age || "2023-01-01");
+  const birthday = new Date(
+    clientData?.birthday || clientData.age || "2023-01-01"
+  );
   const clientAge = calculateAge(new Date(birthday));
   if (clientAge > 18 && clientAge < 25) finalScore = finalScore + 25;
   else if (clientAge >= 25 && clientAge < 33) finalScore = finalScore + 30;
@@ -24,9 +26,8 @@ export function CalculateClientScore(clientData: Client): number {
     finalScore = finalScore + 10;
   else if (clientData?.is_partner_competent_english_speaker)
     finalScore = finalScore + 5;
-  if (clientData?.does_partner_have_assessment)
-    finalScore = finalScore + 5;
-    
+  if (clientData?.does_partner_have_assessment) finalScore = finalScore + 5;
+
   /////////// English Language ///////////////////////
   if (clientData?.ielts_score === IELTSScore.Seven)
     finalScore = finalScore + 10;

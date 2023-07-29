@@ -1,42 +1,30 @@
-import { MultiLanguageText } from "Interfaces/Database";
+import { MultiLanguageText } from 'Interfaces/Database';
 export enum LanguageKeys {
-  FailedToastMessage = "FailedToastMessage",
-  SuccessToastText = "SuccessToastText",
-  ConfirmButtonTitle = "ConfirmButtonTitle",
-  Step11Title = "Step11Title",
-  Step11Desc = "Step11Desc",
-  YesText = "YesText",
-  NoText = "NoText",
+  ProfessionalYearInAustraliaPopupContent = 'ProfessionalYearInAustraliaPopupContent',
+  ProfessionalYearInAustralia = 'ProfessionalYearInAustralia',
+  NextButtonTitle = 'NextButtonTitle',
+  PrevButtonTitle = 'PrevButtonTitle',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  FailedToastMessage: {
-    en: "Request failed! Try again later",
-    fa: "خطا! بعدا تلاش کنید",
+  ProfessionalYearInAustraliaPopupContent: {
+    en: `Your answer to this question affects your immigration score,
+    
+    Did you complete a professional year program in Australia in your nominated skilled occupation for at least 12 months in the 48 months immediately before the time of invitation to apply for the visa?`,
+    fa: `جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است.
+    
+   سابقه کار شما در 48 ماه پیش از اخذ دعوت نامه و درخواست ویزا باشد.
+   لازم است سابقه حرفه ای شما مرتبط با رشته ای باشد که در آن اسسمنت اخذ نموده اید.`,
   },
-  SuccessToastText: {
-    en: "Congrats! You Are Done",
-    fa: "تبریک! فرم کامل شد",
+  ProfessionalYearInAustralia: {
+    en: "Professional Year in Australia:",
+    fa: "داشتن یک سال سابقه کار حرفه ای در استرالیا در رشته ی مرتبط",
   },
-
-  ConfirmButtonTitle: {
-    en: "Send",
-    fa: "ارسال",
+  NextButtonTitle: {
+    en: "Next",
+    fa: "بعدی",
   },
-
-  Step11Title: {
-    en: "Last Step",
-    fa: "پایان فرم",
-  },
-  Step11Desc: {
-    en: "Would you like us to share this information with Marabax approved immigration attorneys to contact you for a free consultation?",
-    fa: "آیا مایل هستید که این اطلاعات را در اختیار وکلای مهاجرت مورد تایید «ماراباکس» بگذاریم تا برای مشاوره رایگان با شما تماس بگیرند؟",
-  },
-  YesText: {
-    en: "Yes",
-    fa: "بله",
-  },
-  NoText: {
-    en: "No",
-    fa: "خیر",
+  PrevButtonTitle: {
+    en: "Prev",
+    fa: "قبلی",
   },
 };

@@ -1,20 +1,20 @@
-import { deviceMin } from 'Consts/device';
-import styled, { css } from 'styled-components';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { deviceMin } from "Consts/device";
+import styled, { css } from "styled-components";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import {
   layer2A_BodyStyle,
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import theme from 'styled-theming';
-import Link from 'next/link';
-import { Headline7Style } from 'Styles/Typo';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { componentStatements, LanguageKeys } from './const';
-import { Client } from 'Interfaces/Database/Client';
-import { useLocale } from 'Hooks/useLocale';
-import { CalculateClientScore } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils';
-import { calculateAge } from 'Utils/clients';
+} from "Styles/Theme/Layers/layer2/style";
+import theme from "styled-theming";
+import Link from "next/link";
+import { Headline7Style } from "Styles/Typo";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { componentStatements, LanguageKeys } from "./const";
+import { Client } from "Interfaces/Database/Client";
+import { useLocale } from "Hooks/useLocale";
+import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
+import { calculateAge } from "Utils/clients";
 
 interface Props {
   formData: Client;
@@ -26,9 +26,9 @@ function BasicFormCard({ formData }: Props) {
   const clientScore = CalculateClientScore(formData);
   return (
     <CardContainer
-      target='_blank'
-      rel='noopener noreferrer'
-      style={{ height: '100%' }}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ height: "100%" }}
       href={`/agents/forms-wall/${formData._id}`}
       locale={locale}
       prefetch={false}
@@ -55,17 +55,21 @@ function BasicFormCard({ formData }: Props) {
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.AgeLabel)}</Label>
-          <Value>{calculateAge(new Date(formData?.age || '1800-01-01'))}</Value>
+          <Value>
+            {calculateAge(
+              new Date(formData?.birthday || formData?.age || "1800-01-01")
+            )}
+          </Value>
         </DataWrapper>
       </Wrapper>
-      <PrimaryButton style={{ margin: '0 auto' }}>
+      <PrimaryButton style={{ margin: "0 auto" }}>
         {t(LanguageKeys.ViewMore)}
       </PrimaryButton>
     </CardContainer>
   );
 }
 export default BasicFormCard;
-const codeColor = theme('mode', {
+const codeColor = theme("mode", {
   light: css`
     background: var(--color-gray13);
     color: var(--color-gray8);
@@ -76,7 +80,7 @@ const codeColor = theme('mode', {
     border: 2px solid var(--color-primary4);
   `,
 });
-const LabelTheme = theme('mode', {
+const LabelTheme = theme("mode", {
   light: css`
     color: var(--color-gray8);
   `,
@@ -84,7 +88,7 @@ const LabelTheme = theme('mode', {
     color: var(--color-gray10);
   `,
 });
-const ScoreValueTheme = theme('mode', {
+const ScoreValueTheme = theme("mode", {
   light: css`
     color: var(--color-secondary1);
   `,

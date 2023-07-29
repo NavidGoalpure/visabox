@@ -12,6 +12,7 @@ import Step8 from "./Step8";
 import Step9 from "./Step9";
 import Step10 from "./Step10";
 import Step11 from "./Step11";
+import Step12 from "./Step12";
 import { WizardContext } from "../Contexts/Wizard/Context";
 import Slider from "Components/SliderComponent";
 import Wizard from "../Contexts/Wizard";
@@ -32,11 +33,12 @@ const SmartSteps: React.FC = () => {
     <Step9 />,
     <Step10 />,
     <Step11 />,
+    <Step12 />,
   ];
 
   return (
     <Container>
-      {step !== 0 && step !== 11 && step !== 12 && (
+      {step !== 0 && step !== 12 && (
         <Slider currentStep={step} end={steps.length - 1} />
       )}
       <StepsWrapper>{steps[step]}</StepsWrapper>

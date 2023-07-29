@@ -20,16 +20,19 @@ import { calculateAge } from "Utils/clients";
 import { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
 
-const Step4 = () => {
+const Step3 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
   const router = useRouter();
   const { locale } = useLocale();
-  var mydate = client?.age
+  var mydate = client?.birthday
+    ? new Date(client?.birthday).toISOString().slice(0, 10)
+    : client?.age
     ? new Date(client?.age).toISOString().slice(0, 10)
     : "";
-  const birthday = new Date(client?.age || "1800-01-01");
+  // 2023-01-01 is defensive
+  const birthday = new Date(client?.birthday || client?.age || "2023-01-01");
   const clientAge = calculateAge(new Date(birthday));
   return (
     <Container>
@@ -55,7 +58,7 @@ const Step4 = () => {
           client &&
             setClient({
               ...client,
-              age: e.target.value?.slice(0, 10),
+              birthday: e.target.value?.slice(0, 10),
             });
         }}
         id={"date-input"}
@@ -79,7 +82,7 @@ const Step4 = () => {
             clientAge > 44 ? router.push(`/${locale}/`) : handleNextPress();
           }}
           icon={<NextIcon />}
-          disabled={!client?.age}
+          disabled={!client?.age && !client?.birthday}
         >
           {clientAge > 44
             ? t(LanguageKeys.BackToHomepage)
@@ -89,4 +92,4 @@ const Step4 = () => {
     </Container>
   );
 };
-export default Step4;
+export default Step3;

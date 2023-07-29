@@ -37,7 +37,11 @@ function DescriptionSection({ client }: Props) {
       <Wrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
-          <Value>{data?.age?.slice(0, 10)}</Value>
+          <Value>
+            {data?.birthday
+              ? data?.birthday?.slice(0, 10)
+              : data?.age?.slice(0, 10)}
+          </Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}

@@ -156,6 +156,9 @@ const AssessContainer = styled.div`
   gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: center;
+  @media ${deviceMin.tabletS} {
+    flex-wrap: nowrap;
+  }
 `;
 const TitleContainer = styled.div`
   display: flex;

@@ -131,6 +131,7 @@ const Step5 = () => {
                 value === "yes" ? true : false,
               //this shouldnt have a value if australian educational qulification === false
               designated_regional_area_study: value === "no" && false,
+              specialist_educational_qualification: value === "no" && false,
             });
         }}
       >
@@ -193,96 +194,59 @@ const Step5 = () => {
           </ToggleGroupRoot>
         </>
       )}
-
-      <StyledTitle>
-        {t(LanguageKeys.SpecialistEducationalQualification)}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon /> <InformationIcon />
-            </>
-          }
-          popupContent={t(
-            LanguageKeys.SpecialistEducationalQualificationPopupContent
-          )}
-        />
-      </StyledTitle>
-      <ToggleGroupRoot
-        type="single"
-        value={
-          client?.specialist_educational_qualification !== null
-            ? client?.specialist_educational_qualification === true
-              ? "yes"
-              : "no"
-            : undefined
-        }
-        onValueChange={(value: string) => {
-          client &&
-            setClient({
-              ...client,
-              specialist_educational_qualification:
-                value === "yes" ? true : false,
-            });
-        }}
-      >
-        {
-          <>
-            {YesOrNo.map((option, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={option}
-                value={option.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
-      <StyledTitle>
-        {t(LanguageKeys.ProfessionalYearInAustralia)}{" "}
-        <StyledTooltipTag
-          content={
-            <>
-              <CalculatorIcon /> <InformationIcon />
-            </>
-          }
-          popupContent={t(LanguageKeys.ProfessionalYearInAustraliaPopupContent)}
-        />
-      </StyledTitle>
-      <ToggleGroupRoot
-        type="single"
-        value={
-          client?.professional_year_in_australia !== null
-            ? client?.professional_year_in_australia === true
-              ? "yes"
-              : "no"
-            : undefined
-        }
-        onValueChange={(value: string) => {
-          client &&
-            setClient({
-              ...client,
-              professional_year_in_australia: value === "yes" ? true : false,
-            });
-        }}
-      >
-        {
-          <>
-            {YesOrNo.map((option, i) => (
-              <ToggleGroup.Item
-                key={i}
-                text={option}
-                value={option.en.toLowerCase()}
-              ></ToggleGroup.Item>
-            ))}
-          </>
-        }
-      </ToggleGroupRoot>
+      {client?.australian_educational_qualification && (
+        <>
+          <StyledTitle>
+            {t(LanguageKeys.SpecialistEducationalQualification)}
+            <StyledTooltipTag
+              content={
+                <>
+                  <CalculatorIcon /> <InformationIcon />
+                </>
+              }
+              popupContent={t(
+                LanguageKeys.SpecialistEducationalQualificationPopupContent
+              )}
+            />
+          </StyledTitle>
+          <ToggleGroupRoot
+            type="single"
+            value={
+              client?.specialist_educational_qualification !== null
+                ? client?.specialist_educational_qualification === true
+                  ? "yes"
+                  : "no"
+                : undefined
+            }
+            onValueChange={(value: string) => {
+              client &&
+                setClient({
+                  ...client,
+                  specialist_educational_qualification:
+                    value === "yes" ? true : false,
+                });
+            }}
+          >
+            {
+              <>
+                {YesOrNo.map((option, i) => (
+                  <ToggleGroup.Item
+                    key={i}
+                    text={option}
+                    value={option.en.toLowerCase()}
+                  ></ToggleGroup.Item>
+                ))}
+              </>
+            }
+          </ToggleGroupRoot>
+        </>
+      )}
       <StyledTitle>
         {t(LanguageKeys.AccreditedCommunityLanguage)}{" "}
         <StyledTooltipTag
           content={
             <>
-              <CalculatorIcon /> 
+              <CalculatorIcon />
             </>
           }
           popupContent={t(LanguageKeys.AccreditedCommunityLanguagePopupContent)}
@@ -334,13 +298,14 @@ const Step5 = () => {
             !client?.uni_section ||
             client?.australian_educational_qualification === null ||
             client?.professional_year_in_australia === null ||
-            client?.specialist_educational_qualification === null ||
             client?.accredited_community_language === null ||
-            // designated regional area study is not required
+            // designated regional area study and specialist is not required
             // unless australian educational qualification === true
             (client?.australian_educational_qualification === true &&
               (client?.designated_regional_area_study === null ||
-                client?.designated_regional_area_study === undefined))
+                client?.designated_regional_area_study === undefined) &&
+              (client?.specialist_educational_qualification === null ||
+                client?.specialist_educational_qualification === undefined))
           }
           icon={<NextIcon />}
         >

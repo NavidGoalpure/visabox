@@ -67,7 +67,7 @@ export interface Client extends SanityKeys {
   name?: string;
   lastname?: string;
   phone?: string;
-  // navid make another one of these named birthday
+  birthday?:string;
   age?: string;
   visa_subclass: VisaSubclass;
   marital: ClientMarital;

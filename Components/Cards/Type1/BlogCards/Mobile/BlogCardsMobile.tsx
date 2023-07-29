@@ -46,7 +46,7 @@ function BlogCardsMobile() {
         />
         <BlogCardMobile
           title='نمره زبان  و ویزای مهارتی یا اسکیل ورکر'
-          desc=' آزمونهای زبان مورد تایید سازمان مهاجرت استرالیا جهت اقدام برای ویزاهای مختلف شامل :IELTS, PTE,TOEFL, CAE, OET می‌باشد. توضیحات هر یک از این آزمونها به شرح ذیل است:'
+          desc=' آزمون‌های زبان مورد تایید سازمان مهاجرت استرالیا جهت اقدام برای ویزاهای مختلف شامل :IELTS, PTE,TOEFL, CAE, OET می‌باشد. توضیحات هر یک از این آزمونها به شرح ذیل است:'
           img='https://binsta.dev/api/v1/files/z7jW9EIqKf/transform?format=webp&size=lg&quality=best'
           href={`/${locale}/blog/Language-score-and-skilled-worker-visa`}
         />

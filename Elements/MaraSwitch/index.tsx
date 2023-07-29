@@ -17,7 +17,6 @@ const MaraSwitch: React.FC<Props> = ({
   isLoading = false,
   onCheckedChange,
 }) => {
-  // navid ask mobin if this design is going to be used in other places
   if (isLoading || isChecked === undefined) return <Loading style={{ width: "auto" }} />;
   return (
     <SwitchRoot

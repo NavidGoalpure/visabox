@@ -17,7 +17,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   buttonText: string;
   stampText?: string;
 }
-const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
+const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText,stampText }) => {
   const router = useRouter();
   const [isBannerClosed, setIsBannerClosed] = useState(true);
   useEffect(() => {
@@ -31,11 +31,10 @@ const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText }) => {
   }, []);
   return (
     <Container isBannerClosed={isBannerClosed}>
-      {/* {stampText && <Stamp
+      {stampText && <Stamp
         dangerouslySetInnerHTML={{ __html: stampText }}
       >
-      navid uncommend when calc is added
-      </Stamp>} */}
+      </Stamp>}
       <Wrapper>
         {' '}
         <MaraBgAnimation

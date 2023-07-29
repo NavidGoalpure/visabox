@@ -166,16 +166,17 @@ const PlaneMobile = styled(Image)`
 
 const PlaneDesktopContainer = styled.div`
 display: none;
+width: 100%;
+height: 100%;
+display: initial;
+position: relative;
 @media ${deviceMin.laptopM} {
   width: 100%;
   height: 40%;
   display: initial;
   position: relative;
 }
-@media ${deviceMin.laptopL} {
-  height: 20%;
-}
-`
+`;
 
 const PlaneDesktop = styled(Image)`
   display: none;

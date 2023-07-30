@@ -19,6 +19,7 @@ import OccupationDropdown from "./dropdownOccupation";
 import MobileBoxesDropdown from "./dropdownBoxes";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
+import { Languages } from "Interfaces";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -67,10 +68,14 @@ function SmartHeader() {
               <MobileBoxesDropdown />
               <Hr />
               <OccupationDropdown />
-              <Hr />
-              <MenuLink href={`/${locale}/blog`}>
-                {t(LanguageKeys.Blogs)}
-              </MenuLink>
+              {locale === Languages.fa && (
+                <>
+                  <Hr />
+                  <MenuLink href={`/${locale}/blog`}>
+                    {t(LanguageKeys.Blogs)}
+                  </MenuLink>
+                </>
+              )}
               <Hr />
               <RowContainer>
                 <MobileLanguageChanger />

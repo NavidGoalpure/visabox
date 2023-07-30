@@ -41,9 +41,9 @@ export const BlogContainer = styled.article`
   }
   p {
     ${Layer1_TextStyle}
-    b {
-      ${boldTheme}
-    }
+  }
+  b {
+    ${boldTheme}
   }
   h1 {
     ${Layer1_TitleStyle}

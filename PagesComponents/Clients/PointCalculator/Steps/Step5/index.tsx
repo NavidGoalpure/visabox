@@ -20,11 +20,14 @@ import {
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import { ClientDegree, UniSections } from "Interfaces/Database/Client";
 import { educations, uniSections, YesOrNo } from "Consts/Client";
+import { useLocale } from "Hooks/useLocale";
+import { Languages } from "Interfaces";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
+  const { locale } = useLocale();
 
   return (
     <Container>
@@ -107,6 +110,7 @@ const Step5 = () => {
           content={
             <>
               <CalculatorIcon />
+              {locale === Languages.en && <InformationIcon />}
             </>
           }
           popupContent={t(
@@ -155,6 +159,7 @@ const Step5 = () => {
               content={
                 <>
                   <CalculatorIcon />
+                  {locale === Languages.en && <InformationIcon />}
                 </>
               }
               popupContent={t(
@@ -202,6 +207,7 @@ const Step5 = () => {
               content={
                 <>
                   <CalculatorIcon />
+                  {locale === Languages.en && <InformationIcon />}
                 </>
               }
               popupContent={t(

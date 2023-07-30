@@ -1,10 +1,6 @@
 import { useContext } from "react";
 import styled, { css } from "styled-components";
-import {
-  Headline4Style,
-  Headline5Style,
-  Headline6Style,
-} from "Styles/Typo";
+import { Headline4Style, Headline5Style, Headline6Style } from "Styles/Typo";
 import theme from "styled-theming";
 import {
   layer2A_SubtitleStyle,
@@ -22,7 +18,7 @@ import { HiOutlineCalculator } from "react-icons/hi2";
 //
 const Step12 = () => {
   const { t } = useStaticTranslation(componentStatements);
-  const {  score } = useContext(FormDataContext);
+  const { score } = useContext(FormDataContext);
   const router = useRouter();
   const { locale } = useLocale();
   return (
@@ -86,7 +82,8 @@ const Logo = styled(HiOutlineCalculator)`
   border-radius: 50%;
   background: var(--color-primary4);
   padding: 1rem;
-  width: 3.5rem;
+  box-sizing: content-box;
+  width: 2.5rem;
   height: auto;
 `;
 const Title = styled.h1`

@@ -18,6 +18,7 @@ import { Loading } from 'Elements/Loading';
 import { ContentOrError } from 'Components/contentOrError';
 import ErrorToast from 'Elements/Toast/Error';
 import { signOut } from 'next-auth/react';
+import { deviceMin } from 'Consts/device';
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
@@ -98,7 +99,4 @@ const UserForms: NextPage = ({}) => {
 export default UserForms;
 const StyledPageLayout = styled(PageLayout)`
   max-width: none;
-  #PageContainer-content {
-    padding: 0;
-  }
 `;

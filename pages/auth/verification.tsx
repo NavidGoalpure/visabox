@@ -41,7 +41,4 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 }
 const StyledPageLayout = styled(PageLayout)`
   max-width: none;
-  #PageContainer-content {
-    padding: 0;
-  }
 `;

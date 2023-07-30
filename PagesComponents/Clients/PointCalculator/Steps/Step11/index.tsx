@@ -198,14 +198,15 @@ const Logo = styled(FaRegHandshake)`
   color: white;
   border-radius: 50%;
   background: var(--color-primary3);
-  width: 3rem;
-  padding: 1.2rem;
+  width: 2.5rem;
+  padding: 1rem;
+  box-sizing: content-box;
   height: auto;
 `;
 const Title = styled.h1`
   ${Headline4Style};
-  white-space: nowrap;
   color: var(--color-primary5);
+  text-align: center;
   @media ${deviceMin.tabletS} {
     ${Headline3Style};
   }

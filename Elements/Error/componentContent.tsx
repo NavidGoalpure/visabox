@@ -1,14 +1,15 @@
-import { globalComponentStatements, LanguageKeys } from 'Consts/language';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { globalComponentStatements, LanguageKeys } from "Consts/language";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { MdError } from 'react-icons/md';
+import { MdError } from "react-icons/md";
 import {
   layer2A_TitleStyle,
   layer2A_SubtitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
+} from "Styles/Theme/Layers/layer2/style";
+import { deviceMin } from "Consts/device";
 
 export const ComponentError: React.FC = () => {
   const { t } = useStaticTranslation(globalComponentStatements);
@@ -32,6 +33,8 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
   h3 {
     ${layer2A_TitleStyle}
   }

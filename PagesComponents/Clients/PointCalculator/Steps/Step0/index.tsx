@@ -78,7 +78,7 @@ const LogoContainer = styled.div``;
 const Logo = styled(Image)``;
 const Title = styled.h1`
   ${Headline4Style};
-  white-space: nowrap;
+  text-align: center;
   color: var(--color-primary5);
   @media ${deviceMin.tabletS} {
     ${Headline3Style};

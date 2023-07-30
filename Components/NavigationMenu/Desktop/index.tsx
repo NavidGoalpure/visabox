@@ -16,6 +16,7 @@ import DesktopOccupationDropdown from "./dropdownOccupation";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
 import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
+import { Languages } from "Interfaces";
 
 function Desktop() {
   const { locale } = useLocale();
@@ -35,11 +36,13 @@ function Desktop() {
 
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
+          {locale === Languages.fa &&
           <NavigationMenu.Item>
             <Link href={`/${locale}/blog`}>
               <Item>{t(LanguageKeys.Blogs)}</Item>
             </Link>
           </NavigationMenu.Item>
+          }
         </MenuItems>
         <StyledMenuItem as={"div"}>
           {session ? (

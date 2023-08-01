@@ -16,6 +16,5 @@ export const listOfBasicForm_ResParams = `
       work_experience,
       australian_work_experience,
       marital_situation,
-      visa_subclass,
       `;
 ////////////

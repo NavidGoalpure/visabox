@@ -22,9 +22,7 @@ export function validateClientDataWithYup(client: Client | undefined) {
     name: string().required(),
     lastname: string().required(),
     phone: string().required(),
-    // visa_subclass: mixed<VisaSubclass>()
-    //   .oneOf(Object.values(VisaSubclass))
-    //   .required(),
+
     age: date().notRequired(),
     birthday:date().required(),
     marital: mixed<ClientMarital>()

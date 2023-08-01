@@ -14,6 +14,8 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import { componentStatements, LanguageKeys } from "./const";
 import { HiOutlineCalculator } from "react-icons/hi2";
+import Link from "next/link";
+import { Languages } from "Interfaces";
 
 //
 const Step12 = () => {
@@ -26,7 +28,18 @@ const Step12 = () => {
       <Logo />
       <Title>{t(LanguageKeys.Step12Title)}</Title>
       <Grade>{score}</Grade>
-      <Desc>{t(LanguageKeys.Step12Desc)}</Desc>
+      <Desc>
+        {t(LanguageKeys.Step12Desc)} <br />
+        {locale === Languages.fa && (
+          <>
+            اگر میخواهید درباره سابکلاس های ویزا اطلاعات کسب کنید{" "}
+            <StyledLink href={"/blog/what-is-skilled-worker-visa"}>
+              اینجا
+            </StyledLink>{" "}
+            کلیک کنید
+          </>
+        )}
+      </Desc>
       <ButtonWrapper>
         <ConfirmButton onClick={() => router.push(`/${locale}/`)}>
           {t(LanguageKeys.ConfirmButtonTitle)}
@@ -117,3 +130,4 @@ const ButtonWrapper = styled.div`
 const ConfirmButton = styled(PrimaryButton)`
   padding: 0 2.5rem;
 `;
+const StyledLink = styled(Link)``;

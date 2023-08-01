@@ -34,7 +34,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   HintText: {
     en: "Your immigration score will be displayed on the next page.",
-    fa: "امتیاز مهاجرتی شما در صفحه بعد نمایش داده میشه.",
+    fa: "امتیاز مهاجرتی شما در صفحه بعد نمایش داده میشود.",
   },
   YesText: {
     en: "Yes",

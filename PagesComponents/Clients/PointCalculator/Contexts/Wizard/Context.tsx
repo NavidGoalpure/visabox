@@ -18,7 +18,8 @@ type Props = {
 const WizardContext = React.createContext({} as WizardState);
 //
 function WizardContextProvider(props: Props) {
-  const [step, setStep] = useState<number>(0);
+  // navid
+  const [step, setStep] = useState<number>(12);
   const [isBackPressed, setIsBackPressed] = useState<boolean>(false);
   const [isOut, setIsOut] = useState<boolean>(false);
 

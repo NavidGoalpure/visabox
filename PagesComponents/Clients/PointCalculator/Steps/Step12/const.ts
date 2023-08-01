@@ -16,6 +16,6 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   Step12Desc: {
     en: "This is your pure score. If you apply for a 190 visa, 5 points will be added to your score, however if you apply for a 491 visa, 15 points will be added to your score.",
-    fa: `این امتیاز خالص شماست. اگر برای ویزای ۱۹۰ اقدام کنید ۵ امتیاز به و در صورتی که برای ویزای ۴۹۱ اقدام کنید ۱۵ امتیاز از طرف ایالت به امتیاز شما اضافه خواهد شد.`,
+    fa: `این امتیاز خالص شماست. اگر برای ویزای ۱۹۰ اقدام کنید ۵ امتیاز و در صورتی که برای ویزای ۴۹۱ اقدام کنید ۱۵ امتیاز از طرف ایالت به امتیاز شما اضافه خواهد شد.`,
   },
 };

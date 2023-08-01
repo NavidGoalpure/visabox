@@ -304,7 +304,6 @@ const Step5 = () => {
             !client?.degree ||
             !client?.uni_section ||
             client?.australian_educational_qualification === null ||
-            client?.professional_year_in_australia === null ||
             client?.accredited_community_language === null ||
             // designated regional area study and specialist is not required
             // unless australian educational qualification === true

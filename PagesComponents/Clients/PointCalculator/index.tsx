@@ -3,9 +3,10 @@ import MaraBgAnimation from "Components/MaraBgAnimation";
 import SmartSteps from "./Steps/SmartStep";
 import { WizardContextProvider } from "./Contexts/Wizard/Context";
 import { useSession } from "next-auth/react";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
 import { useEffect } from "react";
+import { Loading } from "Elements/Loading";
 function Content() {
   const { status } = useSession();
   const router = useRouter();
@@ -20,7 +21,11 @@ function Content() {
     <Container>
       <WizardContextProvider>
         <StyledMaraBgAnimation animationSpeed={60}>
-          <SmartSteps />
+          {status === "loading" || status === "unauthenticated" ? (
+            <Loading />
+          ) : (
+            <SmartSteps />
+          )}
         </StyledMaraBgAnimation>
       </WizardContextProvider>
     </Container>

@@ -6,7 +6,7 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Lists/Agencies/const';
+} from 'PagesComponents/Blog/Blogs/Language-score-and-skilled-worker-visa/const';
 import PostContent from 'PagesComponents/Blog/Blogs/Language-score-and-skilled-worker-visa';
 
 const BlogPage: NextPage = () => {
@@ -14,12 +14,11 @@ const BlogPage: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <PageLayout>
-      {/* //navid  */}
-      {/* <Seo
+      <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents`}
-      /> */}
+        canonical={`https://www.marabox.com/${locale}/blog/Language-score-and-skilled-worker-visa`}
+      />
       <PostContent />
     </PageLayout>
   );

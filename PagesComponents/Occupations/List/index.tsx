@@ -1,22 +1,22 @@
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import CardsSection from './CardsSection';
-import Search from './Search';
-import { PageSubtitle } from './PageSubtitle';
-import { useListData } from './useListData';
-import { useLastOccupationData } from './useLastOccupationData';
-import { getHasNextPage, getLastFetchedOccupation } from './utils';
-import { SmartButton } from './SmartButton';
-import { ContentOrError } from 'Components/contentOrError';
-import styled from 'styled-components';
-import { useContext, useEffect, useState } from 'react';
-import NoData from 'Components/NoData';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { SearchFilterContext } from './Context/SearchFilter';
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import CardsSection from "./CardsSection";
+import Search from "./Search";
+import { PageSubtitle } from "./PageSubtitle";
+import { useListData } from "./useListData";
+import { useLastOccupationData } from "./useLastOccupationData";
+import { getHasNextPage, getLastFetchedOccupation } from "./utils";
+import { SmartButton } from "./SmartButton";
+import { ContentOrError } from "Components/contentOrError";
+import styled from "styled-components";
+import { useContext, useEffect, useState } from "react";
+import NoData from "Components/NoData";
+import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
+import { SearchFilterContext } from "./Context/SearchFilter";
 
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
-  const [searchValue, setSearchValue] = useState<string>('');
+  const [searchValue, setSearchValue] = useState<string>("");
   const { filteredOccupationRange } = useContext(SearchFilterContext);
 
   //این هوکیه که لیست آکیوپیشن ها رو برمیگردونه
@@ -50,7 +50,7 @@ const Content: React.FC = () => {
       <PageSubtitle />
       <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
       {!occupations?.pages[0]?.length && !isFetching ? (
-        <NoData hasIcon={false} themeLayer='1' />
+        <NoData hasIcon={false} themeLayer="1" />
       ) : (
         <>
           <ContentOrError

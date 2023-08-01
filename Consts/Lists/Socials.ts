@@ -14,6 +14,8 @@ export const VipSocialMedias: Socials[] = [
     desc: `گروه بحث و تبادل نظر در مورد ویزاهای سرمایه گذاری و کارآفرینی استرالیا. زیر نظر وکیل رسمی مهاجرت استرالیا، آقای محمد رضا عظیمی.
   `,
     link: 'https://t.me/ShadaBusinessVisaGroup',
+    logoUrl:
+      'https://binsta.dev/api/v1/files/myKXD_aopK/transform?format=webp&size=lg&quality=best',
     status: Status.ACTIVE,
   },
   {
@@ -23,8 +25,10 @@ export const VipSocialMedias: Socials[] = [
     slug: 'Arad-Immigration',
     link: 'https://t.me/Arad_immigration',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA, //Full_data
-    desc: `این گروه جهت پاسخگویی به سوالات شما عزیزان در حوزه ویزا و اقامت استرالیا می باشد. جهت ارتباط با وکیل رسمی مهاجرت سرکار خانم سودابه حریری از راه های زیر با ما در تماس باشید`,
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
+    desc: `این گروه جهت پاسخگویی به سوالات شما عزیزان در حوزه ویزا و اقامت استرالیا می‌باشد. جهت ارتباط با وکیل رسمی مهاجرت سرکار خانم سودابه حریری از راه های زیر با ما در تماس باشید`,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/_Lx6raK9eI/transform?format=webp&size=lg&quality=best',
     status: Status.ACTIVE,
   },
   {
@@ -34,8 +38,10 @@ export const VipSocialMedias: Socials[] = [
     slug: 'visazone',
     link: 'https://t.me/VisazoneAustralia',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `اخذ انواع ویزای استرالیا با نغمه دانایی وكيل رسمى مهاجرتى عضو MARA با بیش از ١٢ سال تجربه`,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/_Pmhp51eym/transform?format=webp&size=lg&quality=best',
     status: Status.ACTIVE,
   },
   {
@@ -45,8 +51,10 @@ export const VipSocialMedias: Socials[] = [
     slug: 'azzyimmigration',
     link: 'https://t.me/azzyimmigration',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `خدمات مهاجرتى و اخذ اقامت استراليا توسط وكيل رسمى مهاجرت`,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/HpRV7Xp_1Z/transform?format=webp&size=lg&quality=best',
     status: Status.ACTIVE,
   },
   {
@@ -56,9 +64,11 @@ export const VipSocialMedias: Socials[] = [
     slug: 'uniquevisa',
     link: 'https://t.me/uniquevisa',
     locations: Locations.fa,
-    featuredPlan: FeaturedPlan_Business.FULL_DATA,
+    featuredPlan: FeaturedPlan_Business.VIP, //Full_data
     desc: `مشاوره تخصصی اخذ ویزاهای کارآفرینی، تخصص و مهارت و سایر ویزاهای استرالیا
-    زیر نظر وکیل ثبت شده اداره مهاجرت استرالیا (عضو سازمان MARA) انجام میگردد.`,
+    زیر نظر وکیل ثبت شده اداره مهاجرت استرالیا (عضو سازمان MARA) انجام می‌گردد.`,
+    logoUrl:
+      'https://binsta.dev/api/v1/files/PaO_vXW-8o/transform?format=webp&size=lg&quality=best',
     status: Status.ACTIVE,
   },
 ];
@@ -137,7 +147,7 @@ export const NormalSocialMedias: Socials[] = [
     link: 'https://t.me/+aYkIYE1sPdsxMDZk',
     locations: Locations.fa,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: `هدف این گروه سهولت در کاریابی آسان و پیشنهاد کاری کاری کارفرمایان ایرانی می باشد.`,
+    desc: `هدف این گروه سهولت در کاریابی آسان و پیشنهاد کاری کاری کارفرمایان ایرانی می‌باشد.`,
     status: Status.DEACTIVE,
   },
   {
@@ -159,7 +169,7 @@ export const NormalSocialMedias: Socials[] = [
     link: 'https://t.me/+HUYaozJFqao1YjFk',
     locations: Locations.fa,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: `اشتراک گذاری تجربیات در مورد خودروهای واقع در بازار استرالیا  ، مراحل اداری و پلاک ، سطح کیفی اتومبیلها و هر آنچه مربوط به خودرو هست ، هدف اصلی این گروه میباشداشتراک گذاری تجربیات در مورد خودروهای واقع در بازار استرالیا  ، مراحل اداری و پلاک ، سطح کیفی اتومبیلها و هر آنچه مربوط به خودرو هست ، هدف اصلی این گروه میباشد`,
+    desc: `اشتراک گذاری تجربیات در مورد خودروهای واقع در بازار استرالیا  ، مراحل اداری و پلاک ، سطح کیفی اتومبیلها و هر آنچه مربوط به خودرو هست ، هدف اصلی این گروه می‌باشداشتراک گذاری تجربیات در مورد خودروهای واقع در بازار استرالیا  ، مراحل اداری و پلاک ، سطح کیفی اتومبیلها و هر آنچه مربوط به خودرو هست ، هدف اصلی این گروه می‌باشد`,
     status: Status.DEACTIVE,
   },
   {
@@ -225,7 +235,7 @@ export const NormalSocialMedias: Socials[] = [
     link: 'https://t.me/+jzDvq-ZAsQVkMjBk',
     locations: Locations.fa,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: `در این گروه مباحث مد نظر کسانی که برای ویزای 188 لاج کرده اند و منتظر ویزا هستند مطرح می شود و اعضا مباحث مد نظر خود را به بحث گذاشته به یکدیگر کمک می کنند.`,
+    desc: `در این گروه مباحث مد نظر کسانی که برای ویزای 188 لاج کرده اند و منتظر ویزا هستند مطرح می‌شود و اعضا مباحث مد نظر خود را به بحث گذاشته به یکدیگر کمک می کنند.`,
     status: Status.DEACTIVE,
   },
 
@@ -237,7 +247,7 @@ export const NormalSocialMedias: Socials[] = [
     link: 'https://t.me/+aTuhMKtcwr9mNDc0',
     locations: Locations.fa,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: `در این گروه موارد مرتبط با  اقدام برای اخذ ویزای اسکیل و مهارتی استرالیا  مطرح و اعضا یکدیگر را راهنمایی می نماید`,
+    desc: `در این گروه موارد مرتبط با  اقدام برای اخذ ویزای اسکیل و مهارتی استرالیا  مطرح و اعضا یکدیگر را راهنمایی می‌نماید`,
     status: Status.DEACTIVE,
   },
   {
@@ -259,7 +269,7 @@ export const NormalSocialMedias: Socials[] = [
     link: 'https://t.me/+nO176mobSqI1ZmY0',
     locations: Locations.fa,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: `در این گروه موارد مرتبط با  اقدام برای اخذ شهروندی مطرح و اعضا یکدیگر را راهنمایی می نماید`,
+    desc: `در این گروه موارد مرتبط با  اقدام برای اخذ شهروندی مطرح و اعضا یکدیگر را راهنمایی می‌نماید`,
     status: Status.DEACTIVE,
   },
   {
@@ -314,7 +324,7 @@ export const NormalSocialMedias: Socials[] = [
     link: 'https://t.me/+TxpP5hYe96w8F381',
     locations: Locations.fa,
     featuredPlan: FeaturedPlan_Business.SIMPLE,
-    desc: `اینجا در مورد خرید خونه و فرصت های سرمایه گذاری در زمینه مسکن صحبت می کنید`,
+    desc: `اینجا در مورد خرید خونه و فرصت های سرمایه گذاری در زمینه مسکن صحبت می‌کنید`,
     status: Status.DEACTIVE,
   },
   {
@@ -432,6 +442,20 @@ export const NormalSocialMedias: Socials[] = [
     ...با تشکر فراوان 
     
     زن زندگی آزادی`,
+    status: Status.ACTIVE,
+  },
+  {
+    id: 'soc38',
+    name: 'شروع نیمه دوم زندگی',
+    socialmediaType: SocialMediaTypes.TELEGRAM,
+    slug: 'the-second-half-of-my-life',
+    link: 'https://t.me/thesecondhalfofmylife',
+    locations: Locations.fa,
+    featuredPlan: FeaturedPlan_Business.SIMPLE,
+    desc: `کانال من بدون نظم و تابو شکنه
+    گاهی چند تا پست پشت هم دارم و گاهی هم روزها ممکنه چیزی نباشه
+    به حال دل خودم‌ بستگی داره
+    اینجا خود خودمم`,
     status: Status.ACTIVE,
   },
 ];

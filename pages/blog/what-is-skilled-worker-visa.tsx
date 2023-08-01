@@ -6,8 +6,8 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Lists/Agencies/const';
-import PostContent from 'PagesComponents/Blog/Blogs/evaluating-organizations';
+} from 'PagesComponents/Blog/Blogs/what-is-skilled-worker-visa/const';
+import PostContent from 'PagesComponents/Blog/Blogs/what-is-skilled-worker-visa';
 
 const BlogPage: NextPage = () => {
   const { locale } = useLocale();
@@ -17,7 +17,7 @@ const BlogPage: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents`}
+        canonical={`https://www.marabox.com/${locale}/blog/what-is-skilled-worker-visa`}
       />
       <PostContent />
     </PageLayout>

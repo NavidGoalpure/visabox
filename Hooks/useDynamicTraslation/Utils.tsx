@@ -1,10 +1,9 @@
-
 import { useLocale } from 'Hooks/useLocale';
 import { Languages } from 'Interfaces';
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 
 /**
- *  یک گزاره را گرفته،‌بسته به زبان کاربر که از یوارال فهمیده میشود، ترجمه مناسب را برمیگرداند
+ *  یک گزاره را گرفته،‌بسته به زبان کاربر که از یوارال فهمیده می‌شود، ترجمه مناسب را برمیگرداند
  * @param  statementObj عبارتی که از سرور میاد، در زبان های مختلف
  * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده
  */

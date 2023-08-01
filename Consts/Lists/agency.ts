@@ -12,7 +12,7 @@ export const AGENCYS: Agency[] = [
     featuredPlan: FeaturedPlan_Business.VIP,
     desc: {
       en: `Shada Institute is the result of the continuous efforts of an active team and an idealistic thought in the international immigration and employment industry. We are always trying to identify the needs of our applicants in various aspects with a comprehensive view and try to solve them in the shortest time by providing quality services. We are proud that we have been able to help hundreds of Iranians to immigrate to Australia and continue this path. Our values are the expert guidance and guidance of clients and building trust and confidence by protecting their material and spiritual interests by observing professional ethics and in the shortest possible time.`,
-      fa: `موسسه شادا، حاصل تلاش های بی وقفه یک تیم فعال و یک اندیشه ی آرمان گرایانه در صنعت مهاجرت و کاریابی بین المللی می باشد. ما همواره در تلاشیم تا با نگاهی جامع، نیازمندی های متقاضیان خود را در جنبه های مختلف شناسایی و در کوتاه ترین زمان با ارائه ی خدماتی با کیفیت، درصدد رفع آن برآییم. مفتخریم که تا به امروز توانسته ایم به صدها ایرانی برای مهاجرت به استرالیا کمک کرده و همچنان این مسیر را ادامه دهیم. ارزش های ما راهنمایی و هدایت تخصصی موکلین و ایجاد اعتماد و اطمینان با حفظ منافع مادی و معنوی ایشان با رعایت اخلاق حرفه ای و در کوتاه ترین زمان ممکن می باشد.`,
+      fa: `موسسه شادا، حاصل تلاش های بی وقفه یک تیم فعال و یک اندیشه ی آرمان گرایانه در صنعت مهاجرت و کاریابی بین المللی می‌باشد. ما همواره در تلاشیم تا با نگاهی جامع، نیازمندی های متقاضیان خود را در جنبه های مختلف شناسایی و در کوتاه ترین زمان با ارائه ی خدماتی با کیفیت، درصدد رفع آن برآییم. مفتخریم که تا به امروز توانسته ایم به صدها ایرانی برای مهاجرت به استرالیا کمک کرده و همچنان این مسیر را ادامه دهیم. ارزش های ما راهنمایی و هدایت تخصصی موکلین و ایجاد اعتماد و اطمینان با حفظ منافع مادی و معنوی ایشان با رعایت اخلاق حرفه ای و در کوتاه ترین زمان ممکن می‌باشد.`,
     },
     contact: {
       website: 'https://shadavisa.com',
@@ -83,7 +83,7 @@ export const AGENCYS: Agency[] = [
   //     featuredPlan: FeaturedPlan_Business.SIMPLE,
   //     desc: {
   //         en: `If you are looking for a migration agency that is committed to providing accurate, comprehensive and tailored-made advice then Regal Migration Services should be your first port of call. Our team at this Australian based agency works tirelessly with their clients not just on the surface matters but also beneath them so as we can provide meaningful solutions - from visa applications through appealing refusal and cancellation decisions.`,
-  //         fa: `اگر به دنبال آژانس مهاجرتی هستید که متعهد به ارائه مشاوره دقیق، جامع و سفارشی باشد، خدمات مهاجرت Regal باید اولین مقصد شما باشد. تیم ما در این آژانس مستقر در استرالیا به طور خستگی ناپذیری با مشتریان خود نه تنها در مسائل ظاهری بلکه در زیر آنها کار می کند تا بتوانیم راه حل های معنی داری ارائه دهیم - از درخواست های ویزا تا درخواست تجدید نظر در مورد امتناع و لغو تصمیمات.`,
+  //         fa: `اگر به دنبال آژانس مهاجرتی هستید که متعهد به ارائه مشاوره دقیق، جامع و سفارشی باشد، خدمات مهاجرت Regal باید اولین مقصد شما باشد. تیم ما در این آژانس مستقر در استرالیا به طور خستگی ناپذیری با مشتریان خود نه تنها در مسائل ظاهری بلکه در زیر آنها کار می‌کند تا بتوانیم راه حل های معنی داری ارائه دهیم - از درخواست های ویزا تا درخواست تجدید نظر در مورد امتناع و لغو تصمیمات.`,
   //     },
   //     contact: {
   //         website: 'https://www.regalmigration.com.au',
@@ -119,7 +119,7 @@ export const AGENCYS: Agency[] = [
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `For those interested who want to change their life path and stay in Australia, this collection can handle all the stages of residence with the facilities of monitoring the process and solving the applicant's doubts and questions.`,
-      fa: `این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند تمامی مراحل اقامت را با امکانات نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضی انجام دهد.`,
+      fa: `این مجموعه می‌تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند تمامی مراحل اقامت را با امکانات نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضی انجام دهد.`,
     },
     contact: {
       website: 'https://azzyimmi.com.au',
@@ -139,7 +139,7 @@ export const AGENCYS: Agency[] = [
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `Dr. Mojtabi Dani is the first and only immigration lawyer with a specialized doctorate in international law from Australia, with more than 12 years of legal consulting experience for public and private companies, as well as research and teaching at universities in the field of international law in Iran and Australia. He is also a founding member of Nubian Institute of International Law in Tehran. Dr. Dani is a registered lawyer in MARA with registration number 1800260 and MIA with registration number 18437. Dr. Dani and Lawyers Institute consists of experts in immigration, investment and trade. In this institution, all legal and immigration matters are carried out from the beginning of the contract to the end of the case under the strict and direct supervision of Dr. Dani.`,
-      fa: `دکتر مجتبی دانی اولین و تنها وکیل مهاجرت دارای دکترای تخصصی حقوق بین‌الملل از استرالیا، با بیش از ۱۲ سال سابقه مشاوره حقوقی شرکت‌های دولتی و خصوصی و همچنین تحقیق و تدریس در دانشگاه در رشته حقوق بین‌الملل در ایران و استرالیا می‌باشد. وی همچنین عضو موسس موسسه حقوق بین‌الملل نوبیان در تهران می باشد. دکتر دانی وکیل ثبت شده در MARA با شماره ثبت ۱۸۰۰۲۶۰ و MIA با شماره ثبت ۱۸۴۳۷ است. موسسه دکتر دانی و وکلا متشکل از متخصصین در امر مهاجرت، سرمایه گذاری و تجارت می باشد. در این موسسه انجام کلیه امور حقوقی و مهاجرتی از ابتدای عقد قرارداد تا سرانجام پرونده با نظارت دقیق ومستقیم دکتر دانی انجام می‌گیرد.`,
+      fa: `دکتر مجتبی دانی اولین و تنها وکیل مهاجرت دارای دکترای تخصصی حقوق بین‌الملل از استرالیا، با بیش از ۱۲ سال سابقه مشاوره حقوقی شرکت‌های دولتی و خصوصی و همچنین تحقیق و تدریس در دانشگاه در رشته حقوق بین‌الملل در ایران و استرالیا می‌باشد. وی همچنین عضو موسس موسسه حقوق بین‌الملل نوبیان در تهران می‌باشد. دکتر دانی وکیل ثبت شده در MARA با شماره ثبت ۱۸۰۰۲۶۰ و MIA با شماره ثبت ۱۸۴۳۷ است. موسسه دکتر دانی و وکلا متشکل از متخصصین در امر مهاجرت، سرمایه گذاری و تجارت می‌باشد. در این موسسه انجام کلیه امور حقوقی و مهاجرتی از ابتدای عقد قرارداد تا سرانجام پرونده با نظارت دقیق ومستقیم دکتر دانی انجام می‌گیرد.`,
     },
     contact: {
       website: 'https://ddamigration.com',
@@ -293,7 +293,7 @@ export const AGENCYS: Agency[] = [
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `Mrs. Sudabah Hariri is a registered lawyer of the Australian Immigration Department and the manager of Arad Immigration Group. She immigrated to Australia in 2006 and after some time returned to Iran and worked in different embassies including the Australian, British and Spanish embassies.`,
-      fa: `سرکار خانم سودابه حریری وکیل ثبت شده اداره مهاجرت استرالیا و مدیر مجموعه آراد ایمیگریشن می باشند.ایشان در سال 2006 به کشور استرالیا مهاجرت کردند و پس از مدتی به ایران بازگشتند و در سفارت های مختلف از جمله سفارت استرالیا، انگلیس و اسپانیا مشغول به کار شدند.`,
+      fa: `سرکار خانم سودابه حریری وکیل ثبت شده اداره مهاجرت استرالیا و مدیر مجموعه آراد ایمیگریشن می‌باشند.ایشان در سال 2006 به کشور استرالیا مهاجرت کردند و پس از مدتی به ایران بازگشتند و در سفارت های مختلف از جمله سفارت استرالیا، انگلیس و اسپانیا مشغول به کار شدند.`,
     },
     contact: {
       website: 'https://aradimmigration.com',
@@ -329,7 +329,7 @@ export const AGENCYS: Agency[] = [
   //   featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   desc: {
   //     en: `Immigration to Australia under the direct supervision of Mr. Damon Arin, an Australian immigration lawyer and approved by the Australian Immigration Department and registered in Mara Australia with registration number 1384623, will greatly reduce the risk of your case and provide you with the highest quality immigration guidance and advice in Enjoy your entire process. In this way, you will go through the process of obtaining your visa with the highest level of confidence. Taking advantage of the experience and knowledge of an Australian immigration lawyer who has numerous work records in the field of obtaining various types of Australian residence visas in various fields, as well as the support and support of a caring and committed team, step on this path with confidence. Using the experiences and work records of Mr. Damon Arin and his team, choose your immigration path and benefit from their valuable services.`,
-  //     fa: `مهاجرت به استرالیا زیر نظارت مستقیم آقای دامون آرین وکیل مهاجرت استرالیا و مورد تایید اداره مهاجرت استرالیا و ثبت شده در سازمان مارا استرالیا با شماره ثبت 1384623 باعث می شود تا ریسک پرونده شما به شدت کاهش یابد و از با کیفیت ترین راهنمایی و مشاوره مهاجرت در طول پروسه خود بهره مند شوید. از این طریق شما با بالاترین سطح از اطمینان خاطر مراحل و پروسه اخذ ویزای خود را پیش خواهید برد. با بهره­ گیری از تجارب و دانش وکیل مهاجرت استرالیا که دارای سوابق کاری متعدد در زمینه اخذ انواع ویزاهای اقامتی استرالیا در زمینه های مختلف است، و همچنین پشتیبانی و حمایت تیمی دلسوز و متعهد، در این راه با اطمینان گام بردارید. با استفاده از تجارب و سوابق کاری جناب آقای دامون آرین و تیم ایشان، مسیر مهاجرت خود را انتخاب کرده و از خدمات ارزشمند آنها بهره مند شوید.`,
+  //     fa: `مهاجرت به استرالیا زیر نظارت مستقیم آقای دامون آرین وکیل مهاجرت استرالیا و مورد تایید اداره مهاجرت استرالیا و ثبت شده در سازمان مارا استرالیا با شماره ثبت 1384623 باعث می‌شود تا ریسک پرونده شما به شدت کاهش یابد و از با کیفیت ترین راهنمایی و مشاوره مهاجرت در طول پروسه خود بهره مند شوید. از این طریق شما با بالاترین سطح از اطمینان خاطر مراحل و پروسه اخذ ویزای خود را پیش خواهید برد. با بهره­ گیری از تجارب و دانش وکیل مهاجرت استرالیا که دارای سوابق کاری متعدد در زمینه اخذ انواع ویزاهای اقامتی استرالیا در زمینه های مختلف است، و همچنین پشتیبانی و حمایت تیمی دلسوز و متعهد، در این راه با اطمینان گام بردارید. با استفاده از تجارب و سوابق کاری جناب آقای دامون آرین و تیم ایشان، مسیر مهاجرت خود را انتخاب کرده و از خدمات ارزشمند آنها بهره مند شوید.`,
   //   },
   //   contact: {
   //     website: 'https://selectvisa.com/fa',

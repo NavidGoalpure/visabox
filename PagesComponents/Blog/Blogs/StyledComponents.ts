@@ -6,7 +6,7 @@ import {
   Hint_BGStyle,
   Hint_TextStyle,
   Hint_TitleStyle,
-} from 'Styles/Theme/ Hint/style';
+} from 'Styles/Theme/Hint/style';
 
 import {
   Layer1_TextStyle,

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { useContext } from 'react';
+import styled from "styled-components";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   Container,
@@ -11,24 +11,24 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from '../StyledComponents';
-import { ClientCountry } from 'Interfaces/Database/Client';
-import { Countries } from 'Consts/Client';
-import { FormDataContext } from '../../Contexts/FormDataContext/Context';
-import { WizardContext } from '../../Contexts/Wizard/Context';
-import { componentStatements, LanguageKeys } from './const';
-import { directionStyles } from 'Styles/Theme';
+} from "../StyledComponents";
+import { ClientCountry } from "Interfaces/Database/Client";
+import { Countries } from "Consts/Client";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
+import { componentStatements, LanguageKeys } from "./const";
+import { directionStyles } from "Styles/Theme";
 
 const Step1 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>{t(LanguageKeys.CountryTitle)}</Title>
       <ToggleGroupRoot
-        type='single'
+        type="single"
         value={client?.country}
         onValueChange={(value) => {
           client &&
@@ -75,5 +75,4 @@ export default Step1;
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
   width: 100%;
-  
 `;

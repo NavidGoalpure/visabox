@@ -23,7 +23,7 @@ import { WizardContext } from "../../Contexts/Wizard/Context";
 const Step8 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient } = useContext(FormDataContext);
+  const { client, setClient,score } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -72,7 +72,7 @@ const Step8 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-
+            console.log("navid score ===", score);
           }}
           disabled={!client?.work_experience}
           icon={<NextIcon />}

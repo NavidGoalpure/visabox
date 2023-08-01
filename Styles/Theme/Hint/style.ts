@@ -1,5 +1,10 @@
 import { css } from "styled-components";
-import { Headline4Style, Headline5Style, Headline6Style, Headline7Style } from "Styles/Typo";
+import {
+  Headline4Style,
+  Headline5Style,
+  Headline6Style,
+  Headline7Style,
+} from "Styles/Typo";
 import { directionStyles } from "..";
 import { SecondaryTextTheme, IconTheme, Hint_BG } from "./theme";
 

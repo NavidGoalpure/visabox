@@ -23,7 +23,7 @@ import { componentStatements, LanguageKeys } from "./const";
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient } = useContext(FormDataContext);
+  const { client, setClient, score } = useContext(FormDataContext);
   return (
     <Container>
       <Title>{t(LanguageKeys.maritalStatusTitle)}</Title>
@@ -146,6 +146,7 @@ const Step5 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+            console.log("navid score ===", score);
           }}
           disabled={
             !client?.marital ||

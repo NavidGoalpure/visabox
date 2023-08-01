@@ -26,7 +26,7 @@ import { Languages } from "Interfaces";
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient } = useContext(FormDataContext);
+  const { client, setClient,score } = useContext(FormDataContext);
   const { locale } = useLocale();
 
   return (
@@ -297,6 +297,7 @@ const Step5 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
+            console.log("navid score ===", score);
           }}
           disabled={
             !client?.field_of_study ||

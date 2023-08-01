@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { useContext } from 'react';
+import styled from "styled-components";
+import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -13,16 +13,16 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from '../StyledComponents';
-import { IELTSScores } from 'Consts/Client';
-import { IELTSScore } from 'Interfaces/Database/Client';
-import { FormDataContext } from '../../Contexts/FormDataContext/Context';
-import { WizardContext } from '../../Contexts/Wizard/Context';
+} from "../StyledComponents";
+import { IELTSScores } from "Consts/Client";
+import { IELTSScore } from "Interfaces/Database/Client";
+import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../Contexts/Wizard/Context";
 
 const Step10 = () => {
   const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient,score } = useContext(FormDataContext);
+  const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -40,14 +40,13 @@ const Step10 = () => {
       <ToggleGroupRoot
         type="single"
         value={client?.ielts_score}
-        onValueChange={(value) =>{
+        onValueChange={(value) => {
           client &&
-          setClient({
-            ...client,
-            ielts_score: value as IELTSScore,
-          })
-        }
-        }
+            setClient({
+              ...client,
+              ielts_score: value as IELTSScore,
+            });
+        }}
       >
         {
           <>
@@ -70,7 +69,7 @@ const Step10 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-
+            console.log("navid score ===", score);
           }}
           disabled={!client?.ielts_score}
           icon={<NextIcon />}

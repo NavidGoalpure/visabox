@@ -12,7 +12,7 @@ export enum ClientMarital {
 }
 
 export enum ClientDegree {
-  IDontHaveAny = "I dont have any",
+  IDontHaveAny = "i dont have any",
   Diploma = "diploma",
   Bachelorsdegree = "bachelor's degree",
   Mastersdegree = "master's degree",

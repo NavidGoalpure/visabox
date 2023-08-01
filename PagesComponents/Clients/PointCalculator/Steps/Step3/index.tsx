@@ -23,7 +23,7 @@ import { useLocale } from "Hooks/useLocale";
 const Step3 = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
-  const { client, setClient } = useContext(FormDataContext);
+  const { client, setClient, score } = useContext(FormDataContext);
   const router = useRouter();
   const { locale } = useLocale();
   var mydate = client?.birthday
@@ -80,6 +80,7 @@ const Step3 = () => {
           step={step}
           onClick={() => {
             clientAge > 44 ? router.push(`/${locale}/`) : handleNextPress();
+            console.log("navid score ===", score);
           }}
           icon={<NextIcon />}
           disabled={!client?.age && !client?.birthday}

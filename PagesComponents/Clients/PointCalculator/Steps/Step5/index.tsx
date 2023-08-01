@@ -297,7 +297,6 @@ const Step5 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
           }}
           disabled={
             !client?.field_of_study ||

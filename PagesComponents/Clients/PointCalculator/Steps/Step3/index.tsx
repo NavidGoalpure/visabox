@@ -80,7 +80,6 @@ const Step3 = () => {
           step={step}
           onClick={() => {
             clientAge > 44 ? router.push(`/${locale}/`) : handleNextPress();
-            console.log("navid score ===", score);
           }}
           icon={<NextIcon />}
           disabled={!client?.age && !client?.birthday}

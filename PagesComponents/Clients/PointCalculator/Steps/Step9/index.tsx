@@ -69,7 +69,6 @@ const Step10 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
           }}
           disabled={!client?.ielts_score}
           icon={<NextIcon />}

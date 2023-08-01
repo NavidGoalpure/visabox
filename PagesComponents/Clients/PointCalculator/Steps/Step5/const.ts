@@ -87,7 +87,7 @@ Did you complete a professional year program in Australia in your nominated skil
   },
   ProfessionalYearInAustralia: {
     en: "Professional Year in Australia:",
-    fa: "یک سال حرفه ای در استرالیا بعد از تحصیلات خود و مرتبط به رشته خود گذرانده ام.",
+    fa: "یک سال حرفه ای در استرالیا بعد از تحصیلات خود و مرتبط به رشته خود گذرانده ام:",
   },
   AccreditedCommunityLanguage: {
     en: "Accredited Community Language:",

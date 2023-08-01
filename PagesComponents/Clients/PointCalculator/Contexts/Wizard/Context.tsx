@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 type WizardState = {
   step: number;
@@ -19,7 +19,7 @@ const WizardContext = React.createContext({} as WizardState);
 //
 function WizardContextProvider(props: Props) {
   // navid
-  const [step, setStep] = useState<number>(12);
+  const [step, setStep] = useState<number>(0);
   const [isBackPressed, setIsBackPressed] = useState<boolean>(false);
   const [isOut, setIsOut] = useState<boolean>(false);
 

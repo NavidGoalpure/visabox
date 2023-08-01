@@ -22,7 +22,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   PartnerEnglishTitle: {
     en: 'Can your partner obtain IELTS 6 or above?',
-    fa: 'آیا همسر شما می تواند آیلتس 6 یا بالاتر را دریافت کند؟',
+    fa: 'آیا همسر شما می تواند حداقل آیلتس 6 یا معادل آن را دریافت کند؟',
   },
   NextButtonTitle: {
     en: 'Next',

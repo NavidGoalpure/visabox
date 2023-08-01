@@ -19,11 +19,11 @@ import { componentStatements, LanguageKeys } from './const';
 import { FiBox } from 'react-icons/fi';
 import { deviceMin } from 'Consts/device';
 import { SocialMediaTypes, Socials } from 'Interfaces/Database/Lists/socials';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useEffect, useState } from 'react';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Status } from 'Interfaces/Database';
 
-interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials { }
 
 function MobileSocialCard({
   desc,
@@ -31,12 +31,17 @@ function MobileSocialCard({
   name,
   link,
   socialmediaType,
+  logoUrl,
   slug,
   featuredPlan,
   status,
   ...props
 }: Props) {
   const { t } = useStaticTranslation(componentStatements);
+  const [imgSrc, setImgSrc] = useState(`/Images/placeholder.jpeg`);
+  useEffect(() => {
+    if (logoUrl) setImgSrc(logoUrl);
+  }, [logoUrl]);
   if (status === Status.DEACTIVE) return null;
   const SocialMediaIcon = () => {
     switch (socialmediaType) {
@@ -74,7 +79,7 @@ function MobileSocialCard({
           <ImgWrapper>
             <Img
               fill
-              src={`/Images/socialPage/${slug}.jpg`}
+              src={imgSrc}
               alt='image'
               sizes='96px'
             />
@@ -180,10 +185,10 @@ const Container = styled.a<{ featuredPlan: FeaturedPlan_Business }>`
   align-items: center;
   row-gap: 3rem;
   transition: all 0.3s ease;
-  width: 100%;
+  // width: 100%;
   @media ${deviceMin.laptopXS} {
     ${({ featuredPlan }) =>
-      featuredPlan === FeaturedPlan_Business.SIMPLE && 'width: 30%;'}
+    featuredPlan === FeaturedPlan_Business.SIMPLE && 'width: 30%;'}
   }
   :hover {
     transform: scale(1.05);
@@ -288,7 +293,7 @@ const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   text-align: center;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   text-align: start;
 `;
 const JoinButton = styled(PrimaryButton)`

@@ -150,7 +150,7 @@ Spoken Languages: English; Persian; Dari.`,
     },
     status: Status.ACTIVE,
   },
-  
+
   {
     id: 'agt8',
     name: { en: 'Soodeh Jafari', fa: 'سوده جعفری' },
@@ -275,11 +275,11 @@ Spoken Languages: English; Persian; Dari.`,
       
       You experience the borderless world with Azzy Immigration.`,
       fa: `
-      پس از اخذ اقامت استرالیا در سال 2012 و اخذ مجوز وکالت رسمی از Australia Registered Migration Agent به شمارهMARN 1573151؛ دفتر خدمات مهاجرتی Azzy Immigration فعالیت خود را بصورت رسمی از سال 2013 آغاز نمود. این مجموعه می تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند، تمامی مراحل اقامت را با امکان نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضیان انجام دهد.
+      پس از اخذ اقامت استرالیا در سال 2012 و اخذ مجوز وکالت رسمی از Australia Registered Migration Agent به شمارهMARN 1573151؛ دفتر خدمات مهاجرتی Azzy Immigration فعالیت خود را بصورت رسمی از سال 2013 آغاز نمود. این مجموعه می‌تواند برای آن دسته از علاقه مندانی که تمایل به تغییر مسیر زندگی و اقامت در کشور استرالیا را دارند، تمامی مراحل اقامت را با امکان نظارت بر روند پروسه و رفع ابهامات و سئوالات متقاضیان انجام دهد.
       
        
       
-      دفتر خدمات مهاجرتی Azzy Immigration با توجه به تجربه و تخصصی که در انواع ویزاهای مهاجرتی دارد، می تواند یک راه حل مناسب برای معمای مهاجرت شما و متناسب با وضعیت تان که با قطعیت بالایی همراه باشد، ارائه دهد. بنابراین تیم ما آماده است که متناسب با وضعیت شما در جهت ارائه یک راه حل، با شما به مذاکره بنشیند تا آنچه که ما می توانیم انجام دهیم را در قالب یک نقشه راه به شما ارائه نماید.
+      دفتر خدمات مهاجرتی Azzy Immigration با توجه به تجربه و تخصصی که در انواع ویزاهای مهاجرتی دارد، می‌تواند یک راه حل مناسب برای معمای مهاجرت شما و متناسب با وضعیت تان که با قطعیت بالایی همراه باشد، ارائه دهد. بنابراین تیم ما آماده است که متناسب با وضعیت شما در جهت ارائه یک راه حل، با شما به مذاکره بنشیند تا آنچه که ما می توانیم انجام دهیم را در قالب یک نقشه راه به شما ارائه نماید.
       
        
       
@@ -368,7 +368,7 @@ Spoken Languages: English; Persian; Dari.`,
       The lawyer of this collection is Mr. Mehdi Kivani with MARN number 2217813 in the Mara organization and the client's case is examined and carried out directly under his supervision.`,
       fa: `
       سازمان مهاجرتی یونیک ویزا از سال ۲۰۰۸ فعالیت خود را در زمینه مهاجرت به استرالیا آغاز نموده و از همان بدو امر ارتباط تنگاتنگی با بخش های مختلف اداره مهاجرت استرالیا داشته است.
-      وکیل این مجموعه جناب آقای مهدی کیوانی با شماره MARN 2217813 در سازمان مارا (Mara )میباشند و پرونده موکلین مستقیما زیرنظر ایشان مورد بررسی قرار گرفته و انجام می شوند.`,
+      وکیل این مجموعه جناب آقای مهدی کیوانی با شماره MARN 2217813 در سازمان مارا (Mara )می‌باشند و پرونده موکلین مستقیما زیرنظر ایشان مورد بررسی قرار گرفته و انجام می‌شوند.`,
     },
     maraNumber: '2217813',
     locations: [Locations.en, Locations.fa],
@@ -446,7 +446,7 @@ Spoken Languages: English; Persian; Dari.`,
       telegram: 'https://t.me/Arad_immigration',
     },
     desc: {
-      fa: 'سرکار خانم سودابه حریری وکیل ثبت شده اداره مهاجرت استرالیا و مدیر مجموعه آراد ایمیگریشن می باشند.ایشان در سال 2006 به کشور استرالیا مهاجرت کردند و پس از مدتی به ایران بازگشتند و در سفارت های مختلف از جمله سفارت استرالیا، انگلیس و اسپانیا مشغول به کار شدند.ایشان پس از کسب تجارب ارزنده در حوزه ویزا و مهاجرت و بدلیل علاقه در این حوزه، اقدام به تحصیل در رشته حقوق مهاجرت استرالیا کردند. خانم سودابه حریری کار خود را به عنوان وکیل رسمی مهاجرت استرالیا در سال 2016 آغاز کردند و با توجه به تجارب و تحصیلات خود توانستند در مدت زمان کوتاهی به موفقیت های چشمگیری دست یابند . ایشان با اخذ اسسمنتهای مثبت فراوان در  مشاغل متنوع در بحث ویزاهای اسکیل ورکر و هچننین اخذ ویزاهای سرمایه گذاری ، ازدواج، نامزدی و توریستی موفق توانسته اند در میان وکلای مارا به خوش نامی بدرخشند. شعار ایشان همواره دقت و سرعت در پیش بردن پرونده متقاضیان است ونظرات کلاینت های ایشان نیز گواه این موضوع می باشد.',
+      fa: 'سرکار خانم سودابه حریری وکیل ثبت شده اداره مهاجرت استرالیا و مدیر مجموعه آراد ایمیگریشن می‌باشند.ایشان در سال 2006 به کشور استرالیا مهاجرت کردند و پس از مدتی به ایران بازگشتند و در سفارت های مختلف از جمله سفارت استرالیا، انگلیس و اسپانیا مشغول به کار شدند.ایشان پس از کسب تجارب ارزنده در حوزه ویزا و مهاجرت و بدلیل علاقه در این حوزه، اقدام به تحصیل در رشته حقوق مهاجرت استرالیا کردند. خانم سودابه حریری کار خود را به عنوان وکیل رسمی مهاجرت استرالیا در سال 2016 آغاز کردند و با توجه به تجارب و تحصیلات خود توانستند در مدت زمان کوتاهی به موفقیت های چشمگیری دست یابند . ایشان با اخذ اسسمنتهای مثبت فراوان در  مشاغل متنوع در بحث ویزاهای اسکیل ورکر و هچننین اخذ ویزاهای سرمایه گذاری ، ازدواج، نامزدی و توریستی موفق توانسته اند در میان وکلای مارا به خوش نامی بدرخشند. شعار ایشان همواره دقت و سرعت در پیش بردن پرونده متقاضیان است ونظرات کلاینت های ایشان نیز گواه این موضوع می‌باشد.',
       en: 'Mrs. Sudabah Hariri is a registered lawyer of the Australian Immigration Department and the manager of Arad Immigration Group. She immigrated to Australia in 2006 and after some time returned to Iran and worked in different embassies including the Australian, British and Spanish embassies. are. After gaining valuable experiences in the field of visa and immigration and because of his interest in this field, he studied immigration law. Mrs. Soudabeh Hariri started her work as an official Australian immigration lawyer in 2016 and achieved significant success in a short period of time due to her business and education. By obtaining many positive names in various cases in the discussion of skilled worker visas and also obtaining investment, marriage, engagement and tourist visas, they succeed in shining a good name among our lawyers. The slogan is always precision and speed in advancing the applicants case, and this is their opinion as well.',
     },
     status: Status.ACTIVE,

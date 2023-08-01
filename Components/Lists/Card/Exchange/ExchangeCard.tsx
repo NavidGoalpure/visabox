@@ -254,7 +254,7 @@ const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   text-align: start;
   white-space: pre-line;
   // height: 7rem;

@@ -15,9 +15,18 @@ import {
 } from 'Styles/Theme/Layers/layer1/style';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 
-export const BlogContainer = styled.main`
+const boldTheme = theme('mode', {
+  light: css`
+    color: var(--color-secondary1);
+  `,
+  dark: css`
+    color: var(--color-secondary3);
+  `,
+});
+export const BlogContainer = styled.article`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -32,9 +41,9 @@ export const BlogContainer = styled.main`
   }
   p {
     ${Layer1_TextStyle}
-    b {
-      color: var(--color-secondary3);
-    }
+  }
+  b {
+    ${boldTheme}
   }
   h1 {
     ${Layer1_TitleStyle}

@@ -107,7 +107,25 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
        <loc>${Domain_FA}/lists/exchanges</loc>
      </url>
   <!--The URLs realated to Blogs-->
-  
+    <url>
+       <loc>${Domain_FA}/blog/assessment-organizations-in-australia</loc>
+    </url>
+
+    <url>
+       <loc>${Domain_FA}/blog/document-assessment-in-australia</loc>
+    </url>
+
+    
+    <url>
+       <loc>${Domain_FA}/blog/getting-skilled-worker-visa</loc>
+    </url>
+    <url>
+       <loc>${Domain_FA}/blog/Language-score-and-skilled-worker-visa</loc>
+    </url>
+    <url>
+       <loc>${Domain_FA}/blog/what-is-skilled-worker-visa</loc>
+    </url>
+     
    </urlset>
  `;
 }

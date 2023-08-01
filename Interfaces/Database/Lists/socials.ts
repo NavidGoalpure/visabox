@@ -11,6 +11,7 @@ export interface Socials {
   name: string;
   slug: string;
   link: string;
+  logoUrl?: string;
   socialmediaType: SocialMediaTypes;
   featuredPlan: FeaturedPlan_Business;
   //what countries they work in

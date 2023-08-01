@@ -25,7 +25,7 @@ export const maritalStatuses: MultiLanguageText[] = [
 
 export const educations: MultiLanguageText[] = [
   { en: "I dont have any", fa: "ندارم" },
-  { en: "Diploma", fa: "دیپلم" },
+  { en: "Diploma", fa: "کاردانی" },
   { en: "Bachelor's degree", fa: "لیسانس" },
   { en: "Master's degree", fa: "فوق لیسانس" },
   { en: "Doctorate", fa: "دکترا" },
@@ -54,7 +54,6 @@ export const australianWorks: MultiLanguageText[] = [
   { en: "More than 8 years", fa: "بیشتر از هشت سال" },
 ];
 export const IELTSScores: MultiLanguageText[] = [
-  { en: "None", fa: "هیچکدام" },
   { en: "6", fa: "6" },
   { en: "7", fa: "7" },
   { en: "8", fa: "8" },

@@ -219,7 +219,6 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "none", value: "none" },
           { title: "6", value: "6" },
           { title: "7", value: "7" },
           { title: "8", value: "8" },

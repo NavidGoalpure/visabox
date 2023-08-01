@@ -47,7 +47,6 @@ export enum IELTSScore {
   Six = "6",
   Seven = "7",
   Eight = "8",
-  none = "none",
 }
 export enum VisaSubclass {
   "189Subclass" = "189",

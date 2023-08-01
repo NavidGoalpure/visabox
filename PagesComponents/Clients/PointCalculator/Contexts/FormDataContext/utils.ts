@@ -3,7 +3,6 @@ import {
   IELTSScore,
   WorkExperience,
   AustralianWorkExperience,
-  VisaSubclass,
   ClientDegree,
   ClientMarital,
 } from "Interfaces/Database/Client";
@@ -62,13 +61,6 @@ export function CalculateClientScore(clientData: Client): number {
     AustralianWorkExperience.MoreThan8Years
   )
     finalScore = finalScore + 20;
-  ///////////  Visa Subclass /////////////////
-  if (clientData?.visa_subclass === VisaSubclass["189Subclass"])
-    finalScore = finalScore + 0;
-  else if (clientData?.visa_subclass === VisaSubclass["190Subclass"])
-    finalScore = finalScore + 5;
-  else if (clientData?.visa_subclass === VisaSubclass["491Subclass"])
-    finalScore = finalScore + 15;
   /////////// degree /////////////////
   if (clientData?.degree === ClientDegree.Diploma) finalScore = finalScore + 10;
   else if (clientData?.degree === ClientDegree.Bachelorsdegree)

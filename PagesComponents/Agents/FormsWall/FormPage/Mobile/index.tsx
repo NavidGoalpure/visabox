@@ -48,19 +48,14 @@ function MobileAgentsPage({ client }: Props) {
         </Name>
         <JobTitle>{client?.current_job}</JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
-        {!!client?.visa_subclass && (
+        {!!client?.country && (
           <HeaderLabel>
             {t(LanguageKeys.ScoreTitle)}{' '}
             <span id='score'>{CalculateClientScore(client)}</span>
           </HeaderLabel>
         )}
-        {!!client?.visa_subclass && (
-          <HeaderLabel>
-            {t(LanguageKeys.VisaSubclassTitle)}{' '}
-            <span id='visa-subclass'>{client?.visa_subclass}</span>
-          </HeaderLabel>
-        )}
-        {!client?.visa_subclass && (
+       
+        {!client?.country && (
           <HintContainer>
             <HintInfoIcon />
             <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
@@ -198,9 +193,6 @@ const HeaderLabel = styled.h4`
   ${HeaderLabelTheme}
   #score {
     ${HeaderScoreTheme};
-  }
-  #visa-subclass {
-    ${layer2A_TextStyle}
   }
 `;
 const JobTitle = styled.h3`

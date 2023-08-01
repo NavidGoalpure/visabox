@@ -29,7 +29,7 @@ function DesktopAgentsPage({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
-      {!client?.visa_subclass && (
+      {!client?.country && (
         <HintContainer>
           <HintInfoIcon />
           <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
@@ -53,7 +53,7 @@ function DesktopAgentsPage({ client }: Props) {
             </Name>
             <JobTitle>{client?.current_job}</JobTitle>
             <CreatedDate>{dataCreatedAt}</CreatedDate>
-            {client?.visa_subclass && (
+            {client?.country && (
               <ScoreWrapper>
                 <HeaderLabel>
                   {t(LanguageKeys.ScoreTitle)}{" "}
@@ -176,9 +176,7 @@ const HeaderLabel = styled.h4`
   #score {
     ${HeaderScoreTheme};
   }
-  #visa-subclass {
-    ${layer2A_TextStyle}
-  }
+
 `;
 const Name = styled.h2`
   ${TitleColor}

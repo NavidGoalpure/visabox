@@ -40,7 +40,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       country,
       name,
       lastname,
-      visa_subclass,
       age,
       phone,
       marital,

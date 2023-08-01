@@ -32,7 +32,6 @@ const UserForms: NextPage = ({}) => {
       email,
       name,
       lastname,
-      visa_subclass,
       age,
       phone,
       marital,

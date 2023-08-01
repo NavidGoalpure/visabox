@@ -5,7 +5,6 @@ export enum LanguageKeys {
   SeoDesc = 'SeoDesc',
   //
   ScoreTitle = 'ScoreTitle',
-  VisaSubclassTitle = 'VisaSubclassTitle',
   AboutLabel = 'AboutLabel',
   NotCompletedHint = 'NotCompletedHint',
   BirthDateLabel = 'BirthDateLabel',
@@ -42,10 +41,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Score:',
     fa: 'امتیاز:',
   },
-  VisaSubclassTitle: {
-    en: 'Subclass:',
-    fa: 'سابکلاس ویزا:',
-  },
+
   AboutLabel: {
     en: 'About',
     fa: 'توضیحات',

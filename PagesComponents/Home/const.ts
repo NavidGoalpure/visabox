@@ -30,6 +30,6 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   StampText: {
     fa: `ماشین حساب امتیازات`,
-    en: `With Point Calculator`
+    en: `Point Calculator`
   }
 };

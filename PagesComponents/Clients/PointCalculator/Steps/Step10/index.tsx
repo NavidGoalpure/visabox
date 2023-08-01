@@ -78,7 +78,6 @@ const Step10 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
           }}
           disabled={
             client?.professional_year_in_australia === null

@@ -101,7 +101,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   ProfessionalYearInAustraliaLabel: {
     en: 'Professional Year in Australia:',
-    fa: 'یک سال حرفه ای در استرالیا بعد از تحصیلات خود و مرتبط به رشته خود گذرانده ام.',
+    fa: 'یک سال حرفه ای در استرالیا بعد از تحصیلات خود و مرتبط به رشته خود گذرانده ام:',
   },
   AccreditedCommunityLanguageLabel: {
     en: 'Accredited Community Language',

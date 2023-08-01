@@ -72,7 +72,6 @@ const Step8 = () => {
           step={step}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
           }}
           disabled={!client?.work_experience}
           icon={<NextIcon />}

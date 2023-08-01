@@ -73,7 +73,6 @@ const Step9 = () => {
           icon={<NextIcon />}
           onClick={() => {
             handleNextPress();
-            console.log("navid score ===", score);
           }}
           disabled={!client?.australian_work_experience}
         >

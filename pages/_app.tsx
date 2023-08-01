@@ -16,7 +16,7 @@ import { globalStyles } from 'Styles/Theme';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import Script from 'next/script';
-// import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
+import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`
 ${globalStyles}
@@ -29,9 +29,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
-  // useEffect(() => {
-  //   smartActiveHotjar(router.route);
-  // }, []);
+  useEffect(() => {
+    smartActiveHotjar(router.route);
+  }, []);
 
   return (
     <>

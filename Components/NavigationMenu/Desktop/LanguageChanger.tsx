@@ -17,6 +17,7 @@ function DesktopLanguageChanger() {
   const smartTextObj: Record<Languages, string> = {
     en: 'English',
     fa: 'فارسی',
+    cz: '中国人'
   };
   function onClickHandler(value: string) {
     router.push(router.asPath, router.asPath, { locale: value });

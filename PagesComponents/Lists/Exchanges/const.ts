@@ -21,14 +21,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   PageTitle: {
     fa: 'لیست صرافی‌ها',
     en: 'Exchanges List',
+    cz: '交易所列表'
   },
   PageDesc: {
     fa: 'در این صفحه لیست صرافی هایی که خدمات انتقال پول به استرالیا را انجام می‌دهند موجود می‌باشد. شما می‌توانید از این خدمات برای پرداخت‌های مالی مرتبط با مهاجرت خود استفاده نمایید. ',
     en: 'You can find the list of exchanges that help you tranfer your money in a safe, secure and fast way.',
+    cz: '您可以找到可帮助您安全、可靠且快速地转账的交易所列表。'
   },
   exchange: {
     fa: 'صرافی',
     en: 'exchange',
+    cz: '交换'
   },
 };
 

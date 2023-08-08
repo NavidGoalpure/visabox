@@ -3,6 +3,7 @@ import { Languages } from 'Interfaces';
 interface MultiLanguageText {
   [Languages.en]: string;
   [Languages.fa]?: string;
+  [Languages.cz]?: string;
 }
 interface MultiLanguageTextArray {
   [Languages.en]: string[];

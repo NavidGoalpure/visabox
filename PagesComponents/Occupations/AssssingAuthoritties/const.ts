@@ -21,6 +21,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   PageTitle: {
     fa: 'لیست موسسات ارزیابی مدارک و مهارت های استرالیا',
     en: 'Assessing authorities',
+    cz: '评估机构',
   },
 };
 

@@ -8,11 +8,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title: {
     fa: 'جعبه ابزاری برای مهاجرت به <span> استرالیا </span>',
     en: 'Build a Bridge To <span> Australia </span>',
+    cz: '搭建一座桥梁 <span> 澳大利亚 </span> '
   },
 
   Subtitle: {
     fa: 'بررسی شرایط ویزا برای <span>نیروی متخصص, لیست وکلای مهاجرت معتبر, شبکه های اجتماعی</span> مناسب و امکانات جذاب دیگر برای مهاجرت به استرالیا',
     en: 'A toolbox for <span>immigrating </span> via <span>skilled worker</span> visa. You can find any of your requirements in this box',
+    cz: '一个工具箱用于 <span> 移民 </span> 通过 <span> 技术熟练的工人 </span> 签证。 您可以在此框中找到您的任何要求'
   },
 };
 export const tsParticleOption: ISourceOptions = {

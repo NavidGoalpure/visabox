@@ -30,43 +30,53 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   PageTitle: {
     fa: 'لیست مشاغل',
     en: 'Skill Occupation List',
+    cz: '技能职业列表',
   },
   PageSubtitle: {
     fa: 'در این قسمت لیست کامل مشاغل واجد شرایط یا لیست ترکیبی مطابق با دستورالعمل قانونگذاری {{تگ}} آمده است.',
     en: 'Below is the complete list of eligible skilled occupations or combined list as prescribed in Legislative Instrument {{tag}}',
+    cz: '以下是立法文书{{tag}}中规定的合格技术职业的完整列表或组合列表',
   },
   Search: {
     fa: 'جستجو',
     en: 'Search',
+    cz: '搜索',
   },
   SearchPlaceHolder: {
     fa: 'کد یا نام شغل',
     en: 'Job code or Job title',
+    cz: '职位代码或职位名称',
   },
   LoadMore: {
     fa: 'بیشتر',
     en: 'Load More',
+    cz: '装载更多',
   },
   SomethingWentWrong: {
     en: 'Something Went Wrong',
     fa: 'متاسفانه مشکلی پیش آمده',
+    cz: '出了些问题',
   },
   ///////search filter//////
   MajorGroup: {
     en: 'Major Group',
     fa: 'گروه اصلی',
+    cz: '主要群体',
   },
   SubMajorGroup: {
     en: 'Sub-Major Group',
     fa: 'زیر گروه اصلی',
+    cz: '子专业组',
   },
   MinorGroup: {
     en: 'Minor Group',
     fa: 'گروه فرعی',
+    cz: '小组',
   },
   Select: {
     en: 'Select ...',
     fa: 'انتخاب ...',
+    cz: '选择 ...',
   },
 };
 /////////

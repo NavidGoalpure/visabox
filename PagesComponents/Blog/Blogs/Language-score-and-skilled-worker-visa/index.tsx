@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images } from '../StyledComponents';
+import { BlogContainer, HintBG, HintSecondaryContainer, HintSecondaryIcon, HintSecondaryTextStyle, HintText, HintTitle, ImageContainer, Images } from '../StyledComponents';
 
 export default function PostContent() {
   return (
@@ -59,6 +59,12 @@ export default function PostContent() {
         Writing و Listening و Reading انجام می‌شود.
       </p>
       <h2>TOEFL</h2>
+      <HintSecondaryContainer>
+        <HintSecondaryIcon />
+        <HintSecondaryTextStyle>
+          از جولاي ٢٠٢٣ ازمون تافل از ليست ازمونهاي مورد قبول استراليا  تا اطلاع ثانوي حذف شده است.
+        </HintSecondaryTextStyle>
+      </HintSecondaryContainer>
       <p>
         آزمون
         <em> TOEFL </em>

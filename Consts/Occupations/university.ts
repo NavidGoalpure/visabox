@@ -1,11 +1,6 @@
-import { MultiLanguageText } from 'Interfaces/Database';
+import { University } from 'Interfaces/Database/university';
 
-export const iran: {
-  title: MultiLanguageText;
-  desc: MultiLanguageText;
-  setion: number;
-  city: MultiLanguageText;
-}[] = [
+export const iran:University[] = [
   {
     title: {
       en: 'Abadeh Higher Education Institute',
@@ -18,7 +13,7 @@ export const iran: {
       en: 'Abadeh',
       fa: 'آباده',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -32,7 +27,7 @@ export const iran: {
       en: 'Zanjan',
       fa: 'زنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -46,7 +41,7 @@ export const iran: {
       en: 'Zanjan',
       fa: 'زنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -60,7 +55,7 @@ export const iran: {
       en: 'Ghazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -74,7 +69,7 @@ export const iran: {
       en: 'Mazandaran',
       fa: 'مازندران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -88,7 +83,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -102,7 +97,7 @@ export const iran: {
       en: 'Boroujerd',
       fa: 'بروجرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -116,7 +111,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -130,7 +125,7 @@ export const iran: {
       en: 'Ahwaz',
       fa: 'اهواز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -144,7 +139,7 @@ export const iran: {
       en: 'Alborz',
       fa: 'البرز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -158,7 +153,7 @@ export const iran: {
       en: 'Garmsar',
       fa: 'گرمسار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -172,7 +167,7 @@ export const iran: {
       en: 'Babolsar',
       fa: 'بابلسر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -186,7 +181,7 @@ export const iran: {
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -200,7 +195,7 @@ export const iran: {
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -214,7 +209,7 @@ export const iran: {
       en: 'Rafsanjan',
       fa: 'رفسنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -228,7 +223,7 @@ export const iran: {
       en: 'Mazandaran',
       fa: 'مازندران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -242,7 +237,7 @@ export const iran: {
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -256,7 +251,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -270,7 +265,7 @@ export const iran: {
       en: 'Esfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -284,7 +279,7 @@ export const iran: {
       en: 'Hamedan',
       fa: 'همدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -298,7 +293,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -312,7 +307,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -326,7 +321,7 @@ export const iran: {
       en: 'Amol',
       fa: 'آمل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -340,7 +335,7 @@ export const iran: {
       en: 'Jahrom',
       fa: 'جهرم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -354,7 +349,7 @@ export const iran: {
       en: 'Lahijan',
       fa: 'لاهیجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -368,7 +363,7 @@ export const iran: {
       en: 'Garmsar',
       fa: 'گرمسار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -382,7 +377,7 @@ export const iran: {
       en: 'Arak',
       fa: 'اراک',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -396,7 +391,7 @@ export const iran: {
       en: 'Arak',
       fa: 'اراک',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -410,7 +405,7 @@ export const iran: {
       en: 'Arak',
       fa: 'اراک',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -424,7 +419,7 @@ export const iran: {
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -438,7 +433,7 @@ export const iran: {
       en: 'تهران',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -452,7 +447,7 @@ export const iran: {
       en: 'Ardabil',
       fa: 'اردبیل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -466,7 +461,7 @@ export const iran: {
       en: 'Ardabil',
       fa: 'اردبیل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -480,7 +475,7 @@ export const iran: {
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -494,7 +489,7 @@ export const iran: {
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -508,7 +503,7 @@ export const iran: {
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -522,7 +517,7 @@ export const iran: {
       en: 'Abhar',
       fa: 'ابهار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -536,7 +531,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -550,7 +545,7 @@ export const iran: {
       en: 'Tonekabon',
       fa: 'تنکابن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -564,7 +559,7 @@ export const iran: {
       en: 'Lorestan',
       fa: 'لرستان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -578,7 +573,7 @@ export const iran: {
       en: 'Urmia',
       fa: 'ارومیه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -592,7 +587,7 @@ export const iran: {
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -606,7 +601,7 @@ export const iran: {
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -620,7 +615,7 @@ export const iran: {
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -634,7 +629,7 @@ export const iran: {
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -648,7 +643,7 @@ export const iran: {
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -662,7 +657,7 @@ export const iran: {
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -676,7 +671,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -690,7 +685,7 @@ export const iran: {
       en: 'Ilam',
       fa: 'ایلام',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -704,7 +699,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -718,7 +713,7 @@ export const iran: {
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -732,7 +727,7 @@ export const iran: {
       en: 'Kerman',
       fa: 'کرمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -746,7 +741,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -760,7 +755,7 @@ export const iran: {
       en: 'Birjand',
       fa: 'بیرجند',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -774,7 +769,7 @@ export const iran: {
       en: 'Bojnourd',
       fa: 'بجنورد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -788,7 +783,7 @@ export const iran: {
       en: 'Bojnourd',
       fa: 'بجنورد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -802,7 +797,7 @@ export const iran: {
       en: 'Bojnourd',
       fa: 'بجنورد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -816,7 +811,7 @@ export const iran: {
       en: 'Bonab',
       fa: 'بناب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -830,7 +825,7 @@ export const iran: {
       en: 'Bojnourd',
       fa: 'بجنورد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -844,7 +839,7 @@ export const iran: {
       en: 'Bozorgmehr',
       fa: 'بزرگمهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -858,7 +853,7 @@ export const iran: {
       en: 'Hamadan',
       fa: 'همدان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -872,7 +867,7 @@ export const iran: {
       en: 'Bushehr',
       fa: 'بوشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -886,7 +881,7 @@ export const iran: {
       en: 'Bushehr',
       fa: 'بوشهر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -900,7 +895,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -914,7 +909,7 @@ export const iran: {
       en: 'Chaloos',
       fa: 'چالوس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -928,7 +923,7 @@ export const iran: {
       en: 'Chaloos',
       fa: 'چالوس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -942,7 +937,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -956,7 +951,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -970,7 +965,7 @@ export const iran: {
       en: 'Shahr-e-Rey',
       fa: 'شهرری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -984,7 +979,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -998,7 +993,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1012,7 +1007,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1026,7 +1021,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1040,7 +1035,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1054,7 +1049,7 @@ export const iran: {
       en: 'Ghom',
       fa: 'قم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1068,7 +1063,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1082,7 +1077,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1096,7 +1091,7 @@ export const iran: {
       en: 'Damghan',
       fa: 'دامغان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1110,7 +1105,7 @@ export const iran: {
       en: 'Esfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1124,7 +1119,7 @@ export const iran: {
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1138,7 +1133,7 @@ export const iran: {
       en: 'Lahijan',
       fa: 'لاهیجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1152,7 +1147,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1166,7 +1161,7 @@ export const iran: {
       en: 'Kerman',
       fa: 'کرمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1180,7 +1175,7 @@ export const iran: {
       en: 'Damavand',
       fa: 'دماوند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1194,7 +1189,7 @@ export const iran: {
       en: 'Eyvanakey',
       fa: 'ایوانکی',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1208,7 +1203,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1222,7 +1217,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1236,7 +1231,7 @@ export const iran: {
       en: 'Qaemshahr',
       fa: 'قائم‌شهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1250,7 +1245,7 @@ export const iran: {
       en: 'Fasa',
       fa: 'فسا',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1264,7 +1259,7 @@ export const iran: {
       en: 'Khomeinishahr',
       fa: 'خمینی شهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1278,7 +1273,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1292,7 +1287,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1306,7 +1301,7 @@ export const iran: {
       en: 'Hamedan',
       fa: 'همدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1320,7 +1315,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1334,7 +1329,7 @@ export const iran: {
       en: 'Gilan',
       fa: 'گیلان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1348,7 +1343,7 @@ export const iran: {
       en: 'Gorgan, Shargh',
       fa: 'گرگان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1362,7 +1357,7 @@ export const iran: {
       en: 'Gorgan',
       fa: 'گرگان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1376,7 +1371,7 @@ export const iran: {
       en: 'Isfahan ',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1390,7 +1385,7 @@ export const iran: {
       en: 'Gonabad',
       fa: 'گناباد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1404,7 +1399,7 @@ export const iran: {
       en: 'Gorgan',
       fa: 'گرگان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1418,7 +1413,7 @@ export const iran: {
       en: 'Rasht',
       fa: 'رشت',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1432,7 +1427,7 @@ export const iran: {
       en: 'Rasht',
       fa: 'رشت',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1446,7 +1441,7 @@ export const iran: {
       en: 'Sari',
       fa: 'ساری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1460,7 +1455,7 @@ export const iran: {
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1474,7 +1469,7 @@ export const iran: {
       en: 'Gorgan',
       fa: 'گرگان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1488,7 +1483,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1502,7 +1497,7 @@ export const iran: {
       en: 'Hamadan',
       fa: 'همدان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1516,7 +1511,7 @@ export const iran: {
       en: 'آمل',
       fa: 'Amol',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1530,7 +1525,7 @@ export const iran: {
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1544,7 +1539,7 @@ export const iran: {
       en: 'Zahedan',
       fa: 'زاهدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1558,7 +1553,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1572,7 +1567,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1586,7 +1581,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1600,7 +1595,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1614,7 +1609,7 @@ export const iran: {
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1628,7 +1623,7 @@ export const iran: {
       en: '',
       fa: '',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1642,7 +1637,7 @@ export const iran: {
       en: 'Noshahr',
       fa: 'نوشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1656,7 +1651,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1670,7 +1665,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1684,7 +1679,7 @@ export const iran: {
       en: 'Loreston',
       fa: 'لرستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1698,7 +1693,7 @@ export const iran: {
       en: 'Birjand',
       fa: 'بیرجند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1712,7 +1707,7 @@ export const iran: {
       en: 'Ghazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1726,7 +1721,7 @@ export const iran: {
       en: 'Zanjan',
       fa: 'زنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1740,7 +1735,7 @@ export const iran: {
       en: 'Hamedan',
       fa: 'همدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1754,7 +1749,7 @@ export const iran: {
       en: 'Rafsanjan, Qazvin, Tehran, Khoramdeh',
       fa: 'رفسنجان,قزوین,تهران,خرامده',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1768,7 +1763,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1782,7 +1777,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1796,7 +1791,7 @@ export const iran: {
       en: 'Hormozgan',
       fa: 'هرمزگان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1810,7 +1805,7 @@ export const iran: {
       en: 'Hormozgan',
       fa: 'هرمزگان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1824,7 +1819,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1838,7 +1833,7 @@ export const iran: {
       en: 'Ilam',
       fa: 'ایلام',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1852,7 +1847,7 @@ export const iran: {
       en: 'Ilam',
       fa: 'ایلام',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1866,7 +1861,7 @@ export const iran: {
       en: 'Kalaleh',
       fa: 'کلاله',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1880,7 +1875,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1894,7 +1889,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1908,7 +1903,7 @@ export const iran: {
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -1922,7 +1917,7 @@ export const iran: {
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1936,7 +1931,7 @@ export const iran: {
       en: 'Nowshahr',
       fa: 'نوشهر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1950,7 +1945,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1964,7 +1959,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1978,7 +1973,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -1992,7 +1987,7 @@ export const iran: {
       en: 'Zanjan',
       fa: 'زنجان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2006,7 +2001,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2020,7 +2015,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2034,7 +2029,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2048,7 +2043,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2062,7 +2057,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2076,7 +2071,7 @@ export const iran: {
       en: 'Qom mobin',
       fa: 'قم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2090,7 +2085,7 @@ export const iran: {
       en: 'Kerman',
       fa: 'کرمان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2104,7 +2099,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2118,7 +2113,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2132,7 +2127,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2146,7 +2141,7 @@ export const iran: {
       en: 'Ghazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2160,7 +2155,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2174,7 +2169,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2188,7 +2183,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2202,7 +2197,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2216,7 +2211,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2230,7 +2225,7 @@ export const iran: {
       en: 'Arak, Behshahr, Tehran',
       fa: 'اراک , بهشهر , تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2244,7 +2239,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2258,7 +2253,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2272,7 +2267,7 @@ export const iran: {
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2286,7 +2281,7 @@ export const iran: {
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2300,7 +2295,7 @@ export const iran: {
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2314,7 +2309,7 @@ export const iran: {
       en: 'Abadan',
       fa: 'آبادان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2328,7 +2323,7 @@ export const iran: {
       en: 'Abadeh',
       fa: 'آباده',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2342,7 +2337,7 @@ export const iran: {
       en: 'Abarkouh',
       fa: 'ابرکوه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2356,7 +2351,7 @@ export const iran: {
       en: 'Abhar',
       fa: 'ابهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2370,7 +2365,7 @@ export const iran: {
       en: 'Ahar',
       fa: 'اهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2384,7 +2379,7 @@ export const iran: {
       en: 'Ahwaz',
       fa: 'اهواز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2398,7 +2393,7 @@ export const iran: {
       en: 'Ajabshir',
       fa: 'عجب شیر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2412,7 +2407,7 @@ export const iran: {
       en: 'Aliabad Katul',
       fa: 'علی آباد کتول',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2426,7 +2421,7 @@ export const iran: {
       en: 'Aligoudarz',
       fa: 'الیگودرز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2440,7 +2435,7 @@ export const iran: {
       en: 'Anar',
       fa: 'انار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2454,7 +2449,7 @@ export const iran: {
       en: 'Andimeshk',
       fa: 'اندیمشک',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2468,7 +2463,7 @@ export const iran: {
       en: 'Arak',
       fa: 'اراک',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2482,7 +2477,7 @@ export const iran: {
       en: 'Ardabil',
       fa: 'اردبیل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -2496,7 +2491,7 @@ export const iran: {
       en: 'Ardakan',
       fa: 'اردکان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2510,7 +2505,7 @@ export const iran: {
       en: 'Ardal',
       fa: 'اردل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2524,7 +2519,7 @@ export const iran: {
       en: 'Ardestan',
       fa: 'اردستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2538,7 +2533,7 @@ export const iran: {
       en: 'Arsanjan',
       fa: 'ارسنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2552,7 +2547,7 @@ export const iran: {
       en: 'Asadabad',
       fa: 'اسدآباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2566,7 +2561,7 @@ export const iran: {
       en: 'Ashkazar',
       fa: 'اشکذر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2580,7 +2575,7 @@ export const iran: {
       en: 'Ashtian',
       fa: 'آشتیان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2594,7 +2589,7 @@ export const iran: {
       en: 'Astara',
       fa: 'آستارا',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2608,7 +2603,7 @@ export const iran: {
       en: 'Astara',
       fa: 'استارا',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2622,7 +2617,7 @@ export const iran: {
       en: 'Amol',
       fa: 'آمل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2636,7 +2631,7 @@ export const iran: {
       en: 'Azadshar',
       fa: 'آزادشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2650,7 +2645,7 @@ export const iran: {
       en: 'Azarshahr',
       fa: 'آذر شهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2664,7 +2659,7 @@ export const iran: {
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2678,7 +2673,7 @@ export const iran: {
       en: 'Badroud',
       fa: 'بادرود',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2692,7 +2687,7 @@ export const iran: {
       en: 'Bafgh',
       fa: 'بافق',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2706,7 +2701,7 @@ export const iran: {
       en: 'Baft',
       fa: 'بافت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2720,7 +2715,7 @@ export const iran: {
       en: 'Baghmalek',
       fa: 'باغملک',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2734,7 +2729,7 @@ export const iran: {
       en: 'Bahraman',
       fa: 'بهرمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2748,7 +2743,7 @@ export const iran: {
       en: 'Bam',
       fa: 'بم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2762,7 +2757,7 @@ export const iran: {
       en: 'Bandar Abbas',
       fa: 'بندرعباس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2776,7 +2771,7 @@ export const iran: {
       en: 'Genaveh',
       fa: 'گناوه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2790,7 +2785,7 @@ export const iran: {
       en: 'Bandar Lengeh',
       fa: 'بندرلنگه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2804,7 +2799,7 @@ export const iran: {
       en: 'Bandar-e-Anzali',
       fa: 'بندرانزلی',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2818,7 +2813,7 @@ export const iran: {
       en: 'Bandar-e-Deilam',
       fa: 'بندردیلم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2832,7 +2827,7 @@ export const iran: {
       en: 'Kangan',
       fa: 'کنگان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2846,7 +2841,7 @@ export const iran: {
       en: 'Bandar-e-Gaz',
       fa: 'بندرگز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2860,7 +2855,7 @@ export const iran: {
       en: 'Bandar-e-Gaz',
       fa: 'بندرگز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2874,7 +2869,7 @@ export const iran: {
       en: 'Bardsir',
       fa: 'بردسیر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2888,7 +2883,7 @@ export const iran: {
       en: 'Behbahan',
       fa: 'بهبهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2902,7 +2897,7 @@ export const iran: {
       en: 'Behshahr',
       fa: 'بهشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2916,7 +2911,7 @@ export const iran: {
       en: 'Beiza',
       fa: 'بیضا',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2930,7 +2925,7 @@ export const iran: {
       en: 'Bijar',
       fa: 'بیجار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2944,7 +2939,7 @@ export const iran: {
       en: 'Bileh Savar',
       fa: 'بیله سوار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2958,7 +2953,7 @@ export const iran: {
       en: 'Birjand',
       fa: 'بیرجند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2972,7 +2967,7 @@ export const iran: {
       en: 'Bojnourd',
       fa: 'بجنورد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -2986,7 +2981,7 @@ export const iran: {
       en: 'Bonab',
       fa: 'بناب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3000,7 +2995,7 @@ export const iran: {
       en: 'Boroujen',
       fa: 'بروجن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3014,7 +3009,7 @@ export const iran: {
       en: 'Borujerd',
       fa: 'بروجرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3028,7 +3023,7 @@ export const iran: {
       en: 'Bostanabad',
       fa: 'بستان آباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3042,7 +3037,7 @@ export const iran: {
       en: 'Bouienzahra',
       fa: 'بوئینزهرا',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3056,7 +3051,7 @@ export const iran: {
       en: 'Boukan',
       fa: 'بوکان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3070,7 +3065,7 @@ export const iran: {
       en: 'Bushehr',
       fa: 'بوشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3084,7 +3079,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -3098,7 +3093,7 @@ export const iran: {
       en: 'Chabahar',
       fa: 'چابهار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3112,7 +3107,7 @@ export const iran: {
       en: 'Chalous',
       fa: 'چالوس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3126,7 +3121,7 @@ export const iran: {
       en: 'Damavand',
       fa: 'دماوند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3140,7 +3135,7 @@ export const iran: {
       en: 'Damghan',
       fa: 'دامغان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3154,7 +3149,7 @@ export const iran: {
       en: 'Darab',
       fa: 'داراب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3168,7 +3163,7 @@ export const iran: {
       en: 'Dargaz',
       fa: 'درگز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3182,7 +3177,7 @@ export const iran: {
       en: 'Darrehshar',
       fa: 'دره شهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3196,7 +3191,7 @@ export const iran: {
       en: 'Dashtestan',
       fa: 'دشتستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3210,7 +3205,7 @@ export const iran: {
       en: 'Dehaghan',
       fa: 'دهاقان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3224,7 +3219,7 @@ export const iran: {
       en: 'Dehdasht',
       fa: 'دهدشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3238,7 +3233,7 @@ export const iran: {
       en: 'Dehloran',
       fa: 'دهلران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3252,7 +3247,7 @@ export const iran: {
       en: 'Delijan',
       fa: 'دلیجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3266,7 +3261,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -3280,7 +3275,7 @@ export const iran: {
       en: 'Dezful',
       fa: 'دزفول',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3294,7 +3289,7 @@ export const iran: {
       en: 'Doroud',
       fa: 'دورود',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3308,7 +3303,7 @@ export const iran: {
       en: 'Dowlatabad',
       fa: 'دولت آباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3322,7 +3317,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3336,7 +3331,7 @@ export const iran: {
       en: 'Eghlid',
       fa: 'اقلید',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3350,7 +3345,7 @@ export const iran: {
       en: 'Esfarayin',
       fa: 'اسفراین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3364,7 +3359,7 @@ export const iran: {
       en: 'Estahban',
       fa: 'استهبان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3378,7 +3373,7 @@ export const iran: {
       en: 'Ezeh',
       fa: 'ایذه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3392,7 +3387,7 @@ export const iran: {
       en: 'Falavarjan',
       fa: 'فلاورجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3406,7 +3401,7 @@ export const iran: {
       en: 'Farahan',
       fa: 'فراهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3420,7 +3415,7 @@ export const iran: {
       en: 'Farashband',
       fa: 'فراشبند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3434,7 +3429,7 @@ export const iran: {
       en: 'Faridan',
       fa: 'فریدن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3448,7 +3443,7 @@ export const iran: {
       en: 'Farsan',
       fa: 'فارسان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3462,7 +3457,7 @@ export const iran: {
       en: 'Fasa',
       fa: 'فسا',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3476,7 +3471,7 @@ export const iran: {
       en: 'Ferdows',
       fa: 'فردوس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3490,7 +3485,7 @@ export const iran: {
       en: 'Firuzabad',
       fa: 'فیروزآباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3504,7 +3499,7 @@ export const iran: {
       en: 'Firuzkuh',
       fa: 'فیروزكوه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3518,7 +3513,7 @@ export const iran: {
       en: 'Fouman and Shaft',
       fa: 'فومن و شفت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3532,7 +3527,7 @@ export const iran: {
       en: 'Gachsaran',
       fa: 'گچساران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3546,7 +3541,7 @@ export const iran: {
       en: 'Germi',
       fa: 'گرمی',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3560,7 +3555,7 @@ export const iran: {
       en: 'Garmsar',
       fa: 'گرمسار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3574,7 +3569,7 @@ export const iran: {
       en: 'Gavbandi',
       fa: 'گاوبندی',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3588,7 +3583,7 @@ export const iran: {
       en: 'Ghaemshahr',
       fa: 'قائم شهر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -3602,7 +3597,7 @@ export const iran: {
       en: 'Ghaemshahr',
       fa: 'قائم شهر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -3616,7 +3611,7 @@ export const iran: {
       en: 'Ghaenat',
       fa: 'قائنات',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3630,7 +3625,7 @@ export const iran: {
       en: 'Ghasr-e-Shirin',
       fa: 'قصرشیرین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3644,7 +3639,7 @@ export const iran: {
       en: 'Gheshm',
       fa: 'قشم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3658,7 +3653,7 @@ export const iran: {
       en: 'Ghiamdasht',
       fa: 'قیامدشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3672,7 +3667,7 @@ export const iran: {
       en: 'Ghirokarzin',
       fa: 'قیروکارزین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3686,7 +3681,7 @@ export const iran: {
       en: 'Ghorveh',
       fa: 'قروه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3700,7 +3695,7 @@ export const iran: {
       en: 'Ghuchan',
       fa: 'قوچان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -3714,7 +3709,7 @@ export const iran: {
       en: 'Guilan',
       fa: 'گیلان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3728,7 +3723,7 @@ export const iran: {
       en: 'Gilan-e-Gharb',
       fa: 'گیلانغرب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3742,7 +3737,7 @@ export const iran: {
       en: 'Golbahar',
       fa: 'گلبهار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3756,7 +3751,7 @@ export const iran: {
       en: 'Golpayegan',
       fa: 'گلپایگان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3770,7 +3765,7 @@ export const iran: {
       en: 'Gonabad',
       fa: 'گناباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3784,7 +3779,7 @@ export const iran: {
       en: 'Gonbad-e-Kavous',
       fa: 'گنبدکاووس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3798,7 +3793,7 @@ export const iran: {
       en: 'Gorgan',
       fa: 'گرگان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3812,7 +3807,7 @@ export const iran: {
       en: 'Hadishahr',
       fa: 'هادیشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3826,7 +3821,7 @@ export const iran: {
       en: 'Hafshejan',
       fa: 'هفشجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3840,7 +3835,7 @@ export const iran: {
       en: 'Hajiabad',
       fa: 'حاجی آباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3854,7 +3849,7 @@ export const iran: {
       en: 'Hamedan',
       fa: 'همدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3868,7 +3863,7 @@ export const iran: {
       en: 'Harand',
       fa: 'هرند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3882,7 +3877,7 @@ export const iran: {
       en: 'Haris',
       fa: 'هریس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3896,7 +3891,7 @@ export const iran: {
       en: 'Hashtgerd',
       fa: 'هشتگرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3910,7 +3905,7 @@ export const iran: {
       en: 'Hashtroud',
       fa: 'هشترود',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3924,7 +3919,7 @@ export const iran: {
       en: 'Hidaj',
       fa: 'هیدج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3938,7 +3933,7 @@ export const iran: {
       en: 'Hormoz',
       fa: 'هرمز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3952,7 +3947,7 @@ export const iran: {
       en: 'Hourand',
       fa: 'هوراند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3966,7 +3961,7 @@ export const iran: {
       en: 'Ijroud',
       fa: 'ایجرود',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3980,7 +3975,7 @@ export const iran: {
       en: 'Ilam',
       fa: 'ایلام',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -3994,7 +3989,7 @@ export const iran: {
       en: 'Ilkhchi',
       fa: 'ایلخچی',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4008,7 +4003,7 @@ export const iran: {
       en: 'Iranshahr',
       fa: 'ایرانشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4022,7 +4017,7 @@ export const iran: {
       en: 'Iranshahr',
       fa: 'ایرانشهر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -4036,7 +4031,7 @@ export const iran: {
       en: 'Islamabad',
       fa: 'اسلام آباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4050,7 +4045,7 @@ export const iran: {
       en: 'Islamshahr',
       fa: 'اسلامشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4064,7 +4059,7 @@ export const iran: {
       en: 'Ivan-e-Gharb',
       fa: 'ایوان غرب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4078,7 +4073,7 @@ export const iran: {
       en: 'Izeh',
       fa: 'ایذه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4092,7 +4087,7 @@ export const iran: {
       en: 'Jahrom',
       fa: 'جهرم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4106,7 +4101,7 @@ export const iran: {
       en: 'Jajrom',
       fa: 'جاجرم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4120,7 +4115,7 @@ export const iran: {
       en: 'جاسب',
       fa: 'Jasb',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4134,7 +4129,7 @@ export const iran: {
       en: 'Jask',
       fa: 'جاسک',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4148,7 +4143,7 @@ export const iran: {
       en: 'Jeeroft',
       fa: 'جیرفت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4162,7 +4157,7 @@ export const iran: {
       en: 'Jolfa',
       fa: 'جلفا ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4176,7 +4171,7 @@ export const iran: {
       en: 'Jouybar',
       fa: 'جویبار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4190,7 +4185,7 @@ export const iran: {
       en: 'Kahnouj',
       fa: 'کهنوج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4204,7 +4199,7 @@ export const iran: {
       en: 'Kalaleh',
       fa: 'کلاله',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4218,7 +4213,7 @@ export const iran: {
       en: 'Kaleybar',
       fa: 'کلیبر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4232,7 +4227,7 @@ export const iran: {
       en: 'Kangavar',
       fa: 'کنگاور',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4246,7 +4241,7 @@ export const iran: {
       en: 'Karaj',
       fa: 'كرج',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -4260,7 +4255,7 @@ export const iran: {
       en: 'Kashan',
       fa: 'کاشان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4274,7 +4269,7 @@ export const iran: {
       en: 'Kashmar',
       fa: 'كاشمر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4288,7 +4283,7 @@ export const iran: {
       en: 'Kazeroon',
       fa: 'كازرون',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4302,7 +4297,7 @@ export const iran: {
       en: 'Kerman',
       fa: 'كرمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4316,7 +4311,7 @@ export const iran: {
       en: 'Kermanshah',
       fa: 'كرمانشاه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4330,7 +4325,7 @@ export const iran: {
       en: 'Khalkhal',
       fa: 'خلخال',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4344,7 +4339,7 @@ export const iran: {
       en: 'Kharg',
       fa: 'خارگ',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4359,7 +4354,7 @@ export const iran: {
       en: 'Kharvana',
       fa: 'خاروانا',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4374,7 +4369,7 @@ export const iran: {
       en: 'Khash',
       fa: 'خاش',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4389,7 +4384,7 @@ export const iran: {
       en: 'Khatam',
       fa: 'خاتم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4403,7 +4398,7 @@ export const iran: {
       en: 'Khoda Afarin',
       fa: 'خداآفرین',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4418,7 +4413,7 @@ export const iran: {
       en: 'Khodabandeh',
       fa: 'خدابنده',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4433,7 +4428,7 @@ export const iran: {
       en: 'Khomein',
       fa: 'خمین',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4448,7 +4443,7 @@ export const iran: {
       en: 'Khomeinishar',
       fa: 'خمینی شهر',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4463,7 +4458,7 @@ export const iran: {
       en: 'Khonj',
       fa: 'خنج',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4478,7 +4473,7 @@ export const iran: {
       en: 'Khoramabad',
       fa: 'خرم آباد',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4493,7 +4488,7 @@ export const iran: {
       en: 'Khorramshahr',
       fa: 'خرمشهر',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4508,7 +4503,7 @@ export const iran: {
       en: 'Khorasghan',
       fa: 'خوراسگان',
     },
-    setion: 1,
+    section: 1,
   },
 
   {
@@ -4523,7 +4518,7 @@ export const iran: {
       en: 'Khormoj',
       fa: 'خورموج',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4538,7 +4533,7 @@ export const iran: {
       en: 'Khoy',
       fa: 'خوی',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4553,7 +4548,7 @@ export const iran: {
       en: 'Kish',
       fa: 'كیش',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -4568,7 +4563,7 @@ export const iran: {
       en: 'Komijan',
       fa: 'کمیجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4582,7 +4577,7 @@ export const iran: {
       en: 'Kouhbanan',
       fa: 'کوهبنان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4596,7 +4591,7 @@ export const iran: {
       en: 'Kouhdasht',
       fa: 'كوهدشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4610,7 +4605,7 @@ export const iran: {
       en: 'Lahijan',
       fa: 'لاهیجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4624,7 +4619,7 @@ export const iran: {
       en: 'Lamerd',
       fa: 'لامرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4638,7 +4633,7 @@ export const iran: {
       en: 'Langroud',
       fa: 'لنگرود',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4652,7 +4647,7 @@ export const iran: {
       en: 'Lanjan',
       fa: 'لنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4666,7 +4661,7 @@ export const iran: {
       en: 'Larestan',
       fa: 'لارستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4680,7 +4675,7 @@ export const iran: {
       en: 'Mahabad',
       fa: 'مهاباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4694,7 +4689,7 @@ export const iran: {
       en: 'Mahallat',
       fa: 'محلات',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4708,7 +4703,7 @@ export const iran: {
       en: 'Mahdishahr',
       fa: 'مهدیشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4722,7 +4717,7 @@ export const iran: {
       en: 'Mahmoudabad',
       fa: 'محمودآباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4736,7 +4731,7 @@ export const iran: {
       en: 'Mahneshan',
       fa: 'ماهنشان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4750,7 +4745,7 @@ export const iran: {
       en: 'Mahshahr',
       fa: 'ماهشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4764,7 +4759,7 @@ export const iran: {
       en: 'Makou',
       fa: 'ماكو',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4778,7 +4773,7 @@ export const iran: {
       en: 'Malard',
       fa: 'ملارد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4792,7 +4787,7 @@ export const iran: {
       en: 'Malayer',
       fa: 'ملایر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4806,7 +4801,7 @@ export const iran: {
       en: 'Malekan',
       fa: 'ملکان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4820,7 +4815,7 @@ export const iran: {
       en: 'Mamaghan',
       fa: 'ممقان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4834,7 +4829,7 @@ export const iran: {
       en: 'Maragheh',
       fa: 'مراغه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4848,7 +4843,7 @@ export const iran: {
       en: 'Marand',
       fa: 'مرند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4862,7 +4857,7 @@ export const iran: {
       en: 'Marivan',
       fa: 'مریوان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4876,7 +4871,7 @@ export const iran: {
       en: 'Marvdasht',
       fa: 'مرودشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4890,7 +4885,7 @@ export const iran: {
       en: 'Masal',
       fa: 'ماسال',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4904,7 +4899,7 @@ export const iran: {
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -4918,7 +4913,7 @@ export const iran: {
       en: 'Masjedsoleiman',
       fa: 'مسجدسلیمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4932,7 +4927,7 @@ export const iran: {
       en: 'Maybod',
       fa: 'میبد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4946,7 +4941,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -4960,7 +4955,7 @@ export const iran: {
       en: 'Mehriz',
       fa: 'مهریز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4974,7 +4969,7 @@ export const iran: {
       en: 'Meshkinshahr',
       fa: 'مشکین شهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -4988,7 +4983,7 @@ export const iran: {
       en: 'Meymeh',
       fa: 'میمه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5002,7 +4997,7 @@ export const iran: {
       en: 'Miyandoab',
       fa: 'میاندوآب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5016,7 +5011,7 @@ export const iran: {
       en: 'Mianeh',
       fa: 'میانه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5030,7 +5025,7 @@ export const iran: {
       en: 'Minab',
       fa: 'میناب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5044,7 +5039,7 @@ export const iran: {
       en: 'Minalo',
       fa: 'مینالو',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5058,7 +5053,7 @@ export const iran: {
       en: 'Minoudasht',
       fa: 'مینودشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5072,7 +5067,7 @@ export const iran: {
       en: 'Mobarakeh',
       fa: 'مباركه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5086,7 +5081,7 @@ export const iran: {
       en: 'Mohajeran',
       fa: 'مهاجران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5100,7 +5095,7 @@ export const iran: {
       en: 'Naein',
       fa: 'نایین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5114,7 +5109,7 @@ export const iran: {
       en: 'Naghadeh',
       fa: 'نقده',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5128,7 +5123,7 @@ export const iran: {
       en: 'Najafabad',
       fa: 'نجف آباد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -5142,7 +5137,7 @@ export const iran: {
       en: 'Naragh',
       fa: 'نراق',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5156,7 +5151,7 @@ export const iran: {
       en: 'Natanz',
       fa: 'نطنز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5170,7 +5165,7 @@ export const iran: {
       en: 'Neka',
       fa: 'نكا',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5184,7 +5179,7 @@ export const iran: {
       en: 'Nekshahr',
       fa: 'نیكشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5198,7 +5193,7 @@ export const iran: {
       en: 'Neyreez',
       fa: 'نی ریز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5212,7 +5207,7 @@ export const iran: {
       en: 'Neyshabur',
       fa: 'نیشابور',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5226,7 +5221,7 @@ export const iran: {
       en: 'Noor',
       fa: 'نور',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5240,7 +5235,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -5254,7 +5249,7 @@ export const iran: {
       en: 'Noshahr',
       fa: 'نوشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5268,7 +5263,7 @@ export const iran: {
       en: 'Nourabad',
       fa: 'نورآباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5282,7 +5277,7 @@ export const iran: {
       en: 'Omidieh',
       fa: 'امیدیه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5296,7 +5291,7 @@ export const iran: {
       en: 'Urmia',
       fa: 'ارومیه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5310,7 +5305,7 @@ export const iran: {
       en: 'Osku',
       fa: 'اسکو',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5324,7 +5319,7 @@ export const iran: {
       en: 'Parand',
       fa: 'پرند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5338,7 +5333,7 @@ export const iran: {
       en: 'Pardis',
       fa: 'پردیس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5352,7 +5347,7 @@ export const iran: {
       en: 'Parsabad Moghan',
       fa: 'پارس آباد مغان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5366,7 +5361,7 @@ export const iran: {
       en: 'Parsian',
       fa: 'پارسیان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5380,7 +5375,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -5394,7 +5389,7 @@ export const iran: {
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5408,7 +5403,7 @@ export const iran: {
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5422,7 +5417,7 @@ export const iran: {
       en: 'Rafsanjan',
       fa: 'رفسنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5436,7 +5431,7 @@ export const iran: {
       en: 'Ramhormoz',
       fa: 'رامهرمز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5450,7 +5445,7 @@ export const iran: {
       en: 'Ramsar',
       fa: 'رامسر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5464,7 +5459,7 @@ export const iran: {
       en: 'Rasht',
       fa: 'رشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5478,7 +5473,7 @@ export const iran: {
       en: 'Rashtkhar',
       fa: 'رشتخوار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5492,7 +5487,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5506,7 +5501,7 @@ export const iran: {
       en: 'Roodehen',
       fa: 'رودهن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5520,7 +5515,7 @@ export const iran: {
       en: 'Roudan',
       fa: 'رودان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5534,7 +5529,7 @@ export const iran: {
       en: 'Roudbar',
       fa: 'رودبار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5548,7 +5543,7 @@ export const iran: {
       en: 'Roudsar and Amlash',
       fa: 'رودسر و املش',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5562,7 +5557,7 @@ export const iran: {
       en: 'Sabzevar',
       fa: 'سبزوار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5576,7 +5571,7 @@ export const iran: {
       en: 'Sabzevar',
       fa: 'سبزوار',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5590,7 +5585,7 @@ export const iran: {
       en: 'Safashahr',
       fa: 'صفاشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5604,7 +5599,7 @@ export const iran: {
       en: 'Saghez',
       fa: 'سقز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5618,7 +5613,7 @@ export const iran: {
       en: 'Sahneh',
       fa: 'صحنه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5632,7 +5627,7 @@ export const iran: {
       en: 'Salmas',
       fa: 'سلماس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5646,7 +5641,7 @@ export const iran: {
       en: 'Sanandaj',
       fa: 'سنندج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5660,7 +5655,7 @@ export const iran: {
       en: 'Sarab',
       fa: 'سراب',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5674,7 +5669,7 @@ export const iran: {
       en: 'Saravan',
       fa: 'سراوان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5688,7 +5683,7 @@ export const iran: {
       en: 'Sari',
       fa: 'ساری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5702,7 +5697,7 @@ export const iran: {
       en: 'Sarvestan',
       fa: 'سروستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5716,7 +5711,7 @@ export const iran: {
       en: 'Savad-Kooh',
       fa: 'سوادكوه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5730,7 +5725,7 @@ export const iran: {
       en: 'Saveh',
       fa: 'ساوه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5744,7 +5739,7 @@ export const iran: {
       en: 'Savojbolagh-Hashtgerd',
       fa: 'هشتگرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5758,7 +5753,7 @@ export const iran: {
       en: 'Ardabil',
       fa: 'اردبیل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5772,7 +5767,7 @@ export const iran: {
       en: 'Boroujerd',
       fa: 'بروجرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5786,7 +5781,7 @@ export const iran: {
       en: 'Bushehr',
       fa: 'بوشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5800,7 +5795,7 @@ export const iran: {
       en: 'Damavand',
       fa: 'دماوند',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5814,7 +5809,7 @@ export const iran: {
       en: 'East Azarbaijan',
       fa: 'آذربایجان شرقی',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5828,7 +5823,7 @@ export const iran: {
       en: 'Esfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5842,7 +5837,7 @@ export const iran: {
       en: 'Fars',
       fa: 'فارس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5856,7 +5851,7 @@ export const iran: {
       en: 'Gilan',
       fa: 'گیلان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5870,7 +5865,7 @@ export const iran: {
       en: 'Golestan',
       fa: 'گلستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5884,7 +5879,7 @@ export const iran: {
       en: 'Hamedan',
       fa: 'همدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5898,7 +5893,7 @@ export const iran: {
       en: 'Hormozgan',
       fa: 'هرمزگان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5912,7 +5907,7 @@ export const iran: {
       en: 'Ilam',
       fa: 'ایلام',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5926,7 +5921,7 @@ export const iran: {
       en: 'Kerman',
       fa: 'كرمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5940,7 +5935,7 @@ export const iran: {
       en: 'Kermanshah',
       fa: 'كرمانشاه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5954,7 +5949,7 @@ export const iran: {
       en: 'Neyshabur',
       fa: 'نیشابور',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5968,7 +5963,7 @@ export const iran: {
       en: 'خوزستان',
       fa: 'Khouzestan',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5982,7 +5977,7 @@ export const iran: {
       en: 'Kordestan',
       fa: 'کردستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -5996,7 +5991,7 @@ export const iran: {
       en: 'Lorestan',
       fa: 'لرستان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6010,7 +6005,7 @@ export const iran: {
       en: 'Arak',
       fa: 'اراک',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6024,7 +6019,7 @@ export const iran: {
       en: 'Mazandaran',
       fa: 'ﻣﺎزﻧدران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6038,7 +6033,7 @@ export const iran: {
       en: 'Ghazvin (Qazvin)',
       fa: 'ﻗزوﯾن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6052,7 +6047,7 @@ export const iran: {
       en: 'Qom',
       fa: 'ﻗم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6066,7 +6061,7 @@ export const iran: {
       en: 'Saveh',
       fa: 'ﺳﺎوه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6080,7 +6075,7 @@ export const iran: {
       en: 'Semnan',
       fa: 'ﺳﻣﻧﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6094,7 +6089,7 @@ export const iran: {
       en: 'Sirjan',
       fa: 'ﺳﯾرﺟﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6108,7 +6103,7 @@ export const iran: {
       en: 'Sistan and Baluchestan',
       fa: 'ﺳﯾﺳﺗﺎن و ﺑﻠوﭼﺳﺗﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6122,7 +6117,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'ﺗﮭران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6136,7 +6131,7 @@ export const iran: {
       en: 'West Azarbaijan',
       fa: 'آذرﺑﺎﯾﺟﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6150,7 +6145,7 @@ export const iran: {
       en: 'Yazd',
       fa: 'ﯾزد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6164,7 +6159,7 @@ export const iran: {
       en: 'Zanjan',
       fa: 'زﻧﺟﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6178,7 +6173,7 @@ export const iran: {
       en: 'Selseleh Delfan',
       fa: 'ﺳﻠﺳﻠﮫ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6192,7 +6187,7 @@ export const iran: {
       en: 'Semirom',
       fa: 'ﺳﻣﯾرم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6206,7 +6201,7 @@ export const iran: {
       en: 'Semnan',
       fa: 'ﺳﻣﻧﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6220,7 +6215,7 @@ export const iran: {
       en: 'Sepidan',
       fa: 'ﺳﭘﯾدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6234,7 +6229,7 @@ export const iran: {
       en: 'Shabestar',
       fa: 'ﺷﺑﺳﺗر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6248,7 +6243,7 @@ export const iran: {
       en: 'Shadgan',
       fa: 'ﺷﺎدﮔﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6262,7 +6257,7 @@ export const iran: {
       en: 'Shahindezh',
       fa: 'ﺷﺎهﯾن دژ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6276,7 +6271,7 @@ export const iran: {
       en: 'Shahinshahr',
       fa: 'ﺷﺎهﯾﻧﺷﮭر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6290,7 +6285,7 @@ export const iran: {
       en: 'Shahr-e-Babak',
       fa: 'ﺷﮭر ﺑﺎﺑﮏ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6304,7 +6299,7 @@ export const iran: {
       en: 'Shahr-e-Ghods',
       fa: 'ﺷﮭر ﻗدس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6318,7 +6313,7 @@ export const iran: {
       en: 'Shahr-e-Kord',
       fa: 'ﺷﮭرﻛرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6332,7 +6327,7 @@ export const iran: {
       en: 'Shahr-e-Majlesi',
       fa: 'ﺷﮭرﻣﺟﻠﺳﻲ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6346,7 +6341,7 @@ export const iran: {
       en: 'Shahr-e-Rey',
       fa: 'ﺷﮭرری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6360,7 +6355,7 @@ export const iran: {
       en: 'Shahreza',
       fa: 'ﺷﮭرﺿﺎ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6374,7 +6369,7 @@ export const iran: {
       en: 'Shahriyar',
       fa: 'ﺷﮭرﯾﺎر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6388,7 +6383,7 @@ export const iran: {
       en: 'Shahrood',
       fa: 'ﺷﺎهرود',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6402,7 +6397,7 @@ export const iran: {
       en: 'Sharafkhaneh',
       fa: 'ﺷرﻓﺧﺎﻧﮫ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6416,7 +6411,7 @@ export const iran: {
       en: 'Shazand',
       fa: 'ﺷﺎزﻧد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6430,7 +6425,7 @@ export const iran: {
       en: 'Shiraz',
       fa: 'ﺷﯾراز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -6444,7 +6439,7 @@ export const iran: {
       en: 'Shirgah',
       fa: 'ﺷﯾرﮔﺎه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6458,7 +6453,7 @@ export const iran: {
       en: 'Shirvan',
       fa: 'ﺷﯾروان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6472,7 +6467,7 @@ export const iran: {
       en: 'Shushtar',
       fa: 'ﺷوﺷﺗر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6486,7 +6481,7 @@ export const iran: {
       en: 'Sirjan',
       fa: 'ﺳﯾرﺟﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6500,7 +6495,7 @@ export const iran: {
       en: 'Siyahkal',
       fa: 'ﺳﯾﺎهﮑل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6514,7 +6509,7 @@ export const iran: {
       en: 'Sofian',
       fa: 'ﺻوﻓﯾﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6528,7 +6523,7 @@ export const iran: {
       en: 'Koliayi',
       fa: 'ﻛﻠﯾﺎﯾﻲ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6542,7 +6537,7 @@ export const iran: {
       en: 'Sousangerd',
       fa: 'ﺳوﺳﻧﮕرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6556,7 +6551,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'ﺗﮭران ﺟﻧوب',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -6570,7 +6565,7 @@ export const iran: {
       en: 'Tabas',
       fa: 'طﺑس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6584,7 +6579,7 @@ export const iran: {
       en: 'Tabriz',
       fa: 'ﺗﺑرﯾز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -6598,7 +6593,7 @@ export const iran: {
       en: 'Tafresh',
       fa: 'ﺗﻔرش',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6612,7 +6607,7 @@ export const iran: {
       en: 'Taft',
       fa: 'ﺗﻔت',
     },
-    setion: 2,
+    section: 2,
   },
 
   {
@@ -6627,7 +6622,7 @@ export const iran: {
       en: 'Takistan',
       fa: 'ﺗﺎﻛﺳﺗﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6641,7 +6636,7 @@ export const iran: {
       en: 'Talesh',
       fa: 'ﺗﺎﻟش',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6655,7 +6650,7 @@ export const iran: {
       en: 'Tasouj',
       fa: 'ﺗﺳوج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6669,7 +6664,7 @@ export const iran: {
       en: 'Taybad',
       fa: 'ﺗﺎﯾﺑﺎد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6683,7 +6678,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'ﺗﮭران ﻣرﮐزی',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -6697,7 +6692,7 @@ export const iran: {
       en: 'Tiran',
       fa: 'ﺗﯾران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6711,7 +6706,7 @@ export const iran: {
       en: 'Tonekabon',
       fa: 'ﺗﻧﮑﺎﺑن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6725,7 +6720,7 @@ export const iran: {
       en: 'Torbateheidarieh',
       fa: 'ﺗرﺑت ﺣﯾدرﯾﮫ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6739,7 +6734,7 @@ export const iran: {
       en: 'Torbatejam',
       fa: 'ﺗرﺑت ﺟﺎم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6753,7 +6748,7 @@ export const iran: {
       en: 'Toyserkan',
       fa: 'ﺗوﯾﺳرﮐﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6767,7 +6762,7 @@ export const iran: {
       en: 'United Arab Emirates',
       fa: 'اﻣﺎرات ﻣﺗﺣده ﻋرﺑﻲ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6781,7 +6776,7 @@ export const iran: {
       en: 'Varamin',
       fa: 'وراﻣﯾن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6795,7 +6790,7 @@ export const iran: {
       en: 'Varzaghan',
       fa: 'ورزﻗﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6809,7 +6804,7 @@ export const iran: {
       en: 'Yasuj',
       fa: 'ﯾﺎﺳوج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6823,7 +6818,7 @@ export const iran: {
       en: 'Yazd',
       fa: 'ﯾزد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -6837,7 +6832,7 @@ export const iran: {
       en: 'Zabol',
       fa: 'زاﺑل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6851,7 +6846,7 @@ export const iran: {
       en: 'Zahedan',
       fa: 'زاهدان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6865,7 +6860,7 @@ export const iran: {
       en: 'Zahedshahr',
       fa: 'زاهدﺷﮭر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6879,7 +6874,7 @@ export const iran: {
       en: 'Zanjan',
       fa: 'زﻧﺟﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6893,7 +6888,7 @@ export const iran: {
       en: 'Zarande',
       fa: 'زرﻧدﯾﮫ',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6907,7 +6902,7 @@ export const iran: {
       en: 'Zarand-e-Kerman',
       fa: 'زرﻧدﻛرﻣﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6921,7 +6916,7 @@ export const iran: {
       en: 'Zarghan',
       fa: 'زرﻗﺎن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6935,7 +6930,7 @@ export const iran: {
       en: 'Zarindesht',
       fa: 'دﺷت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6949,7 +6944,7 @@ export const iran: {
       en: 'Zavareh',
       fa: 'زواره',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6963,7 +6958,7 @@ export const iran: {
       en: 'Zonouz',
       fa: 'زﻧوز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6977,7 +6972,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -6991,7 +6986,7 @@ export const iran: {
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7005,7 +7000,7 @@ export const iran: {
       en: 'Rasht',
       fa: 'رشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7019,7 +7014,7 @@ export const iran: {
       en: 'Jahrom',
       fa: 'جهرم',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7033,7 +7028,7 @@ export const iran: {
       en: 'Yazd',
       fa: 'یزد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7047,7 +7042,7 @@ export const iran: {
       en: 'Dezful',
       fa: 'دزفول',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7061,7 +7056,7 @@ export const iran: {
       en: 'Ahwaz',
       fa: 'اهواز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7075,7 +7070,7 @@ export const iran: {
       en: 'Nowshahr',
       fa: 'نوشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7090,7 +7085,7 @@ Private institution, founded in 1995`,
       en: 'Khoramdareh, Qazvin, Rafsanjan',
       fa: 'خرمشهر, قزوین,رفسنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7104,7 +7099,7 @@ Private institution, founded in 1995`,
       en: 'Kashan',
       fa: 'کاشان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7118,7 +7113,7 @@ Private institution, founded in 1995`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7132,7 +7127,7 @@ Private institution, founded in 1995`,
       en: 'Kerman',
       fa: 'کرمان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7147,7 +7142,7 @@ Public institution, founded in 1965`,
       en: 'Kermanshah',
       fa: 'ﮐرﻣﺎﻧﺷﺎه',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7161,7 +7156,7 @@ Public institution, founded in 1965`,
       en: 'kerman',
       fa: 'کرمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7175,7 +7170,7 @@ Public institution, founded in 1965`,
       en: 'Khatam',
       fa: 'خاتم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7189,7 +7184,7 @@ Public institution, founded in 1965`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7204,7 +7199,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7218,7 +7213,7 @@ Mashhad`,
       en: 'Mahmoudabad',
       fa: 'محمودآباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7232,7 +7227,7 @@ Mashhad`,
       en: 'Khorasan',
       fa: 'خراسان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7246,7 +7241,7 @@ Mashhad`,
       en: 'Khorramshahr',
       fa: 'خرمشهر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7260,7 +7255,7 @@ Mashhad`,
       en: 'Ahwaz',
       fa: 'اهواز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7274,7 +7269,7 @@ Mashhad`,
       en: 'Ahwaz',
       fa: 'اهواز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7288,7 +7283,7 @@ Mashhad`,
       en: 'Kish',
       fa: 'کیش',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7302,7 +7297,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7316,7 +7311,7 @@ Mashhad`,
       en: 'Semnan',
       fa: 'سمنان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7330,7 +7325,7 @@ Mashhad`,
       en: 'Sanandaj',
       fa: 'سنندج',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7344,7 +7339,7 @@ Mashhad`,
       en: 'Lahijan',
       fa: 'لاهیجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7358,7 +7353,7 @@ Mashhad`,
       en: 'Gorgan',
       fa: 'گرگان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7372,7 +7367,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7386,7 +7381,7 @@ Mashhad`,
       en: 'Khoramabad',
       fa: 'خرمآباد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7400,7 +7395,7 @@ Mashhad`,
       en: 'Khoramabad',
       fa: 'خرمآباد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7414,7 +7409,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7428,7 +7423,7 @@ Mashhad`,
       en: 'Malayer',
       fa: 'ملایر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7442,7 +7437,7 @@ Mashhad`,
       en: 'Maragheh',
       fa: 'مراغه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7456,7 +7451,7 @@ Mashhad`,
       en: 'Maragheh',
       fa: 'مراغه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7470,7 +7465,7 @@ Mashhad`,
       en: 'Nowshahr',
       fa: 'نوشهر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7484,7 +7479,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7498,7 +7493,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7512,7 +7507,7 @@ Mashhad`,
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7526,7 +7521,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7540,7 +7535,7 @@ Mashhad`,
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7554,7 +7549,7 @@ Mashhad`,
       en: 'Babolsar',
       fa: 'بابلسر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7568,7 +7563,7 @@ Mashhad`,
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7582,7 +7577,7 @@ Mashhad`,
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7596,7 +7591,7 @@ Mashhad`,
       en: 'Royan',
       fa: 'رویان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7610,7 +7605,7 @@ Mashhad`,
       en: 'Gilan',
       fa: 'گیلان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7624,7 +7619,7 @@ Mashhad`,
       en: 'تهران',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7638,7 +7633,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7652,7 +7647,7 @@ Mashhad`,
       en: 'Mirdamad',
       fa: 'Gorgan',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7666,7 +7661,7 @@ Mashhad`,
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7680,7 +7675,7 @@ Mashhad`,
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7694,7 +7689,7 @@ Mashhad`,
       en: 'Ardabil',
       fa: 'اردبیل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7708,7 +7703,7 @@ Mashhad`,
       en: 'Ardabil',
       fa: 'اردبیل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7722,7 +7717,7 @@ Mashhad`,
       en: 'Abyek',
       fa: 'آبیک',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7736,7 +7731,7 @@ Mashhad`,
       en: 'Eyvanakey',
       fa: 'ایوانکی',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7750,7 +7745,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7764,7 +7759,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7778,7 +7773,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7792,7 +7787,7 @@ Mashhad`,
       en: 'Chabahar,Nowshahr,Bandarabbas',
       fa: 'چابهار,نوشهربندرعباس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7806,7 +7801,7 @@ Mashhad`,
       en: 'Karaj',
       fa: 'كرج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7820,7 +7815,7 @@ Mashhad`,
       en: 'Mahmudabad',
       fa: 'محمودآباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7834,7 +7829,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7848,7 +7843,7 @@ Mashhad`,
       en: 'Khorassan',
       fa: 'خراسان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7862,7 +7857,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7876,7 +7871,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7890,7 +7885,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7904,7 +7899,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7918,7 +7913,7 @@ Mashhad`,
       en: 'Babolsar',
       fa: 'بابلسر',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7932,7 +7927,7 @@ Mashhad`,
       en: 'Fars',
       fa: 'فارس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7946,7 +7941,7 @@ Mashhad`,
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7960,7 +7955,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -7974,7 +7969,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -7988,7 +7983,7 @@ Mashhad`,
       en: 'Bushehr',
       fa: 'بوشهر',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8002,7 +7997,7 @@ Mashhad`,
       en: 'Abadan',
       fa: 'آبادان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8016,7 +8011,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8030,7 +8025,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8044,7 +8039,7 @@ Mashhad`,
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8058,7 +8053,7 @@ Mashhad`,
       en: 'Qeshm',
       fa: 'قشم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8072,7 +8067,7 @@ Mashhad`,
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8086,7 +8081,7 @@ Mashhad`,
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8100,7 +8095,7 @@ Mashhad`,
       en: 'Rafsanjan',
       fa: 'رفسنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8114,7 +8109,7 @@ Mashhad`,
       en: 'Rafsanjan',
       fa: 'رفسنجان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8128,7 +8123,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8142,7 +8137,7 @@ Mashhad`,
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8156,7 +8151,7 @@ Mashhad`,
       en: 'Rahman',
       fa: 'رحمان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8170,7 +8165,7 @@ Mashhad`,
       en: 'Sari',
       fa: 'ساری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8184,7 +8179,7 @@ Mashhad`,
       en: 'Qazvin',
       fa: 'قزوین',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8198,7 +8193,7 @@ Mashhad`,
       en: 'Khouzestan',
       fa: 'خوزستان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8212,7 +8207,7 @@ Mashhad`,
       en: 'Rasht',
       fa: 'رشت',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8226,7 +8221,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8240,7 +8235,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8254,7 +8249,7 @@ Mashhad`,
       en: 'Kermanshah',
       fa: 'کرمانشاه',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8268,7 +8263,7 @@ Mashhad`,
       en: 'RIHU',
       fa: 'ریهو',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8282,7 +8277,7 @@ Mashhad`,
       en: 'Karaj',
       fa: 'کرج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8296,7 +8291,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8310,7 +8305,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8324,7 +8319,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8338,7 +8333,7 @@ Mashhad`,
       en: 'Sari',
       fa: 'ساری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8352,7 +8347,7 @@ Mashhad`,
       en: 'Zanjan',
       fa: 'زنجان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8366,7 +8361,7 @@ Mashhad`,
       en: 'Semnan',
       fa: 'سمنان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8380,7 +8375,7 @@ Mashhad`,
       en: 'Tonekabon',
       fa: 'تنکابن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8394,7 +8389,7 @@ Mashhad`,
       en: 'Sabalan',
       fa: 'سبلان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8408,7 +8403,7 @@ Mashhad`,
       en: 'Amol',
       fa: 'آمل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8422,7 +8417,7 @@ Mashhad`,
       en: 'Sahedazaman',
       fa: '',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8436,7 +8431,7 @@ Mashhad`,
       en: 'Sabzevar',
       fa: 'سبزوار',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8450,7 +8445,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8464,7 +8459,7 @@ Mashhad`,
       en: 'Isfahan ',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8478,7 +8473,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8492,7 +8487,7 @@ Mashhad`,
       en: 'Sahand',
       fa: 'سهند',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8506,7 +8501,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8520,7 +8515,7 @@ Mashhad`,
       en: 'Amol',
       fa: 'آمل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8534,7 +8529,7 @@ Mashhad`,
       en: 'Gonbad-e Kavus',
       fa: 'گنبدکاووس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8548,7 +8543,7 @@ Mashhad`,
       en: 'Sari',
       fa: 'ساری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8562,7 +8557,7 @@ Mashhad`,
       en: 'Sari',
       fa: 'ساری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8576,7 +8571,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8590,7 +8585,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8604,7 +8599,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8618,7 +8613,7 @@ Mashhad`,
       en: 'Urmia',
       fa: 'ارومیه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8632,7 +8627,7 @@ Mashhad`,
       en: 'Semnan',
       fa: 'سمنان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8646,7 +8641,7 @@ Mashhad`,
       en: 'Semnan',
       fa: 'سمنان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8660,7 +8655,7 @@ Mashhad`,
       en: 'Esfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8674,7 +8669,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8688,7 +8683,7 @@ Mashhad`,
       en: 'Esfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8702,7 +8697,7 @@ Mashhad`,
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8716,7 +8711,7 @@ Mashhad`,
       en: 'Tonekabon',
       fa: 'تنکابن',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8730,7 +8725,7 @@ Mashhad`,
       en: 'Qom',
       fa: 'قم',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8744,7 +8739,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8758,7 +8753,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8772,7 +8767,7 @@ Mashhad`,
       en: 'Kerman',
       fa: 'کرمان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8786,7 +8781,7 @@ Mashhad`,
       en: 'تهران',
       fa: 'Tehran',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8800,7 +8795,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8814,7 +8809,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8828,7 +8823,7 @@ Mashhad`,
       en: 'Ahwaz',
       fa: 'اهواز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8842,7 +8837,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8856,7 +8851,7 @@ Mashhad`,
       en: 'Kermanshah',
       fa: 'کرمانشاه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8870,7 +8865,7 @@ Mashhad`,
       en: 'Yazd',
       fa: 'یزد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8884,7 +8879,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8898,7 +8893,7 @@ Mashhad`,
       en: 'Shahrekord',
       fa: 'شهركرد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8912,7 +8907,7 @@ Mashhad`,
       en: 'Shahrekord',
       fa: 'شهرکرد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8926,7 +8921,7 @@ Mashhad`,
       en: 'Shahrood',
       fa: 'شاهرود',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8940,7 +8935,7 @@ Mashhad`,
       en: 'Shahrood',
       fa: 'شاهرود',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8954,7 +8949,7 @@ Mashhad`,
       en: 'Shahrood',
       fa: 'شاهرود',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -8968,7 +8963,7 @@ Mashhad`,
       en: 'Gonabad',
       fa: 'گناباد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8982,7 +8977,7 @@ Mashhad`,
       en: 'Gonbadkavoos',
       fa: 'گنبدکاووس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -8996,7 +8991,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9010,7 +9005,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9024,7 +9019,7 @@ Mashhad`,
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9038,7 +9033,7 @@ Mashhad`,
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9052,7 +9047,7 @@ Mashhad`,
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9066,7 +9061,7 @@ Mashhad`,
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9080,7 +9075,7 @@ Mashhad`,
       en: 'Amol',
       fa: 'آمل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9094,7 +9089,7 @@ Mashhad`,
       en: 'Kashan, Sari',
       fa: 'کاشان ,ساری',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9108,7 +9103,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9122,7 +9117,7 @@ Mashhad`,
       en: 'شیراز',
       fa: 'Shiraz',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9136,7 +9131,7 @@ Mashhad`,
       en: 'Soureh',
       fa: 'سوره',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9150,7 +9145,7 @@ Mashhad`,
       en: 'Esfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9164,7 +9159,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9178,7 +9173,7 @@ Mashhad`,
       en: 'Mashhad',
       fa: 'مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9192,7 +9187,7 @@ Mashhad`,
       en: 'Babol',
       fa: 'بابل',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9206,7 +9201,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9220,7 +9215,7 @@ Mashhad`,
       en: 'Lamerd',
       fa: 'لامرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9234,7 +9229,7 @@ Mashhad`,
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9248,7 +9243,7 @@ Mashhad`,
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9262,7 +9257,7 @@ Mashhad`,
       en: 'Tafresh',
       fa: 'تفرش',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9276,7 +9271,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9290,7 +9285,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9304,7 +9299,7 @@ Mashhad`,
       en: 'Tehran, Arak, Karaj, Lalejin, Mashhad',
       fa: 'تهران,اراک,کرج,لاله جان,مشهد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9318,7 +9313,7 @@ Mashhad`,
       en: 'Karaj',
       fa: 'کرج',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9332,7 +9327,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9346,7 +9341,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9360,7 +9355,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9374,7 +9369,7 @@ Mashhad`,
       en: 'Birjand,Jiroft,Shiraz,Maraghe,Urmia,ShahrKord',
       fa: 'بیرجند,جیرفت,شیراز,مراغه,ارومیه,شهرکرد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9388,7 +9383,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9402,7 +9397,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9416,7 +9411,7 @@ Mashhad`,
       en: 'Toos',
       fa: 'توس',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9430,7 +9425,7 @@ Mashhad`,
       en: 'Torbat Heydarieh',
       fa: 'تربت حیدریه',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9444,7 +9439,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9458,7 +9453,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9472,7 +9467,7 @@ Mashhad`,
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9486,7 +9481,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9500,7 +9495,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9514,7 +9509,7 @@ Mashhad`,
       en: 'Birjand',
       fa: 'بیرجند',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9528,7 +9523,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9542,7 +9537,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9556,7 +9551,7 @@ Mashhad`,
       en: 'Isfahan',
       fa: 'اصفهان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9570,7 +9565,7 @@ Mashhad`,
       en: 'Kashan',
       fa: 'كاشان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9584,7 +9579,7 @@ Mashhad`,
       en: 'Sanandaj',
       fa: 'سنندج',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9598,7 +9593,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9612,7 +9607,7 @@ Mashhad`,
       en: 'Semnan',
       fa: 'سمنان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9626,7 +9621,7 @@ Mashhad`,
       en: 'Zahedan',
       fa: 'زاهدان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9640,7 +9635,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9654,7 +9649,7 @@ Mashhad`,
       en: 'Tabriz',
       fa: 'تبریز',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9668,7 +9663,7 @@ Mashhad`,
       en: 'Tehran',
       fa: 'تهران',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9682,7 +9677,7 @@ Mashhad`,
       en: 'Zabol',
       fa: 'زابل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9696,7 +9691,7 @@ Mashhad`,
       en: 'Urmia',
       fa: 'ارومیه',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9710,7 +9705,7 @@ Mashhad`,
       en: 'Urmia',
       fa: 'ارومیه',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9724,7 +9719,7 @@ Mashhad`,
       en: 'Urmia',
       fa: 'ارومیه',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9738,7 +9733,7 @@ Mashhad`,
       en: 'Rafsanjan',
       fa: 'رفسنجان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9752,7 +9747,7 @@ Mashhad`,
       en: 'Yasuj',
       fa: 'یاسوج',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9766,7 +9761,7 @@ Mashhad`,
       en: 'Yasuj',
       fa: 'یاسوج',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9780,7 +9775,7 @@ Mashhad`,
       en: 'Yazd',
       fa: 'یزد',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9794,7 +9789,7 @@ Mashhad`,
       en: 'Yazd',
       fa: 'یزد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9808,7 +9803,7 @@ Mashhad`,
       en: 'Yazd',
       fa: 'یزد',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9822,7 +9817,7 @@ Mashhad`,
       en: 'Zabol',
       fa: 'زابل',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9836,7 +9831,7 @@ Mashhad`,
       en: 'Zahedan',
       fa: 'زاهدان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9850,7 +9845,7 @@ Mashhad`,
       en: 'Shiraz',
       fa: 'شیراز',
     },
-    setion: 2,
+    section: 2,
   },
   {
     title: {
@@ -9864,7 +9859,7 @@ Mashhad`,
       en: 'Zanjan',
       fa: 'زنجان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9878,7 +9873,7 @@ Mashhad`,
       en: 'Zanjan',
       fa: 'زنجان',
     },
-    setion: 1,
+    section: 1,
   },
   {
     title: {
@@ -9892,6 +9887,6 @@ Mashhad`,
       en: 'Saveh',
       fa: 'ساوه ',
     },
-    setion: 2,
+    section: 2,
   },
 ];

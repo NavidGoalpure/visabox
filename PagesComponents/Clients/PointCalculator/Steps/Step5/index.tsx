@@ -9,6 +9,9 @@ import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
+  HintContainer,
+  InfoHintIcon,
+  HintText,
   InformationIcon,
   NextButton,
   NextIcon,
@@ -17,16 +20,18 @@ import {
   StyledTooltipTag,
   Title,
 } from "../StyledComponents";
+import { FiInfo } from "react-icons/fi";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import { ClientDegree, UniSections } from "Interfaces/Database/Client";
 import { educations, uniSections, YesOrNo } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
+import { UniversitySearchInput } from "./UniversitySearchInput";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient,score } = useContext(FormDataContext);
+  const { client, setClient, score } = useContext(FormDataContext);
   const { locale } = useLocale();
 
   return (
@@ -69,6 +74,20 @@ const Step5 = () => {
           </>
         }
       </ToggleGroupRoot>
+      {client?.uni_section === UniSections.IDontKnow &&
+        locale === Languages.fa && (
+          <>
+            <HintContainer>
+              <InfoHintIcon />
+              <HintText>
+                با وارد نمودن نام هر دانشگاه، می‌توانید ببینید در چه دسته بندی
+                (سکشن) ای قرار دارد
+              </HintText>
+            </HintContainer>
+            <UniversitySearchInput />
+          </>
+        )}
+
       <Title>
         {t(LanguageKeys.DegreeOfEducationSectionTitle)}{" "}
         <StyledTooltipTag

@@ -23,7 +23,7 @@ export function doMustActiveHotjar(currentRoute: string): boolean {
 
   // اگه قرار شد همه صفحات رو اکتیو کنیم ترو برگردون
   //@ts-ignore
-  if (MUST_ACTIVE_ROUTES === ['ALL']) return true;
+  if (MUST_ACTIVE_ROUTES.toString() === ['ALL'].toString()) return true;
 
   //اگه تو لیست اکتیوها بود ترو برگردون
   return MUST_ACTIVE_ROUTES.includes(currentRoute);
@@ -37,6 +37,7 @@ export function doMustActiveHotjar(currentRoute: string): boolean {
  */
 export function smartActiveHotjar(currentRoute: string) {
   const isActiveHotjar = doMustActiveHotjar(currentRoute);
+  console.log('navid isHotjar=', isActiveHotjar);
   if (isActiveHotjar)
     hotjar.initialize(
       Number(process.env.NEXT_PUBLIC_HJID),

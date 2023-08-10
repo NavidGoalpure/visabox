@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import { BlogContainer, HintBG, HintSecondaryContainer, HintSecondaryIcon, HintSecondaryTextStyle, HintText, HintTitle, ImageContainer, Images } from '../StyledComponents';
+import { BlogContainer, HintBG, HintSecondaryContainer, HintSecondaryIcon, HintSecondaryTextStyle, HintText, HintTitle, ImageContainer, Images, MoreBlogsContainer, MoreBlogsCardsContainer } from '../StyledComponents';
+import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
+import { useLocale } from 'Hooks/useLocale';
 
 export default function PostContent() {
+  const { locale } = useLocale();
   return (
     <BlogContainer>
       <ImageContainer>
@@ -238,6 +241,26 @@ export default function PostContent() {
           را می‌توانید از طریق این لینک پیدا کنید.
         </HintText>
       </HintBG>
+      <MoreBlogsContainer>
+        <h2>مقاله های مشابه</h2>
+        <MoreBlogsCardsContainer>
+
+          <PagesConnectorCard
+            title={'آنچه باید درباره ی سازمان های ارزیابی بدانیم'}
+            href={`/${locale}/blog/assessment-organizations-in-australia`}
+            img='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best' />
+
+          <PagesConnectorCard
+            title={'آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم'}
+            href={`/${locale}/blog/document-assessment-in-australia`}
+            img='https://binsta.dev/api/v1/files/Jbb2xZFcyX/transform?format=webp&size=lg&quality=best' />
+
+          <PagesConnectorCard
+            title={'قدم به قدم تا ویزای اسکیل ورکر (مهارتی)'}
+            href={`/${locale}/blog/getting-skilled-worker-visa`}
+            img='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best' />
+        </MoreBlogsCardsContainer>
+      </MoreBlogsContainer>
     </BlogContainer>
   );
 }

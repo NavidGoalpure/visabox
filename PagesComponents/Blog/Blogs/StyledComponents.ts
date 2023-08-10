@@ -174,3 +174,20 @@ export const Images = styled(Image)`
   border-radius: 15px;
   object-fit: cover;
 `;
+
+export const MoreBlogsContainer = styled.div`
+margin-top: 4rem;
+display: flex;
+justify-content: center;
+flex-direction: column;
+gap: 2rem;
+h2{
+  text-align: center !important;
+}
+`
+
+export const MoreBlogsCardsContainer = styled.div`
+display: flex;
+justify-content: center;
+gap: 1rem;
+`

@@ -63,10 +63,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const chosenAgency = AGENCYS.filter(
     (agency) => agency.slug === params?.slug
   )[0];
-
-  console.log('***navid params=', params);
-  console.log('***navid params.slchosenAgency=', params?.slug);
-  console.log('***navid chosenAgency.slug=', chosenAgency?.slug);
   if (!chosenAgency)
     return {
       props: {

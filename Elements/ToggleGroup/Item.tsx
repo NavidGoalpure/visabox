@@ -8,6 +8,7 @@ import theme from 'styled-theming';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { Headline7Style } from 'Styles/Typo';
 import { deviceTypes } from 'Consts/device';
+import { directionStyles } from 'Styles/Theme';
 
 export interface RadioItemProps extends ToggleGroup.ToggleGroupItemProps {
   text: MultiLanguageText;
@@ -33,8 +34,8 @@ export const Item: React.FC<RadioItemProps> = ({
 };
 const ContainerTheme = theme('mode', {
   light: css`
-    border: 2px solid var(--color-gray11);
-    color: var(--color-gray11);
+    border: 2px solid var(--color-gray9);
+    color: var(--color-gray9);
   `,
   dark: css`
     color: var(--color-gray10);
@@ -55,8 +56,9 @@ opacity:1;
 }
 `;
 const Container = styled(ToggleGroup.Item)`
-  ${ContainerTheme};
-  ${Headline7Style};
+  ${ContainerTheme}
+  ${Headline7Style}
+  direction: ltr;
   cursor: pointer;
   position: relative;
   display: flex;

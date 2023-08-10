@@ -5,7 +5,6 @@ import { Label } from '@radix-ui/react-label';
 import styled, { css } from 'styled-components';
 import {
   Module_RadioBtnBG,
-  Module_TextColor,
   Module_TitleColor,
 } from 'Styles/Theme/Modals/theme';
 import { MultiLanguageText } from 'Interfaces/Database';

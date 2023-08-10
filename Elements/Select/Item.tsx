@@ -5,15 +5,12 @@ import { SelectItemProps } from "@radix-ui/react-select";
 import { directionStyles } from "Styles/Theme";
 import { deviceMin } from "Consts/device";
 import { BsCheck } from "react-icons/bs";
-import theme from "styled-theming";
-import { Montserrat } from "@next/font/google";
 
 
 interface Props extends SelectItemProps {
   icon?: ReactNode;
   text: ReactNode;
 }
-const montserrat = Montserrat({ subsets: ["latin"] });
 const Item: React.FC<Props> = ({ icon, text, className, ...props }) => {
   return (
     <SelectItem {...props} id="red" className={className}>
@@ -27,17 +24,9 @@ const Item: React.FC<Props> = ({ icon, text, className, ...props }) => {
   );
 };
 export { Item };
-const Font = theme("languageDirection", {
-  ltr: css`
-    font-family: ${montserrat.style.fontFamily};
-  `,
-  rtl: css`
-    font-family: var(--font-family__fa);
-  `,
-});
+
 export const SelectItemCss = css`
   ${directionStyles};
-  ${Font};
   padding: 0.5rem 0.5rem;
   width: max-content;
   display: flex;

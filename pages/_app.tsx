@@ -16,7 +16,7 @@ import { globalStyles } from 'Styles/Theme';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import Script from 'next/script';
-// import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
+import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`
 ${globalStyles}
@@ -29,15 +29,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
-  // useEffect(() => {
-  //   smartActiveHotjar(router.route);
-  // }, []);
+  useEffect(() => {
+    smartActiveHotjar(router.route);
+  }, []);
 
   return (
     <>
       <style jsx global>{`
         html {
-          font-family: ${montserrat.style.fontFamily};
+          font-family: ${montserrat.style.fontFamily}, var(--font-family__fa);
         }
       `}</style>
       {/* ////////////////////////////////////////////
@@ -73,8 +73,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
               <ErrorBoundary>
                 <Head>
                   <meta
-                    name='viewport'
-                    content='width=device-width, initial-scale=1'
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
                   />
                 </Head>
                 <Component {...pageProps} />

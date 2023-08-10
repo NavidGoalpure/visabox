@@ -1,44 +1,76 @@
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
 import {
   layer2A_BodyStyle,
+  layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
-import DescriptionSection from '../DescriptionSection';
-import Image from 'next/image';
-import { Client } from 'Interfaces/Database/Client';
-
+} from "Styles/Theme/Layers/layer2/style";
+import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
+import DescriptionSection from "../DescriptionSection";
+import { Client } from "Interfaces/Database/Client";
+import DarkBackground from "./Images/DarkBackground.svg";
+import LightBackground from "./Images/LightBackground.svg";
+import { Headline7Style } from "Styles/Typo";
+import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import { BsPersonCircle } from "react-icons/bs";
+import {
+  Hint_SecondaryContainer,
+  Hint_SecondaryIcon,
+  Hint_SecondaryTextStyle,
+} from "Styles/Theme/Hint/style";
+import { FiInfo } from "react-icons/fi";
 interface Props {
   client: Client;
 }
 function DesktopAgentsPage({ client }: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
-
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
-      <SmallBox>
-        <ProfilePictureWrapper>
-          <ProfilePicture
-            src={client?.avatar || '/Images/placeholder.jpeg'}
-            alt={client?.name ? `${client?.name} image` : 'agent image'}
-          />
-        </ProfilePictureWrapper>
-        <ProfileData>
-          <Name>
-            {client?.name} {client?.lastname}
-          </Name>
-          <JobTitle>{client?.current_job}</JobTitle>
-          <CreatedDate>{dataCreatedAt}</CreatedDate>
-        </ProfileData>
-      </SmallBox>
-      <DescriptionSection client={client} />
+      {!client?.country && (
+        <HintContainer>
+          <HintInfoIcon />
+          <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
+        </HintContainer>
+      )}
+      <Wrapper>
+        <SmallBox>
+          <ProfilePictureWrapper>
+            {client?.avatar ? (
+              <ProfilePicture
+                src={client?.avatar}
+                alt={client?.name ? `${client?.name} image` : "agent image"}
+              />
+            ) : (
+              <ImagePlaceholder />
+            )}
+          </ProfilePictureWrapper>
+          <ProfileData>
+            <Name>
+              {client?.name} {client?.lastname}
+            </Name>
+            <JobTitle>{client?.current_job}</JobTitle>
+            <CreatedDate>{dataCreatedAt}</CreatedDate>
+            {client?.country && (
+              <ScoreWrapper>
+                <HeaderLabel>
+                  {t(LanguageKeys.ScoreTitle)}{" "}
+                  <span id="score">{CalculateClientScore(client)}</span>
+                </HeaderLabel>
+              </ScoreWrapper>
+            )}
+          </ProfileData>
+        </SmallBox>
+        <DescriptionSection client={client} />
+      </Wrapper>
     </Container>
   );
 }
 export default DesktopAgentsPage;
 
-const TitleColor = theme('mode', {
+const TitleColor = theme("mode", {
   light: css`
     color: var(--color-primary4);
   `,
@@ -46,40 +78,88 @@ const TitleColor = theme('mode', {
     color: var(--color-primary5);
   `,
 });
+const HeaderBackground = theme("mode", {
+  light: css`
+    background-image: url(${LightBackground});
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+  `,
+  dark: css`
+    background-image: url(${DarkBackground});
+  `,
+});
+const HeaderLabelTheme = theme("mode", {
+  light: css`
+    color: var(--color-gray10);
+  `,
+  dark: css`
+    color: var(--color-gray11);
+  `,
+});
+const HeaderScoreTheme = theme("mode", {
+  light: css`
+    color: var(--color-secondary2);
+  `,
+  dark: css`
+    color: var(--color-secondary4);
+  `,
+});
 const Container = styled.div`
+  padding: 0 0 4rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+`;
+const HintContainer = styled.div`
+  ${Hint_SecondaryContainer};
+  gap: 2rem;
+`;
+const HintInfoIcon = styled(FiInfo)`
+  ${Hint_SecondaryIcon};
+`;
+const HintContent = styled.h3`
+  ${Hint_SecondaryTextStyle};
+`;
+const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   position: relative;
-  padding: 4rem 0;
   gap: 1rem;
 `;
 const SmallBox = styled.header`
-  ${layer2A_BodyStyle}
+  ${layer2A_BodyStyle};
+  ${HeaderBackground};
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  width: 21rem;
+  width: 18rem;
   border-radius: 15px;
   padding: 1.5rem;
   gap: 2rem;
   margin-bottom: 4rem;
+  box-shadow: unset;
 `;
 const ProfilePictureWrapper = styled.div`
   flex-shrink: 0;
   align-self: center;
-  width: 16rem;
-  height: 16rem;
+  width: 7rem;
+  height: 7rem;
   z-index: 1;
   position: relative;
 `;
 const ProfilePicture = styled.img`
   object-fit: cover;
   width: 100%;
-  border-radius: 15px;
+  border-radius: 50%;
+`;
+const ImagePlaceholder = styled(BsPersonCircle)`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  color: var(--color-gray11);
 `;
 const ProfileData = styled.div`
   display: flex;
@@ -88,6 +168,15 @@ const ProfileData = styled.div`
   align-items: center;
   width: 100%;
   gap: 1.5rem;
+`;
+const ScoreWrapper = styled.div``;
+const HeaderLabel = styled.h4`
+  ${Headline7Style};
+  ${HeaderLabelTheme}
+  #score {
+    ${HeaderScoreTheme};
+  }
+
 `;
 const Name = styled.h2`
   ${TitleColor}

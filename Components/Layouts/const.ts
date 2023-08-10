@@ -15,7 +15,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'فرم ارزیابی',
   },
   StampText: {
-    en: 'With Point Calculator',
-    fa: 'همراه <br/> ماشین حساب امتیازات',
+    en: 'Point Calculator',
+    fa: 'ماشین حساب امتیازات',
   },
 };

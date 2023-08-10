@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import useTheme from "Hooks/useTheme";
-import { ThemeModes } from "Interfaces";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { signOut, useSession } from "next-auth/react";
-import SwitchTheme from "../switchTheme";
-import { Headline6Style, Headline7Style } from "Styles/Typo";
-import PopOver from "Elements/PopOver";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { directionStyles } from "Styles/Theme";
-import MaraSwitch from "Elements/MaraSwitch";
-import { CiLogout } from "react-icons/ci";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { getClientDetail } from "Queries/client";
-import { ClientQueryKeys } from "Utils/query/keys";
-import { ClientCompletedForms } from "Interfaces/Database/Client";
-import SuccessToast from "Elements/Toast/Success";
-import ErrorToast from "Elements/Toast/Error";
-import { deviceMin } from "Consts/device";
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import useTheme from 'Hooks/useTheme';
+import { ThemeModes } from 'Interfaces';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { signOut, useSession } from 'next-auth/react';
+import SwitchTheme from '../switchTheme';
+import { Headline6Style, Headline7Style } from 'Styles/Typo';
+import PopOver from 'Elements/PopOver';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { directionStyles } from 'Styles/Theme';
+import MaraSwitch from 'Elements/MaraSwitch';
+import { CiLogout } from 'react-icons/ci';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { getClientDetail } from 'Queries/client';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import { ClientCompletedForms } from 'Interfaces/Database/Client';
+import SuccessToast from 'Elements/Toast/Success';
+import ErrorToast from 'Elements/Toast/Error';
+import { deviceMin } from 'Consts/device';
+import { listOfBasicForm_ResParams } from 'Consts/agents';
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);
@@ -32,7 +32,7 @@ function DesktopProfileOptions() {
   const showDataMessage = t(LanguageKeys.ShowDataToast);
   const hideDataMessage = t(LanguageKeys.HideDataToast);
   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `is_sharable,completed_forms,_id`;
   ///////////////
   const { data, isLoading: isSharableLoading } = useQuery(
@@ -50,8 +50,8 @@ function DesktopProfileOptions() {
   ///////////// mutation on is-sharable clicked ///////
   const mutation = useMutation({
     mutationFn: () => {
-      return fetch("/api/clients/is-sharable", {
-        method: "POST",
+      return fetch('/api/clients/is-sharable', {
+        method: 'POST',
         body: JSON.stringify({
           is_sharable: !isSharableChecked,
           _id: data?.client?.[0]?._id,
@@ -60,7 +60,7 @@ function DesktopProfileOptions() {
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        throw new Error("couldnt patch the user");
+        throw new Error('couldnt patch the user');
       }
       setIsSharableChecked((prevState) => !prevState);
       if (isSharableChecked === true) {
@@ -70,7 +70,12 @@ function DesktopProfileOptions() {
       }
       queryClient.removeQueries(
         ClientQueryKeys.detail({
-          reqParams: `email == "${session?.user?.email || "defensive"}"`,
+          reqParams: `email == "${session?.user?.email || 'defensive'}"`,
+        })
+      );
+      queryClient.removeQueries(
+        ClientQueryKeys.listOfBasicForm({
+          resParams: listOfBasicForm_ResParams,
         })
       );
     },
@@ -87,8 +92,8 @@ function DesktopProfileOptions() {
       <PopOver
         trigger={
           <Avatar
-            src={session?.user?.image || "/Images/placeholder.jpeg"}
-            alt={"user-profile"}
+            src={session?.user?.image || '/Images/placeholder.jpeg'}
+            alt={'user-profile'}
           />
         }
         content={
@@ -178,10 +183,10 @@ const MaraItemTitle = styled.h4`
   }
 `;
 const RedLine = styled.hr`
-  width: 20%;
+  width: 60%;
   border-radius: 15px;
   height: 1.5px;
-  background: var(--color-fail1);
+  background: var(--color-gray11);
   margin: auto;
 `;
 const LogoutTitle = styled(MaraItemTitle)`

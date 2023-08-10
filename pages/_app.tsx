@@ -2,11 +2,10 @@ import type { AppProps } from 'next/app';
 import NextNProgress from 'nextjs-progressbar';
 import { QueryClient, QueryClientProvider, Hydrate } from 'react-query';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { Montserrat } from '@next/font/google';
+import { Montserrat, Vazirmatn } from '@next/font/google';
 import { useRouter } from 'next/router';
 import { useLocale } from 'Hooks/useLocale';
 import '../Styles/global.css';
-import 'vazirmatn/Vazirmatn-font-face.css';
 import { LanguageDirection, Languages } from 'Interfaces';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { useEffect, useState } from 'react';
@@ -15,13 +14,13 @@ import ErrorBoundary from 'Components/errorBoundary';
 import { globalStyles } from 'Styles/Theme';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
-import Script from 'next/script';
 import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
 
 const GlobalStyle = createGlobalStyle`
 ${globalStyles}
 `;
 const montserrat = Montserrat({ subsets: ['latin'] });
+const vazirmatn = Vazirmatn({ subsets: ['arabic'] });
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
@@ -37,7 +36,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <>
       <style jsx global>{`
         html {
-          font-family: ${montserrat.style.fontFamily}, var(--font-family__fa);
+          font-family: ${montserrat.style.fontFamily},
+            ${vazirmatn.style.fontFamily}, 'Open Sans', 'Poppin';
         }
       `}</style>
       {/* ////////////////////////////////////////////
@@ -73,8 +73,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
               <ErrorBoundary>
                 <Head>
                   <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
+                    name='viewport'
+                    content='width=device-width, initial-scale=1'
                   />
                 </Head>
                 <Component {...pageProps} />

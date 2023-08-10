@@ -11,7 +11,8 @@ import { hotjar } from 'react-hotjar';
  */
 export function doMustActiveHotjar(currentRoute: string): boolean {
   // روت هایی که میخوایم هاتجر در اونها فعال باشه
-  const MUST_ACTIVE_ROUTES = ['/agents/forms-wall', '/clients/basic-form'];
+  // const MUST_ACTIVE_ROUTES = ['/agents/forms-wall', '/clients/basic-form'];
+  const MUST_ACTIVE_ROUTES = ['ALL'];
 
   //روت هایی که نمیخوایم هاتجر در اونها فعال باشه
   const MUST_DEACTIVE_ROUTES = ['/404'];

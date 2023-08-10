@@ -1,7 +1,9 @@
 import { useLocale } from 'Hooks/useLocale';
 import { componentStatements } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { BlogContainer, ImageContainer, Images } from '../StyledComponents';
+import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images, MoreBlogsContainer, MoreBlogsCardsContainer } from '../StyledComponents';
+import Link from 'next/link';
+import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -199,6 +201,42 @@ export default function PostContent() {
 
       {/* //  برای محاسبه امتیاز خود می‌توانید به لینک زیر مراجعه نمایید: 
 // لینک :........................................................ navid */}
+
+      <HintBG>
+        <HintTitle>توجه:</HintTitle>
+        <HintText>
+          اطلاعات ارائه شده در این بلاگ، فقط برای اطلاعاتی عمومی است و نباید به
+          عنوان مشاوره حقوقی تلقی شود. ما تمام تلاش خود را می کنیم تا از صحت و
+          به روز بودن محتوای خود اطمینان حاصل کنیم، اما نمی توانیم کامل بودن یا
+          قابلیت اطمینان آن را تضمین کنیم. مسئولیت هر اقدامی که بر اساس اطلاعات
+          ارائه شده در وبلاگ های ما انجام شود کاملاً به عهده شماست. اکیداً توصیه
+          می‌شود که قبل از تصمیم گیری در مورد مهاجرت از مشاوره حرفه ای استفاده
+          کنید.
+          <Link href={'/lists/agencies'} target='_blank'>
+            {` لیست موسسات مهاجرتی قانونی مربوط به استرالیا `}
+          </Link>
+          را می‌توانید از طریق این لینک پیدا کنید.
+        </HintText>
+      </HintBG>
+      <MoreBlogsContainer>
+        <h2>مقاله های مشابه</h2>
+        <MoreBlogsCardsContainer>
+          <PagesConnectorCard
+            title={'آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم'}
+            href={`/${locale}/blog/document-assessment-in-australia`}
+            img='https://binsta.dev/api/v1/files/Jbb2xZFcyX/transform?format=webp&size=lg&quality=best' />
+
+          <PagesConnectorCard
+            title={'آنچه باید درباره ی سازمان های ارزیابی بدانیم'}
+            href={`/${locale}/blog/assessment-organizations-in-australia`}
+            img='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best' />
+
+          <PagesConnectorCard
+            title={'قدم به قدم تا ویزای اسکیل ورکر (مهارتی)'}
+            href={`/${locale}/blog/getting-skilled-worker-visa`}
+            img='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best' />
+        </MoreBlogsCardsContainer>
+      </MoreBlogsContainer>
     </BlogContainer>
   );
 }

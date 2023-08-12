@@ -6,18 +6,21 @@ import { componentStatements, LanguageKeys } from "../const";
 import { University } from "Interfaces/Database/university";
 import theme from "styled-theming";
 import styled, { css } from "styled-components";
-import { Dispatch, SetStateAction, useContext } from "react";
-import { useLocale } from "Hooks/useLocale";
-import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
 import { deviceMin } from "Consts/device";
-
-export const UniCard = ({ university }: { university: University }) => {
+import { Dispatch, HTMLAttributes, SetStateAction } from "react";
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  university: University;
+  setInputValue: Dispatch<SetStateAction<string>>;
+}
+export const UniCard: React.FC<Props> = ({ university, setInputValue }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
-  const { locale } = useLocale();
-  const { client, setClient } = useContext(FormDataContext);
   return (
-    <UniversityCard>
+    <UniversityCard
+      onClick={() => {
+        setInputValue(`سکشن ${university.section}`);
+      }}
+    >
       <UniName>{dt(university.title)}</UniName>
       <UniWrapper>
         <UniSection>
@@ -78,6 +81,7 @@ const UniversityCard = styled.div`
   padding: 0.5rem 0.7rem;
   transition: all 0.3s ease;
   gap: 1rem;
+  cursor: pointer;
   @media ${deviceMin.tabletS} {
     padding: 1.25rem 1.5rem;
   }

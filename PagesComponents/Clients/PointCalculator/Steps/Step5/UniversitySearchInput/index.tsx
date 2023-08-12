@@ -55,12 +55,12 @@ export const UniversitySearchInput = () => {
             </LoadingContainer>
           ) : SearchedUniversities.length !== 0 ? (
             SearchedUniversities.map((uni) => {
-              return <UniCard university={uni} />;
+              return <UniCard setInputValue={setInputValue} university={uni} />;
             })
           ) : (
             <NotFoundContainer>
               <CloseIcon />
-              <NotFoundTitle>حداقل سه حرف وارد کنید ...</NotFoundTitle>
+              <NotFoundTitle>نتیجه ای یافت نشد.</NotFoundTitle>
             </NotFoundContainer>
           )}
         </StyledScrollBox>

@@ -21,9 +21,9 @@ export const IconTheme = theme("mode", {
 });
 export const SecondaryTextTheme = theme("mode", {
   light: css`
-    color: var(--color-secondary2);
+    color: var(--color-secondary2)  !important;
   `,
   dark: css`
-    color: var(--color-secondary3);
+    color: var(--color-secondary3)  !important;
   `,
 });

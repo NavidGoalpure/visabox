@@ -1,5 +1,7 @@
 import { useLocale } from 'Hooks/useLocale';
-import { BlogContainer, ImageContainer, Images } from '../StyledComponents';
+import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images, MoreBlogsCardsContainer, MoreBlogsContainer } from '../StyledComponents';
+import Link from 'next/link';
+import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -170,6 +172,43 @@ export default function PostContent() {
         </a>
         مشاهده کنید.
       </p>
+      <HintBG>
+        <HintTitle>توجه:</HintTitle>
+        <HintText>
+          اطلاعات ارائه شده در این بلاگ، فقط برای اطلاعاتی عمومی است و نباید به
+          عنوان مشاوره حقوقی تلقی شود. ما تمام تلاش خود را می کنیم تا از صحت و
+          به روز بودن محتوای خود اطمینان حاصل کنیم، اما نمی توانیم کامل بودن یا
+          قابلیت اطمینان آن را تضمین کنیم. مسئولیت هر اقدامی که بر اساس اطلاعات
+          ارائه شده در وبلاگ های ما انجام شود کاملاً به عهده شماست. اکیداً توصیه
+          می‌شود که قبل از تصمیم گیری در مورد مهاجرت از مشاوره حرفه ای استفاده
+          کنید.
+          <Link href={'/lists/agencies'} target='_blank'>
+            {` لیست موسسات مهاجرتی قانونی مربوط به استرالیا `}
+          </Link>
+          را می‌توانید از طریق این لینک پیدا کنید.
+        </HintText>
+      </HintBG>
+      <MoreBlogsContainer>
+        <h2>مقاله های مشابه</h2>
+        <MoreBlogsCardsContainer>
+
+          <PagesConnectorCard
+            title={'ویزای مهارتی استرالیا (Skilled worker)'}
+            href={`/${locale}/blog/what-is-skilled-worker-visa`}
+            img='https://binsta.dev/api/v1/files/A-YzruQXR1/transform?format=webp&size=lg&quality=best' />
+         
+          <PagesConnectorCard
+            title={'نمره زبان و ویزای مهارتی یا اسکیل ورکر'}
+            href={`/${locale}/blog/Language-score-and-skilled-worker-visa`}
+            img='https://binsta.dev/api/v1/files/z7jW9EIqKf/transform?format=webp&size=lg&quality=best' />
+
+          <PagesConnectorCard
+            title={'آنچه باید درباره ی سازمان های ارزیابی بدانیم'}
+            href={`/${locale}/blog/assessment-organizations-in-australia`}
+            img='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best' />
+
+        </MoreBlogsCardsContainer>
+      </MoreBlogsContainer>
     </BlogContainer>
   );
 }

@@ -2,51 +2,33 @@ import { deviceMin } from "Consts/device";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { MdPersonSearch } from "react-icons/md";
-
-import DarkHeroImage from "./Images/DarkHeroImage.svg";
-import LightHeroImage from "./Images/LightHeroImage.svg";
-import { BiMouse } from "react-icons/bi";
-import DarkPhone from "./Images/DarkPhone.svg";
+import RobotImage from "./Images/RobotImage.svg";
 import LightPhone from "./Images/LightPhone.svg";
-import DarkProfileComponent from "./Images/DarkProfileComponent.svg";
-import LightProfileComponent from "./Images/LightProfileComponent.svg";
-import DarkAboutComponent from "./Images/DarkAboutComponent.svg";
-import LightAboutComponent from "./Images/LightAboutComponent.svg";
+import DarkPhone from "./Images/DarkPhone.svg";
+import { BiMouse } from "react-icons/bi";
+import HeroMovingRobot from "./Images/HeroMovingRobot.svg";
+import DarkPattern from "./Images/DarkPattern.svg";
+import LightPattern from "./Images/LightPattern.svg";
 import Image from "next/image";
-import { copyContent, getThemeFromLocalStorage } from "Utils";
+import { getThemeFromLocalStorage } from "Utils";
 import { ThemeModes } from "Interfaces";
-import SocialMediaBranch from "./Images/SocialMediaBranch.svg";
 import {
-  ContactsDesc,
-  ContactsWrapper,
-  ContactUsContainer,
   Desc,
-  GmailContainer,
-  GmailIcon,
-  GmailLink,
   HeroTheme,
-  RightPlaceTitle,
   Section,
   SectionDivider,
-  TelegramContainer,
-  TelegramIcon,
-  TelegramLink,
   TitleSpanTheme,
-  VipAgentCard,
+  PhoneImage,
 } from "./styledComponents";
-import {
-  LanguageKeys,
-  componentStatements,
-  getGsapTimeLine_Hero,
-} from "./const";
-import Link from "next/link";
-import theme from "styled-theming";
+import { componentStatements, getGsapTimeLine_Hero } from "./const";
 import Particles from "react-tsparticles";
 import { tsParticleOption_Desktop } from "./const";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Headline4Style } from "Styles/Typo";
+import { PrimaryButton } from "Elements/Button/Primary";
+import theme from "styled-theming";
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -64,7 +46,6 @@ function Desktop() {
   }, []);
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
-  const phoneToastMessage = t(LanguageKeys.copyGmailToastMessage);
   return (
     <Container className="container">
       <Hero className="hero" $isActive={isActive}>
@@ -76,17 +57,15 @@ function Desktop() {
               به استرالیا.
             </Desc>
           </MonthlyUsersWrapper>
-          <HeroPicture
-            id={"hero-image"}
-            width={431}
-            height={272}
-            src={
-              getThemeFromLocalStorage() === ThemeModes.DARK
-                ? DarkHeroImage
-                : LightHeroImage
-            }
-            alt={"hero-image"}
-          />
+          <HeroPictureWrapper>
+            <HeroPicture
+              id={"hero-image"}
+              width={450}
+              height={450}
+              src={HeroMovingRobot}
+              alt={"hero-image"}
+            />
+          </HeroPictureWrapper>
           <MouseSection>
             <Line />
             <MouseIcon />
@@ -113,9 +92,9 @@ function Desktop() {
               شما با استفاده از *اسم رباتمون* میتوانید در هر جا هر گونه سوال
               مربوط به مهاجرت به استرالیا داشته باشید مطرح کنید.
             </StyledDesc>
-            <VipAgentCard
-              width={291}
-              height={304}
+            <PhoneImage
+              width={329}
+              height={281}
               src={
                 getThemeFromLocalStorage() === ThemeModes.DARK
                   ? DarkPhone
@@ -129,7 +108,25 @@ function Desktop() {
             </StyledDesc>
             {/* /////////////////////////شبکه های اجتماعی////////////////////////////// */}
           </Section>
-          
+          <SectionDivider />
+          <StyledSection>
+            <TestRobotContainer>
+              <RobotImg
+                width={291}
+                height={304}
+                src={RobotImage}
+                alt="phone-image"
+              />{" "}
+              <TestRobotWrapper>
+                <TestRobotTitle>
+                  شما میتونید با استفاده از دکمه زیر برای تست زودرس *اسم
+                  رباتمون* شرکت کنید. زمانی که تست *اسم رباتمون* شروع بشه به شما
+                  از طریق ایمیل اطلاع داده میشه.
+                </TestRobotTitle>
+                <PrimaryButton>ثبت نام</PrimaryButton>
+              </TestRobotWrapper>
+            </TestRobotContainer>
+          </StyledSection>
         </Wrapper>
       </div>
     </Container>
@@ -144,9 +141,19 @@ const StyledParticles = styled(Particles)`
 `;
 const heroAnimation = keyframes`
 to{
-  transform:translate(4rem, -4.625rem);
+  transform:translateY(-5rem);
 }
 `;
+const TestRobotContainerTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray6);
+    background-image: url(${LightPattern});
+  `,
+  dark: css`
+    background: var(--color-gray2);
+    background-image: url(${DarkPattern});
+  `,
+});
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -168,7 +175,7 @@ const Hero = styled.section<{ $isActive: boolean }>`
   position: absolute;
   top: 5.5rem;
   left: 0;
-  padding: 5.5rem 2rem 6rem 2rem;
+  padding: 5.5rem 2rem 6rem 6rem;
   width: 100%;
   height: calc(100vh - 5.5rem);
   z-index: 3;
@@ -193,13 +200,22 @@ const HeroTitle = styled.h2`
   margin: 0;
   margin-bottom: 1.5rem;
 `;
+const HeroPictureWrapper = styled.div`
+  background-image: url(${"/Images/landing/AI/HeroDarkPhone.png"});
+  width: 40%;
+  background-position-y: bottom;
+  background-position-x: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const HeroPicture = styled(Image)`
   z-index: 10;
-  width: 40%;
+  width: 28rem;
   height: auto;
   object-fit: contain;
-  transform: translate(4rem, -3.125rem);
+  transform: translateY(-4rem);
   animation: ${heroAnimation} 3s infinite linear;
   animation-direction: alternate;
 `;
@@ -223,12 +239,11 @@ const MouseIcon = styled(BiMouse)`
 `;
 //this will be position fixed untill the hero is onscreen and after that it will turn to relative in order to scroll normally
 const Wrapper = styled.div<{ $isActive: boolean }>`
+  --wrapper-padding-side: 8rem;
   width: 100%;
   max-width: var(--max-width-page);
-
-  padding: 0 8rem;
+  padding: 0 var(--wrapper-padding-side);
   min-height: 200vh;
-  overflow: auto;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -247,21 +262,8 @@ const Wrapper = styled.div<{ $isActive: boolean }>`
         `}
 `;
 
-const CardContainer = styled.div`
-  width: 80%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin-bottom: 4.5rem;
-`;
 const StyledDesc = styled(Desc)`
   margin-bottom: 6rem;
-`;
-const AgentCard = styled(Image)`
-  z-index: 10;
-  width: 100%;
-  height: 80%;
-  scale: 90%;
 `;
 const Title = styled.h2`
   ${Layer1_TitleStyle};
@@ -272,39 +274,42 @@ const Title = styled.h2`
   }
   text-align: center;
 `;
+const StyledSection = styled(Section)`
+  min-height: unset;
+  margin-top: 15rem;
+`;
 
-const LogoTheme = theme("mode", {
-  light: css`
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    color: var(--color-gray13);
-  `,
-});
-const SearchPersonIcon = styled(MdPersonSearch)`
-  ${LogoTheme};
-  width: 8rem;
-  height: auto;
-  margin-bottom: 1.5rem;
+const TestRobotContainer = styled.div`
+  ${TestRobotContainerTheme};
+  position: relative;
+  width: 100vw;
+  padding: 6.5rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-repeat: no-repeat;
+  background-position: center;
 `;
-const SocialMediaBranchContainer = styled.div``;
-const SocialMediaBranchImage = styled(Image)`
-  z-index: 10;
+const RobotImg = styled(Image)`
+  width: 26rem;
+  height: 26rem;
+  position: absolute;
+  top: 0;
+  transform: translateY(-72%);
 `;
-const OccupationCardSection_Img = styled(Image)`
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 1.5rem;
-  scale: 70%;
-  margin-top: -5rem;
+const TestRobotWrapper = styled.div`
+  width: var(--max-width-page);
+  padding: 0 var(--wrapper-padding-side);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
 `;
-const ProfileComponentImage = styled(Image)`
-  z-index: 10;
-  margin-bottom: 1.5rem;
+const TestRobotTitle = styled.h3`
+  ${Headline4Style};
+  color: white;
+  text-align: center;
 `;
-const AboutComponentImage = styled(Image)`
-  z-index: 10;
-  margin-bottom: 1.5rem;
-`;
-const ProfilePageSecton_Title = styled(Title)``;

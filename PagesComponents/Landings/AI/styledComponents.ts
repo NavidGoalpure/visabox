@@ -59,7 +59,7 @@ const RightPlaceTitle = styled.h2`
     color: white;
   }
 `;
-const VipAgentCard = styled(Image)`
+const PhoneImage = styled(Image)`
   width: 43rem;
   height: auto;
 `;
@@ -158,7 +158,7 @@ export {
   SectionDivider,
   Desc,
   Section,
-  VipAgentCard,
+  PhoneImage,
   ContactUsContainer,
   ContactsWrapper,
   ContactsDesc,

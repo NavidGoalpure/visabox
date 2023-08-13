@@ -22,7 +22,7 @@ import {
 } from "./styledComponents";
 import { componentStatements, getGsapTimeLine_Hero } from "./const";
 import Particles from "react-tsparticles";
-import { tsParticleOption_Desktop } from "./const";
+import { tsParticleOption_Mobile } from "./const";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
@@ -31,6 +31,8 @@ import { PrimaryButton } from "Elements/Button/Primary";
 import theme from "styled-theming";
 
 function Desktop() {
+  const [isActive, setIsActive] = useState(true);
+
     const particlesInit = useCallback(async (engine: Engine) => {
       // console.log(engine);
 
@@ -43,6 +45,13 @@ function Desktop() {
   /////////
   return (
     <Container className="container">
+       <div ref={particlesContainer} style={{ position: 'relative' }}>
+        <StyledParticles
+          container={particlesContainer}
+          id='tsparticles'
+          init={particlesInit}
+          options={tsParticleOption_Mobile}
+        />
       <Hero className="hero" $isActive={isActive}>
         <HeroWrapper>
           <MonthlyUsersWrapper>
@@ -99,16 +108,18 @@ function Desktop() {
             </TestRobotWrapper>
           </TestRobotContainer>
         </StyledSection>
+        </div>
     </Container>
   );
 }
 export default Desktop;
-
-const heroAnimation = keyframes`
-to{
-  transform:translateY(-5rem);
-}
+const StyledParticles = styled(Particles)`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 `;
+
 const TestRobotContainerTheme = theme("mode", {
   light: css`
     background: var(--color-gray6);

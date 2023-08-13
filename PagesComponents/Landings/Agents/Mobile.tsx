@@ -42,7 +42,6 @@ import Link from 'next/link';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function MobileAgentsPage() {
-  const [isActive, setIsActive] = useState(true);
   const { theme } = useTheme();
   /////////
   const particlesInit = useCallback(async (engine: Engine) => {

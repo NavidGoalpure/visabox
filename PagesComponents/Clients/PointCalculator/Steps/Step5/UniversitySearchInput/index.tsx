@@ -39,7 +39,7 @@ export const UniversitySearchInput = () => {
           <StyledInput
             onFocus={handleFocus}
             onBlur={handleBlur}
-            placeholder={t(LanguageKeys.UniInput_Placeholder)}
+            placeholder={"نام دانشگاه یا شهر"}
             value={inputValue}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               setInputValue(event?.target?.value);
@@ -178,7 +178,6 @@ const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
   ${ScrollBoxBgTheme};
   transition: all 0.3s ease;
   transform-origin: top;
-  background: var(--color-gray6);
   ${({ isVisible }) =>
     isVisible
       ? css`

@@ -66,6 +66,7 @@ export interface Client extends SanityKeys {
   marital: ClientMarital;
   does_partner_have_assessment?: boolean;
   is_partner_competent_english_speaker?: boolean;
+  
   field_of_study?: string;
   degree?: ClientDegree;
   current_job?: string;

@@ -68,7 +68,7 @@ const UniCityHoverTheme = theme("mode", {
     color: var(--color-gray13);
   `,
   dark: css`
-    color: var(--color-gray10);
+    color: white;
   `,
 });
 const UniversityCard = styled.div`

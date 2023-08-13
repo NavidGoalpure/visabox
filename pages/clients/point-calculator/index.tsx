@@ -36,6 +36,8 @@ const UserForms: NextPage = ({}) => {
       phone,
       marital,
       marital_situation,
+      is_partner_competent_english_speaker,
+      does_partner_have_assessment,
       field_of_study,
       degree,
       australian_educational_qualification,

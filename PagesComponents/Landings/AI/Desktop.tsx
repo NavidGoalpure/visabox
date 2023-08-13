@@ -81,7 +81,6 @@ function Desktop() {
           init={particlesInit}
           options={tsParticleOption_Desktop}
         />
-        {/* /////////////////////////موسسات مهاجرتی////////////////////////////// */}
         <Wrapper $isActive={isActive}>
           <Section>
             <Title>
@@ -106,7 +105,6 @@ function Desktop() {
               هوش مصنوعی ** مخصوص سایت ماراباکس هست که با هدف کمک به شما در
               مساعل مهاجرتی در دست ساخت است.
             </StyledDesc>
-            {/* /////////////////////////شبکه های اجتماعی////////////////////////////// */}
           </Section>
           <SectionDivider />
           <StyledSection>
@@ -201,8 +199,11 @@ const HeroTitle = styled.h2`
   margin-bottom: 1.5rem;
 `;
 const HeroPictureWrapper = styled.div`
-  background-image: url(${"/Images/landing/AI/HeroDarkPhone.png"});
-  width: 40%;
+  background-image: url(${() =>
+    getThemeFromLocalStorage() === ThemeModes.DARK
+      ? "/Images/landing/AI/HeroDarkPhone.png"
+      : "/Images/landing/AI/HeroLightPhone.png"});
+  width: 50%;
   background-position-y: bottom;
   background-position-x: center;
   display: flex;

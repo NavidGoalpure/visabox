@@ -29,7 +29,7 @@ import MobileLightAgentProfile from './Images/MobileLightAgentProfile.svg';
 import Image from 'next/image';
 import useTheme from 'Hooks/useTheme';
 import { copyContent } from 'Utils';
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import Particles from 'react-tsparticles';
@@ -42,6 +42,7 @@ import Link from 'next/link';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function MobileAgentsPage() {
+  const [isActive, setIsActive] = useState(true);
   const { theme } = useTheme();
   /////////
   const particlesInit = useCallback(async (engine: Engine) => {

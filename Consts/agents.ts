@@ -1,20 +1,11 @@
+import { Point_Calculator_Fragment } from "./GroqFragments";
+
 export const listOfBasicForm_ResParams = `
+${Point_Calculator_Fragment}
       _id,
       _createdAt,
       name,
       lastname,
-      age,
       current_job,
-      ielts_score,
-      completed_forms,
-      degree,
-      australian_educational_qualification,
-      designated_regional_area_study,
-      specialist_educational_qualification,
-      professional_year_in_australia,
-      accredited_community_language,
-      work_experience,
-      australian_work_experience,
-      marital_situation,
       `;
 ////////////

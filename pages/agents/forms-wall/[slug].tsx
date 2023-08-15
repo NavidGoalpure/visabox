@@ -7,6 +7,7 @@ import Error from "next/error";
 import Content from "PagesComponents/Agents/FormsWall/FormPage";
 import { Client } from "Interfaces/Database/Client";
 import { getClientDetail } from "Queries/client";
+import { Point_Calculator_Fragment } from "Consts/GroqFragments";
 
 interface Props {
   client: Client;
@@ -35,29 +36,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.slug;
   const reqParams = `_id == "${id}"`;
   const resParams = ` 
+  ${Point_Calculator_Fragment}
       _id,
       _createdAt,
       country,
       name,
       lastname,
-      age,
-      birthday,
       phone,
-      marital,
-      marital_situation,
-      is_partner_competent_english_speaker,
-      does_partner_have_assessment,
       field_of_study,
-      degree,
-      australian_educational_qualification,
-      designated_regional_area_study,
-      specialist_educational_qualification,
-      professional_year_in_australia,
-      accredited_community_language,
       current_job,
-      work_experience,
-      australian_work_experience,
-      ielts_score,
       is_sharable,
       uni_section,
       avatar,

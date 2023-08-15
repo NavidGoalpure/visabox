@@ -19,6 +19,7 @@ import { ContentOrError } from 'Components/contentOrError';
 import ErrorToast from 'Elements/Toast/Error';
 import { signOut } from 'next-auth/react';
 import { deviceMin } from 'Consts/device';
+import { Point_Calculator_Fragment } from 'Consts/GroqFragments';
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
@@ -27,26 +28,15 @@ const UserForms: NextPage = ({}) => {
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `
+  ${Point_Calculator_Fragment}
       _id,
       country,
       email,
       name,
       lastname,
-      age,
       phone,
-      marital,
-      marital_situation,
       field_of_study,
-      degree,
-      australian_educational_qualification,
-      designated_regional_area_study,
-      specialist_educational_qualification,
-      professional_year_in_australia,
-      accredited_community_language,
       current_job,
-      work_experience,
-      australian_work_experience,
-      ielts_score,
       is_sharable,
       uni_section,
       completed_forms

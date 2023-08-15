@@ -26,33 +26,32 @@ import { tsParticleOption_Mobile } from "./const";
 import { loadFull } from "tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Headline4Style } from "Styles/Typo";
+import { Headline4Style, Headline5Style } from "Styles/Typo";
 import { PrimaryButton } from "Elements/Button/Primary";
 import theme from "styled-theming";
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
 
-    const particlesInit = useCallback(async (engine: Engine) => {
-      // console.log(engine);
+  const particlesInit = useCallback(async (engine: Engine) => {
+    // console.log(engine);
 
-      // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      await loadFull(engine);
-    }, []);
-    const particlesContainer = useRef(null);
+    // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadFull(engine);
+  }, []);
+  const particlesContainer = useRef(null);
   /////////
   return (
-    <Container className="container">
-       <div ref={particlesContainer} style={{ position: 'relative' }}>
-        <StyledParticles
-          container={particlesContainer}
-          id='tsparticles'
-          init={particlesInit}
-          options={tsParticleOption_Mobile}
-        />
-      <Hero className="hero" $isActive={isActive}>
+    <Container className="container" ref={particlesContainer}>
+      <StyledParticles
+        container={particlesContainer}
+        id="tsparticles"
+        init={particlesInit}
+        options={tsParticleOption_Mobile}
+      />
+      <Hero className="hero">
         <HeroWrapper>
           <MonthlyUsersWrapper>
             <HeroTitle>اسم رباتمون</HeroTitle>
@@ -65,50 +64,49 @@ function Desktop() {
       </Hero>
       <SectionDivider />
 
-        <Section>
-          <Title>
-            <span>دستیار مجازی</span> خود را داشته باشید
-          </Title>
+      <Section>
+        <Title>
+          <span>دستیار مجازی</span> خود را داشته باشید
+        </Title>
 
-          <StyledDesc>
-            شما با استفاده از *اسم رباتمون* میتوانید در هر جا هر گونه سوال مربوط
-            به مهاجرت به استرالیا داشته باشید مطرح کنید.
-          </StyledDesc>
-          <PhoneImage
-            width={329}
-            height={281}
-            src={
-              getThemeFromLocalStorage() === ThemeModes.DARK
-                ? DarkPhone
-                : LightPhone
-            }
+        <StyledDesc>
+          شما با استفاده از *اسم رباتمون* میتوانید در هر جا هر گونه سوال مربوط
+          به مهاجرت به استرالیا داشته باشید مطرح کنید.
+        </StyledDesc>
+        <StyledPhoneImage
+          width={329}
+          height={281}
+          src={
+            getThemeFromLocalStorage() === ThemeModes.DARK
+              ? "/Images/landing/AI/DarkMobile.png"
+              : "/Images/landing/AI/LightMobile.png"
+          }
+          alt="phone-image"
+        />
+        <StyledDesc>
+          هوش مصنوعی ** مخصوص سایت ماراباکس هست که با هدف کمک به شما در مساعل
+          مهاجرتی در دست ساخت است.
+        </StyledDesc>
+      </Section>
+      <SectionDivider />
+      <StyledSection>
+        <TestRobotContainer>
+          <RobotImg
+            width={291}
+            height={304}
+            src={RobotImage}
             alt="phone-image"
-          />
-          <StyledDesc>
-            هوش مصنوعی ** مخصوص سایت ماراباکس هست که با هدف کمک به شما در مساعل
-            مهاجرتی در دست ساخت است.
-          </StyledDesc>
-        </Section>
-        <SectionDivider />
-        <StyledSection>
-          <TestRobotContainer>
-            <RobotImg
-              width={291}
-              height={304}
-              src={RobotImage}
-              alt="phone-image"
-            />{" "}
-            <TestRobotWrapper>
-              <TestRobotTitle>
-                شما میتونید با استفاده از دکمه زیر برای تست زودرس *اسم رباتمون*
-                شرکت کنید. زمانی که تست *اسم رباتمون* شروع بشه به شما از طریق
-                ایمیل اطلاع داده میشه.
-              </TestRobotTitle>
-              <PrimaryButton>ثبت نام</PrimaryButton>
-            </TestRobotWrapper>
-          </TestRobotContainer>
-        </StyledSection>
-        </div>
+          />{" "}
+          <TestRobotWrapper>
+            <TestRobotTitle>
+              شما میتونید با استفاده از دکمه زیر برای تست زودرس *اسم رباتمون*
+              شرکت کنید. زمانی که تست *اسم رباتمون* شروع بشه به شما از طریق
+              ایمیل اطلاع داده میشه.
+            </TestRobotTitle>
+            <PrimaryButton>ثبت نام</PrimaryButton>
+          </TestRobotWrapper>
+        </TestRobotContainer>
+      </StyledSection>
     </Container>
   );
 }
@@ -141,13 +139,13 @@ const Container = styled.div`
     justify-content: space-between;
   }
 `;
-const Hero = styled.section<{ $isActive: boolean }>`
-${HeroTheme};
+const Hero = styled.section`
   display: flex;
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  ${HeroTheme};
+  padding: 1rem 0.5rem;
   min-height: calc(100vh - 4rem);
 `;
 const HeroWrapper = styled.div`
@@ -169,8 +167,10 @@ const HeroTitle = styled.h2`
   margin-bottom: 1.5rem;
 `;
 
-
 const StyledDesc = styled(Desc)`
+  margin-bottom: 6rem;
+`;
+const StyledPhoneImage = styled(PhoneImage)`
   margin-bottom: 6rem;
 `;
 const Title = styled.h2`
@@ -191,24 +191,22 @@ const TestRobotContainer = styled.div`
   ${TestRobotContainerTheme};
   position: relative;
   width: 100vw;
-  padding: 6.5rem 0rem;
+  padding: 6.5rem 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   background-repeat: no-repeat;
   background-position: center;
 `;
 const RobotImg = styled(Image)`
-  width: 26rem;
-  height: 26rem;
+  width: 18rem;
+  height: auto;
   position: absolute;
   top: 0;
-  transform: translateY(-72%);
+  transform: translateY(-75%);
 `;
 const TestRobotWrapper = styled.div`
-  width: var(--max-width-page);
   padding: 0 var(--wrapper-padding-side);
   display: flex;
   flex-direction: column;
@@ -217,7 +215,7 @@ const TestRobotWrapper = styled.div`
   gap: 1.5rem;
 `;
 const TestRobotTitle = styled.h3`
-  ${Headline4Style};
+  ${Headline5Style};
   color: white;
   text-align: center;
 `;

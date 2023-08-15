@@ -60,7 +60,7 @@ const RightPlaceTitle = styled.h2`
   }
 `;
 const PhoneImage = styled(Image)`
-  width: 43rem;
+  width: 18rem;
   height: auto;
 `;
 const Desc = styled.p`
@@ -92,6 +92,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 0 0.5rem;
 `;
 
 const ContactUsContainer = styled.div`

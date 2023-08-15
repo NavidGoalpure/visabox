@@ -20,7 +20,6 @@ import {
   StyledTooltipTag,
   Title,
 } from "../StyledComponents";
-import { FiInfo } from "react-icons/fi";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import { ClientDegree, UniSections } from "Interfaces/Database/Client";
 import { educations, uniSections, YesOrNo } from "Consts/Client";
@@ -31,7 +30,7 @@ import { UniversitySearchInput } from "./UniversitySearchInput";
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
   const { locale } = useLocale();
 
   return (

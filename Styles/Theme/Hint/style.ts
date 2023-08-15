@@ -22,7 +22,7 @@ export const Hint_SubTitleStyle = css`
 export const Hint_TextStyle = css`
   ${directionStyles};
   ${Headline6Style};
-  color: white;
+  color: white !important;
 `;
 export const Hint_BGStyle = css`
   ${Hint_BG}

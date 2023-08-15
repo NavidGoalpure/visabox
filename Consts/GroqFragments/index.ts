@@ -1,0 +1,17 @@
+export const Point_Calculator_Fragment = `
+      age,
+      birthday,
+      ielts_score,
+      degree,
+      australian_educational_qualification,
+      designated_regional_area_study,
+      specialist_educational_qualification,
+      professional_year_in_australia,
+      accredited_community_language,
+      work_experience,
+      australian_work_experience,
+      marital_situation,
+      is_partner_competent_english_speaker,
+      does_partner_have_assessment,
+      marital,
+`;

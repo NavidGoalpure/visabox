@@ -55,7 +55,7 @@ export const UniversitySearchInput = () => {
             </LoadingContainer>
           ) : SearchedUniversities.length !== 0 ? (
             SearchedUniversities.map((uni) => {
-              return <UniCard setInputValue={setInputValue} university={uni} />;
+              return <UniCard university={uni} />;
             })
           ) : (
             <NotFoundContainer>
@@ -176,7 +176,9 @@ const SearchIcon = styled(CiSearch)`
 `;
 const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
   ${ScrollBoxBgTheme};
-  transition: all 0.3s ease;
+  // do not touch the transition delay it messes with revaluation of uni_section 
+  // by clicking on the option
+  transition: all 0.3s 0.1s ease;
   transform-origin: top;
   ${({ isVisible }) =>
     isVisible

@@ -8,17 +8,35 @@ import theme from "styled-theming";
 import styled, { css } from "styled-components";
 import { deviceMin } from "Consts/device";
 import { Dispatch, HTMLAttributes, SetStateAction } from "react";
+import { useContext } from "react";
+import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
+import { UniSections } from "Interfaces/Database/Client";
+
 interface Props extends HTMLAttributes<HTMLDivElement> {
   university: University;
-  setInputValue: Dispatch<SetStateAction<string>>;
 }
-export const UniCard: React.FC<Props> = ({ university, setInputValue }) => {
+export const UniCard: React.FC<Props> = ({ university }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
+  const { client, setClient } = useContext(FormDataContext);
+  const GetSmartUniSection = (section: number): UniSections => {
+    switch (section) {
+      case 1:
+        return UniSections.Section1;
+      case 2:
+        return UniSections.Section2;
+      default:
+        return UniSections.IDontKnow;
+    }
+  };
   return (
     <UniversityCard
       onClick={() => {
-        setInputValue(`سکشن ${university.section}`);
+        client &&
+          setClient({
+            ...client,
+            uni_section: GetSmartUniSection(university.section),
+          });
       }}
     >
       <UniName>{dt(university.title)}</UniName>
@@ -73,6 +91,7 @@ const UniCityHoverTheme = theme("mode", {
 });
 const UniversityCard = styled.div`
   ${UniversityCardTheme};
+  z-index: 100;
   width: 100%;
   height: 5rem;
   display: flex;

@@ -35,7 +35,6 @@ const SmartSteps: React.FC = () => {
     <Step11 />,
     <Step12 />,
   ];
-
   return (
     <Container>
       {step !== 0 && step !== 12 && (

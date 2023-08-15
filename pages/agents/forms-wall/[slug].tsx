@@ -1,12 +1,12 @@
-import PageLayout from 'Components/Layouts/PageContainer';
-import { GetServerSideProps } from 'next';
-import { useLocale } from 'Hooks/useLocale';
-import Seo from 'Components/Seo';
-import { NextPage } from 'next/types';
-import Error from 'next/error';
-import Content from 'PagesComponents/Agents/FormsWall/FormPage';
-import { Client } from 'Interfaces/Database/Client';
-import { getClientDetail } from 'Queries/client';
+import PageLayout from "Components/Layouts/PageContainer";
+import { GetServerSideProps } from "next";
+import { useLocale } from "Hooks/useLocale";
+import Seo from "Components/Seo";
+import { NextPage } from "next/types";
+import Error from "next/error";
+import Content from "PagesComponents/Agents/FormsWall/FormPage";
+import { Client } from "Interfaces/Database/Client";
+import { getClientDetail } from "Queries/client";
 
 interface Props {
   client: Client;
@@ -15,13 +15,13 @@ interface Props {
 const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
   const { locale } = useLocale();
   if (errorCode) return <Error statusCode={errorCode} />;
-  const fullname = `${client?.name || ''} ${client?.lastname || ''}`; 
+  const fullname = `${client?.name || ""} ${client?.lastname || ""}`;
   // نوید
   // بعدا از لاگین کردن وکیل ها این آدرس باید عوض بشه چون انگار شماره وکیله نه کلاینت
   return (
     <PageLayout>
       <Seo
-        title={fullname + ' | Mara Box'}
+        title={fullname + " | Mara Box"}
         canonical={`https://www.marabox.com/${locale}/agents/${client?._id}`}
         isNoIndex={true}
       />
@@ -41,9 +41,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       name,
       lastname,
       age,
+      birthday,
       phone,
       marital,
       marital_situation,
+      is_partner_competent_english_speaker,
+      does_partner_have_assessment,
       field_of_study,
       degree,
       australian_educational_qualification,

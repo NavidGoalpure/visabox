@@ -4,6 +4,7 @@ export const listOfBasicForm_ResParams = `
       name,
       lastname,
       age,
+      birthday,
       current_job,
       ielts_score,
       completed_forms,
@@ -16,5 +17,8 @@ export const listOfBasicForm_ResParams = `
       work_experience,
       australian_work_experience,
       marital_situation,
+      is_partner_competent_english_speaker,
+      does_partner_have_assessment,
+      marital,
       `;
 ////////////

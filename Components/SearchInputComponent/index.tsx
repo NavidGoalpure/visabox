@@ -1,22 +1,28 @@
 import { ScrollBox } from "Elements/ScrollBox";
-import { ChangeEvent, useContext, useState } from "react";
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 import { CiSearch } from "react-icons/ci";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import { Headline7Style } from "Styles/Typo";
 import { iran } from "Consts/Occupations/university";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import { UniCard } from "./UniversityCard";
+import { Card } from "./Card";
 import { Loading } from "Elements/Loading";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
+import { componentStatements } from "../../PagesComponents/Clients/PointCalculator/Steps/Step5/const";
 import { IoCloseOutline } from "react-icons/io5";
-import { AiFillCloseCircle } from "react-icons/ai";
-
-export const UniversitySearchInput = () => {
+interface Props {
+  theme: "LAYER1" | "LAYER2";
+}
+export const SearchInputComponent: React.FC<Props> = ({ theme }) => {
   const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
-  const { t } = useStaticTranslation(componentStatements);
   const SearchedUniversities = iran.filter(
     (university) =>
       university.title.en.toLowerCase().includes(inputValue.toLowerCase()) ||
@@ -41,6 +47,7 @@ export const UniversitySearchInput = () => {
             onBlur={handleBlur}
             placeholder={"نام دانشگاه یا شهر"}
             value={inputValue}
+            $theme={theme}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {
               setInputValue(event?.target?.value);
             }}
@@ -55,7 +62,7 @@ export const UniversitySearchInput = () => {
             </LoadingContainer>
           ) : SearchedUniversities.length !== 0 ? (
             SearchedUniversities.map((uni) => {
-              return <UniCard university={uni} />;
+              return <Card setInputValue={setInputValue} university={uni} />;
             })
           ) : (
             <NotFoundContainer>
@@ -68,7 +75,7 @@ export const UniversitySearchInput = () => {
     </Container>
   );
 };
-const inputTheme = theme("mode", {
+const inputLayer1Theme = theme("mode", {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -83,6 +90,24 @@ const inputTheme = theme("mode", {
     color-scheme: dark;
     :focus {
       background: var(--color-gray7);
+    }
+  `,
+});
+const inputLayer2Theme = theme("mode", {
+  light: css`
+    background: var(--color-gray12);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    color: var(--color-gray4);
+    :focus {
+      background: var(--color-gray13);
+    }
+  `,
+  dark: css`
+    background: var(--color-gray4);
+    color: var(--color-gray13);
+    color-scheme: dark;
+    :focus {
+      background: var(--color-gray4);
     }
   `,
 });
@@ -137,8 +162,7 @@ const InputWrapper = styled.div`
     transform: translateY(50%);
   }
 `;
-const InputStyle = css`
-  ${inputTheme};
+const InputStyle = css<{ $theme: "LAYER1" | "LAYER2" }>`
   ${Headline7Style};
   width: 100%;
   display: flex;
@@ -149,6 +173,8 @@ const InputStyle = css`
   box-sizing: border-box;
   transition: all 0.3s 0.3s ease;
   -webkit-appearance: none;
+  ///////////theme///////////////
+  ${({ $theme }) => ($theme === "LAYER1" ? inputLayer1Theme : inputLayer2Theme)}
   /////////focus////////
   :focus {
     transition: all 0.3s ease;
@@ -176,17 +202,18 @@ const SearchIcon = styled(CiSearch)`
 `;
 const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
   ${ScrollBoxBgTheme};
-  // do not touch the transition delay it messes with revaluation of uni_section 
+  // do not touch the transition delay it messes with revaluation of uni_section
   // by clicking on the option
   transition: all 0.3s 0.1s ease;
   transform-origin: top;
+  box-sizing: border-box;
   ${({ isVisible }) =>
     isVisible
       ? css`
           height: 15rem;
         `
       : css`
-          height: 0;
+          height: 0rem;
         `}
 `;
 const LoadingContainer = styled.div`

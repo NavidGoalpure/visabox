@@ -2,7 +2,10 @@ import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import { Headline7Style } from "Styles/Typo";
 import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
+import {
+  componentStatements,
+  LanguageKeys,
+} from "../../PagesComponents/Clients/PointCalculator/Steps/Step5/const";
 import { University } from "Interfaces/Database/university";
 import theme from "styled-theming";
 import styled, { css } from "styled-components";
@@ -14,8 +17,12 @@ import { UniSections } from "Interfaces/Database/Client";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   university: University;
+  setInputValue: Dispatch<SetStateAction<string>>;
 }
-export const UniCard: React.FC<Props> = ({ university }) => {
+export const Card: React.FC<Props> = ({
+  university,
+  setInputValue,
+}) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
   const { client, setClient } = useContext(FormDataContext);
@@ -37,6 +44,7 @@ export const UniCard: React.FC<Props> = ({ university }) => {
             ...client,
             uni_section: GetSmartUniSection(university.section),
           });
+        setInputValue(university?.title?.fa || "defensive");
       }}
     >
       <UniName>{dt(university.title)}</UniName>

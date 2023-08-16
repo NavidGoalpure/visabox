@@ -14,6 +14,7 @@ import {
   Hint_SecondaryTextStyle,
 } from "Styles/Theme/Hint/style";
 import { FiInfo } from "react-icons/fi";
+import { SearchInputComponent } from "Components/SearchInputComponent";
 
 //
 const Content = () => {
@@ -31,10 +32,8 @@ const Content = () => {
           خود را از بین گزینه های موجود پیدا کنید. توجه کنید که برای شروع این
           جستجو، حداقل باید سه حرف را وارد کنید.
         </Desc>
-        <HintContainer>
-          <HintIcon />
-          <HintText></HintText>
-        </HintContainer>
+        <SearchInputComponent theme={"LAYER2"} />
+
       </Wrapper>
     </Container>
   );
@@ -46,11 +45,7 @@ const BackgroundTheme = theme("mode", {
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
   `,
   dark: css`
-    background: linear-gradient(
-      140.49deg,
-      var(--color-gray6) 53.63%,
-      var(--color-gray7) 99.96%
-    );
+    background: linear-gradient(315deg, #595959 53.65%, #707070 100%);
   `,
 });
 const Container = styled.div`

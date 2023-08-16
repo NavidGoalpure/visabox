@@ -25,7 +25,7 @@ import { ClientDegree, UniSections } from "Interfaces/Database/Client";
 import { educations, uniSections, YesOrNo } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
-import { UniversitySearchInput } from "./UniversitySearchInput";
+import { SearchInputComponent } from "Components/SearchInputComponent";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -83,7 +83,7 @@ const Step5 = () => {
                 (سکشن) ای قرار دارد
               </HintText>
             </HintContainer>
-            <UniversitySearchInput />
+            <SearchInputComponent theme={"LAYER1"} />
           </>
         )}
 

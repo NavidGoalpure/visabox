@@ -98,7 +98,6 @@ const InputContainer = styled.div<{
   width: 100%;
   height: 100%;
 
-  // navid تصمیم بگیریم این باشه یا نه
   // input[type='date']::-webkit-calendar-picker-indicator {
   //   background: transparent;
   //   bottom: 0;

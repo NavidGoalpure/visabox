@@ -1,5 +1,6 @@
 import { useLocale } from 'Hooks/useLocale';
-import { BlogContainer, ImageContainer, Images } from '../StyledComponents';
+import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images } from '../StyledComponents';
+import Link from 'next/link';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -380,6 +381,22 @@ export default function PostContent() {
       <p>
         <b>تبریک، کف، سوت و هورا!</b>
       </p>
+      <HintBG>
+        <HintTitle>توجه:</HintTitle>
+        <HintText>
+          اطلاعات ارائه شده در این بلاگ، فقط برای اطلاعاتی عمومی است و نباید به
+          عنوان مشاوره حقوقی تلقی شود. ما تمام تلاش خود را می کنیم تا از صحت و
+          به روز بودن محتوای خود اطمینان حاصل کنیم، اما نمی توانیم کامل بودن یا
+          قابلیت اطمینان آن را تضمین کنیم. مسئولیت هر اقدامی که بر اساس اطلاعات
+          ارائه شده در وبلاگ های ما انجام شود کاملاً به عهده شماست. اکیداً توصیه
+          می‌شود که قبل از تصمیم گیری در مورد مهاجرت از مشاوره حرفه ای استفاده
+          کنید.
+          <Link href={'/lists/agencies'} target='_blank'>
+            {` لیست موسسات مهاجرتی قانونی مربوط به استرالیا `}
+          </Link>
+          را می‌توانید از طریق این لینک پیدا کنید.
+        </HintText>
+      </HintBG>
     </BlogContainer>
   );
 }

@@ -4,6 +4,9 @@ import Image from 'next/image';
 
 import {
   Hint_BGStyle,
+  Hint_SecondaryContainer,
+  Hint_SecondaryIcon,
+  Hint_SecondaryTextStyle,
   Hint_TextStyle,
   Hint_TitleStyle,
 } from 'Styles/Theme/Hint/style';
@@ -17,15 +20,24 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
+import { FiInfo } from 'react-icons/fi';
 
 const boldTheme = theme('mode', {
   light: css`
-    color: var(--color-secondary1);
+    color: var(--color-secondary1) !important;
   `,
   dark: css`
-    color: var(--color-secondary3);
+    color: var(--color-secondary3) !important;
   `,
 });
+// const HintTextTheme = theme('mode', {
+//   light: css`
+//     color: var(--color-secondary2);
+//   `,
+//   dark: css`
+//     color: var(--color-secondary3);
+//   `,
+// });
 export const BlogContainer = styled.article`
   display: flex;
   justify-content: center;
@@ -140,6 +152,15 @@ export const HintTitle = styled.p`
 export const HintText = styled.p`
   ${Hint_TextStyle}
 `;
+export const HintSecondaryContainer = styled.section`
+  ${Hint_SecondaryContainer}
+  `;
+export const HintSecondaryTextStyle = styled.p`
+  ${Hint_SecondaryTextStyle}
+`;
+export const HintSecondaryIcon = styled(FiInfo)`
+  ${Hint_SecondaryIcon};
+  `;
 export const ImageContainer = styled.div`
   position: relative;
   width: 80%;

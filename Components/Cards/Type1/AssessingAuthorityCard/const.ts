@@ -11,7 +11,7 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   ReadMore: {
     fa: 'نمایش کامل',
-    en: 'Read More',
+    en: 'Read More ',
   },
   Tasks: {
     fa: 'شرح وظایف',

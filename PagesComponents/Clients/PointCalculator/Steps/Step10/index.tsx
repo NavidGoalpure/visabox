@@ -24,7 +24,6 @@ const Step10 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient, score } = useContext(FormDataContext);
-
   return (
     <Container>
       <StyledTitle>

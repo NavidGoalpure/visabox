@@ -26,7 +26,7 @@ import { Languages } from "Interfaces";
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient,score } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
   const { locale } = useLocale();
 
   return (

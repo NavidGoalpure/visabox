@@ -1,7 +1,6 @@
 import { HtmlHTMLAttributes } from "react";
 import styled, { css, keyframes } from "styled-components";
 import theme from "styled-theming";
-import { directionStyles } from "Styles/Theme";
 
 interface Props extends HtmlHTMLAttributes<HTMLOrSVGElement> {}
 const Loading: React.FC<Props> = ({ ...props }) => {

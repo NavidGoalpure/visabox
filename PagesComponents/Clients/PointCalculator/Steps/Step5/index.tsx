@@ -9,6 +9,9 @@ import {
   ButtonWrapper,
   CalculatorIcon,
   Container,
+  HintContainer,
+  InfoHintIcon,
+  HintText,
   InformationIcon,
   NextButton,
   NextIcon,
@@ -22,6 +25,7 @@ import { ClientDegree, UniSections } from "Interfaces/Database/Client";
 import { educations, uniSections, YesOrNo } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
+import { SearchInputComponent } from "Components/SearchInputComponent";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -69,6 +73,20 @@ const Step5 = () => {
           </>
         }
       </ToggleGroupRoot>
+      {client?.uni_section === UniSections.IDontKnow &&
+        locale === Languages.fa && (
+          <>
+            <HintContainer>
+              <InfoHintIcon />
+              <HintText>
+                با وارد نمودن نام هر دانشگاه، می‌توانید ببینید در چه دسته بندی
+                (سکشن) ای قرار دارد
+              </HintText>
+            </HintContainer>
+            <SearchInputComponent theme={"LAYER1"} />
+          </>
+        )}
+
       <Title>
         {t(LanguageKeys.DegreeOfEducationSectionTitle)}{" "}
         <StyledTooltipTag

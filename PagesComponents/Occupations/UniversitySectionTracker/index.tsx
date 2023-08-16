@@ -5,7 +5,7 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
 } from "Styles/Theme/Layers/layer2/style";
-import { FaGraduationCap } from "react-icons/fa";
+import { LuGraduationCap } from "react-icons/lu";
 import { deviceMin } from "Consts/device";
 
 import {
@@ -74,7 +74,7 @@ const Wrapper = styled.div`
     box-sizing: content-box;
   }
 `;
-const Logo = styled(FaGraduationCap)`
+const Logo = styled(LuGraduationCap)`
   color: white;
   border-radius: 50%;
   background: var(--color-primary3);

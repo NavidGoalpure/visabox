@@ -5,9 +5,7 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
 } from "Styles/Theme/Layers/layer2/style";
-import { BsCheck2 } from "react-icons/bs";
 import { FaRegHandshake } from "react-icons/fa";
-import { PrimaryButton } from "Elements/Button/Primary";
 import { deviceMin } from "Consts/device";
 
 import {
@@ -18,28 +16,30 @@ import {
 import { FiInfo } from "react-icons/fi";
 
 //
-const UniversitySection = () => {
+const Content = () => {
   //
   //
   return (
     <Container>
-      <Logo />
-      <Title>جستجوی سکشن دانشگاه</Title>
-      <Desc>
-        با استفاده از این ابزار می توانید بفهمید دانشگاهی که در آن درس خوانده
-        اید از نظر اداره مهاجرت استرالیا دارای چه سکشنی می باشد.برای این کار اسم
-        دانشگاه یا شهری که دانشگاه در آن واقع شده را جستجو کنید و دانشگاه خود را
-        از بین گزینه های موجود پیدا کنید. توجه کنید که برای شروع این جستجو،
-        حداقل باید سه حرف را وارد کنید.
-      </Desc>
-      <HintContainer>
-        <HintIcon />
-        <HintText></HintText>
-      </HintContainer>
+      <Wrapper>
+        <Logo />
+        <Title>جستجوی سکشن دانشگاه</Title>
+        <Desc>
+          با استفاده از این ابزار می توانید بفهمید دانشگاهی که در آن درس خوانده
+          اید از نظر اداره مهاجرت استرالیا دارای چه سکشنی می باشد.برای این کار
+          اسم دانشگاه یا شهری که دانشگاه در آن واقع شده را جستجو کنید و دانشگاه
+          خود را از بین گزینه های موجود پیدا کنید. توجه کنید که برای شروع این
+          جستجو، حداقل باید سه حرف را وارد کنید.
+        </Desc>
+        <HintContainer>
+          <HintIcon />
+          <HintText></HintText>
+        </HintContainer>
+      </Wrapper>
     </Container>
   );
 };
-export default UniversitySection;
+export default Content;
 const BackgroundTheme = theme("mode", {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
@@ -53,21 +53,17 @@ const BackgroundTheme = theme("mode", {
     );
   `,
 });
-const NoButtonTheme = theme("mode", {
-  light: css`
-    background: var(--color-gray12);
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    background: var(--color-gray7);
-    color: var(--color-gray11);
-  `,
-});
-
 const Container = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const Wrapper = styled.div`
   ${BackgroundTheme};
   box-sizing: content-box;
   width: 100%;
+  max-width: 33rem;
   height: 100%;
   margin-top: 2rem;
   padding: 1.5rem 1rem;

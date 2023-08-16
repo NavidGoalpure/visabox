@@ -83,7 +83,14 @@ const Step5 = () => {
                 (سکشن) ای قرار دارد
               </HintText>
             </HintContainer>
-            <SearchInputComponent theme={"LAYER1"} />
+            <SearchInputComponent theme={"LAYER1"} callback={(univercity) => {
+              client &&
+                setClient({
+                  ...client,
+                  uni_section: univercity
+                })
+            }}
+            />
           </>
         )}
 

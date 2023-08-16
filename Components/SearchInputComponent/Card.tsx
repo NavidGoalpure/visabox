@@ -18,14 +18,15 @@ import { UniSections } from "Interfaces/Database/Client";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   university: University;
   setInputValue: Dispatch<SetStateAction<string>>;
+  callback?: (university: UniSections) => void
 }
 export const Card: React.FC<Props> = ({
   university,
   setInputValue,
+  callback
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
-  const { client, setClient } = useContext(FormDataContext);
   const GetSmartUniSection = (section: number): UniSections => {
     switch (section) {
       case 1:
@@ -38,13 +39,17 @@ export const Card: React.FC<Props> = ({
   };
   return (
     <UniversityCard
+      // onClick={() => {
+      //   client &&
+      //     setClient({
+      //       ...client,
+      //       uni_section: GetSmartUniSection(university.section),
+      //     });
+      //   setInputValue(university?.title?.fa || "defensive");
+      // }}
       onClick={() => {
-        client &&
-          setClient({
-            ...client,
-            uni_section: GetSmartUniSection(university.section),
-          });
-        setInputValue(university?.title?.fa || "defensive");
+        if (callback) callback(GetSmartUniSection(university.section))
+        setInputValue(university?.title?.fa || "defensive")
       }}
     >
       <UniName>{dt(university.title)}</UniName>

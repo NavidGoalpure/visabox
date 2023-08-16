@@ -231,4 +231,3 @@ Ashna Exchange has started its activity with the aim of providing the best servi
   },
 ];
 
-// navid aksa roo too binsta add bedim

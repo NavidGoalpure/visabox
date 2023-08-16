@@ -5,7 +5,7 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
 } from "Styles/Theme/Layers/layer2/style";
-import { FaRegHandshake } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa";
 import { deviceMin } from "Consts/device";
 
 import {
@@ -74,7 +74,7 @@ const Wrapper = styled.div`
     box-sizing: content-box;
   }
 `;
-const Logo = styled(FaRegHandshake)`
+const Logo = styled(FaGraduationCap)`
   color: white;
   border-radius: 50%;
   background: var(--color-primary3);

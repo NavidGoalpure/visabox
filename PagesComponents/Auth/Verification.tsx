@@ -3,6 +3,7 @@ import ErrorToast from "Elements/Toast/Error";
 import SuccessToast from "Elements/Toast/Success";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { LocalStorageKeys } from "Interfaces";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/dist/client/router";
 import { getClientDetail } from "Queries/client";
@@ -13,6 +14,7 @@ import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from "Styles/Theme/Layers/layer1/style";
+import { getLocalStorage } from "Utils";
 import { componentStatements, LanguageKeys } from "./const";
 
 function Content() {
@@ -41,7 +43,7 @@ function Content() {
         .then((res) => {
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
           if (res?.client[0]?.name) {
-            router.push(`/${locale}`);
+            router.push(`${getLocalStorage(LocalStorageKeys.Url_Before_Login)}`);
           }
           // اگر کلاینت برای اولین بار ثبت نام کرده بود
           else {

@@ -17,8 +17,7 @@ import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from "Styles/Theme/Layers/layer1/style";
-import { setLocalStorage } from "Utils";
-import { CookieKeys, LocalStorageKeys } from "Interfaces";
+import { CookieKeys } from "Interfaces";
 import { useLocale } from "Hooks/useLocale";
 import Cookies from "js-cookie";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";

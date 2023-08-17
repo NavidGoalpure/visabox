@@ -21,8 +21,9 @@ enum LanguageDirection {
 }
 
 enum LocalStorageKeys {
-  Theme = 'Theme',
-  Client_IsFormBannerClosed = 'Client_IsFormBannerClosed',
+  Theme = "Theme",
+  Client_IsFormBannerClosed = "Client_IsFormBannerClosed",
+  Url_Before_Login = "Url_Before_Login",
 }
 enum CookieKeys {
   // وقتی با گوگل یا چیز دیگه ای لاگین میکنیم از دامین خودمون خارج میشیم و وقتی برمیگردیم مشخص نبوده

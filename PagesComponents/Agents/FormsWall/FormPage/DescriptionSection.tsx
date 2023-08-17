@@ -182,7 +182,7 @@ function DescriptionSection({ client }: Props) {
           <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
         </DataWrapper>
-        <PhoneContainer
+        <StyledDataWrapper
           onClick={() =>
             copyContent({
               text: data.phoneNumber || "",
@@ -190,12 +190,10 @@ function DescriptionSection({ client }: Props) {
             })
           }
         >
-          <PhoneIcon />
-          <PhoneTitle>
-            <PhonesRow>{data?.phoneNumber}</PhonesRow>
-          </PhoneTitle>
-        </PhoneContainer>
-        <GmailContainer
+          <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{" "}
+          <Value>{data?.phoneNumber}</Value>
+        </StyledDataWrapper>
+        <StyledDataWrapper
           onClick={() =>
             copyContent({
               text: data.email || "",
@@ -203,9 +201,9 @@ function DescriptionSection({ client }: Props) {
             })
           }
         >
-          <GmailIcon />
-          <GmailTitle>{data?.email}</GmailTitle>
-        </GmailContainer>
+          <Label>{t(LanguageKeys.EmailTitle)}</Label>{" "}
+          <Value>{data?.email}</Value>
+        </StyledDataWrapper>
       </Wrapper>
     </FormData>
   );
@@ -270,7 +268,6 @@ const FormData = styled.div`
   padding: 2rem 1.5rem;
   position: relative;
   @media ${deviceMin.tabletS} {
-    border-radius: 15px 15px 0 0;
     padding: 2rem 5.5rem;
     width: 34.25rem;
   }
@@ -292,6 +289,9 @@ const DataWrapper = styled.div`
   align-items: center;
   gap: 0.5rem;
   align-items: center;
+`;
+const StyledDataWrapper = styled(DataWrapper)`
+  cursor: pointer;
 `;
 const Label = styled.h4`
   ${LabelTheme};

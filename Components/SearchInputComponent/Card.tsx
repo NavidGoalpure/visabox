@@ -2,23 +2,31 @@ import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import { Headline7Style } from "Styles/Typo";
 import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
+import {
+  componentStatements,
+  LanguageKeys,
+} from "../../PagesComponents/Clients/PointCalculator/Steps/Step5/const";
 import { University } from "Interfaces/Database/university";
 import theme from "styled-theming";
 import styled, { css } from "styled-components";
 import { deviceMin } from "Consts/device";
-import { Dispatch, HTMLAttributes, SetStateAction } from "react";
+import { Dispatch, HTMLAttributes, SetStateAction, useCallback } from "react";
 import { useContext } from "react";
 import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
 import { UniSections } from "Interfaces/Database/Client";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   university: University;
+  setInputValue: Dispatch<SetStateAction<string>>;
+  callback?: (university: UniSections) => void;
 }
-export const UniCard: React.FC<Props> = ({ university }) => {
+export const Card: React.FC<Props> = ({
+  university,
+  setInputValue,
+  callback,
+}) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
-  const { client, setClient } = useContext(FormDataContext);
   const GetSmartUniSection = (section: number): UniSections => {
     switch (section) {
       case 1:
@@ -29,14 +37,23 @@ export const UniCard: React.FC<Props> = ({ university }) => {
         return UniSections.IDontKnow;
     }
   };
+  const callbackFunction = useCallback(() => {
+    callback && callback(GetSmartUniSection(university.section));
+  }, [university.section]);
   return (
     <UniversityCard
+      // onClick={() => {
+      //   client &&
+      //     setClient({
+      //       ...client,
+      //       uni_section: GetSmartUniSection(university.section),
+      //     });
+      //   setInputValue(university?.title?.fa || "defensive");
+      // }}
       onClick={() => {
-        client &&
-          setClient({
-            ...client,
-            uni_section: GetSmartUniSection(university.section),
-          });
+        callbackFunction();
+
+        setInputValue(university?.title?.fa || "defensive");
       }}
     >
       <UniName>{dt(university.title)}</UniName>

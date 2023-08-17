@@ -62,12 +62,16 @@ export const listsItems: DropdownItem[] = [
 ];
 export const occupationItems: DropdownItem[] = [
   {
-    title: { en: 'Occupation List', fa: 'لیست مشاغل' },
-    href: '/occupations',
+    title: { en: "Occupation List", fa: "لیست مشاغل" },
+    href: "/occupations",
   },
   {
-    title: { en: 'Assessing Authority', fa: 'موسسات ارزیابی' },
-    href: '/occupations/assssing-authorities',
+    title: { en: "Assessing Authority", fa: "موسسات ارزیابی" },
+    href: "/occupations/assssing-authorities",
+  },
+  {
+    title: { en: "", fa: "جستجوی سکشن دانشگاه" },
+    href: "/occupations/university-section-search",
   },
 ];
 

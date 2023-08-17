@@ -13,11 +13,16 @@ import {
 } from 'PagesComponents/Agents/FormsWall/const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { listOfBasicForm_ResParams } from 'Consts/agents';
+import { useEffect } from 'react';
 
 const FormsWall: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
-
+  
+  useEffect(()=>
+  
+   console.log('navid agent=',navigator?.userAgent),[]
+  )
   return (
     <PageLayout>
       <Seo

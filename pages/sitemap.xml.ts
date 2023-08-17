@@ -14,7 +14,7 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-     <!--The URLs realated to Occupations-->
+     <!-------The URLs realated to Occupations--------->
      <url>
        <loc>${OccupatopnsPage_EN}</loc>
      </url>
@@ -25,19 +25,22 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
      <url>
        <loc>${OccupatopnsPage_FA}/occupations/assssing-authorities</loc>
      </url>
-
+     
+     <url>
+     <loc>${OccupatopnsPage_FA}/occupations/university-section-search</loc>
+   </url>
       ${occupations
-        .map(({ slug }) => {
-          return `
+      .map(({ slug }) => {
+        return `
        <url>
            <loc>${`${OccupatopnsPage_EN}/${slug?.current}`}</loc>
        </url>
         
      `;
-        })
-        .join('')}
+      })
+      .join('')}
 
-     <!--The URLs realated to Lists-->
+     <!------The URLs realated to Lists------>
      <url>
        <loc>${Domain_FA}/lists/social-pages</loc>
      </url>
@@ -52,10 +55,10 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
 
      
     ${AGENCYS.filter(
-      (agency) =>
-        agency.featuredPlan === FeaturedPlan_Business.VIP ||
-        agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
-    )
+        (agency) =>
+          agency.featuredPlan === FeaturedPlan_Business.VIP ||
+          agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
+      )
       .map(({ slug }) => {
         return `
        <url>
@@ -76,10 +79,10 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
        <loc>${Domain_FA}/lists/agents</loc>
      </url>
     ${Agents.filter(
-      (agennt) =>
-        agennt.featuredPlan === FeaturedPlan_Business.VIP ||
-        agennt.featuredPlan === FeaturedPlan_Business.FULL_DATA
-    )
+        (agennt) =>
+          agennt.featuredPlan === FeaturedPlan_Business.VIP ||
+          agennt.featuredPlan === FeaturedPlan_Business.FULL_DATA
+      )
       .map(({ slug }) => {
         return `
        <url>

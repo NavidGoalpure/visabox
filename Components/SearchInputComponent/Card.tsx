@@ -10,7 +10,7 @@ import { University } from "Interfaces/Database/university";
 import theme from "styled-theming";
 import styled, { css } from "styled-components";
 import { deviceMin } from "Consts/device";
-import { Dispatch, HTMLAttributes, SetStateAction } from "react";
+import { Dispatch, HTMLAttributes, SetStateAction, useCallback } from "react";
 import { useContext } from "react";
 import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
 import { UniSections } from "Interfaces/Database/Client";
@@ -18,12 +18,12 @@ import { UniSections } from "Interfaces/Database/Client";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   university: University;
   setInputValue: Dispatch<SetStateAction<string>>;
-  callback?: (university: UniSections) => void
+  callback?: (university: UniSections) => void;
 }
 export const Card: React.FC<Props> = ({
   university,
   setInputValue,
-  callback
+  callback,
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { dt } = useDynamicTranslation();
@@ -37,6 +37,9 @@ export const Card: React.FC<Props> = ({
         return UniSections.IDontKnow;
     }
   };
+  const callbackFunction = useCallback(() => {
+    callback && callback(GetSmartUniSection(university.section));
+  }, [university.section]);
   return (
     <UniversityCard
       // onClick={() => {
@@ -48,8 +51,9 @@ export const Card: React.FC<Props> = ({
       //   setInputValue(university?.title?.fa || "defensive");
       // }}
       onClick={() => {
-        if (callback) callback(GetSmartUniSection(university.section))
-        setInputValue(university?.title?.fa || "defensive")
+        callbackFunction();
+
+        setInputValue(university?.title?.fa || "defensive");
       }}
     >
       <UniName>{dt(university.title)}</UniName>

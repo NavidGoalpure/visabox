@@ -20,7 +20,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { UniSections } from "Interfaces/Database/Client";
 interface Props {
   theme: "LAYER1" | "LAYER2";
-  callback?: (university: UniSections) => void
+  callback?: (university: UniSections) => void;
 }
 export const SearchInputComponent: React.FC<Props> = ({ theme, callback }) => {
   const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
@@ -63,8 +63,15 @@ export const SearchInputComponent: React.FC<Props> = ({ theme, callback }) => {
               <LoadingTitle>حداقل سه حرف وارد کنید ...</LoadingTitle>
             </LoadingContainer>
           ) : SearchedUniversities.length !== 0 ? (
-            SearchedUniversities.map((uni) => {
-              return <Card setInputValue={setInputValue} university={uni} callback={callback} />;
+            SearchedUniversities.map((uni, i) => {
+              return (
+                <Card
+                  key={i}
+                  setInputValue={setInputValue}
+                  university={uni}
+                  callback={callback}
+                />
+              );
             })
           ) : (
             <NotFoundContainer>
@@ -202,7 +209,7 @@ const SearchIcon = styled(CiSearch)`
   height: 1.5rem;
   margin-inline-end: 0.5rem;
 `;
-const StyledScrollBox = styled(ScrollBox) <{ isVisible: boolean }>`
+const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
   ${ScrollBoxBgTheme};
   // do not touch the transition delay it messes with revaluation of uni_section
   // by clicking on the option

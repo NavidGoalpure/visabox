@@ -1,16 +1,13 @@
 import { signIn } from 'next-auth/react';
 
-import { Key, useState } from 'react';
+import { Key, useEffect, useState } from 'react';
 import MaraBgAnimation from 'Components/MaraBgAnimation';
 import styled, { css } from 'styled-components';
 import { FcGoogle } from 'react-icons/fc';
 import theme from 'styled-theming';
 import { FaDiscord, FaUser } from 'react-icons/fa';
 import { RiBuilding2Fill } from 'react-icons/ri';
-import {
-  Layer1_SubtitleStyle,
-  Layer1_TitleStyle,
-} from 'Styles/Theme/Layers/layer1/style';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { CookieKeys } from 'Interfaces';
 import { useLocale } from 'Hooks/useLocale';
 import Cookies from 'js-cookie';
@@ -23,14 +20,26 @@ import { Provider } from 'next-auth/providers';
 import { UserRole } from 'Interfaces/Database';
 import { layer2A_HeaderBg } from 'Styles/Theme/Layers/layer2/style';
 import { boxShadow } from 'Styles/Theme';
+import { useRouter } from 'next/router';
 
 interface Props {
   authProviders: Provider[];
 }
 export default function SignInContent({ authProviders }: Props) {
+  const router = useRouter();
+
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const [userRole, setUserRol] = useState<UserRole | null>(null);
+  useEffect(() => {
+    const userRole_QueryParam = router?.query?.['user_role'];
+    if (userRole_QueryParam === UserRole.Agency.toLowerCase())
+      setUserRol(UserRole.Agency);
+
+    if (userRole_QueryParam === UserRole.Client.toLowerCase())
+      setUserRol(UserRole.Client);
+  }, [router]);
+
   return (
     <MaraBgAnimation>
       <BlurContainer>

@@ -1,7 +1,7 @@
 import { ClientError } from '@sanity/client';
 import { listOfBasicForm_ResParams } from 'Consts/agents';
 import { Client } from 'Interfaces/Database/Client';
-import { getlistOfBasicForm } from 'Queries/agents/ListOfForms';
+import { getlistOfBasicForm } from 'Queries/agency/ListOfForms';
 import { useInfiniteQuery } from 'react-query';
 import { ClientQueryKeys } from 'Utils/query/keys';
 

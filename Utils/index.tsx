@@ -43,13 +43,33 @@ function setLocalStorage({
   //
   if (isReloadPage) window.location.reload();
 }
+///////////////////
 function getLocalStorage(key: LocalStorageKeys): string | null {
   if (typeof window === 'undefined') return null;
   //
   return window.localStorage.getItem(key);
   //
 }
+///////////////////////
+function removeLocalStorage(key: LocalStorageKeys) {
+  localStorage.removeItem(key);
+}
+////////////////
+function removeALLLocalStorage() {
+  localStorage.clear();
+}
+///////////////
+function deleteAllCookies() {
+  const cookies = document.cookie.split(';');
 
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i];
+    const eqPos = cookie.indexOf('=');
+    const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  }
+}
+///////////////
 const copyContent = async ({
   text,
   toastMessage,
@@ -100,6 +120,9 @@ export {
   isItOnLive,
   setLocalStorage,
   getLocalStorage,
+  removeLocalStorage,
+  removeALLLocalStorage,
+  deleteAllCookies,
   copyContent,
   slugify,
   getGsapTimeLine_FadeUp,

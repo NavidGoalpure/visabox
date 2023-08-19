@@ -20,6 +20,11 @@ import SuccessToast from 'Elements/Toast/Success';
 import ErrorToast from 'Elements/Toast/Error';
 import { deviceMin } from 'Consts/device';
 import { listOfBasicForm_ResParams } from 'Consts/agents';
+import {
+  deleteAllCookies,
+  getLocalStorage,
+  removeALLLocalStorage,
+} from 'Utils';
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);
@@ -132,6 +137,8 @@ function DesktopProfileOptions() {
             <RedLine />
             <PopOverItemContainer
               onClick={() => {
+                removeALLLocalStorage();
+                deleteAllCookies();
                 signOut();
               }}
             >

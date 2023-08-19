@@ -6,11 +6,7 @@ enum Locations {
   fa = 'fa',
   en = 'en',
 }
-enum Country {
-  Iran = 'Iran',
-  Australia = 'Australia',
-  Global = 'Global',
-}
+
 enum ThemeModes {
   LIGHT = 'light',
   DARK = 'dark',
@@ -23,12 +19,14 @@ enum LanguageDirection {
 enum LocalStorageKeys {
   Theme = 'Theme',
   Client_IsFormBannerClosed = 'Client_IsFormBannerClosed',
+  UserRole = 'UserRole',
 }
 enum CookieKeys {
   // وقتی با گوگل یا چیز دیگه ای لاگین میکنیم از دامین خودمون خارج میشیم و وقتی برمیگردیم مشخص نبوده
   // که قبلا روی لوکیل چه زبانی بودیم. برای این کار در صفحه ساین این لوکیل رو موقتا ذخیره میکنیم و بعد از لاگین
   // دوباره پاک میکنیم
   TemporaryLocale = 'TemporaryLocale', //
+  UserRoleChosenInLoginPage = 'UserRoleChosenInLoginPage',
 }
 
 export {
@@ -38,5 +36,4 @@ export {
   ThemeModes,
   LocalStorageKeys,
   CookieKeys,
-  Country,
 };

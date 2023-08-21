@@ -17,17 +17,24 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     در 10 سال گذشته، چه مدت در شغل تخصصی انتخابی خود یا شغل نزدیک به آن در خارج از استرالیا کار کرده اید؟
     تنها سابقه کاری با بیش از ۲۰ ساعت در هفته مورد قبول می‌باشد.
     `,
+    cz: `您对这个问题的回答会影响您的移民分数，
+    
+    在过去 10 年中，您在澳大利亚境外从事指定技术职业或密切相关职业工作了多长时间？
+    为了获得工作经验所需的分数，申请人必须每周工作至少 20 小时。`
   },
   WorkExperienceSectionTitle: {
     en: "Overseas Work Experience:",
     fa: "سابقه کار خارج از استرالیا شما طی ۱۰ سال گذشته:",
+    cz: "海外工作经验："
   },
   NextButtonTitle: {
     en: "Next",
     fa: "بعدی",
+    cz: '下一个'
   },
   PrevButtonTitle: {
     en: "Prev",
     fa: "قبلی",
+    cz: '上一篇'
   },
 };

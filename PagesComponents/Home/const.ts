@@ -11,14 +11,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     en: 'Mara Box | Australia immigration toolkit',
     fa: 'ماراباکس | جعبه ابزار مهاجرت به استرالیا',
+    cz: 'Mara Box | 澳大利亚移民工具包'
   },
   SeoDesc: {
     fa: 'بررسی شرایط ویزا برای نیروی متخصص, لیست وکلای مهاجرت معتبر, شبکه های اجتماعی مناسب و امکانات جذاب دیگر برای مهاجرت به استرالیا',
     en: 'A toolbox for immigrating  via skilled worker visa. You can find any of your requirements in this box',
+    cz: '通过技术工人签证移民的工具箱。 您可以在此框中找到您的任何要求'
   },
   BannerButtonText: {
     en: 'Evaluation Form',
     fa: 'فرم ارزیابی',
+    cz: '评估表'
   },
   BannerDesc: {
     en: `Are you ready to start your <span> immigration </span> journey? Now our form

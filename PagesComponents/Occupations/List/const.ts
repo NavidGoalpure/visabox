@@ -21,10 +21,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     fa: 'لیست مشاغل | مارا باکس',
     en: 'Skill Occupation List | Mara Box',
+    cz: '技能职业列表| Mara Box'
   },
   SeoDesc: {
     fa: 'فهرست کامل مشاغل ماهر را ببینید و بدانید که آیا شغل شما واجد شرایط درخواست ویزای کار یا مهارت استرالیا است یا خیر | برای اطلاعات بیشتر می‌توانید با ما تماس بگیرید',
     en: 'See the full Skilled Occupations List & find out whether your occupation is eligible to apply for an Australian Skilled or Work Visa | Contact us for more info',
+    cz: '查看完整的技术职业列表并了解您的职业是否有资格申请澳大利亚技术或工作签证 | 联系我们了解更多信息'
   },
   //
   PageTitle: {

@@ -12,6 +12,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoDesc: {
     fa: 'در استرالیا بیش از 40 سازمان ارزیاب وجود دارد.در اینجا می‌خواهیم به خصوصیات کلی برخی از سازمانهای ارزیاب که بیشترین کد های شغلی را پوشش می دهند، بپردازیم ',
     en: 'There are over 40 appraiser organizations in Australia. Here I can look at the specifics of some of the appraiser organizations that cover the most job codes.',
+    cz: ''
   },
 };
 export const structuredData = {

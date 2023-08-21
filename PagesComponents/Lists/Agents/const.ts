@@ -10,11 +10,13 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     en: 'Find the most authentic migration agents for australia| Mara Box',
+    cz: '寻找最正宗的澳洲移民代理| Mara Box',
     fa: 'معتبر ترین وکلای ایرانی مهاجرت به استرالیا و نیوزلند را پیدا کنید | مارا باکس',
   },
   SeoDesc: {
     fa: 'اسامی بهترین وکلای ایرانی برای اقامت و مهاجرت به استرالیا و نیوزلند، ویزای سرمایه گذاری، مهارتی، خانواده و ازدواج، تجاری و تحصیلی',
     en: 'name and info of some of the best migration agents for migration to australia,investment visa,work visa,marriage and student visa',
+    cz: '一些最佳移民澳大利亚移民代理的名称和信息，投资签证，工作签证，婚姻和学生签证',
   },
   //
   PageTitle: {

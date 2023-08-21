@@ -11,9 +11,11 @@ export const globalComponentStatements: Record<
   WentWrongTitle: {
     en: 'Something Went Wrong',
     fa: 'متاسفانه مشکلی پیش آمده',
+    cz: '出了些问题'
   },
   WentWrongSubtitle: {
     en: 'Please check your internet connection. You may need to use a proxy.',
     fa: 'لطفا کانکشن خود را تست کنید. شاید نیاز به استفاده از یک پروکسی داشته باشید.',
+    cz: '请检查您的互联网连接。 您可能需要使用代理。'
   },
 };

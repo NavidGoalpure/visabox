@@ -31,100 +31,124 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     en: '$agent Migration Agent | $agent',
     fa: '$agent وکیل مهاجرت ',
+    cz: '$agent 移民代理 | $agent'
   },
   SeoDesc: {
     fa: 'marabox.com',
     en: 'marabox.com',
+    cz: 'marabox.com'
   },
   //
   ScoreTitle: {
     en: 'Score:',
     fa: 'امتیاز:',
+    cz: '分数：'
   },
 
   AboutLabel: {
     en: 'About',
     fa: 'توضیحات',
+    cz: '关于'
   },
   NotCompletedHint: {
     en: `This user has registered information before the new update of "Marabox" form. For this reason, this profile may not be complete.`,
     fa: `            این کاربر قبل از بروزرسانی فرم «ماراباکس» ثبت اطلاعات نموده
-            است. به همین دلیل پروفایل او کامل نمیباشد.`,
+    است. به همین دلیل پروفایل او کامل نمیباشد.`,
+    cz: '该用户在“Marabox”表单新更新前已注册信息。 因此，此配置文件可能不完整。'
   },
   BirthDateLabel: {
     en: 'Birth Date:',
     fa: 'تاریخ تولد:',
+    cz: '出生日期：'
   },
   EnglishSkillsLabel: {
     en: 'English Skill:',
     fa: 'سطح زبان انگیلیسی:',
+    cz: '英语能力：'
   },
   MarriageStatusLabel: {
     en: 'Marriage Status:',
     fa: 'وضعیت تاهل:',
+    cz: '婚姻状况：'
   },
   PartnerEnglishLabel: {
     en: "Is spouse's IELTS score 6?",
     fa: ' آیا نمره ایلتس همسر ۶ هست؟',
+    cz: '配偶的雅思成绩是6分吗？'
   },
   PartnerAssesmentLabel: {
     en: 'Does the spouse have an assessment of documents?',
     fa: 'آیا همسر دارای اسسمنت مدارک است؟',
+    cz: '配偶是否对文件进行评估？'
   },
   CountryLabel: {
     en: 'Country:',
     fa: 'کشور:',
+    cz: '国家：'
   },
   FieldOfStudyLabel: {
     en: 'Field of study:',
     fa: 'رشته ی تحصیلی:',
+    cz: '研究领域：'
   },
   DegreeLabel: {
     en: 'Degree:',
     fa: 'مدرک تحصیلی:',
+    cz: '程度：'
   },
   AustralianEducationalQualificationLabel: {
     en: 'Australian Educational Qualification:',
     fa: 'دارای حداقل دو سال تحصیل تمام وقت در استرالیا میباشم:',
+    cz: '澳大利亚教育资格：'
   },
   DesignatedRegionalAreaStudyLabel: {
     en: 'Designated regional area study:',
     fa: 'حداقل دو سال تحصیل در مناطق کم جمعیت استرالیا دارم:',
+    cz: '指定区域研究：'
   },
   SpecialistEducationalQualificationLabel: {
     en: 'Specialist Educational Qualification:',
     fa: 'تحصیل در رشته های خاص تخصصی در مقاطع فوق لیسانس (تحقیقی) یا دکترا حداقل بمدت دو سال:',
+    cz: '专业教育资格：'
   },
   ProfessionalYearInAustraliaLabel: {
     en: 'Professional Year in Australia:',
     fa: 'یک سال حرفه ای در استرالیا بعد از تحصیلات خود و مرتبط به رشته خود گذرانده ام:',
+    cz: '澳大利亚职业年：'
   },
   AccreditedCommunityLanguageLabel: {
     en: 'Accredited Community Language',
     fa: 'گواهی نامه زبان ناتی:',
+    cz: '认可的社区语言'
   },
   UniversitySectionLabel: {
     en: 'University Section:',
     fa: 'سکشن دانشگاه:',
+    cz: '大学部分：'
   },
   CurrentJobLabel: {
     en: 'Current Job:',
     fa: 'شغل الان:',
+    cz: '目前的工作：'
   },
   WorkExperienceLabel: {
     en: 'Work experience:',
     fa: 'سابقه کاری:',
+    cz: '工作经验：'
   },
   AustralianWorkExperienceLabel: {
     en: 'Australian work experience:',
     fa: 'سابقه کاری در استرالیا:',
+    cz: '澳洲工作经验：'
   },
   copyEmailToastMessage: {
-    en: 'Copied email to clipboard',
+    en: 'Copied email to clipboard.',
     fa: 'ایمیل در حافظه کپی شد',
+    cz: '已将电子邮件复制到剪贴板'
   },
   copyPhoneToastMessage: {
-    en: 'Copied Phone number to clipboard',
+    en: 'Copied Phone number to clipboard.',
     fa: 'شماره تلفن در حافظه کپی شد',
+    cz: '已将电话号码复制到剪贴板'
   },
 };

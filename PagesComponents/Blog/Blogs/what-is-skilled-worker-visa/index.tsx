@@ -202,6 +202,10 @@ export default function PostContent() {
       {/* //  برای محاسبه امتیاز خود می‌توانید به لینک زیر مراجعه نمایید: 
 // لینک :........................................................ navid */}
 
+      <p>برای محاسبه امتیاز خود
+        <a href={`/${locale}/clients/point-calculator`}>  کلیک  </a>
+        کنید</p>
+
       <HintBG>
         <HintTitle>توجه:</HintTitle>
         <HintText>

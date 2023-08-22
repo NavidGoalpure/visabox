@@ -112,7 +112,11 @@ export default function PostContent() {
         </tbody>
       </table>
 
-      {/* navid برای مشاهده سکشن دانشگاه ها می‌توانید به لینک زیر مراجعه کنید: */}
+      <p>
+        برای مشاهده
+        <a href={`/${locale}/occupations/university-section-search`}>  سکشن دانشگاه ها  </a>
+        کلیک کنید.
+      </p>
 
       <p>
         مدارک اضافی فنی حرفه ای و یا مدارک بین المللی تاثیری در اضافه نمودن

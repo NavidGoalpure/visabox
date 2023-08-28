@@ -2,7 +2,6 @@ import SuccessToast from 'Elements/Toast/Success';
 import { LocalStorageKeys, ThemeModes } from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-
 import crypto from 'crypto';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
@@ -115,6 +114,7 @@ const slugify = (str: string) =>
 function convertToMd5(text: string) {
   return crypto.createHash('md5').update(text).digest('hex');
 }
+
 export {
   getThemeFromLocalStorage,
   isItOnLive,

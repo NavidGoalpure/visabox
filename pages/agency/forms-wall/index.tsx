@@ -5,7 +5,7 @@ import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import Content from 'PagesComponents/Agents/FormsWall';
 import { withCSR } from 'Hoc/withCSR';
-import { ClientQueryKeys } from 'Utils/query/keys';
+import { AgencyQueryKeys, ClientQueryKeys } from 'Utils/query/keys';
 import { getlistOfBasicForm } from 'Queries/agency/ListOfForms';
 import {
   componentStatements,
@@ -22,10 +22,13 @@ import ErrorToast from 'Elements/Toast/Error';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { Loading } from 'Elements/Loading';
+import { ContentOrError } from 'Components/contentOrError';
+import { isAgancyLogedIn } from 'Utils/user';
 
 const FormsWall: NextPage = () => {
   const { locale } = useLocale();
   const [isShow, setIsShow] = useState<boolean | null>(null);
+
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
@@ -34,8 +37,8 @@ const FormsWall: NextPage = () => {
       status
       `;
 
-  const { data, isLoading, isError } = useQuery(
-    ClientQueryKeys.detail({
+  const { isLoading, isError } = useQuery(
+    AgencyQueryKeys.detail({
       reqParams,
       resParams,
     }),
@@ -46,31 +49,26 @@ const FormsWall: NextPage = () => {
       });
     },
     {
-      enabled:
-        !!session?.user?.email &&
-        getLocalStorage(LocalStorageKeys.UserRole) === UserRole.Agency,
+      enabled: isAgancyLogedIn(session),
       onSuccess: (data) => {
         // اگه تو بروز کاربر ایمیلی وجود داشت اما توی دیتابیس کاربری نبود،  لاگ اوت کن
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
-        if (!data?.agency?.[0]?._id || !data?.agency?.[0]?.email) {
+
+        if (!data?.agency?.[0]?.email) {
           ErrorToast('We have troble with your accunt. Please login again');
           signOut();
         }
         // اگه اکانت ایجنسی دی اکتیو بود چیزی نشون نده
         if (data?.agency?.[0]?.status === Status.DEACTIVE) {
+          setIsShow(true);
+        } else {
           setIsShow(false);
-          ErrorToast(
-            'Your account has not been verified yet. To verify the account, please contact the site support'
-          );
-          signOut();
         }
       },
     }
   );
 
   //
-  console.log('navid data=', data);
-
   return (
     <PageLayout>
       <Seo
@@ -79,14 +77,11 @@ const FormsWall: NextPage = () => {
         canonical={`https://www.marabox.com/${locale}/agency/forms-wall`}
         isNoIndex={true}
       />
-      {isShow === null && <StyledLoading />}
-      {isShow === false && (
-        <p>
-          Your account has not been verified yet. To verify the account, please
-          contact the site support
-        </p>
+      {(isShow === null || isLoading) && <StyledLoading />}
+      {isShow === false && <p>{t(LanguageKeys.NeedConfirm)}</p>}
+      {isShow === true && (
+        <ContentOrError isError={isError} content={<Content />} />
       )}
-      {isShow === true && <Content />}
     </PageLayout>
   );
 };

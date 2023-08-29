@@ -6,6 +6,7 @@ export enum LanguageKeys {
   //
   ScoreTitle = "ScoreTitle",
   AboutLabel = "AboutLabel",
+  FullNameLabel = "FullNameLabel",
   NotCompletedHint = "NotCompletedHint",
   BirthDateLabel = "BirthDateLabel",
   EnglishSkillsLabel = "EnglishSkillsLabel",
@@ -28,6 +29,10 @@ export enum LanguageKeys {
   EmailTitle = "EmailTitle",
   copyEmailToastMessage = "copyEmailToastMessage",
   copyPhoneToastMessage = "copyPhoneToastMessage",
+  PrintBoxTitle = "PrintBoxTitle",
+  PrintBoxDesc = "PrintBoxDesc",
+  YesText = "YesText",
+  NoText = "NoText",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -52,6 +57,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: `This user has registered information before the new update of "Marabox" form. For this reason, this profile may not be complete.`,
     fa: `            این کاربر قبل از بروزرسانی فرم «ماراباکس» ثبت اطلاعات نموده
             است. به همین دلیل پروفایل او کامل نمیباشد.`,
+  },
+  FullNameLabel: {
+    en: "Full Name:",
+    fa: "نام و نام خانوادگی:",
   },
   BirthDateLabel: {
     en: "Birth Date:",
@@ -136,5 +145,21 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   copyPhoneToastMessage: {
     en: "Copied Phone number to clipboard",
     fa: "شماره تلفن در حافظه کپی شد",
+  },
+  PrintBoxTitle: {
+    en: "Print",
+    fa: "پرینت",
+  },
+  PrintBoxDesc: {
+    en: "See Printable version",
+    fa: "مشاهده نسخه قابل پرینت.",
+  },
+  YesText: {
+    en: "Yes",
+    fa: "بله",
+  },
+  NoText: {
+    en: "No",
+    fa: "خیر",
   },
 };

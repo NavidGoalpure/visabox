@@ -11,10 +11,10 @@ export const layer2A_HeaderBG = theme('mode', {
     background-color: var(--color-gray7);
   `,
 });
-export const layer2A_Bg = theme('mode', {
+export const layer2A_Bg = theme("mode", {
   light: css`
     background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-layer2);
   `,
   dark: css`
     background: var(--color-gray6);

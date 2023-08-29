@@ -137,7 +137,7 @@ const Subtitle = styled.h1`
 const SocialButtonTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-layer2);
   `,
   dark: css`
     background: #ffffff;

@@ -105,71 +105,60 @@ function DescriptionSection({ client }: Props) {
           <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
           <Value>{data?.degree?.[locale]}</Value>
         </DataWrapper>
-        {typeof client?.australian_educational_qualification === "boolean" && (
-          <DataWrapper>
-            <Label>
-              {t(LanguageKeys.AustralianEducationalQualificationLabel)}
-            </Label>{" "}
-            <Value>
-              {data?.australian_educational_qualification ? (
-                <Checkmark />
-              ) : (
-                <CloseIcon />
-              )}
-            </Value>
-          </DataWrapper>
-        )}
-        {typeof client?.designated_regional_area_study === "boolean" &&
-          client?.australian_educational_qualification === true && (
-            <DataWrapper>
-              <Label>{t(LanguageKeys.DesignatedRegionalAreaStudyLabel)}</Label>{" "}
-              <Value>
-                {data?.designated_regional_area_study ? (
-                  <Checkmark />
-                ) : (
-                  <CloseIcon />
-                )}
-              </Value>
-            </DataWrapper>
-          )}
-        {typeof client?.specialist_educational_qualification === "boolean" && (
-          <DataWrapper>
-            <Label>
-              {t(LanguageKeys.SpecialistEducationalQualificationLabel)}
-            </Label>{" "}
-            <Value>
-              {data?.specialist_educational_qualification ? (
-                <Checkmark />
-              ) : (
-                <CloseIcon />
-              )}
-            </Value>
-          </DataWrapper>
-        )}
-        {typeof client?.professional_year_in_australia === "boolean" && (
-          <DataWrapper>
-            <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{" "}
-            <Value>
-              {data?.professional_year_in_australia ? (
-                <Checkmark />
-              ) : (
-                <CloseIcon />
-              )}
-            </Value>
-          </DataWrapper>
-        )}
-        {typeof client?.accredited_community_language === "boolean" && (
-          <DataWrapper>
-            <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{" "}
-            <Value>
-              {data?.accredited_community_language ? (
-                <Checkmark />
-              ) : (
-                <CloseIcon />
-              )}
-            </Value>
-          </DataWrapper>
-        )}
+        <DataWrapper>
+          <Label>
+            {t(LanguageKeys.AustralianEducationalQualificationLabel)}
+          </Label>{" "}
+          <Value>
+            {data?.australian_educational_qualification ? (
+              <Checkmark />
+            ) : (
+              <CloseIcon />
+            )}
+          </Value>
+        </DataWrapper>
+        <DataWrapper>
+          <Label>{t(LanguageKeys.DesignatedRegionalAreaStudyLabel)}</Label>{" "}
+          <Value>
+            {data?.designated_regional_area_study ? (
+              <Checkmark />
+            ) : (
+              <CloseIcon />
+            )}
+          </Value>
+        </DataWrapper>
+        <DataWrapper>
+          <Label>
+            {t(LanguageKeys.SpecialistEducationalQualificationLabel)}
+          </Label>{" "}
+          <Value>
+            {data?.specialist_educational_qualification ? (
+              <Checkmark />
+            ) : (
+              <CloseIcon />
+            )}
+          </Value>
+        </DataWrapper>
+        <DataWrapper>
+          <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{" "}
+          <Value>
+            {data?.professional_year_in_australia ? (
+              <Checkmark />
+            ) : (
+              <CloseIcon />
+            )}
+          </Value>
+        </DataWrapper>
+        <DataWrapper>
+          <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{" "}
+          <Value>
+            {data?.accredited_community_language ? (
+              <Checkmark />
+            ) : (
+              <CloseIcon />
+            )}
+          </Value>
+        </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
           <Value>{data?.uniSection?.[locale]}</Value>

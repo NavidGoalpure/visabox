@@ -2,14 +2,11 @@ import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import {
   layer2A_BodyStyle,
-  layer2A_TextStyle,
   layer2A_TitleStyle,
 } from "Styles/Theme/Layers/layer2/style";
 import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
 import DescriptionSection from "../DescriptionSection";
 import { Client } from "Interfaces/Database/Client";
-import DarkBackground from "./Images/DarkBackground.svg";
-import LightBackground from "./Images/LightBackground.svg";
 import { Headline7Style } from "Styles/Typo";
 import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
@@ -21,6 +18,7 @@ import {
   Hint_SecondaryTextStyle,
 } from "Styles/Theme/Hint/style";
 import { FiInfo } from "react-icons/fi";
+import BoxesSection from "../BoxesSection";
 interface Props {
   client: Client;
 }
@@ -36,33 +34,36 @@ function DesktopAgentsPage({ client }: Props) {
         </HintContainer>
       )}
       <Wrapper>
-        <SmallBox>
-          <ProfilePictureWrapper>
-            {client?.avatar ? (
-              <ProfilePicture
-                src={client?.avatar}
-                alt={client?.name ? `${client?.name} image` : "agent image"}
-              />
-            ) : (
-              <ImagePlaceholder />
-            )}
-          </ProfilePictureWrapper>
-          <ProfileData>
-            <Name>
-              {client?.name} {client?.lastname}
-            </Name>
-            <JobTitle>{client?.current_job}</JobTitle>
-            <CreatedDate>{dataCreatedAt}</CreatedDate>
-            {client?.country && (
-              <ScoreWrapper>
-                <HeaderLabel>
-                  {t(LanguageKeys.ScoreTitle)}{" "}
-                  <span id="score">{CalculateClientScore(client)}</span>
-                </HeaderLabel>
-              </ScoreWrapper>
-            )}
-          </ProfileData>
-        </SmallBox>
+        <SmallBoxesWrapper>
+          <ProfileBox>
+            <ProfilePictureWrapper>
+              {client?.avatar ? (
+                <ProfilePicture
+                  src={client?.avatar}
+                  alt={client?.name ? `${client?.name} image` : "agent image"}
+                />
+              ) : (
+                <ImagePlaceholder />
+              )}
+            </ProfilePictureWrapper>
+            <ProfileData>
+              <Name>
+                {client?.name} {client?.lastname}
+              </Name>
+              <JobTitle>{client?.current_job}</JobTitle>
+              <CreatedDate>{dataCreatedAt}</CreatedDate>
+              {client?.country && (
+                <ScoreWrapper>
+                  <HeaderLabel>
+                    {t(LanguageKeys.ScoreTitle)}{" "}
+                    <span id="score">{CalculateClientScore(client)}</span>
+                  </HeaderLabel>
+                </ScoreWrapper>
+              )}
+            </ProfileData>
+          </ProfileBox>
+          <BoxesSection id={client?._id || ""} />
+        </SmallBoxesWrapper>
         <DescriptionSection client={client} />
       </Wrapper>
     </Container>
@@ -80,11 +81,11 @@ const TitleColor = theme("mode", {
 });
 const HeaderBackground = theme("mode", {
   light: css`
-    background-image: url(${LightBackground});
+    background-image: url("/Images/Patterns/LightPattern.svg");
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
   `,
   dark: css`
-    background-image: url(${DarkBackground});
+    background-image: url("/Images/Patterns/DarkPattern.svg");
   `,
 });
 const HeaderLabelTheme = theme("mode", {
@@ -128,7 +129,14 @@ const Wrapper = styled.div`
   position: relative;
   gap: 1rem;
 `;
-const SmallBox = styled.header`
+const SmallBoxesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+`;
+const ProfileBox = styled.header`
   ${layer2A_BodyStyle};
   ${HeaderBackground};
   position: relative;
@@ -139,7 +147,6 @@ const SmallBox = styled.header`
   border-radius: 15px;
   padding: 1.5rem;
   gap: 2rem;
-  margin-bottom: 4rem;
   box-shadow: unset;
 `;
 const ProfilePictureWrapper = styled.div`
@@ -176,7 +183,6 @@ const HeaderLabel = styled.h4`
   #score {
     ${HeaderScoreTheme};
   }
-
 `;
 const Name = styled.h2`
   ${TitleColor}

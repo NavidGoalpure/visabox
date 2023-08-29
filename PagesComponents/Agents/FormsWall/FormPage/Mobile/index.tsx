@@ -20,6 +20,7 @@ import {
   Hint_SecondaryTextStyle,
 } from "Styles/Theme/Hint/style";
 import { FiInfo } from 'react-icons/fi';
+import BoxesSection from '../BoxesSection';
 
 interface Props {
   client: Client;
@@ -35,8 +36,8 @@ function MobileAgentsPage({ client }: Props) {
       <ProfilePictureWrapper>
         {client?.avatar ? (
           <ProfilePicture
-            src={client?.avatar || '/Images/placeholder.jpeg'}
-            alt={client?.name ? `${client?.name} image` : 'agent image'}
+            src={client?.avatar || "/Images/placeholder.jpeg"}
+            alt={client?.name ? `${client?.name} image` : "agent image"}
           />
         ) : (
           <ImagePlaceholder />
@@ -50,17 +51,18 @@ function MobileAgentsPage({ client }: Props) {
         <CreatedDate>{dataCreatedAt}</CreatedDate>
         {!!client?.country && (
           <HeaderLabel>
-            {t(LanguageKeys.ScoreTitle)}{' '}
-            <span id='score'>{CalculateClientScore(client)}</span>
+            {t(LanguageKeys.ScoreTitle)}{" "}
+            <span id="score">{CalculateClientScore(client)}</span>
           </HeaderLabel>
         )}
-       
+
         {!client?.country && (
           <HintContainer>
             <HintInfoIcon />
             <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
           </HintContainer>
         )}
+        <BoxesSection id={client?._id || ""} />
       </ProfileData>
       <DescriptionSection client={client} />
     </Container>

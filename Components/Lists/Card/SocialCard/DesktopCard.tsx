@@ -1,4 +1,3 @@
-// navid
 // این کارت باز هم استفاده نشده. اما پاک نکردیم که جای دیگه استفاده کنیم
 import Image from 'next/image';
 import { PrimaryButton } from 'Elements/Button/Primary';

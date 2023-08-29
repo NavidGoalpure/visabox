@@ -14,23 +14,27 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   buttonText: string;
   stampText?: string;
 }
-const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) => {
+const Banner: React.FC<Props> = ({
+  navigateTo,
+  desc,
+  buttonText,
+  stampText,
+}) => {
   const router = useRouter();
   return (
     <Container>
-      {stampText && <Stamp
-        dangerouslySetInnerHTML={{ __html: stampText }}
-      >
-      </Stamp>}
+      {stampText && (
+        <Stamp dangerouslySetInnerHTML={{ __html: stampText }}></Stamp>
+      )}
       <Wrapper>
         <MaraBgAnimation
           animationSpeed={60}
-          DarkPrimaryColor={'var(--color-primary3)'}
-          LightPrimaryColor={'var(--color-primary3)'}
-          LightSecondaryColor={'transparent'}
+          DarkPrimaryColor={"var(--color-primary3)"}
+          LightPrimaryColor={"var(--color-primary3)"}
+          LightSecondaryColor={"transparent"}
         >
           <Content>
-            <Title>{desc}</Title>{' '}
+            <Title>{desc}</Title>{" "}
             <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
               {buttonText}
             </Button>

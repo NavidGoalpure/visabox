@@ -152,6 +152,8 @@ export function getCountryLabel({
 export function getMultiLanguageLabels(client: Client): GetLabelsProps {
   //   turns sanity data to multilanguage texts so we can show more detailed data
   const showableData: GetLabelsProps = {
+    name: client?.name,
+    lastname: client?.lastname,
     marital: getMaritalLabel({
       marital: client?.marital,
     }),

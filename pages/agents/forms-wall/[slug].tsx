@@ -8,15 +8,23 @@ import Content from "PagesComponents/Agents/FormsWall/FormPage";
 import { Client } from "Interfaces/Database/Client";
 import { getClientDetail } from "Queries/client";
 import { Point_Calculator_Fragment } from "Consts/GroqFragments";
+import { useRouter } from "next/router";
+import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
+import PrintablePage from "PagesComponents/Agents/FormsWall/FormPage/PrintablePage";
 
 interface Props {
   client: Client;
   errorCode?: number;
 }
 const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
-  const { locale } = useLocale();
-  if (errorCode) return <Error statusCode={errorCode} />;
   const fullname = `${client?.name || ""} ${client?.lastname || ""}`;
+  const { locale } = useLocale();
+  const router = useRouter();
+  const { version } = router.query;
+  if (errorCode) return <Error statusCode={errorCode} />;
+  if (version === PAGE_PARAMS_VERSION_PRINTABLE_VALUE)
+    return <PrintablePage client={client} />;
+
   // نوید
   // بعدا از لاگین کردن وکیل ها این آدرس باید عوض بشه چون انگار شماره وکیله نه کلاینت
   return (
@@ -34,6 +42,7 @@ export default VipAgentPage;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.slug;
+
   const reqParams = `_id == "${id}"`;
   const resParams = ` 
   ${Point_Calculator_Fragment}

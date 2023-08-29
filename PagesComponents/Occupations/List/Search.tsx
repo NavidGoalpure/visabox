@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
-import { SearchInput } from "Elements/SearchInput";
-import styled from "styled-components";
-import { CiSearch } from "react-icons/ci";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { LuSettings2 } from "react-icons/lu";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { layer2A_Bg, layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import * as MaraSelect from "Elements/Select";
-import { AnszcoGroup, MAJOR_GROUP } from "Consts/Occupations/anszco";
-import { useLocale } from "Hooks/useLocale";
-import { SearchFilterContext } from "./Context/SearchFilter";
-import { deviceMin } from "Consts/device";
-import { SelectItemCss } from "Elements/Select/Item";
+import React, { useContext, useEffect, useState } from 'react';
+import { SearchInput } from 'Elements/SearchInput';
+import styled from 'styled-components';
+import { CiSearch } from 'react-icons/ci';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { GiSettingsKnobs } from 'react-icons/gi';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import * as MaraSelect from 'Elements/Select';
+import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
+import { useLocale } from 'Hooks/useLocale';
+import { SearchFilterContext } from './Context/SearchFilter';
+import { deviceMin } from 'Consts/device';
+import { SelectItemCss } from 'Elements/Select/Item';
 
 interface Props {
   searchValue: string;
@@ -52,7 +52,7 @@ function Search({ searchValue, setSearchValue }: Props) {
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
               onValueChange={(newValue) => {
                 setFiltersByValue({
-                  filterKey: "MAJOR_GROUP",
+                  filterKey: 'MAJOR_GROUP',
                   filterValue: newValue,
                   locale,
                 });
@@ -60,8 +60,8 @@ function Search({ searchValue, setSearchValue }: Props) {
             >
               {MAJOR_GROUP.map((item) => (
                 <MaraSelect.Item
-                  value={item.title[locale] || ""}
-                  text={item.title[locale] || ""}
+                  value={item.title[locale] || ''}
+                  text={item.title[locale] || ''}
                 />
               ))}
             </SelectRoot>
@@ -73,7 +73,7 @@ function Search({ searchValue, setSearchValue }: Props) {
               triggerProps={{ placeholder: t(LanguageKeys.Select) }}
               onValueChange={(newValue) => {
                 setFiltersByValue({
-                  filterKey: "SUB_MAJOR_GROUP",
+                  filterKey: 'SUB_MAJOR_GROUP',
                   filterValue: newValue,
                   locale,
                 });
@@ -84,8 +84,8 @@ function Search({ searchValue, setSearchValue }: Props) {
                 return (
                   <MaraSelect.Item
                     key={item.code}
-                    value={item.title[locale] || ""}
-                    text={item.title[locale] || ""}
+                    value={item.title[locale] || ''}
+                    text={item.title[locale] || ''}
                   />
                 );
               })}
@@ -99,7 +99,7 @@ function Search({ searchValue, setSearchValue }: Props) {
               disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
               onValueChange={(newValue) => {
                 setFiltersByValue({
-                  filterKey: "MINOR_GROUP",
+                  filterKey: 'MINOR_GROUP',
                   filterValue: newValue,
                   locale,
                 });
@@ -108,8 +108,8 @@ function Search({ searchValue, setSearchValue }: Props) {
               {filteredList?.minorGroup?.map((item: AnszcoGroup) => (
                 <MaraSelect.Item
                   key={item.code}
-                  value={item.title[locale] || ""}
-                  text={item.title[locale] || ""}
+                  value={item.title[locale] || ''}
+                  text={item.title[locale] || ''}
                 />
               ))}
             </SelectRoot>
@@ -130,13 +130,13 @@ const Container = styled.div<{ isShowPanel: boolean }>`
   margin-bottom: 4rem;
   transition: all 0.3s ease;
   max-width: 865px;
-  ${({ isShowPanel }) => isShowPanel && "max-width: 100%;"}
+  ${({ isShowPanel }) => isShowPanel && 'max-width: 100%;'}
 `;
 const SearchElement = styled(SearchInput)<{ isShowPanel: boolean }>`
   margin: 0 auto;
   height: 4rem;
   #input-container {
-    ${({ isShowPanel }) => isShowPanel && "border-radius: 35px 35px 0 0"};
+    ${({ isShowPanel }) => isShowPanel && 'border-radius: 35px 35px 0 0'};
   }
 `;
 const SearchIcon = styled(CiSearch)`
@@ -186,7 +186,7 @@ const FilterTitle = styled.h4`
     margin-bottom: 0.25rem;
   }
 `;
-const SettingIcon = styled(LuSettings2)`
+const SettingIcon = styled(GiSettingsKnobs)`
   width: 1.5rem;
   height: 1.5rem;
 `;

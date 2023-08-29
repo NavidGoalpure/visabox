@@ -61,149 +61,149 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     fa: 'لیست مشاغل | مارا باکس',
     en: 'ANZSCO $code: $title | Australia Visa options',
-    cz: 'ANZSCO $code: $title | 澳大利亚签证选择',
+    zh: 'ANZSCO $code: $title | 澳大利亚签证选择',
   },
   SeoDesc: {
     fa: 'فهرست کامل مشاغل ماهر را ببینید و بدانید که آیا شغل شما واجد شرایط درخواست ویزای کار یا مهارت استرالیا است یا خیر | برای اطلاعات بیشتر می‌توانید با ما تماس بگیرید',
     en: 'See the full Skilled Occupations List & find out whether your occupation is eligible to apply for an Australian Skilled or Work Visa | Contact us for more info',
-    cz: '查看完整的技术职业列表并了解您的职业是否有资格申请澳大利亚技术或工作签证 | 联系我们了解更多信息',
+    zh: '查看完整的技术职业列表并了解您的职业是否有资格申请澳大利亚技术或工作签证 | 联系我们了解更多信息',
   },
   AssessingAuthorityAbv: {
     fa: 'مرجع ارزیابی',
     en: 'Assessing Authority',
-    cz: '评估机构',
+    zh: '评估机构',
   },
   '491-family': {
     fa: '491-فامیلی',
     en: '491-family',
-    cz: '491-家庭',
+    zh: '491-家庭',
   },
   //
   Details: {
     fa: 'جزییات',
     en: 'Details',
-    cz: '细节',
+    zh: '细节',
   },
   TooltipTagDesc: {
     fa: 'در این سایت می‌توانید اطلاعات بیشتری درباره موسسات ارزیابی استرالیا پیدا کنید.',
     en: 'You can find more information about the Assessing Authorities here.',
-    cz: '您可以在此处找到有关评估机构的更多信息。',
+    zh: '您可以在此处找到有关评估机构的更多信息。',
   },
   Anzsco: {
     fa: 'کد رشته',
     en: 'Anzsco',
-    cz: '安兹斯科',
+    zh: '安兹斯科',
   },
   Backlog: {
     fa: 'صف',
     en: 'Backlog',
-    cz: '积压',
+    zh: '积压',
   },
   Agents: {
     en: 'Agents',
-    cz: '代理商',
+    zh: '代理商',
     fa: 'وکلا',
   },
   SimilarOccupations: {
     en: 'Similar Occupations',
-    cz: '类似职业',
+    zh: '类似职业',
     fa: 'لیست مشاغل نزدیک به این شغل',
   },
   //
   AnzscoTabTitle: {
     fa: 'مشخصات کد رشته',
     en: 'ANZSCO Version Specifications',
-    cz: 'ANZSCO版本规格',
+    zh: 'ANZSCO版本规格',
   },
   MajorGroup: {
     en: 'Major Group',
-    cz: '主要群体',
+    zh: '主要群体',
     fa: 'گروه اصلی',
   },
   SubMajorGroup: {
     en: 'Sub-Major Group',
-    cz: '子专业组',
+    zh: '子专业组',
     fa: 'زیر گروه اصلی',
   },
   MinorGroup: {
     en: 'Minor Group',
-    cz: '小组',
+    zh: '小组',
     fa: 'گروه فرعی',
   },
   UnitGroup: {
     en: 'Unit Group',
-    cz: '单位组',
+    zh: '单位组',
     fa: 'گروه واحد',
   },
   AlternativeTitles: {
     en: 'Alternative Titles',
-    cz: '替代标题',
+    zh: '替代标题',
     fa: 'عنوان جایگزین',
   },
   Specialisations: {
     en: 'Specialisations',
-    cz: '专业领域',
+    zh: '专业领域',
     fa: 'تخصص ها',
   },
   NecOccupation: {
     en: 'Occupation in NEC category',
-    cz: 'NEC类别职业',
+    zh: 'NEC类别职业',
     fa: 'مشاغل زیرمجموعه این NEC',
   },
   NecOccupation_description: {
     en: `"Not elsewhere classified (nec)" categories are used for known, discrete occupations which are not separately identified in ANZSCO Version 1.3 because of their lack of numerical significance in Australia or New Zealand. The occupation titles listed under nec categories are illustrative of the scope and range of occupations included in the nec category.`,
-    cz: '未在其他地方分类 (nec) 类别用于已知的、离散的职业，这些职业在 ANZSCO 版本 1.3 中未单独标识，因为它们在澳大利亚或新西兰缺乏数字意义。 nec 类别下列出的职业名称说明了 nec 类别中包含的职业范围和范围。',
+    zh: '未在其他地方分类 (nec) 类别用于已知的、离散的职业，这些职业在 ANZSCO 版本 1.3 中未单独标识，因为它们在澳大利亚或新西兰缺乏数字意义。 nec 类别下列出的职业名称说明了 nec 类别中包含的职业范围和范围。',
     fa: 'دسته‌های طبقه‌بندی‌شده (nec) در جای دیگر برای مشاغل شناخته‌شده و مجزا استفاده می‌شوند که به‌دلیل عدم اهمیت عددی آنها در استرالیا یا نیوزلند، به طور جداگانه در ANZSCO نسخه 1.3 شناسایی نشده‌اند. عناوین شغلی که در زیر دسته‌های nec فهرست شده‌اند، گویای دامنه و دامنه مشاغل موجود در دسته‌بندی nec هستند.',
   },
   SkillPriorityLists: {
     en: '2022 Skill Priority Lists',
-    cz: '2022 年技能优先列表',
+    zh: '2022 年技能优先列表',
     fa: 'لیست اولویت مهارت 2022',
   },
   Description: {
     en: 'Description',
-    cz: '描述',
+    zh: '描述',
     fa: 'توضیحات',
   },
   IndicativeSkillLevel: {
     en: 'Indicative Skill Level',
-    cz: '指示性技能水平',
+    zh: '指示性技能水平',
     fa: 'سطح مهارت نشان دهنده',
   },
   Tasks: {
     en: 'Tasks',
-    cz: '任务',
+    zh: '任务',
     fa: 'وظایف',
   },
   NoTask: {
     fa: 'شرح وظایفی برای این شغل وجود ندارد.',
     en: 'There are no Tasks associated to this Unit Group.',
-    cz: '没有与该单元组关联的任务。',
+    zh: '没有与该单元组关联的任务。',
   },
   OccupationsinUnitGroup: {
     en: 'Occupations in This Unit Group',
-    cz: '本单元组的职业',
+    zh: '本单元组的职业',
     fa: 'مشاغل در این گروه واحد',
   },
   AverageSalary: {
     en: 'Average Salary 2021',
-    cz: '2021 年平均工资',
+    zh: '2021 年平均工资',
     fa: 'میانگین حقوق ۲۰۲۱',
   },
 
   AlternativeTitles_description: {
     en: 'Alternative titles are any commonly used alternative title (or titles) for the occupation. These alternative titles have the same meaning as the principal title but may be less commonly used.',
-    cz: '替代头衔是该职业的任何常用替代头衔（或多个头衔）。 这些替代标题与主标题具有相同的含义，但可能不太常用。',
+    zh: '替代头衔是该职业的任何常用替代头衔（或多个头衔）。 这些替代标题与主标题具有相同的含义，但可能不太常用。',
     fa: 'عناوین جایگزین، هر عنوان جایگزین رایج مورد استفاده برای شغل را نشان می‌دهد. این عناوین جایگزین همان معنای عنوان اصلی را دارند اما ممکن است کمتر مورد استفاده قرار گیرند.',
   },
   specialisations_title: {
     en: 'specialisations title',
-    cz: '专业名称',
+    zh: '专业名称',
     fa: 'عنوان تخصص ها',
   },
   specialisations_description: {
     en: 'specialisations are any commonly used titles which refer to a subset of jobs belonging to the occupation designated in the principal title. These jobs involve the performance of specialised tasks rather than the broader range of tasks usually performed in the occupation.',
-    cz: '专业化是任何常用的头衔，指的是属于主头衔中指定的职业的工作子集。 这些工作涉及执行专门的任务，而不是通常在该职业中执行的更广泛的任务。',
+    zh: '专业化是任何常用的头衔，指的是属于主头衔中指定的职业的工作子集。 这些工作涉及执行专门的任务，而不是通常在该职业中执行的更广泛的任务。',
     fa: 'تخصص‌ها، عناوین رایجی هستند که به زیرمجموعه ای از مشاغل متعلق به شغل تعیین شده در عنوان اصلی اشاره می کنند. این مشاغل شامل انجام وظایف تخصصی به جای گستره وسیع تری از وظایفی است که معمولاً در شغل انجام می‌شود.',
   },
   IndicativeSkillLevel_1: {
@@ -212,7 +212,7 @@ Most occupations in this unit group have a level of skill commensurate with a ba
     fa: `در استرالیا و نیوزلند:
 
      اکثر مشاغل در این گروه واحد دارای سطح مهارتی متناسب با مدرک لیسانس یا بالاتر هستند.`,
-    cz: `在澳大利亚和新西兰：
+    zh: `在澳大利亚和新西兰：
     本单元组中的大多数职业都具有与学士学位或更高学历相当的技能水平。`,
   },
   IndicativeSkillLevel_2: {
@@ -231,7 +231,7 @@ At least three years of relevant experience may substitute for the formal qualif
 دیپلم NZQF 
 
 حداقل سه سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد تجربه مرتبط و/یا آموزش در حین کار ممکن است علاوه بر صلاحیت رسمی مورد نیاز باشد.`,
-    cz: `在澳大利亚：
+    zh: `在澳大利亚：
 
     AQF 副学士学位、高级文凭或文凭
     
@@ -262,7 +262,7 @@ Registration or licensing may be required.`,
 
 حداقل سه سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد تجربه مرتبط و/یا آموزش در حین کار ممکن است علاوه بر صلاحیت رسمی مورد نیاز باشد.
 ثبت یا پروانه ممکن است لازم باشد.`,
-    cz: `本单元组中的大多数职业都具有与下述资格和经验相称的技能水平。
+    zh: `本单元组中的大多数职业都具有与下述资格和经验相称的技能水平。
 
     在澳大利亚：
     
@@ -293,7 +293,7 @@ AQF Certificate II or III
 NZQF Level 2 or 3 qualification 
 
 حداقل یک سال تجربه مرتبط ممکن است جایگزین مدارک رسمی ذکر شده در بالا شود. در برخی موارد ممکن است علاوه بر صلاحیت رسمی، به تجربه مرتبط نیز نیاز باشد.`,
-    cz: `本单元组中的大多数职业都具有与下述资格和经验相称的技能水平。
+    zh: `本单元组中的大多数职业都具有与下述资格和经验相称的技能水平。
 
     在澳大利亚：
     AQF 二级或三级证书
@@ -321,7 +321,7 @@ In some instances, no formal qualification or on-the-job training may be require
 - compulsory secondary education.
 
 برای برخی مشاغل ممکن است علاوه بر مدارک رسمی یا به جای آن، یک دوره کوتاه آموزش در حین کار لازم باشد.در برخی موارد، هیچ مدرک رسمی یا آموزش در حین کار ممکن است مورد نیاز نباشد.`,
-cz: `本单元组中的大多数职业都具有与下述资格和经验相称的技能水平。
+    zh: `本单元组中的大多数职业都具有与下述资格和经验相称的技能水平。
 
 - 新西兰注册一级资格
 - AQF 证书 I 或
@@ -329,63 +329,63 @@ cz: `本单元组中的大多数职业都具有与下述资格和经验相称的
 
 对于某些职业，除了正式资格之外或代替正式资格，可能还需要短期在职培训。
 
-在某些情况下，可能不需要正式资格或在职培训。`,  
-},
+在某些情况下，可能不需要正式资格或在职培训。`,
+  },
   AlternativeTitles_empty: {
     en: `There are no Alternative Titles for this occupation.`,
     fa: `هیچ عنوان جایگزینی برای این شغل وجود ندارد.`,
-    cz: '该职业没有替代头衔。',
+    zh: '该职业没有替代头衔。',
   },
   specialisations_empty: {
     en: `There are no Specialisation Titles for this occupation.`,
     fa: `هیچ عنوان تخصصی برای این شغل وجود ندارد.`,
-    cz: '该职业没有专业化头衔。',
+    zh: '该职业没有专业化头衔。',
   },
   ////// backlog/////////
   BacklogTitle: {
     en: 'Backlog',
     fa: 'صف انتظار',
-    cz: '积压',
+    zh: '积压',
   },
   NoDataMessage: {
     en: 'Since there are no submissions or invitations registered  in the backlog of this ANZSCO code, there is no visa table in these visa subclasses Any changes will be shown here as soon as the information is updated by the Department of Home Affairs.',
     fa: 'از آنجایی که هیچ ارسال یا دعوت نامه ای در بک لاگ این کد anzsco ثبت نشده است، هیچ جدول ویزا در این زیر کلاس های ویزا وجود ندارد. هر گونه تغییر به محض به روز رسانی اطلاعات -توسط مراجع زیربط استرالیا- در اینجا نشان داده می‌شود.',
-    cz: '由于此 ANZSCO 代码的积压中没有注册任何提交或邀请，因此这些签证子类别中没有签证表。一旦内政部更新信息，任何更改都会显示在此处。',
+    zh: '由于此 ANZSCO 代码的积压中没有注册任何提交或邀请，因此这些签证子类别中没有签证表。一旦内政部更新信息，任何更改都会显示在此处。',
   },
   HintsTitle: {
     en: 'Hints',
     fa: 'راهنمایی استفاده',
-    cz: '提示',
+    zh: '提示',
   },
   HintPoints: {
     en: `Points depend on factors such as applicant's age, work experience, knowledge of English and, if they have it, the documents of their partner. The minimum score required to submit an EOI and participate in the invitation rounds is 65 points, and cases below this score will not be considered during invitation rounds.`,
     fa: 'امتیاز به عواملی مانند سن متقاضی، سابقه کار، دانش زبان انگلیسی و در صورت داشتن آن، مدارک شریک زندگی خود بستگی دارد. حداقل امتیاز لازم برای ارسال EOI و شرکت در دورهای دعوت 65 امتیاز است و موارد زیر این امتیاز در دورهای دعوت لحاظ نخواهد شد.',
-    cz: '分数取决于申请人的年龄、工作经验、英语知识以及伴侣的文件（如果有）等因素。 提交EOI并参加邀请轮所需的最低分数为65分，低于此分数的案例将不会在邀请轮中被考虑。',
+    zh: '分数取决于申请人的年龄、工作经验、英语知识以及伴侣的文件（如果有）等因素。 提交EOI并参加邀请轮所需的最低分数为65分，低于此分数的案例将不会在邀请轮中被考虑。',
   },
   HintSubmitted: {
     en: 'You can submit an EOI with all fields completed, meeting all requirements for all visa subclasses you have selected. Once submitted, points will be assigned to the EOI based on the information provided. Submitted EOIs can be selected in the invitation rounds.',
     fa: 'صف موارد EOI ثبت شده براي هر سابكلاس كه در انتظار دريافت دعوتنامه هستند .',
-    cz: '您可以提交已填写所有字段的意向书 (EOI)，满足您选择的所有签证子类别的所有要求。 提交后，积分将根据所提供的信息分配给 EOI。 提交的意向书可以在邀请轮中进行选择。',
+    zh: '您可以提交已填写所有字段的意向书 (EOI)，满足您选择的所有签证子类别的所有要求。 提交后，积分将根据所提供的信息分配给 EOI。 提交的意向书可以在邀请轮中进行选择。',
   },
   HintInvited: {
     en: 'Invitation letter for visa application has been issued.',
     fa: 'تعداد دعوت نامه ای که برای درخواست ویزا صادر شده است..',
-    cz: '签证申请邀请函已发出。',
+    zh: '签证申请邀请函已发出。',
   },
   HintLodged: {
     en: 'The number of files that have been lodged for this occupation.',
     fa: 'تعداد پرونده هایی که برای این رشته لاج شده است.',
-    cz: '已为此职业提交的文件数量。',
+    zh: '已为此职业提交的文件数量。',
   },
-  Points: { en: 'Points', fa: 'امتیازات', cz: '积分' },
-  Submitted: { en: 'Submitted', fa: 'ثبت شده‌ها', cz: '已提交', },
-  Invited: { en: 'Invited', fa: 'دعوت شده‌ها', cz: '受邀', },
+  Points: { en: 'Points', fa: 'امتیازات', zh: '积分' },
+  Submitted: { en: 'Submitted', fa: 'ثبت شده‌ها', zh: '已提交', },
+  Invited: { en: 'Invited', fa: 'دعوت شده‌ها', zh: '受邀', },
   Lodged: {
     en: 'Lodged',
     fa: 'لاج شده‌ها',
-    cz: '住宿',
+    zh: '住宿',
   },
-  LastUpdate: { en: 'Last Update:', fa: 'آخرین آپدیت: ' ,cz: '最后更新：', },
+  LastUpdate: { en: 'Last Update:', fa: 'آخرین آپدیت: ', zh: '最后更新：', },
 };
 
 //////

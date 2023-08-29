@@ -9,21 +9,21 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   IeltsPopupContent: {
     en: 'Your answer to this question affects your immigration score',
     fa: 'جواب شما در این سوال بر روی نمره مهاجرتی شما تاثیر گذار است',
-    cz: '您对这个问题的回答会影响您的移民分数'
+    zh: '您对这个问题的回答会影响您的移民分数'
   },
   IELTSScoreSectionTitle: {
     en: 'IELTS score or its equivalent from similar organizations:',
     fa: 'نمره آیلتس یا معادل آن از سازمان‌های مشابه:',
-    cz: '雅思成绩或类似组织的同等成绩：'
+    zh: '雅思成绩或类似组织的同等成绩：'
   },
   NextButtonTitle: {
     en: "Next",
     fa: "بعدی",
-    cz: '下一个'
+    zh: '下一个'
   },
   PrevButtonTitle: {
     en: "Prev",
     fa: "قبلی",
-    cz: '上一篇'
+    zh: '上一篇'
   },
 };

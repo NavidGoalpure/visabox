@@ -1,7 +1,7 @@
 enum Languages {
   fa = 'fa',
   en = 'en',
-  cz= 'cz',
+  zh= 'zh',
 }
 enum Locations {
   fa = 'fa',

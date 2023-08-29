@@ -9,17 +9,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title: {
     fa: 'لیست مشاغل مورد نیاز',
     en: 'List Of Occupations',
-    cz: 'List Of Occupations',
+    zh: 'List Of Occupations',
   },
   Subtitle: {
     fa: 'برای مشاهده لیست مشاغل مورد تایید برای ویزای مهارتی، از این بخش استفاده کنید.',
     en: 'Use this section to view the list of Occupations',
-    cz: '使用此部分查看职业列表',
+    zh: '使用此部分查看职业列表',
   },
   CTA: {
     fa: 'مشاهده همه ',
     en: 'View All',
-    cz: '查看全部',
+    zh: '查看全部',
   },
 };
 export const CardData = {

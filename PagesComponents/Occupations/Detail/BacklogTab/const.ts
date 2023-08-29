@@ -9,16 +9,16 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Submitted: {
     en: 'Submitted',
     fa: 'ثبت شده‌ها',
-    cz: '已提交'
+    zh: '已提交'
   },
   Invited: {
     en: 'Invited',
     fa: 'دعوت شده‌ها',
-    cz: '受邀'
+    zh: '受邀'
   },
   Lodged: {
     en: 'Lodged',
     fa: 'لاج کرده‌ها',
-    cz: '住宿'
+    zh: '住宿'
   },
 };

@@ -8,17 +8,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   CountryTitle: {
     en: 'Your current location: ',
     fa: 'محل زندگی شما:',
-    cz: '您当前的位置：'
+    zh: '您当前的位置：'
   },
 
   NextButtonTitle: {
     en: 'Next',
     fa: 'بعدی',
-    cz: '下一个'
+    zh: '下一个'
   },
   PrevButtonTitle: {
     en: 'Prev',
     fa: 'قبلی',
-    cz: '上一篇'
+    zh: '上一篇'
   },
 };

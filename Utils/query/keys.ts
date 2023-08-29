@@ -40,5 +40,22 @@ const ClientQueryKeys = {
   listOfBasicForm: ({ resParams }: { resParams?: string }) =>
     [...ClientQueryKeys.key, 'listOfBasicForm', resParams] as const,
 };
+////////////////////////////////
+//////Agency queries/////////////
+///////////////////////////////
+const AgencyQueryKeys = {
+  // this key is not useful outside of here
+  key: ['agency'] as const,
 
-export { OccupationsQueryKeys, ClientQueryKeys };
+  // we use the detail key to return a client's data.
+  // you should pass reParams when you are sending a query
+  // but you do not need to send resParams when you are using removeQuery you dont need resParams
+  detail: ({
+    reqParams,
+    resParams,
+  }: {
+    reqParams: string;
+    resParams?: string;
+  }) => [...AgencyQueryKeys.key, 'detail', reqParams, resParams] as const,
+};
+export { OccupationsQueryKeys, ClientQueryKeys, AgencyQueryKeys };

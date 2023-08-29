@@ -1,19 +1,18 @@
-import { NextPage, GetServerSideProps, NextPageContext } from "next";
-import PageLayout from "Components/Layouts/PageContainer";
-import { dehydrate, QueryClient } from "react-query";
-import { useLocale } from "Hooks/useLocale";
-import Seo from "Components/Seo";
-import Content from "PagesComponents/Agents/FormsWall";
-import { withCSR } from "Hoc/withCSR";
-import { ClientQueryKeys } from "Utils/query/keys";
-import { getlistOfBasicForm } from "Queries/agents/ListOfForms";
+import { NextPage, GetServerSideProps, NextPageContext } from 'next';
+import PageLayout from 'Components/Layouts/PageContainer';
+import { dehydrate, QueryClient } from 'react-query';
+import { useLocale } from 'Hooks/useLocale';
+import Seo from 'Components/Seo';
+import Content from 'PagesComponents/Agents/FormsWall';
+import { withCSR } from 'Hoc/withCSR';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import { getlistOfBasicForm } from 'Queries/agency/ListOfForms';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Agents/FormsWall/const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { listOfBasicForm_ResParams } from "Consts/agents";
-import { useEffect } from "react";
+} from 'PagesComponents/Agents/FormsWall/const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { listOfBasicForm_ResParams } from 'Consts/agents';
 
 const FormsWall: NextPage = () => {
   const { locale } = useLocale();

@@ -6,11 +6,7 @@ enum Locations {
   fa = 'fa',
   en = 'en',
 }
-enum Country {
-  Iran = 'Iran',
-  Australia = 'Australia',
-  Global = 'Global',
-}
+
 enum ThemeModes {
   LIGHT = 'light',
   DARK = 'dark',
@@ -30,6 +26,7 @@ enum CookieKeys {
   // که قبلا روی لوکیل چه زبانی بودیم. برای این کار در صفحه ساین این لوکیل رو موقتا ذخیره میکنیم و بعد از لاگین
   // دوباره پاک میکنیم
   TemporaryLocale = 'TemporaryLocale', //
+  UserRoleChosenInLoginPage = 'UserRoleChosenInLoginPage',
 }
 
 export {
@@ -39,5 +36,4 @@ export {
   ThemeModes,
   LocalStorageKeys,
   CookieKeys,
-  Country,
 };

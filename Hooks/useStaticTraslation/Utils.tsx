@@ -68,7 +68,6 @@ export const translatedObject = ({
   if (!aliases || aliases.length === 0)
     return statements?.[statementKey]?.[locale] || '';
   //
-
   return convertAllTempKeysWithAllAliases({
     localeSentence: statements?.[statementKey]?.[locale] || '',
     aliases,

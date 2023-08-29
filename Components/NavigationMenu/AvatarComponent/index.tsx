@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import useTheme from 'Hooks/useTheme';
 import { ThemeModes } from 'Interfaces';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import SwitchTheme from '../switchTheme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import PopOver from 'Elements/PopOver';
@@ -20,6 +20,7 @@ import SuccessToast from 'Elements/Toast/Success';
 import ErrorToast from 'Elements/Toast/Error';
 import { deviceMin } from 'Consts/device';
 import { listOfBasicForm_ResParams } from 'Consts/agents';
+import { Logout } from 'Utils/user';
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);
@@ -35,6 +36,7 @@ function DesktopProfileOptions() {
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `is_sharable,completed_forms,_id`;
   ///////////////
+
   const { data, isLoading: isSharableLoading } = useQuery(
     ClientQueryKeys.detail({
       reqParams,
@@ -132,7 +134,7 @@ function DesktopProfileOptions() {
             <RedLine />
             <PopOverItemContainer
               onClick={() => {
-                signOut();
+                Logout();
               }}
             >
               <LogoutTitle>{t(LanguageKeys.LogOut)}</LogoutTitle>

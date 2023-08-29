@@ -1,36 +1,23 @@
 import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
-} from "next";
-import { signIn } from "next-auth/react";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "../api/auth/[...nextauth]";
-import PageLayout from "Components/Layouts/PageContainer";
-import { Key } from "react";
-import Seo from "Components/Seo";
-import MaraBgAnimation from "Components/MaraBgAnimation";
-import styled, { css } from "styled-components";
-import { FcGoogle } from "react-icons/fc";
-import theme from "styled-theming";
-import { FaDiscord } from "react-icons/fa";
-import {
-  Layer1_SubtitleStyle,
-  Layer1_TitleStyle,
-} from "Styles/Theme/Layers/layer1/style";
-import { CookieKeys } from "Interfaces";
-import { useLocale } from "Hooks/useLocale";
-import Cookies from "js-cookie";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+} from 'next';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '../api/auth/[...nextauth]';
+import PageLayout from 'Components/Layouts/PageContainer';
+import Seo from 'Components/Seo';
+import styled from 'styled-components';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Auth/Signin/const";
+} from 'PagesComponents/Auth/Signin/const';
+import SignInContent from 'PagesComponents/Auth/Signin';
 
 export default function SignIn({
   providers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { t } = useStaticTranslation(componentStatements);
-  const { locale } = useLocale();
   return (
     <StyledPageLayout hasBanner={false}>
       <Seo
@@ -39,38 +26,7 @@ export default function SignIn({
         canonical={`https://www.marabox.com/auth/signin`}
         isNoIndex={true}
       />
-      <MaraBgAnimation>
-        <BlurContainer>
-          <Title>{t(LanguageKeys.Title)}</Title>
-          <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-          {providers.map(
-            (
-              provider: {
-                name: string;
-
-                id: any;
-              },
-              i: Key
-            ) => (
-              <SocialButton
-                onClick={() => {
-                  //چون با عوض شدن یوآرال لوکیل رو از دست میدیم، موقتا لوکیل رو توی کوکی ذخیره میکنیم
-                  // تا در صفحه وریفیکیشن و در قسمت سرورسایدش بتونیم دوباره کاربر رو به لوکیل خودش برگردونیم
-                  Cookies.set(CookieKeys.TemporaryLocale, locale, {
-                    expires: 1,
-                  });
-                  signIn(provider.id);
-                }}
-                key={i}
-              >
-                {provider.name === "Google" && <GoogleIcon />}
-                {provider.name === "Discord" && <DiscordIcon />}
-                Sign in with {provider.name}
-              </SocialButton>
-            )
-          )}
-        </BlurContainer>
-      </MaraBgAnimation>
+      <SignInContent authProviders={providers} />
     </StyledPageLayout>
   );
 }
@@ -101,76 +57,4 @@ const StyledPageLayout = styled(PageLayout)`
     justify-content: center;
     align-items: center;
   }
-`;
-const BlurContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  //
-  // padding: 32px 24px;
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  min-height: 10rem;
-  padding: 3rem 1.5rem;
-`;
-const Title = styled.h1`
-  ${Layer1_TitleStyle}
-  margin-bottom:1rem;
-`;
-/////////
-const SubtitleColor = theme("mode", {
-  light: css`
-    color: var(--color-gray9);
-  `,
-  dark: css`
-    color: var(--color-gray11);
-  `,
-});
-//////////////
-const Subtitle = styled.h1`
-  ${Layer1_SubtitleStyle}
-  ${SubtitleColor}
-    text-align: center !important;
-`;
-const SocialButtonTheme = theme("mode", {
-  light: css`
-    background: var(--color-gray13);
-    box-shadow: var(--box-shadow-layer2);
-  `,
-  dark: css`
-    background: #ffffff;
-  `,
-});
-const SocialButton = styled.button`
-  ${SocialButtonTheme}
-  width: 80%;
-  max-width: 21rem;
-  height: 3rem;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-  cursor: pointer;
-  &:hover {
-    background-color: var(--color-gray12);
-    outline-offset: 3px;
-  }
-  &:focus {
-    background-color: var(--color-gray11);
-    outline-offset: 3px;
-  }
-`;
-const GoogleIcon = styled(FcGoogle)`
-  width: 2rem;
-  height: 2rem;
-  margin-inline-end: 1rem;
-`;
-const DiscordIcon = styled(FaDiscord)`
-  fill: #7289d9;
-  width: 2rem;
-  height: 2rem;
-  margin-inline-end: 1rem;
 `;

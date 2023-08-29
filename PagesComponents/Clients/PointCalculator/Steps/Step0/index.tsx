@@ -46,7 +46,7 @@ export default Step0;
 const BackgroundTheme = theme("mode", {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-layer2);
   `,
   dark: css`
     background: linear-gradient(

@@ -36,7 +36,7 @@ const LoadingMovingTheme = theme("mode", {
 const inputTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-layer2);
     color: var(--color-gray6);
   `,
   dark: css`
@@ -59,7 +59,7 @@ const inputFocusTheme = theme("mode", {
   light: css`
     border-bottom: 2px solid var(--color-gray2);
     background: white;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-layer2);
   `,
   dark: css`
     background: var(--color-gray7);
@@ -76,7 +76,7 @@ const inputPlaceHolderTheme = theme("mode", {
 });
 const ErrorTheme = theme("mode", {
   light: css`
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-layer2);
   `,
   dark: css``,
 });
@@ -98,18 +98,15 @@ const InputContainer = styled.div<{
   width: 100%;
   height: 100%;
 
-  // navid تصمیم بگیریم این باشه یا نه
-  // input[type='date']::-webkit-calendar-picker-indicator {
-  //   background: transparent;
-  //   bottom: 0;
-  //   color: transparent;
-  //   cursor: pointer;
-  //   height: auto;
-  //   left: 0;
-  //   position: absolute;
-  //   right: 0;
-  //   top: 0;
-  //   width: auto;
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    position: absolute;
+    inset: 0;
+    width: auto;
+  }
   ////////////disabled////////////
   ${({ disabled }) => disabled && "border-color:var(--color-gray5); "};
 `;
@@ -143,6 +140,7 @@ const InputStyle = css<{
   ${Headline7Style};
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-radius: 15px;
   padding: 1rem;

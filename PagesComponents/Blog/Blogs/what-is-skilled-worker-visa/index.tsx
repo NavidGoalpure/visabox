@@ -198,8 +198,6 @@ export default function PostContent() {
         را <a href={`/${locale}/occupations`}>جستجو</a> کنید.
       </p>
 
-      {/* //  برای محاسبه امتیاز خود می‌توانید به لینک زیر مراجعه نمایید: 
-// لینک :........................................................ navid */}
 
       <HintBG>
         <HintTitle>توجه:</HintTitle>

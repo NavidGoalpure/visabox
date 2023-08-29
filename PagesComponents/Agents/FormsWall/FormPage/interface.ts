@@ -7,6 +7,8 @@ export interface GetLabelsProps {
   IELTSScore?: IELTSScore;
   phoneNumber?: string;
   email?: string;
+  name?: string;
+  lastname?: string;
   fieldOfStudy?: string;
   marital: MultiLanguageText | undefined;
   does_partner_have_assessment?: boolean;

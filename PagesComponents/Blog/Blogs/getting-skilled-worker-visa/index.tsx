@@ -1,6 +1,13 @@
-import { useLocale } from 'Hooks/useLocale';
-import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images } from '../StyledComponents';
-import Link from 'next/link';
+import { useLocale } from "Hooks/useLocale";
+import {
+  BlogContainer,
+  HintBG,
+  HintText,
+  HintTitle,
+  ImageContainer,
+  Images,
+} from "../StyledComponents";
+import Link from "next/link";
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -9,8 +16,8 @@ export default function PostContent() {
       <ImageContainer>
         <Images
           fill
-          src='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best'
-          alt='getting-skilled-worker-visa'
+          src="https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best"
+          alt="getting-skilled-worker-visa"
         />
       </ImageContainer>
 
@@ -39,7 +46,7 @@ export default function PostContent() {
           مرحله بسیار مهمی محسوب می‌شود.
         </p>
         <p>
-          شما می‌توانید لیست مشاغل ، به علاوه تمام مواردی که ذکر شد را در صفحه{' '}
+          شما می‌توانید لیست مشاغل ، به علاوه تمام مواردی که ذکر شد را در صفحه{" "}
           <a href={`/${locale}/occupations`}>لیست مشاغل مورد نیاز </a> مشاهده
           کنید.
         </p>
@@ -110,8 +117,6 @@ export default function PostContent() {
           </tr>
         </tbody>
       </table>
-
-      {/* navid برای مشاهده سکشن دانشگاه ها می‌توانید به لینک زیر مراجعه کنید: */}
 
       <p>
         مدارک اضافی فنی حرفه ای و یا مدارک بین المللی تاثیری در اضافه نمودن
@@ -228,7 +233,7 @@ export default function PostContent() {
         <b> 10 </b>
         امتیاز می گیرند -این امتیاز شامل افرادی که طلاق گرفته اند هم می‌شود- اما
         افراد متاهل به خودی خود امتیازی دریافت نمی کنند مگر اینکه همسر متقاضی در
-        هر مهارت آیلتس 6 یا معادل آن را کسب کند. در این صورت، متقاضی اصلی{' '}
+        هر مهارت آیلتس 6 یا معادل آن را کسب کند. در این صورت، متقاضی اصلی{" "}
         <b> 5 </b>
         امتیاز کسب می‌نماید ، و اگر همسر متقاضی علاوه بر نمره زبان بتوانند
         اسسمنت مثبت هم بگیرد ، <b> 5 </b>
@@ -262,8 +267,8 @@ export default function PostContent() {
       <ImageContainer>
         <Images
           fill
-          src='https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best'
-          alt='getting-skilled-worker-visa'
+          src="https://binsta.dev/api/v1/files/aTDYFVCuvL/transform?format=webp&size=lg&quality=best"
+          alt="getting-skilled-worker-visa"
         />
       </ImageContainer>
       <h2>انتخاب شغل</h2>
@@ -314,8 +319,8 @@ export default function PostContent() {
       </p>
 
       <p>
-        برای اطلاع از شرح دقیق تر نحوه انجام فرایند اسسمنت می‌توانید به مقاله{' '}
-        <a href={`/${locale}/blog/skilled-worker`}>ویزای مهارتی استرالیا</a>{' '}
+        برای اطلاع از شرح دقیق تر نحوه انجام فرایند اسسمنت می‌توانید به مقاله{" "}
+        <a href={`/${locale}/blog/skilled-worker`}>ویزای مهارتی استرالیا</a>{" "}
         مراجعه کنید.
       </p>
       <h2>اخذ نمره زبان</h2>
@@ -327,15 +332,15 @@ export default function PostContent() {
         مراحل اسسمنت برای اخذ نمره زبان تلاش کنید، اما در صورتی که سازمان ارزیاب
         شغل مورد نظر شما، جهت شروع کار، ارائه نمره زبان را الزامی کرده باشد ،
         مرحله اول برای شما اخذ نمره زبان خواهد بود تا بتوانید مرحله اسسمنت را
-        پشت سر بگذارید.{' '}
+        پشت سر بگذارید.{" "}
       </p>
 
       <p>
         برای کسب اطلاعات بیشتر در خصوص
         <a href={`/${locale}/blog/Language-score-and-skilled-worker-visa`}>
           {` شرایط و انواع آزمون‌های زبان مورد تایید اداره مهاجرت استرالیا `}
-        </a>{' '}
-        به مقاله لینک شده مراجعه فرمایید.{' '}
+        </a>{" "}
+        به مقاله لینک شده مراجعه فرمایید.{" "}
       </p>
       <h2>
         پر کردن فرم
@@ -352,9 +357,9 @@ export default function PostContent() {
         سال است .<h2>دعوتنامه</h2>
         بعد از اقدام در این مرحله، لازم است که دعوتنامه دریافت کنید و بعد از اخذ
         دعوتنامه ، کلیه نمرات شما فریز خواهد شد. در مورد ویزای <em>
-          {' '}
-          ۱۸۹{' '}
-        </em>{' '}
+          {" "}
+          ۱۸۹{" "}
+        </em>{" "}
         این اتفاق بعد از دعوتنامه اول می افتد، اما در مورد ویزاهای ایالتی شما
         باید دعوتنامه دوم یا نهایی را هم دریافت کنید تا امتیازات شما فریز شود و
         بتوانید برای ویزا اقدام کنید. دعوتنامه دوم معمولا بین 7 روز تا یک ماه پس
@@ -391,7 +396,7 @@ export default function PostContent() {
           ارائه شده در وبلاگ های ما انجام شود کاملاً به عهده شماست. اکیداً توصیه
           می‌شود که قبل از تصمیم گیری در مورد مهاجرت از مشاوره حرفه ای استفاده
           کنید.
-          <Link href={'/lists/agencies'} target='_blank'>
+          <Link href={"/lists/agencies"} target="_blank">
             {` لیست موسسات مهاجرتی قانونی مربوط به استرالیا `}
           </Link>
           را می‌توانید از طریق این لینک پیدا کنید.

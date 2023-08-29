@@ -18,9 +18,10 @@ import {
 } from 'PagesComponents/Auth/Signin/const';
 import { Provider } from 'next-auth/providers';
 import { UserRole } from 'Interfaces/Database';
-import { layer2A_HeaderBg } from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_SubtitleStyle, layer2A_TextStyle, layer2A_style } from 'Styles/Theme/Layers/layer2/style';
 import { boxShadow } from 'Styles/Theme';
 import { useRouter } from 'next/router';
+import { layer2A_Bg, layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 
 interface Props {
   authProviders: Provider[];
@@ -98,6 +99,16 @@ export default function SignInContent({ authProviders }: Props) {
 
 /////////////styles/////////
 
+export const ContainerSelectColor = theme('mode', {
+  light: css`
+  background: var(--color-gray12);
+  `,
+  dark: css`
+  background: var(--color-gray7);
+  `,
+});
+
+
 const BlurContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -118,30 +129,39 @@ const RoleBoxContainer = styled.section`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-
   width: 100%;
+  margin-bottom: 4rem;
 `;
 const RoleBox = styled.div<{ isActive: boolean }>`
+${layer2A_Bg};
+${layer2A_TextColor}
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  ${({ isActive }) => (isActive ?
+    css`
+    ${layer2A_SubtitleStyle};
+    ${ContainerSelectColor};
+    width: 16.5rem;
+    height: 10.5rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    `
+    :
 
-  ${({ isActive }) => (isActive ? ' width: 55%;' : ' width: 45%;')}
-
-  height: 9rem;
-
-  border-radius: 0.75rem;
-  ${layer2A_HeaderBg};
-  ${boxShadow}
-
+    css`
+    ${layer2A_TextStyle};
+    width: 13.25rem;
+    height: 9rem;
+    `)}
+  border-radius: 15px;
   padding: 1rem;
   gap: 1rem;
-
   transition: all 400ms ease;
 `;
 
-const RoleUserIcon = styled(FaUser)<{ isActive: boolean }>`
+const RoleUserIcon = styled(FaUser) <{ isActive: boolean }>`
   ${({ isActive }) =>
     isActive ? 'width: 3rem; height: 3rem;' : 'width: 2rem; height: 2rem;'}
 
@@ -153,10 +173,11 @@ const RoleUserIcon = styled(FaUser)<{ isActive: boolean }>`
 
   transition: all 400ms ease;
 `;
-const RoleInstitueIcon = styled(RiBuilding2Fill)<{ isActive: boolean }>`
+const RoleInstitueIcon = styled(RiBuilding2Fill) <{ isActive: boolean }>`
   ${({ isActive }) =>
     isActive ? 'width: 3rem; height: 3rem;' : 'width: 2rem; height: 2rem;'}
-
+  
+  transition: all 400ms ease;
   flex-shrink: 0;
   background: var(--color-primary4);
   color: white;

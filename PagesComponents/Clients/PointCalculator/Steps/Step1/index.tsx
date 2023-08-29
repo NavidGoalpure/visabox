@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   Container,
@@ -9,15 +9,13 @@ import {
   NextIcon,
   PrevButton,
   PrevIcon,
-  StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { ClientCountry } from "Interfaces/Database/Client";
-import { Countries } from "Consts/Client";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { WizardContext } from "../../Contexts/Wizard/Context";
-import { componentStatements, LanguageKeys } from "./const";
-import { directionStyles } from "Styles/Theme";
+} from '../StyledComponents';
+import { Countries } from 'Consts/Client';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../Contexts/Wizard/Context';
+import { componentStatements, LanguageKeys } from './const';
+import { SupportedCountry } from 'Interfaces/Database';
 
 const Step1 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -28,13 +26,13 @@ const Step1 = () => {
     <Container>
       <Title>{t(LanguageKeys.CountryTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={client?.country}
         onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              country: value as ClientCountry,
+              country: value as SupportedCountry,
             });
         }}
       >

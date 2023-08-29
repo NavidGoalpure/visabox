@@ -230,5 +230,3 @@ Ashna Exchange has started its activity with the aim of providing the best servi
       'https://binsta.dev/api/v1/files/4ofv1v4GfG/transform?format=webp&size=lg&quality=hi',
   },
 ];
-
-// navid aksa roo too binsta add bedim

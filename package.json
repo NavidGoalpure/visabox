@@ -31,6 +31,7 @@
     "@sentry/cli": "^2.11.0",
     "@sentry/nextjs": "^7.34.0",
     "@types/gsap": "^3.0.0",
+    "axios": "^1.4.0",
     "cloudinary-build-url": "^0.2.4",
     "crypto": "^1.0.1",
     "eslint-config-next": "^13.0.7",

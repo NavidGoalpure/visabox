@@ -37,7 +37,6 @@ export function doMustActiveHotjar(currentRoute: string): boolean {
  */
 export function smartActiveHotjar(currentRoute: string) {
   const isActiveHotjar = doMustActiveHotjar(currentRoute);
-  console.log('navid isHotjar=', isActiveHotjar);
   if (isActiveHotjar)
     hotjar.initialize(
       Number(process.env.NEXT_PUBLIC_HJID),

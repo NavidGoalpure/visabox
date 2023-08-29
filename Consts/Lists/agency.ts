@@ -1,5 +1,4 @@
-import { Country } from 'Interfaces';
-import { Status } from 'Interfaces/Database';
+import { Status, SupportedCountry } from 'Interfaces/Database';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Agency } from 'Interfaces/Database/Lists/agency';
 
@@ -8,7 +7,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc1',
     name: { en: 'Shadavisa', fa: 'شادا ویزا' },
     slug: 'shada-visa',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.VIP,
     desc: {
       en: `Shada Institute is the result of the continuous efforts of an active team and an idealistic thought in the international immigration and employment industry. We are always trying to identify the needs of our applicants in various aspects with a comprehensive view and try to solve them in the shortest time by providing quality services. We are proud that we have been able to help hundreds of Iranians to immigrate to Australia and continue this path. Our values are the expert guidance and guidance of clients and building trust and confidence by protecting their material and spiritual interests by observing professional ethics and in the shortest possible time.`,
@@ -28,7 +27,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc2',
     name: { en: 'Visayab', fa: 'ویزا یاب' },
     slug: 'visa-yab',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `Visayab Immigration Company was established in 2008 by Dr. Syros Ahmadi, an official immigration lawyer with the code "0854826" in the "Mara" organization in Australia. Dr. Syros Ahmadi, with the cooperation of official lawyers and his team of professional and compassionate experts, has been able to register more than 3000 successful cases in 14 years of providing immigration services.`,
@@ -44,7 +43,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc3',
     name: { en: 'Pasargadmigration', fa: 'پاسارگاد میگریشن' },
     slug: 'pasargad-migration',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `In addition to welcoming you in person in Tehran and Sydney, the group of Pasargad immigration lawyers will also answer your phone calls and will be by your side from the beginning until you start a new life at your destination because they believe that with proper presentation The best services after landing, favorable conditions can be provided for immigrants.`,
@@ -60,7 +59,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc4',
     name: { en: 'Ajmigration', fa: 'شرکت مهاجرتی اعظم جعفری' },
     slug: 'ajmigration',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `Based on AJ Migration (Migration Code of Ethics), the company considers itself committed to respecting the interests and interests of its customers and uses its efforts to provide the best services and advice to its customers. Due to the continuous changes in the field of immigration to Australia, Ms. Jafari has kept her knowledge up-to-date in the field of immigration by participating in educational workshops that are held permanently in the field of immigration by organizations affiliated with the Australian Immigration Department. and provide the most up-to-date necessary guidance to its customers.`,
@@ -79,7 +78,7 @@ export const AGENCYS: Agency[] = [
   //     id: 'agc5',
   //     name: { en: 'Regalmigration', fa: 'رگال میگریشن' },
   //     slug: 'regal-migration',
-  //     country: [Country.Global, Country.Iran],
+  //     country: [SupportedCountry.Other, SupportedCountry.Iran],
   //     featuredPlan: FeaturedPlan_Business.SIMPLE,
   //     desc: {
   //         en: `If you are looking for a migration agency that is committed to providing accurate, comprehensive and tailored-made advice then Regal Migration Services should be your first port of call. Our team at this Australian based agency works tirelessly with their clients not just on the surface matters but also beneath them so as we can provide meaningful solutions - from visa applications through appealing refusal and cancellation decisions.`,
@@ -95,7 +94,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc6',
     name: { en: 'Visazone', fa: 'ویزازون' },
     slug: 'visa-zone',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `At Visazone, we provide you with a set of professional services, including evaluation of immigration options, assistance in preparing immigration programs, document review, preparation of submitted documents, residence request, all necessary communication and follow-up measures with the Immigration and Citizenship Department.`,
@@ -115,7 +114,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc7',
     name: { en: 'Azzy Immigration', fa: 'آزی ایمیگیریشن' },
     slug: 'azzy-immigration',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `For those interested who want to change their life path and stay in Australia, this collection can handle all the stages of residence with the facilities of monitoring the process and solving the applicant's doubts and questions.`,
@@ -135,7 +134,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc8',
     name: { en: 'Ddamigration', fa: 'موسسه دکتر دانی و وکلا' },
     slug: 'dda-migration',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `Dr. Mojtabi Dani is the first and only immigration lawyer with a specialized doctorate in international law from Australia, with more than 12 years of legal consulting experience for public and private companies, as well as research and teaching at universities in the field of international law in Iran and Australia. He is also a founding member of Nubian Institute of International Law in Tehran. Dr. Dani is a registered lawyer in MARA with registration number 1800260 and MIA with registration number 18437. Dr. Dani and Lawyers Institute consists of experts in immigration, investment and trade. In this institution, all legal and immigration matters are carried out from the beginning of the contract to the end of the case under the strict and direct supervision of Dr. Dani.`,
@@ -151,7 +150,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc9',
     name: { en: 'Homemigration', fa: 'هوم میگریشن' },
     slug: 'home-migration',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `We are always looking for dedicated and talented individuals to join our team. Whether you’re an established immigration industry professional, a graduate looking to commence your career or an individual that is looking for an entry position in a supportive working environment, we’d love to talk to you.`,
@@ -167,7 +166,7 @@ export const AGENCYS: Agency[] = [
   //     id: 'agc10',
   //     name: { en: 'Eden Immigration', fa: 'ادن ایمیگریشن' },
   //     slug: 'eden-Immigration',
-  //     country: [Country.Global, Country.Iran],
+  //     country: [SupportedCountry.Other, SupportedCountry.Iran],
   //     featuredPlan: FeaturedPlan_Business.SIMPLE,
   //     desc: {
   //         en: `At Eden Immigration, we have a thorough understanding of what is needed to reduce visa risks and make it possible for people to apply for permanent residency in Australia. We review a client’s entire profile, take into account their accomplishments, and match it to the standards established by authorities, assisting them with their visa application. Eden Immigration is a local migration agent in Sydney. We support customers who want to live, work, study, or settle in Australia, as well as those who want permanent residency.`,
@@ -183,7 +182,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc11',
     name: { en: 'Sjmigration', fa: 'اس جی میگریشن' },
     slug: 'sj-migration',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `SJ Migration is as knowledgeable and as reliable as they come. Lead by Principle Migration Agent Soodeh Jafari, how we service our clients and our winning outcomes are unparalleled in this industry. The key trait of attention to detail developed from Soodeh’s time as a lawyer in her home country of Iran is paramount to the firm’s success, coupled with her personal experience as a migrant herself with her and her team honest and empathetic at all times.`,
@@ -199,7 +198,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc12',
     name: { en: 'Amirshahi Law Office', fa: 'دفتر حقوقی امیرشاهی' },
     slug: 'amirshahi-law-office',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `Our immigration activities include acceptance of representation in immigration matters to Australia and translation and confirmation of documents related to immigration to Australia. These services are performed under the direct supervision of an official immigration lawyer and an Australian Naati translator. Our clients have the possibility to communicate directly with the lawyer group and follow the transfer process easily.`,
@@ -221,7 +220,7 @@ export const AGENCYS: Agency[] = [
   //     id: 'agc13',
   //     name: { en: 'emergico', fa: 'امرگیکو' },
   //     slug: 'emergico',
-  //     country: [Country.Global, Country.Iran],
+  //     country: [SupportedCountry.Other, SupportedCountry.Iran],
   //     featuredPlan: FeaturedPlan_Business.SIMPLE,
   //     desc: {
   //         en: `We are Emergico; an exceptional team of experienced Registered Migration Agents.We help manage your Australian visa application from beginning to end, minimising risk and stress.You can start the adventure right now, by completing a short form so we can advise you of your visa opportunities.`,
@@ -237,7 +236,7 @@ export const AGENCYS: Agency[] = [
   //     id: 'agc14',
   //     name: { en: 'Arc Visa & Migration', fa: 'آرک میگریشن' },
   //     slug: 'arc-migration',
-  //     country: [Country.Global, Country.Iran],
+  //     country: [SupportedCountry.Other, SupportedCountry.Iran],
   //     featuredPlan: FeaturedPlan_Business.SIMPLE,
   //     desc: {
   //         en: `Hi, My name is Ehsan Azadi, principal of Arc Visa & Migration. This is my senior associate Ms Fides Velarde. Our staff at Arc Visa & Migration are ready to assist you with your immigration inquiries.`,
@@ -253,7 +252,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc15',
     name: { en: 'Uniquevisa', fa: 'یونیک ویزا' },
     slug: 'unique-visa',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `Unique Visa has started its activity in the field of immigration to Australia since 2008 and has had a close relationship with various departments of the Australian Immigration Department since the beginning. Unique Visa immigration organization has had hundreds of successful cases in the fields of expertise and skill visas, investment in Australia (through entrepreneurship), work, etc., since the beginning of its activity, and currently there are different cases in the field of obtaining Australian visas. It is on the agenda of this institution.`,
@@ -273,7 +272,7 @@ export const AGENCYS: Agency[] = [
   //     id: 'agc16',
   //     name: { en: 'Millennium migration', fa: 'ملنیوم میگریشن' },
   //     slug: 'millennium-migration',
-  //     country: [Country.Global, Country.Iran],
+  //     country: [SupportedCountry.Other, SupportedCountry.Iran],
   //     featuredPlan: FeaturedPlan_Business.SIMPLE,
   //     desc: {
   //         en: `Big life decisions usually come with big challenges. Although business immigration to Australia has many advantages, it also has its own complexities. By joining the big Millennium family, benefit from our team's 15-year experience in obtaining business visas and pass this challenging path successfully.`,
@@ -289,7 +288,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc17',
     name: { en: 'Aradimmigration', fa: 'آراد ایمیگریشن' },
     slug: 'Arad-immigration',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.FULL_DATA,
     desc: {
       en: `Mrs. Sudabah Hariri is a registered lawyer of the Australian Immigration Department and the manager of Arad Immigration Group. She immigrated to Australia in 2006 and after some time returned to Iran and worked in different embassies including the Australian, British and Spanish embassies.`,
@@ -309,7 +308,7 @@ export const AGENCYS: Agency[] = [
     id: 'agc18',
     name: { en: 'Visapick', fa: 'ویزاپیک' },
     slug: 'visa-pick',
-    country: [Country.Global, Country.Iran],
+    country: [SupportedCountry.Other, SupportedCountry.Iran],
     featuredPlan: FeaturedPlan_Business.SIMPLE,
     desc: {
       en: `Visapick is one of the Australian companies registered under the regulations of the Australian federal government. Having all the legal documents, this company operates under the supervision of the Australian Immigration Office (MARA organization) and is fully specialized in the field of skilled visas, work and investment and entrepreneurship in Australia. At the same time, Visapik international job search started its official activity in Iran since 2019 by obtaining official license number 96785 from the Ministry of Cooperation, Labor and Social Welfare of the Islamic Republic of Iran.`,
@@ -325,7 +324,7 @@ export const AGENCYS: Agency[] = [
   //   id: 'agc19',
   //   name: { en: 'Selectvisa', fa: 'سلکت ویزا' },
   //   slug: 'select-visa',
-  //   country: [Country.Global, Country.Iran],
+  //   country: [SupportedCountry.Other, SupportedCountry.Iran],
   //   featuredPlan: FeaturedPlan_Business.SIMPLE,
   //   desc: {
   //     en: `Immigration to Australia under the direct supervision of Mr. Damon Arin, an Australian immigration lawyer and approved by the Australian Immigration Department and registered in Mara Australia with registration number 1384623, will greatly reduce the risk of your case and provide you with the highest quality immigration guidance and advice in Enjoy your entire process. In this way, you will go through the process of obtaining your visa with the highest level of confidence. Taking advantage of the experience and knowledge of an Australian immigration lawyer who has numerous work records in the field of obtaining various types of Australian residence visas in various fields, as well as the support and support of a caring and committed team, step on this path with confidence. Using the experiences and work records of Mr. Damon Arin and his team, choose your immigration path and benefit from their valuable services.`,

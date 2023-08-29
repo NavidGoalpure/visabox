@@ -4,7 +4,7 @@ import ToasterContainer from 'Components/ToasterContainer';
 import { deviceMin } from 'Consts/device';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Languages } from 'Interfaces';
+import { Languages, LocalStorageKeys } from 'Interfaces';
 import { useSession } from 'next-auth/react';
 import { getClientDetail } from 'Queries/client';
 import React, { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
@@ -15,6 +15,8 @@ import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import Header from '../NavigationMenu';
 import { componentStatements, LanguageKeys } from './const';
+import { getLocalStorage } from 'Utils';
+import { UserRole } from 'Interfaces/Database';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -48,6 +50,11 @@ const PageContainer: React.FC<Props> = ({
         reqParams,
         resParams,
       });
+    },
+    {
+      enabled:
+        !!session?.user?.email &&
+        getLocalStorage(LocalStorageKeys.UserRole) === UserRole.Client,
     }
   );
   useEffect(() => {
@@ -78,14 +85,14 @@ const PageContainer: React.FC<Props> = ({
       >
         <MultiChoice>
           <Item
-            value={'navid1'}
+            value={'foo1'}
             text={{
               en: 'Lawer',
               fa: 'وکیل',
             }}
           />
           <Item
-            value={'navid2'}
+            value={'foo'}
             text={{
               en: 'Myself',
               fa: 'خودم',

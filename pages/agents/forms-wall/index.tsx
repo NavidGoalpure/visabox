@@ -6,23 +6,18 @@ import Seo from 'Components/Seo';
 import Content from 'PagesComponents/Agents/FormsWall';
 import { withCSR } from 'Hoc/withCSR';
 import { ClientQueryKeys } from 'Utils/query/keys';
-import { getlistOfBasicForm } from 'Queries/agents/ListOfForms';
+import { getlistOfBasicForm } from 'Queries/agency/ListOfForms';
 import {
   componentStatements,
   LanguageKeys,
 } from 'PagesComponents/Agents/FormsWall/const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { listOfBasicForm_ResParams } from 'Consts/agents';
-import { useEffect } from 'react';
 
 const FormsWall: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
-  
-  useEffect(()=>
-  
-   console.log('navid agent=',navigator?.userAgent),[]
-  )
+
   return (
     <PageLayout>
       <Seo

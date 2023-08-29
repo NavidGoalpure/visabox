@@ -11,16 +11,19 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
     en: 'Skills Assessment And Assessing Authorities | Mara Box',
+    zh: '技能评估和评估机构| Mara Box',
     fa: 'لیست موسسات ارزیابی مدارک و مهارت های استرالیا | مارا باکس',
   },
   SeoDesc: {
     fa: 'فهرست کامل مشاغل موسسات ارزیابی مدارک و مهارت های استرالیا به همراه آدرس و اطلاعات تماس',
     en: 'See the full skills assessment and assessing authorities List & find their address, email, website and etc.',
+    zh: '查看完整的技能评估和评估机构列表并查找他们的地址、电子邮件、网站等。',
   },
   //
   PageTitle: {
     fa: 'لیست موسسات ارزیابی مدارک و مهارت های استرالیا',
     en: 'Assessing authorities',
+    zh: '评估机构',
   },
 };
 

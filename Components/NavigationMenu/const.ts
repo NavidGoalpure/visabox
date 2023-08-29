@@ -13,22 +13,27 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
     en: "Home",
     fa: "صفحه اصلی",
+    zh: '家',
   },
   Lists: {
     en: "Lists",
     fa: "لیست‌ها",
+    zh: '列表',
   },
   Occupations: {
     en: "Skilled Worker Visa",
     fa: "ویزای مهارتی",
+    zh: '技术工人签证',
   },
   Login: {
     en: "Sign in",
     fa: "ورود",
+    zh: '登入',
   },
   Blogs: {
     en: "Blogs",
     fa: "مقاله ها",
+    zh: '博客',
   },
 };
 export const listsItems: DropdownItem[] = [
@@ -36,19 +41,32 @@ export const listsItems: DropdownItem[] = [
     title: {
       en: 'Agencies',
       fa: 'موسسات مهاجرت',
+      zh: '机构',
     },
     href: '/lists/agencies',
   },
   {
-    title: { en: 'Agents', fa: 'لیست وکلا' },
+    title: {
+      en: 'Agents',
+      fa: 'لیست وکلا',
+      zh: '代理商',
+    },
     href: '/lists/agents',
   },
   {
-    title: { en: 'Naati', fa: 'لیست مترجمین' },
+    title: {
+      en: 'Naati',
+      fa: 'لیست مترجمین',
+      zh: 'Naati',
+    },
     href: '/lists/naaties',
   },
   {
-    title: { en: 'Exchanges', fa: 'لیست صرافی‌ها' },
+    title: {
+      en: 'Exchanges',
+      fa: 'لیست صرافی‌ها',
+      zh: '交流',
+    },
     href: '/lists/exchanges',
   },
 
@@ -56,17 +74,26 @@ export const listsItems: DropdownItem[] = [
     title: {
       en: 'Social Network',
       fa: 'شبکه های اجتماعی',
+      zh: '社交网络',
     },
     href: '/lists/social-pages',
   },
 ];
 export const occupationItems: DropdownItem[] = [
   {
-    title: { en: 'Occupation List', fa: 'لیست مشاغل' },
+    title: {
+      en: 'Occupation List',
+      fa: 'لیست مشاغل',
+      zh: '职业清单',
+    },
     href: '/occupations',
   },
   {
-    title: { en: 'Assessing Authority', fa: 'موسسات ارزیابی' },
+    title: {
+      en: 'Assessing Authority',
+      fa: 'موسسات ارزیابی',
+      zh: '评估机构',
+    },
     href: '/occupations/assssing-authorities',
   },
 ];

@@ -14,17 +14,23 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     
    سابقه کار شما در 48 ماه پیش از اخذ دعوت نامه و درخواست ویزا باشد.
    لازم است سابقه حرفه ای شما مرتبط با رشته ای باشد که در آن اسسمنت اخذ نموده اید.`,
+    zh: `您对这个问题的回答会影响您的移民分数，
+    
+   在收到申请签证邀请之前的 48 个月内，您是否在澳大利亚完成了至少 12 个月的指定技术职业专业年课程？`
   },
   ProfessionalYearInAustralia: {
     en: "Professional Year in Australia:",
     fa: "داشتن یک سال سابقه کار حرفه ای در استرالیا در رشته ی مرتبط",
+    zh: '澳大利亚职业年：'
   },
   NextButtonTitle: {
     en: "Next",
     fa: "بعدی",
+    zh: '下一个'
   },
   PrevButtonTitle: {
     en: "Prev",
     fa: "قبلی",
+    zh: '上一篇'
   },
 };

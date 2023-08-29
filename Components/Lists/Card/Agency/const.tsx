@@ -11,15 +11,18 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Phone: {
     en: 'Phone',
     fa: 'تلفن',
+    zh: '电话',
   },
   Website: {
     en: 'Website',
     fa: 'وبسایت',
+    zh: '网站',
   },
- 
+
   copyPhoneToastMessage: {
     en: 'Copied Phone number to clipboard',
     fa: 'شماره تلفن در حافظه کپی شد',
+    zh: '已将电话号码复制到剪贴板',
   },
 };
 

@@ -23,6 +23,7 @@ const MobileLanguageChanger = ({ }) => {
   const smartTextObj: Record<Languages, string> = {
     en: "English",
     fa: "فارسی",
+    zh: '中国人'
   };
   const router = useRouter();
   return (

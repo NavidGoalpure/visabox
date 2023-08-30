@@ -7,10 +7,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (client?._id) {
     sanityClient
-      .delete({query:`*[_type == "client" && _id == "${client?._id}"]`})
-      // .patch(client?._id)
-      // .set(client)
-      // .commit()
+      .patch(client?._id)
+      .set(client)
+      .commit()
       .then(() => {
         res.status(200).json({ message: "success" });
       })

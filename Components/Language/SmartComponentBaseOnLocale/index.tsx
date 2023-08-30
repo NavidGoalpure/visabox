@@ -6,7 +6,7 @@ interface Props {
   compenents: {
     [Languages.fa]: ReactNode;
     [Languages.en]: ReactNode;
-    [Languages.zh]?: ReactNode;
+    [Languages.zh]: ReactNode;
   };
 }
 

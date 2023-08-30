@@ -9,7 +9,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title: {
     fa: 'لیست مشاغل مورد نیاز',
     en: 'List Of Occupations',
-    zh: 'List Of Occupations',
+    zh: '职业清单',
   },
   Subtitle: {
     fa: 'برای مشاهده لیست مشاغل مورد تایید برای ویزای مهارتی، از این بخش استفاده کنید.',

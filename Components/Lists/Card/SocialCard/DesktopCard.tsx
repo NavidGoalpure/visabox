@@ -85,7 +85,7 @@ function DesktopSocialCard({
             <Desc featuredPlan={featuredPlan}>{desc}</Desc>
             <BottomWrapper isRtl={isRtl}>
               <LocationTag featuredPlan={featuredPlan}>
-                {locations === Locations.fa ? 'Persian' : 'English'}
+                {locations === Locations.iran ? 'Persian' : 'English'}
               </LocationTag>
               <JoinButton>{t(LanguageKeys.Join)}</JoinButton>
             </BottomWrapper>
@@ -100,7 +100,7 @@ function DesktopSocialCard({
             <Desc featuredPlan={featuredPlan}>{desc}</Desc>
             <BottomWrapper isRtl={isRtl}>
               <LocationTag featuredPlan={featuredPlan}>
-                {locations === Locations.fa
+                {locations === Locations.iran
                   ? t(LanguageKeys.Persian)
                   : t(LanguageKeys.English)}
               </LocationTag>

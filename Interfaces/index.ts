@@ -1,11 +1,13 @@
 enum Languages {
   fa = 'fa',
   en = 'en',
-  zh= 'zh',
+  zh = 'zh',
 }
 enum Locations {
-  fa = 'fa',
-  en = 'en',
+  iran = 'iran',
+  china = 'china',
+  india = 'india',
+  other = 'other',
 }
 enum Country {
   Iran = 'Iran',

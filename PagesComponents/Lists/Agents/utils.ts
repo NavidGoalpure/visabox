@@ -1,7 +1,7 @@
-import { useLocale } from "Hooks/useLocale";
-import { Languages, Locations } from "Interfaces";
-import { FeaturedPlan_Business } from "Interfaces/Database/Lists";
-import { Agent } from "Interfaces/Database/Lists/agents";
+import { useLocale } from 'Hooks/useLocale';
+import { Languages, Locations } from 'Interfaces';
+import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Agent } from 'Interfaces/Database/Lists/agents';
 
 export function getSmartVIPAgent(agents: Agent[]): Agent[] {
   const { locale } = useLocale();
@@ -10,7 +10,7 @@ export function getSmartVIPAgent(agents: Agent[]): Agent[] {
       if (
         (agent.featuredPlan === FeaturedPlan_Business.VIP ||
           agent.featuredPlan === FeaturedPlan_Business.FULL_DATA) &&
-        agent.locations.includes(Locations.fa)
+        agent.locations.includes(Locations.iran)
       ) {
         return agent;
       }
@@ -18,7 +18,7 @@ export function getSmartVIPAgent(agents: Agent[]): Agent[] {
       if (
         (agent.featuredPlan === FeaturedPlan_Business.VIP ||
           agent.featuredPlan === FeaturedPlan_Business.FULL_DATA) &&
-        agent.locations.includes(Locations.en)
+        agent.locations.includes(Locations.other)
       ) {
         return agent;
       }
@@ -33,14 +33,14 @@ export function getSmartSimpleAgent(agents: Agent[]): Agent[] {
     if (locale === Languages.fa) {
       if (
         agent.featuredPlan === FeaturedPlan_Business.SIMPLE &&
-        agent.locations.includes(Locations.fa)
+        agent.locations.includes(Locations.iran)
       ) {
         return agent;
       }
     } else if (locale === Languages.en) {
       if (
         agent.featuredPlan === FeaturedPlan_Business.SIMPLE &&
-        agent.locations.includes(Locations.en)
+        agent.locations.includes(Locations.other)
       ) {
         return agent;
       }

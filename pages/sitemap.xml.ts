@@ -4,33 +4,36 @@ import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { getAllOccupationCodes } from 'Queries/sitemap';
 
-const Domain_EN = 'https://marabox.com/en';
-const Domain_FA = 'https://marabox.com/fa';
-//
-const OccupatopnsPage_EN = 'https://marabox.com/en/occupations';
-const OccupatopnsPage_FA = 'https://marabox.com/fa/occupations';
+const Domain_EN = 'https://marabox.com.au/en';
+const Domain_FA = 'https://marabox.com.au/fa';
+const Domain_ZH = 'https://marabox.com.au/zh';
+const Domain_Langs: String[] = [Domain_EN, Domain_FA, Domain_ZH];
 
 function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
      <!--The URLs realated to Occupations-->
-     <url>
-       <loc>${OccupatopnsPage_EN}</loc>
-     </url>
- 
-      <url>
-       <loc>${OccupatopnsPage_EN}/occupations/assssing-authorities</loc>
-     </url>
-     <url>
-       <loc>${OccupatopnsPage_FA}/occupations/assssing-authorities</loc>
-     </url>
+      ${Domain_Langs.map((lang) => {
+        return `
+         <url>
+           <loc>${lang}/occupations</loc>
+         </url>`;
+      })}
+
+      ${Domain_Langs.map((lang) => {
+        return `
+          <url>
+          <loc>${lang}/occupations/assssing-authorities</loc>
+        </url>`;
+      })}
+
 
       ${occupations
         .map(({ slug }) => {
           return `
        <url>
-           <loc>${`${OccupatopnsPage_EN}/${slug?.current}`}</loc>
+           <loc>${`${Domain_EN}/occupations/${slug?.current}`}</loc>
        </url>
         
      `;
@@ -42,13 +45,12 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
        <loc>${Domain_FA}/lists/social-pages</loc>
      </url>
      
-
-     <url>
-       <loc>${Domain_EN}/lists/agencies</loc>
-     </url>
-     <url>
-       <loc>${Domain_FA}/lists/agencies</loc>
-     </url>
+      ${Domain_Langs.map((lang) => {
+        return `
+         <url>
+           <loc>${lang}/lists/agencies</loc>
+         </url>`;
+      })}
 
      
     ${AGENCYS.filter(
@@ -57,55 +59,48 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
         agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
     )
       .map(({ slug }) => {
-        return `
+        Domain_Langs.map((lang) => {
+          return `
        <url>
-           <loc>${`${Domain_EN}/lists/agencies/${slug}`}</loc>
-       </url>
-          <url>
-           <loc>${`${Domain_FA}/lists/agencies/${slug}`}</loc>
-       </url>
-        
-     `;
+           <loc>${`${lang}/lists/agencies/${slug}`}</loc>
+       </url>`;
+        });
       })
       .join('')}
      
-      <url>
-       <loc>${Domain_EN}/lists/agents</loc>
-     </url>
-     <url>
-       <loc>${Domain_FA}/lists/agents</loc>
-     </url>
+      ${Domain_Langs.map((lang) => {
+        return `
+          <url>
+            <loc>${lang}/lists/agents</loc>
+          </url>`;
+      })}
+    
     ${Agents.filter(
-      (agennt) =>
-        agennt.featuredPlan === FeaturedPlan_Business.VIP ||
-        agennt.featuredPlan === FeaturedPlan_Business.FULL_DATA
+      (agency) =>
+        agency.featuredPlan === FeaturedPlan_Business.VIP ||
+        agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
     )
       .map(({ slug }) => {
-        return `
+        Domain_Langs.map((lang) => {
+          return `
        <url>
-           <loc>${`${Domain_EN}/lists/agents/${slug}`}</loc>
-       </url>
-       <url>
-           <loc>${`${Domain_FA}/lists/agents/${slug}`}</loc>
-       </url>
-        
-     `;
+           <loc>${`${lang}/lists/agents/${slug}`}</loc>
+       </url>`;
+        });
       })
       .join('')}
-          
-     <url>
-       <loc>${Domain_EN}/lists/naaties</loc>
-     </url>
-     <url>
-       <loc>${Domain_FA}/lists/naaties</loc>
-     </url>
-      
-      <url>
-       <loc>${Domain_EN}/lists/exchanges</loc>
-     </url>
+     
+     ${Domain_Langs.map((lang) => {
+       return `
+          <url>
+            <loc>${lang}/lists/naaties</loc>
+          </url>`;
+     })}      
+  
      <url>
        <loc>${Domain_FA}/lists/exchanges</loc>
      </url>
+
   <!--The URLs realated to Blogs-->
     <url>
        <loc>${Domain_FA}/blog/assessment-organizations-in-australia</loc>

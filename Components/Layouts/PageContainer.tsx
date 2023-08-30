@@ -54,7 +54,7 @@ const PageContainer: React.FC<Props> = ({
     {
       enabled:
         !!session?.user?.email &&
-        getLocalStorage(LocalStorageKeys.UserRole) === UserRole.Client,
+        getLocalStorage(LocalStorageKeys.User_Role) === UserRole.Client,
     }
   );
   useEffect(() => {

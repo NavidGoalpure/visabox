@@ -6,13 +6,13 @@ import { signOut } from 'next-auth/react';
 function isAgancyLogedIn(session: import('next-auth').Session | null): boolean {
   return (
     !!session?.user?.email &&
-    getLocalStorage(LocalStorageKeys.UserRole) === UserRole.Agency
+    getLocalStorage(LocalStorageKeys.User_Role) === UserRole.Agency
   );
 }
 function isClientLogedIn(session: import('next-auth').Session | null): boolean {
   return (
     !!session?.user?.email &&
-    getLocalStorage(LocalStorageKeys.UserRole) === UserRole.Client
+    getLocalStorage(LocalStorageKeys.User_Role) === UserRole.Client
   );
 }
 function Logout() {

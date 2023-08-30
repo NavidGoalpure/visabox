@@ -17,7 +17,7 @@ const UserVerification: NextPage<Props> = ({ chosenRole }) => {
   const { locale } = useLocale();
   Cookies.remove(CookieKeys?.TemporaryLocale);
 
-  setLocalStorage({ key: LocalStorageKeys.UserRole, value: chosenRole });
+  setLocalStorage({ key: LocalStorageKeys.User_Role, value: chosenRole });
   return (
     <StyledPageLayout hasFooter={false} hasMenu={false} hasBanner={false}>
       <Seo

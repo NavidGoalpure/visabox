@@ -5,6 +5,7 @@ import * as MaraSelect from 'Elements/Select';
 import { Languages } from 'Interfaces';
 import BritishFlag from '../Images/BritishFlag.svg';
 import IranFlag from '../Images/IranFlag.svg';
+import ChinaFlag from '../Images/ChinaFlag.svg';
 import { useRouter } from 'next/router';
 import { ImSphere } from 'react-icons/im';
 import dynamic from 'next/dynamic';
@@ -17,6 +18,7 @@ function DesktopLanguageChanger() {
   const smartTextObj: Record<Languages, string> = {
     en: 'English',
     fa: 'فارسی',
+    zh: '中国人',
   };
   function onClickHandler(value: string) {
     router.push(router.asPath, router.asPath, { locale: value });
@@ -54,7 +56,16 @@ function DesktopLanguageChanger() {
               <Flag fill src={IranFlag} alt={'iran flag'} sizes='2.25rem' />
             </FlagWrapper>
           }
-        ></MaraSelect.Item>
+        />
+        <MaraSelect.Item
+          text={smartTextObj.zh}
+          value={Languages.zh}
+          icon={
+            <FlagWrapper>
+              <Flag fill src={ChinaFlag} alt={'china flag'} sizes='2.25rem' />
+            </FlagWrapper>
+          }
+        />
       </StyledMaraSelectRoot>
     </NavigationMenu.Item>
   );

@@ -33,11 +33,26 @@ const PageSubtitle: React.FC = () => {
       </a>
     )
   );
+  const chineseSubtitle = reactStringReplace(
+    componentStatements.PageSubtitle.zh,
+    '{{tag}}',
+    () => (
+      <a
+        href='https://www.legislation.gov.au/Details/F2022C00574'
+        target='_blank'
+        rel='noopener noreferrer'
+        key='a-tag-en'
+      >
+        LIN 29/051
+      </a>
+    )
+  );
   return (
     <SmartComponentBaseOnLocale
       compenents={{
         fa: <Subtitle key='fa'>{iranianSubtitle}</Subtitle>,
         en: <Subtitle key='en'>{englishSubtitle}</Subtitle>,
+        zh: <Subtitle key='zh'>{chineseSubtitle}</Subtitle>,
       }}
     />
   );

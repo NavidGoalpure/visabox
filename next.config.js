@@ -30,7 +30,7 @@ const config = {
     transpile: ['gsap'],
   },
   i18n: {
-    locales: ['en', 'fa'],
+    locales: ['en', 'fa', 'zh'],
     defaultLocale: 'en',
     localeDetection: false,
   },

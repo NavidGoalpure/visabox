@@ -23,7 +23,7 @@ import { HTMLAttributes, useEffect, useState } from 'react';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Status } from 'Interfaces/Database';
 
-interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials { }
+interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'id'>, Socials {}
 
 function MobileSocialCard({
   desc,
@@ -77,12 +77,7 @@ function MobileSocialCard({
       <Wrapper featuredPlan={featuredPlan} {...props}>
         {featuredPlan === FeaturedPlan_Business.VIP && (
           <ImgWrapper>
-            <Img
-              fill
-              src={imgSrc}
-              alt='image'
-              sizes='96px'
-            />
+            <Img fill src={imgSrc} alt='image' sizes='96px' />
           </ImgWrapper>
         )}
         {featuredPlan === FeaturedPlan_Business.VIP && (
@@ -97,7 +92,7 @@ function MobileSocialCard({
           {SocialMediaIcon()}
         </SocialMediaTag>
         <LocationTag featuredPlan={featuredPlan}>
-          {locations === Locations.fa
+          {locations === Locations.iran
             ? t(LanguageKeys.Persian)
             : t(LanguageKeys.English)}
         </LocationTag>
@@ -188,7 +183,7 @@ const Container = styled.a<{ featuredPlan: FeaturedPlan_Business }>`
   // width: 100%;
   @media ${deviceMin.laptopXS} {
     ${({ featuredPlan }) =>
-    featuredPlan === FeaturedPlan_Business.SIMPLE && 'width: 30%;'}
+      featuredPlan === FeaturedPlan_Business.SIMPLE && 'width: 30%;'}
   }
   :hover {
     transform: scale(1.05);

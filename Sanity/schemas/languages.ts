@@ -3,6 +3,7 @@
 export const languages = [
   { name: 'en', title: 'English' },
   { name: 'fa', title: 'فارسی' },
+  { name: 'zh', title: 'Chinese' },
 ];
 
 export const baseLanguage = languages[0];

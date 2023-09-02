@@ -1,10 +1,18 @@
 enum Languages {
-  fa = "fa",
-  en = "en",
+  fa = 'fa',
+  en = 'en',
+  zh = 'zh',
 }
 enum Locations {
-  fa = "fa",
-  en = "en",
+  iran = 'iran',
+  china = 'china',
+  india = 'india',
+  other = 'other',
+}
+enum Country {
+  Iran = 'Iran',
+  Australia = 'Australia',
+  Global = 'Global',
 }
 
 enum ThemeModes {

@@ -19,6 +19,7 @@ import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import { Languages, LocalStorageKeys } from "Interfaces";
 import { useRouter } from "next/router";
 import { setLocalStorage } from "Utils";
+import { isAgencyLogedIn } from "Utils/user";
 
 function Desktop() {
   const { locale } = useLocale();
@@ -39,6 +40,13 @@ function Desktop() {
 
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
+          {isAgencyLogedIn() && (
+            <NavigationMenu.Item>
+              <Link href={`/${locale}/agency/forms-wall`}>
+                <Item>{t(LanguageKeys.FormsWall)}</Item>
+              </Link>
+            </NavigationMenu.Item>
+          )}
           {locale === Languages.fa && (
             <NavigationMenu.Item>
               <Link href={`/${locale}/blog`}>

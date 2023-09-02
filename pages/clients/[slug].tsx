@@ -4,10 +4,13 @@ import { useLocale } from "Hooks/useLocale";
 import Seo from "Components/Seo";
 import { NextPage } from "next/types";
 import Error from "next/error";
-import Content from "PagesComponents/Agents/FormsWall/FormPage";
+import Content from "PagesComponents/Clients/FormPage";
 import { Client } from "Interfaces/Database/Client";
 import { getClientDetail } from "Queries/client";
 import { Point_Calculator_Fragment } from "Consts/GroqFragments";
+import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
+import { useRouter } from "next/router";
+import PrintablePage from "PagesComponents/Clients/FormPage/PrintablePage";
 
 interface Props {
   client: Client;
@@ -15,7 +18,12 @@ interface Props {
 }
 const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
   const { locale } = useLocale();
+  const router = useRouter();
+  const { version } = router.query;
   if (errorCode) return <Error statusCode={errorCode} />;
+  if (version === PAGE_PARAMS_VERSION_PRINTABLE_VALUE)
+    return <PrintablePage client={client} />;
+
   const fullname = `${client?.name || ""} ${client?.lastname || ""}`;
   // نوید
   // بعدا از لاگین کردن وکیل ها این آدرس باید عوض بشه چون انگار شماره وکیله نه کلاینت
@@ -23,7 +31,7 @@ const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
     <PageLayout>
       <Seo
         title={fullname + " | Mara Box"}
-        canonical={`https://www.marabox.com/${locale}/agents/${client?._id}`}
+        canonical={`https://www.marabox.com/${locale}/clients/${client?._id}`}
         isNoIndex={true}
       />
       <Content client={client} />

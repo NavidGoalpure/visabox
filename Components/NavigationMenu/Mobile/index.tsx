@@ -85,6 +85,14 @@ function SmartHeader() {
                   </MenuLink>
                 </>
               )}
+              {locale === Languages.fa && (
+                <>
+                  <Hr />
+                  <MenuLink href={`/${locale}/agency/forms-wall`}>
+                    {t(LanguageKeys.FormsWall)}
+                  </MenuLink>
+                </>
+              )}
               <Hr />
               <RowContainer>
                 <MobileLanguageChanger />

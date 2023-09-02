@@ -24,12 +24,15 @@ import { LocalStorageKeys } from "Interfaces";
 import { UserRole } from "Interfaces/Database";
 import { getLocalStorage } from "Utils";
 import NotFound from "pages/404";
+import { isClientLogedIn, Logout } from "Utils/user";
+import { useRouter } from "next/router";
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
-
+  const router = useRouter();
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
+
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `
   ${Point_Calculator_Fragment}
@@ -64,14 +67,15 @@ const UserForms: NextPage = ({}) => {
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
         if (!data?.client?.[0]?._id || !data?.client?.[0]?.email) {
           ErrorToast("We have troble with your accunt. Please login again");
-          signOut();
+          router.push(`/${locale}/auth/signin`);
+          Logout();
         }
       },
     }
   );
 
   //
-  if (getLocalStorage(LocalStorageKeys.User_Role) === UserRole.Agency)
+  if (isClientLogedIn())
     return (
       <StyledPageLayout hasBanner={false} hasFooter={false}>
         <Seo
@@ -88,7 +92,7 @@ const UserForms: NextPage = ({}) => {
         )}
       </StyledPageLayout>
     );
-    return <NotFound />
+  return <NotFound />;
 };
 export default UserForms;
 const StyledPageLayout = styled(PageLayout)`

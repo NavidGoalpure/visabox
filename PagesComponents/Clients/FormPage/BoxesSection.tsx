@@ -24,7 +24,7 @@ function BoxesSection({ id }: { id: string }) {
           <PrimaryButton
             onClick={() =>
               window.open(
-                `/${locale}/agents/forms-wall/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
+                `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
                 "_blank"
               )
             }

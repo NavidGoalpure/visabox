@@ -3,11 +3,12 @@ import { MultiLanguageText } from 'Interfaces/Database';
 import { DropdownItem } from './interface';
 
 export enum LanguageKeys {
-  Home = 'Home',
-  Lists = 'Lists',
-  Occupations = 'Occupations',
-  Login = 'Login',
-  Blogs = 'Blogs',
+  Home = "Home",
+  Lists = "Lists",
+  Occupations = "Occupations",
+  Login = "Login",
+  Blogs = "Blogs",
+  FormsWall = "FormsWall",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
@@ -29,6 +30,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Blogs: {
     en: "Blogs",
     fa: "مقاله ها",
+  },
+  FormsWall: {
+    en: "forms-wall",
+    fa: "صفحه فرم ها",
   },
 };
 export const listsItems: DropdownItem[] = [

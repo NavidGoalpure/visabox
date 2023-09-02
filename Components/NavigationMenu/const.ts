@@ -1,6 +1,6 @@
-import gsap from 'gsap';
-import { MultiLanguageText } from 'Interfaces/Database';
-import { DropdownItem } from './interface';
+import gsap from "gsap";
+import { MultiLanguageText } from "Interfaces/Database";
+import { DropdownItem } from "./interface";
 
 export enum LanguageKeys {
   Home = "Home",
@@ -45,62 +45,66 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 export const listsItems: DropdownItem[] = [
   {
     title: {
-      en: 'Agencies',
-      fa: 'موسسات مهاجرت',
-      zh: '机构',
+      en: "Agencies",
+      fa: "موسسات مهاجرت",
+      zh: "机构",
     },
-    href: '/lists/agencies',
+    href: "/lists/agencies",
   },
   {
     title: {
-      en: 'Agents',
-      fa: 'لیست وکلا',
-      zh: '代理商',
+      en: "Agents",
+      fa: "لیست وکلا",
+      zh: "代理商",
     },
-    href: '/lists/agents',
+    href: "/lists/agents",
   },
   {
     title: {
-      en: 'Naati',
-      fa: 'لیست مترجمین',
-      zh: 'Naati',
+      en: "Naati",
+      fa: "لیست مترجمین",
+      zh: "Naati",
     },
-    href: '/lists/naaties',
+    href: "/lists/naaties",
   },
   {
     title: {
-      en: 'Exchanges',
-      fa: 'لیست صرافی‌ها',
-      zh: '交流',
+      en: "Exchanges",
+      fa: "لیست صرافی‌ها",
+      zh: "交流",
     },
-    href: '/lists/exchanges',
+    href: "/lists/exchanges",
   },
 
   {
     title: {
-      en: 'Social Network',
-      fa: 'شبکه های اجتماعی',
-      zh: '社交网络',
+      en: "Social Network",
+      fa: "شبکه های اجتماعی",
+      zh: "社交网络",
     },
-    href: '/lists/social-pages',
+    href: "/lists/social-pages",
   },
 ];
 export const occupationItems: DropdownItem[] = [
   {
     title: {
-      en: 'Occupation List',
-      fa: 'لیست مشاغل',
-      zh: '职业清单',
+      en: "Occupation List",
+      fa: "لیست مشاغل",
+      zh: "职业清单",
     },
-    href: '/occupations',
+    href: "/occupations",
   },
   {
     title: {
-      en: 'Assessing Authority',
-      fa: 'موسسات ارزیابی',
-      zh: '评估机构',
+      en: "Assessing Authority",
+      fa: "موسسات ارزیابی",
+      zh: "评估机构",
     },
-    href: '/occupations/assssing-authorities',
+    href: "/occupations/assssing-authorities",
+  },
+  {
+    title: { en: "", fa: "جستجوی سکشن دانشگاه" },
+    href: "/occupations/university-section-search",
   },
 ];
 
@@ -113,14 +117,14 @@ export const getGsapTimeLine = ({
 }) => {
   hamburgerAnimationRef.current = gsap
     .timeline({ paused: true })
-    .add('start')
+    .add("start")
     .to(
-      '#hamburg',
+      "#hamburg",
       {
         duration: 0.2,
         y: 10,
       },
-      'start'
+      "start"
     )
     .to(
       `#line1`,
@@ -128,7 +132,7 @@ export const getGsapTimeLine = ({
         duration: 0.2,
         y: 6,
       },
-      'start'
+      "start"
     )
     .to(
       `#line2`,
@@ -136,16 +140,16 @@ export const getGsapTimeLine = ({
         duration: 0.2,
         y: -6,
       },
-      'start'
+      "start"
     )
     .to(
       `#line1`,
       {
         duration: 0.1,
         rotate: 45,
-        transformOrigin: '50% 50%',
+        transformOrigin: "50% 50%",
       },
-      '+=0.1'
+      "+=0.1"
     )
 
     .to(
@@ -153,11 +157,11 @@ export const getGsapTimeLine = ({
       {
         duration: 0.1,
         rotate: -45,
-        transformOrigin: '50% 50%',
+        transformOrigin: "50% 50%",
       },
-      '-=0.1'
+      "-=0.1"
     );
   popupAnimationRef.current = gsap
     .timeline({ paused: true })
-    .to('#popup', { x: '100vw', duration: 0.3 }, '-=0.1');
+    .to("#popup", { x: "100vw", duration: 0.3 }, "-=0.1");
 };

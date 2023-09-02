@@ -79,7 +79,7 @@ const FormsWall: NextPage = () => {
           isNoIndex={true}
         />
         {(isShow === null || isLoading) && <StyledLoading />}
-        {isShow === false && <NeedConfirmDesc>{t(LanguageKeys.NeedConfirm)}</NeedConfirmDesc>}
+        {isShow === false && <NeedConfirmDesc>{t(LanguageKeys.LoadMore)}</NeedConfirmDesc>}
         {isShow === true && (
           <ContentOrError isError={isError} content={<Content />} />
         )}

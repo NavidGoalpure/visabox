@@ -108,7 +108,7 @@ function DesktopProfileOptions() {
             {data?.client?.[0]?._id && (
               <PopOverItemContainer
                 onClick={() => {
-                  router.push(`/${locale}/client/${data?.client?.[0]?._id}`);
+                  router.push(`/${locale}/clients/${data?.client?.[0]?._id}`);
                 }}
               >
                 <MaraItemTitle>{t(LanguageKeys.Profile)}</MaraItemTitle>

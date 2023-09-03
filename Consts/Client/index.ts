@@ -1,4 +1,4 @@
-import { MultiLanguageText } from "Interfaces/Database";
+import { MultiLanguageText } from 'Interfaces/Database';
 
 export const Countries: MultiLanguageText[] = [
   { en: "Iran", fa: "ایران", zh: "伊朗" },

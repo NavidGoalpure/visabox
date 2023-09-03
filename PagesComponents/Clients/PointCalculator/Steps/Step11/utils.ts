@@ -9,27 +9,26 @@ import {
   IELTSScore,
   UniSections,
   WorkExperience,
-  ClientCountry,
 } from "Interfaces/Database/Client";
-import { Status } from "Interfaces/Database";
+import { Status, SupportedCountry } from "Interfaces/Database";
 import ErrorToast from "Elements/Toast/Error";
 
 export function validateClientDataWithYup(client: Client | undefined) {
   let userSchema = object({
-    country: mixed<ClientCountry>()
-      .oneOf(Object.values(ClientCountry))
+    country: mixed<SupportedCountry>()
+      .oneOf(Object.values(SupportedCountry))
       .required(),
     name: string().required(),
     lastname: string().required(),
     phone: string().required(),
 
     age: date().notRequired(),
-    birthday:date().notRequired(),
+    birthday: date().notRequired(),
     marital: mixed<ClientMarital>()
       .oneOf(Object.values(ClientMarital))
       .required(),
     does_partner_have_assessment: boolean().notRequired(),
-    is_partner_competent_english_speaker:boolean().notRequired(),
+    is_partner_competent_english_speaker: boolean().notRequired(),
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
     current_job: string().required(),

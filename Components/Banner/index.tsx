@@ -1,27 +1,31 @@
-import MaraBgAnimation from 'Components/MaraBgAnimation';
-import { deviceMin } from 'Consts/device';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { useRouter } from 'next/router';
-import { HTMLAttributes, ReactNode } from 'react';
-import { MdNavigateNext } from 'react-icons/md';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import BannerStamp from './Images/BannerStamp.svg';
-import { Headline4Style, Headline7Style } from 'Styles/Typo';
+import MaraBgAnimation from "Components/MaraBgAnimation";
+import { deviceMin } from "Consts/device";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { useRouter } from "next/router";
+import { HTMLAttributes, ReactNode } from "react";
+import { MdNavigateNext } from "react-icons/md";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import BannerStamp from "./Images/BannerStamp.svg";
+import { Headline4Style, Headline7Style } from "Styles/Typo";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
   buttonText: string;
   stampText?: string;
 }
-const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) => {
+const Banner: React.FC<Props> = ({
+  navigateTo,
+  desc,
+  buttonText,
+  stampText,
+}) => {
   const router = useRouter();
   return (
     <Container>
-      {stampText && <Stamp
-        dangerouslySetInnerHTML={{ __html: stampText }}
-      >
-      </Stamp>}
+      {stampText && (
+        <Stamp dangerouslySetInnerHTML={{ __html: stampText }}></Stamp>
+      )}
       <Wrapper>
         <MaraBgAnimation
           animationSpeed={60}
@@ -41,7 +45,7 @@ const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) =>
   );
 };
 export default Banner;
-const NextIconDirectionStyle = theme('languageDirection', {
+const NextIconDirectionStyle = theme("languageDirection", {
   ltr: css``,
   rtl: css`
     transform: rotate(180deg);
@@ -95,7 +99,7 @@ const Wrapper = styled.div`
   z-index: 0;
   overflow: hidden;
   :before {
-    content: '';
+    content: "";
     width: 20%;
     height: 50%;
     background: var(--color-primary3);
@@ -108,7 +112,7 @@ const Wrapper = styled.div`
     z-index: 10;
   }
   :after {
-    content: '';
+    content: "";
     width: 20%;
     height: 50%;
     background: var(--color-primary3);

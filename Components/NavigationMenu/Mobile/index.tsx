@@ -19,7 +19,8 @@ import OccupationDropdown from "./dropdownOccupation";
 import MobileBoxesDropdown from "./dropdownBoxes";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
-import { Languages } from "Interfaces";
+import { Languages, LocalStorageKeys } from "Interfaces";
+import { setLocalStorage } from "Utils";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -53,7 +54,15 @@ function SmartHeader() {
         {session ? (
           <AvatarComponent />
         ) : (
-          <Signin href={`/${locale}/auth/signin`}>
+          <Signin
+            onClick={() =>
+              setLocalStorage({
+                key: LocalStorageKeys.Url_Before_Login,
+                value: window.location.href,
+              })
+            }
+            href={`/${locale}/auth/signin`}
+          >
             {t(LanguageKeys.Login)}
           </Signin>
         )}
@@ -73,6 +82,14 @@ function SmartHeader() {
                   <Hr />
                   <MenuLink href={`/${locale}/blog`}>
                     {t(LanguageKeys.Blogs)}
+                  </MenuLink>
+                </>
+              )}
+              {locale === Languages.fa && (
+                <>
+                  <Hr />
+                  <MenuLink href={`/${locale}/agency/forms-wall`}>
+                    {t(LanguageKeys.FormsWall)}
                   </MenuLink>
                 </>
               )}

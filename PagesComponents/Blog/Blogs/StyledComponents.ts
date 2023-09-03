@@ -144,9 +144,9 @@ export const BlogContainer = styled.article`
   }
 `;
 export const HintBG = styled.section`
-  ${Hint_BGStyle}
+${Hint_BGStyle}
 `;
-export const HintTitle = styled.p`
+export const HintTitle = styled.h4`
   ${Hint_TitleStyle}
 `;
 export const HintText = styled.p`
@@ -174,3 +174,21 @@ export const Images = styled(Image)`
   border-radius: 15px;
   object-fit: cover;
 `;
+
+export const MoreBlogsContainer = styled.div`
+margin-top: 4rem;
+display: flex;
+justify-content: center;
+flex-direction: column;
+gap: 2rem;
+h2{
+  text-align: center !important;
+}
+`
+
+export const MoreBlogsCardsContainer = styled.div`
+display: flex;
+justify-content: center;
+gap: 1rem;
+flex-wrap: wrap;
+`

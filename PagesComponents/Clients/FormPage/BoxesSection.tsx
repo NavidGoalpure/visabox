@@ -30,7 +30,12 @@ function BoxesSection({ id }: { id: string }) {
           <PrintTitle>{t(LanguageKeys.PrintBoxTitle)}</PrintTitle>
           <PrintDesc>{t(LanguageKeys.PrintBoxDesc)}</PrintDesc>
           <PrimaryButton
-
+            onClick={() =>
+              window.open(
+                `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
+                "_blank"
+              )
+            }
           >
             <PrintIcon />
           </PrimaryButton>

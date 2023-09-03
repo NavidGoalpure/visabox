@@ -1,6 +1,6 @@
 import { ClientError } from '@sanity/client';
 import { Client } from 'Interfaces/Database/Client';
-import { getOldestBasicForm } from 'Queries/agents/getOldestBasicForm';
+import { getOldestBasicForm } from 'Queries/agency/getOldestBasicForm';
 import { useQuery } from 'react-query';
 import { ClientQueryKeys } from 'Utils/query/keys';
 

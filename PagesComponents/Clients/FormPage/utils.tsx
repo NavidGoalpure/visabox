@@ -6,14 +6,11 @@ import {
   uniSections,
   works,
 } from "Consts/Client";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Languages } from "Interfaces";
-import { MultiLanguageText } from "Interfaces/Database";
+
+import { MultiLanguageText, SupportedCountry } from "Interfaces/Database";
 import {
   AustralianWorkExperience,
   Client,
-  ClientCountry,
   ClientDegree,
   ClientMarital,
   UniSections,
@@ -134,16 +131,16 @@ export function getAustralianWorkExperienceLabel({
 export function getCountryLabel({
   country,
 }: {
-  country: ClientCountry | undefined;
+  country: SupportedCountry | undefined;
 }): MultiLanguageText | undefined {
   switch (country) {
-    case ClientCountry.Iran:
+    case SupportedCountry.Iran:
       return Countries.find((Country) => Country.en === "Iran");
-    case ClientCountry.China:
+    case SupportedCountry.China:
       return Countries.find((Country) => Country.en === "China");
-    case ClientCountry.India:
+    case SupportedCountry.India:
       return Countries.find((Country) => Country.en === "India");
-    case ClientCountry.Other:
+    case SupportedCountry.Other:
       return Countries.find((Country) => Country.en === "Other");
     default:
       return undefined;

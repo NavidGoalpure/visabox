@@ -1,13 +1,7 @@
-import { useLocale } from "Hooks/useLocale";
-import {
-  BlogContainer,
-  HintBG,
-  HintText,
-  HintTitle,
-  ImageContainer,
-  Images,
-} from "../StyledComponents";
-import Link from "next/link";
+import { useLocale } from 'Hooks/useLocale';
+import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images, MoreBlogsCardsContainer, MoreBlogsContainer } from '../StyledComponents';
+import Link from 'next/link';
+import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
 
 export default function PostContent() {
   const { locale } = useLocale();
@@ -117,6 +111,12 @@ export default function PostContent() {
           </tr>
         </tbody>
       </table>
+
+      <p>
+        برای مشاهده
+        <a href={`/${locale}/occupations/university-section-search`}>  سکشن دانشگاه ها  </a>
+        کلیک کنید.
+      </p>
 
       <p>
         مدارک اضافی فنی حرفه ای و یا مدارک بین المللی تاثیری در اضافه نمودن
@@ -402,6 +402,26 @@ export default function PostContent() {
           را می‌توانید از طریق این لینک پیدا کنید.
         </HintText>
       </HintBG>
+      <MoreBlogsContainer>
+        <h2>مقاله های مشابه</h2>
+        <MoreBlogsCardsContainer>
+          <PagesConnectorCard
+            title={'آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم'}
+            href={`/${locale}/blog/document-assessment-in-australia`}
+            img='https://binsta.dev/api/v1/files/Jbb2xZFcyX/transform?format=webp&size=lg&quality=best' />
+
+          <PagesConnectorCard
+            title={'ویزای مهارتی استرالیا (Skilled worker)'}
+            href={`/${locale}/blog/what-is-skilled-worker-visa`}
+            img='https://binsta.dev/api/v1/files/A-YzruQXR1/transform?format=webp&size=lg&quality=best' />
+
+          <PagesConnectorCard
+            title={'آنچه باید درباره ی سازمان های ارزیابی بدانیم'}
+            href={`/${locale}/blog/assessment-organizations-in-australia`}
+            img='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best' />
+
+        </MoreBlogsCardsContainer>
+      </MoreBlogsContainer>
     </BlogContainer>
   );
 }

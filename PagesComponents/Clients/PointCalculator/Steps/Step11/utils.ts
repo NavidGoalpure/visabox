@@ -24,7 +24,7 @@ export function validateClientDataWithYup(client: Client | undefined) {
     phone: string().required(),
 
     age: date().notRequired(),
-    birthday:date().required(),
+    birthday:date().notRequired(),
     marital: mixed<ClientMarital>()
       .oneOf(Object.values(ClientMarital))
       .required(),

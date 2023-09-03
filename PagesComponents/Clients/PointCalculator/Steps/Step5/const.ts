@@ -19,6 +19,9 @@ export enum LanguageKeys {
   AccreditedCommunityLanguage = "AccreditedCommunityLanguage",
   NextButtonTitle = "NextButtonTitle",
   PrevButtonTitle = "PrevButtonTitle",
+  // universitySearchInput titles
+  UniInput_SectionTitle = "UniInput_SectionTitle",
+  UniInput_Placeholder = "UniInput_Placeholder",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   DegreePopupContent: {
@@ -125,5 +128,13 @@ Did you complete a professional year program in Australia in your nominated skil
     en: "Prev",
     fa: "قبلی",
     zh: '上一篇'
+  },
+  UniInput_SectionTitle: {
+    en: "section",
+    fa: "سکشن",
+  },
+  UniInput_Placeholder: {
+    en: "Search",
+    fa: "جستجو",
   },
 };

@@ -1,11 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useLocale } from 'Hooks/useLocale';
-import * as MaraSelect from 'Elements/Select';
-import { useRouter } from 'next/router';
-import { componentStatements, LanguageKeys, occupationItems } from '../const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import React from "react";
+import styled from "styled-components";
+import { useLocale } from "Hooks/useLocale";
+import * as MaraSelect from "Elements/Select";
+import { useRouter } from "next/router";
+import { componentStatements, LanguageKeys, occupationItems } from "../const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { Languages } from "Interfaces";
 
 function DesktopOccupationDropdown() {
   const { locale } = useLocale();
@@ -16,7 +17,7 @@ function DesktopOccupationDropdown() {
       <StyledMaraSelectRoot
         noScroll
         triggerProps={{
-          id: 'occupation-trigger',
+          id: "occupation-trigger",
           placeholder: t(LanguageKeys.Occupations),
         }}
       >
@@ -32,6 +33,14 @@ function DesktopOccupationDropdown() {
           onClick={() => router.push(`/${locale}/${occupationItems[1].href}`)}
           disabled
         />
+        {locale === Languages.fa && (
+          <MaraSelect.Item
+            text={occupationItems[2].title[locale]}
+            value={occupationItems[2].title[locale] as string}
+            onClick={() => router.push(`/${locale}/${occupationItems[2].href}`)}
+            disabled
+          />
+        )}
       </StyledMaraSelectRoot>
     </NavigationMenu.Item>
   );

@@ -25,7 +25,7 @@ function BoxesSection({ id, email }: Props) {
         <SmallBox
           onClick={() =>
             window.open(
-              `/${locale}/clients/forms-wall/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
+              `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
               "_blank"
             )
           }

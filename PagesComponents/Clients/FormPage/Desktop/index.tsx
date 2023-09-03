@@ -62,7 +62,10 @@ function DesktopAgentsPage({ client }: Props) {
               )}
             </ProfileData>
           </ProfileBox>
-          <BoxesSection id={client?._id || ""} />
+          <BoxesSection
+            id={client?._id || "defensive"}
+            email={client?.email || "defensive"}
+          />
         </SmallBoxesWrapper>
         <DescriptionSection client={client} />
       </Wrapper>

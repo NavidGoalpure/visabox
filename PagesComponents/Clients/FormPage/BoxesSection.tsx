@@ -9,12 +9,15 @@ import { useRouter } from "next/router";
 import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
 import { useLocale } from "Hooks/useLocale";
 import theme from "styled-theming";
+import { useSession } from "next-auth/react";
 interface Props {
   id: string;
+  email: string;
 }
-function BoxesSection({ id }: { id: string }) {
+function BoxesSection({ id, email }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
+  const { data: session } = useSession();
   const { locale } = useLocale();
   return (
     <Container>
@@ -40,19 +43,17 @@ function BoxesSection({ id }: { id: string }) {
             <PrintIcon />
           </PrimaryButton>
         </SmallBox>
-
-        <SmallBox
-          onClick={() =>
-            window.open(
-              `/${locale}/clients/point-calculator`
-            )
-          }>
-          <PrintTitle>{t(LanguageKeys.EditBoxTitle)}</PrintTitle>
-          <PrintDesc>{t(LanguageKeys.EditBoxDesc)}</PrintDesc>
-          <PrimaryButton>
-            <EditIcon />
-          </PrimaryButton>
-        </SmallBox>
+        {session?.user?.email === email && (
+          <SmallBox
+            onClick={() => window.open(`/${locale}/clients/point-calculator`)}
+          >
+            <EditTitle>{t(LanguageKeys.EditBoxTitle)}</EditTitle>
+            <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
+            <PrimaryButton>
+              <EditIcon />
+            </PrimaryButton>
+          </SmallBox>
+        )}
       </SmallBoxesWrapper>
     </Container>
   );
@@ -109,6 +110,8 @@ const PrintTitle = styled.h3`
 const PrintDesc = styled.p`
   ${DescTheme};
 `;
+const EditTitle = styled(PrintTitle)``;
+const EditDesc = styled(PrintDesc)``;
 const PrintIcon = styled(AiOutlinePrinter)`
   width: 2rem;
   height: auto;
@@ -125,4 +128,3 @@ const EditIcon = styled(MdOutlineEdit)`
   border-radius: 50%;
   box-sizing: content-box;
 `;
-

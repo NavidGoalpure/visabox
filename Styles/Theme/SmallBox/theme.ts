@@ -8,7 +8,7 @@ export const SmallBox_BG_Textured = theme("mode", {
     box-shadow: var(--box-shadow-layer2);
   `,
   dark: css`
-    background: var(--color-gray5);
+    background: var(--color-gray6);
     background-image: url("/Images/Patterns/DarkPattern.svg");
   `,
 });

@@ -7,6 +7,7 @@ export enum LanguageKeys {
   PageTitle = "PageTitle",
   PageSubtitle = "PageSubtitle",
   LoadMore = "LoadMore",
+  NeedConfirm = "NeedConfirm",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -34,5 +35,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "بیشتر",
     en: "Load More",
     zh: "装载更多",
+  },
+  NeedConfirm: {
+    en: "Your account has not been verified yet. To verify the account, please contact the site support",
+    fa: "حساب شما هنوز تایید نشده است. برای تایید اکانت لطفابا پشتیبانی سایت تماس بگیرید",
+    zh: "您的帐户尚未经过验证。 要验证帐户，请联系网站支持",
   },
 };

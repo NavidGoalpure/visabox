@@ -1,100 +1,104 @@
-import gsap from 'gsap';
-import { MultiLanguageText } from 'Interfaces/Database';
-import { DropdownItem } from './interface';
+import gsap from "gsap";
+import { MultiLanguageText } from "Interfaces/Database";
+import { DropdownItem } from "./interface";
 
 export enum LanguageKeys {
-  Home = 'Home',
-  Lists = 'Lists',
-  Occupations = 'Occupations',
-  Login = 'Login',
-  Blogs = 'Blogs',
+  Home = "Home",
+  Lists = "Lists",
+  Occupations = "Occupations",
+  Login = "Login",
+  Blogs = "Blogs",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
     en: "Home",
     fa: "صفحه اصلی",
-    zh: '家',
+    zh: "家",
   },
   Lists: {
     en: "Lists",
     fa: "لیست‌ها",
-    zh: '列表',
+    zh: "列表",
   },
   Occupations: {
     en: "Skilled Worker Visa",
     fa: "ویزای مهارتی",
-    zh: '技术工人签证',
+    zh: "技术工人签证",
   },
   Login: {
     en: "Sign in",
     fa: "ورود",
-    zh: '登入',
+    zh: "登入",
   },
   Blogs: {
     en: "Blogs",
     fa: "مقاله ها",
-    zh: '博客',
+    zh: "博客",
   },
 };
 export const listsItems: DropdownItem[] = [
   {
     title: {
-      en: 'Agencies',
-      fa: 'موسسات مهاجرت',
-      zh: '机构',
+      en: "Agencies",
+      fa: "موسسات مهاجرت",
+      zh: "机构",
     },
-    href: '/lists/agencies',
+    href: "/lists/agencies",
   },
   {
     title: {
-      en: 'Agents',
-      fa: 'لیست وکلا',
-      zh: '代理商',
+      en: "Agents",
+      fa: "لیست وکلا",
+      zh: "代理商",
     },
-    href: '/lists/agents',
+    href: "/lists/agents",
   },
   {
     title: {
-      en: 'Naati',
-      fa: 'لیست مترجمین',
-      zh: 'Naati',
+      en: "Naati",
+      fa: "لیست مترجمین",
+      zh: "Naati",
     },
-    href: '/lists/naaties',
+    href: "/lists/naaties",
   },
   {
     title: {
-      en: 'Exchanges',
-      fa: 'لیست صرافی‌ها',
-      zh: '交流',
+      en: "Exchanges",
+      fa: "لیست صرافی‌ها",
+      zh: "交流",
     },
-    href: '/lists/exchanges',
+    href: "/lists/exchanges",
   },
 
   {
     title: {
-      en: 'Social Network',
-      fa: 'شبکه های اجتماعی',
-      zh: '社交网络',
+      en: "Social Network",
+      fa: "شبکه های اجتماعی",
+      zh: "社交网络",
     },
-    href: '/lists/social-pages',
+    href: "/lists/social-pages",
   },
 ];
 export const occupationItems: DropdownItem[] = [
   {
     title: {
-      en: 'Occupation List',
-      fa: 'لیست مشاغل',
-      zh: '职业清单',
+      en: "Occupation List",
+      fa: "لیست مشاغل",
+      zh: "职业清单",
     },
-    href: '/occupations',
+    href: "/occupations",
   },
   {
     title: {
-      en: 'Assessing Authority',
-      fa: 'موسسات ارزیابی',
-      zh: '评估机构',
+      en: "Assessing Authority",
+      fa: "موسسات ارزیابی",
+      zh: "评估机构",
     },
-    href: '/occupations/assssing-authorities',
+    href: "/occupations/assssing-authorities",
+  },
+  {
+    title: { en: "", fa: "جستجوی سکشن دانشگاه" },
+    href: "/occupations/university-section-search",
   },
 ];
 
@@ -107,14 +111,14 @@ export const getGsapTimeLine = ({
 }) => {
   hamburgerAnimationRef.current = gsap
     .timeline({ paused: true })
-    .add('start')
+    .add("start")
     .to(
-      '#hamburg',
+      "#hamburg",
       {
         duration: 0.2,
         y: 10,
       },
-      'start'
+      "start"
     )
     .to(
       `#line1`,
@@ -122,7 +126,7 @@ export const getGsapTimeLine = ({
         duration: 0.2,
         y: 6,
       },
-      'start'
+      "start"
     )
     .to(
       `#line2`,
@@ -130,16 +134,16 @@ export const getGsapTimeLine = ({
         duration: 0.2,
         y: -6,
       },
-      'start'
+      "start"
     )
     .to(
       `#line1`,
       {
         duration: 0.1,
         rotate: 45,
-        transformOrigin: '50% 50%',
+        transformOrigin: "50% 50%",
       },
-      '+=0.1'
+      "+=0.1"
     )
 
     .to(
@@ -147,11 +151,11 @@ export const getGsapTimeLine = ({
       {
         duration: 0.1,
         rotate: -45,
-        transformOrigin: '50% 50%',
+        transformOrigin: "50% 50%",
       },
-      '-=0.1'
+      "-=0.1"
     );
   popupAnimationRef.current = gsap
     .timeline({ paused: true })
-    .to('#popup', { x: '100vw', duration: 0.3 }, '-=0.1');
+    .to("#popup", { x: "100vw", duration: 0.3 }, "-=0.1");
 };

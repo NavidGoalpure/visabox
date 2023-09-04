@@ -63,10 +63,17 @@ const Step3 = () => {
         }}
         id={"date-input"}
       />
+      {clientAge < 18 && (
+        <HintContainer>
+          <HintUl>
+            <li>{t(LanguageKeys.TooYoungHintText)}</li>
+          </HintUl>
+        </HintContainer>
+      )}
       {clientAge > 44 && (
         <HintContainer>
           <HintUl>
-            <li>{t(LanguageKeys.HintText)}</li>
+            <li>{t(LanguageKeys.TooOldHintText)}</li>
           </HintUl>
         </HintContainer>
       )}
@@ -79,12 +86,14 @@ const Step3 = () => {
         <NextButton
           step={step}
           onClick={() => {
-            clientAge > 44 ? router.push(`/${locale}/`) : handleNextPress();
+            clientAge > 44 || clientAge < 18
+              ? router.push(`/${locale}/`)
+              : handleNextPress();
           }}
           icon={<NextIcon />}
           disabled={!client?.age && !client?.birthday}
         >
-          {clientAge > 44
+          {clientAge > 44 || clientAge < 18
             ? t(LanguageKeys.BackToHomepage)
             : t(LanguageKeys.NextButtonTitle)}
         </NextButton>

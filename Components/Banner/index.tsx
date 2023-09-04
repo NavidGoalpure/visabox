@@ -14,18 +14,14 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   buttonText: string;
   stampText?: string;
 }
-const Banner: React.FC<Props> = ({
-  navigateTo,
-  desc,
-  buttonText,
-  stampText,
-}) => {
+const Banner: React.FC<Props> = ({ navigateTo, desc, buttonText, stampText }) => {
   const router = useRouter();
   return (
     <Container>
-      {stampText && (
-        <Stamp dangerouslySetInnerHTML={{ __html: stampText }}></Stamp>
-      )}
+      {stampText && <Stamp
+        dangerouslySetInnerHTML={{ __html: stampText }}
+      >
+      </Stamp>}
       <Wrapper>
         <MaraBgAnimation
           animationSpeed={60}

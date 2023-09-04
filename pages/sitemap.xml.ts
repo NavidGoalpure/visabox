@@ -30,17 +30,17 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
 
 
       ${occupations
-        .map(({ slug }) => {
-          return `
+      .map(({ slug }) => {
+        return `
        <url>
            <loc>${`${Domain_EN}/occupations/${slug?.current}`}</loc>
        </url>
         
      `;
-        })
-        .join('')}
+      })
+      .join('')}
 
-     <!--The URLs realated to Lists-->
+     <!------The URLs realated to Lists------>
      <url>
        <loc>${Domain_FA}/lists/social-pages</loc>
      </url>
@@ -54,10 +54,10 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
 
      
     ${AGENCYS.filter(
-      (agency) =>
-        agency.featuredPlan === FeaturedPlan_Business.VIP ||
-        agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
-    )
+        (agency) =>
+          agency.featuredPlan === FeaturedPlan_Business.VIP ||
+          agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
+      )
       .map(({ slug }) => {
         Domain_Langs.map((lang) => {
           return `

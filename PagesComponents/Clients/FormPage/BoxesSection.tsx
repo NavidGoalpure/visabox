@@ -10,6 +10,7 @@ import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
 import { useLocale } from "Hooks/useLocale";
 import theme from "styled-theming";
 import { useSession } from "next-auth/react";
+import useDevice from "Hooks/useDevice";
 interface Props {
   id: string;
   email: string;
@@ -19,30 +20,10 @@ function BoxesSection({ id, email }: Props) {
   const router = useRouter();
   const { data: session } = useSession();
   const { locale } = useLocale();
+  const { isLaptop } = useDevice();
   return (
     <Container>
       <SmallBoxesWrapper>
-        <SmallBox
-          onClick={() =>
-            window.open(
-              `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
-              "_blank"
-            )
-          }
-        >
-          <PrintTitle>{t(LanguageKeys.PrintBoxTitle)}</PrintTitle>
-          <PrintDesc>{t(LanguageKeys.PrintBoxDesc)}</PrintDesc>
-          <PrimaryButton
-            onClick={() =>
-              window.open(
-                `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
-                "_blank"
-              )
-            }
-          >
-            <PrintIcon />
-          </PrimaryButton>
-        </SmallBox>
         {session?.user?.email === email && (
           <SmallBox
             onClick={() => window.open(`/${locale}/clients/point-calculator`)}
@@ -51,6 +32,29 @@ function BoxesSection({ id, email }: Props) {
             <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
             <PrimaryButton>
               <EditIcon />
+            </PrimaryButton>
+          </SmallBox>
+        )}
+        {isLaptop && (
+          <SmallBox
+            onClick={() =>
+              window.open(
+                `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
+                "_blank"
+              )
+            }
+          >
+            <PrintTitle>{t(LanguageKeys.PrintBoxTitle)}</PrintTitle>
+            <PrintDesc>{t(LanguageKeys.PrintBoxDesc)}</PrintDesc>
+            <PrimaryButton
+              onClick={() =>
+                window.open(
+                  `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
+                  "_blank"
+                )
+              }
+            >
+              <PrintIcon />
             </PrimaryButton>
           </SmallBox>
         )}

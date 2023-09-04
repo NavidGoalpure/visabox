@@ -21,6 +21,7 @@ import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
 import { Languages, LocalStorageKeys } from "Interfaces";
 import { setLocalStorage } from "Utils";
+import { isAgencyLogedIn } from "Utils/user";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -85,7 +86,7 @@ function SmartHeader() {
                   </MenuLink>
                 </>
               )}
-              {locale === Languages.fa && (
+              {isAgencyLogedIn() && (
                 <>
                   <Hr />
                   <MenuLink href={`/${locale}/agency/forms-wall`}>

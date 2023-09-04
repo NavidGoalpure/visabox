@@ -7,7 +7,20 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
+      localize: true,
       validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+
+      // validation: (Rule: { required: () => any }) => Rule.required(),
+      options: {
+        source: 'name.en',
+        maxLength: 96,
+        // isUnique: true,
+      },
     },
 
     {

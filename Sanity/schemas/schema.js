@@ -77,6 +77,8 @@ export default createSchema({
         ClientCompletedFormsObj,
         /////agencyRelated/////
         agency,
+        /////agentRelated/////
+        agent,
       ])
     ),
 });

@@ -40,17 +40,17 @@ function Desktop() {
 
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
-          {isAgencyLogedIn() && (
-            <NavigationMenu.Item>
-              <Link href={`/${locale}/agency/forms-wall`}>
-                <Item>{t(LanguageKeys.FormsWall)}</Item>
-              </Link>
-            </NavigationMenu.Item>
-          )}
           {locale === Languages.fa && (
             <NavigationMenu.Item>
               <Link href={`/${locale}/blog`}>
                 <Item>{t(LanguageKeys.Blogs)}</Item>
+              </Link>
+            </NavigationMenu.Item>
+          )}
+          {isAgencyLogedIn() && (
+            <NavigationMenu.Item>
+              <Link href={`/${locale}/agency/forms-wall`}>
+                <Item>{t(LanguageKeys.FormsWall)}</Item>
               </Link>
             </NavigationMenu.Item>
           )}

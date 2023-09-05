@@ -8,6 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 /////////Documents-section///////
 ///////////////////////////////
 import occupation from './documents/occupations/occupation';
+import agent from './documents/agent/agent';
 import visaType from './documents/occupations/visaType';
 import territory from './documents/occupations/territory';
 import unitGroup from './documents/occupations/unitGroup';
@@ -19,6 +20,8 @@ import agency from './documents/agency/agency';
 ////////////////////////////////
 /////////Objects-section///////
 ///////////////////////////////
+
+//occupation
 import visaOptionObj from './objects/occupations/visaOptionObj';
 import territoryObj from './objects/occupations/territoryObj';
 import anzscoObj from './objects/occupations/anzscoObj';
@@ -26,7 +29,10 @@ import priorityList from './objects/occupations/anzscoObj/priorityList';
 import backlogObj from './objects/occupations/backlogObj';
 import backlogNumbersObj from './objects/occupations/backlogObj/backlogNumbersObj';
 import territoryBacklogObj from './objects/occupations/backlogObj/territoryBacklogObj';
-//
+//agent
+import agencyObj from './objects/agent/AgencyObj';
+
+//survey
 import surveyChoiceObj from './objects/survey/choice';
 //
 import ClientCompletedFormsObj from './objects/client/CompletedFormsObj';
@@ -48,6 +54,8 @@ export default createSchema({
       priorityList,
       backlogNumbersObj,
       territoryBacklogObj,
+      /////Agent Related ////
+      agencyObj,
       /////Survey Related ////
     ])
     .concat(

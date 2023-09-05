@@ -55,7 +55,6 @@ export default createSchema({
       backlogNumbersObj,
       territoryBacklogObj,
       /////Agent Related ////
-      agencyObj,
       /////Survey Related ////
     ])
     .concat(
@@ -77,6 +76,9 @@ export default createSchema({
         ClientCompletedFormsObj,
         /////agencyRelated/////
         agency,
+        /////agentRelated/////
+        agent,
+        agencyObj,
       ])
     ),
 });

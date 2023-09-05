@@ -5,6 +5,7 @@ import {
   AustralianWorkExperience,
   ClientDegree,
   ClientMarital,
+  UniSections,
 } from "Interfaces/Database/Client";
 import { calculateAge } from "Utils/clients";
 
@@ -62,15 +63,30 @@ export function CalculateClientScore(clientData: Client): number {
   )
     finalScore = finalScore + 20;
   /////////// degree /////////////////
-  if (clientData?.degree === ClientDegree.Diploma) finalScore = finalScore + 10;
-  else if (clientData?.degree === ClientDegree.Bachelorsdegree)
-    finalScore = finalScore + 15;
-  else if (clientData?.degree === ClientDegree.Mastersdegree)
-    finalScore = finalScore + 15;
-  else if (clientData?.degree === ClientDegree.Doctorate)
-    finalScore = finalScore + 20;
-  /////////// australian_educational_qualification /////////////////
+  if (
+    clientData?.uni_section === UniSections.Section1 ||
+    clientData?.uni_section === UniSections.IDontKnow
+  ) {
+    if (clientData?.degree === ClientDegree.Diploma)
+      finalScore = finalScore + 10;
+    else if (clientData?.degree === ClientDegree.Bachelorsdegree)
+      finalScore = finalScore + 15;
+    else if (clientData?.degree === ClientDegree.Mastersdegree)
+      finalScore = finalScore + 15;
+    else if (clientData?.degree === ClientDegree.Doctorate)
+      finalScore = finalScore + 20;
+  } else if (clientData?.uni_section === UniSections.Section2) {
+    if (clientData?.degree === ClientDegree.Diploma)
+      finalScore = finalScore + 10;
+    else if (clientData?.degree === ClientDegree.Bachelorsdegree)
+      finalScore = finalScore + 10;
+    else if (clientData?.degree === ClientDegree.Mastersdegree)
+      finalScore = finalScore + 15;
+    else if (clientData?.degree === ClientDegree.Doctorate)
+      finalScore = finalScore + 15;
+  }
   if (clientData?.australian_educational_qualification)
+    /////////// australian_educational_qualification /////////////////
     finalScore = finalScore + 5;
   /////////// designated_regional_area_study /////////////////
   if (clientData?.designated_regional_area_study) finalScore = finalScore + 5;

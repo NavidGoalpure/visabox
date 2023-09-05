@@ -8,7 +8,6 @@ export default {
       title: 'Name',
       type: 'string',
       localize: true,
-      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'slug',

@@ -7,13 +7,14 @@ export default {
       name: 'mara_number_ref',
       title: 'Mara Number Ref',
       type: 'string',
+
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required(),
+      localize: true,
     },
     {
       name: 'country',

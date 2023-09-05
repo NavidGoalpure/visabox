@@ -62,7 +62,10 @@ function DesktopAgentsPage({ client }: Props) {
               )}
             </ProfileData>
           </ProfileBox>
-          <BoxesSection id={client?._id || ""} />
+          <BoxesSection
+            id={client?._id || "defensive"}
+            email={client?.email || "defensive"}
+          />
         </SmallBoxesWrapper>
         <DescriptionSection client={client} />
       </Wrapper>
@@ -124,7 +127,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   position: relative;
   gap: 1rem;

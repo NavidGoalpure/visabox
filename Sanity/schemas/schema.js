@@ -16,6 +16,7 @@ import unitGroup from './documents/occupations/unitGroup';
 import survey from './documents/survey';
 //
 import client from './documents/client/client';
+import agency from './documents/agency/agency';
 ////////////////////////////////
 /////////Objects-section///////
 ///////////////////////////////
@@ -74,8 +75,8 @@ export default createSchema({
         /////client Related ////
         client,
         ClientCompletedFormsObj,
-        /////Agent Related /////
-        agent,
+        /////agencyRelated/////
+        agency,
       ])
     ),
 });

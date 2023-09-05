@@ -15,13 +15,17 @@ import DesktopBoxsesDropdown from "./dropdownBoxes";
 import DesktopOccupationDropdown from "./dropdownOccupation";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
-import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { Languages } from "Interfaces";
+import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
+import { Languages, LocalStorageKeys } from "Interfaces";
+import { useRouter } from "next/router";
+import { setLocalStorage } from "Utils";
+import { isAgencyLogedIn } from "Utils/user";
 
 function Desktop() {
   const { locale } = useLocale();
   const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
+  const router = useRouter();
   return (
     <Container>
       <Wrapper>
@@ -36,19 +40,34 @@ function Desktop() {
 
           <DesktopOccupationDropdown />
           <DesktopBoxsesDropdown />
-          {locale === Languages.fa &&
-          <NavigationMenu.Item>
-            <Link href={`/${locale}/blog`}>
-              <Item>{t(LanguageKeys.Blogs)}</Item>
-            </Link>
-          </NavigationMenu.Item>
-          }
+          {isAgencyLogedIn() && (
+            <NavigationMenu.Item>
+              <Link href={`/${locale}/agency/forms-wall`}>
+                <Item>{t(LanguageKeys.FormsWall)}</Item>
+              </Link>
+            </NavigationMenu.Item>
+          )}
+          {locale === Languages.fa && (
+            <NavigationMenu.Item>
+              <Link href={`/${locale}/blog`}>
+                <Item>{t(LanguageKeys.Blogs)}</Item>
+              </Link>
+            </NavigationMenu.Item>
+          )}
         </MenuItems>
         <StyledMenuItem as={"div"}>
           {session ? (
             <AvatarComponent />
           ) : (
-            <MenuLink href={`/${locale}/auth/signin`}>
+            <MenuLink
+              onClick={() =>
+                setLocalStorage({
+                  key: LocalStorageKeys.Url_Before_Login,
+                  value: window.location.href,
+                })
+              }
+              href={`/${locale}/auth/signin`}
+            >
               {t(LanguageKeys.Login)}
             </MenuLink>
           )}

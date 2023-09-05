@@ -29,7 +29,7 @@ function BasicFormCard({ formData }: Props) {
       target="_blank"
       rel="noopener noreferrer"
       style={{ height: "100%" }}
-      href={`/agents/forms-wall/${formData._id}`}
+      href={`/clients/${formData._id}`}
       locale={locale}
       prefetch={false}
     >

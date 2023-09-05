@@ -1,6 +1,6 @@
-import { Client } from 'Interfaces/Database/Client';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { sanityClient } from 'Utils/sanity';
+import { Client } from "Interfaces/Database/Client";
+import { NextApiRequest, NextApiResponse } from "next";
+import { sanityClient } from "Utils/sanity";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const body = JSON.parse(req.body);
   const client: Client = body?.client;
@@ -11,15 +11,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       .set(client)
       .commit()
       .then(() => {
-        res.status(200).json({ message: 'success' });
+        res.status(200).json({ message: "success" });
       })
       .catch((err) => {
         const errors = err?.response?.body?.error?.items;
-        res.status(500).send({ message: 'request failed', errors });
+        res.status(500).send({ message: "request failed", errors });
       });
   } else {
     res.status(401).send({
-      message: 'The user have not _id',
+      message: "The user have not _id",
     });
   }
 }

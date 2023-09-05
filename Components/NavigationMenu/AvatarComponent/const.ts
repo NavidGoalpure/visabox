@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
+  Profile = "Profile",
   ChangeTheme = 'ChangeTheme',
   IsBasicFormShowable = 'IsBasicFormShowable',
   LogOut = 'LogOut',
@@ -10,6 +11,11 @@ export enum LanguageKeys {
   FailedToastMessage = 'FailedToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  Profile:{
+    en:"Profile",
+    fa:"صفحه کاربری",
+    zh:"轮廓"
+  },
   ChangeTheme: {
     en: 'Change Theme',
     fa: 'تغییر تم',

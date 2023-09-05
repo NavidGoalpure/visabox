@@ -3,35 +3,61 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys } from "./const";
 import { SmallBox_BG_Textured } from "Styles/Theme/SmallBox/theme";
 import { AiOutlinePrinter } from "react-icons/ai";
+import { MdOutlineEdit } from "react-icons/md";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { useRouter } from "next/router";
 import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
 import { useLocale } from "Hooks/useLocale";
 import theme from "styled-theming";
+import { useSession } from "next-auth/react";
+import useDevice from "Hooks/useDevice";
 interface Props {
   id: string;
+  email: string;
 }
-function BoxesSection({ id }: { id: string }) {
+function BoxesSection({ id, email }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
+  const { data: session } = useSession();
   const { locale } = useLocale();
+  const { isLaptop } = useDevice();
   return (
     <Container>
       <SmallBoxesWrapper>
-        <PrintSmallBox>
-          <PrintTitle>{t(LanguageKeys.PrintBoxTitle)}</PrintTitle>
-          <PrintDesc>{t(LanguageKeys.PrintBoxDesc)}</PrintDesc>
-          <PrimaryButton
+        {session?.user?.email === email && (
+          <SmallBox
+            onClick={() => window.open(`/${locale}/clients/point-calculator`)}
+          >
+            <EditTitle>{t(LanguageKeys.EditBoxTitle)}</EditTitle>
+            <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
+            <PrimaryButton>
+              <EditIcon />
+            </PrimaryButton>
+          </SmallBox>
+        )}
+        {isLaptop && (
+          <SmallBox
             onClick={() =>
               window.open(
-                `/${locale}/agents/forms-wall/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
+                `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
                 "_blank"
               )
             }
           >
-            <PrintIcon />
-          </PrimaryButton>
-        </PrintSmallBox>
+            <PrintTitle>{t(LanguageKeys.PrintBoxTitle)}</PrintTitle>
+            <PrintDesc>{t(LanguageKeys.PrintBoxDesc)}</PrintDesc>
+            <PrimaryButton
+              onClick={() =>
+                window.open(
+                  `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
+                  "_blank"
+                )
+              }
+            >
+              <PrintIcon />
+            </PrimaryButton>
+          </SmallBox>
+        )}
       </SmallBoxesWrapper>
     </Container>
   );
@@ -69,8 +95,9 @@ const SmallBoxesWrapper = styled.div`
   gap: 1rem;
 `;
 
-const PrintSmallBox = styled.div`
+const SmallBox = styled.div`
   ${SmallBox_BG_Textured};
+  cursor: pointer;
   position: relative;
   width: 100%;
   display: flex;
@@ -87,7 +114,17 @@ const PrintTitle = styled.h3`
 const PrintDesc = styled.p`
   ${DescTheme};
 `;
+const EditTitle = styled(PrintTitle)``;
+const EditDesc = styled(PrintDesc)``;
 const PrintIcon = styled(AiOutlinePrinter)`
+  width: 2rem;
+  height: auto;
+  color: var(--color-gray13);
+  padding: 1rem;
+  border-radius: 50%;
+  box-sizing: content-box;
+`;
+const EditIcon = styled(MdOutlineEdit)`
   width: 2rem;
   height: auto;
   color: var(--color-gray13);

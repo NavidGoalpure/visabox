@@ -1,6 +1,12 @@
-import { Country } from 'Interfaces';
 import { FeaturedPlan_Business } from '.';
-import { Contact, MultiLanguageText, MultiLanguageTextArray, Status } from '..';
+import {
+  Contact,
+  MultiLanguageText,
+  MultiLanguageTextArray,
+  SanityKeys,
+  Status,
+  SupportedCountry,
+} from '..';
 
 export interface Agency {
   id: string;
@@ -8,7 +14,7 @@ export interface Agency {
   name: MultiLanguageText;
   contact: Contact;
   //what countries they work in
-  country: Country[];
+  country: SupportedCountry[];
   desc?: MultiLanguageText;
   qualifications?: MultiLanguageTextArray;
   featuredPlan: FeaturedPlan_Business;
@@ -16,4 +22,10 @@ export interface Agency {
   socialsId?: string[];
   agentsId?: string[];
   logoUrl?: string;
+}
+
+export interface AgencySanity extends SanityKeys {
+  email: string; // ایمیلی که برای لاگین استفاده میکنه
+  avatar: string;
+  status: Status;
 }

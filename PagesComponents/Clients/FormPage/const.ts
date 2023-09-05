@@ -31,6 +31,8 @@ export enum LanguageKeys {
   copyPhoneToastMessage = "copyPhoneToastMessage",
   PrintBoxTitle = "PrintBoxTitle",
   PrintBoxDesc = "PrintBoxDesc",
+  EditBoxTitle = "EditBoxTitle",
+  EditBoxDesc = "EditBoxDesc",
   YesText = "YesText",
   NoText = "NoText",
 }
@@ -94,6 +96,16 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "See Printable version",
     fa: "مشاهده نسخه قابل پرینت.",
     zh: "请参阅打印版本"
+  },
+  EditBoxTitle: {
+    en: "Edit",
+    fa: "ویرایش",
+    zh: "编辑"
+  },
+  EditBoxDesc: {
+    en: "Edit your information.",
+    fa: "اطلاعات خود را ویرایش کنید.",
+    zh: "编辑您的信息。"
   },
   YesText: {
     en: "Yes",

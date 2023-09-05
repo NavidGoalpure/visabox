@@ -188,7 +188,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: "目前的工作：",
   },
   WorkExperienceLabel: {
-    en: "Work experience:",
+    en: "Work experience overseas:",
     fa: "سابقه کاری خارج از استراليا:",
     zh: "工作经验：",
   },

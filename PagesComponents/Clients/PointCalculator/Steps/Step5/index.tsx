@@ -49,7 +49,17 @@ const Step5 = () => {
             });
         }}
       />
-      <StyledTitle>{t(LanguageKeys.UniSectionsSectionTitle)} </StyledTitle>
+      <StyledTitle>
+        {t(LanguageKeys.UniSectionsSectionTitle)}{" "}
+        <StyledTooltipTag
+          content={
+            <>
+              <CalculatorIcon />
+            </>
+          }
+          popupContent={t(LanguageKeys.DegreePopupContent)}
+        />
+      </StyledTitle>
       <ToggleGroupRoot
         type="single"
         value={client?.uni_section}
@@ -83,13 +93,15 @@ const Step5 = () => {
                 (سکشن) ای قرار دارد
               </HintText>
             </HintContainer>
-            <SearchInputComponent theme={"LAYER1"} callback={(univercity) => {
-              client &&
-                setClient({
-                  ...client,
-                  uni_section: univercity
-                })
-            }}
+            <SearchInputComponent
+              theme={"LAYER1"}
+              callback={(univercity) => {
+                client &&
+                  setClient({
+                    ...client,
+                    uni_section: univercity,
+                  });
+              }}
             />
           </>
         )}

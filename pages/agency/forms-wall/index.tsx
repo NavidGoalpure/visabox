@@ -57,7 +57,9 @@ const FormsWall: NextPage = () => {
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
         if (data?.agency?.[0]?.email !== session?.user?.email) {
           ErrorToast("We have trouble with your account. Please login again");
-          Logout(`/${locale}/auth/signin`);
+          Logout(
+            `/${locale}/auth/signin?user_role=${UserRole.Agency.toLowerCase()}`
+          );
         }
         // اگه اکانت ایجنسی دی اکتیو بود چیزی نشون نده
         if (data?.agency?.[0]?.status === Status.DEACTIVE) {

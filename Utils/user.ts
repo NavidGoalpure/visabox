@@ -17,6 +17,8 @@ function Logout(redirect?: string) {
   removeALLLocalStorage();
   deleteAllCookies();
   if (redirect) signOut({ callbackUrl: redirect });
-  signOut();
+  else {
+    signOut();
+  }
 }
 export { isAgencyLogedIn, isClientLogedIn, Logout };

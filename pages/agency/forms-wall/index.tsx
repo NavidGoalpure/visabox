@@ -19,7 +19,7 @@ import { getLocalStorage } from "Utils";
 import { Status, UserRole } from "Interfaces/Database";
 import { LocalStorageKeys } from "Interfaces";
 import ErrorToast from "Elements/Toast/Error";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Loading } from "Elements/Loading";
 import { ContentOrError } from "Components/contentOrError";
@@ -33,6 +33,7 @@ const FormsWall: NextPage = () => {
   const [isShow, setIsShow] = useState<boolean | null>(null);
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
+
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `
       email,
@@ -67,7 +68,14 @@ const FormsWall: NextPage = () => {
       },
     }
   );
-
+  //
+  useEffect(() => {
+    if (!isAgencyLogedIn()) {
+      window.location.replace(
+        `/${locale}/auth/signin?user_role=${UserRole.Agency.toLowerCase()}`
+      );
+    }
+  }, []);
   //
   if (isAgencyLogedIn())
     return (
@@ -87,7 +95,13 @@ const FormsWall: NextPage = () => {
         )}
       </PageLayout>
     );
-  return <NotFound />;
+  else {
+    return (
+      <>
+        <NotFound />{" "}
+      </>
+    );
+  }
 };
 export default FormsWall;
 const StyledLoading = styled(Loading)`

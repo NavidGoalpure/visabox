@@ -55,7 +55,10 @@ const FormsWall: NextPage = () => {
       onSuccess: (data) => {
         // اگه تو بروز کاربر ایمیلی وجود داشت اما توی دیتابیس کاربری نبود،  لاگ اوت کن
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
-        if (data?.agency?.[0]?.email !== session?.user?.email) {
+        if (
+          data?.agency?.[0]?.email &&
+          data?.agency?.[0]?.email !== session?.user?.email
+        ) {
           ErrorToast("We have trouble with your account. Please login again");
           Logout(
             `/${locale}/auth/signin?user_role=${UserRole.Agency.toLowerCase()}`
@@ -72,7 +75,7 @@ const FormsWall: NextPage = () => {
   );
   //
   useEffect(() => {
-    if (!isAgencyLogedIn()) {
+    if (getLocalStorage(LocalStorageKeys.User_Role) !== UserRole.Agency) {
       window.location.replace(
         `/${locale}/auth/signin?user_role=${UserRole.Agency.toLowerCase()}`
       );

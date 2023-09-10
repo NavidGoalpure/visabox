@@ -19,7 +19,7 @@ import { getLocalStorage } from "Utils";
 import { Status, UserRole } from "Interfaces/Database";
 import { LocalStorageKeys } from "Interfaces";
 import ErrorToast from "Elements/Toast/Error";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Loading } from "Elements/Loading";
 import { ContentOrError } from "Components/contentOrError";
@@ -33,6 +33,7 @@ const FormsWall: NextPage = () => {
   const [isShow, setIsShow] = useState<boolean | null>(null);
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
+
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `
       email,
@@ -54,9 +55,14 @@ const FormsWall: NextPage = () => {
       onSuccess: (data) => {
         // اگه تو بروز کاربر ایمیلی وجود داشت اما توی دیتابیس کاربری نبود،  لاگ اوت کن
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
-        if (data?.agency?.[0]?.email !== session?.user?.email) {
+        if (
+          data?.agency?.[0]?.email &&
+          data?.agency?.[0]?.email !== session?.user?.email
+        ) {
           ErrorToast("We have trouble with your account. Please login again");
-          Logout(`/${locale}/auth/signin`);
+          Logout(
+            `/${locale}/auth/signin?user_role=${UserRole.Agency.toLowerCase()}`
+          );
         }
         // اگه اکانت ایجنسی دی اکتیو بود چیزی نشون نده
         if (data?.agency?.[0]?.status === Status.DEACTIVE) {
@@ -67,7 +73,14 @@ const FormsWall: NextPage = () => {
       },
     }
   );
-
+  //
+  useEffect(() => {
+    if (getLocalStorage(LocalStorageKeys.User_Role) !== UserRole.Agency) {
+      window.location.replace(
+        `/${locale}/auth/signin?user_role=${UserRole.Agency.toLowerCase()}`
+      );
+    }
+  }, []);
   //
   if (isAgencyLogedIn())
     return (
@@ -87,7 +100,13 @@ const FormsWall: NextPage = () => {
         )}
       </PageLayout>
     );
-  return <NotFound />;
+  else {
+    return (
+      <>
+        <NotFound />{" "}
+      </>
+    );
+  }
 };
 export default FormsWall;
 const StyledLoading = styled(Loading)`

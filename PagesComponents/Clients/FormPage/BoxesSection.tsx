@@ -11,7 +11,7 @@ import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
 import { useLocale } from "Hooks/useLocale";
 import theme from "styled-theming";
 import { useSession } from "next-auth/react";
-import { copyContent } from 'Utils';
+import { copyContent } from "Utils";
 import useDevice from "Hooks/useDevice";
 interface Props {
   id: string;
@@ -30,27 +30,26 @@ function BoxesSection({ id, email }: Props) {
         {session?.user?.email === email && (
           <>
             <SmallBox
+              onClick={() =>
+                copyContent({
+                  text: `www.marabox.com/${locale}/clients/${id}`,
+                  toastMessage: ShareToastMessage,
+                })
+              }
+            >
+              <ShareTitle>{t(LanguageKeys.ShareBoxTitle)}</ShareTitle>
+              <ShareDesc>{t(LanguageKeys.ShareBoxDesc)}</ShareDesc>
+              <PrimaryButton>
+                <ShareIcon />
+              </PrimaryButton>
+            </SmallBox>
+            <SmallBox
               onClick={() => window.open(`/${locale}/clients/point-calculator`)}
             >
               <EditTitle>{t(LanguageKeys.EditBoxTitle)}</EditTitle>
               <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
               <PrimaryButton>
                 <EditIcon />
-              </PrimaryButton>
-            </SmallBox>
-
-            <SmallBox
-              onClick={() =>
-                copyContent({
-                text: (`/${locale}/clients/${id}`),
-                toastMessage: ShareToastMessage,
-              })}
-            >
-
-              <ShareTitle>{t(LanguageKeys.ShareBoxTitle)}</ShareTitle>
-              <ShareDesc>{t(LanguageKeys.ShareBoxDesc)}</ShareDesc>
-              <PrimaryButton>
-                <ShareIcon />
               </PrimaryButton>
             </SmallBox>
           </>
@@ -108,6 +107,7 @@ const Container = styled.div`
 `;
 
 const SmallBoxesWrapper = styled.div`
+  width: 18rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

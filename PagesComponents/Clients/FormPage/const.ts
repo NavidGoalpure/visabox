@@ -121,8 +121,8 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: "与您的顾问分享您的移民信息。",
   },
   copyShareToastMessage: {
-    en: "Link copied to clipboard.",
-    fa: "لینک کپی شد.",
+    en: "Link copied to clipboard",
+    fa: "لینک کپی شد",
     zh: "链接已复制到剪贴板。",
   },
   YesText: {

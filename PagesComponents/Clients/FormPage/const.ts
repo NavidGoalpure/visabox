@@ -33,6 +33,9 @@ export enum LanguageKeys {
   PrintBoxDesc = "PrintBoxDesc",
   EditBoxTitle = "EditBoxTitle",
   EditBoxDesc = "EditBoxDesc",
+  ShareBoxTitle = "ShareBoxTitle",
+  ShareBoxDesc = "ShareBoxDesc",
+  copyShareToastMessage = "copyShareToastMessage",
   YesText = "YesText",
   NoText = "NoText",
 }
@@ -106,6 +109,21 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "Edit your information.",
     fa: "اطلاعات خود را ویرایش کنید.",
     zh: "编辑您的信息。",
+  },
+  ShareBoxTitle: {
+    en: "Share",
+    fa: "اشتراک گذاری",
+    zh: "分享",
+  },
+  ShareBoxDesc: {
+    en: "Share your immigration information with your advisors.",
+    fa: "اطلاعات مهاجرتی خود را با مشاوران خود به اشتراک بگذارید.",
+    zh: "与您的顾问分享您的移民信息。",
+  },
+  copyShareToastMessage: {
+    en: "Link copied to clipboard.",
+    fa: "لینک کپی شد.",
+    zh: "链接已复制到剪贴板。",
   },
   YesText: {
     en: "Yes",

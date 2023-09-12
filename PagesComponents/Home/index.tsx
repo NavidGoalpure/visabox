@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { ClientQueryKeys } from "Utils/query/keys";
 import ModalComponent from "Components/ModalComponent";
+import CountryModal from "./CountryModal";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -47,7 +48,8 @@ const HomeContent: React.FC = () => {
   return (
     <>
       <Hero />
-      <ModalComponent />
+      <CountryModal />
+     
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (
           <Banner

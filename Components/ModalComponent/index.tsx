@@ -1,100 +1,31 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import dynamic from "next/dynamic";
+
 import styled, { keyframes } from "styled-components";
 import { Headline5Style, Headline6Style } from "Styles/Typo";
-import IranFlag from "public/Images/Flags/IranFlag.svg";
-import ChinaFlag from "public/Images/Flags/ChinaFlag.svg";
-import IndiaFlag from "public/Images/Flags/IndiaFlag.svg";
-import AustraliaFlag from "public/Images/Flags/AustraliaFlag.svg";
-import UnknownFlag from "public/Images/Flags/UnknownFlag.svg";
-import { deviceMin } from "Consts/device";
-import {
-  Hint_ModalIcon,
-  Hint_ModalTextStyle,
-  Hint_SecondaryContainer,
-} from "Styles/Theme/Hint/style";
-import { FiInfo } from "react-icons/fi";
 
-const ModalComponent = () => {
+import { deviceMin } from "Consts/device";
+import { ReactNode } from "react";
+interface Props extends Dialog.DialogProps {
+  trigger?: ReactNode;
+  DialogTitleText?: string;
+}
+const ModalComponent: React.FC<Props> = ({
+  children,
+  DialogTitleText,
+  trigger,
+  ...props
+}) => {
   return (
-    <Dialog.Root>
-      <Dialog.Trigger asChild>
-        <button className="Button violet">Edit profile</button>
-      </Dialog.Trigger>
+    <Dialog.Root {...props}>
+      <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
 
       <Dialog.Portal>
         <DialogOverlay className="DialogOverlay" />
         <DialogContent className="DialogContent">
           <MobileLine />
           <Wrapper>
-            <DialogTitle className="DialogTitle">
-              Please select your country
-            </DialogTitle>
-            <OptionsContainer>
-              <Option>
-                <FlagWrapper>
-                  <Flag
-                    fill
-                    src={IranFlag}
-                    alt={"england flag"}
-                    sizes="2.25rem"
-                  />
-                </FlagWrapper>
-                <Optiontext>Iran</Optiontext>
-              </Option>
-              <Option>
-                <FlagWrapper>
-                  <Flag
-                    fill
-                    src={ChinaFlag}
-                    alt={"england flag"}
-                    sizes="2.25rem"
-                  />
-                </FlagWrapper>
-                <Optiontext>China</Optiontext>
-              </Option>
-              <Option>
-                <FlagWrapper>
-                  <Flag
-                    fill
-                    src={IndiaFlag}
-                    alt={"england flag"}
-                    sizes="2.25rem"
-                  />
-                </FlagWrapper>
-                <Optiontext>India</Optiontext>
-              </Option>
-              <Option>
-                <FlagWrapper>
-                  <Flag
-                    fill
-                    src={AustraliaFlag}
-                    alt={"england flag"}
-                    sizes="2.25rem"
-                  />
-                </FlagWrapper>
-                <Optiontext>Australia</Optiontext>
-              </Option>
-              <Option>
-                <FlagWrapper>
-                  <Flag
-                    fill
-                    src={UnknownFlag}
-                    alt={"england flag"}
-                    sizes="2.25rem"
-                  />
-                </FlagWrapper>
-                <Optiontext>Other countries</Optiontext>
-              </Option>
-            </OptionsContainer>
-            <HintContainer>
-              {" "}
-              <HintInfoIcon />
-              <p>
-                The content that is displayed to you is categorized according to
-                your selected country
-              </p>
-            </HintContainer>
+            <DialogTitle className="DialogTitle">{DialogTitleText}</DialogTitle>
+            {children}
           </Wrapper>
         </DialogContent>
       </Dialog.Portal>
@@ -194,41 +125,4 @@ const Wrapper = styled.div`
 const DialogTitle = styled(Dialog.Title)`
   ${Headline5Style};
   text-align: center;
-`;
-const OptionsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-`;
-const Option = styled(Dialog.Close)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 45%;
-  gap: 0.5rem;
-  cursor: pointer;
-`;
-const FlagWrapper = styled.div`
-  position: relative;
-  width: 2.25rem;
-  height: 2.25rem;
-`;
-//
-const DYImage = dynamic(() => import("next/image"));
-const Flag = styled(DYImage)`
-  position: relative !important;
-`;
-const Optiontext = styled.h4`
-  ${Headline6Style};
-  color: var(--color-gray4);
-`;
-const HintContainer = styled.div`
-  ${Hint_SecondaryContainer};
-  ${Hint_ModalTextStyle};
-  align-items: center;
-`;
-const HintInfoIcon = styled(FiInfo)`
-  ${Hint_ModalIcon};
 `;

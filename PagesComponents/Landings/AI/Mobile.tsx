@@ -1,17 +1,14 @@
-import { deviceMin } from "Consts/device";
-import { useCallback, useEffect, useRef, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import RobotImage from "./Images/RobotImage.svg";
-import LightPhone from "./Images/LightPhone.svg";
-import DarkPhone from "./Images/DarkPhone.svg";
-import { BiMouse } from "react-icons/bi";
-import HeroMovingRobot from "./Images/HeroMovingRobot.svg";
-import DarkPattern from "./Images/DarkPattern.svg";
-import LightPattern from "./Images/LightPattern.svg";
-import Image from "next/image";
-import { getThemeFromLocalStorage } from "Utils";
-import { ThemeModes } from "Interfaces";
+import { deviceMin } from 'Consts/device';
+import { useCallback, useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import RobotImage from './Images/RobotImage.svg';
+
+import DarkPattern from './Images/DarkPattern.svg';
+import LightPattern from './Images/LightPattern.svg';
+import Image from 'next/image';
+import { getThemeFromLocalStorage } from 'Utils';
+import { ThemeModes } from 'Interfaces';
 import {
   Desc,
   HeroTheme,
@@ -19,16 +16,14 @@ import {
   SectionDivider,
   TitleSpanTheme,
   PhoneImage,
-} from "./styledComponents";
-import { componentStatements, getGsapTimeLine_Hero } from "./const";
-import Particles from "react-tsparticles";
-import { tsParticleOption_Mobile } from "./const";
-import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Headline4Style, Headline5Style } from "Styles/Typo";
-import { PrimaryButton } from "Elements/Button/Primary";
-import theme from "styled-theming";
+} from './styledComponents';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import type { Engine } from 'tsparticles-engine';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import theme from 'styled-theming';
+import { tsParticleOption_Mobile } from 'Styles/animation';
+import { Headline5Style } from 'Styles/Typo';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -44,14 +39,14 @@ function Desktop() {
   const particlesContainer = useRef(null);
   /////////
   return (
-    <Container className="container" ref={particlesContainer}>
+    <Container className='container' ref={particlesContainer}>
       <StyledParticles
         container={particlesContainer}
-        id="tsparticles"
+        id='tsparticles'
         init={particlesInit}
         options={tsParticleOption_Mobile}
       />
-      <Hero className="hero">
+      <Hero className='hero'>
         <HeroWrapper>
           <MonthlyUsersWrapper>
             <HeroTitle>اسم رباتمون</HeroTitle>
@@ -78,10 +73,10 @@ function Desktop() {
           height={281}
           src={
             getThemeFromLocalStorage() === ThemeModes.DARK
-              ? "/Images/landing/AI/DarkMobile.png"
-              : "/Images/landing/AI/LightMobile.png"
+              ? '/Images/landing/AI/DarkMobile.png'
+              : '/Images/landing/AI/LightMobile.png'
           }
-          alt="phone-image"
+          alt='phone-image'
         />
         <StyledDesc>
           هوش مصنوعی ** مخصوص سایت ماراباکس هست که با هدف کمک به شما در مساعل
@@ -95,8 +90,8 @@ function Desktop() {
             width={291}
             height={304}
             src={RobotImage}
-            alt="phone-image"
-          />{" "}
+            alt='phone-image'
+          />{' '}
           <TestRobotWrapper>
             <TestRobotTitle>
               شما میتونید با استفاده از دکمه زیر برای تست زودرس *اسم رباتمون*
@@ -118,7 +113,7 @@ const StyledParticles = styled(Particles)`
   height: 100%;
 `;
 
-const TestRobotContainerTheme = theme("mode", {
+const TestRobotContainerTheme = theme('mode', {
   light: css`
     background: var(--color-gray6);
     background-image: url(${LightPattern});

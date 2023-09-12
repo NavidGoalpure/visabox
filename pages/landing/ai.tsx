@@ -1,14 +1,14 @@
-import { NextPage } from "next";
-import PageLayout from "Components/Layouts/PageContainer";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { useLocale } from "Hooks/useLocale";
-import Seo from "Components/Seo";
+import { NextPage } from 'next';
+import PageLayout from 'Components/Layouts/PageContainer';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useLocale } from 'Hooks/useLocale';
+import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Landings/Agents/const";
-import styled from "styled-components";
-import Content from "PagesComponents/Landings/AI";
+} from 'PagesComponents/Landings/AI/const';
+import styled from 'styled-components';
+import Content from 'PagesComponents/Landings/AI';
 
 const AIIntroduction: NextPage = () => {
   const { locale } = useLocale();
@@ -18,7 +18,7 @@ const AIIntroduction: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/landing/agents`}
+        canonical={`https://www.marabox.com/${locale}/landing/AI`}
       />
       <Content />
     </StyledPageLayout>

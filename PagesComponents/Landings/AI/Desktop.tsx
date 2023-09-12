@@ -1,17 +1,17 @@
-import { deviceMin } from "Consts/device";
-import { useCallback, useEffect, useRef, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import RobotImage from "./Images/RobotImage.svg";
-import LightPhone from "./Images/LightPhone.svg";
-import DarkPhone from "./Images/DarkPhone.svg";
-import { BiMouse } from "react-icons/bi";
-import HeroMovingRobot from "./Images/HeroMovingRobot.svg";
-import DarkPattern from "./Images/DarkPattern.svg";
-import LightPattern from "./Images/LightPattern.svg";
-import Image from "next/image";
-import { getThemeFromLocalStorage } from "Utils";
-import { ThemeModes } from "Interfaces";
+import { deviceMin } from 'Consts/device';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import RobotImage from './Images/RobotImage.svg';
+import LightPhone from './Images/LightPhone.svg';
+import DarkPhone from './Images/DarkPhone.svg';
+import { BiMouse } from 'react-icons/bi';
+import HeroMovingRobot from './Images/HeroMovingRobot.svg';
+import DarkPattern from './Images/DarkPattern.svg';
+import LightPattern from './Images/LightPattern.svg';
+import Image from 'next/image';
+import { getThemeFromLocalStorage } from 'Utils';
+import { ThemeModes } from 'Interfaces';
 import {
   Desc,
   HeroTheme,
@@ -19,16 +19,17 @@ import {
   SectionDivider,
   TitleSpanTheme,
   PhoneImage,
-} from "./styledComponents";
-import { componentStatements, getGsapTimeLine_Hero } from "./const";
-import Particles from "react-tsparticles";
-import { tsParticleOption_Desktop } from "./const";
-import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Headline4Style } from "Styles/Typo";
-import { PrimaryButton } from "Elements/Button/Primary";
-import theme from "styled-theming";
+} from './styledComponents';
+import { LanguageKeys, componentStatements } from './const';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import type { Engine } from 'tsparticles-engine';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Headline4Style } from 'Styles/Typo';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import theme from 'styled-theming';
+import { getGsapTimeLine_Hero } from 'Utils/animations';
+import { tsParticleOption_Desktop } from 'Styles/animation';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -47,23 +48,20 @@ function Desktop() {
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <Container className="container">
-      <Hero className="hero" $isActive={isActive}>
+    <Container className='container'>
+      <Hero className='hero' $isActive={isActive}>
         <HeroWrapper>
           <MonthlyUsersWrapper>
-            <HeroTitle>اسم رباتمون</HeroTitle>
-            <Desc>
-              دستیار مجازی جامع شما برای سوالات و راهنمایی های بی دردسر مهاجرت
-              به استرالیا.
-            </Desc>
+            <HeroTitle>{t(LanguageKeys.BotName)} </HeroTitle>
+            <Desc>{t(LanguageKeys.BotDesc)}</Desc>
           </MonthlyUsersWrapper>
           <HeroPictureWrapper>
             <HeroPicture
-              id={"hero-image"}
+              id={'hero-image'}
               width={450}
               height={450}
               src={HeroMovingRobot}
-              alt={"hero-image"}
+              alt={'hero-image'}
             />
           </HeroPictureWrapper>
           <MouseSection>
@@ -74,23 +72,15 @@ function Desktop() {
         </HeroWrapper>
       </Hero>
       <SectionDivider />
-      <div ref={particlesContainer} style={{ position: "relative" }}>
+      <div ref={particlesContainer} style={{ position: 'relative' }}>
         <StyledParticles
           container={particlesContainer}
-          id="tsparticles"
+          id='tsparticles'
           init={particlesInit}
           options={tsParticleOption_Desktop}
         />
         <Wrapper $isActive={isActive}>
           <Section>
-            <Title>
-              <span>دستیار مجازی</span> خود را داشته باشید
-            </Title>
-
-            <StyledDesc>
-              شما با استفاده از *اسم رباتمون* میتوانید در هر جا هر گونه سوال
-              مربوط به مهاجرت به استرالیا داشته باشید مطرح کنید.
-            </StyledDesc>
             <PhoneImage
               width={329}
               height={281}
@@ -99,12 +89,10 @@ function Desktop() {
                   ? DarkPhone
                   : LightPhone
               }
-              alt="phone-image"
+              alt='phone-image'
             />
-            <StyledDesc>
-              هوش مصنوعی ** مخصوص سایت ماراباکس هست که با هدف کمک به شما در
-              مساعل مهاجرتی در دست ساخت است.
-            </StyledDesc>
+            <Title>{t(LanguageKeys.Section2Title)}</Title>
+            <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
           </Section>
           <SectionDivider />
           <StyledSection>
@@ -113,15 +101,11 @@ function Desktop() {
                 width={291}
                 height={304}
                 src={RobotImage}
-                alt="phone-image"
-              />{" "}
+                alt='phone-image'
+              />{' '}
               <TestRobotWrapper>
-                <TestRobotTitle>
-                  شما میتونید با استفاده از دکمه زیر برای تست زودرس *اسم
-                  رباتمون* شرکت کنید. زمانی که تست *اسم رباتمون* شروع بشه به شما
-                  از طریق ایمیل اطلاع داده میشه.
-                </TestRobotTitle>
-                <PrimaryButton>ثبت نام</PrimaryButton>
+                <TestRobotTitle>{t(LanguageKeys.CTATitle)}</TestRobotTitle>
+                <PrimaryButton>{t(LanguageKeys.CTA)}</PrimaryButton>
               </TestRobotWrapper>
             </TestRobotContainer>
           </StyledSection>
@@ -142,7 +126,7 @@ to{
   transform:translateY(-5rem);
 }
 `;
-const TestRobotContainerTheme = theme("mode", {
+const TestRobotContainerTheme = theme('mode', {
   light: css`
     background: var(--color-gray6);
     background-image: url(${LightPattern});
@@ -201,8 +185,8 @@ const HeroTitle = styled.h2`
 const HeroPictureWrapper = styled.div`
   background-image: url(${() =>
     getThemeFromLocalStorage() === ThemeModes.DARK
-      ? "/Images/landing/AI/HeroDarkPhone.png"
-      : "/Images/landing/AI/HeroLightPhone.png"});
+      ? '/Images/landing/AI/HeroDarkPhone.png'
+      : '/Images/landing/AI/HeroLightPhone.png'});
   width: 50%;
   background-position-y: bottom;
   background-position-x: center;

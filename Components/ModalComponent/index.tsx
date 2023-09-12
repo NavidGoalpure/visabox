@@ -2,9 +2,18 @@ import * as Dialog from "@radix-ui/react-dialog";
 import dynamic from "next/dynamic";
 import styled, { keyframes } from "styled-components";
 import { Headline5Style, Headline6Style } from "Styles/Typo";
-import BritishFlag from "public/Images/Flags/BritishFlag.svg";
+import IranFlag from "public/Images/Flags/IranFlag.svg";
+import ChinaFlag from "public/Images/Flags/ChinaFlag.svg";
+import IndiaFlag from "public/Images/Flags/IndiaFlag.svg";
+import AustraliaFlag from "public/Images/Flags/AustraliaFlag.svg";
+import UnknownFlag from "public/Images/Flags/UnknownFlag.svg";
 import { deviceMin } from "Consts/device";
-import { ScrollBox } from "Elements/ScrollBox";
+import {
+  Hint_ModalIcon,
+  Hint_ModalTextStyle,
+  Hint_SecondaryContainer,
+} from "Styles/Theme/Hint/style";
+import { FiInfo } from "react-icons/fi";
 
 const ModalComponent = () => {
   return (
@@ -26,7 +35,40 @@ const ModalComponent = () => {
                 <FlagWrapper>
                   <Flag
                     fill
-                    src={BritishFlag}
+                    src={IranFlag}
+                    alt={"england flag"}
+                    sizes="2.25rem"
+                  />
+                </FlagWrapper>
+                <Optiontext>Iran</Optiontext>
+              </Option>
+              <Option>
+                <FlagWrapper>
+                  <Flag
+                    fill
+                    src={ChinaFlag}
+                    alt={"england flag"}
+                    sizes="2.25rem"
+                  />
+                </FlagWrapper>
+                <Optiontext>China</Optiontext>
+              </Option>
+              <Option>
+                <FlagWrapper>
+                  <Flag
+                    fill
+                    src={IndiaFlag}
+                    alt={"england flag"}
+                    sizes="2.25rem"
+                  />
+                </FlagWrapper>
+                <Optiontext>India</Optiontext>
+              </Option>
+              <Option>
+                <FlagWrapper>
+                  <Flag
+                    fill
+                    src={AustraliaFlag}
                     alt={"england flag"}
                     sizes="2.25rem"
                   />
@@ -37,36 +79,22 @@ const ModalComponent = () => {
                 <FlagWrapper>
                   <Flag
                     fill
-                    src={BritishFlag}
+                    src={UnknownFlag}
                     alt={"england flag"}
                     sizes="2.25rem"
                   />
                 </FlagWrapper>
-                <Optiontext>Australia</Optiontext>
-              </Option>
-              <Option>
-                <FlagWrapper>
-                  <Flag
-                    fill
-                    src={BritishFlag}
-                    alt={"england flag"}
-                    sizes="2.25rem"
-                  />
-                </FlagWrapper>
-                <Optiontext>Australia</Optiontext>
-              </Option>
-              <Option>
-                <FlagWrapper>
-                  <Flag
-                    fill
-                    src={BritishFlag}
-                    alt={"england flag"}
-                    sizes="2.25rem"
-                  />
-                </FlagWrapper>
-                <Optiontext>Australia</Optiontext>
+                <Optiontext>Other countries</Optiontext>
               </Option>
             </OptionsContainer>
+            <HintContainer>
+              {" "}
+              <HintInfoIcon />
+              <p>
+                The content that is displayed to you is categorized according to
+                your selected country
+              </p>
+            </HintContainer>
           </Wrapper>
         </DialogContent>
       </Dialog.Portal>
@@ -176,8 +204,9 @@ const OptionsContainer = styled.div`
 `;
 const Option = styled(Dialog.Close)`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  min-width: 45%;
   gap: 0.5rem;
   cursor: pointer;
 `;
@@ -194,4 +223,12 @@ const Flag = styled(DYImage)`
 const Optiontext = styled.h4`
   ${Headline6Style};
   color: var(--color-gray4);
+`;
+const HintContainer = styled.div`
+  ${Hint_SecondaryContainer};
+  ${Hint_ModalTextStyle};
+  align-items: center;
+`;
+const HintInfoIcon = styled(FiInfo)`
+  ${Hint_ModalIcon};
 `;

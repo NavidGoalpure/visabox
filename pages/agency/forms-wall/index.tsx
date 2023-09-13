@@ -61,7 +61,7 @@ const FormsWall: NextPage = () => {
         ) {
           ErrorToast("We have trouble with your account. Please login again");
           Logout(
-            `/${locale}/auth/signin?user_role=${UserRole.Agency.toLowerCase()}`
+            `/${locale}/auth/signin`
           );
         }
         // اگه اکانت ایجنسی دی اکتیو بود چیزی نشون نده

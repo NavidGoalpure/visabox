@@ -61,10 +61,9 @@ const UserForms: NextPage = ({}) => {
       onSuccess: (data) => {
         // اگه تو بروز کاربر ایمیلی وجود داشت اما توی دیتابیس کاربری نبود،  لاگ اوت کن
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
-        if (!data?.client?.[0]?._id || !data?.client?.[0]?.email) {
+        if (data?.client && data?.client?.[0]?.email === session?.user?.email) {
           ErrorToast("We have trouble with your account. Please login again");
-          router.push(`/${locale}/auth/signin`);
-          Logout();
+          Logout(`/${locale}/auth/signin`);
         }
       },
     }

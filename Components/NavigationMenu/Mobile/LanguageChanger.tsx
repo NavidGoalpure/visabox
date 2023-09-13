@@ -9,6 +9,7 @@ import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
 import BritishFlag from "../Images/BritishFlag.svg";
 import IranFlag from "../Images/IranFlag.svg";
+import ChinaFlag from '../Images/ChinaFlag.svg';
 import Image from "next/image";
 import { useRouter } from "next/router";
 import theme from "styled-theming";
@@ -68,6 +69,20 @@ const MobileLanguageChanger = ({ }) => {
               <Flag fill src={IranFlag} alt={"iran flag"} sizes="1.5rem" />
             </FlagWrapper>
             {smartTextObj.fa}
+          </PopupItem>
+          <Hr />
+          <PopupItem
+            onClick={() => {
+              setIsOpen(false);
+              router.push(router.pathname, router.asPath, {
+                locale: Languages.zh,
+              });
+            }}
+          >
+            <FlagWrapper>
+              <Flag fill src={ChinaFlag} alt={"china flag"} sizes="1.5rem" />
+            </FlagWrapper>
+            {smartTextObj.zh}
           </PopupItem>
         </PopupContainer>
       )}

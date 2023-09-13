@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { MdPersonSearch } from 'react-icons/md';
-
 import DarkHeroImage from './Images/DarkHeroImage.svg';
 import LightHeroImage from './Images/LightHeroImage.svg';
 import { BiMouse } from 'react-icons/bi';
@@ -28,7 +27,6 @@ import {
   GmailIcon,
   GmailLink,
   HeroTheme,
-  RightPlaceTitle,
   Section,
   SectionDivider,
   TelegramContainer,
@@ -37,18 +35,15 @@ import {
   TitleSpanTheme,
   VipAgentCard,
 } from './styledComponents';
-import {
-  LanguageKeys,
-  componentStatements,
-  getGsapTimeLine_Hero,
-} from './const';
+import { LanguageKeys, componentStatements } from './const';
 import Link from 'next/link';
 import theme from 'styled-theming';
 import Particles from 'react-tsparticles';
-import { tsParticleOption_Desktop } from './const';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { tsParticleOption_Desktop } from 'Styles/animation';
+import { getGsapTimeLine_Hero } from 'Utils/animations';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -471,4 +466,3 @@ const AboutComponentImage = styled(Image)`
   z-index: 10;
   margin-bottom: 1.5rem;
 `;
-const ProfilePageSecton_Title = styled(Title)``;

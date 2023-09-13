@@ -4,12 +4,14 @@ import { componentStatements, LanguageKeys } from "./const";
 import { SmallBox_BG_Textured } from "Styles/Theme/SmallBox/theme";
 import { AiOutlinePrinter } from "react-icons/ai";
 import { MdOutlineEdit } from "react-icons/md";
+import { BiShareAlt } from "react-icons/bi";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { useRouter } from "next/router";
 import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
 import { useLocale } from "Hooks/useLocale";
 import theme from "styled-theming";
 import { useSession } from "next-auth/react";
+import { copyContent } from "Utils";
 import useDevice from "Hooks/useDevice";
 interface Props {
   id: string;
@@ -21,19 +23,36 @@ function BoxesSection({ id, email }: Props) {
   const { data: session } = useSession();
   const { locale } = useLocale();
   const { isLaptop } = useDevice();
+  const ShareToastMessage = t(LanguageKeys.copyShareToastMessage);
   return (
     <Container>
       <SmallBoxesWrapper>
         {session?.user?.email === email && (
-          <SmallBox
-            onClick={() => window.open(`/${locale}/clients/point-calculator`)}
-          >
-            <EditTitle>{t(LanguageKeys.EditBoxTitle)}</EditTitle>
-            <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
-            <PrimaryButton>
-              <EditIcon />
-            </PrimaryButton>
-          </SmallBox>
+          <>
+            <SmallBox
+              onClick={() =>
+                copyContent({
+                  text: `www.marabox.com/${locale}/clients/${id}`,
+                  toastMessage: ShareToastMessage,
+                })
+              }
+            >
+              <ShareTitle>{t(LanguageKeys.ShareBoxTitle)}</ShareTitle>
+              <ShareDesc>{t(LanguageKeys.ShareBoxDesc)}</ShareDesc>
+              <PrimaryButton>
+                <ShareIcon />
+              </PrimaryButton>
+            </SmallBox>
+            <SmallBox
+              onClick={() => window.open(`/${locale}/clients/point-calculator`)}
+            >
+              <EditTitle>{t(LanguageKeys.EditBoxTitle)}</EditTitle>
+              <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
+              <PrimaryButton>
+                <EditIcon />
+              </PrimaryButton>
+            </SmallBox>
+          </>
         )}
         {isLaptop && (
           <SmallBox
@@ -88,6 +107,7 @@ const Container = styled.div`
 `;
 
 const SmallBoxesWrapper = styled.div`
+  width: 18rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -116,6 +136,8 @@ const PrintDesc = styled.p`
 `;
 const EditTitle = styled(PrintTitle)``;
 const EditDesc = styled(PrintDesc)``;
+const ShareTitle = styled(PrintTitle)``;
+const ShareDesc = styled(PrintDesc)``;
 const PrintIcon = styled(AiOutlinePrinter)`
   width: 2rem;
   height: auto;
@@ -125,6 +147,14 @@ const PrintIcon = styled(AiOutlinePrinter)`
   box-sizing: content-box;
 `;
 const EditIcon = styled(MdOutlineEdit)`
+  width: 2rem;
+  height: auto;
+  color: var(--color-gray13);
+  padding: 1rem;
+  border-radius: 50%;
+  box-sizing: content-box;
+`;
+const ShareIcon = styled(BiShareAlt)`
   width: 2rem;
   height: auto;
   color: var(--color-gray13);

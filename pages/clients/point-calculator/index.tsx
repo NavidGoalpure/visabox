@@ -17,15 +17,11 @@ import { ClientQueryKeys } from "Utils/query/keys";
 import { Loading } from "Elements/Loading";
 import { ContentOrError } from "Components/contentOrError";
 import ErrorToast from "Elements/Toast/Error";
-import { signOut } from "next-auth/react";
-import { deviceMin } from "Consts/device";
 import { Point_Calculator_Fragment } from "Consts/GroqFragments";
-import { LocalStorageKeys } from "Interfaces";
-import { UserRole } from "Interfaces/Database";
-import { getLocalStorage } from "Utils";
 import NotFound from "pages/404";
-import { isClientLogedIn, Logout } from "Utils/user";
+import { isAgencyLogedIn, isClientLogedIn, isLogout, Logout } from "Utils/user";
 import { useRouter } from "next/router";
+import { UserRole } from "Interfaces/Database";
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
@@ -65,16 +61,18 @@ const UserForms: NextPage = ({}) => {
       onSuccess: (data) => {
         // اگه تو بروز کاربر ایمیلی وجود داشت اما توی دیتابیس کاربری نبود،  لاگ اوت کن
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
-        if (!data?.client?.[0]?._id || !data?.client?.[0]?.email) {
+        if (data?.client && data?.client?.[0]?.email === session?.user?.email) {
           ErrorToast("We have trouble with your account. Please login again");
-          router.push(`/${locale}/auth/signin`);
-          Logout();
+          Logout(`/${locale}/auth/signin`);
         }
       },
     }
   );
 
   //
+
+  if (isLogout())
+    router.push(`/auth/signin?user_role=${UserRole.Client.toLowerCase()}`);
   if (isClientLogedIn())
     return (
       <StyledPageLayout hasBanner={false} hasFooter={false}>
@@ -92,7 +90,8 @@ const UserForms: NextPage = ({}) => {
         )}
       </StyledPageLayout>
     );
-  return <NotFound />;
+  if (isAgencyLogedIn()) return <NotFound />;
+  return <Loading />;
 };
 export default UserForms;
 const StyledPageLayout = styled(PageLayout)`

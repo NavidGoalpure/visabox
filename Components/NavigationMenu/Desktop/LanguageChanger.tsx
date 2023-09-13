@@ -1,24 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useLocale } from 'Hooks/useLocale';
-import * as MaraSelect from 'Elements/Select';
-import { Languages } from 'Interfaces';
-import BritishFlag from '../Images/BritishFlag.svg';
-import IranFlag from '../Images/IranFlag.svg';
-import ChinaFlag from '../Images/ChinaFlag.svg';
-import { useRouter } from 'next/router';
-import { ImSphere } from 'react-icons/im';
-import dynamic from 'next/dynamic';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import React from "react";
+import styled from "styled-components";
+import { useLocale } from "Hooks/useLocale";
+import * as MaraSelect from "Elements/Select";
+import { Languages } from "Interfaces";
+import BritishFlag from "public/Images/Flags/BritishFlag.svg";
+import IranFlag from "public/Images/Flags/IranFlag.svg";
+import ChinaFlag from "public/Images/Flags/ChinaFlag.svg";
+import { useRouter } from "next/router";
+import { ImSphere } from "react-icons/im";
+import dynamic from "next/dynamic";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 
 function DesktopLanguageChanger() {
   const { locale } = useLocale();
 
   const router = useRouter();
   const smartTextObj: Record<Languages, string> = {
-    en: 'English',
-    fa: 'فارسی',
-    zh: '中国人',
+    en: "English",
+    fa: "فارسی",
+    zh: "中国人",
   };
   function onClickHandler(value: string) {
     router.push(router.asPath, router.asPath, { locale: value });
@@ -28,7 +28,7 @@ function DesktopLanguageChanger() {
       <StyledMaraSelectRoot
         noScroll
         triggerProps={{
-          id: 'language-trigger',
+          id: "language-trigger",
           placeholder: smartTextObj[locale],
           icon: <SphereIcon />,
         }}
@@ -40,8 +40,8 @@ function DesktopLanguageChanger() {
               <Flag
                 fill
                 src={BritishFlag}
-                alt={'england flag'}
-                sizes='2.25rem'
+                alt={"england flag"}
+                sizes="2.25rem"
               />
             </FlagWrapper>
           }
@@ -53,7 +53,7 @@ function DesktopLanguageChanger() {
           value={Languages.fa}
           icon={
             <FlagWrapper>
-              <Flag fill src={IranFlag} alt={'iran flag'} sizes='2.25rem' />
+              <Flag fill src={IranFlag} alt={"iran flag"} sizes="2.25rem" />
             </FlagWrapper>
           }
         />
@@ -62,7 +62,7 @@ function DesktopLanguageChanger() {
           value={Languages.zh}
           icon={
             <FlagWrapper>
-              <Flag fill src={ChinaFlag} alt={'china flag'} sizes='2.25rem' />
+              <Flag fill src={ChinaFlag} alt={"china flag"} sizes="2.25rem" />
             </FlagWrapper>
           }
         />
@@ -79,7 +79,7 @@ const FlagWrapper = styled.div`
   height: 2.25rem;
 `;
 ///////////
-const DYImage = dynamic(() => import('next/image'));
+const DYImage = dynamic(() => import("next/image"));
 const Flag = styled(DYImage)`
   position: relative !important;
 `;

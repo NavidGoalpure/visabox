@@ -29,6 +29,7 @@ enum LocalStorageKeys {
   Client_IsFormBannerClosed = "Client_IsFormBannerClosed",
   Url_Before_Login = "Url_Before_Login",
   User_Role = "User_Role",
+  Country = "Country",
 }
 enum CookieKeys {
   // وقتی با گوگل یا چیز دیگه ای لاگین میکنیم از دامین خودمون خارج میشیم و وقتی برمیگردیم مشخص نبوده

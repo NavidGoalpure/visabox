@@ -21,8 +21,13 @@ import { UniSections } from "Interfaces/Database/Client";
 interface Props {
   theme: "LAYER1" | "LAYER2";
   callback?: (university: UniSections) => void;
+  placeholder:string;
 }
-export const SearchInputComponent: React.FC<Props> = ({ theme, callback }) => {
+export const SearchInputComponent: React.FC<Props> = ({
+  theme,
+  callback,
+  placeholder,
+}) => {
   const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const SearchedUniversities = iran.filter(
@@ -47,7 +52,7 @@ export const SearchInputComponent: React.FC<Props> = ({ theme, callback }) => {
           <StyledInput
             onFocus={handleFocus}
             onBlur={handleBlur}
-            placeholder={"نام دانشگاه یا شهر"}
+            placeholder={placeholder}
             value={inputValue}
             $theme={theme}
             onChange={(event: ChangeEvent<HTMLInputElement>) => {

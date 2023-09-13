@@ -46,3 +46,14 @@ export const Hint_SecondaryIcon = css`
   height: auto;
   flex-shrink: 0;
 `;
+export const Hint_ModalTextStyle = css`
+  ${Headline7Style};
+  color: var(--color-secondary2);
+  list-style: disc;
+`;
+export const Hint_ModalIcon = css`
+  color: var(--color-secondary2);
+  width: 2.4rem;
+  height: auto;
+  flex-shrink: 0;
+`;

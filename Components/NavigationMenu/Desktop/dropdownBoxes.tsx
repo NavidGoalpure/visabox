@@ -1,15 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useLocale } from 'Hooks/useLocale';
-import * as MaraSelect from 'Elements/Select';
-import { useRouter } from 'next/router';
-import { listsItems } from '../const';
-import { componentStatements, LanguageKeys } from '../const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Languages } from 'Interfaces';
-import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import React from "react";
+import styled from "styled-components";
+import { useLocale } from "Hooks/useLocale";
+import * as MaraSelect from "Elements/Select";
+import { useRouter } from "next/router";
+import { listsItems } from "../const";
+import { componentStatements, LanguageKeys } from "../const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Languages, LocalStorageKeys } from "Interfaces";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { SupportedCountry } from "Interfaces/Database";
+import { getLocalStorage } from "Utils";
 
-function DesktopBusinessDropdown() {
+function DesktopBusinessDropdown({ clientCountry }: { clientCountry: string }) {
   const { locale } = useLocale();
   const router = useRouter();
   const { t } = useStaticTranslation(componentStatements);
@@ -19,7 +21,7 @@ function DesktopBusinessDropdown() {
       <StyledMaraSelectRoot
         noScroll
         triggerProps={{
-          id: 'bussiness-trigger',
+          id: "bussiness-trigger",
           placeholder: t(LanguageKeys.Lists),
         }}
       >
@@ -48,7 +50,9 @@ function DesktopBusinessDropdown() {
           disabled
         />
 
-        {locale === Languages.fa && (
+        {(clientCountry === SupportedCountry.Iran ||
+          getLocalStorage(LocalStorageKeys.Country) ===
+            SupportedCountry.Iran) && (
           <MaraSelect.Item
             text={listsItems[4].title[locale]}
             value={listsItems[4].title[locale] as string}

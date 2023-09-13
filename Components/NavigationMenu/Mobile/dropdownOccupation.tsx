@@ -5,7 +5,6 @@ import useOnClickOutside from "Hooks/useOnClickOutside";
 import { BsChevronDown } from "react-icons/bs";
 import {
   layer3_SubtitleStyle,
-  layer3_TextStyle,
   layer3_TitleStyle,
 } from "Styles/Theme/Layers/layer3/style";
 import { layer3_TextColor } from "Styles/Theme/Layers/layer3/theme";
@@ -13,8 +12,14 @@ import theme from "styled-theming";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { componentStatements, LanguageKeys, occupationItems } from "../const";
 import Link from "next/link";
-import { Languages } from "Interfaces";
-const MobileOccupationDropdown = ({}) => {
+import { Languages, LocalStorageKeys } from "Interfaces";
+import { SupportedCountry } from "Interfaces/Database";
+import { getLocalStorage } from "Utils";
+const MobileOccupationDropdown = ({
+  clientCountry,
+}: {
+  clientCountry: string;
+}) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -57,7 +62,9 @@ const MobileOccupationDropdown = ({}) => {
               setIsOpen(false);
             }}
           >
-            {locale === Languages.fa && (
+            {(clientCountry === SupportedCountry.Iran ||
+              getLocalStorage(LocalStorageKeys.Country) ===
+                SupportedCountry.Iran) && (
               <StyledLink href={occupationItems[2].href}>
                 {occupationItems[2].title[locale]}
               </StyledLink>

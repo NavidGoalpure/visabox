@@ -29,6 +29,7 @@ import {
   layer2A_Bg,
   layer2A_TextColor,
 } from "Styles/Theme/Layers/layer2/theme";
+import { deviceMin } from "Consts/device";
 
 interface Props {
   authProviders: Provider[];
@@ -138,6 +139,9 @@ const RoleBoxContainer = styled.section`
   gap: 0.5rem;
   width: 100%;
   margin-bottom: 4rem;
+  @media ${deviceMin.tabletS} {
+    height: 10.5rem;
+  }
 `;
 const RoleBox = styled.div<{ isActive: boolean }>`
   ${layer2A_Bg};

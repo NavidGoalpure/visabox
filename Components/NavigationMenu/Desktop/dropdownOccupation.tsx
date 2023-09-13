@@ -6,9 +6,15 @@ import { useRouter } from "next/router";
 import { componentStatements, LanguageKeys, occupationItems } from "../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { Languages } from "Interfaces";
+import { Languages, LocalStorageKeys } from "Interfaces";
+import { SupportedCountry } from "Interfaces/Database";
+import { getLocalStorage } from "Utils";
 
-function DesktopOccupationDropdown() {
+function DesktopOccupationDropdown({
+  clientCountry,
+}: {
+  clientCountry: string;
+}) {
   const { locale } = useLocale();
   const router = useRouter();
   const { t } = useStaticTranslation(componentStatements);
@@ -33,7 +39,9 @@ function DesktopOccupationDropdown() {
           onClick={() => router.push(`/${locale}/${occupationItems[1].href}`)}
           disabled
         />
-        {locale === Languages.fa && (
+        {(clientCountry === SupportedCountry.Iran ||
+          getLocalStorage(LocalStorageKeys.Country) ===
+            SupportedCountry.Iran) && (
           <MaraSelect.Item
             text={occupationItems[2].title[locale]}
             value={occupationItems[2].title[locale] as string}

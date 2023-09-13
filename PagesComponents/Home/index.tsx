@@ -16,7 +16,7 @@ import { getClientDetail } from "Queries/client";
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { ClientQueryKeys } from "Utils/query/keys";
-import CountryModal from "./CountryModal";
+import CountryModal from "../../Components/Layouts/CountryModal";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -47,7 +47,6 @@ const HomeContent: React.FC = () => {
   return (
     <>
       <Hero />
-      <CountryModal />
      
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (

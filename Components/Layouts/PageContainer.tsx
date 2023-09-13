@@ -19,6 +19,7 @@ import { getLocalStorage } from "Utils";
 import { UserRole } from "Interfaces/Database";
 import { Loading } from "Elements/Loading";
 import { isClientLogedIn } from "Utils/user";
+import CountryModal from "./CountryModal";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -73,6 +74,7 @@ const PageContainer: React.FC<Props> = ({
         <>
           {" "}
           <ToasterContainer />
+          <CountryModal />
           {hasMenu && <Header />}
           {hasBanner && (!hasClientCompletedForm || !session) && (
             <SmartBanner

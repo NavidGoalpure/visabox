@@ -49,13 +49,17 @@ const CountryModal = () => {
   );
   //
   useEffect(() => {
+    // if there was no country in Sanity server show popup
     if (
-      !getLocalStorage(LocalStorageKeys.Country) ||
+      data?.client &&
       data?.client?.[0]?.completed_forms?.filter(
         (forms) => forms.forms === ClientCompletedForms.BasicForm
       ).length !== 1
     ) {
-      setIsOpen((prevState) => !prevState);
+      setIsOpen(true);
+    } else if (!getLocalStorage(LocalStorageKeys.Country)) {
+      // if there was no country in localStorage show popup
+      setIsOpen(true);
     }
   }, [window, data]);
   //

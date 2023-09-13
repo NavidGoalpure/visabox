@@ -13,8 +13,14 @@ import theme from 'styled-theming';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys, listsItems } from '../const';
 import Link from 'next/link';
-import { Languages } from 'Interfaces';
-const MobileBusinessDropdown = ({}) => {
+import { Languages, LocalStorageKeys } from 'Interfaces';
+import { SupportedCountry } from 'Interfaces/Database';
+import { getLocalStorage } from 'Utils';
+const MobileBusinessDropdown = ({
+  clientCountry,
+}: {
+  clientCountry: string;
+}) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -25,7 +31,7 @@ const MobileBusinessDropdown = ({}) => {
   useOnClickOutside(containerRef, closePopup);
 
   return (
-    <Container id={'container'} ref={containerRef}>
+    <Container id={"container"} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>
         <TriggerText>{t(LanguageKeys.Lists)}</TriggerText>
         <ArrowIcon $isOpen={isOpen} />
@@ -72,7 +78,9 @@ const MobileBusinessDropdown = ({}) => {
             </StyledLink>
           </PopupItem>
           <Hr />
-          {locale === Languages.fa && (
+          {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
             <PopupItem
               onClick={() => {
                 setIsOpen(false);

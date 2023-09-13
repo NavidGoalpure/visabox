@@ -20,10 +20,12 @@ import MobileBoxesDropdown from "./dropdownBoxes";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
 import { Languages, LocalStorageKeys } from "Interfaces";
-import { setLocalStorage } from "Utils";
+import { getLocalStorage, setLocalStorage } from "Utils";
 import { isAgencyLogedIn } from "Utils/user";
+import { Client } from "Interfaces/Database/Client";
+import { SupportedCountry } from "Interfaces/Database";
 
-function SmartHeader() {
+function SmartHeader({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
   const { locale } = useLocale();
 
@@ -75,10 +77,12 @@ function SmartHeader() {
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
                 <Hr />
               </Nav>
-              <MobileBoxesDropdown />
+              <MobileBoxesDropdown clientCountry={clientCountry} />
               <Hr />
-              <OccupationDropdown />
-              {locale === Languages.fa && (
+              <OccupationDropdown clientCountry={clientCountry} />
+              {(clientCountry === SupportedCountry.Iran ||
+                getLocalStorage(LocalStorageKeys.Country) ===
+                  SupportedCountry.Iran) && (
                 <>
                   <Hr />
                   <MenuLink href={`/${locale}/blog`}>

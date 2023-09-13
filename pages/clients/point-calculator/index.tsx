@@ -1,26 +1,27 @@
-import { NextPage } from 'next';
-import PageLayout from 'Components/Layouts/PageContainer';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { useLocale } from 'Hooks/useLocale';
-import Seo from 'Components/Seo';
-import styled from 'styled-components';
-import Content from 'PagesComponents/Clients/PointCalculator';
+import { NextPage } from "next";
+import PageLayout from "Components/Layouts/PageContainer";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { useLocale } from "Hooks/useLocale";
+import Seo from "Components/Seo";
+import styled from "styled-components";
+import Content from "PagesComponents/Clients/PointCalculator";
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Clients/PointCalculator/const';
-import { FormDataContextProvider } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context';
-import { useSession } from 'next-auth/react';
-import { getClientDetail } from 'Queries/client';
-import { useQuery } from 'react-query';
-import { ClientQueryKeys } from 'Utils/query/keys';
-import { Loading } from 'Elements/Loading';
-import { ContentOrError } from 'Components/contentOrError';
-import ErrorToast from 'Elements/Toast/Error';
-import { Point_Calculator_Fragment } from 'Consts/GroqFragments';
-import NotFound from 'pages/404';
-import { isAgencyLogedIn, isClientLogedIn, isLogout, Logout } from 'Utils/user';
-import { useRouter } from 'next/router';
+} from "PagesComponents/Clients/PointCalculator/const";
+import { FormDataContextProvider } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
+import { useSession } from "next-auth/react";
+import { getClientDetail } from "Queries/client";
+import { useQuery } from "react-query";
+import { ClientQueryKeys } from "Utils/query/keys";
+import { Loading } from "Elements/Loading";
+import { ContentOrError } from "Components/contentOrError";
+import ErrorToast from "Elements/Toast/Error";
+import { Point_Calculator_Fragment } from "Consts/GroqFragments";
+import NotFound from "pages/404";
+import { isAgencyLogedIn, isClientLogedIn, isLogout, Logout } from "Utils/user";
+import { useRouter } from "next/router";
+import { UserRole } from "Interfaces/Database";
 
 const UserForms: NextPage = ({}) => {
   const { locale } = useLocale();
@@ -28,7 +29,7 @@ const UserForms: NextPage = ({}) => {
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
 
-  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `
   ${Point_Calculator_Fragment}
       _id,
@@ -61,7 +62,7 @@ const UserForms: NextPage = ({}) => {
         // اگه تو بروز کاربر ایمیلی وجود داشت اما توی دیتابیس کاربری نبود،  لاگ اوت کن
         // این حالت وقتی پیش میاد که یوزر از دیتابیس پاک شده باشه اما هنوز تو کوکی مرورگر مقدار داشته باشه
         if (!data?.client?.[0]?._id || !data?.client?.[0]?.email) {
-          ErrorToast('We have trouble with your account. Please login again');
+          ErrorToast("We have trouble with your account. Please login again");
           router.push(`/${locale}/auth/signin`);
           Logout();
         }
@@ -71,7 +72,8 @@ const UserForms: NextPage = ({}) => {
 
   //
 
-  if (isLogout()) router.push('/auth/signin');
+  if (isLogout())
+    router.push(`/auth/signin?user_role=${UserRole.Client.toLowerCase()}`);
   if (isClientLogedIn())
     return (
       <StyledPageLayout hasBanner={false} hasFooter={false}>
@@ -81,7 +83,7 @@ const UserForms: NextPage = ({}) => {
           canonical={`https://www.marabox.com/${locale}/clients/point-calculator`}
         />
         {isLoading ? (
-          <Loading style={{ width: 'auto' }} />
+          <Loading style={{ width: "auto" }} />
         ) : (
           <FormDataContextProvider prevData={data?.client?.[0]}>
             <ContentOrError isError={isError} content={<Content />} />

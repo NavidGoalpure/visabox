@@ -26,6 +26,7 @@ import { educations, uniSections, YesOrNo } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
 import { SearchInputComponent } from "Components/SearchInputComponent";
+import { SupportedCountry } from "Interfaces/Database";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -84,16 +85,14 @@ const Step5 = () => {
         }
       </ToggleGroupRoot>
       {client?.uni_section === UniSections.IDontKnow &&
-        locale === Languages.fa && (
+        client?.country === SupportedCountry.Iran && (
           <>
             <HintContainer>
               <InfoHintIcon />
-              <HintText>
-                با وارد نمودن نام هر دانشگاه، می‌توانید ببینید در چه دسته بندی
-                (سکشن) ای قرار دارد
-              </HintText>
+              <HintText>{t(LanguageKeys.UniInput_HintText)}</HintText>
             </HintContainer>
             <SearchInputComponent
+            placeholder={t(LanguageKeys.UniInput_Placeholder)}
               theme={"LAYER1"}
               callback={(univercity) => {
                 client &&

@@ -16,7 +16,6 @@ import { getClientDetail } from "Queries/client";
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { ClientQueryKeys } from "Utils/query/keys";
-import ModalComponent from "Components/ModalComponent";
 import CountryModal from "./CountryModal";
 
 const HomeContent: React.FC = () => {

@@ -1,4 +1,3 @@
-import { Dialog } from "@radix-ui/react-dialog";
 import ModalComponent from "Components/ModalComponent";
 import dynamic from "next/dynamic";
 import { FiInfo } from "react-icons/fi";
@@ -15,45 +14,84 @@ import IndiaFlag from "public/Images/Flags/IndiaFlag.svg";
 import AustraliaFlag from "public/Images/Flags/AustraliaFlag.svg";
 import UnknownFlag from "public/Images/Flags/UnknownFlag.svg";
 import { useEffect, useState } from "react";
-import { getLocalStorage } from "Utils";
+import { getLocalStorage, setLocalStorage } from "Utils";
 import { LocalStorageKeys } from "Interfaces";
 import { deviceMin } from "Consts/device";
+import { SupportedCountry } from "Interfaces/Database";
+import { getClientDetail } from "Queries/client";
+import { useSession } from "next-auth/react";
+import { useQuery } from "react-query";
+import { ClientQueryKeys } from "Utils/query/keys";
+import { ClientCompletedForms } from "Interfaces/Database/Client";
 
 const CountryModal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  useEffect(() => {
-    if (!getLocalStorage(LocalStorageKeys.Country)) {
-      setIsOpen(true);
+  const { data: session } = useSession();
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const resParams = `
+      completed_forms
+      `;
+
+  const { data } = useQuery(
+    ClientQueryKeys.detail({
+      reqParams,
+      resParams,
+    }),
+    () => {
+      return getClientDetail({
+        reqParams,
+        resParams,
+      });
+    },
+    {
+      enabled: !!session?.user?.email,
     }
-  }, [window]);
+  );
+  //
+  useEffect(() => {
+    if (
+      !getLocalStorage(LocalStorageKeys.Country) ||
+      data?.client?.[0]?.completed_forms?.filter(
+        (forms) => forms.forms === ClientCompletedForms.BasicForm
+      ).length !== 1
+    ) {
+      setIsOpen((prevState) => !prevState);
+    }
+  }, [window, data]);
+  //
+  function clickHandler({ value }: { value: SupportedCountry }) {
+    setIsOpen(false);
+    setLocalStorage({ key: LocalStorageKeys.Country, value });
+  }
   return (
     <ModalComponent
       open={isOpen}
       DialogTitleText="
               Please select your country
-    
     "
     >
       <OptionsContainer>
-        <Option>
+        <Option onClick={() => clickHandler({ value: SupportedCountry.Iran })}>
           <FlagWrapper>
             <Flag fill src={IranFlag} alt={"england flag"} sizes="2.25rem" />
           </FlagWrapper>
           <Optiontext>Iran</Optiontext>
         </Option>
-        <Option>
+        <Option onClick={() => clickHandler({ value: SupportedCountry.China })}>
           <FlagWrapper>
             <Flag fill src={ChinaFlag} alt={"england flag"} sizes="2.25rem" />
           </FlagWrapper>
           <Optiontext>China</Optiontext>
         </Option>
-        <Option>
+        <Option onClick={() => clickHandler({ value: SupportedCountry.India })}>
           <FlagWrapper>
             <Flag fill src={IndiaFlag} alt={"england flag"} sizes="2.25rem" />
           </FlagWrapper>
           <Optiontext>India</Optiontext>
         </Option>
-        <Option>
+        <Option
+          onClick={() => clickHandler({ value: SupportedCountry.Australia })}
+        >
           <FlagWrapper>
             <Flag
               fill
@@ -64,7 +102,7 @@ const CountryModal = () => {
           </FlagWrapper>
           <Optiontext>Australia</Optiontext>
         </Option>
-        <Option>
+        <Option onClick={() => clickHandler({ value: SupportedCountry.Other })}>
           <FlagWrapper>
             <Flag fill src={UnknownFlag} alt={"england flag"} sizes="2.25rem" />
           </FlagWrapper>

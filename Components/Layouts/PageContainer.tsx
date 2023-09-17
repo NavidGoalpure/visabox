@@ -44,7 +44,7 @@ const PageContainer: React.FC<Props> = ({
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `name,
                   completed_forms`;
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isFetching } = useQuery(
     ClientQueryKeys.detail({
       reqParams,
       resParams,
@@ -56,9 +56,7 @@ const PageContainer: React.FC<Props> = ({
       });
     },
     {
-      enabled:
-        !!session?.user?.email &&
-        isClientLogedIn(),
+      enabled: !!session?.user?.email && isClientLogedIn(),
     }
   );
   useEffect(() => {
@@ -74,7 +72,7 @@ const PageContainer: React.FC<Props> = ({
         <>
           {" "}
           <ToasterContainer />
-          <CountryModal />
+          {!data?.client?.[0]?.completed_forms && <CountryModal />}
           {hasMenu && <Header />}
           {hasBanner && (!hasClientCompletedForm || !session) && (
             <SmartBanner

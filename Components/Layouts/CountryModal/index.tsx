@@ -18,55 +18,16 @@ import { getLocalStorage, setLocalStorage } from "Utils";
 import { LocalStorageKeys } from "Interfaces";
 import { deviceMin } from "Consts/device";
 import { SupportedCountry } from "Interfaces/Database";
-import { getClientDetail } from "Queries/client";
-import { useSession } from "next-auth/react";
-import { useQuery } from "react-query";
-import { ClientQueryKeys } from "Utils/query/keys";
-import { ClientCompletedForms } from "Interfaces/Database/Client";
 
 const CountryModal = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { data: session } = useSession();
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
-  const resParams = `
-      completed_forms
-      `;
-
-  const { data } = useQuery(
-    ClientQueryKeys.detail({
-      reqParams,
-      resParams,
-    }),
-    () => {
-      return getClientDetail({
-        reqParams,
-        resParams,
-      });
-    },
-    {
-      enabled: !!session?.user?.email,
-      onSuccess: (data) => {
-        // if there was no country in Sanity server show popup
-        if (
-          data?.client &&
-          data?.client?.[0]?.completed_forms?.filter(
-            (forms) => forms.forms === ClientCompletedForms.BasicForm
-          ).length !== 1 &&
-          !getLocalStorage(LocalStorageKeys.Country)
-        ) {
-          setIsOpen(true);
-        }
-      },
-    }
-  );
   //
   useEffect(() => {
-    // if the user is not signed in and there is nothing in localStorage
-    //show the popup
-    if (!data && !getLocalStorage(LocalStorageKeys.Country)) {
-      setIsOpen((prevstate) => !prevstate);
+    // show the popup if there is nothing in localStorage
+    if (window && !getLocalStorage(LocalStorageKeys.Country)) {
+      setIsOpen(true);
     }
-  }, [data]);
+  }, [window]);
   //
   function clickHandler({ value }: { value: SupportedCountry }) {
     setIsOpen(false);

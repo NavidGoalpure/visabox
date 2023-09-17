@@ -46,7 +46,7 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
             getLocalStorage(LocalStorageKeys.Country) ===
               SupportedCountry.Iran) && (
             <NavigationMenu.Item>
-              <Link href={`/${locale}/blog`}>
+              <Link href={`/fa/blog`}>
                 <Item>{t(LanguageKeys.Blogs)}</Item>
               </Link>
             </NavigationMenu.Item>

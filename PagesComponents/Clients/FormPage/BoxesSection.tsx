@@ -84,13 +84,17 @@ const Container = styled.div`
   display: flex;
   gap: 1rem;
   flex-direction: column;
+  align-items: center;
   width: 100%;
 `;
 
 const SmallBoxesWrapper = styled.div`
+  width: 18rem;
   display: flex;
   flex-direction: column;
+  -webkit-box-pack: start;
   justify-content: flex-start;
+  -webkit-box-align: center;
   align-items: center;
   gap: 1rem;
 `;

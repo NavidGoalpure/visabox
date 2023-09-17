@@ -33,7 +33,7 @@ const Step12 = () => {
         {locale === Languages.fa && (
           <>
             اگر میخواهید درباره سابکلاس های ویزا اطلاعات کسب کنید{" "}
-            <StyledLink href={"/blog/what-is-skilled-worker-visa"}>
+            <StyledLink href={"/fa/blog/what-is-skilled-worker-visa"}>
               اینجا
             </StyledLink>{" "}
             کلیک کنید

@@ -85,7 +85,7 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
                   SupportedCountry.Iran) && (
                 <>
                   <Hr />
-                  <MenuLink href={`/${locale}/blog`}>
+                  <MenuLink href={`/fa/blog`}>
                     {t(LanguageKeys.Blogs)}
                   </MenuLink>
                 </>

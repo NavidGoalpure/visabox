@@ -22,7 +22,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       });
   } else {
     res.status(401).send({
-      message: "The user have not _id",
+      message: "The user has not _id",
     });
   }
 }

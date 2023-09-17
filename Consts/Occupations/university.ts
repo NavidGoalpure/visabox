@@ -1,5 +1,8 @@
 import { University } from 'Interfaces/Database/university';
 
+// farzam zh
+// farzam fa
+
 export const iran:University[] = [
   {
     title: {

@@ -1,5 +1,7 @@
 import { MultiLanguageText } from 'Interfaces/Database';
 
+// farzam zh
+
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',

@@ -2,13 +2,13 @@ import { Languages } from 'Interfaces';
 
 interface MultiLanguageText {
   [Languages.en]: string;
-  [Languages.fa]?: string;
+  [Languages.fa]: string;
   [Languages.zh]?: string;
 }
 interface MultiLanguageTextArray {
   [Languages.en]: string[];
   [Languages.fa]?: string[];
-  [Languages.zh]?: string[];
+  [Languages.zh]: string[];
 }
 enum Status {
   'ACTIVE' = 'active',

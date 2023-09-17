@@ -32,9 +32,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   ClientTitle: {
     en: `I Want To Immigrate`,
     fa: 'می‌خواهم مهاجرت کنم',
+    zh: '我想移民',
   },
   AgentTitle: {
     en: `I'm A Mara Agent`,
     fa: 'یک موسسه مهاجرتی هستم',
+    zh: '我是玛拉特工', 
   },
 };

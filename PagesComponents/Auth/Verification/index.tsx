@@ -15,12 +15,13 @@ import {
 import { componentStatements, LanguageKeys } from './const';
 import { UserRole } from 'Interfaces/Database';
 import Cookies from 'js-cookie';
-import { CookieKeys } from 'Interfaces';
+import { CookieKeys, LocalStorageKeys } from 'Interfaces';
 import { createUserOrGetExistData } from 'Queries';
 import { ContentOrError } from 'Components/contentOrError';
 import { AxiosError } from 'axios';
 import { Logout } from 'Utils/user';
 import { PrimaryButton } from 'Elements/Button/Primary';
+import { removeLocalStorage } from 'Utils';
 
 interface Props {
   chosenRole: UserRole;
@@ -35,7 +36,7 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
   const { data: session } = useSession();
 
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
-  const resParams = `name`;
+  const resParams = `name, country`;
   const { data, isLoading, error, status } = useQuery<
     any,
     AxiosError<{ error: string; message: string }>
@@ -57,6 +58,9 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
     if (chosenRole === UserRole.Client) {
       getClientDetail({ reqParams, resParams })
         .then((res) => {
+          if (res?.client[0]?.country) {
+            removeLocalStorage(LocalStorageKeys.Country)
+          }
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
           if (res?.client[0]?.name) {
             router.push(`/${locale}`);

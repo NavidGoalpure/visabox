@@ -45,23 +45,28 @@ const CountryModal = () => {
     },
     {
       enabled: !!session?.user?.email,
+      onSuccess: (data) => {
+        // if there was no country in Sanity server show popup
+        if (
+          data?.client &&
+          data?.client?.[0]?.completed_forms?.filter(
+            (forms) => forms.forms === ClientCompletedForms.BasicForm
+          ).length !== 1 &&
+          !getLocalStorage(LocalStorageKeys.Country)
+        ) {
+          setIsOpen(true);
+        }
+      },
     }
   );
   //
   useEffect(() => {
-    // if there was no country in Sanity server show popup
-    if (
-      data?.client &&
-      data?.client?.[0]?.completed_forms?.filter(
-        (forms) => forms.forms === ClientCompletedForms.BasicForm
-      ).length !== 1
-    ) {
-      setIsOpen(true);
-    } else if (!getLocalStorage(LocalStorageKeys.Country)) {
-      // if there was no country in localStorage show popup
-      setIsOpen(true);
+    // if the user is not signed in and there is nothing in localStorage
+    //show the popup
+    if (!data && !getLocalStorage(LocalStorageKeys.Country)) {
+      setIsOpen((prevstate) => !prevstate);
     }
-  }, [window, data]);
+  }, [data]);
   //
   function clickHandler({ value }: { value: SupportedCountry }) {
     setIsOpen(false);

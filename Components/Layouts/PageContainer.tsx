@@ -41,7 +41,7 @@ const PageContainer: React.FC<Props> = ({
   const { t } = useStaticTranslation(componentStatements);
   const [hasWindow, setHasWindow] = useState<boolean>(false);
   const [hasClientCompletedForm, setHasClientCompletedForm] =
-    useState<boolean>(false);
+    useState<boolean>(true);
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `name,
@@ -65,8 +65,18 @@ const PageContainer: React.FC<Props> = ({
     }
   );
   useEffect(() => {
-    if (!isLoading && !isIdle && !!data?.client?.[0]?.completed_forms)
+    if (
+      !isLoading &&
+      !isIdle &&
+      data?.client?.[0]?.completed_forms?.length === 1
+    ) {
       setHasClientCompletedForm(true);
+    } else if (
+      !isLoading &&
+      !isIdle &&
+      data?.client?.[0]?.completed_forms?.length !== 1
+    )
+      setHasClientCompletedForm(false);
   }, [isLoading, isIdle, data]);
   // this is needed in order to verify serverside rendering is over and it is on the client side
   useEffect(() => {

@@ -18,7 +18,7 @@ import { componentStatements, LanguageKeys } from "./const";
 import { getLocalStorage } from "Utils";
 import { UserRole } from "Interfaces/Database";
 import { Loading } from "Elements/Loading";
-import { isClientLogedIn, isLogout } from "Utils/user";
+import { isAgencyLogedIn, isClientLogedIn, isLogout } from "Utils/user";
 import CountryModal from "./CountryModal";
 import { Client } from "Interfaces/Database/Client";
 import { ClientError } from "@sanity/client";
@@ -80,20 +80,22 @@ const PageContainer: React.FC<Props> = ({
           <ToasterContainer />
           {(!hasClientCompletedForm || isLogout()) && <CountryModal />}
           {hasMenu && <Header />}
-          {hasBanner && (!hasClientCompletedForm || !session) && (
-            <SmartBanner
-              navigateTo={`/${locale}/clients/point-calculator`}
-              desc={
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: t(LanguageKeys.BannerDesc),
-                  }}
-                ></div>
-              }
-              buttonText={t(LanguageKeys.BannerButtonText)}
-              stampText={t(LanguageKeys.StampText)}
-            />
-          )}
+          {hasBanner &&
+            (!hasClientCompletedForm || !session) &&
+            !isAgencyLogedIn() && (
+              <SmartBanner
+                navigateTo={`/${locale}/clients/point-calculator`}
+                desc={
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: t(LanguageKeys.BannerDesc),
+                    }}
+                  ></div>
+                }
+                buttonText={t(LanguageKeys.BannerButtonText)}
+                stampText={t(LanguageKeys.StampText)}
+              />
+            )}
           {/* <Survay.Root
         title={{
           en: 'How do you prefer to do the legal procedures of immigration?',

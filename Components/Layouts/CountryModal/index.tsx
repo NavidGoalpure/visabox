@@ -32,6 +32,7 @@ const CountryModal = () => {
   function clickHandler({ value }: { value: SupportedCountry }) {
     setIsOpen(false);
     setLocalStorage({ key: LocalStorageKeys.Country, value });
+    window.location.reload();
   }
   return (
     <ModalComponent

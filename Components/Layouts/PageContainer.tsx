@@ -18,8 +18,10 @@ import { componentStatements, LanguageKeys } from "./const";
 import { getLocalStorage } from "Utils";
 import { UserRole } from "Interfaces/Database";
 import { Loading } from "Elements/Loading";
-import { isClientLogedIn } from "Utils/user";
+import { isClientLogedIn, isLogout } from "Utils/user";
 import CountryModal from "./CountryModal";
+import { Client } from "Interfaces/Database/Client";
+import { ClientError } from "@sanity/client";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -39,12 +41,15 @@ const PageContainer: React.FC<Props> = ({
   const { t } = useStaticTranslation(componentStatements);
   const [hasWindow, setHasWindow] = useState<boolean>(false);
   const [hasClientCompletedForm, setHasClientCompletedForm] =
-    useState<boolean>(true);
+    useState<boolean>(false);
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `name,
                   completed_forms`;
-  const { data, isLoading, isFetching } = useQuery(
+  const { data, isLoading, isIdle } = useQuery<
+    { client: Client[] },
+    ClientError
+  >(
     ClientQueryKeys.detail({
       reqParams,
       resParams,
@@ -60,8 +65,9 @@ const PageContainer: React.FC<Props> = ({
     }
   );
   useEffect(() => {
-    if (data?.client?.[0]?.completed_forms) setHasClientCompletedForm(true);
-  }, [isLoading]);
+    if (!isLoading && !isIdle && !!data?.client?.[0]?.completed_forms)
+      setHasClientCompletedForm(true);
+  }, [isLoading, isIdle, data]);
   // this is needed in order to verify serverside rendering is over and it is on the client side
   useEffect(() => {
     if (typeof window !== "undefined") setHasWindow(true);
@@ -72,7 +78,7 @@ const PageContainer: React.FC<Props> = ({
         <>
           {" "}
           <ToasterContainer />
-          {!data?.client?.[0]?.completed_forms && <CountryModal />}
+          {(!hasClientCompletedForm || isLogout()) && <CountryModal />}
           {hasMenu && <Header />}
           {hasBanner && (!hasClientCompletedForm || !session) && (
             <SmartBanner

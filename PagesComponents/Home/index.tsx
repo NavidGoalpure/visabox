@@ -45,9 +45,7 @@ const HomeContent: React.FC = () => {
   }, [isLoading]);
   return (
     <>
-      <div>
-        {" "}
-      </div>
+
       <Hero />
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (

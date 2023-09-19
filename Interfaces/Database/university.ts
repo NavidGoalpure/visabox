@@ -1,8 +1,8 @@
-import { MultiLanguageText } from ".";
+import { EnLanguage, MultiLanguageText } from ".";
 
 export interface University {
   title: MultiLanguageText;
-  desc: MultiLanguageText;
+  desc: EnLanguage;
   section: number;
   city: MultiLanguageText;
 }

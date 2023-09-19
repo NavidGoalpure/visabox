@@ -3,8 +3,6 @@ import { Status } from 'Interfaces/Database';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Agent } from 'Interfaces/Database/Lists/agents';
 
-// farzam zh
-// farzam fa
 
 export const Agents: Agent[] = [
   {

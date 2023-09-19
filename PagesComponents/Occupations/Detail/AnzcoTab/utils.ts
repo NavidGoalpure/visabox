@@ -2,12 +2,10 @@ import {
   MAJOR_GROUP,
   Minor_GROUP,
   SUB_MAJOR_GROUP,
-} from 'Consts/Occupations/anszco';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
-import { LanguageKeys } from '../const';
-import { ShortageStatus } from './interfaces';
-
-// farzam zh
+} from "Consts/Occupations/anszco";
+import { MultiLanguageText, MultiLanguageTextArray } from "Interfaces/Database";
+import { LanguageKeys } from "../const";
+import { ShortageStatus } from "./interfaces";
 
 export const ConvertAnzscoCodeToTitle = (
   anzscoCode: number
@@ -30,24 +28,24 @@ export const ConvertAnzscoCodeToTitle = (
       );
       return minorGroupTitle?.title;
     default:
-      return { en: '', fa: '' };
+      return { en: "", fa: "", zh: "" };
   }
 };
 export const SkillLevelDescription = (skillLevel: string) => {
   switch (skillLevel) {
-    case '1':
+    case "1":
       return LanguageKeys.IndicativeSkillLevel_1;
-    case '2':
+    case "2":
       return LanguageKeys.IndicativeSkillLevel_2;
-    case '3':
+    case "3":
       return LanguageKeys.IndicativeSkillLevel_3;
-    case '4':
+    case "4":
       return LanguageKeys.IndicativeSkillLevel_4;
-    case '5':
+    case "5":
       return LanguageKeys.IndicativeSkillLevel_5;
 
     default:
-      return '';
+      return "";
   }
 };
 export function getShortageStatusBaseOnAlias({
@@ -56,13 +54,13 @@ export function getShortageStatusBaseOnAlias({
   alias: string | undefined;
 }): ShortageStatus {
   switch (alias) {
-    case 'S':
+    case "S":
       return ShortageStatus.Shortage;
-    case 'NS':
+    case "NS":
       return ShortageStatus.NoShortage;
-    case 'M':
+    case "M":
       return ShortageStatus.MetropolitanShortage;
-    case 'R':
+    case "R":
       return ShortageStatus.RegionalShortage;
   }
   return ShortageStatus.Unknown;
@@ -78,6 +76,6 @@ export function mustShowNecAccupationSection({
 }): boolean {
   if (!nec_occupation) return false;
   if (dtArray(nec_occupation).length === 0) return false;
-  if (dtArray(nec_occupation)[0] === '') return false;
+  if (dtArray(nec_occupation)[0] === "") return false;
   return true;
 }

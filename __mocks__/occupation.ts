@@ -1,8 +1,6 @@
 import { AssessingAuthorityAbv } from 'Interfaces/Database/Occupation/occupation';
 import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
 
-// farzam zh
-// farzam fa
 
 export const testOccupation: OccupationDetailRes = {
   _id: '4c03f4c5500949d8be9fade2d4b6d7a6',

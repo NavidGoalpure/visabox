@@ -2,7 +2,6 @@ import { Status } from 'Interfaces/Database';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Naati } from 'Interfaces/Database/Lists/naaties';
 
-// farzam zh
 
 export const NAATIES: Naati[] = [
   {

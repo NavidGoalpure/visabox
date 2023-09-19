@@ -1,5 +1,6 @@
-import { MultiLanguageText } from 'Interfaces/Database';
-import { useLocale } from 'Hooks/useLocale';
+import { MultiLanguageText } from "Interfaces/Database";
+import { useLocale } from "Hooks/useLocale";
+import { Languages } from "Interfaces";
 
 /**
  *  بوسیله این فانکشن که برای متون هوشمند استفاده می‌شود میتوان کلماتی از متن را که به صورت تمپلیت مشخص شده اند
@@ -63,13 +64,20 @@ export const translatedObject = ({
   aliases?: Record<string, string>[];
 }): string => {
   const { locale } = useLocale();
-  if (!statementKey || !locale) return '';
+  if (!statementKey || !locale) return "";
 
-  if (!aliases || aliases.length === 0)
-    return statements?.[statementKey]?.[locale] || '';
+  if (!aliases || aliases.length === 0) {
+    if (
+      statements?.[statementKey]?.[locale] === "" ||
+      !statements?.[statementKey]?.[locale]
+    ) {
+      return statements?.[statementKey]?.[Languages.en] || "";
+    }
+    return statements?.[statementKey]?.[locale] || "";
+  }
   //
   return convertAllTempKeysWithAllAliases({
-    localeSentence: statements?.[statementKey]?.[locale] || '',
+    localeSentence: statements?.[statementKey]?.[locale] || "",
     aliases,
   });
 };

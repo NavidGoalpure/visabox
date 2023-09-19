@@ -17,6 +17,8 @@ import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { ClientQueryKeys } from "Utils/query/keys";
 import CountryModal from "../../Components/Layouts/CountryModal";
+import { ClientError } from "@sanity/client";
+import { Client } from "Interfaces/Database/Client";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -25,29 +27,41 @@ const HomeContent: React.FC = () => {
   const [hasClientCompletedForm, setHasClientCompletedForm] =
     useState<boolean>(true);
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
-  const { data, isLoading } = useQuery(
+  const resParams = `name,
+                  completed_forms`;
+  const { data, isLoading, isIdle } = useQuery<
+    { client: Client[] },
+    ClientError
+  >(
     ClientQueryKeys.detail({
       reqParams,
-      resParams: `
-     name
-      `,
+      resParams,
     }),
     () => {
       return getClientDetail({
         reqParams,
-        resParams: `
-     name
-      `,
+        resParams,
       });
     }
   );
   useEffect(() => {
-    if (!!data) setHasClientCompletedForm(true);
-  }, [isLoading]);
+    if (
+      !isLoading &&
+      !isIdle &&
+      data?.client?.[0]?.completed_forms?.length === 1
+    ) {
+      setHasClientCompletedForm(true);
+    } else if (
+      !isLoading &&
+      !isIdle &&
+      data?.client?.[0]?.completed_forms?.length !== 1
+    )
+      setHasClientCompletedForm(false);
+  }, [isLoading, isIdle, data]);
   return (
     <>
       <Hero />
-     
+
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (
           <Banner

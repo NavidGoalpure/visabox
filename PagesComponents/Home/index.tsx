@@ -59,9 +59,6 @@ const HomeContent: React.FC = () => {
   }, [isLoading, isIdle, data]);
   return (
     <>
-      <div>
-        {" "}
-      </div>
       <Hero />
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (

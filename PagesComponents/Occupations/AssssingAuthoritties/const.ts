@@ -2,6 +2,7 @@ import { MultiLanguageText } from 'Interfaces/Database';
 import { AssessingAuthorityAbv } from 'Interfaces/Database/Occupation/occupation';
 import { AssssingAuthority } from './interfaces';
 
+
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',

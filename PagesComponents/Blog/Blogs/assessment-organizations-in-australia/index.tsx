@@ -1,7 +1,4 @@
 import { useLocale } from 'Hooks/useLocale';
-import { componentStatements, LanguageKeys, structuredData } from './const';
-import Seo from 'Components/Seo';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Link from 'next/link';
 import {
   BlogContainer,
@@ -17,7 +14,6 @@ import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesC
 
 export default function PostContent() {
   const { locale } = useLocale();
-  const { t } = useStaticTranslation(componentStatements);
   return (
     <BlogContainer>
       <ImageContainer>

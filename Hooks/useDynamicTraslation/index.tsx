@@ -1,4 +1,4 @@
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
+import { EnLanguage, MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 import {
   isMultiLanguageTextArrayIsEmpty,
   translatedObject,
@@ -14,7 +14,7 @@ import {
  */
 export const useDynamicTranslation = () => {
   return {
-    dt: (statementObj: MultiLanguageText | undefined) =>
+    dt: (statementObj: MultiLanguageText | EnLanguage | undefined) =>
       translatedObject({ statementObj }),
     dtArray: (statementObj: MultiLanguageTextArray | undefined) =>
       translateDynamicArray(statementObj),

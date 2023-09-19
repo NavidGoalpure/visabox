@@ -1,6 +1,11 @@
-import { useLocale } from 'Hooks/useLocale';
-import { Languages } from 'Interfaces';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
+import { useLocale } from "Hooks/useLocale";
+import { Languages } from "Interfaces";
+import {
+  EnLanguage,
+  EnLanguageArray,
+  MultiLanguageText,
+  MultiLanguageTextArray,
+} from "Interfaces/Database";
 
 /**
  *  یک گزاره را گرفته،‌بسته به زبان کاربر که از یوارال فهمیده می‌شود، ترجمه مناسب را برمیگرداند
@@ -10,17 +15,19 @@ import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 export const translatedObject = ({
   statementObj,
 }: {
-  statementObj: MultiLanguageText | undefined;
+  statementObj: MultiLanguageText | EnLanguage | undefined;
 }): string => {
   const { locale } = useLocale();
 
-  if (!statementObj || !locale) return '';
+  if (!statementObj || !locale) return "";
 
   if (
-    typeof statementObj[locale] !== 'undefined' &&
-    statementObj[locale] !== ''
+    typeof (statementObj as MultiLanguageText)[locale] !== "undefined" &&
+    (statementObj as MultiLanguageText)[locale] !== ""
   )
-    return statementObj[locale] || statementObj[Languages.en];
+    return (
+      (statementObj as MultiLanguageText)[locale] || statementObj[Languages.en]
+    );
 
   return statementObj[Languages.en];
 
@@ -28,17 +35,17 @@ export const translatedObject = ({
 };
 ///////////////////////
 export const translateDynamicArray = (
-  statementObj: MultiLanguageTextArray | undefined
+  statementObj: MultiLanguageTextArray | EnLanguageArray | undefined
 ): string[] => {
   if (!statementObj) return [];
   const { locale } = useLocale();
   if (!statementObj || !locale) return [];
 
-  if (typeof statementObj[locale] !== 'undefined')
+  if ((typeof (statementObj as MultiLanguageTextArray)[locale]) !== "undefined")
     return (
-      statementObj[locale] ||
+      (statementObj as MultiLanguageTextArray)[locale] ||
       //defensive
-      statementObj[Languages.en]
+      (statementObj as MultiLanguageTextArray)[Languages.en]
     );
 
   return statementObj[Languages.en];
@@ -48,11 +55,11 @@ export const translateDynamicArray = (
 export function isMultiLanguageTextArrayIsEmpty(
   multiLanguageText: MultiLanguageTextArray | undefined
 ): boolean | undefined {
-  if (typeof multiLanguageText === 'undefined') return undefined;
+  if (typeof multiLanguageText === "undefined") return undefined;
   const { locale } = useLocale();
   if (
     multiLanguageText?.[locale]?.[0] !== undefined &&
-    multiLanguageText?.[locale]?.[0] !== ''
+    multiLanguageText?.[locale]?.[0] !== ""
   )
     return true;
 

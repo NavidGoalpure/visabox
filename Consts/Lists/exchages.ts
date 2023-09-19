@@ -2,6 +2,7 @@ import { Status } from "Interfaces/Database";
 import { FeaturedPlan_Business } from "Interfaces/Database/Lists";
 import { Exchange } from "Interfaces/Database/Lists/exchanges";
 
+
 export const Exchanges: Exchange[] = [
   {
     fullName: { en: "MoneyMex", fa: "مانیمکس" },

@@ -1,7 +1,7 @@
-import { MultiLanguageText, SanityKeys } from '..';
+import { EnLanguage, SanityKeys } from "..";
 
 export interface Territory extends SanityKeys {
-  title?: MultiLanguageText;
+  title?: EnLanguage;
   abv?: string;
   url?: string;
 }

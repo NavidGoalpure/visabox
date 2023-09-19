@@ -1,9 +1,9 @@
-import { MultiLanguageText, MultiLanguageTextArray, SanityKeys } from '..';
+import { EnLanguage, EnLanguageArray, SanityKeys } from "..";
 
 export interface UnitGroup extends SanityKeys {
   code?: number;
-  description?: MultiLanguageText;
+  description?: EnLanguage;
   skill_level?: string;
-  tasks: MultiLanguageTextArray;
-  title?: MultiLanguageText;
+  tasks: EnLanguageArray;
+  title?: EnLanguage;
 }

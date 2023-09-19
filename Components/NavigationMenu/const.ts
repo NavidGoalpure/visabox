@@ -103,7 +103,7 @@ export const occupationItems: DropdownItem[] = [
     href: "/occupations/assssing-authorities",
   },
   {
-    title: { en: "Find university section ", fa: "جستجوی سکشن دانشگاه" },
+    title: { en: "Find university section", fa: "جستجوی سکشن دانشگاه" , zh: "查找大学部分" },
     href: "/occupations/university-section-search",
   },
 ];

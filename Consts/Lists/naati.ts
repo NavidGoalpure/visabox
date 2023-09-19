@@ -2,6 +2,7 @@ import { Status } from 'Interfaces/Database';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Naati } from 'Interfaces/Database/Lists/naaties';
 
+
 export const NAATIES: Naati[] = [
   {
     fullName: {

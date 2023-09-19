@@ -1,5 +1,5 @@
 import { useLocale } from 'Hooks/useLocale';
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
+import { EnLanguage, MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 import { Slug } from 'Interfaces/Database/Occupation/Fields';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -13,8 +13,8 @@ import { getGsapTimeLine_FadeUp } from 'Utils';
 
 interface Props {
   code: number;
-  title?: MultiLanguageText;
-  description?: MultiLanguageText;
+  title?: EnLanguage;
+  description?: EnLanguage;
   slug?: Slug;
   tasks: MultiLanguageTextArray;
   hasAnimation?: boolean;

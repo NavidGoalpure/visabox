@@ -16,7 +16,6 @@ import { getClientDetail } from "Queries/client";
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { ClientQueryKeys } from "Utils/query/keys";
-import CountryModal from "../../Components/Layouts/CountryModal";
 import { ClientError } from "@sanity/client";
 import { Client } from "Interfaces/Database/Client";
 
@@ -60,8 +59,10 @@ const HomeContent: React.FC = () => {
   }, [isLoading, isIdle, data]);
   return (
     <>
+      <div>
+        {" "}
+      </div>
       <Hero />
-
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (
           <Banner

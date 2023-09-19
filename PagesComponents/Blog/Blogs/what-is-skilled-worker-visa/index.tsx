@@ -1,13 +1,10 @@
 import { useLocale } from 'Hooks/useLocale';
-import { componentStatements } from './const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images, MoreBlogsContainer, MoreBlogsCardsContainer } from '../StyledComponents';
 import Link from 'next/link';
 import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
 
 export default function PostContent() {
   const { locale } = useLocale();
-  const { t } = useStaticTranslation(componentStatements);
   return (
     <BlogContainer>
       <ImageContainer>

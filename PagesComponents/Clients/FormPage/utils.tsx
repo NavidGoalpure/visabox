@@ -136,6 +136,8 @@ export function getCountryLabel({
   switch (country) {
     case SupportedCountry.Iran:
       return Countries.find((Country) => Country.en === "Iran");
+    case SupportedCountry.Australia:
+      return Countries.find((Country) => Country.en === "Australia");
     case SupportedCountry.China:
       return Countries.find((Country) => Country.en === "China");
     case SupportedCountry.India:

@@ -278,18 +278,16 @@ const Img = styled(Image)`
 `;
 const Desc = styled.p<{ featuredPlan: FeaturedPlan_Business }>`
   ${Headline6Style};
-  text-align: start;
+  text-align: center;
   ${({ featuredPlan }) =>
     featuredPlan === FeaturedPlan_Business.VIP
       ? layer2B_TextColor
       : layer1_TextColor}
   white-space: pre-line;
   overflow: hidden;
-  text-align: center;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  text-align: start;
 `;
 const JoinButton = styled(PrimaryButton)`
   padding: 0 4rem;

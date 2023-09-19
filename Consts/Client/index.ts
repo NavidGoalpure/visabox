@@ -4,6 +4,7 @@ export const Countries: MultiLanguageText[] = [
   { en: "Iran", fa: "ایران", zh: "伊朗" },
   { en: "China", fa: "چین", zh: "中国" },
   { en: "India", fa: "هند", zh: "印度" },
+  { en: "Australia", fa: "استرالیا", zh: "印度" },
   { en: "Other", fa: "سایر کشور ها", zh: "其他" },
 ];
 export const ages: MultiLanguageText[] = [

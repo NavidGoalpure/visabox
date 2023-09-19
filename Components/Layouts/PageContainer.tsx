@@ -18,7 +18,10 @@ import { componentStatements, LanguageKeys } from "./const";
 import { getLocalStorage } from "Utils";
 import { UserRole } from "Interfaces/Database";
 import { Loading } from "Elements/Loading";
-import { isClientLogedIn } from "Utils/user";
+import { isAgencyLogedIn, isClientLogedIn, isLogout } from "Utils/user";
+import CountryModal from "./CountryModal";
+import { Client } from "Interfaces/Database/Client";
+import { ClientError } from "@sanity/client";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -43,7 +46,10 @@ const PageContainer: React.FC<Props> = ({
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `name,
                   completed_forms`;
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isIdle } = useQuery<
+    { client: Client[] },
+    ClientError
+  >(
     ClientQueryKeys.detail({
       reqParams,
       resParams,
@@ -55,14 +61,23 @@ const PageContainer: React.FC<Props> = ({
       });
     },
     {
-      enabled:
-        !!session?.user?.email &&
-        isClientLogedIn(),
+      enabled: !!session?.user?.email && isClientLogedIn(),
     }
   );
   useEffect(() => {
-    if (data?.client?.[0]?.completed_forms) setHasClientCompletedForm(true);
-  }, [isLoading]);
+    if (
+      !isLoading &&
+      !isIdle &&
+      data?.client?.[0]?.completed_forms?.length === 1
+    ) {
+      setHasClientCompletedForm(true);
+    } else if (
+      !isLoading &&
+      !isIdle &&
+      data?.client?.[0]?.completed_forms?.length !== 1
+    )
+      setHasClientCompletedForm(false);
+  }, [isLoading, isIdle, data]);
   // this is needed in order to verify serverside rendering is over and it is on the client side
   useEffect(() => {
     if (typeof window !== "undefined") setHasWindow(true);
@@ -73,21 +88,24 @@ const PageContainer: React.FC<Props> = ({
         <>
           {" "}
           <ToasterContainer />
+          {(!hasClientCompletedForm || isLogout()) && <CountryModal />}
           {hasMenu && <Header />}
-          {hasBanner && (!hasClientCompletedForm || !session) && (
-            <SmartBanner
-              navigateTo={`/${locale}/clients/point-calculator`}
-              desc={
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: t(LanguageKeys.BannerDesc),
-                  }}
-                ></div>
-              }
-              buttonText={t(LanguageKeys.BannerButtonText)}
-              stampText={t(LanguageKeys.StampText)}
-            />
-          )}
+          {hasBanner &&
+            (!hasClientCompletedForm || !session) &&
+            !isAgencyLogedIn() && (
+              <SmartBanner
+                navigateTo={`/${locale}/clients/point-calculator`}
+                desc={
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: t(LanguageKeys.BannerDesc),
+                    }}
+                  ></div>
+                }
+                buttonText={t(LanguageKeys.BannerButtonText)}
+                stampText={t(LanguageKeys.StampText)}
+              />
+            )}
           {/* <Survay.Root
         title={{
           en: 'How do you prefer to do the legal procedures of immigration?',

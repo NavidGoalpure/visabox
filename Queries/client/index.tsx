@@ -1,5 +1,6 @@
-import { Client } from 'Interfaces/Database/Client';
-import { sanityClient } from 'Utils/sanity';
+import { Client } from "Interfaces/Database/Client";
+import { useSession } from "next-auth/react";
+import { sanityClient } from "Utils/sanity";
 
 interface GetClientDetail {
   reqParams: string;
@@ -23,3 +24,4 @@ ${resParams}
     throw error;
   }
 };
+

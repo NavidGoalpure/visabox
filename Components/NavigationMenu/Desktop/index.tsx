@@ -18,10 +18,12 @@ import AvatarComponent from "../AvatarComponent";
 import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import { Languages, LocalStorageKeys } from "Interfaces";
 import { useRouter } from "next/router";
-import { setLocalStorage } from "Utils";
+import { getLocalStorage, setLocalStorage } from "Utils";
 import { isAgencyLogedIn } from "Utils/user";
+import { Client } from "Interfaces/Database/Client";
+import { SupportedCountry } from "Interfaces/Database";
 
-function Desktop() {
+function Desktop({ clientCountry }: { clientCountry: string }) {
   const { locale } = useLocale();
   const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
@@ -38,11 +40,13 @@ function Desktop() {
 
           <DesktopLanguageChanger />
 
-          <DesktopOccupationDropdown />
-          <DesktopBoxsesDropdown />
-          {locale === Languages.fa && (
+          <DesktopOccupationDropdown clientCountry={clientCountry} />
+          <DesktopBoxsesDropdown clientCountry={clientCountry} />
+          {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
             <NavigationMenu.Item>
-              <Link href={`/${locale}/blog`}>
+              <Link href={`/fa/blog`}>
                 <Item>{t(LanguageKeys.Blogs)}</Item>
               </Link>
             </NavigationMenu.Item>

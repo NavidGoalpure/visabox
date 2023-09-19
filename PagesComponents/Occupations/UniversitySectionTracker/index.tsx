@@ -15,29 +15,25 @@ import {
 } from "Styles/Theme/Hint/style";
 import { FiInfo } from "react-icons/fi";
 import { SearchInputComponent } from "Components/SearchInputComponent";
+import { componentStatements, LanguageKeys } from "./const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 
 //
 const Content = () => {
-  //
+  const { t } = useStaticTranslation(componentStatements);
   //
   return (
     <Container>
       <Wrapper>
         <Logo />
-        <Title>جستجوی سکشن دانشگاه</Title>
+        <Title>{t(LanguageKeys.Title)}</Title>
         <Desc>
-          با استفاده از این ابزار می توانید بفهمید دانشگاهی که در آن درس خوانده
-          اید از نظر اداره مهاجرت استرالیا دارای چه سکشنی می باشد.
+  
         </Desc>
         <Desc>
-
-          برای این کار
-          اسم دانشگاه یا شهری که دانشگاه در آن واقع شده را جستجو کنید و دانشگاه
-          خود را از بین گزینه های موجود پیدا کنید. توجه کنید که برای شروع این
-          جستجو، حداقل باید سه حرف را وارد کنید.
+         {t(LanguageKeys.Desc)}
         </Desc>
-        <SearchInputComponent theme={"LAYER2"} />
-
+        <SearchInputComponent placeholder={t(LanguageKeys.Placeholder)} theme={"LAYER2"} />
       </Wrapper>
     </Container>
   );

@@ -3,6 +3,8 @@ import { Languages } from "Interfaces";
 import {
   EnLanguage,
   EnLanguageArray,
+  En_FaLanguage,
+  En_FaLanguageArray,
   MultiLanguageText,
   MultiLanguageTextArray,
 } from "Interfaces/Database";
@@ -15,7 +17,7 @@ import {
 export const translatedObject = ({
   statementObj,
 }: {
-  statementObj: MultiLanguageText | EnLanguage | undefined;
+  statementObj: MultiLanguageText | EnLanguage | En_FaLanguage | undefined;
 }): string => {
   const { locale } = useLocale();
 
@@ -35,13 +37,17 @@ export const translatedObject = ({
 };
 ///////////////////////
 export const translateDynamicArray = (
-  statementObj: MultiLanguageTextArray | EnLanguageArray | undefined
+  statementObj:
+    | MultiLanguageTextArray
+    | EnLanguageArray
+    | En_FaLanguageArray
+    | undefined
 ): string[] => {
   if (!statementObj) return [];
   const { locale } = useLocale();
   if (!statementObj || !locale) return [];
 
-  if ((typeof (statementObj as MultiLanguageTextArray)[locale]) !== "undefined")
+  if (typeof (statementObj as MultiLanguageTextArray)[locale] !== "undefined")
     return (
       (statementObj as MultiLanguageTextArray)[locale] ||
       //defensive
@@ -53,13 +59,18 @@ export const translateDynamicArray = (
 ////////////////////////
 
 export function isMultiLanguageTextArrayIsEmpty(
-  multiLanguageText: MultiLanguageTextArray | undefined
+  multiLanguageText:
+    | MultiLanguageTextArray
+    | EnLanguageArray
+    | En_FaLanguageArray
+    | undefined
 ): boolean | undefined {
   if (typeof multiLanguageText === "undefined") return undefined;
   const { locale } = useLocale();
   if (
-    multiLanguageText?.[locale]?.[0] !== undefined &&
-    multiLanguageText?.[locale]?.[0] !== ""
+    (multiLanguageText as MultiLanguageTextArray)?.[locale]?.[0] !==
+      undefined &&
+    (multiLanguageText as MultiLanguageTextArray)?.[locale]?.[0] !== ""
   )
     return true;
 

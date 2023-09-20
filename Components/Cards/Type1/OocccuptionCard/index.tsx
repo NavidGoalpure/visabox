@@ -1,5 +1,5 @@
 import { useLocale } from 'Hooks/useLocale';
-import { EnLanguage, MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
+import { EnLanguage, EnLanguageArray, En_FaLanguageArray, MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
 import { Slug } from 'Interfaces/Database/Occupation/Fields';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -16,7 +16,7 @@ interface Props {
   title?: EnLanguage;
   description?: EnLanguage;
   slug?: Slug;
-  tasks: MultiLanguageTextArray;
+  tasks: EnLanguageArray;
   hasAnimation?: boolean;
 }
 

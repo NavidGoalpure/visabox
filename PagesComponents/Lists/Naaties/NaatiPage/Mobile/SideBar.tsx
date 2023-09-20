@@ -7,7 +7,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { deviceMin } from 'Consts/device';
 import { AboutComponent } from './AboutComponent';
 import { MobileContactComponent } from './MobileContactComponent';
-import { MultiLanguageText } from 'Interfaces/Database';
+import { En_FaLanguage, MultiLanguageText } from 'Interfaces/Database';
 import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
 import { componentStatements, LanguageKeys } from '../const';
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
   telegram?: string;
   instagram?: string;
   linkedin?: string;
-  desc?: MultiLanguageText;
+  desc?: En_FaLanguage;
 }
 const SidebarPage = ({
   maraNumber,

@@ -1,11 +1,11 @@
 import { FeaturedPlan_Business } from '.';
-import { MultiLanguageText, Contact, Status } from '..';
+import {  Contact, Status, En_FaLanguage } from '..';
 
 export interface Exchange {
-  fullName: MultiLanguageText;
-  desc: MultiLanguageText;
+  fullName: En_FaLanguage;
+  desc: En_FaLanguage;
   //what countries they work in
-  location: MultiLanguageText;
+  location: En_FaLanguage;
   contact: Contact;
   featuredPlan: FeaturedPlan_Business;
   status: Status;

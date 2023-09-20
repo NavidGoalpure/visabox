@@ -3,18 +3,26 @@ import { Languages } from "Interfaces";
 interface MultiLanguageText {
   [Languages.en]: string;
   [Languages.fa]: string;
-  [Languages.zh]?: string;
+  [Languages.zh]: string;
 }
 interface MultiLanguageTextArray {
   [Languages.en]: string[];
-  [Languages.fa]?: string[];
-  [Languages.zh]?: string[];
+  [Languages.fa]: string[];
+  [Languages.zh]: string[];
 }
 interface EnLanguage {
   [Languages.en]: string;
 }
 interface EnLanguageArray {
   [Languages.en]: string[];
+}
+interface En_FaLanguage {
+  [Languages.en]: string;
+  [Languages.fa]: string;
+}
+interface En_FaLanguageArray {
+  [Languages.en]: string[];
+  [Languages.fa]: string[];
 }
 enum Status {
   "ACTIVE" = "active",
@@ -60,6 +68,8 @@ export type {
   MultiLanguageTextArray,
   EnLanguageArray,
   EnLanguage,
+  En_FaLanguage,
+  En_FaLanguageArray,
   Contact,
   SanityKeys,
 };

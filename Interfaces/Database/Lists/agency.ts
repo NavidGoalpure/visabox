@@ -1,6 +1,7 @@
 import { FeaturedPlan_Business } from '.';
 import {
   Contact,
+  En_FaLanguage,
   MultiLanguageText,
   MultiLanguageTextArray,
   SanityKeys,
@@ -11,11 +12,11 @@ import {
 export interface Agency {
   id: string;
   slug: string;
-  name: MultiLanguageText;
+  name: En_FaLanguage;
   contact: Contact;
   //what countries they work in
   country: SupportedCountry[];
-  desc?: MultiLanguageText;
+  desc?: En_FaLanguage;
   qualifications?: MultiLanguageTextArray;
   featuredPlan: FeaturedPlan_Business;
   status: Status;

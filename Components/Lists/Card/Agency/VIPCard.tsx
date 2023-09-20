@@ -1,30 +1,30 @@
-import Image from 'next/image';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import Image from "next/image";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import {
   layer2B_HeaderStyle,
   layer2B_SubtitleStyle,
   layer2B_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
-import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
-import { Headline7Style } from 'Styles/Typo';
-import { FiBox } from 'react-icons/fi';
-import { MultiLanguageText } from 'Interfaces/Database';
-import { HTMLAttributes, useEffect, useState } from 'react';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { deviceMin } from 'Consts/device';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import Link from 'next/link';
-import { getGsapTimeLine_VipCard } from '../const';
-import { useLocale } from 'Hooks/useLocale';
+} from "Styles/Theme/Layers/layer2/style";
+import { layer2B_BG } from "Styles/Theme/Layers/layer2/theme";
+import { layer3_SubtitleStyle } from "Styles/Theme/Layers/layer3/style";
+import { Headline7Style } from "Styles/Typo";
+import { FiBox } from "react-icons/fi";
+import { En_FaLanguage, MultiLanguageText } from "Interfaces/Database";
+import { HTMLAttributes, useEffect, useState } from "react";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { deviceMin } from "Consts/device";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import Link from "next/link";
+import { getGsapTimeLine_VipCard } from "../const";
+import { useLocale } from "Hooks/useLocale";
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
-  name: MultiLanguageText;
-  desc: MultiLanguageText | undefined;
+  name: En_FaLanguage;
+  desc: En_FaLanguage | undefined;
   slug: string;
   logoUrl?: string;
 }
@@ -40,8 +40,7 @@ function VIPAgencyCard({
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
-
+  const [imgSrc, setImgSrc] = useState("/Images/placeholder.jpeg");
   useEffect(() => {
     if (logoUrl) setImgSrc(logoUrl);
   }, [logoUrl]);
@@ -52,7 +51,7 @@ function VIPAgencyCard({
     <Container
       {...props}
       href={`/lists/agencies/${slug}`}
-      target={'_blank'}
+      target={"_blank"}
       className={`${slug} ${className}`}
     >
       <Wrapper>
@@ -60,19 +59,19 @@ function VIPAgencyCard({
           <AgencyLogo
             fill
             src={imgSrc}
-            alt={name ? `${name?.[locale]} image` : 'agent image'}
+            alt={name ? `${dt(name)} image` : "agent image"}
             onError={() => {
               setImgSrc(`/Images/placeholder.jpeg`);
             }}
             quality={100}
-            sizes='96px'
+            sizes="96px"
           />
         </ImageWrapper>
         <Title>{dt(name)}</Title>
         <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
         <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
         <AgencyElement>
-        {t(LanguageKeys.Agency)} <Box />
+          {t(LanguageKeys.Agency)} <Box />
         </AgencyElement>
         <MaraElement>Mara</MaraElement>
       </Wrapper>
@@ -81,7 +80,7 @@ function VIPAgencyCard({
 }
 export default VIPAgencyCard;
 
-const LogoBackground = theme('mode', {
+const LogoBackground = theme("mode", {
   light: css`
     background: linear-gradient(
       -86deg,

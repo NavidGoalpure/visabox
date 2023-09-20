@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import DesktopAgentsPage from "./Desktop";
 import MobileAgentsPage from "./Mobile";
 import { Client } from "Interfaces/Database/Client";
-
+import { useQuery } from "react-query";
+import { ClientQueryKeys } from "Utils/query/keys";
+import { ClientError } from "@sanity/client";
+import { useSession } from "next-auth/react";
+import { getClientDetail } from "Queries/client";
 
 interface Props {
   client: Client;
@@ -11,11 +15,39 @@ interface Props {
 const Content: React.FC<Props> = ({ client }) => {
   const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
   const { isLaptop } = useDevice();
-
+  const { data: session } = useSession();
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const resParams = `_id`;
+  const { data: user } = useQuery<{ client: Client[] }, ClientError>(
+    ClientQueryKeys.detail({
+      reqParams,
+      resParams,
+    }),
+    () => {
+      return getClientDetail({
+        reqParams,
+        resParams,
+      });
+    },
+    {
+      enabled: !!session?.user?.email,
+    }
+  );
   useEffect(() => {
     if (isLaptop) setScreen("DESKTOP");
   });
-  if (screen === "MOBILE") return <MobileAgentsPage client={client} />;
-  return <DesktopAgentsPage client={client} />;
+  if (screen === "MOBILE")
+    return (
+      <MobileAgentsPage
+        userId={user?.client?.[0]?._id || "defensive"}
+        client={client}
+      />
+    );
+  return (
+    <DesktopAgentsPage
+      client={client}
+      userId={user?.client?.[0]?._id || "defensive"}
+    />
+  );
 };
 export default Content;

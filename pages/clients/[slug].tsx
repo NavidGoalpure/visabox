@@ -56,7 +56,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       is_sharable,
       uni_section,
       avatar,
-      email
+      email,
+      completed_forms
       `;
 
   try {

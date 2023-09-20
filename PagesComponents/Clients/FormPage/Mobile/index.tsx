@@ -24,8 +24,9 @@ import BoxesSection from "../BoxesSection";
 
 interface Props {
   client: Client;
+  userId: string;
 }
-function MobileAgentsPage({ client }: Props) {
+function MobileAgentsPage({ client, userId }: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
   const { t } = useStaticTranslation(componentStatements);
   return (
@@ -59,7 +60,12 @@ function MobileAgentsPage({ client }: Props) {
         {!client?.country && (
           <HintContainer>
             <HintInfoIcon />
-            <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
+            <HintContent>
+              {/* if the user is the owner of the page the text should be different */}
+              {client?._id === userId
+                ? t(LanguageKeys.ProfileNotCompletedHint)
+                : t(LanguageKeys.UserPageNotCompletedHint)}
+            </HintContent>
           </HintContainer>
         )}
         <BoxesSection

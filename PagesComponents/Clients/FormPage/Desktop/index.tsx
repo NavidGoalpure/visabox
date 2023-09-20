@@ -21,16 +21,21 @@ import { FiInfo } from "react-icons/fi";
 import BoxesSection from "../BoxesSection";
 interface Props {
   client: Client;
+  userId: string;
 }
-function DesktopAgentsPage({ client }: Props) {
+function DesktopAgentsPage({ client, userId }: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
-      {!client?.country && (
+      {client?.completed_forms?.length !== 1 && (
         <HintContainer>
           <HintInfoIcon />
-          <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
+          <HintContent>
+            {client?._id === userId
+              ? t(LanguageKeys.ProfileNotCompletedHint)
+              : t(LanguageKeys.UserPageNotCompletedHint)}
+          </HintContent>
         </HintContainer>
       )}
       <Wrapper>

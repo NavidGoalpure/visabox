@@ -19,20 +19,19 @@ import OccupationDropdown from "./dropdownOccupation";
 import MobileBoxesDropdown from "./dropdownBoxes";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
-import { Languages, LocalStorageKeys } from "Interfaces";
+import { LocalStorageKeys } from "Interfaces";
 import { getLocalStorage, setLocalStorage } from "Utils";
 import { isAgencyLogedIn } from "Utils/user";
-import { Client } from "Interfaces/Database/Client";
 import { SupportedCountry } from "Interfaces/Database";
 
 function SmartHeader({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
   const { locale } = useLocale();
 
-  const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
-  const popupAnimationRef = useRef<gsap.core.Timeline>();
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
+  const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
+  const popupAnimationRef = useRef<gsap.core.Timeline>();
   useEffect(
     () => getGsapTimeLine({ hamburgerAnimationRef, popupAnimationRef }),
     []
@@ -118,7 +117,6 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
   );
 }
 export default SmartHeader;
-//there was a theme in the layers like this one but it was for color not background so i couldn't use it
 
 const PopupBagroundTheme = theme("mode", {
   light: css`

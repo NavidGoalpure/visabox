@@ -16,19 +16,17 @@ import DesktopOccupationDropdown from "./dropdownOccupation";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
 import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { Languages, LocalStorageKeys } from "Interfaces";
-import { useRouter } from "next/router";
+import { LocalStorageKeys } from "Interfaces";
 import { getLocalStorage, setLocalStorage } from "Utils";
 import { isAgencyLogedIn } from "Utils/user";
-import { Client } from "Interfaces/Database/Client";
 import { SupportedCountry } from "Interfaces/Database";
 
 function Desktop({ clientCountry }: { clientCountry: string }) {
-    const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
   const { locale } = useLocale();
   const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
-  const router = useRouter();
+  
   return (
     <Container>
       <Wrapper>
@@ -62,30 +60,32 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
           </StyledMenuItem>
         </Top>
       </Wrapper>
-      <Bottom>
-        <MenuItems>
-          <DesktopLanguageChanger />
+      {isMenuClicked && (
+        <Bottom>
+          <MenuItems>
+            <DesktopLanguageChanger />
 
-          <DesktopOccupationDropdown clientCountry={clientCountry} />
-          <DesktopBoxsesDropdown clientCountry={clientCountry} />
-          {(clientCountry === SupportedCountry.Iran ||
-            getLocalStorage(LocalStorageKeys.Country) ===
-              SupportedCountry.Iran) && (
-            <NavigationMenu.Item>
-              <Link href={`/fa/blog`}>
-                <Item>{t(LanguageKeys.Blogs)}</Item>
-              </Link>
-            </NavigationMenu.Item>
-          )}
-          {isAgencyLogedIn() && (
-            <NavigationMenu.Item>
-              <Link href={`/${locale}/agency/forms-wall`}>
-                <Item>{t(LanguageKeys.FormsWall)}</Item>
-              </Link>
-            </NavigationMenu.Item>
-          )}
-        </MenuItems>
-      </Bottom>
+            <DesktopOccupationDropdown clientCountry={clientCountry} />
+            <DesktopBoxsesDropdown clientCountry={clientCountry} />
+            {(clientCountry === SupportedCountry.Iran ||
+              getLocalStorage(LocalStorageKeys.Country) ===
+                SupportedCountry.Iran) && (
+              <NavigationMenu.Item>
+                <Link href={`/fa/blog`}>
+                  <Item>{t(LanguageKeys.Blogs)}</Item>
+                </Link>
+              </NavigationMenu.Item>
+            )}
+            {isAgencyLogedIn() && (
+              <NavigationMenu.Item>
+                <Link href={`/${locale}/agency/forms-wall`}>
+                  <Item>{t(LanguageKeys.FormsWall)}</Item>
+                </Link>
+              </NavigationMenu.Item>
+            )}
+          </MenuItems>
+        </Bottom>
+      )}
     </Container>
   );
 }
@@ -116,6 +116,14 @@ const itemHover = theme("mode", {
     color: var(--color-gray13);
   `,
 });
+const BottomTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray12);
+  `,
+  dark: css`
+    background: var(--color-gray4);
+  `,
+});
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -129,19 +137,19 @@ const Wrapper = styled.div`
   direction: ltr;
 `;
 const Top = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 `;
 const Bottom = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-background-color: var(--color-gray4);
-padding: 1.5rem 0;
+  ${BottomTheme}
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
 `;
 const MenuItems = styled(NavigationMenu.List)`
   width: 100%;

@@ -28,9 +28,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
-  // useEffect(() => {
-  //   smartActiveHotjar(router.route);
-  // }, []);
+  useEffect(() => {
+    smartActiveHotjar(router.route);
+  }, []);
 
   return (
     <>

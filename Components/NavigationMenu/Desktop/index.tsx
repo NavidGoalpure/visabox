@@ -1,6 +1,6 @@
 import { Logo } from "Elements/Logo";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { boxShadow, directionStyles } from "Styles/Theme";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
@@ -24,6 +24,7 @@ import { Client } from "Interfaces/Database/Client";
 import { SupportedCountry } from "Interfaces/Database";
 
 function Desktop({ clientCountry }: { clientCountry: string }) {
+    const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
   const { locale } = useLocale();
   const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
@@ -31,13 +32,38 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
   return (
     <Container>
       <Wrapper>
+        <Top>
+          <MenuBurger
+            id={`hamburg`}
+            onClick={() => setIsMenuClicked(!isMenuClicked)}
+          >
+            <span aria-hidden id={"line1"} />
+            <span aria-hidden id={"line2"} />
+          </MenuBurger>
+          <Link href={`/${locale}`}>
+            <Logo />
+          </Link>
+          <StyledMenuItem as={"div"}>
+            {session ? (
+              <AvatarComponent />
+            ) : (
+              <MenuLink
+                onClick={() =>
+                  setLocalStorage({
+                    key: LocalStorageKeys.Url_Before_Login,
+                    value: window.location.href,
+                  })
+                }
+                href={`/${locale}/auth/signin`}
+              >
+                {t(LanguageKeys.Login)}
+              </MenuLink>
+            )}
+          </StyledMenuItem>
+        </Top>
+      </Wrapper>
+      <Bottom>
         <MenuItems>
-          <NavigationMenu.Item>
-            <Link href={`/${locale}`}>
-              <Logo />
-            </Link>
-          </NavigationMenu.Item>
-
           <DesktopLanguageChanger />
 
           <DesktopOccupationDropdown clientCountry={clientCountry} />
@@ -59,24 +85,7 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
             </NavigationMenu.Item>
           )}
         </MenuItems>
-        <StyledMenuItem as={"div"}>
-          {session ? (
-            <AvatarComponent />
-          ) : (
-            <MenuLink
-              onClick={() =>
-                setLocalStorage({
-                  key: LocalStorageKeys.Url_Before_Login,
-                  value: window.location.href,
-                })
-              }
-              href={`/${locale}/auth/signin`}
-            >
-              {t(LanguageKeys.Login)}
-            </MenuLink>
-          )}
-        </StyledMenuItem>
-      </Wrapper>
+      </Bottom>
     </Container>
   );
 }
@@ -89,7 +98,7 @@ const Container = styled(NavigationMenu.Root)`
   ${boxShadow};
   z-index: 10;
   width: 100%;
-  padding: 0 1rem;
+  // padding: 0 1rem;
 `;
 const dirFlexStyle = theme("languageDirection", {
   ltr: css`
@@ -108,22 +117,38 @@ const itemHover = theme("mode", {
   `,
 });
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   ${dirFlexStyle}
-  width: 100%;
   height: 5.5rem;
   max-width: var(--max-width-page);
   margin: 0 auto;
   direction: ltr;
 `;
+const Top = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+width: 100%;
+align-items: center;
+`;
+const Bottom = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+background-color: var(--color-gray4);
+padding: 1.5rem 0;
+`;
 const MenuItems = styled(NavigationMenu.List)`
+  width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   ${dirFlexStyle}
-  width: auto;
   gap: 2rem;
 `;
 const MenuLink = styled(Link)`
@@ -151,6 +176,24 @@ const MenuLink = styled(Link)`
       width: 100%;
       border-radius: 10px;
     }
+  }
+`;
+const MenuBurger = styled.div`
+  position: relative;
+  height: 4rem;
+  width: 3rem;
+  z-index: 4;
+  span {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    background: var(--color-gray10);
+    border-radius: 100px;
+    width: 2.5rem;
+    height: 4px;
+  }
+  span:nth-child(2) {
+    top: 65%;
   }
 `;
 const StyledMenuItem = styled(NavigationMenu.Item)`

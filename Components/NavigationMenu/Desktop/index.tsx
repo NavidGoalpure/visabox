@@ -22,16 +22,17 @@ import { isAgencyLogedIn } from "Utils/user";
 import { SupportedCountry } from "Interfaces/Database";
 
 function Desktop({ clientCountry }: { clientCountry: string }) {
-  const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const { locale } = useLocale();
   const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
-  
+
   return (
     <Container>
       <Wrapper>
         <Top>
           <MenuBurger
+            isMenuClicked={isMenuClicked}
             id={`hamburg`}
             onClick={() => setIsMenuClicked(!isMenuClicked)}
           >
@@ -60,32 +61,30 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
           </StyledMenuItem>
         </Top>
       </Wrapper>
-      {isMenuClicked && (
-        <Bottom>
-          <MenuItems>
-            <DesktopLanguageChanger />
+      <Bottom isMenuClicked={isMenuClicked}>
+        <MenuItems>
+          <DesktopLanguageChanger />
 
-            <DesktopOccupationDropdown clientCountry={clientCountry} />
-            <DesktopBoxsesDropdown clientCountry={clientCountry} />
-            {(clientCountry === SupportedCountry.Iran ||
-              getLocalStorage(LocalStorageKeys.Country) ===
-                SupportedCountry.Iran) && (
-              <NavigationMenu.Item>
-                <Link href={`/fa/blog`}>
-                  <Item>{t(LanguageKeys.Blogs)}</Item>
-                </Link>
-              </NavigationMenu.Item>
-            )}
-            {isAgencyLogedIn() && (
-              <NavigationMenu.Item>
-                <Link href={`/${locale}/agency/forms-wall`}>
-                  <Item>{t(LanguageKeys.FormsWall)}</Item>
-                </Link>
-              </NavigationMenu.Item>
-            )}
-          </MenuItems>
-        </Bottom>
-      )}
+          <DesktopOccupationDropdown clientCountry={clientCountry} />
+          <DesktopBoxsesDropdown clientCountry={clientCountry} />
+          {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
+            <NavigationMenu.Item>
+              <Link href={`/fa/blog`}>
+                <Item>{t(LanguageKeys.Blogs)}</Item>
+              </Link>
+            </NavigationMenu.Item>
+          )}
+          {isAgencyLogedIn() && (
+            <NavigationMenu.Item>
+              <Link href={`/${locale}/agency/forms-wall`}>
+                <Item>{t(LanguageKeys.FormsWall)}</Item>
+              </Link>
+            </NavigationMenu.Item>
+          )}
+        </MenuItems>
+      </Bottom>
     </Container>
   );
 }
@@ -141,15 +140,27 @@ const Top = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  padding: 0 0.5rem;
   align-items: center;
 `;
-const Bottom = styled.div`
-  ${BottomTheme}
+const Bottom = styled.div<{ isMenuClicked: boolean }>`
+  ${BottomTheme};
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  box-sizing: content-box;
+  transition: all 0.3s ease;
+  //
+  ${({ isMenuClicked }) =>
+    isMenuClicked &&
+    css`
+      height: 2rem;
+      padding: 1.5rem 0;
+    `}
 `;
 const MenuItems = styled(NavigationMenu.List)`
   width: 100%;
@@ -186,11 +197,13 @@ const MenuLink = styled(Link)`
     }
   }
 `;
-const MenuBurger = styled.div`
+const MenuBurger = styled.div<{ isMenuClicked: boolean }>`
   position: relative;
+  cursor: pointer;
   height: 4rem;
   width: 3rem;
   z-index: 4;
+  transition: all 0.3s ease;
   span {
     position: absolute;
     top: 40%;
@@ -199,10 +212,27 @@ const MenuBurger = styled.div`
     border-radius: 100px;
     width: 2.5rem;
     height: 4px;
+    transform-origin: center top;
+    transition: all 0.3s 0.3s ease, rotate 0.3s ease;
   }
   span:nth-child(2) {
     top: 65%;
   }
+  ${({ isMenuClicked }) =>
+    isMenuClicked &&
+    css`
+      span {
+        top: 50%;
+        transform: translateY(-50%);
+        rotate: 45deg;
+        transition: all 0.3s ease, rotate 0.3s 0.3s ease;
+      }
+      span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        rotate: -45deg;
+      }
+    `}
 `;
 const StyledMenuItem = styled(NavigationMenu.Item)`
   height: 100%;

@@ -24,7 +24,7 @@ import BoxesSection from "../BoxesSection";
 
 interface Props {
   client: Client;
-  userId: string;
+  userId: string | undefined;
 }
 function MobileAgentsPage({ client, userId }: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
@@ -50,14 +50,14 @@ function MobileAgentsPage({ client, userId }: Props) {
         </Name>
         <JobTitle>{client?.current_job}</JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
-        {!!client?.country && (
+        {client?.completed_forms?.length === 1 && (
           <HeaderLabel>
             {t(LanguageKeys.ScoreTitle)}{" "}
             <span id="score">{CalculateClientScore(client)}</span>
           </HeaderLabel>
         )}
 
-        {!client?.country && (
+        {!!client && !!userId && client?.completed_forms?.length !== 1 && (
           <HintContainer>
             <HintInfoIcon />
             <HintContent>

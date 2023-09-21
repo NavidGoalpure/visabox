@@ -37,17 +37,7 @@ const Content: React.FC<Props> = ({ client }) => {
     if (isLaptop) setScreen("DESKTOP");
   });
   if (screen === "MOBILE")
-    return (
-      <MobileAgentsPage
-        userId={user?.client?.[0]?._id || "defensive"}
-        client={client}
-      />
-    );
-  return (
-    <DesktopAgentsPage
-      client={client}
-      userId={user?.client?.[0]?._id || "defensive"}
-    />
-  );
+    return <MobileAgentsPage userId={user?.client?.[0]?._id} client={client} />;
+  return <DesktopAgentsPage client={client} userId={user?.client?.[0]?._id} />;
 };
 export default Content;

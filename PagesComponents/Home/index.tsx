@@ -64,7 +64,7 @@ const HomeContent: React.FC = () => {
       <Hero />
 
       <Container id="section-container">
-        {(!session || !hasClientCompletedForm || !isAgencyLogedIn() ) && (
+        {(!session || !hasClientCompletedForm) && !isAgencyLogedIn() && (
           <Banner
             navigateTo={`/${locale}/clients/point-calculator`}
             desc={

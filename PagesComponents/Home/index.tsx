@@ -18,6 +18,7 @@ import { useQuery } from "react-query";
 import { ClientQueryKeys } from "Utils/query/keys";
 import { ClientError } from "@sanity/client";
 import { Client } from "Interfaces/Database/Client";
+import { isAgencyLogedIn } from "Utils/user";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -61,7 +62,7 @@ const HomeContent: React.FC = () => {
     <>
       <Hero />
       <Container id="section-container">
-        {(!session || !hasClientCompletedForm) && (
+        {(!session || !hasClientCompletedForm) && !isAgencyLogedIn() && (
           <Banner
             navigateTo={`/${locale}/clients/point-calculator`}
             desc={

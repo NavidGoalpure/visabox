@@ -87,6 +87,5 @@ const Flag = styled(DYImage)`
 const SphereIcon = styled(ImSphere)`
   width: 1rem;
   height: auto;
-  margin-bottom: 0.2rem;
   color: var(--color-gray10);
 `;

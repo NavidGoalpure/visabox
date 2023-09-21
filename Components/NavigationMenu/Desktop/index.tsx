@@ -1,6 +1,6 @@
 import { Logo } from "Elements/Logo";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { boxShadow, directionStyles } from "Styles/Theme";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
@@ -16,28 +16,53 @@ import DesktopOccupationDropdown from "./dropdownOccupation";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
 import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { Languages, LocalStorageKeys } from "Interfaces";
-import { useRouter } from "next/router";
+import { LocalStorageKeys } from "Interfaces";
 import { getLocalStorage, setLocalStorage } from "Utils";
 import { isAgencyLogedIn } from "Utils/user";
-import { Client } from "Interfaces/Database/Client";
 import { SupportedCountry } from "Interfaces/Database";
 
 function Desktop({ clientCountry }: { clientCountry: string }) {
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const { locale } = useLocale();
   const { data: session } = useSession();
   const { t } = useStaticTranslation(componentStatements);
-  const router = useRouter();
+
   return (
     <Container>
       <Wrapper>
+        <Top>
+          <MenuBurger
+            isMenuClicked={isMenuClicked}
+            id={`hamburg`}
+            onClick={() => setIsMenuClicked(!isMenuClicked)}
+          >
+            <span aria-hidden id={"line1"} />
+            <span aria-hidden id={"line2"} />
+          </MenuBurger>
+          <Link href={`/${locale}`}>
+            <Logo />
+          </Link>
+          <StyledMenuItem as={"div"}>
+            {session ? (
+              <AvatarComponent />
+            ) : (
+              <MenuLink
+                onClick={() =>
+                  setLocalStorage({
+                    key: LocalStorageKeys.Url_Before_Login,
+                    value: window.location.href,
+                  })
+                }
+                href={`/${locale}/auth/signin`}
+              >
+                {t(LanguageKeys.Login)}
+              </MenuLink>
+            )}
+          </StyledMenuItem>
+        </Top>
+      </Wrapper>
+      <Bottom isMenuClicked={isMenuClicked}>
         <MenuItems>
-          <NavigationMenu.Item>
-            <Link href={`/${locale}`}>
-              <Logo />
-            </Link>
-          </NavigationMenu.Item>
-
           <DesktopLanguageChanger />
 
           <DesktopOccupationDropdown clientCountry={clientCountry} />
@@ -59,24 +84,7 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
             </NavigationMenu.Item>
           )}
         </MenuItems>
-        <StyledMenuItem as={"div"}>
-          {session ? (
-            <AvatarComponent />
-          ) : (
-            <MenuLink
-              onClick={() =>
-                setLocalStorage({
-                  key: LocalStorageKeys.Url_Before_Login,
-                  value: window.location.href,
-                })
-              }
-              href={`/${locale}/auth/signin`}
-            >
-              {t(LanguageKeys.Login)}
-            </MenuLink>
-          )}
-        </StyledMenuItem>
-      </Wrapper>
+      </Bottom>
     </Container>
   );
 }
@@ -89,7 +97,7 @@ const Container = styled(NavigationMenu.Root)`
   ${boxShadow};
   z-index: 10;
   width: 100%;
-  padding: 0 1rem;
+  // padding: 0 1rem;
 `;
 const dirFlexStyle = theme("languageDirection", {
   ltr: css`
@@ -107,23 +115,59 @@ const itemHover = theme("mode", {
     color: var(--color-gray13);
   `,
 });
+const BottomTheme = theme("mode", {
+  light: css`
+    background: var(--color-gray12);
+  `,
+  dark: css`
+    background: var(--color-gray4);
+  `,
+});
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   ${dirFlexStyle}
-  width: 100%;
   height: 5.5rem;
   max-width: var(--max-width-page);
   margin: 0 auto;
   direction: ltr;
 `;
-const MenuItems = styled(NavigationMenu.List)`
+const Top = styled.div`
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 0.5rem;
+  align-items: center;
+`;
+const Bottom = styled.div<{ isMenuClicked: boolean }>`
+  ${BottomTheme};
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 0;
+  overflow: hidden;
+  box-sizing: content-box;
+  transition: all 0.3s ease;
+  //
+  ${({ isMenuClicked }) =>
+    isMenuClicked &&
+    css`
+      height: 2rem;
+      padding: 1.5rem 0;
+    `}
+`;
+const MenuItems = styled(NavigationMenu.List)`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   ${dirFlexStyle}
-  width: auto;
   gap: 2rem;
 `;
 const MenuLink = styled(Link)`
@@ -152,6 +196,43 @@ const MenuLink = styled(Link)`
       border-radius: 10px;
     }
   }
+`;
+const MenuBurger = styled.div<{ isMenuClicked: boolean }>`
+  position: relative;
+  cursor: pointer;
+  height: 4rem;
+  width: 3rem;
+  z-index: 4;
+  transition: all 0.3s ease;
+  span {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    background: var(--color-gray10);
+    border-radius: 100px;
+    width: 2.5rem;
+    height: 4px;
+    transform-origin: center top;
+    transition: all 0.3s 0.3s ease, rotate 0.3s ease;
+  }
+  span:nth-child(2) {
+    top: 65%;
+  }
+  ${({ isMenuClicked }) =>
+    isMenuClicked &&
+    css`
+      span {
+        top: 50%;
+        transform: translateY(-50%);
+        rotate: 45deg;
+        transition: all 0.3s ease, rotate 0.3s 0.3s ease;
+      }
+      span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        rotate: -45deg;
+      }
+    `}
 `;
 const StyledMenuItem = styled(NavigationMenu.Item)`
   height: 100%;

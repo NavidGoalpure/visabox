@@ -126,26 +126,26 @@ const Trigger = styled(Select.Trigger)`
   ${layer3_TextStyle}
   display: flex;
   align-items: center;
-
   gap: 0.5rem;
   cursor: pointer;
-  span {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    align-items: center;
-  }
 `;
 const TriggerValue = styled(Select.Value)`
   ${layer3_TextStyle};
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  align-items: center;
 `;
 const Icon = styled(Select.Icon)`
   display: flex;
   justify-content: center;
+  
 `;
 const ArrowIcon = styled(BsChevronDown)`
   ${layer3_TextColor};
+  width: 0.5rem;
+  stroke-width: 0.2rem;
 `;
 
 const Portal = styled(Select.Portal)`

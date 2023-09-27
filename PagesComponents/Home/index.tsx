@@ -60,8 +60,8 @@ const HomeContent: React.FC = () => {
   }, [isLoading, isIdle, data]);
   return (
     <>
-      <Hero />
 
+      <Hero />
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && (
           <Banner

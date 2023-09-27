@@ -50,7 +50,7 @@ function DesktopAgentsPage({ ChosenAgency }: Props) {
               src={imgSrc}
               alt={
                 ChosenAgency?.name
-                  ? `${ChosenAgency?.name?.[locale]} image`
+                  ? `${dt(ChosenAgency?.name)} image`
                   : 'agent image'
               }
               onError={() => {

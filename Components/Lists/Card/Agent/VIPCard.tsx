@@ -11,7 +11,7 @@ import { layer2B_BG } from 'Styles/Theme/Layers/layer2/theme';
 import { layer3_SubtitleStyle } from 'Styles/Theme/Layers/layer3/style';
 import { Headline7Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { MultiLanguageText } from 'Interfaces/Database';
+import { En_FaLanguage, MultiLanguageText } from 'Interfaces/Database';
 import { HTMLAttributes, useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { PrimaryButton } from 'Elements/Button/Primary';
@@ -23,8 +23,8 @@ import { getGsapTimeLine_VipCard } from '../const';
 import { useLocale } from 'Hooks/useLocale';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
-  name: MultiLanguageText;
-  desc: MultiLanguageText | undefined;
+  name: En_FaLanguage;
+  desc: En_FaLanguage | undefined;
   slug: string;
   avatar: string;
   // این پرابز نشون میده که لایر زمینه این کامپوننت شماره چنده. مثلا لایر یک یا لایر۲
@@ -54,7 +54,7 @@ function VIPAgentCard({
     <Container
       {...props}
       href={`/lists/agents/${slug}`}
-      target={'_blank'}
+      target={"_blank"}
       className={`${slug} ${className}`}
     >
       <Wrapper>
@@ -62,12 +62,12 @@ function VIPAgentCard({
           <AgentLogo
             fill
             src={imgSrc}
-            alt={name ? `${name?.[locale]} image` : 'agent image'}
+            alt={name ? `${dt(name)} image` : "agent image"}
             onError={() => {
               setImgSrc(`/Images/placeholder.jpeg`);
             }}
             quality={100}
-            sizes='96px'
+            sizes="96px"
           />
         </ImageWrapper>
         <Title>{dt(name)}</Title>

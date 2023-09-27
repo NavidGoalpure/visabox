@@ -12,6 +12,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   NavigateTitle: {
     en: 'Which page would you like to navigate to?',
     fa: 'دوست دارید به کدام صفحه بروید؟',
+    zh: '您想导航到哪个页面？',
   },
   Title: {
     en: 'Please Wait Until We Verify Your Information...',
@@ -26,10 +27,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   HomePage: {
     en: 'Home Page',
     fa: 'صحفه اصلی',
+    zh: '主页',
   },
   LoginPage: {
     en: 'Login Page',
     fa: 'صحفه لاگین',
+    zh: '登录页面',
   },
   SuccessToastMessage: {
     en: 'You have signed in successfully',

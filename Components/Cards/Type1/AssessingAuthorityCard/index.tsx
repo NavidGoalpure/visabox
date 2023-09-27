@@ -1,4 +1,4 @@
-import { MultiLanguageText } from 'Interfaces/Database';
+import { EnLanguage, MultiLanguageText } from 'Interfaces/Database';
 import { HTMLAttributes, useState } from 'react';
 import PopupContent from './popupContent';
 import {
@@ -21,7 +21,7 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   abv: AssessingAuthorityAbv;
-  fullTitle: MultiLanguageText;
+  fullTitle: EnLanguage;
   address: string;
   email: string;
   website: string;

@@ -133,10 +133,12 @@ Did you complete a professional year program in Australia in your nominated skil
   UniInput_SectionTitle: {
     en: "section",
     fa: "سکشن",
+    zh: '部分'
   },
   UniInput_Placeholder: {
     en: "Search",
     fa: "جستجو",
+    zh: "搜索"
   },
   UniInput_HintText: {
     en: "You can search your university section by writing the name of your university",

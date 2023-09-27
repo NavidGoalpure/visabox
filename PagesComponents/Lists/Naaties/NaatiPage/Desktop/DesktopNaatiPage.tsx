@@ -39,7 +39,7 @@ function DesktopNaatiPage({ chosenNaati }: Props) {
             src={imgSrc}
             alt={
               chosenNaati?.fullName
-                ? `${chosenNaati?.fullName?.[locale]} image`
+                ? `${dt(chosenNaati?.fullName)} image`
                 : 'naati image'
             }
             onError={() => {

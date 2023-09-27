@@ -5,12 +5,12 @@ import {
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import theme from 'styled-theming';
-import { MultiLanguageText } from 'Interfaces/Database';
+import { En_FaLanguage } from 'Interfaces/Database';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 interface Props {
-  desc?: MultiLanguageText;
+  desc?: En_FaLanguage;
 }
 const AboutComponent = ({ desc }: Props) => {
   const { dt } = useDynamicTranslation();

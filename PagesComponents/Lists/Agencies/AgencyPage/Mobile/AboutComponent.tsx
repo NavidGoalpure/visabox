@@ -1,16 +1,16 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React from "react";
+import styled, { css } from "styled-components";
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import theme from 'styled-theming';
-import { MultiLanguageText } from 'Interfaces/Database';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
+} from "Styles/Theme/Layers/layer2/style";
+import theme from "styled-theming";
+import { En_FaLanguage } from "Interfaces/Database";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
 interface Props {
-  desc?: MultiLanguageText;
+  desc?: En_FaLanguage;
 }
 const AboutComponent = ({ desc }: Props) => {
   const { dt } = useDynamicTranslation();
@@ -29,7 +29,7 @@ const AboutComponent = ({ desc }: Props) => {
 
 export { AboutComponent };
 
-const DescBackground = theme('mode', {
+const DescBackground = theme("mode", {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);

@@ -1,9 +1,16 @@
-import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
+import {
+  EnLanguage,
+  EnLanguageArray,
+  En_FaLanguage,
+  En_FaLanguageArray,
+  MultiLanguageText,
+  MultiLanguageTextArray,
+} from "Interfaces/Database";
 import {
   isMultiLanguageTextArrayIsEmpty,
   translatedObject,
   translateDynamicArray,
-} from './Utils';
+} from "./Utils";
 
 ////////////////
 /**
@@ -14,10 +21,15 @@ import {
  */
 export const useDynamicTranslation = () => {
   return {
-    dt: (statementObj: MultiLanguageText | undefined) =>
+    dt: (statementObj: MultiLanguageText | EnLanguage | En_FaLanguage | undefined) =>
       translatedObject({ statementObj }),
-    dtArray: (statementObj: MultiLanguageTextArray | undefined) =>
-      translateDynamicArray(statementObj),
+    dtArray: (
+      statementObj:
+        | MultiLanguageTextArray
+        | EnLanguageArray
+        | En_FaLanguageArray
+        | undefined
+    ) => translateDynamicArray(statementObj),
     isMultiLanguageTextArrayIsEmpty,
   };
 };

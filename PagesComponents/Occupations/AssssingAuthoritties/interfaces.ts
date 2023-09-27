@@ -1,8 +1,8 @@
-import { MultiLanguageText } from 'Interfaces/Database';
-import { AssessingAuthorityAbv } from 'Interfaces/Database/Occupation/occupation';
+import { EnLanguage } from "Interfaces/Database";
+import { AssessingAuthorityAbv } from "Interfaces/Database/Occupation/occupation";
 
 type AssssingAuthority = {
-  title: MultiLanguageText;
+  title: EnLanguage;
   abv: AssessingAuthorityAbv;
   address: string;
   email: string;

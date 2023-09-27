@@ -11,7 +11,7 @@
 import { Slug } from './Fields';
 import { UnitGroup } from './unitGroup';
 import { Territory } from './territory';
-import { MultiLanguageText, MultiLanguageTextArray, SanityKeys } from '..';
+import { EnLanguage, EnLanguageArray, SanityKeys } from '..';
 
 export enum AssessingAuthorityAbv {
   'AACA' = 'AACA',
@@ -71,21 +71,21 @@ export interface Occupation extends SanityKeys {
   code: number;
   slug?: Slug;
   territory_section?: TerritorySection[];
-  title: MultiLanguageText;
+  title: EnLanguage;
   visa_option_section?: VisaOptionSection[];
 }
 
 export interface AnzscoSection {
   _type?: string;
-  alternative_title?: MultiLanguageTextArray;
-  description?: MultiLanguageText;
+  alternative_title?: EnLanguageArray;
+  description?: EnLanguage;
   priority_list?: PriorityList[];
-  specialisations?: MultiLanguageTextArray;
+  specialisations?: EnLanguageArray;
   unit_group?: ReferenceType | UnitGroup;
   major_group?: number;
   submajor_group?: number;
   minor_group?: number;
-  nec_occupation?: MultiLanguageTextArray;
+  nec_occupation?: EnLanguageArray;
 }
 
 export enum Territories {

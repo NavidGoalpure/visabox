@@ -21,16 +21,21 @@ import { FiInfo } from "react-icons/fi";
 import BoxesSection from "../BoxesSection";
 interface Props {
   client: Client;
+  userId: string | undefined;
 }
-function DesktopAgentsPage({ client }: Props) {
+function DesktopAgentsPage({ client, userId }: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
-      {!client?.country && (
+      {!!client && !!userId && client?.completed_forms?.length !== 1 && (
         <HintContainer>
           <HintInfoIcon />
-          <HintContent>{t(LanguageKeys.NotCompletedHint)}</HintContent>
+          <HintContent>
+            {client?._id === userId
+              ? t(LanguageKeys.ProfileNotCompletedHint)
+              : t(LanguageKeys.UserPageNotCompletedHint)}
+          </HintContent>
         </HintContainer>
       )}
       <Wrapper>
@@ -116,6 +121,7 @@ const Container = styled.div`
 const HintContainer = styled.div`
   ${Hint_SecondaryContainer};
   gap: 2rem;
+  margin-top: 3rem;
 `;
 const HintInfoIcon = styled(FiInfo)`
   ${Hint_SecondaryIcon};

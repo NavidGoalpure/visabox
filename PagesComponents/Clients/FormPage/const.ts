@@ -7,7 +7,8 @@ export enum LanguageKeys {
   ScoreTitle = "ScoreTitle",
   AboutLabel = "AboutLabel",
   FullNameLabel = "FullNameLabel",
-  NotCompletedHint = "NotCompletedHint",
+  ProfileNotCompletedHint ="ProfileNotCompletedHint",
+  UserPageNotCompletedHint = "UserPageNotCompletedHint",
   BirthDateLabel = "BirthDateLabel",
   EnglishSkillsLabel = "EnglishSkillsLabel",
   MarriageStatusLabel = "MarriageStatusLabel",
@@ -62,7 +63,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "توضیحات",
     zh: "关于",
   },
-  NotCompletedHint: {
+  ProfileNotCompletedHint: {
+    en: `Bring Your Profile to Life! Add the missing details and make it complete.`,
+    fa: `پروفایل خود را زنده کنید! اطلاعات جا مانده را پر و پروفایل خود را کامل کنید.`,
+    zh: "让您的个人资料栩栩如生！ 添加缺失的细节并使其完整。",
+  },
+  UserPageNotCompletedHint: {
     en: `This user has registered information before the new update of "Marabox" form. For this reason, this profile may not be complete.`,
     fa: `            این کاربر قبل از بروزرسانی فرم «ماراباکس» ثبت اطلاعات نموده
     است. به همین دلیل پروفایل او کامل نمیباشد.`,

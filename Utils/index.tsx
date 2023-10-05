@@ -3,6 +3,7 @@ import { LocalStorageKeys, ThemeModes } from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import crypto from 'crypto';
+import TagManager from 'react-gtm-module';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
   const DEFAULT_THEME = ThemeModes.DARK;
@@ -13,7 +14,30 @@ const getThemeFromLocalStorage = (): ThemeModes => {
   return res;
 };
 //
-
+export const fireGtmEvent = ({
+  eventName,
+  parameters = {},
+}: {
+  eventName: string;
+  parameters: Record<string, unknown>;
+}) => {
+  if (isItOnLive()) {
+    const tagManagerArgs = {
+      dataLayer: {
+        event: eventName,
+        platform: 'web',
+        ...parameters,
+      },
+    };
+    TagManager.dataLayer(tagManagerArgs);
+  } else {
+    console.log(
+      `We dont fires events in test environment.evenName="${eventName}". parametersValues="${Object.values(
+        parameters
+      )}. parametersKeys="${Object.keys(parameters)}"`
+    );
+  }
+};
 //
 function isItOnLive(): boolean {
   const smartLocation =

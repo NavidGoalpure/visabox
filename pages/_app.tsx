@@ -15,6 +15,7 @@ import { globalStyles } from 'Styles/Theme';
 import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 import { smartActiveHotjar } from 'PagesComponents/_App/Utils';
+import TagManager from 'react-gtm-module';
 
 const GlobalStyle = createGlobalStyle`
 ${globalStyles}
@@ -28,6 +29,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
+  useEffect(() => {
+    TagManager.initialize({ gtmId: 'GTM-MLB3RGM' });
+  }, []);
   useEffect(() => {
     smartActiveHotjar(router.route);
   }, []);

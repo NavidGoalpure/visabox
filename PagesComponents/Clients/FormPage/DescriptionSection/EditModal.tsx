@@ -15,8 +15,7 @@ const EditModal: React.FC<Props> = ({
   function ContentBasedOnKeys() {
     switch (modalContentKeys) {
       case EditModalContentKeys.ACCREDITED_COMMUNITY_LANGUAGE:
-        return <div> red</div>;
-        break;
+        return <div>red</div>;
 
       default:
         return null;

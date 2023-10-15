@@ -5,7 +5,6 @@ import {
   layer2A_TitleStyle,
 } from "Styles/Theme/Layers/layer2/style";
 import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import DescriptionSection from "../DescriptionSection";
 import { Client } from "Interfaces/Database/Client";
 import { Headline7Style } from "Styles/Typo";
 import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
@@ -19,6 +18,7 @@ import {
 } from "Styles/Theme/Hint/style";
 import { FiInfo } from "react-icons/fi";
 import BoxesSection from "../BoxesSection";
+import DescriptionSection from "../DescriptionSection";
 interface Props {
   client: Client;
   userId: string | undefined;

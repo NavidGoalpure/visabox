@@ -4,7 +4,6 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
 } from "Styles/Theme/Layers/layer2/style";
-import { maritalStatuses } from "Consts/Client";
 import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
 import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { Headline7Style } from "Styles/Typo";
@@ -13,14 +12,19 @@ import { deviceMin } from "Consts/device";
 import { SiGmail } from "react-icons/si";
 import { copyContent } from "Utils";
 import { Client } from "Interfaces/Database/Client";
-import { componentStatements, LanguageKeys } from "./const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { getMultiLanguageLabels } from "./utils";
 import { useLocale } from "Hooks/useLocale";
 import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import TooltipTag from "Elements/TooltipTag";
 import { FiInfo } from "react-icons/fi";
+import { MdOutlineEdit } from "react-icons/md";
+import useDevice from "Hooks/useDevice";
+import { useState, useEffect } from "react";
+import { componentStatements, LanguageKeys } from "../const";
+import { getMultiLanguageLabels } from "../utils";
+import EditModal from "./EditModal";
+import { EditModalContentKeys } from "./const";
 
 interface Props {
   client: Client;
@@ -28,26 +32,51 @@ interface Props {
 function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const data = getMultiLanguageLabels(client);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [editModalContentKey, setEditModalContentKey] =
+    useState<EditModalContentKeys | null>(null);
+  const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
+  const { isLaptop } = useDevice();
   const { locale } = useLocale();
   const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  useEffect(() => {
+    if (isLaptop) setScreen("DESKTOP");
+  });
+  function EditClickHandler(key: EditModalContentKeys) {
+    setIsModalOpen(true);
+    setEditModalContentKey(key);
+  }
   return (
     <FormData>
+      <EditModal isModalOpen={isModalOpen} modalContentKeys={editModalContentKey} setIsModalOpen={setIsModalOpen} />
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
       <Wrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() => EditClickHandler(EditModalContentKeys.BIRTH_DATE)}
+        >
           <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
           <Value>
             {data?.birthday
               ? data?.birthday?.slice(0, 10)
               : data?.age?.slice(0, 10)}
           </Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() => EditClickHandler(EditModalContentKeys.ENGLISH_SKILL)}
+        >
           <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
           <Value>{data?.IELTSScore}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() => EditClickHandler(EditModalContentKeys.MARRIAGE_STATUS)}
+        >
           <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
           <Value>
             {data?.marital?.[locale]}{" "}
@@ -89,23 +118,47 @@ function DescriptionSection({ client }: Props) {
               />
             )}
           </Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
 
         {client?.country && (
-          <DataWrapper>
+          <DataWrapper
+            onClick={() => EditClickHandler(EditModalContentKeys.COUNTRY)}
+          >
             <Label>{t(LanguageKeys.CountryLabel)}</Label>{" "}
             <Value>{data?.country?.[locale]}</Value>
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
           </DataWrapper>
         )}
-        <DataWrapper>
+        <DataWrapper
+          onClick={() => EditClickHandler(EditModalContentKeys.FIELD_OF_STUDY)}
+        >
           <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{" "}
           <Value>{data?.fieldOfStudy}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() => EditClickHandler(EditModalContentKeys.DEGREE)}
+        >
           <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
           <Value>{data?.degree?.[locale]}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(
+              EditModalContentKeys.AUSTRALIAN_EDUCATIONAL_QUALIFICATION
+            )
+          }
+        >
           <Label>
             {t(LanguageKeys.AustralianEducationalQualificationLabel)}
           </Label>{" "}
@@ -116,8 +169,17 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(
+              EditModalContentKeys.DESIGNATED_REGIONAL_AREA_STUDY
+            )
+          }
+        >
           <Label>{t(LanguageKeys.DesignatedRegionalAreaStudyLabel)}</Label>{" "}
           <Value>
             {data?.designated_regional_area_study ? (
@@ -126,8 +188,17 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(
+              EditModalContentKeys.SPECIALIST_EDUCATIONAL_QUALIFICATION
+            )
+          }
+        >
           <Label>
             {t(LanguageKeys.SpecialistEducationalQualificationLabel)}
           </Label>{" "}
@@ -138,8 +209,17 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(
+              EditModalContentKeys.PROFESSIONAL_YEAR_IN_AUSTRALIA
+            )
+          }
+        >
           <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{" "}
           <Value>
             {data?.professional_year_in_australia ? (
@@ -148,8 +228,15 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(EditModalContentKeys.ACCREDITED_COMMUNITY_LANGUAGE)
+          }
+        >
           <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{" "}
           <Value>
             {data?.accredited_community_language ? (
@@ -158,18 +245,44 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
+          }
+        >
           <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
           <Value>{data?.uniSection?.[locale]}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(EditModalContentKeys.WORK_EXPERIENCE_OVERSEAS)
+          }
+        >
           <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{" "}
           <Value>{data?.workExperience?.[locale]}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          onClick={() =>
+            EditClickHandler(
+              EditModalContentKeys.AUSTRALIAN_WORK_EXPERIENCE
+            )
+          }
+        >
           <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </DataWrapper>
         <StyledDataWrapper
           onClick={() =>
@@ -181,6 +294,9 @@ function DescriptionSection({ client }: Props) {
         >
           <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{" "}
           <Value>{data?.phoneNumber}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </StyledDataWrapper>
         <StyledDataWrapper
           onClick={() =>
@@ -192,6 +308,9 @@ function DescriptionSection({ client }: Props) {
         >
           <Label>{t(LanguageKeys.EmailTitle)}</Label>{" "}
           <Value>{data?.email}</Value>
+          <EditButton>
+            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+          </EditButton>
         </StyledDataWrapper>
       </Wrapper>
     </FormData>
@@ -207,6 +326,14 @@ const FormDataTheme = theme("mode", {
     background: var(--color-gray6);
   `,
 });
+const BorderColor = theme("mode", {
+  light: css`
+    border-color: var(--color-gray11);
+  `,
+  dark: css`
+    border-color: var(--color-gray7);
+  `,
+});
 const FormDataDropshadow = theme("mode", {
   light: css`
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
@@ -219,6 +346,22 @@ const LabelTheme = theme("mode", {
   `,
   dark: css`
     color: var(--color-gray10);
+  `,
+});
+const EditTheme = theme("mode", {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray11);
+  `,
+});
+const EditIconTheme = theme("mode", {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray9);
   `,
 });
 const IconTheme = theme("mode", {
@@ -257,7 +400,7 @@ const FormData = styled.div`
   padding: 2rem 1.5rem;
   position: relative;
   @media ${deviceMin.tabletS} {
-    padding: 2rem 5.5rem;
+    padding: 2rem 3rem;
     width: 34.25rem;
   }
 `;
@@ -267,18 +410,26 @@ const Title = styled.h3`
 `;
 const Wrapper = styled.div`
   display: flex;
-  gap: 2.5rem;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 `;
 const DataWrapper = styled.div`
+  cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
   align-items: center;
+  width: 100%;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid;
+  ${BorderColor};
+  :last-child {
+    border: none;
+  }
 `;
 const StyledDataWrapper = styled(DataWrapper)`
   cursor: pointer;
@@ -295,6 +446,19 @@ const Value = styled.h4`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+`;
+const EditButton = styled.button`
+  ${Headline7Style};
+  ${EditTheme};
+  font-size: 13px;
+  margin-inline-start: auto;
+  grid-column-start: 3;
+`;
+const EditIcon = styled(MdOutlineEdit)`
+  ${EditIconTheme};
+  width: 1.2rem;
+  height: auto;
+  border-radius: 50%;
 `;
 const PartnerPopupContent = styled.div`
   display: flex;

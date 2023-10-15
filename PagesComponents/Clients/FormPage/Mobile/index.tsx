@@ -8,7 +8,6 @@ import {
 } from "Styles/Theme/Layers/layer2/style";
 import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
 import { Client } from "Interfaces/Database/Client";
-import DescriptionSection from "../DescriptionSection";
 import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
 import { componentStatements, LanguageKeys } from "../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
@@ -21,6 +20,7 @@ import {
 } from "Styles/Theme/Hint/style";
 import { FiInfo } from "react-icons/fi";
 import BoxesSection from "../BoxesSection";
+import DescriptionSection from "../DescriptionSection";
 
 interface Props {
   client: Client;

@@ -197,7 +197,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: "澳大利亚职业年：",
   },
   AccreditedCommunityLanguageLabel: {
-    en: "Accredited Community Language",
+    en: "Accredited Community Language:",
     fa: "گواهی نامه زبان ناتی:",
     zh: "认可的社区语言",
   },

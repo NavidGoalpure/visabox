@@ -21,7 +21,7 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <ItemsTitle>{t(LanguageKeys.Occupations)}</ItemsTitle>
+        <ItemsTitle>{t(LanguageKeys.SkilledWorkerVisa)}</ItemsTitle>
         <Items
           href={`/${locale}/occupations`}
           data-name={t(LanguageKeys.SkilledOccupationList)}
@@ -34,27 +34,45 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
         >
           {t(LanguageKeys.AssessingAuthority)}
         </Items>
+        <Items
+            href={`/${locale}/occupations/university-section-search`}
+            data-name={t(LanguageKeys.UniversitySection)}
+          >
+            {t(LanguageKeys.UniversitySection)}
+          </Items>
       </ItemsContainer>
       <ItemsContainer>
-        <ItemsTitle>{t(LanguageKeys.Occupations)}</ItemsTitle>
+        <ItemsTitle>{t(LanguageKeys.Lists)}</ItemsTitle>
         <Items
-          href={`/${locale}/lists/agents`}
-          data-name={t(LanguageKeys.AgentsBox)}
-        >
-          {t(LanguageKeys.AgentsBox)}
-        </Items>
-        <Items
-          href={`/${locale}/lists/agencies`}
-          data-name={t(LanguageKeys.AgenciesBox)}
-        >
-          {t(LanguageKeys.AgenciesBox)}
-        </Items>
-        <Items
-          href={`/${locale}/lists/social-pages`}
-          data-name={t(LanguageKeys.SocialNetWorksBox)}
-        >
-          {t(LanguageKeys.SocialNetWorksBox)}
-        </Items>
+            href={`/${locale}/lists/agents`}
+            data-name={t(LanguageKeys.AgentsBox)}
+          >
+            {t(LanguageKeys.AgentsBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/agencies`}
+            data-name={t(LanguageKeys.AgenciesBox)}
+          >
+            {t(LanguageKeys.AgenciesBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/exchanges`}
+            data-name={t(LanguageKeys.Exchanges)}
+          >
+            {t(LanguageKeys.Exchanges)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/social-pages`}
+            data-name={t(LanguageKeys.SocialNetWorksBox)}
+          >
+            {t(LanguageKeys.SocialNetWorksBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/naaties`}
+            data-name={t(LanguageKeys.Naati)}
+          >
+            {t(LanguageKeys.Naati)}
+          </Items>
         {/* {locale === Languages.fa && (
           <Items
             href={`/${locale}/landing/agents`}
@@ -117,7 +135,7 @@ const Container = styled.footer`
   ${footerBackground};
   clip-path: polygon(50% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
   padding-top: 19rem;
-  height: 64rem;
+  height: auto;
   width: 100%;
   position: relative;
   display: flex;

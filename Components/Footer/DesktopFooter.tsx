@@ -45,6 +45,12 @@ function DesktopFooter() {
           >
             {t(LanguageKeys.AssessingAuthority)}
           </Items>
+          <Items
+            href={`/${locale}/occupations/university-section-search`}
+            data-name={t(LanguageKeys.UniversitySection)}
+          >
+            {t(LanguageKeys.UniversitySection)}
+          </Items>
         </SideContainer>
         <CenterItemsContainer locale={locale}>
           <Items
@@ -60,10 +66,22 @@ function DesktopFooter() {
             {t(LanguageKeys.AgenciesBox)}
           </Items>
           <Items
+            href={`/${locale}/lists/exchanges`}
+            data-name={t(LanguageKeys.Exchanges)}
+          >
+            {t(LanguageKeys.Exchanges)}
+          </Items>
+          <Items
             href={`/${locale}/lists/social-pages`}
             data-name={t(LanguageKeys.SocialNetWorksBox)}
           >
             {t(LanguageKeys.SocialNetWorksBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/naaties`}
+            data-name={t(LanguageKeys.Naati)}
+          >
+            {t(LanguageKeys.Naati)}
           </Items>
           {/* {locale === Languages.fa && (
             <Items
@@ -191,7 +209,7 @@ const CenterItemsContainer = styled.div<{ locale: Languages }>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: ${({ locale }) => (locale === Languages.fa ? '7rem' : '5rem')};
+  margin-top: ${({ locale }) => (locale === Languages.fa ? '10rem' : '8rem')};
 `;
 
 ///////////////////

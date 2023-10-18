@@ -21,10 +21,11 @@ import { FiInfo } from "react-icons/fi";
 import { MdOutlineEdit } from "react-icons/md";
 import useDevice from "Hooks/useDevice";
 import { useState, useEffect } from "react";
-import { componentStatements, LanguageKeys } from "../const";
+import { componentStatements, LanguageKeys } from "./const";
 import { getMultiLanguageLabels } from "../utils";
 import EditModal from "./EditModal";
 import { EditModalContentKeys } from "./const";
+import { useSession } from "next-auth/react";
 
 interface Props {
   client: Client;
@@ -32,6 +33,8 @@ interface Props {
 function DescriptionSection({ client }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const data = getMultiLanguageLabels(client);
+  const { data: session } = useSession();
+  const isViewerOwner = client?.email === session?.user?.email;
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [editModalContentKey, setEditModalContentKey] =
     useState<EditModalContentKeys | null>(null);
@@ -49,11 +52,19 @@ function DescriptionSection({ client }: Props) {
   }
   return (
     <FormData>
-      <EditModal isModalOpen={isModalOpen} modalContentKeys={editModalContentKey} setIsModalOpen={setIsModalOpen} />
+      <EditModal
+        client={client}
+        isModalOpen={isModalOpen}
+        modalContentKeys={editModalContentKey}
+        setIsModalOpen={setIsModalOpen}
+      />
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
       <Wrapper>
         <DataWrapper
-          onClick={() => EditClickHandler(EditModalContentKeys.BIRTH_DATE)}
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner && EditClickHandler(EditModalContentKeys.BIRTH_DATE)
+          }
         >
           <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
           <Value>
@@ -61,21 +72,33 @@ function DescriptionSection({ client }: Props) {
               ? data?.birthday?.slice(0, 10)
               : data?.age?.slice(0, 10)}
           </Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
-          onClick={() => EditClickHandler(EditModalContentKeys.ENGLISH_SKILL)}
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.ENGLISH_SKILL)
+          }
         >
           <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
           <Value>{data?.IELTSScore}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
-          onClick={() => EditClickHandler(EditModalContentKeys.MARRIAGE_STATUS)}
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.MARRIAGE_STATUS)
+          }
         >
           <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
           <Value>
@@ -118,42 +141,62 @@ function DescriptionSection({ client }: Props) {
               />
             )}
           </Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
 
         {client?.country && (
           <DataWrapper
-            onClick={() => EditClickHandler(EditModalContentKeys.COUNTRY)}
+            $isViewerOwner={isViewerOwner}
+            onClick={() =>
+              isViewerOwner && EditClickHandler(EditModalContentKeys.COUNTRY)
+            }
           >
             <Label>{t(LanguageKeys.CountryLabel)}</Label>{" "}
             <Value>{data?.country?.[locale]}</Value>
-            <EditButton>
-              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-            </EditButton>
+            {isViewerOwner && (
+              <EditButton>
+                {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+              </EditButton>
+            )}
           </DataWrapper>
         )}
         <DataWrapper
-          onClick={() => EditClickHandler(EditModalContentKeys.FIELD_OF_STUDY)}
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.FIELD_OF_STUDY)
+          }
         >
           <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{" "}
           <Value>{data?.fieldOfStudy}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
-          onClick={() => EditClickHandler(EditModalContentKeys.DEGREE)}
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner && EditClickHandler(EditModalContentKeys.DEGREE)
+          }
         >
           <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
           <Value>{data?.degree?.[locale]}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
+            isViewerOwner &&
             EditClickHandler(
               EditModalContentKeys.AUSTRALIAN_EDUCATIONAL_QUALIFICATION
             )
@@ -169,12 +212,16 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
+            isViewerOwner &&
             EditClickHandler(
               EditModalContentKeys.DESIGNATED_REGIONAL_AREA_STUDY
             )
@@ -188,12 +235,16 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
+            isViewerOwner &&
             EditClickHandler(
               EditModalContentKeys.SPECIALIST_EDUCATIONAL_QUALIFICATION
             )
@@ -209,12 +260,16 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
+            isViewerOwner &&
             EditClickHandler(
               EditModalContentKeys.PROFESSIONAL_YEAR_IN_AUSTRALIA
             )
@@ -228,12 +283,16 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
+            isViewerOwner &&
             EditClickHandler(EditModalContentKeys.ACCREDITED_COMMUNITY_LANGUAGE)
           }
         >
@@ -245,72 +304,94 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
+            isViewerOwner &&
             EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
           }
         >
           <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
           <Value>{data?.uniSection?.[locale]}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
+            isViewerOwner &&
             EditClickHandler(EditModalContentKeys.WORK_EXPERIENCE_OVERSEAS)
           }
         >
           <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{" "}
           <Value>{data?.workExperience?.[locale]}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <DataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
-            EditClickHandler(
-              EditModalContentKeys.AUSTRALIAN_WORK_EXPERIENCE
-            )
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.AUSTRALIAN_WORK_EXPERIENCE)
           }
         >
           <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
         <StyledDataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
-            copyContent({
-              text: data.phoneNumber || "",
-              toastMessage: phoneToastMessage,
-            })
+            isViewerOwner
+              ? EditClickHandler(EditModalContentKeys.PHONE_NUMBER)
+              : copyContent({
+                  text: data.phoneNumber || "",
+                  toastMessage: phoneToastMessage,
+                })
           }
         >
           <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{" "}
           <Value>{data?.phoneNumber}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </StyledDataWrapper>
         <StyledDataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
-            copyContent({
-              text: data.email || "",
-              toastMessage: gmailToastMessage,
-            })
+            isViewerOwner
+              ? EditClickHandler(EditModalContentKeys.EMAIL)
+              : copyContent({
+                  text: data.email || "",
+                  toastMessage: gmailToastMessage,
+                })
           }
         >
           <Label>{t(LanguageKeys.EmailTitle)}</Label>{" "}
           <Value>{data?.email}</Value>
-          <EditButton>
-            {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
-          </EditButton>
+          {isViewerOwner && (
+            <EditButton>
+              {screen === "MOBILE" ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </StyledDataWrapper>
       </Wrapper>
     </FormData>
@@ -415,8 +496,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   width: 100%;
 `;
-const DataWrapper = styled.div`
-  cursor: pointer;
+const DataWrapper = styled.div<{ $isViewerOwner: boolean }>`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -430,6 +510,11 @@ const DataWrapper = styled.div`
   :last-child {
     border: none;
   }
+  ${({ $isViewerOwner }) =>
+    $isViewerOwner &&
+    css`
+      cursor: pointer;
+    `}
 `;
 const StyledDataWrapper = styled(DataWrapper)`
   cursor: pointer;

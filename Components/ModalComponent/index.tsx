@@ -135,6 +135,7 @@ const MobileLine = styled.hr`
   }
 `;
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -143,6 +144,7 @@ const Wrapper = styled.div`
   gap: 2rem;
   padding: 0 2rem;
   @media ${deviceMin.tabletS} {
+    padding: 0;
     overflow: unset;
     height: auto;
   }

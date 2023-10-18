@@ -29,12 +29,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { locale } = useLocale();
   const { theme } = useTheme();
   //
-  useEffect(() => {
-    TagManager.initialize({ gtmId: 'GTM-MLB3RGM' });
-  }, []);
-  useEffect(() => {
-    smartActiveHotjar(router.route);
-  }, []);
+  // useEffect(() => {
+  //   TagManager.initialize({ gtmId: 'GTM-MLB3RGM' });
+  // }, []);
+  // useEffect(() => {
+  //   smartActiveHotjar(router.route);
+  // }, []);
 
   return (
     <>

@@ -10,5 +10,7 @@ ${Point_Calculator_Fragment}
       name,
       lastname,
       current_job,
+      uni_section
       `;
+
 ////////////

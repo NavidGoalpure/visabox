@@ -60,6 +60,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       completed_forms
       `;
 
+      
   try {
     const client = await getClientDetail({ reqParams, resParams });
 

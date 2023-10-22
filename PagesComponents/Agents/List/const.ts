@@ -84,4 +84,4 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 /////////
 export const FILTERD_Codes__HIGHEST_NUMBER__DEFAULT = '99999999';
-export const AGENTS_PER_PAGE = 9;
+export const AGENTS_PER_PAGE = 12;

@@ -5,6 +5,17 @@ import { AGENTS_PER_PAGE } from 'PagesComponents/Agents/List/const';
 import { FilteredMaraAgentRange } from 'PagesComponents/Agents/List/interfaces';
 
 //////////////////////////
+/**
+ * این متد عبارتی که کاربر سرچ کرده رو به عنوان ورودی میگیره و فیلتر مناسب سنیتی رو تولید میکنه
+ * این عبارت در اسم و فامیل وکیل که یک فیلد هست سرچ میشه
+ * فعلا سرج نام غیر انگلیسی ساپورت نمیشه اما بعدا میتونه اضافه بشه
+ * @param {string} searchValue عبارت سرچ شده
+ * @returns {string} فیلتر مورد نیاز گروک برای سنیتی
+ */
+const getSearchConditions = (searchValue: string): string => {
+  if (searchValue === '') return '';
+  return `&& name.en match "*${searchValue}*"`;
+};
 ////////////////////////////
 /**
  * گروک کوئری مورد نیاز برای لیست آکیوپیشن ها رو تولید میکنه
@@ -18,14 +29,14 @@ import { FilteredMaraAgentRange } from 'PagesComponents/Agents/List/interfaces';
  */
 const getListQuery = ({
   lastMaraNumber = '0',
+  searchCondition,
   filteredMaraAgentRange,
 }: {
   lastMaraNumber?: string;
+  searchCondition: string;
   filteredMaraAgentRange: FilteredMaraAgentRange;
 }): string => {
-  console.log('***navid filteredMaraAgentRange=', filteredMaraAgentRange);
-
-  const query = `*[_type=='agent' && mara_number>'${lastMaraNumber}' && mara_number<'${filteredMaraAgentRange.highestNumber}' ]| order(mara_number) [0...${AGENTS_PER_PAGE}] {
+  const query = `*[_type=='agent' && mara_number>'${lastMaraNumber}' && mara_number<'${filteredMaraAgentRange.highestNumber}' ${searchCondition} ]| order(mara_number) [0...${AGENTS_PER_PAGE}] {
     _id,
     slug,
     name,
@@ -49,11 +60,14 @@ type QueryParams = {
 };
 const getAgentsList = async ({
   lastMaraNumber = '0',
+  search,
   filteredMaraAgentRange,
 }: QueryParams): Promise<MaraAgent[]> => {
+  const searchCondition = getSearchConditions(search);
   const data = await sanityClient.fetch(
     getListQuery({
       lastMaraNumber,
+      searchCondition,
       filteredMaraAgentRange,
     })
   );

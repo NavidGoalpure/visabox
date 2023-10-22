@@ -22,7 +22,7 @@ const Content: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const { filteredMaraAgentRange } = useContext(SearchFilterContext);
 
-  //این هوکیه که لیست آکیوپیشن ها رو برمیگردونه
+  //این هوکیه که لیست ایجنت ها رو برمیگردونه
   const { agents, isFetching, isRefetching, fetchNextPage, isError, refetch } =
     useListData({
       search: searchValue,

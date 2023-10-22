@@ -13,6 +13,7 @@ interface Props {
   client: Client;
 }
 const Content: React.FC<Props> = ({ client }) => {
+  
   const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
   const { isLaptop } = useDevice();
   const { data: session } = useSession();

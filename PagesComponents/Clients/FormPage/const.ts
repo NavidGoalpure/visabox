@@ -1,3 +1,4 @@
+import { Point_Calculator_Fragment } from "Consts/GroqFragments";
 import { MultiLanguageText } from "Interfaces/Database";
 
 export enum LanguageKeys {
@@ -98,3 +99,19 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: "不",
   },
 };
+export const profileResParams = ` 
+  ${Point_Calculator_Fragment}
+      _id,
+      _createdAt,
+      country,
+      name,
+      lastname,
+      phone,
+      field_of_study,
+      current_job,
+      is_sharable,
+      uni_section,
+      avatar,
+      email,
+      completed_forms
+      `;

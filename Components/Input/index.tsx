@@ -24,6 +24,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   inputName?: string;
   label?: string | ReactNode;
+  isInputInModal?: boolean;
   // isNumberOnly detemines if value can only accept numbers
   isNumberOnly?: boolean;
   ref?: RefObject<HTMLInputElement>;
@@ -35,6 +36,7 @@ export const Input = ({
   focus = false,
   disabled = false,
   isLoading = false,
+  isInputInModal = false,
   errorMasage,
   value,
   className,
@@ -58,6 +60,7 @@ export const Input = ({
             ref={ref}
             onChange={onChange}
             hasError={!!errorMasage}
+            isInputInModal={isInputInModal}
             value={
               isNumberOnly && value
                 ? value.toString().replace(/[^\d]/g, "")

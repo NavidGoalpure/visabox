@@ -1,5 +1,5 @@
 import { HTMLAttributes, useEffect } from 'react';
-import { MultiLanguageText, En_FaLanguage } from "Interfaces/Database";
+import { MultiLanguageText, En_FaLanguage } from 'Interfaces/Database';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
 import { componentStatements, LanguageKeys } from './const';
@@ -13,8 +13,7 @@ import {
   EmailWrapper,
   AgentElement,
   MaraElement,
-  PhoneTitle,
-  PhoneUrl,
+  MaraNumber,
   PhoneWrapper,
   Socials,
   Title,
@@ -26,29 +25,36 @@ import {
 import { BLANK_SYMBOL } from 'Consts';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  name: En_FaLanguage;
+  name: string | undefined;
   email: string | undefined;
   website: string | undefined;
-  phone: string[] | undefined;
+  maraNumber: string | undefined;
   slug: string;
 }
-function AgentCard({ name, email, website, phone, slug, ...props }: Props) {
+function AgentCard({
+  name,
+  email,
+  website,
+  maraNumber,
+  slug,
+  ...props
+}: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
 
   useEffect(() => getGsapTimeLine_FadeUp(slug));
   const hasWebsite: boolean = website !== BLANK_SYMBOL;
-const emailToastMessage = t(LanguageKeys.copyEmailToastMessage);
-const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
+  const emailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
   return (
     <Container className={slug} {...props}>
       <Wrapper>
-        <Title>{dt(name)}</Title>
+        <Title>{name}</Title>
         <Socials>
           <EmailWrapper
             onClick={() =>
               copyContent({
-                text: email || "",
+                text: email || '',
                 toastMessage: emailToastMessage,
               })
             }
@@ -61,24 +67,21 @@ const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
           <PhoneWrapper
             onClick={() =>
               copyContent({
-                text: phone?.[0] || "",
+                text: maraNumber?.[0] || '',
                 toastMessage: phoneToastMessage,
               })
             }
           >
-            <PhoneTitle>
-              {t(LanguageKeys.Phone)}:<CopyIcon />
-            </PhoneTitle>
-            <PhoneUrl>{!!phone?.[0] ? phone?.[0] : BLANK_SYMBOL}</PhoneUrl>
+            <MaraNumber>{maraNumber}</MaraNumber>
           </PhoneWrapper>
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
-              as={hasWebsite ? "a" : "div"}
+              as={hasWebsite ? 'a' : 'div'}
               href={
-                hasWebsite ? `https://${website?.replace("https://", "")}` : ""
+                hasWebsite ? `https://${website?.replace('https://', '')}` : ''
               }
-              target={"_blank"}
+              target={'_blank'}
               $hasWebsite={hasWebsite}
             >
               {!!website ? website : BLANK_SYMBOL}

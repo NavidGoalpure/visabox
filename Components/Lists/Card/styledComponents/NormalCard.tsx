@@ -127,8 +127,7 @@ export const EmailUrl = styled.h5`
   word-break: break-all;
 `;
 export const PhoneWrapper = styled(EmailWrapper)``;
-export const PhoneTitle = styled(EmailTitle)``;
-export const PhoneUrl = styled(EmailUrl)``;
+export const MaraNumber = styled(EmailTitle)``;
 export const WebsiteWrapper = styled(EmailWrapper)``;
 export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   ${layer2A_TextColor};

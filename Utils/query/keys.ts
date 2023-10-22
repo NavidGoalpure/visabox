@@ -58,4 +58,21 @@ const AgencyQueryKeys = {
     resParams?: string;
   }) => [...AgencyQueryKeys.key, 'detail', reqParams, resParams] as const,
 };
-export { OccupationsQueryKeys, ClientQueryKeys, AgencyQueryKeys };
+const AgentsQueryKeys = {
+  key: ['agents'] as const,
+  //
+  list: (params: OccupationsListParams) =>
+    [...OccupationsQueryKeys.key, 'list', params] as const,
+  //
+  last: (params: OccupationsListParams) =>
+    [...OccupationsQueryKeys.key, 'last', params] as const,
+  //
+  detail: (slug: string) =>
+    [...OccupationsQueryKeys.key, 'detail', slug] as const,
+};
+export {
+  OccupationsQueryKeys,
+  ClientQueryKeys,
+  AgencyQueryKeys,
+  AgentsQueryKeys,
+};

@@ -7,8 +7,7 @@
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-
-import { Slug } from './Fields';
+import { Slug } from '../Fields';
 import { UnitGroup } from './unitGroup';
 import { Territory } from './territory';
 import { EnLanguage, EnLanguageArray, SanityKeys } from '..';

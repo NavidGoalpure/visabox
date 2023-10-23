@@ -11,8 +11,7 @@ export enum LanguageKeys {
   LoadMore = 'LoadMore',
   //
   SomethingWentWrong = 'SomethingWentWrong',
-  //search filter
-  //navid check this
+  //
   Country = 'Country',
   State = 'State',
   City = 'City',

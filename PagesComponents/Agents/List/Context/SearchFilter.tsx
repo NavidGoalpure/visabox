@@ -1,6 +1,5 @@
 // این هوک هندلرهای دکمه های سرچ پیشرفته را مهیا می‌کند
 
-import { Languages } from 'Interfaces';
 import {
   createContext,
   Dispatch,
@@ -10,8 +9,23 @@ import {
 } from 'react';
 import { FILTERD_Codes__HIGHEST_NUMBER__DEFAULT } from '../const';
 import { FilteredMaraAgentRange, SearchFilters } from '../interfaces';
+import {
+  FetchNextPageOptions,
+  InfiniteData,
+  InfiniteQueryObserverResult,
+  QueryObserverResult,
+  RefetchOptions,
+  RefetchQueryFilters,
+  useInfiniteQuery,
+} from 'react-query';
+import { ClientError } from '@sanity/client';
+import { MaraAgent } from 'Interfaces/Database/Lists/agents';
+import { getAgentsList } from 'Queries/agents/List';
+import { AgentsQueryKeys } from 'Utils/query/keys';
 
 interface ContexValues {
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
   //
   selectedFiltersObj: SearchFilters;
   setSelectedFiltersObj: Dispatch<SetStateAction<SearchFilters>>;
@@ -22,6 +36,20 @@ interface ContexValues {
   setFilterMaraAgentRange: Dispatch<SetStateAction<FilteredMaraAgentRange>>;
   //
   resetFilters: () => void;
+  //
+  hasNextPage: boolean | undefined;
+  fetchNextPage: (
+    options?: FetchNextPageOptions | undefined
+  ) => Promise<InfiniteQueryObserverResult<MaraAgent[], ClientError>>;
+  isLoading: boolean;
+  isError: boolean;
+  isFetching: boolean;
+  isRefetching: boolean;
+  agents: InfiniteData<MaraAgent[]> | undefined;
+  refetch: <TPageData>(
+    options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined
+  ) => Promise<QueryObserverResult<InfiniteData<MaraAgent[]>, ClientError>>;
+  remove: () => void;
 }
 type Props = {
   children: React.ReactNode;
@@ -38,6 +66,36 @@ function FiltersContextProvider({ children }: Props) {
   const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>(
     {} as SearchFilters
   );
+  console.log('navid selectedFiltersObj=', selectedFiltersObj);
+
+  const [searchValue, setSearchValue] = useState<string>('');
+
+  const {
+    hasNextPage,
+    fetchNextPage,
+    isLoading,
+    isError,
+    isFetching,
+    isRefetching,
+    data: agents,
+    refetch,
+    remove,
+  } = useInfiniteQuery<MaraAgent[], ClientError>(
+    AgentsQueryKeys.list({ search: searchValue }),
+    ({ pageParam: lastMaraNumber = 1 }) => {
+      return getAgentsList({
+        lastMaraNumber,
+        search: searchValue,
+        filteredMaraAgentRange,
+        selectedFiltersObj,
+      });
+    },
+    {
+      getNextPageParam: (lastPage: MaraAgent[]) => {
+        return lastPage?.[lastPage.length - 1]?.mara_number || '0';
+      },
+    }
+  );
 
   ////////////////////////////////////////
   //////////////handlers////////////////
@@ -50,20 +108,12 @@ function FiltersContextProvider({ children }: Props) {
     });
     // setFilteredList({} as FilterdList);
   }
-  /**
-   * این فانکشن یک ذخیره کردن فیلتر آکیوپیشن نوشته شده. روش کارش به این صورته که اسم فیلتر و مقداری که انتخاب شده رو میگیره
-   * با اون مقدار آبجکت مورد نظر رو پیدا میکنه و این آبجکت رو در استیت مورد نیاز ذخیره میکنه
-   *
-   * @param {({
-   *     filterKey: 'MAJOR_GROUP' | 'SUB_MAJOR_GROUP' | 'MINOR_GROUP' | 'UNIT_GROUP';
-   *     filterValue: string;
-   *     locale: Languages;
-   *   })}
-   */
 
   return (
     <SearchFilterContext.Provider
       value={{
+        searchValue,
+        setSearchValue,
         //
         selectedFiltersObj,
         setSelectedFiltersObj,
@@ -72,6 +122,16 @@ function FiltersContextProvider({ children }: Props) {
         setFilterMaraAgentRange,
         //
         resetFilters,
+        //
+        hasNextPage,
+        fetchNextPage,
+        isLoading,
+        isError,
+        isFetching,
+        isRefetching,
+        agents,
+        refetch,
+        remove,
       }}
     >
       {children}

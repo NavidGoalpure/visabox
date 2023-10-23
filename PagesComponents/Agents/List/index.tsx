@@ -2,13 +2,12 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';
-import { useListData } from './useListData';
 
 import { getHasNextPage, getLastFetchedAgent } from './utils';
 import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import NoData from 'Components/NoData';
 import {
   Layer1_SubtitleStyle,
@@ -18,22 +17,24 @@ import { SearchFilterContext } from './Context/SearchFilter';
 import { useLastAgentData } from './useLastAgentData';
 
 const Content: React.FC = () => {
+  const isMounted = useRef(false);
   const { t } = useStaticTranslation(componentStatements);
-  const [searchValue, setSearchValue] = useState<string>('');
   const { filteredMaraAgentRange, selectedFiltersObj } =
     useContext(SearchFilterContext);
-  console.log('navid filter=', selectedFiltersObj);
 
   //این هوکیه که لیست ایجنت ها رو برمیگردونه
-  const { agents, isFetching, isRefetching, fetchNextPage, isError, refetch } =
-    useListData({
-      search: searchValue,
-      filteredMaraAgentRange,
-      selectedFiltersObj,
-    });
-  useEffect(() => {
-    refetch();
-  }, [selectedFiltersObj]);
+  const {
+    agents,
+    isFetching,
+    isRefetching,
+    fetchNextPage,
+    isError,
+    refetch,
+    remove,
+    //
+    searchValue,
+    setSearchValue,
+  } = useContext(SearchFilterContext);
 
   const { lastAgent } = useLastAgentData(searchValue);
   //
@@ -44,8 +45,18 @@ const Content: React.FC = () => {
   const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);
   };
+  //////////useEffects////////////
   useEffect(() => {
-    refetch();
+    if (selectedFiltersObj?.location) remove();
+  }, [selectedFiltersObj.location]);
+  //
+  useEffect(() => {
+    if (isMounted.current) {
+      refetch();
+    } else {
+      // This block will run on the initial mount
+      isMounted.current = true;
+    }
   }, [filteredMaraAgentRange]);
 
   return (

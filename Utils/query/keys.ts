@@ -41,8 +41,12 @@ const ClientQueryKeys = {
     [...ClientQueryKeys.key, 'listOfBasicForm', resParams] as const,
 };
 ////////////////////////////////
-//////Agency queries/////////////
+//////Agents queries/////////////
 ///////////////////////////////
+type AgentsListParams = {
+  // majorGroup?: number
+  search?: string;
+};
 const AgencyQueryKeys = {
   // this key is not useful outside of here
   key: ['agency'] as const,
@@ -61,10 +65,10 @@ const AgencyQueryKeys = {
 const AgentsQueryKeys = {
   key: ['agents'] as const,
   //
-  list: (params: OccupationsListParams) =>
+  list: (params: AgentsListParams) =>
     [...OccupationsQueryKeys.key, 'list', params] as const,
   //
-  last: (params: OccupationsListParams) =>
+  last: (params: AgentsListParams) =>
     [...OccupationsQueryKeys.key, 'last', params] as const,
   //
   detail: (slug: string) =>

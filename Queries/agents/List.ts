@@ -37,20 +37,27 @@ const getListQuery = ({
   selectedFiltersObj,
 }: {
   lastMaraNumber?: string;
-  searchCondition: string;
-  selectedFiltersObj: SearchFilters;
-
+  searchCondition?: string;
+  selectedFiltersObj?: SearchFilters;
   filteredMaraAgentRange: FilteredMaraAgentRange;
 }): string => {
-  console.log('navid location=', selectedFiltersObj?.location);
+  console.log('navid query selectedFiltersObj=', selectedFiltersObj);
 
   let newQuery = `*[_type=='agent' && mara_number>'${lastMaraNumber}' && mara_number<'${filteredMaraAgentRange.highestNumber}'`;
+  // search value which typed
   if (searchCondition) newQuery = newQuery + searchCondition;
-  // if (selectedFiltersObj?.location?.country) {
-  //   newQuery =
-  //     newQuery +
-  //     ` && "${selectedFiltersObj.location.country}" in agencies[].country`;
-  // }
+  //country filter
+  if (selectedFiltersObj?.location?.country?.name) {
+    newQuery =
+      newQuery +
+      ` && "${selectedFiltersObj.location.country?.name}" in agencies[].country`;
+  }
+  //state filter
+  if (selectedFiltersObj?.location?.state?.name) {
+    newQuery =
+      newQuery +
+      ` && "${selectedFiltersObj.location.state?.name}" in agencies[].state`;
+  }
   newQuery =
     newQuery +
     ` ]| order(mara_number) [0...${AGENTS_PER_PAGE}] {
@@ -61,6 +68,8 @@ const getListQuery = ({
     contact,
     mara_number
 }`;
+  console.log('navid query=', newQuery);
+
   return newQuery;
 };
 /////////////////

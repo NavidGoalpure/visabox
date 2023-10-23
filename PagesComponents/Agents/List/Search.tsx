@@ -7,33 +7,33 @@ import { componentStatements, LanguageKeys } from './const';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
-import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
-import { useLocale } from 'Hooks/useLocale';
 import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
 import { SelectItemCss } from 'Elements/Select/Item';
 import { LuSettings2 } from 'react-icons/lu';
-import { Country } from 'country-state-city';
-import { ScrollBox } from 'Elements/ScrollBox';
-import theme from 'styled-theming';
+import { City, Country, State } from 'country-state-city';
 
 interface Props {
   searchValue: string;
   setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
 }
+
 const allCountries = Country.getAllCountries();
 function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
-  const {
-    selectedFiltersObj,
-    setSelectedFiltersObj,
-    resetFilters,
-    //  ,filteredList
-  } = useContext(SearchFilterContext);
+  const { selectedFiltersObj, setSelectedFiltersObj, resetFilters } =
+    useContext(SearchFilterContext);
   useEffect(() => {
     resetFilters();
   }, [isShowPanel]);
+  const allStates = State.getStatesOfCountry(
+    selectedFiltersObj?.location?.country?.isoCode
+  );
+  const allCities = City.getCitiesOfState(
+    selectedFiltersObj?.location?.country?.isoCode || '',
+    selectedFiltersObj?.location?.state?.isoCode || ''
+  );
 
   return (
     <Container isShowPanel={isShowPanel}>
@@ -53,28 +53,82 @@ function Search({ searchValue, setSearchValue }: Props) {
         <Panel>
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.Country)}:</FilterTitle>
-            <StyledScrollBox
-              id={'country-scrollbox'}
-              height={'15rem'}
-              isVisible={true}
+
+            <SelectRoot
+              maxHeightInRem={20}
+              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+              onValueChange={(newCountry) => {
+                const countryObj = Country.getCountryByCode(newCountry);
+                setSelectedFiltersObj({
+                  location: { country: countryObj },
+                });
+              }}
             >
+              {allCountries.map((country) => (
+                <MaraSelect.Item
+                  key={country?.isoCode}
+                  value={country?.isoCode}
+                  text={country?.name || ''}
+                />
+              ))}
+            </SelectRoot>
+          </FilterWrapper>
+          {/* ///////State///////// */}
+          {allStates?.length > 0 && (
+            <FilterWrapper>
+              <FilterTitle>{t(LanguageKeys.State)}:</FilterTitle>
+
               <SelectRoot
+                maxHeightInRem={20}
                 triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-                onValueChange={(selectedCountry) => {
+                onValueChange={(newState) => {
+                  const stateObj = State.getStateByCode(newState);
                   setSelectedFiltersObj({
-                    location: { country: selectedCountry },
+                    location: {
+                      ...selectedFiltersObj?.location,
+                      state: stateObj,
+                    },
                   });
                 }}
               >
-                {allCountries.map((country) => (
+                {allStates.map((state) => (
                   <MaraSelect.Item
-                    value={country?.name || ''}
-                    text={country?.name || ''}
+                    key={state?.isoCode}
+                    value={state?.isoCode || ''}
+                    text={state?.name || ''}
                   />
                 ))}
               </SelectRoot>
-            </StyledScrollBox>
-          </FilterWrapper>
+            </FilterWrapper>
+          )}
+          {/* ///////City///////// */}
+          {/* {allCities?.length > 0 && (
+            <FilterWrapper>
+              <FilterTitle>{t(LanguageKeys.City)}:</FilterTitle>
+
+              <SelectRoot
+                maxHeightInRem={20}
+                triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+                onValueChange={(newState) => {
+                  const citryObj = City.get;
+                  setSelectedFiltersObj({
+                    location: {
+                      ...selectedFiltersObj?.location,
+                      state: stateObj,
+                    },
+                  });
+                }}
+              >
+                {allStates.map((state) => (
+                  <MaraSelect.Item
+                    key={state?.isoCode}
+                    value={state?.isoCode || ''}
+                    text={state?.name || ''}
+                  />
+                ))}
+              </SelectRoot>
+            </FilterWrapper>
+          )} */}
         </Panel>
       )}
     </Container>
@@ -152,25 +206,12 @@ const SettingIcon = styled(LuSettings2)`
   width: 1.5rem;
   height: 1.5rem;
 `;
-const SelectRoot = styled(MaraSelect.Root)``;
+const SelectRoot = styled(MaraSelect.Root)`
+  #select-portal {
+    height: 35rem !important;
+  }
+`;
 const DropboxItem = styled.h5`
   ${SelectItemCss}
   padding: 0;
-`;
-//////////////////
-
-const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
-  // do not touch the transition delay it messes with revaluation of uni_section
-  // by clicking on the option
-  transition: all 0.3s 0.1s ease;
-  transform-origin: top;
-  box-sizing: border-box;
-  ${({ isVisible }) =>
-    isVisible
-      ? css`
-          height: 15rem;
-        `
-      : css`
-          height: 0rem;
-        `}
 `;

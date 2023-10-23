@@ -2,7 +2,10 @@ import { sanityClient } from 'Utils/sanity';
 
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { AGENTS_PER_PAGE } from 'PagesComponents/Agents/List/const';
-import { FilteredMaraAgentRange } from 'PagesComponents/Agents/List/interfaces';
+import {
+  FilteredMaraAgentRange,
+  SearchFilters,
+} from 'PagesComponents/Agents/List/interfaces';
 
 //////////////////////////
 /**
@@ -31,12 +34,26 @@ const getListQuery = ({
   lastMaraNumber = '0',
   searchCondition,
   filteredMaraAgentRange,
+  selectedFiltersObj,
 }: {
   lastMaraNumber?: string;
   searchCondition: string;
+  selectedFiltersObj: SearchFilters;
+
   filteredMaraAgentRange: FilteredMaraAgentRange;
 }): string => {
-  const query = `*[_type=='agent' && mara_number>'${lastMaraNumber}' && mara_number<'${filteredMaraAgentRange.highestNumber}' ${searchCondition} ]| order(mara_number) [0...${AGENTS_PER_PAGE}] {
+  console.log('navid location=', selectedFiltersObj?.location);
+
+  let newQuery = `*[_type=='agent' && mara_number>'${lastMaraNumber}' && mara_number<'${filteredMaraAgentRange.highestNumber}'`;
+  if (searchCondition) newQuery = newQuery + searchCondition;
+  // if (selectedFiltersObj?.location?.country) {
+  //   newQuery =
+  //     newQuery +
+  //     ` && "${selectedFiltersObj.location.country}" in agencies[].country`;
+  // }
+  newQuery =
+    newQuery +
+    ` ]| order(mara_number) [0...${AGENTS_PER_PAGE}] {
     _id,
     slug,
     name,
@@ -44,7 +61,7 @@ const getListQuery = ({
     contact,
     mara_number
 }`;
-  return query;
+  return newQuery;
 };
 /////////////////
 /**
@@ -57,11 +74,13 @@ type QueryParams = {
   lastMaraNumber?: string;
   search: string;
   filteredMaraAgentRange: FilteredMaraAgentRange;
+  selectedFiltersObj: SearchFilters;
 };
 const getAgentsList = async ({
   lastMaraNumber = '0',
   search,
   filteredMaraAgentRange,
+  selectedFiltersObj,
 }: QueryParams): Promise<MaraAgent[]> => {
   const searchCondition = getSearchConditions(search);
   const data = await sanityClient.fetch(
@@ -69,6 +88,7 @@ const getAgentsList = async ({
       lastMaraNumber,
       searchCondition,
       filteredMaraAgentRange,
+      selectedFiltersObj,
     })
   );
   return data;

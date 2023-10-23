@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SearchInput } from 'Elements/SearchInput';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
@@ -13,23 +13,28 @@ import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
 import { SelectItemCss } from 'Elements/Select/Item';
 import { LuSettings2 } from 'react-icons/lu';
+import { Country } from 'country-state-city';
+import { ScrollBox } from 'Elements/ScrollBox';
+import theme from 'styled-theming';
 
 interface Props {
   searchValue: string;
   setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
 }
+const allCountries = Country.getAllCountries();
 function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-  const { locale } = useLocale();
-  const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
-  const { setFiltersByValue, selectedFiltersObj, resetFilters, filteredList } =
-    useContext(SearchFilterContext);
+  const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
+  const {
+    selectedFiltersObj,
+    setSelectedFiltersObj,
+    resetFilters,
+    //  ,filteredList
+  } = useContext(SearchFilterContext);
   useEffect(() => {
     resetFilters();
   }, [isShowPanel]);
 
-  const submajorItems = filteredList?.subMajorGroup;
-  const minorItems = filteredList?.minorGroup;
   return (
     <Container isShowPanel={isShowPanel}>
       <SearchElement
@@ -48,71 +53,27 @@ function Search({ searchValue, setSearchValue }: Props) {
         <Panel>
           <FilterWrapper>
             <FilterTitle>{t(LanguageKeys.Country)}:</FilterTitle>
-            <SelectRoot
-              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              onValueChange={(newValue) => {
-                setFiltersByValue({
-                  filterKey: 'MAJOR_GROUP',
-                  filterValue: newValue,
-                  locale,
-                });
-              }}
+            <StyledScrollBox
+              id={'country-scrollbox'}
+              height={'15rem'}
+              isVisible={true}
             >
-              {MAJOR_GROUP.map((item) => (
-                <MaraSelect.Item
-                  value={item.title[locale] || ''}
-                  text={item.title[locale] || ''}
-                />
-              ))}
-            </SelectRoot>
-          </FilterWrapper>
-          <FilterWrapper>
-            <FilterTitle>{t(LanguageKeys.State)}:</FilterTitle>
-            <SelectRoot
-              key={selectedFiltersObj?.anzcoGropup?.majorGroup?.code}
-              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              onValueChange={(newValue) => {
-                setFiltersByValue({
-                  filterKey: 'SUB_MAJOR_GROUP',
-                  filterValue: newValue,
-                  locale,
-                });
-              }}
-              disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
-            >
-              {submajorItems?.map((item: AnszcoGroup) => {
-                return (
+              <SelectRoot
+                triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+                onValueChange={(selectedCountry) => {
+                  setSelectedFiltersObj({
+                    location: { country: selectedCountry },
+                  });
+                }}
+              >
+                {allCountries.map((country) => (
                   <MaraSelect.Item
-                    key={item.code}
-                    value={item.title[locale] || ''}
-                    text={item.title[locale] || ''}
+                    value={country?.name || ''}
+                    text={country?.name || ''}
                   />
-                );
-              })}
-            </SelectRoot>
-          </FilterWrapper>
-          <FilterWrapper>
-            <FilterTitle>{t(LanguageKeys.City)}:</FilterTitle>
-            <SelectRoot
-              key={selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code}
-              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
-              onValueChange={(newValue) => {
-                setFiltersByValue({
-                  filterKey: 'MINOR_GROUP',
-                  filterValue: newValue,
-                  locale,
-                });
-              }}
-            >
-              {filteredList?.minorGroup?.map((item: AnszcoGroup) => (
-                <MaraSelect.Item
-                  key={item.code}
-                  value={item.title[locale] || ''}
-                  text={item.title[locale] || ''}
-                />
-              ))}
-            </SelectRoot>
+                ))}
+              </SelectRoot>
+            </StyledScrollBox>
           </FilterWrapper>
         </Panel>
       )}
@@ -163,6 +124,7 @@ const Panel = styled.div`
   column-gap: 2rem;
   row-gap: 1rem;
   width: 100%;
+  height: 6rem;
   min-height: 4rem;
   border-radius: 0px 0px 30px 30px;
   width: 100%;
@@ -194,4 +156,21 @@ const SelectRoot = styled(MaraSelect.Root)``;
 const DropboxItem = styled.h5`
   ${SelectItemCss}
   padding: 0;
+`;
+//////////////////
+
+const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
+  // do not touch the transition delay it messes with revaluation of uni_section
+  // by clicking on the option
+  transition: all 0.3s 0.1s ease;
+  transform-origin: top;
+  box-sizing: border-box;
+  ${({ isVisible }) =>
+    isVisible
+      ? css`
+          height: 15rem;
+        `
+      : css`
+          height: 0rem;
+        `}
 `;

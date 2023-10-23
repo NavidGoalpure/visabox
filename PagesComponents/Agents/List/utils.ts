@@ -1,6 +1,5 @@
 import { InfiniteData } from 'react-query';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
-import { FilteredMaraAgentRange } from './interfaces';
 
 /**
  * به ما میگه که آیا صفحه دیگه ای هم برای پینجینیشن وجود داره یا خیر

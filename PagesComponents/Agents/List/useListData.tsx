@@ -1,19 +1,23 @@
 import { ClientError } from '@sanity/client';
 import { getAgentsList } from 'Queries/agents/List';
 import { useInfiniteQuery } from 'react-query';
-import { FilteredMaraAgentRange } from './interfaces';
+import { FilteredMaraAgentRange, SearchFilters } from './interfaces';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { AgentsQueryKeys } from 'Utils/query/keys';
 
 type AgentsListParams = {
   search: string;
   filteredMaraAgentRange: FilteredMaraAgentRange;
+  selectedFiltersObj: SearchFilters;
 };
 
-export const useListData = ({
+const useListData = ({
   search,
   filteredMaraAgentRange,
+  selectedFiltersObj,
 }: AgentsListParams) => {
+  console.log('navdi inja1');
+
   const {
     hasNextPage,
     fetchNextPage,
@@ -30,6 +34,7 @@ export const useListData = ({
         lastMaraNumber,
         search,
         filteredMaraAgentRange,
+        selectedFiltersObj,
       });
     },
     {

@@ -20,14 +20,20 @@ import { useLastAgentData } from './useLastAgentData';
 const Content: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [searchValue, setSearchValue] = useState<string>('');
-  const { filteredMaraAgentRange } = useContext(SearchFilterContext);
+  const { filteredMaraAgentRange, selectedFiltersObj } =
+    useContext(SearchFilterContext);
+  console.log('navid filter=', selectedFiltersObj);
 
   //این هوکیه که لیست ایجنت ها رو برمیگردونه
   const { agents, isFetching, isRefetching, fetchNextPage, isError, refetch } =
     useListData({
       search: searchValue,
       filteredMaraAgentRange,
+      selectedFiltersObj,
     });
+  useEffect(() => {
+    refetch();
+  }, [selectedFiltersObj]);
 
   const { lastAgent } = useLastAgentData(searchValue);
   //

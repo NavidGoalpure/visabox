@@ -9,17 +9,18 @@ import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
-import { copyContent } from 'Utils';
+import { copyContent, getLocalStorage } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
-import { Languages } from 'Interfaces';
+import { Languages, LocalStorageKeys } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { ThemeModes } from 'Interfaces';
 import useTheme from 'Hooks/useTheme';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { directionStyles } from 'Styles/Theme';
+import { SupportedCountry } from 'Interfaces/Database';
 
-function DesktopFooter() {
+function DesktopFooter({ clientCountry }: { clientCountry: string }) {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const { theme, setTheme } = useTheme();
@@ -28,31 +29,7 @@ function DesktopFooter() {
     <Container>
       <StyledLogo />
       <Wrapper>
-        <SideContainer>
-          <SwitchButton></SwitchButton>
-          <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
-            {t(LanguageKeys.Home)}
-          </Items>
-          <Items
-            href={`/${locale}/occupations`}
-            data-name={t(LanguageKeys.SkilledOccupationList)}
-          >
-            {t(LanguageKeys.SkilledOccupationList)}
-          </Items>
-          <Items
-            href={`/${locale}/occupations/assssing-authorities`}
-            data-name={t(LanguageKeys.AssessingAuthority)}
-          >
-            {t(LanguageKeys.AssessingAuthority)}
-          </Items>
-          <Items
-            href={`/${locale}/occupations/university-section-search`}
-            data-name={t(LanguageKeys.UniversitySection)}
-          >
-            {t(LanguageKeys.UniversitySection)}
-          </Items>
-        </SideContainer>
-        <CenterItemsContainer locale={locale}>
+        <SideContainer locale={locale}>
           <Items
             href={`/${locale}/lists/agents`}
             data-name={t(LanguageKeys.AgentsBox)}
@@ -71,18 +48,51 @@ function DesktopFooter() {
           >
             {t(LanguageKeys.Exchanges)}
           </Items>
-          <Items
-            href={`/${locale}/lists/social-pages`}
-            data-name={t(LanguageKeys.SocialNetWorksBox)}
-          >
-            {t(LanguageKeys.SocialNetWorksBox)}
-          </Items>
+          {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
+                <Items
+                href={`/${locale}/lists/social-pages`}
+                data-name={t(LanguageKeys.SocialNetWorksBox)}
+              >
+                {t(LanguageKeys.SocialNetWorksBox)}
+              </Items>
+          )}
+       
           <Items
             href={`/${locale}/lists/naaties`}
             data-name={t(LanguageKeys.Naati)}
           >
             {t(LanguageKeys.Naati)}
           </Items>
+        </SideContainer>
+        <CenterItemsContainer>
+          <SwitchButton></SwitchButton>
+          <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
+            {t(LanguageKeys.Home)}
+          </Items>
+          <Items
+            href={`/${locale}/occupations`}
+            data-name={t(LanguageKeys.SkilledOccupationList)}
+          >
+            {t(LanguageKeys.SkilledOccupationList)}
+          </Items>
+          <Items
+            href={`/${locale}/occupations/assssing-authorities`}
+            data-name={t(LanguageKeys.AssessingAuthority)}
+          >
+            {t(LanguageKeys.AssessingAuthority)}
+          </Items>
+          {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
+          <Items
+            href={`/${locale}/occupations/university-section-search`}
+            data-name={t(LanguageKeys.UniversitySection)}
+          >
+            {t(LanguageKeys.UniversitySection)}
+          </Items>
+          )}
           {/* {locale === Languages.fa && (
             <Items
               href={`/${locale}/landing/agents`}
@@ -92,7 +102,7 @@ function DesktopFooter() {
             </Items>
           )} */}
         </CenterItemsContainer>
-        <LeftSideContainer>
+        <LeftSideContainer locale={locale}>
           <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
           <LogosContainer>
             <a
@@ -205,11 +215,11 @@ const StyledLogo = styled(Logo)`
   transform: translate(-50%, -50%);
   z-index: 1;
 `;
-const CenterItemsContainer = styled.div<{ locale: Languages }>`
+const CenterItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: ${({ locale }) => (locale === Languages.fa ? '10rem' : '8rem')};
+  margin-top: 4rem;
 `;
 
 ///////////////////
@@ -258,8 +268,8 @@ const Items = styled(Link)`
 `;
 //
 
-const SideContainer = styled.div`
-  margin-top: 4rem;
+const SideContainer = styled.div<{ locale: Languages }>`
+  margin-top: ${({ locale }) => (locale === Languages.fa ? '10rem' : '8rem')};
   width: 20%;
   color: var(--color-gray9);
   display: flex;

@@ -52,7 +52,11 @@ export const Input = ({
   return (
     <Container className={className}>
       <InputContainer disabled={disabled} id="input-container">
-        {!!label && <Label htmlFor={inputName || ""}>{label}</Label>}
+        {!!label && (
+          <Label isInputInModal={isInputInModal} htmlFor={inputName || ""}>
+            {label}
+          </Label>
+        )}
         <InputWrapper>
           <StyledInput
             id={id}

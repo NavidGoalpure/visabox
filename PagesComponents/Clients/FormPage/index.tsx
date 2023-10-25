@@ -8,17 +8,21 @@ import { ClientQueryKeys } from "Utils/query/keys";
 import { ClientError } from "@sanity/client";
 import { useSession } from "next-auth/react";
 import { getClientDetail } from "Queries/client";
+import EditModal from "./EditModal";
+import { EditModalContentKeys } from "./const";
 
 interface Props {
   client: Client;
 }
 const Content: React.FC<Props> = ({ client }) => {
-  
   const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
   const { isLaptop } = useDevice();
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `_id`;
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [editModalContentKey, setEditModalContentKey] =
+    useState<EditModalContentKeys | null>(null);
   const { data: user } = useQuery<{ client: Client[] }, ClientError>(
     ClientQueryKeys.detail({
       reqParams,
@@ -37,8 +41,39 @@ const Content: React.FC<Props> = ({ client }) => {
   useEffect(() => {
     if (isLaptop) setScreen("DESKTOP");
   });
+
   if (screen === "MOBILE")
-    return <MobileAgentsPage userId={user?.client?.[0]?._id} client={client} />;
-  return <DesktopAgentsPage client={client} userId={user?.client?.[0]?._id} />;
+    return (
+      <>
+        <EditModal
+          client={client}
+          isModalOpen={isModalOpen}
+          modalContentKeys={editModalContentKey}
+          setIsModalOpen={setIsModalOpen}
+        />
+        <MobileAgentsPage
+          setEditModalContentKey={setEditModalContentKey}
+          setIsModalOpen={setIsModalOpen}
+          userId={user?.client?.[0]?._id}
+          client={client}
+        />
+      </>
+    );
+  return (
+    <>
+      <EditModal
+        client={client}
+        isModalOpen={isModalOpen}
+        modalContentKeys={editModalContentKey}
+        setIsModalOpen={setIsModalOpen}
+      />
+      <DesktopAgentsPage
+        setEditModalContentKey={setEditModalContentKey}
+        setIsModalOpen={setIsModalOpen}
+        client={client}
+        userId={user?.client?.[0]?._id}
+      />
+    </>
+  );
 };
 export default Content;

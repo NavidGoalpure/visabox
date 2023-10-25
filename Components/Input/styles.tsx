@@ -2,6 +2,7 @@ import { FaExclamationTriangle } from "react-icons/fa";
 import styled, { css, keyframes } from "styled-components";
 import theme from "styled-theming";
 import {
+  input_Label,
   input_Modal,
   input_Modal_Focus,
 } from "Styles/Theme/elementsInModal/input";
@@ -129,12 +130,13 @@ const InputWrapper = styled.div`
     transform: translateY(50%);
   }
 `;
-const Label = styled.label`
+const Label = styled.label<{ isInputInModal: boolean }>`
   ${Layer1_SubtitleStyle};
   margin: 0;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  ${({ isInputInModal }) => isInputInModal && `${input_Label}`}
 `;
 const InputStyle = css<{
   hasError: boolean;

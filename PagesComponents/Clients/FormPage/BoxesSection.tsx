@@ -43,15 +43,6 @@ function BoxesSection({ id, email }: Props) {
                 <ShareIcon />
               </PrimaryButton>
             </SmallBox>
-            <SmallBox
-              onClick={() => window.open(`/${locale}/clients/point-calculator`)}
-            >
-              <EditTitle>{t(LanguageKeys.EditBoxTitle)}</EditTitle>
-              <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
-              <PrimaryButton>
-                <EditIcon />
-              </PrimaryButton>
-            </SmallBox>
           </>
         )}
         {isLaptop && (

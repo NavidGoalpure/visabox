@@ -133,7 +133,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   CurrentJobLabel: {
     en: "Current Job:",
-    fa: "شغل الان:",
+    fa: "شغل فعلی:",
     zh: "目前的工作：",
   },
   WorkExperienceLabel: {

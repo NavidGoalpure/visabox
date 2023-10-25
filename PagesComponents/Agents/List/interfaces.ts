@@ -6,7 +6,6 @@ export interface FilteredMaraAgentRange {
 export interface SearchFilters_Location {
   country?: ICountry;
   state?: IState;
-  city?: ICity;
 }
 export interface SearchFilters {
   location: SearchFilters_Location;

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SearchInput } from 'Elements/SearchInput';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
@@ -30,10 +30,6 @@ function Search({ searchValue, setSearchValue }: Props) {
   const allStates = State.getStatesOfCountry(
     selectedFiltersObj?.location?.country?.isoCode
   );
-  const allCities = City.getCitiesOfState(
-    selectedFiltersObj?.location?.country?.isoCode || '',
-    selectedFiltersObj?.location?.state?.isoCode || ''
-  );
 
   return (
     <Container isShowPanel={isShowPanel}>
@@ -51,84 +47,58 @@ function Search({ searchValue, setSearchValue }: Props) {
       />
       {isShowPanel && (
         <Panel>
-          <FilterWrapper>
-            <FilterTitle>{t(LanguageKeys.Country)}:</FilterTitle>
-
-            <SelectRoot
-              maxHeightInRem={20}
-              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              onValueChange={(newCountry) => {
-                const countryObj = Country.getCountryByCode(newCountry);
-                setSelectedFiltersObj({
-                  location: { country: countryObj },
-                });
-              }}
-            >
-              {allCountries.map((country) => (
-                <MaraSelect.Item
-                  key={country?.isoCode}
-                  value={country?.isoCode}
-                  text={country?.name || ''}
-                />
-              ))}
-            </SelectRoot>
-          </FilterWrapper>
-          {/* ///////State///////// */}
-          {allStates?.length > 0 && (
+          <FilterContainer>
             <FilterWrapper>
-              <FilterTitle>{t(LanguageKeys.State)}:</FilterTitle>
+              <FilterTitle>{t(LanguageKeys.Country)}:</FilterTitle>
 
               <SelectRoot
                 maxHeightInRem={20}
                 triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-                onValueChange={(newState) => {
-                  const stateObj = State.getStateByCode(newState);
+                onValueChange={(newCountry) => {
+                  const countryObj = Country.getCountryByCode(newCountry);
                   setSelectedFiltersObj({
-                    location: {
-                      ...selectedFiltersObj?.location,
-                      state: stateObj,
-                    },
+                    location: { country: countryObj },
                   });
                 }}
               >
-                {allStates.map((state) => (
+                {allCountries.map((country) => (
                   <MaraSelect.Item
-                    key={state?.isoCode}
-                    value={state?.isoCode || ''}
-                    text={state?.name || ''}
+                    key={country?.isoCode}
+                    value={country?.isoCode}
+                    text={country?.name || ''}
                   />
                 ))}
               </SelectRoot>
             </FilterWrapper>
-          )}
-          {/* ///////City///////// */}
-          {/* {allCities?.length > 0 && (
-            <FilterWrapper>
-              <FilterTitle>{t(LanguageKeys.City)}:</FilterTitle>
+            {/* ///////State///////// */}
+            {allStates?.length > 0 && (
+              <FilterWrapper>
+                <FilterTitle>{t(LanguageKeys.State)}:</FilterTitle>
 
-              <SelectRoot
-                maxHeightInRem={20}
-                triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-                onValueChange={(newState) => {
-                  const citryObj = City.get;
-                  setSelectedFiltersObj({
-                    location: {
-                      ...selectedFiltersObj?.location,
-                      state: stateObj,
-                    },
-                  });
-                }}
-              >
-                {allStates.map((state) => (
-                  <MaraSelect.Item
-                    key={state?.isoCode}
-                    value={state?.isoCode || ''}
-                    text={state?.name || ''}
-                  />
-                ))}
-              </SelectRoot>
-            </FilterWrapper>
-          )} */}
+                <SelectRoot
+                  maxHeightInRem={20}
+                  triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+                  onValueChange={(newState) => {
+                    const stateObj = State.getStateByCode(newState);
+                    setSelectedFiltersObj({
+                      location: {
+                        ...selectedFiltersObj?.location,
+                        state: stateObj,
+                      },
+                    });
+                  }}
+                >
+                  {allStates.map((state) => (
+                    <MaraSelect.Item
+                      key={state?.isoCode}
+                      value={state?.isoCode || ''}
+                      text={state?.name || ''}
+                    />
+                  ))}
+                </SelectRoot>
+              </FilterWrapper>
+            )}
+          </FilterContainer>
         </Panel>
       )}
     </Container>
@@ -170,9 +140,6 @@ const PanelButton = styled(PrimaryButton)`
 
 const Panel = styled.div`
   ${layer2A_Bg};
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
   padding: 1rem;
   flex-wrap: wrap;
   column-gap: 2rem;
@@ -182,6 +149,12 @@ const Panel = styled.div`
   min-height: 4rem;
   border-radius: 0px 0px 30px 30px;
   width: 100%;
+`;
+const FilterContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 50%;
   @media ${deviceMin.tabletS} {
     flex-direction: row;
   }

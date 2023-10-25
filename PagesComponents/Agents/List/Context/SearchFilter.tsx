@@ -66,8 +66,6 @@ function FiltersContextProvider({ children }: Props) {
   const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>(
     {} as SearchFilters
   );
-  console.log('navid selectedFiltersObj=', selectedFiltersObj);
-
   const [searchValue, setSearchValue] = useState<string>('');
 
   const {

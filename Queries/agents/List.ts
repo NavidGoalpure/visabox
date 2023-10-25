@@ -58,6 +58,7 @@ const getListQuery = ({
       newQuery +
       ` && "${selectedFiltersObj.location.state?.name}" in agencies[].state`;
   }
+
   newQuery =
     newQuery +
     ` ]| order(mara_number) [0...${AGENTS_PER_PAGE}] {
@@ -68,7 +69,6 @@ const getListQuery = ({
     contact,
     mara_number
 }`;
-  console.log('navid query=', newQuery);
 
   return newQuery;
 };

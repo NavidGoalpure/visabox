@@ -40,6 +40,7 @@ const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height: string }>`
   height: ${({ $height }) => $height};
   overflow: hidden;
   --scrollbar-size: 0.5rem;
+  position: relative;
 `;
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`
   width: 100%;
@@ -63,6 +64,7 @@ const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   padding: 2px;
   background: lightgray;
   transition: background 160ms ease-out;
+  z-index: 10;
 
   ${positionDirStyle}
   ${ScrollAreaRoot}:hover & {

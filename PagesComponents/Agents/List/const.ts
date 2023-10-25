@@ -14,7 +14,7 @@ export enum LanguageKeys {
   //
   Country = 'Country',
   State = 'State',
-  City = 'City',
+  //
   Select = 'Select',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
@@ -66,14 +66,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '结语',
   },
   State: {
-    en: 'state',
+    en: 'State',
     fa: 'ایالت (استان)',
     zh: '状态',
-  },
-  City: {
-    en: 'city',
-    fa: 'شهر',
-    zh: '市',
   },
   Select: {
     en: 'Select ...',

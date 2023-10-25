@@ -15,13 +15,13 @@ import {
 import { componentStatements, LanguageKeys } from './const';
 import { UserRole } from 'Interfaces/Database';
 import Cookies from 'js-cookie';
-import { CookieKeys, LocalStorageKeys } from 'Interfaces';
+import { CookieKeys, GtmEvents, LocalStorageKeys } from 'Interfaces';
 import { createUserOrGetExistData } from 'Queries';
 import { ContentOrError } from 'Components/contentOrError';
 import { AxiosError } from 'axios';
 import { Logout } from 'Utils/user';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { removeLocalStorage } from 'Utils';
+import { fireGtmEvent, removeLocalStorage } from 'Utils';
 
 interface Props {
   chosenRole: UserRole;
@@ -59,7 +59,7 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
       getClientDetail({ reqParams, resParams })
         .then((res) => {
           if (res?.client[0]?.country) {
-            removeLocalStorage(LocalStorageKeys.Country)
+            removeLocalStorage(LocalStorageKeys.Country);
           }
           // اگر کلاینت قبلا وجود داشت برو به هوم پیج
           if (res?.client[0]?.name) {
@@ -80,7 +80,12 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
     }
     if (chosenRole === UserRole.Agency) {
       //navid بعدا باید به سنیتی رکوئست بزنیم که آیا این وکیل موجوده یا نه و آیا کانفرم شده یا نه
-
+      if (user?._type === 'agency') {
+        fireGtmEvent({
+          eventName: GtmEvents.agentLogin,
+          parameters: { user },
+        });
+      }
       router.push(`/${locale}/agency/forms-wall`);
     }
   }

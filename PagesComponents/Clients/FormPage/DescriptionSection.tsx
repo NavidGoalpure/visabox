@@ -4,7 +4,6 @@ import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
 } from "Styles/Theme/Layers/layer2/style";
-import { maritalStatuses } from "Consts/Client";
 import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
 import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
 import { Headline7Style } from "Styles/Typo";
@@ -13,42 +12,90 @@ import { deviceMin } from "Consts/device";
 import { SiGmail } from "react-icons/si";
 import { copyContent } from "Utils";
 import { Client } from "Interfaces/Database/Client";
-import { componentStatements, LanguageKeys } from "./const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { getMultiLanguageLabels } from "./utils";
 import { useLocale } from "Hooks/useLocale";
 import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import TooltipTag from "Elements/TooltipTag";
 import { FiInfo } from "react-icons/fi";
+import { MdOutlineEdit } from "react-icons/md";
+import useDevice from "Hooks/useDevice";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
+import { getMultiLanguageLabels } from "./utils";
+import EditModal from "./EditModal";
+import {
+  componentStatements,
+  LanguageKeys,
+  EditModalContentKeys,
+} from "./const";
+import { useSession } from "next-auth/react";
+import { EditButton, EditIcon } from "./StyledComponents";
 
 interface Props {
   client: Client;
+  isMobile: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setEditModalContentKey: Dispatch<SetStateAction<EditModalContentKeys | null>>;
 }
-function DescriptionSection({ client }: Props) {
+function DescriptionSection({
+  client,
+  isMobile,
+  setIsModalOpen,
+  setEditModalContentKey,
+}: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const data = getMultiLanguageLabels(client);
+  const { data: session } = useSession();
+  const isViewerOwner = client?.email === session?.user?.email;
   const { locale } = useLocale();
   const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  function EditClickHandler(key: EditModalContentKeys) {
+    setIsModalOpen(true);
+    setEditModalContentKey(key);
+  }
   return (
     <FormData>
       <Title>{t(LanguageKeys.AboutLabel)}</Title>
       <Wrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner && EditClickHandler(EditModalContentKeys.BIRTH_DATE)
+          }
+        >
           <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
           <Value>
             {data?.birthday
               ? data?.birthday?.slice(0, 10)
               : data?.age?.slice(0, 10)}
           </Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.ENGLISH_SKILL)
+          }
+        >
           <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
           <Value>{data?.IELTSScore}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
-          <Label>{t(LanguageKeys.MarriageStatusLabel)}</Label>{" "}
+        <DataWrapper $isViewerOwner={isViewerOwner} $isCursorAuto={true}>
+          <Label
+            onClick={() =>
+              isViewerOwner &&
+              EditClickHandler(EditModalContentKeys.MARRIAGE_STATUS)
+            }
+          >
+            {t(LanguageKeys.MarriageStatusLabel)}
+          </Label>{" "}
           <Value>
             {data?.marital?.[locale]}{" "}
             {data?.marital?.en === "Married" && (
@@ -89,23 +136,66 @@ function DescriptionSection({ client }: Props) {
               />
             )}
           </Value>
+          {isViewerOwner && (
+            <EditButton
+              onClick={() =>
+                isViewerOwner &&
+                EditClickHandler(EditModalContentKeys.MARRIAGE_STATUS)
+              }
+            >
+              {isMobile ? <EditIcon /> : "[edit]"}
+            </EditButton>
+          )}
         </DataWrapper>
 
         {client?.country && (
-          <DataWrapper>
+          <DataWrapper
+            $isViewerOwner={isViewerOwner}
+            onClick={() =>
+              isViewerOwner && EditClickHandler(EditModalContentKeys.COUNTRY)
+            }
+          >
             <Label>{t(LanguageKeys.CountryLabel)}</Label>{" "}
             <Value>{data?.country?.[locale]}</Value>
+            {isViewerOwner && (
+              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            )}
           </DataWrapper>
         )}
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.FIELD_OF_STUDY)
+          }
+        >
           <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{" "}
           <Value>{data?.fieldOfStudy}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner && EditClickHandler(EditModalContentKeys.DEGREE)
+          }
+        >
           <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
           <Value>{data?.degree?.[locale]}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
+        <NoLineDataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(
+              EditModalContentKeys.AUSTRALIAN_EDUCATIONAL_QUALIFICATION_RELATED
+            )
+          }
+        >
           <Label>
             {t(LanguageKeys.AustralianEducationalQualificationLabel)}
           </Label>{" "}
@@ -116,8 +206,16 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
-        </DataWrapper>
-        <DataWrapper>
+        </NoLineDataWrapper>
+        <NoLineDataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(
+              EditModalContentKeys.AUSTRALIAN_EDUCATIONAL_QUALIFICATION_RELATED
+            )
+          }
+        >
           <Label>{t(LanguageKeys.DesignatedRegionalAreaStudyLabel)}</Label>{" "}
           <Value>
             {data?.designated_regional_area_study ? (
@@ -126,8 +224,19 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
-        </DataWrapper>
-        <DataWrapper>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
+        </NoLineDataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(
+              EditModalContentKeys.AUSTRALIAN_EDUCATIONAL_QUALIFICATION_RELATED
+            )
+          }
+        >
           <Label>
             {t(LanguageKeys.SpecialistEducationalQualificationLabel)}
           </Label>{" "}
@@ -139,7 +248,15 @@ function DescriptionSection({ client }: Props) {
             )}
           </Value>
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(
+              EditModalContentKeys.PROFESSIONAL_YEAR_IN_AUSTRALIA
+            )
+          }
+        >
           <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{" "}
           <Value>
             {data?.professional_year_in_australia ? (
@@ -148,8 +265,17 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.ACCREDITED_COMMUNITY_LANGUAGE)
+          }
+        >
           <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{" "}
           <Value>
             {data?.accredited_community_language ? (
@@ -158,40 +284,82 @@ function DescriptionSection({ client }: Props) {
               <CloseIcon />
             )}
           </Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
+          }
+        >
           <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
           <Value>{data?.uniSection?.[locale]}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.WORK_EXPERIENCE_OVERSEAS)
+          }
+        >
           <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{" "}
           <Value>{data?.workExperience?.[locale]}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
-        <DataWrapper>
+        <DataWrapper
+          $isViewerOwner={isViewerOwner}
+          onClick={() =>
+            isViewerOwner &&
+            EditClickHandler(EditModalContentKeys.AUSTRALIAN_WORK_EXPERIENCE)
+          }
+        >
           <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </DataWrapper>
         <StyledDataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
-            copyContent({
-              text: data.phoneNumber || "",
-              toastMessage: phoneToastMessage,
-            })
+            isViewerOwner
+              ? EditClickHandler(EditModalContentKeys.PHONE_NUMBER)
+              : copyContent({
+                  text: data.phoneNumber || "",
+                  toastMessage: phoneToastMessage,
+                })
           }
         >
           <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{" "}
           <Value>{data?.phoneNumber}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </StyledDataWrapper>
         <StyledDataWrapper
+          $isViewerOwner={isViewerOwner}
           onClick={() =>
-            copyContent({
-              text: data.email || "",
-              toastMessage: gmailToastMessage,
-            })
+            isViewerOwner
+              ? EditClickHandler(EditModalContentKeys.EMAIL)
+              : copyContent({
+                  text: data.email || "",
+                  toastMessage: gmailToastMessage,
+                })
           }
         >
           <Label>{t(LanguageKeys.EmailTitle)}</Label>{" "}
           <Value>{data?.email}</Value>
+          {isViewerOwner && (
+            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+          )}
         </StyledDataWrapper>
       </Wrapper>
     </FormData>
@@ -205,6 +373,14 @@ const FormDataTheme = theme("mode", {
   `,
   dark: css`
     background: var(--color-gray6);
+  `,
+});
+const BorderColor = theme("mode", {
+  light: css`
+    border-color: var(--color-gray11);
+  `,
+  dark: css`
+    border-color: var(--color-gray7);
   `,
 });
 const FormDataDropshadow = theme("mode", {
@@ -221,6 +397,7 @@ const LabelTheme = theme("mode", {
     color: var(--color-gray10);
   `,
 });
+
 const IconTheme = theme("mode", {
   light: css`
     color: var(--color-primary13);
@@ -257,7 +434,7 @@ const FormData = styled.div`
   padding: 2rem 1.5rem;
   position: relative;
   @media ${deviceMin.tabletS} {
-    padding: 2rem 5.5rem;
+    padding: 2rem 3rem;
     width: 34.25rem;
   }
 `;
@@ -267,18 +444,41 @@ const Title = styled.h3`
 `;
 const Wrapper = styled.div`
   display: flex;
-  gap: 2.5rem;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 `;
-const DataWrapper = styled.div`
+const DataWrapper = styled.div<{
+  $isViewerOwner: boolean;
+  $isCursorAuto?: boolean;
+}>`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
   align-items: center;
+  width: 100%;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid;
+  ${BorderColor};
+  :last-child {
+    border: none;
+  }
+  ${({ $isViewerOwner }) =>
+    $isViewerOwner &&
+    css`
+      cursor: pointer;
+    `}
+  ${({ $isCursorAuto }) =>
+    $isCursorAuto &&
+    css`
+      cursor: auto;
+    `}
+`;
+const NoLineDataWrapper = styled(DataWrapper)`
+  border: unset;
 `;
 const StyledDataWrapper = styled(DataWrapper)`
   cursor: pointer;
@@ -296,6 +496,7 @@ const Value = styled.h4`
   align-items: center;
   gap: 1rem;
 `;
+
 const PartnerPopupContent = styled.div`
   display: flex;
   align-items: center;
@@ -329,28 +530,6 @@ const PhoneTitle = styled.h3`
   flex-direction: column;
   direction: ltr;
 `;
-const PhonesRow = styled.div`
-  display:flex;
-  gap 1rem;
-`;
-const GmailContainer = styled.div`
-  ${SocialsContainerCss}
-  cursor: auto;
-  @media ${deviceMin.tabletS} {
-    ${FormDataTheme};
-    border-radius: 0 0 15px 15px;
-    padding: 0.5rem;
-    position: absolute;
-    bottom: 0;
-    inset-inline-start: unset;
-    inset-inline-end: 0;
-    transform: translateY(90%);
-  }
-`;
-const GmailIcon = styled(SiGmail)`
-  ${Icon}
-`;
-const GmailTitle = styled(PhoneTitle)``;
 const Checkmark = styled(BsCheck)`
   color: var(--color-primary3);
   height: auto;

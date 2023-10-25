@@ -11,18 +11,40 @@ import { Point_Calculator_Fragment } from "Consts/GroqFragments";
 import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
 import { useRouter } from "next/router";
 import PrintablePage from "PagesComponents/Clients/FormPage/PrintablePage";
+import { dehydrate, DehydratedState, QueryClient, useQuery } from "react-query";
+import { ClientQueryKeys } from "Utils/query/keys";
+import { profileResParams } from "PagesComponents/Clients/FormPage/const";
+
+const queryClient = new QueryClient();
 
 interface Props {
-  client: Client;
+  dehydratedClient: DehydratedState;
   errorCode?: number;
+  queryName: string;
+  queryReqParams: string;
+  queryResParams: string;
 }
-const VipAgentPage: NextPage<Props> = ({ client, errorCode }) => {
+const VipAgentPage: NextPage<Props> = ({
+  dehydratedClient,
+  errorCode,
+  queryName,
+  queryReqParams,
+  queryResParams,
+}) => {
   const { locale } = useLocale();
   const router = useRouter();
   const { version } = router.query;
+  queryClient.setQueryData(queryName, dehydratedClient);
+  const { data } = useQuery(queryName, () => {
+    return getClientDetail({
+      reqParams: queryReqParams,
+      resParams: queryResParams,
+    });
+  });
+  const client = data?.client?.[0] || ({} as Client);
   if (errorCode) return <Error statusCode={errorCode} />;
   if (version === PAGE_PARAMS_VERSION_PRINTABLE_VALUE)
-    return <PrintablePage client={client} />;
+    return <PrintablePage client={client || ({} as Client)} />;
 
   const fullname = `${client?.name || ""} ${client?.lastname || ""}`;
   // نوید
@@ -43,36 +65,42 @@ export default VipAgentPage;
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.slug;
   const reqParams = `_id == "${id}"`;
-  const resParams = ` 
-  ${Point_Calculator_Fragment}
-      _id,
-      _createdAt,
-      country,
-      name,
-      lastname,
-      phone,
-      field_of_study,
-      current_job,
-      is_sharable,
-      uni_section,
-      avatar,
-      email,
-      completed_forms
-      `;
 
   try {
-    const client = await getClientDetail({ reqParams, resParams });
-
+    await queryClient.prefetchQuery(
+      ClientQueryKeys.detail({
+        reqParams,
+        resParams: profileResParams,
+      }),
+      () => {
+        return getClientDetail({ reqParams, resParams: profileResParams });
+      }
+    );
     return {
       props: {
-        client: client?.client[0],
+        dehydratedClient: dehydrate(queryClient),
+        queryName: ClientQueryKeys.detail({
+          reqParams,
+          resParams: profileResParams,
+        }),
+        queryReqParams: reqParams,
+        queryResParams: profileResParams,
       },
     };
-  } catch (error) {
-    return {
-      props: {
-        errorCode: 500,
-      },
-    };
+  } catch {
+    return { props: { errorCode: 500 } };
   }
+  // try {
+  //   return {
+  //     props: {
+  //       client: client?.client[0],
+  //     },
+  //   };
+  // } catch (error) {
+  //   return {
+  //     props: {
+  //       errorCode: 500,
+  //     },
+  //   };
+  // }
 };

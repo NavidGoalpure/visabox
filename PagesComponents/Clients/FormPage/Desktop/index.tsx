@@ -5,12 +5,15 @@ import {
   layer2A_TitleStyle,
 } from "Styles/Theme/Layers/layer2/style";
 import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import DescriptionSection from "../DescriptionSection";
 import { Client } from "Interfaces/Database/Client";
 import { Headline7Style } from "Styles/Typo";
 import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
+import {
+  componentStatements,
+  EditModalContentKeys,
+  LanguageKeys,
+} from "../const";
 import { BsPersonCircle } from "react-icons/bs";
 import {
   Hint_SecondaryContainer,
@@ -19,13 +22,44 @@ import {
 } from "Styles/Theme/Hint/style";
 import { FiInfo } from "react-icons/fi";
 import BoxesSection from "../BoxesSection";
+import DescriptionSection from "../DescriptionSection";
+import { Dispatch, SetStateAction } from "react";
+import { useSession } from "next-auth/react";
+import {
+  CreatedDate,
+  EditButton,
+  HeaderLabel,
+  HintContainer,
+  HintContent,
+  HintInfoIcon,
+  ImagePlaceholder,
+  JobTitle,
+  Name,
+  ProfileData,
+  ProfilePicture,
+  ProfilePictureWrapper,
+  ScoreWrapper,
+} from "../StyledComponents";
 interface Props {
   client: Client;
   userId: string | undefined;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setEditModalContentKey: Dispatch<SetStateAction<EditModalContentKeys | null>>;
 }
-function DesktopAgentsPage({ client, userId }: Props) {
+function DesktopAgentsPage({
+  client,
+  userId,
+  setEditModalContentKey,
+  setIsModalOpen,
+}: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
   const { t } = useStaticTranslation(componentStatements);
+  const { data: session } = useSession();
+  const isViewerOwner = client?.email === session?.user?.email;
+  function EditClickHandler(key: EditModalContentKeys) {
+    setIsModalOpen(true);
+    setEditModalContentKey(key);
+  }
   return (
     <Container>
       {!!client && !!userId && client?.completed_forms?.length !== 1 && (
@@ -52,10 +86,23 @@ function DesktopAgentsPage({ client, userId }: Props) {
               )}
             </ProfilePictureWrapper>
             <ProfileData>
-              <Name>
-                {client?.name} {client?.lastname}
+              <Name
+                onClick={() =>
+                  isViewerOwner && EditClickHandler(EditModalContentKeys.NAME)
+                }
+              >
+                {client?.name} {client?.lastname}{" "}
+                {isViewerOwner && <EditButton>[edit]</EditButton>}
               </Name>
-              <JobTitle>{client?.current_job}</JobTitle>
+              <JobTitle
+                onClick={() =>
+                  isViewerOwner &&
+                  EditClickHandler(EditModalContentKeys.CURRENT_JOB)
+                }
+              >
+                {client?.current_job}
+                {isViewerOwner && <EditButton>[edit]</EditButton>}
+              </JobTitle>
               <CreatedDate>{dataCreatedAt}</CreatedDate>
               {client?.country && (
                 <ScoreWrapper>
@@ -72,21 +119,18 @@ function DesktopAgentsPage({ client, userId }: Props) {
             email={client?.email || "defensive"}
           />
         </SmallBoxesWrapper>
-        <DescriptionSection client={client} />
+        <DescriptionSection
+          client={client}
+          setEditModalContentKey={setEditModalContentKey}
+          setIsModalOpen={setIsModalOpen}
+          isMobile={false}
+        />
       </Wrapper>
     </Container>
   );
 }
 export default DesktopAgentsPage;
 
-const TitleColor = theme("mode", {
-  light: css`
-    color: var(--color-primary4);
-  `,
-  dark: css`
-    color: var(--color-primary5);
-  `,
-});
 const HeaderBackground = theme("mode", {
   light: css`
     background-image: url("/Images/Patterns/LightPattern.svg");
@@ -96,39 +140,14 @@ const HeaderBackground = theme("mode", {
     background-image: url("/Images/Patterns/DarkPattern.svg");
   `,
 });
-const HeaderLabelTheme = theme("mode", {
-  light: css`
-    color: var(--color-gray10);
-  `,
-  dark: css`
-    color: var(--color-gray11);
-  `,
-});
-const HeaderScoreTheme = theme("mode", {
-  light: css`
-    color: var(--color-secondary2);
-  `,
-  dark: css`
-    color: var(--color-secondary4);
-  `,
-});
+
 const Container = styled.div`
   padding: 0 0 4rem 0;
   display: flex;
   gap: 1rem;
   flex-direction: column;
 `;
-const HintContainer = styled.div`
-  ${Hint_SecondaryContainer};
-  gap: 2rem;
-  margin-top: 3rem;
-`;
-const HintInfoIcon = styled(FiInfo)`
-  ${Hint_SecondaryIcon};
-`;
-const HintContent = styled.h3`
-  ${Hint_SecondaryTextStyle};
-`;
+
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -157,55 +176,4 @@ const ProfileBox = styled.header`
   padding: 1.5rem;
   gap: 2rem;
   box-shadow: unset;
-`;
-const ProfilePictureWrapper = styled.div`
-  flex-shrink: 0;
-  align-self: center;
-  width: 7rem;
-  height: 7rem;
-  z-index: 1;
-  position: relative;
-`;
-const ProfilePicture = styled.img`
-  object-fit: cover;
-  width: 100%;
-  border-radius: 50%;
-`;
-const ImagePlaceholder = styled(BsPersonCircle)`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  color: var(--color-gray11);
-`;
-const ProfileData = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: 1.5rem;
-`;
-const ScoreWrapper = styled.div``;
-const HeaderLabel = styled.h4`
-  ${Headline7Style};
-  ${HeaderLabelTheme}
-  #score {
-    ${HeaderScoreTheme};
-  }
-`;
-const Name = styled.h2`
-  ${TitleColor}
-  ${layer2A_TitleStyle}
-  z-index:1;
-`;
-
-const JobTitle = styled.h3`
-  ${layer2A_Key}
-  margin:0;
-  width: auto;
-`;
-const CreatedDate = styled.div`
-  ${layer2A_Key}
-  margin:0;
-  width: auto;
 `;

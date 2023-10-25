@@ -50,6 +50,7 @@ export interface ClientCompletedForms_obj {
   _type: 'client_completed_forms_obj';
   _key: string;
 }
+//
 export interface Client extends SanityKeys {
   country: SupportedCountry;
   name?: string;
@@ -60,7 +61,7 @@ export interface Client extends SanityKeys {
   marital: ClientMarital;
   does_partner_have_assessment?: boolean;
   is_partner_competent_english_speaker?: boolean;
-  
+
   field_of_study?: string;
   degree?: ClientDegree;
   current_job?: string;

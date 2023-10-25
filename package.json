@@ -39,7 +39,7 @@
     "eslint-config-next": "^13.0.7",
     "gsap": "^3.11.4",
     "js-cookie": "^3.0.5",
-    "next": "^13.0.7",
+    "next": "^13.5.0",
     "next-auth": "^4.19.2",
     "next-images": "^1.8.4",
     "next-sanity": "^1.0.0",

@@ -9,7 +9,6 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   height: string;
 }
 const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
-  
   return (
     <ScrollAreaRoot
       data-testid='scroll-area-root'
@@ -41,6 +40,7 @@ const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height: string }>`
   height: ${({ $height }) => $height};
   overflow: hidden;
   --scrollbar-size: 0.5rem;
+  position: relative;
 `;
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`
   width: 100%;
@@ -64,6 +64,7 @@ const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   padding: 2px;
   background: lightgray;
   transition: background 160ms ease-out;
+  z-index: 10;
 
   ${positionDirStyle}
   ${ScrollAreaRoot}:hover & {

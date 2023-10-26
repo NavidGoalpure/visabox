@@ -7,30 +7,30 @@ import { componentStatements, LanguageKeys } from './const';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
-import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
-import { useLocale } from 'Hooks/useLocale';
 import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
 import { SelectItemCss } from 'Elements/Select/Item';
 import { LuSettings2 } from 'react-icons/lu';
+import { City, Country, State } from 'country-state-city';
 
 interface Props {
   searchValue: string;
   setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
 }
+
+const allCountries = Country.getAllCountries();
 function Search({ searchValue, setSearchValue }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-  const { locale } = useLocale();
-  const [isShowPanel, setIsShowPanel] = useState<boolean>(false);
-  const { setFiltersByValue, selectedFiltersObj, resetFilters, filteredList } =
+  const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
+  const { selectedFiltersObj, setSelectedFiltersObj, resetFilters } =
     useContext(SearchFilterContext);
   useEffect(() => {
     resetFilters();
   }, [isShowPanel]);
+  const allStates = State.getStatesOfCountry(
+    selectedFiltersObj?.location?.country?.isoCode
+  );
 
-  const submajorItems = filteredList?.subMajorGroup;
-  //navid chera in estefade nashode?
-  const minorItems = filteredList?.minorGroup;
   return (
     <Container isShowPanel={isShowPanel}>
       <SearchElement
@@ -47,74 +47,58 @@ function Search({ searchValue, setSearchValue }: Props) {
       />
       {isShowPanel && (
         <Panel>
-          <FilterWrapper>
-            <FilterTitle>{t(LanguageKeys.MajorGroup)}:</FilterTitle>
-            <SelectRoot
-              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              onValueChange={(newValue) => {
-                setFiltersByValue({
-                  filterKey: 'MAJOR_GROUP',
-                  filterValue: newValue,
-                  locale,
-                });
-              }}
-            >
-              {MAJOR_GROUP.map((item) => (
-                <MaraSelect.Item
-                  value={item.title[locale] || ''}
-                  text={item.title[locale] || ''}
-                />
-              ))}
-            </SelectRoot>
-          </FilterWrapper>
-          <FilterWrapper>
-            <FilterTitle>{t(LanguageKeys.SubMajorGroup)}:</FilterTitle>
-            <SelectRoot
-              key={selectedFiltersObj?.anzcoGropup?.majorGroup?.code}
-              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              onValueChange={(newValue) => {
-                setFiltersByValue({
-                  filterKey: 'SUB_MAJOR_GROUP',
-                  filterValue: newValue,
-                  locale,
-                });
-              }}
-              disabled={!selectedFiltersObj?.anzcoGropup?.majorGroup}
-            >
-              {submajorItems?.map((item: AnszcoGroup) => {
-                return (
+          <FilterContainer>
+            <FilterWrapper>
+              <FilterTitle>{t(LanguageKeys.Country)}:</FilterTitle>
+
+              <SelectRoot
+                maxHeightInRem={20}
+                triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+                onValueChange={(newCountry) => {
+                  const countryObj = Country.getCountryByCode(newCountry);
+                  setSelectedFiltersObj({
+                    location: { country: countryObj },
+                  });
+                }}
+              >
+                {allCountries.map((country) => (
                   <MaraSelect.Item
-                    key={item.code}
-                    value={item.title[locale] || ''}
-                    text={item.title[locale] || ''}
+                    key={country?.isoCode}
+                    value={country?.isoCode}
+                    text={country?.name || ''}
                   />
-                );
-              })}
-            </SelectRoot>
-          </FilterWrapper>
-          <FilterWrapper>
-            <FilterTitle>{t(LanguageKeys.MinorGroup)}:</FilterTitle>
-            <SelectRoot
-              key={selectedFiltersObj?.anzcoGropup?.subMajorGroup?.code}
-              triggerProps={{ placeholder: t(LanguageKeys.Select) }}
-              disabled={!selectedFiltersObj?.anzcoGropup?.subMajorGroup}
-              onValueChange={(newValue) => {
-                setFiltersByValue({
-                  filterKey: 'MINOR_GROUP',
-                  filterValue: newValue,
-                  locale,
-                });
-              }}
-            >
-              {filteredList?.minorGroup?.map((item: AnszcoGroup) => (
-                <MaraSelect.Item
-                  key={item.code}
-                  value={item.title[locale] || ''}
-                  text={item.title[locale] || ''}
-                />
-              ))}
-            </SelectRoot>
-          </FilterWrapper>
+                ))}
+              </SelectRoot>
+            </FilterWrapper>
+            {/* ///////State///////// */}
+            {allStates?.length > 0 && (
+              <FilterWrapper>
+                <FilterTitle>{t(LanguageKeys.State)}:</FilterTitle>
+
+                <SelectRoot
+                  maxHeightInRem={20}
+                  triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+                  onValueChange={(newState) => {
+                    const stateObj = State.getStateByCode(newState);
+                    setSelectedFiltersObj({
+                      location: {
+                        ...selectedFiltersObj?.location,
+                        state: stateObj,
+                      },
+                    });
+                  }}
+                >
+                  {allStates.map((state) => (
+                    <MaraSelect.Item
+                      key={state?.isoCode}
+                      value={state?.isoCode || ''}
+                      text={state?.name || ''}
+                    />
+                  ))}
+                </SelectRoot>
+              </FilterWrapper>
+            )}
+          </FilterContainer>
         </Panel>
       )}
     </Container>
@@ -156,17 +140,21 @@ const PanelButton = styled(PrimaryButton)`
 
 const Panel = styled.div`
   ${layer2A_Bg};
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
   padding: 1rem;
   flex-wrap: wrap;
   column-gap: 2rem;
   row-gap: 1rem;
   width: 100%;
+  height: 6rem;
   min-height: 4rem;
   border-radius: 0px 0px 30px 30px;
   width: 100%;
+`;
+const FilterContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 50%;
   @media ${deviceMin.tabletS} {
     flex-direction: row;
   }
@@ -191,7 +179,11 @@ const SettingIcon = styled(LuSettings2)`
   width: 1.5rem;
   height: 1.5rem;
 `;
-const SelectRoot = styled(MaraSelect.Root)``;
+const SelectRoot = styled(MaraSelect.Root)`
+  #select-portal {
+    height: 35rem !important;
+  }
+`;
 const DropboxItem = styled.h5`
   ${SelectItemCss}
   padding: 0;

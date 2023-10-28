@@ -1,21 +1,21 @@
-import PageLayout from 'Components/Layouts/PageContainer';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import PageLayout from "Components/Layouts/PageContainer";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import {
   LanguageKeys,
   componentStatements,
-} from 'PagesComponents/Lists/Agents/AgentPage/const';
-import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Lists/Agents/AgentPage';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import Seo from 'Components/Seo';
-import { Agents } from 'Consts/Lists/agents';
-import { GetStaticProps, NextPage } from 'next/types';
-import { Agent } from 'Interfaces/Database/Lists/agents';
-import Error from 'next/error';
-import { Languages } from 'Interfaces';
+} from "PagesComponents/Lists/Agents/AgentPage/const";
+import { useLocale } from "Hooks/useLocale";
+import Content from "PagesComponents/Lists/Agents/AgentPage";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import Seo from "Components/Seo";
+import { Agents } from "Consts/Lists/agents";
+import { GetStaticProps, NextPage } from "next/types";
+import { MaraAgent } from "Interfaces/Database/Lists/agents";
+import Error from "next/error";
+import { Languages } from "Interfaces";
 
 interface Props {
-  chosenAgent?: Agent;
+  chosenAgent?: MaraAgent;
   errorCode?: number;
 }
 const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
@@ -27,12 +27,12 @@ const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
     <PageLayout>
       <Seo
         title={t(LanguageKeys.SeoTitle, [
-          { $agent: dt(chosenAgent?.name) || '' },
+          { $agent: dt(chosenAgent?.name) || "" },
         ])}
         image={chosenAgent?.avatar}
-        description={dt(chosenAgent?.desc)}
+        description={chosenAgent?.desc}
         canonical={`https://www.marabox.com/${locale}/lists/agents/${
-          chosenAgent?.slug ? chosenAgent?.slug : ''
+          chosenAgent?.slug ? chosenAgent?.slug : ""
         }`}
       />
       <Content chosenAgent={chosenAgent} />

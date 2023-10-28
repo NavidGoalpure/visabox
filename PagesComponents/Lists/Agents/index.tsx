@@ -8,7 +8,6 @@ import {
 } from 'Styles/Theme/Layers/layer1/style';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Agents } from 'Consts/Lists/agents';
-import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
 import { getSmartSimpleAgent, getSmartVIPAgent } from './utils';
 

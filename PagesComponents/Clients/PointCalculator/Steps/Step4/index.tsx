@@ -56,7 +56,17 @@ const Step5 = () => {
       </ToggleGroupRoot>
       {client?.marital === ClientMarital.Married && (
         <>
-          <StyledTitle>{t(LanguageKeys.PartnerEnglishTitle)} </StyledTitle>
+          <StyledTitle>
+            {t(LanguageKeys.PartnerEnglishTitle)}{" "}
+            <StyledTooltipTag
+              content={
+                <>
+                  <CalculatorIcon />
+                </>
+              }
+              popupContent={t(LanguageKeys.DoesPartnerHaveAssessmentPopup)}
+            />
+          </StyledTitle>
           <ToggleGroupRoot
             type="single"
             value={

@@ -26,7 +26,18 @@ const Step5 = () => {
   const { client, setClient, score } = useContext(FormDataContext);
   return (
     <Container>
-      <Title>{t(LanguageKeys.maritalStatusTitle)}</Title>
+      <Title>
+        {t(LanguageKeys.maritalStatusTitle)}{" "}
+        <StyledTooltipTag
+          content={
+            <>
+              <CalculatorIcon />
+              <InformationIcon />
+            </>
+          }
+          popupContent={t(LanguageKeys.MaritalStatusPopup)}
+        />
+      </Title>
       <ToggleGroupRoot
         type="single"
         value={client?.marital}
@@ -64,7 +75,7 @@ const Step5 = () => {
                   <CalculatorIcon />
                 </>
               }
-              popupContent={t(LanguageKeys.DoesPartnerHaveAssessmentPopup)}
+              popupContent={t(LanguageKeys.PartnerEnglishPopup)}
             />
           </StyledTitle>
           <ToggleGroupRoot

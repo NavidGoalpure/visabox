@@ -54,6 +54,7 @@ const UserForms: NextPage = ({}) => {
       return getClientDetail({
         reqParams,
         resParams,
+        hasCache: false,
       });
     },
     {

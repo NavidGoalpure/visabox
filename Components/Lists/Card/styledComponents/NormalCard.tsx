@@ -51,12 +51,12 @@ export const CopyIconTheme = theme('mode', {
 });
 export const Container = styled.div`
   padding-top: 5rem;
-
+  margin-bottom: 1rem;
   width: 100%;
   opacity: 0;
   @media ${deviceMin.mobileL} {
     min-width: 20rem;
-    width: 32%;
+    width: 31%;
   }
 `;
 export const Wrapper = styled.div`
@@ -64,7 +64,7 @@ export const Wrapper = styled.div`
   ${ContainerBorder};
   box-shadow: unset;
   width: 100%;
-  height: 25rem;
+  height: 26rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -80,15 +80,15 @@ export const Wrapper = styled.div`
 export const LogoBackground_layer1 = theme('mode', {
   light: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray9) 0 70%,
+      -90deg,
+      var(--color-gray9) 0 50%,
       var(--color-gray11) 0% 100%
     );
   `,
   dark: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray2) 0 70%,
+      -90deg,
+      var(--color-gray2) 0 50%,
       var(--color-gray6) 0% 100%
     );
   `,
@@ -96,16 +96,16 @@ export const LogoBackground_layer1 = theme('mode', {
 export const LogoBackground_layer2 = theme('mode', {
   light: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray9) 0 70%,
+      -90deg,
+      var(--color-gray9) 0 50%,
       var(--color-gray11) 0% 100%
     );
   `,
   dark: css`
     background: linear-gradient(
-      -86deg,
-      var(--color-gray2) 0 70%,
-      var(--color-gray8) 0% 100%
+      -90deg,
+      var(--color-gray6) 0% 100%
+      var(--color-gray2) 0 50%,
     );
   `,
 });
@@ -113,27 +113,27 @@ export const LogoBackground_layer2 = theme('mode', {
 export const Title = styled.h3`
   ${layer3_TitleStyle};
   ${layer2A_HeaderBG};
-  position: absolute;
-  top: -1.5rem;
   white-space: nowrap;
   padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
   width: fit-content;
-  margin-bottom: 2rem;
 `;
 
 export const ImageWrapper = styled.div<{ layerContext: '1' | '2' }>`
   ${({ layerContext }) =>
     layerContext === '2' ? LogoBackground_layer2 : LogoBackground_layer1}
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.5rem;
-  width: 6.625rem;
-  height: 6.625rem;
+  width: 5.5rem;
+  height: 5.5rem;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -52%) rotate(4deg);
-  border-radius: 10px;
+  border-radius: 50%;
   border: none;
   transition: all 0.3s ease;
   ${Wrapper}:hover & {
@@ -145,6 +145,9 @@ export const AgentLogo = styled(Image)`
   position: relative !important;
   object-fit: cover;
   transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 4.75rem !important;
+  height: 4.75rem !important;
   ${Wrapper}:hover & {
     transform: scale(1.05);
   }

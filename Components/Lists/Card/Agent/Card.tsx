@@ -56,7 +56,6 @@ function AgentCard({
   return (
     <Container className={slug} {...props}>
       <Wrapper>
-        <Socials>
         <ImageWrapper layerContext={layerContext}>
           <AgentLogo
             alt={`${slug}`}
@@ -64,9 +63,10 @@ function AgentCard({
             src={`/Images/placeholder.jpeg`}
             quality={100}
             sizes="96px"
-          />
+            />
         </ImageWrapper>
-        <Title>{name}</Title>
+            <Title>{name}</Title>
+        <Socials>
           <EmailWrapper
             onClick={() =>
               copyContent({

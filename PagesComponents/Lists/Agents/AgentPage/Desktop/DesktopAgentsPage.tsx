@@ -13,17 +13,14 @@ import {
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
-import { Agent } from 'Interfaces/Database/Lists/agents';
-import {
-  layer2A_Key,
-  layer2A_Value,
-} from 'Styles/Theme/Layers/layer2/theme';
+import { layer2A_Key, layer2A_Value } from 'Styles/Theme/Layers/layer2/theme';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 
 interface Props {
-  ChosenAgent?: Agent;
+  ChosenAgent?: MaraAgent;
 }
 function DesktopAgentsPage({ ChosenAgent }: Props) {
   const { dt } = useDynamicTranslation();
@@ -61,17 +58,13 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
             <MaraNumberTitle>
               {t(LanguageKeys.MaraNumber)}: &nbsp;
             </MaraNumberTitle>
-            <MaraNumber>{ChosenAgent?.maraNumber}</MaraNumber>
+            <MaraNumber>{ChosenAgent?.mara_number}</MaraNumber>
           </MaraNumberContainer>
         </Data>
       </SmallBox>
       <AboutContainer>
         <Title>{t(LanguageKeys.About)}</Title>
-        <Desc
-          dangerouslySetInnerHTML={{
-            __html: dt(ChosenAgent?.desc),
-          }}
-        />
+        <Desc>{ChosenAgent?.desc}</Desc>
 
         <DesktopContactComponent
           website={ChosenAgent?.contact?.website}
@@ -83,7 +76,6 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         />
       </AboutContainer>
     </Container>
-
   );
 }
 export default DesktopAgentsPage;
@@ -98,7 +90,7 @@ const TitleColor = theme('mode', {
 });
 
 const Container = styled.div`
-   width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

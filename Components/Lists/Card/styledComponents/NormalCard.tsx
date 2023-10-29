@@ -176,14 +176,6 @@ export const EmailTitle = styled.h4`
   justify-content: space-between;
   width: 100%;
 `;
-export const PhoneTitle = styled.h4`
-  ${LinksTheme}
-  ${Headline6Style}
-  transition: 0.3s all ease;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-`;
 export const CopyIcon = styled(IoMdCopy)`
   ${CopyIconTheme};
   width: 1.5rem;
@@ -200,6 +192,9 @@ export const EmailUrl = styled.h5`
 `;
 export const PhoneWrapper = styled(EmailWrapper)``;
 export const MaraPhone = styled(EmailUrl)``;
+export const MaraNumber = styled(EmailTitle)``;
+export const PhoneTitle = styled(EmailTitle)``;
+export const PhoneUrl = styled(EmailTitle)``;
 export const WebsiteWrapper = styled(EmailWrapper)``;
 export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   ${layer2A_TextColor};

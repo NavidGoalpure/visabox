@@ -1,10 +1,10 @@
 import useDevice from 'Hooks/useDevice';
-import { Agent } from 'Interfaces/Database/Lists/agents';
 import { useState, useEffect } from 'react';
 import DesktopAgentsPage from './Desktop/DesktopAgentsPage';
 import MobileAgentsPage from './Mobile/MobileAgentsPage';
+import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 interface Props {
-  chosenAgent?: Agent;
+  chosenAgent?: MaraAgent;
 }
 function Content({ chosenAgent }: Props) {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');

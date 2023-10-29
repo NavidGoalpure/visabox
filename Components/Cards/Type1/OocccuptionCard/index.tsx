@@ -1,6 +1,11 @@
 import { useLocale } from 'Hooks/useLocale';
-import { EnLanguage, EnLanguageArray, En_FaLanguageArray, MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
-import { Slug } from 'Interfaces/Database/Occupation/Fields';
+import {
+  EnLanguage,
+  EnLanguageArray,
+  En_FaLanguageArray,
+  MultiLanguageText,
+  MultiLanguageTextArray,
+} from 'Interfaces/Database';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
@@ -10,6 +15,7 @@ import Popup from '../popup';
 import styled from 'styled-components';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { getGsapTimeLine_FadeUp } from 'Utils';
+import { Slug } from 'Interfaces/Database/Fields';
 
 interface Props {
   code: number;

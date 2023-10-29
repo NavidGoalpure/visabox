@@ -31,7 +31,7 @@ const MobileBusinessDropdown = ({
   useOnClickOutside(containerRef, closePopup);
 
   return (
-    <Container id={"container"} ref={containerRef}>
+    <Container id={'container'} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>
         <TriggerText>{t(LanguageKeys.Lists)}</TriggerText>
         <ArrowIcon $isOpen={isOpen} />
@@ -58,25 +58,7 @@ const MobileBusinessDropdown = ({
             </StyledLink>
           </PopupItem>
           <Hr />
-          <PopupItem
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <StyledLink href={listsItems[2].href}>
-              {listsItems[2].title[locale]}
-            </StyledLink>
-          </PopupItem>
-          <Hr />
-          <PopupItem
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <StyledLink href={listsItems[3].href}>
-              {listsItems[3].title[locale]}
-            </StyledLink>
-          </PopupItem>
+
           <Hr />
           {(clientCountry === SupportedCountry.Iran ||
             getLocalStorage(LocalStorageKeys.Country) ===
@@ -86,8 +68,8 @@ const MobileBusinessDropdown = ({
                 setIsOpen(false);
               }}
             >
-              <StyledLink href={listsItems[4].href}>
-                {listsItems[4].title[locale]}
+              <StyledLink href={listsItems[2].href}>
+                {listsItems[2].title[locale]}
               </StyledLink>
             </PopupItem>
           )}

@@ -10,19 +10,15 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 interface Props {
-  desc?: En_FaLanguage;
+  desc?: string;
 }
 const AboutComponent = ({ desc }: Props) => {
-  const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
+  if (!desc) return null;
   return (
     <Container>
       <Title>{t(LanguageKeys.About)}</Title>
-      <Desc
-        dangerouslySetInnerHTML={{
-          __html: dt(desc),
-        }}
-      />
+      <Desc>{desc}</Desc>
     </Container>
   );
 };

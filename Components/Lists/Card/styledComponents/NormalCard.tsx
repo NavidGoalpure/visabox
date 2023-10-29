@@ -128,6 +128,8 @@ export const EmailUrl = styled.h5`
 `;
 export const PhoneWrapper = styled(EmailWrapper)``;
 export const MaraNumber = styled(EmailTitle)``;
+export const PhoneTitle = styled(EmailTitle)``;
+export const PhoneUrl = styled(EmailTitle)``;
 export const WebsiteWrapper = styled(EmailWrapper)``;
 export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   ${layer2A_TextColor};

@@ -1,5 +1,3 @@
-import { AGENCYS } from 'Consts/Lists/agency';
-import { Agents } from 'Consts/Lists/agents';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { getAllOccupationCodes } from 'Queries/sitemap';
@@ -30,15 +28,15 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
 
 
       ${occupations
-      .map(({ slug }) => {
-        return `
+        .map(({ slug }) => {
+          return `
        <url>
            <loc>${`${Domain_EN}/occupations/${slug?.current}`}</loc>
        </url>
         
      `;
-      })
-      .join('')}
+        })
+        .join('')}
 
      <!------The URLs realated to Lists------>
      <url>
@@ -52,21 +50,7 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
          </url>`;
       })}
 
-     
-    ${AGENCYS.filter(
-        (agency) =>
-          agency.featuredPlan === FeaturedPlan_Business.VIP ||
-          agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
-      )
-      .map(({ slug }) => {
-        Domain_Langs.map((lang) => {
-          return `
-       <url>
-           <loc>${`${lang}/lists/agencies/${slug}`}</loc>
-       </url>`;
-        });
-      })
-      .join('')}
+    
      
       ${Domain_Langs.map((lang) => {
         return `
@@ -75,21 +59,7 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
           </url>`;
       })}
     
-    ${Agents.filter(
-      (agency) =>
-        agency.featuredPlan === FeaturedPlan_Business.VIP ||
-        agency.featuredPlan === FeaturedPlan_Business.FULL_DATA
-    )
-      .map(({ slug }) => {
-        Domain_Langs.map((lang) => {
-          return `
-       <url>
-           <loc>${`${lang}/lists/agents/${slug}`}</loc>
-       </url>`;
-        });
-      })
-      .join('')}
-     
+
      ${Domain_Langs.map((lang) => {
        return `
           <url>

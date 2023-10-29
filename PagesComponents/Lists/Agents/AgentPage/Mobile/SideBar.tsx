@@ -18,7 +18,7 @@ interface Props {
   telegram?: string;
   instagram?: string;
   linkedin?: string;
-  desc?: En_FaLanguage;
+  desc?: string;
 }
 const SidebarPage = ({
   maraNumber,

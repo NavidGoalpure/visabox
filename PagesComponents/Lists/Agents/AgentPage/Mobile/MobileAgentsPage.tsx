@@ -6,12 +6,12 @@ import theme from 'styled-theming';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { Headline4Style } from 'Styles/Typo';
 import { FiBox } from 'react-icons/fi';
-import { Agent } from 'Interfaces/Database/Lists/agents';
 import { useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
 import { SidebarPage } from './SideBar';
+import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 interface Props {
-  ChosenAgent?: Agent;
+  ChosenAgent?: MaraAgent;
 }
 function MobileAgentsPage({ ChosenAgent }: Props) {
   const { dt } = useDynamicTranslation();
@@ -32,9 +32,7 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
           fill
           src={imgSrc}
           alt={
-            ChosenAgent?.name
-              ? `${dt(ChosenAgent?.name)} image`
-              : 'agent image'
+            ChosenAgent?.name ? `${dt(ChosenAgent?.name)} image` : 'agent image'
           }
           onError={() => {
             setImgSrc(`/Images/placeholder.jpeg`);
@@ -46,7 +44,7 @@ function MobileAgentsPage({ ChosenAgent }: Props) {
       </ProfilePictureWrapper>
       <Title>{dt(ChosenAgent?.name)}</Title>
       <SidebarPage
-        maraNumber={ChosenAgent?.maraNumber}
+        maraNumber={ChosenAgent?.mara_number}
         website={ChosenAgent?.contact?.website}
         email={ChosenAgent?.contact?.email}
         phone={ChosenAgent?.contact?.phone}

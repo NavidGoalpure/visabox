@@ -1,25 +1,23 @@
-import Hero from "./Hero";
-import AgentsSection from "./AgentsSection";
-import OccupationSection from "./OccupationSection";
-import AgencysSection from "./AgencysSection";
-import ExchangesSection from "./ExchangesSection";
-import SocialsSection from "./SocialsSection";
-import NattiesSection from "./NattiesSection";
-import styled from "styled-components";
-import { useLocale } from "Hooks/useLocale";
-import { Languages } from "Interfaces";
-import Banner from "../../Components/Banner";
-import { useSession } from "next-auth/react";
-import { componentStatements, LanguageKeys } from "./const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { getClientDetail } from "Queries/client";
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
-import { ClientQueryKeys } from "Utils/query/keys";
-import CountryModal from "../../Components/Layouts/CountryModal";
-import { ClientError } from "@sanity/client";
-import { Client } from "Interfaces/Database/Client";
-import { isAgencyLogedIn } from "Utils/user";
+import Hero from './Hero';
+import OccupationSection from './OccupationSection';
+import ExchangesSection from './ExchangesSection';
+import SocialsSection from './SocialsSection';
+import NattiesSection from './NattiesSection';
+import styled from 'styled-components';
+import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
+import Banner from '../../Components/Banner';
+import { useSession } from 'next-auth/react';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { getClientDetail } from 'Queries/client';
+import { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import CountryModal from '../../Components/Layouts/CountryModal';
+import { ClientError } from '@sanity/client';
+import { Client } from 'Interfaces/Database/Client';
+import { isAgencyLogedIn } from 'Utils/user';
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -27,7 +25,7 @@ const HomeContent: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const [hasClientCompletedForm, setHasClientCompletedForm] =
     useState<boolean>(true);
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `name,
                   completed_forms`;
   const { data, isLoading, isIdle } = useQuery<
@@ -61,9 +59,8 @@ const HomeContent: React.FC = () => {
   }, [isLoading, isIdle, data]);
   return (
     <>
-
       <Hero />
-      <Container id="section-container">
+      <Container id='section-container'>
         {(!session || !hasClientCompletedForm) && !isAgencyLogedIn() && (
           <Banner
             navigateTo={`/${locale}/clients/point-calculator`}
@@ -76,12 +73,10 @@ const HomeContent: React.FC = () => {
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
         )}
-        <OccupationSection className="section" />
-        <AgencysSection className="section" />
-        <NattiesSection className="section" />
-        <AgentsSection className="section" />
-        <ExchangesSection className="section" />
-        {locale === Languages.fa && <SocialsSection className="section" />}
+        <OccupationSection className='section' />
+        <NattiesSection className='section' />
+        <ExchangesSection className='section' />
+        {locale === Languages.fa && <SocialsSection className='section' />}
       </Container>
     </>
   );

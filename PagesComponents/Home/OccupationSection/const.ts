@@ -1,5 +1,5 @@
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
-import { Slug } from 'Interfaces/Database/Occupation/Fields';
+import { Slug } from 'Interfaces/Database/Fields';
 export enum LanguageKeys {
   Title = 'Title',
   Subtitle = 'Subtitle',

@@ -24,7 +24,7 @@ import { useLocale } from 'Hooks/useLocale';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
   name: En_FaLanguage;
-  desc: En_FaLanguage | undefined;
+  desc: string | undefined;
   slug: string;
   avatar: string;
   // این پرابز نشون میده که لایر زمینه این کامپوننت شماره چنده. مثلا لایر یک یا لایر۲
@@ -54,7 +54,7 @@ function VIPAgentCard({
     <Container
       {...props}
       href={`/lists/agents/${slug}`}
-      target={"_blank"}
+      target={'_blank'}
       className={`${slug} ${className}`}
     >
       <Wrapper>
@@ -62,16 +62,16 @@ function VIPAgentCard({
           <AgentLogo
             fill
             src={imgSrc}
-            alt={name ? `${dt(name)} image` : "agent image"}
+            alt={name ? `${dt(name)} image` : 'agent image'}
             onError={() => {
               setImgSrc(`/Images/placeholder.jpeg`);
             }}
             quality={100}
-            sizes="96px"
+            sizes='96px'
           />
         </ImageWrapper>
         <Title>{dt(name)}</Title>
-        <Desc dangerouslySetInnerHTML={{ __html: dt(desc) }} />
+        <Desc>{desc}</Desc>
         <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
         <AgentElement>
           {t(LanguageKeys.Agent)} <Box />

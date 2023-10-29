@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import { deviceMin } from 'Consts/device';
+import { PrimaryButton } from 'Elements/Button/Primary';
 import { IoMdCopy } from 'react-icons/io';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
@@ -11,7 +13,7 @@ import {
   layer3_TitleStyle,
   layer3_TextStyle,
 } from 'Styles/Theme/Layers/layer3/style';
-import { Headline6Style } from 'Styles/Typo';
+import { Headline6Style, Headline7Style } from 'Styles/Typo';
 
 export const ContainerBorder = theme('mode', {
   light: css`
@@ -62,7 +64,7 @@ export const Wrapper = styled.div`
   ${ContainerBorder};
   box-shadow: unset;
   width: 100%;
-  height: 20.5rem;
+  height: 25rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -75,6 +77,39 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const LogoBackground_layer1 = theme('mode', {
+  light: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray9) 0 70%,
+      var(--color-gray11) 0% 100%
+    );
+  `,
+  dark: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray2) 0 70%,
+      var(--color-gray6) 0% 100%
+    );
+  `,
+});
+export const LogoBackground_layer2 = theme('mode', {
+  light: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray9) 0 70%,
+      var(--color-gray11) 0% 100%
+    );
+  `,
+  dark: css`
+    background: linear-gradient(
+      -86deg,
+      var(--color-gray2) 0 70%,
+      var(--color-gray8) 0% 100%
+    );
+  `,
+});
+
 export const Title = styled.h3`
   ${layer3_TitleStyle};
   ${layer2A_HeaderBG};
@@ -86,10 +121,39 @@ export const Title = styled.h3`
   width: fit-content;
   margin-bottom: 2rem;
 `;
+
+export const ImageWrapper = styled.div<{ layerContext: '1' | '2' }>`
+  ${({ layerContext }) =>
+    layerContext === '2' ? LogoBackground_layer2 : LogoBackground_layer1}
+
+  padding: 0.5rem;
+  width: 6.625rem;
+  height: 6.625rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -52%) rotate(4deg);
+  border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: rotate(0deg) translate(-50%, -56%);
+  }
+`;
+
+export const AgentLogo = styled(Image)`
+  position: relative !important;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: scale(1.05);
+  }
+`;
+
 export const Socials = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   gap: 1.5rem;
 `;
@@ -112,6 +176,14 @@ export const EmailTitle = styled.h4`
   justify-content: space-between;
   width: 100%;
 `;
+export const PhoneTitle = styled.h4`
+  ${LinksTheme}
+  ${Headline6Style}
+  transition: 0.3s all ease;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
 export const CopyIcon = styled(IoMdCopy)`
   ${CopyIconTheme};
   width: 1.5rem;
@@ -127,7 +199,7 @@ export const EmailUrl = styled.h5`
   word-break: break-all;
 `;
 export const PhoneWrapper = styled(EmailWrapper)``;
-export const MaraNumber = styled(EmailTitle)``;
+export const MaraPhone = styled(EmailUrl)``;
 export const WebsiteWrapper = styled(EmailWrapper)``;
 export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   ${layer2A_TextColor};
@@ -165,4 +237,13 @@ export const MaraElement = styled.h3`
   transform: rotate(-3deg) translate(27%, 70%);
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
+`;
+export const ViewMoreButton = styled(PrimaryButton)`
+  ${Headline7Style}
+  padding:0 4rem;
+  width: -webkit-fill-available;
+
+  @media ${deviceMin.laptopXS} {
+    width: max-content;
+  }
 `;

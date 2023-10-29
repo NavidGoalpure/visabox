@@ -13,30 +13,40 @@ import {
   EmailWrapper,
   AgentElement,
   MaraElement,
-  MaraNumber,
+  MaraPhone,
   PhoneWrapper,
   Socials,
   Title,
+  ViewMoreButton,
   WebsiteTitle,
   WebsiteUrl,
   WebsiteWrapper,
+  LogoBackground_layer1,
+  LogoBackground_layer2,
+  ImageWrapper,
+  AgentLogo,
   Wrapper,
+  PhoneTitle,
 } from '../styledComponents/NormalCard';
 import { BLANK_SYMBOL } from 'Consts';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: string | undefined;
   email: string | undefined;
+  phone: string | undefined;
   website: string | undefined;
   maraNumber: string | undefined;
   slug: string;
+  layerContext: '1' | '2';
 }
 function AgentCard({
   name,
   email,
+  phone,
   website,
   maraNumber,
   slug,
+  layerContext,
   ...props
 }: Props) {
   const { dt } = useDynamicTranslation();
@@ -49,8 +59,17 @@ function AgentCard({
   return (
     <Container className={slug} {...props}>
       <Wrapper>
-        <Title>{name}</Title>
         <Socials>
+        <ImageWrapper layerContext={layerContext}>
+          <AgentLogo
+            alt={`${slug}`}
+            fill
+            src={`/Images/placeholder.jpeg`}
+            quality={100}
+            sizes="96px"
+          />
+        </ImageWrapper>
+        <Title>{name}</Title>
           <EmailWrapper
             onClick={() =>
               copyContent({
@@ -72,9 +91,12 @@ function AgentCard({
               })
             }
           >
-            <MaraNumber>{maraNumber}</MaraNumber>
+                <PhoneTitle>
+                  {t(LanguageKeys.Phone)}:{!!phone && <CopyIcon />}
+                </PhoneTitle>
+            <MaraPhone>{!!phone ? phone : BLANK_SYMBOL} </MaraPhone>
           </PhoneWrapper>
-          <WebsiteWrapper>
+          {/* <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
               as={hasWebsite ? 'a' : 'div'}
@@ -84,10 +106,11 @@ function AgentCard({
               target={'_blank'}
               $hasWebsite={hasWebsite}
             >
-              {!!website ? website : BLANK_SYMBOL}
+            {!!website ? website : BLANK_SYMBOL}
             </WebsiteUrl>
-          </WebsiteWrapper>
+          </WebsiteWrapper> */}
         </Socials>
+          <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton> 
         <AgentElement>{t(LanguageKeys.Agent)}</AgentElement>
         <MaraElement>{t(LanguageKeys.Mara)}</MaraElement>
       </Wrapper>

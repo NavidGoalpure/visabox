@@ -6,21 +6,14 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { BLANK_SYMBOL } from 'Consts';
 import {
   Container,
-  CopyIcon,
-  EmailTitle,
-  EmailUrl,
-  EmailWrapper,
   AgentElement,
   MaraElement,
-  PhoneTitle,
-  PhoneUrl,
-  PhoneWrapper,
   Socials,
   Title,
-  WebsiteTitle,
-  WebsiteUrl,
-  WebsiteWrapper,
   Wrapper,
+  FieldWrapper,
+  FieldTitle,
+  FieldValue,
 } from '../styledComponents/NormalCard';
 import { componentStatements, LanguageKeys } from '../const';
 
@@ -34,8 +27,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
-const emailToastMessage = t(LanguageKeys.copyEmailToastMessage);
-const phoneToastMessage =t(LanguageKeys.copyPhoneToastMessage);
+  const emailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
   useEffect(() => getGsapTimeLine_FadeUp(slug));
 
   return (
@@ -43,40 +36,40 @@ const phoneToastMessage =t(LanguageKeys.copyPhoneToastMessage);
       <Wrapper>
         <Title>{dt(fullName)}</Title>
         <Socials>
-          <EmailWrapper
+          <FieldWrapper
             onClick={() =>
               copyContent({
-                text: email || "",
+                text: email || '',
                 toastMessage: emailToastMessage,
               })
             }
           >
-            <EmailTitle>
+            <FieldTitle>
               {t(LanguageKeys.Email)}:{!!email && <CopyIcon />}
-            </EmailTitle>
-            <EmailUrl>{!!email ? email : BLANK_SYMBOL}</EmailUrl>
-          </EmailWrapper>
-          <PhoneWrapper
+            </FieldTitle>
+            <FieldValue>{!!email ? email : BLANK_SYMBOL}</FieldValue>
+          </FieldWrapper>
+          <FieldWrapper
             onClick={() =>
               copyContent({
-                text: phone?.[0] || "",
+                text: phone?.[0] || '',
                 toastMessage: phoneToastMessage,
               })
             }
           >
-            <PhoneTitle>
+            <FieldTitle>
               {t(LanguageKeys.Phone)}:{!!phone?.[0] && <CopyIcon />}
-            </PhoneTitle>
-            <PhoneUrl>{!!phone?.[0] ? phone?.[0] : BLANK_SYMBOL}</PhoneUrl>
-          </PhoneWrapper>
+            </FieldTitle>
+            <FieldValue>{!!phone?.[0] ? phone?.[0] : BLANK_SYMBOL}</FieldValue>
+          </FieldWrapper>
           <WebsiteWrapper>
             <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
             <WebsiteUrl
-              as={!!website ? "a" : "div"}
+              as={!!website ? 'a' : 'div'}
               href={
-                !!website ? `https://${website?.replace("https://", "")}` : ""
+                !!website ? `https://${website?.replace('https://', '')}` : ''
               }
-              target={"_blank"}
+              target={'_blank'}
               $hasWebsite={!!website}
             >
               {!!website ? website : BLANK_SYMBOL}

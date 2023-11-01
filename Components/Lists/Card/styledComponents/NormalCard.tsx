@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { deviceMin } from 'Consts/device';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { IoMdCopy } from 'react-icons/io';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import {
@@ -152,25 +151,24 @@ export const AgentLogo = styled(Image)`
   }
 `;
 
-export const Socials = styled.div`
+export const FieldsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
   width: 100%;
-  gap: 1.5rem;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
-export const AgencyWrapper = styled.div`
+export const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
-  gap: 0.5rem;
-  cursor: pointer;
 `;
 
-export const AgencyTitle = styled.h4`
+export const FieldTitle = styled.h4`
   ${LinksTheme}
   ${Headline6Style}
   transition: 0.3s all ease;
@@ -179,7 +177,7 @@ export const AgencyTitle = styled.h4`
   width: 100%;
 `;
 
-export const AgencyValue = styled.h5`
+export const FieldValue = styled.h5`
   ${layer2A_TextColor};
   ${Headline6Style};
   display: -webkit-box;
@@ -187,8 +185,12 @@ export const AgencyValue = styled.h5`
   -webkit-line-clamp: 1;
   overflow: hidden;
   word-break: break-all;
+  margin-inline-end: 0.5rem;
 `;
-
+export const ValuesContainer = styled.div`
+  display: flex;
+  width: 100%;
+`;
 export const AgentElement = styled.h3`
   ${layer3_TextStyle}
   ${layer2A_Bg}

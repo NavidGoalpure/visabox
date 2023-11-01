@@ -1,5 +1,5 @@
 import { HTMLAttributes, useEffect } from 'react';
-import { copyContent, getGsapTimeLine_FadeUp } from 'Utils';
+import { getGsapTimeLine_FadeUp } from 'Utils';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
@@ -7,15 +7,16 @@ import {
   Container,
   AgentElement,
   MaraElement,
-  Socials,
+  FieldsContainer,
   Title,
   ViewMoreButton,
   ImageWrapper,
   AgentLogo,
   Wrapper,
-  AgencyTitle,
-  AgencyValue,
-  AgencyWrapper,
+  FieldTitle,
+  FieldValue,
+  FieldWrapper,
+  ValuesContainer,
 } from '../styledComponents/NormalCard';
 import { MaraAgency } from 'Interfaces/Database/Lists/agents';
 
@@ -37,7 +38,8 @@ function AgentCard({
   const { t } = useStaticTranslation(componentStatements);
 
   useEffect(() => getGsapTimeLine_FadeUp(slug));
-
+  const agencyCountries = agencies?.map((agency) => agency.country);
+  const uniqueCountries = [...new Set(agencyCountries)];
   return (
     <Container className={slug} {...props}>
       <Wrapper>
@@ -51,12 +53,22 @@ function AgentCard({
           />
         </ImageWrapper>
         <Title>{name}</Title>
-        <Socials>
-          <AgencyWrapper>
-            <AgencyTitle>{t(LanguageKeys.BusinessName)}:</AgencyTitle>
-            <AgencyValue>{agencies?.[0]?.title?.en || '...'}</AgencyValue>
-          </AgencyWrapper>
-        </Socials>
+        <FieldsContainer>
+          <FieldWrapper>
+            <FieldTitle>{t(LanguageKeys.BusinessName)}:</FieldTitle>
+            <FieldValue>{agencies?.[0]?.title?.en || '...'}</FieldValue>
+          </FieldWrapper>
+          <FieldWrapper>
+            <FieldTitle>{t(LanguageKeys.Country)}:</FieldTitle>
+            <ValuesContainer>
+              {uniqueCountries?.map((country, i) => (
+                <FieldValue key={i}>{`${country} ${
+                  i < uniqueCountries.length - 1 ? '-' : ''
+                }`}</FieldValue>
+              ))}
+            </ValuesContainer>
+          </FieldWrapper>
+        </FieldsContainer>
         <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
         <AgentElement>{t(LanguageKeys.Agent)}</AgentElement>
         <MaraElement>{t(LanguageKeys.Mara)}</MaraElement>

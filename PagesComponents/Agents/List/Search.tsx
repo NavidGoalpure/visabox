@@ -21,12 +21,10 @@ interface Props {
 
 const allCountries = Country.getAllCountries();
 function Search({ searchValue, setSearchValue }: Props) {
-  ///
+  // get Url Params
   const router = useRouter();
   const countryInUrlParam = router?.query?.country?.toString();
   const stateInUrlParam = router?.query?.state?.toString();
-  console.log('navid countryInUrlParam=', countryInUrlParam);
-  console.log('navid stateInUrlParam=', stateInUrlParam);
 
   ///
   const { t } = useStaticTranslation(componentStatements);

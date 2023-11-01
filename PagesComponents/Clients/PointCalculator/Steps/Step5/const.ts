@@ -23,7 +23,11 @@ export enum LanguageKeys {
   UniInput_SectionTitle = "UniInput_SectionTitle",
   UniInput_Placeholder = "UniInput_Placeholder",
   UniInput_HintText = "UniInput_HintText",
-  // SaveTitle = "SaveTitle",
+  // Graduation Date
+  GraduationDateLabel = "GraduationDateLabel",
+  //
+  SaveTitle = "SaveTitle",
+  BackTitle = "BackTitle",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   DegreePopupContent: {
@@ -147,7 +151,19 @@ Did you complete a professional year program in Australia in your nominated skil
                 (سکشن) ای قرار دارد`,
     zh: "您可以通过写下您的大学名称来搜索您的大学部分",
   },
-  // SaveTitle: {
-
-  // },
+  GraduationDateLabel: {
+    en: "Graduation Date:",
+    fa: "تاریخ فارغ التحصیل:",
+    zh: "毕业日期：",
+  },
+  SaveTitle: {
+    en: "Save",
+    fa: "ذخیره",
+    zh: "节省",
+  },
+  BackTitle: {
+    en: "Back",
+    fa: "بازگشت",
+    zh: "后退",
+  },
 };

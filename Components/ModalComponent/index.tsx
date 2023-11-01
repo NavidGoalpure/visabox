@@ -49,7 +49,11 @@ const ModalComponent: React.FC<Props> = ({
         >
           <MobileLine />
           <Wrapper>
-            <DialogTitle className="DialogTitle">{DialogTitleText}</DialogTitle>
+            {!!DialogTitleText && (
+              <DialogTitle className="DialogTitle">
+                {DialogTitleText}
+              </DialogTitle>
+            )}
             {children}
           </Wrapper>
         </DialogContent>

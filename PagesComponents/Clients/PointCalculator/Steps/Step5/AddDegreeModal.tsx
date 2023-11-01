@@ -13,6 +13,9 @@ import { Headline7Style } from "Styles/Typo";
 import { ClientQueryKeys } from "Utils/query/keys";
 import * as ToggleGroup from "Elements/ToggleGroup";
 import { componentStatements, LanguageKeys } from "./const";
+import { Input } from "Components/Input";
+import { Title } from "../StyledComponents";
+import { uniSections } from "Consts/Client";
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -31,6 +34,59 @@ const EditModal: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
       setOpen={setIsModalOpen}
       open={isModalOpen}
     >
+      <Input
+        required
+        label={t(LanguageKeys.FieldOfStudyInputLabel)}
+        inputName="field-of-study"
+        placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
+        // value={client?.field_of_study}
+        // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        //   client &&
+        //     setClient({
+        //       ...client,
+        //       field_of_study: e.target.value,
+        //     });
+        // }}
+      />
+      <Title>{t(LanguageKeys.UniSectionsSectionTitle)} </Title>
+      <ToggleGroupRoot
+        type="single"
+        // value={client?.uni_section}
+        // onValueChange={(value: UniSections) => {
+        //   client &&
+        //     setClient({
+        //       ...client,
+        //       uni_section: value,
+        //     });
+        // }}
+      >
+        {
+          <>
+            {uniSections.map((uniSection, i) => (
+              <ToggleGroup.Item
+                key={i}
+                text={uniSection}
+                value={uniSection.en.toLowerCase()}
+              ></ToggleGroup.Item>
+            ))}
+          </>
+        }
+      </ToggleGroupRoot>
+      <Input
+        required
+        label={t(LanguageKeys.GraduationDateLabel)}
+        type={"date"}
+        inputName="field-of-study"
+        placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
+        // value={client?.field_of_study}
+        // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+        //   client &&
+        //     setClient({
+        //       ...client,
+        //       field_of_study: e.target.value,
+        //     });
+        // }}
+      />
       <ButtonWrapper>
         <SaveButton>
           {t(LanguageKeys.SaveTitle)} <SaveIcon />

@@ -231,4 +231,5 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "شماره تلفن در حافظه کپی شد",
     zh: "已将电话号码复制到剪贴板",
   },
+  
 };

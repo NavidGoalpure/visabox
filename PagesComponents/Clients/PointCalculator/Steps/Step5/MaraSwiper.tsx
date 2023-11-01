@@ -14,9 +14,9 @@ import { MdOutlineEdit } from "react-icons/md";
 import theme from "styled-theming";
 import { AiOutlinePlus } from "react-icons/ai";
 import AddDegreeModal from "./AddDegreeModal";
+import { SecondaryButton } from "Elements/Button/Secondary";
 
 const MaraSwiper = () => {
-  useEffect(() => {
     const swiper = new Swiper(".my-swiper", {
       // effect: "coverflow",
       slidesPerView: "auto",
@@ -36,7 +36,6 @@ const MaraSwiper = () => {
         prevEl: ".swiper-button-prev",
       },
     });
-  }, []);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   return (
     <Container>
@@ -86,6 +85,12 @@ const MaraSwiper = () => {
         <BackArrow className="swiper-button-prev"></BackArrow>
         <NextArrow className="swiper-button-next"></NextArrow>
       </StyledSwiper>
+      <StyledSecondaryButton
+        onClick={() => swiper.slideNext()}
+        icon={<ButtonArrowIcon />}
+      >
+        لیسانس
+      </StyledSecondaryButton>
     </Container>
   );
 };
@@ -266,8 +271,15 @@ const PlusIcon = styled(AiOutlinePlus)`
 const BackArrow = styled(IoIosArrowDown)`
   ${SwiperArrowTheme};
   ${BackArrowDir};
+  
 `;
 const NextArrow = styled(IoIosArrowDown)`
-  ${NextArrowDir};
   ${SwiperArrowTheme};
+  ${NextArrowDir};
+`;
+const StyledSecondaryButton = styled(SecondaryButton)`
+  position: unset;
+`;
+const ButtonArrowIcon = styled(IoIosArrowDown)`
+  ${NextArrowDir};
 `;

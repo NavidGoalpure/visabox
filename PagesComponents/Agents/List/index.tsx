@@ -19,8 +19,7 @@ import { useLastAgentData } from './useLastAgentData';
 const Content: React.FC = () => {
   const isMounted = useRef(false);
   const { t } = useStaticTranslation(componentStatements);
-  const { filteredMaraAgentRange, selectedFiltersObj } =
-    useContext(SearchFilterContext);
+  const { selectedFiltersObj } = useContext(SearchFilterContext);
 
   //این هوکیه که لیست ایجنت ها رو برمیگردونه
   const {
@@ -50,14 +49,14 @@ const Content: React.FC = () => {
     if (selectedFiltersObj?.location) remove();
   }, [selectedFiltersObj.location]);
   //
-  useEffect(() => {
-    if (isMounted.current) {
-      refetch();
-    } else {
-      // This block will run on the initial mount
-      isMounted.current = true;
-    }
-  }, [filteredMaraAgentRange]);
+  // useEffect(() => {
+  //   if (isMounted.current) {
+  //     refetch();
+  //   } else {
+  //     // This block will run on the initial mount
+  //     isMounted.current = true;
+  //   }
+  // }, [selectedFiltersObj.location]);
 
   return (
     <>

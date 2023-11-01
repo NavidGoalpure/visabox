@@ -2,7 +2,6 @@ import type { GetServerSideProps, NextPage, NextPageContext } from 'next';
 import {
   LanguageKeys,
   componentStatements,
-  FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
 } from 'PagesComponents/Agents/List/const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import Content from 'PagesComponents/Agents/List';
@@ -47,14 +46,7 @@ export const getServerSideProps: GetServerSideProps = withCSR(
 
     try {
       await queryClient.fetchQuery(AgentsQueryKeys.list({}), () =>
-        sanityClient.fetch(
-          getListQuery({
-            filteredMaraAgentRange: {
-              highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
-              lowerNumber: '0',
-            },
-          })
-        )
+        sanityClient.fetch(getListQuery({}))
       );
     } catch (error: any) {
       if (ctx.res) ctx.res.statusCode = error?.response?.status;

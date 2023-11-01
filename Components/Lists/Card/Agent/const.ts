@@ -1,7 +1,7 @@
 import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
-  Email = 'Email',
+  BusinessName = 'BusinessName',
   Phone = 'Phone',
   Website = 'Website',
   ViewMore = 'ViewMore',
@@ -11,10 +11,10 @@ export enum LanguageKeys {
   copyPhoneToastMessage = 'copyPhoneToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
-  Email: {
-    en: 'Email',
-    fa: 'ایمیل',
-    zh: '电子邮件',
+  BusinessName: {
+    en: 'Business Name',
+    fa: 'دفتر مهاجرتی',
+    zh: '公司名称',
   },
   Phone: {
     en: 'Phone',

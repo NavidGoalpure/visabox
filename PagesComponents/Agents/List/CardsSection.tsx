@@ -5,22 +5,22 @@ import { InfiniteData } from 'react-query';
 import styled from 'styled-components';
 
 interface Props {
-  agents: InfiniteData<MaraAgent[]> | undefined;
+  agents: InfiniteData<Partial<MaraAgent>[]> | undefined;
 }
 
 const CardsSection: React.FC<Props> = ({ agents }) => {
   return (
     <Container>
       {agents?.pages?.map((agentPage) =>
-        agentPage?.map((agent: MaraAgent) => {
+        agentPage?.map((agent: Partial<MaraAgent>) => {
           return (
             <AgentCard
               key={agent._id}
               name={agent?.name?.en}
-              email={agent?.email}
-              website={agent?.website}
-              maraNumber={agent?.mara_number}
-              slug={agent.slug.current || 'defensive'}
+              agencies={agent?.agencies}
+              slug={agent?.slug?.current || 'defensive'}
+              avatar={agent?.avatar}
+              layerContext={'1'}
             />
           );
         })

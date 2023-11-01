@@ -1,11 +1,8 @@
-import { ICountry, IState, ICity } from 'country-state-city';
-export interface FilteredMaraAgentRange {
-  highestNumber: string;
-  lowerNumber: string;
-}
+import { ICountry } from 'country-state-city';
+
 export interface SearchFilters_Location {
   country?: ICountry;
-  state?: IState;
+  state?: string;
 }
 export interface SearchFilters {
   location: SearchFilters_Location;

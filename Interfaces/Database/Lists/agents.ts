@@ -10,7 +10,7 @@ interface MaraAgencyContact {
 
 export interface MaraAgency {
   mara_number_ref: string;
-  title: string;
+  title: MultiLanguageText;
   country: string;
   state: string;
   city: string;

@@ -104,8 +104,7 @@ export const LogoBackground_layer2 = theme('mode', {
   dark: css`
     background: linear-gradient(
       -90deg,
-      var(--color-gray6) 0% 100%
-      var(--color-gray2) 0 50%,
+      var(--color-gray6) 0% 100% var(--color-gray2) 0 50%
     );
   `,
 });
@@ -161,7 +160,7 @@ export const Socials = styled.div`
   gap: 1.5rem;
 `;
 
-export const EmailWrapper = styled.div`
+export const AgencyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,7 +170,7 @@ export const EmailWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const EmailTitle = styled.h4`
+export const AgencyTitle = styled.h4`
   ${LinksTheme}
   ${Headline6Style}
   transition: 0.3s all ease;
@@ -179,12 +178,8 @@ export const EmailTitle = styled.h4`
   justify-content: space-between;
   width: 100%;
 `;
-export const CopyIcon = styled(IoMdCopy)`
-  ${CopyIconTheme};
-  width: 1.5rem;
-  height: auto;
-`;
-export const EmailUrl = styled.h5`
+
+export const AgencyValue = styled.h5`
   ${layer2A_TextColor};
   ${Headline6Style};
   display: -webkit-box;
@@ -193,24 +188,7 @@ export const EmailUrl = styled.h5`
   overflow: hidden;
   word-break: break-all;
 `;
-export const PhoneWrapper = styled(EmailWrapper)``;
-export const MaraPhone = styled(EmailUrl)``;
-export const MaraNumber = styled(EmailTitle)``;
-export const PhoneTitle = styled(EmailTitle)``;
-export const PhoneUrl = styled(EmailTitle)``;
-export const WebsiteWrapper = styled(EmailWrapper)``;
-export const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
-  ${layer2A_TextColor};
-  ${Headline6Style};
-  word-break: break-all;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  ${({ $hasWebsite }) => !$hasWebsite && 'cursor: unset;'}
-  direction:ltr;
-`;
-export const WebsiteTitle = styled(EmailTitle)``;
+
 export const AgentElement = styled.h3`
   ${layer3_TextStyle}
   ${layer2A_Bg}

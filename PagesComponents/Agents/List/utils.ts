@@ -11,8 +11,8 @@ const getHasNextPage = ({
   lastAgent,
   lastFetchedAgent,
 }: {
-  lastAgent: MaraAgent | undefined;
-  lastFetchedAgent: MaraAgent | undefined;
+  lastAgent: Partial<MaraAgent> | undefined;
+  lastFetchedAgent: Partial<MaraAgent> | undefined;
 }): boolean => {
   if (lastAgent?.mara_number === undefined) return false;
   if (lastFetchedAgent?.mara_number === undefined) return false;
@@ -26,8 +26,8 @@ const getHasNextPage = ({
  * @returns {Agent | undefined } آخرین آکوپیشن فچ شده، اگه هیچ آکیوپیشنی فچ نشده باشه، آندیفایند برمیگردونه
  */
 const getLastFetchedAgent = (
-  agents: InfiniteData<MaraAgent[]> | undefined
-): MaraAgent | undefined => {
+  agents: InfiniteData<Partial<MaraAgent>[]> | undefined
+): Partial<MaraAgent> | undefined => {
   return agents?.pages?.[agents?.pages.length - 1][
     agents?.pages?.[agents?.pages.length - 1].length - 1
   ];

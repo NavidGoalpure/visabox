@@ -1,14 +1,7 @@
 // این هوک هندلرهای دکمه های سرچ پیشرفته را مهیا می‌کند
 
-import {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-} from 'react';
-import { FILTERD_Codes__HIGHEST_NUMBER__DEFAULT } from '../const';
-import { FilteredMaraAgentRange, SearchFilters } from '../interfaces';
+import { createContext, Dispatch, SetStateAction, useState } from 'react';
+import { SearchFilters } from '../interfaces';
 import {
   FetchNextPageOptions,
   InfiniteData,
@@ -31,24 +24,22 @@ interface ContexValues {
   setSelectedFiltersObj: Dispatch<SetStateAction<SearchFilters>>;
   //
   // filteredList: FilterdList;
-  //
-  filteredMaraAgentRange: FilteredMaraAgentRange;
-  setFilterMaraAgentRange: Dispatch<SetStateAction<FilteredMaraAgentRange>>;
-  //
   resetFilters: () => void;
   //
   hasNextPage: boolean | undefined;
   fetchNextPage: (
     options?: FetchNextPageOptions | undefined
-  ) => Promise<InfiniteQueryObserverResult<MaraAgent[], ClientError>>;
+  ) => Promise<InfiniteQueryObserverResult<Partial<MaraAgent>[], ClientError>>;
   isLoading: boolean;
   isError: boolean;
   isFetching: boolean;
   isRefetching: boolean;
-  agents: InfiniteData<MaraAgent[]> | undefined;
+  agents: InfiniteData<Partial<MaraAgent>[]> | undefined;
   refetch: <TPageData>(
     options?: (RefetchOptions & RefetchQueryFilters<TPageData>) | undefined
-  ) => Promise<QueryObserverResult<InfiniteData<MaraAgent[]>, ClientError>>;
+  ) => Promise<
+    QueryObserverResult<InfiniteData<Partial<MaraAgent>[]>, ClientError>
+  >;
   remove: () => void;
 }
 type Props = {
@@ -57,12 +48,6 @@ type Props = {
 
 const SearchFilterContext = createContext({} as ContexValues);
 function FiltersContextProvider({ children }: Props) {
-  const [filteredMaraAgentRange, setFilterMaraAgentRange] =
-    useState<FilteredMaraAgentRange>({
-      lowerNumber: '0',
-      highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
-    });
-
   const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>(
     {} as SearchFilters
   );
@@ -78,18 +63,17 @@ function FiltersContextProvider({ children }: Props) {
     data: agents,
     refetch,
     remove,
-  } = useInfiniteQuery<MaraAgent[], ClientError>(
+  } = useInfiniteQuery<Partial<MaraAgent>[], ClientError>(
     AgentsQueryKeys.list({ search: searchValue }),
-    ({ pageParam: lastMaraNumber = 1 }) => {
+    ({ pageParam: lastMaraNumber = 0 }) => {
       return getAgentsList({
         lastMaraNumber,
         search: searchValue,
-        filteredMaraAgentRange,
         selectedFiltersObj,
       });
     },
     {
-      getNextPageParam: (lastPage: MaraAgent[]) => {
+      getNextPageParam: (lastPage: Partial<MaraAgent>[]) => {
         return lastPage?.[lastPage.length - 1]?.mara_number || '0';
       },
     }
@@ -100,11 +84,6 @@ function FiltersContextProvider({ children }: Props) {
   ///////////////////////////////////////
   function resetFilters() {
     setSelectedFiltersObj({} as SearchFilters);
-    setFilterMaraAgentRange({
-      lowerNumber: '0',
-      highestNumber: FILTERD_Codes__HIGHEST_NUMBER__DEFAULT,
-    });
-    // setFilteredList({} as FilterdList);
   }
 
   return (
@@ -115,9 +94,6 @@ function FiltersContextProvider({ children }: Props) {
         //
         selectedFiltersObj,
         setSelectedFiltersObj,
-        //
-        filteredMaraAgentRange,
-        setFilterMaraAgentRange,
         //
         resetFilters,
         //

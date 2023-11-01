@@ -12,6 +12,7 @@ import { deviceMin } from 'Consts/device';
 import { SelectItemCss } from 'Elements/Select/Item';
 import { LuSettings2 } from 'react-icons/lu';
 import { City, Country, State } from 'country-state-city';
+import { useRouter } from 'next/router';
 
 interface Props {
   searchValue: string;
@@ -20,6 +21,14 @@ interface Props {
 
 const allCountries = Country.getAllCountries();
 function Search({ searchValue, setSearchValue }: Props) {
+  ///
+  const router = useRouter();
+  const countryInUrlParam = router?.query?.country?.toString();
+  const stateInUrlParam = router?.query?.state?.toString();
+  console.log('navid countryInUrlParam=', countryInUrlParam);
+  console.log('navid stateInUrlParam=', stateInUrlParam);
+
+  ///
   const { t } = useStaticTranslation(componentStatements);
   const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
   const { selectedFiltersObj, setSelectedFiltersObj, resetFilters } =
@@ -27,9 +36,39 @@ function Search({ searchValue, setSearchValue }: Props) {
   useEffect(() => {
     resetFilters();
   }, [isShowPanel]);
-  const allStates = State.getStatesOfCountry(
-    selectedFiltersObj?.location?.country?.isoCode
-  );
+  const smartCountryCode =
+    selectedFiltersObj?.location?.country?.isoCode || countryInUrlParam;
+  const allStates = State.getStatesOfCountry(smartCountryCode);
+
+  //////////////////////////////////////////////////////////////
+  //این یوزافکت به یوآرال پارام کشور نگاه میکنه و اگه مقدار داشته باشه فیلتر سرچ رو با اون هماهنگ میکنه
+  /////////////////////////////////////////////////////////////
+  useEffect(() => {
+    if (countryInUrlParam) {
+      setSelectedFiltersObj((prev) => ({
+        ...prev,
+        location: {
+          ...prev.location,
+          country: Country.getCountryByCode(countryInUrlParam),
+        },
+      }));
+    }
+  }, [countryInUrlParam]);
+  //////////////////////////////////////////////////////////////
+  //این یوزافکت به یوآرال پارام شهر نگاه میکنه و اگه مقدار داشته باشه فیلتر سرچ رو با اون هماهنگ میکنه
+  /////////////////////////////////////////////////////////////
+  useEffect(() => {
+    if (stateInUrlParam) {
+      setSelectedFiltersObj((prev) => ({
+        ...prev,
+        location: {
+          ...prev.location,
+          state: stateInUrlParam,
+        },
+      }));
+    }
+  }, [stateInUrlParam]);
+  /////////
 
   return (
     <Container isShowPanel={isShowPanel}>
@@ -53,6 +92,7 @@ function Search({ searchValue, setSearchValue }: Props) {
 
               <SelectRoot
                 maxHeightInRem={20}
+                defaultValue={countryInUrlParam}
                 triggerProps={{ placeholder: t(LanguageKeys.Select) }}
                 onValueChange={(newCountry) => {
                   const countryObj = Country.getCountryByCode(newCountry);
@@ -77,13 +117,17 @@ function Search({ searchValue, setSearchValue }: Props) {
 
                 <SelectRoot
                   maxHeightInRem={20}
+                  defaultValue={
+                    countryInUrlParam && stateInUrlParam
+                      ? stateInUrlParam
+                      : undefined
+                  }
                   triggerProps={{ placeholder: t(LanguageKeys.Select) }}
                   onValueChange={(newState) => {
-                    const stateObj = State.getStateByCode(newState);
                     setSelectedFiltersObj({
                       location: {
                         ...selectedFiltersObj?.location,
-                        state: stateObj,
+                        state: newState,
                       },
                     });
                   }}
@@ -91,7 +135,7 @@ function Search({ searchValue, setSearchValue }: Props) {
                   {allStates.map((state) => (
                     <MaraSelect.Item
                       key={state?.isoCode}
-                      value={state?.isoCode || ''}
+                      value={state?.name || ''}
                       text={state?.name || ''}
                     />
                   ))}
@@ -145,7 +189,7 @@ const Panel = styled.div`
   column-gap: 2rem;
   row-gap: 1rem;
   width: 100%;
-  height: 6rem;
+  height: auto;
   min-height: 4rem;
   border-radius: 0px 0px 30px 30px;
   width: 100%;

@@ -2,10 +2,7 @@ import { sanityClient } from 'Utils/sanity';
 
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { AGENTS_PER_PAGE } from 'PagesComponents/Agents/List/const';
-import {
-  FilteredMaraAgentRange,
-  SearchFilters,
-} from 'PagesComponents/Agents/List/interfaces';
+import { SearchFilters } from 'PagesComponents/Agents/List/interfaces';
 
 //////////////////////////
 /**
@@ -33,30 +30,26 @@ const getSearchConditions = (searchValue: string): string => {
 const getListQuery = ({
   lastMaraNumber = '0',
   searchCondition,
-  filteredMaraAgentRange,
   selectedFiltersObj,
 }: {
   lastMaraNumber?: string;
   searchCondition?: string;
   selectedFiltersObj?: SearchFilters;
-  filteredMaraAgentRange: FilteredMaraAgentRange;
 }): string => {
-  console.log('navid query selectedFiltersObj=', selectedFiltersObj);
-
-  let newQuery = `*[_type=='agent' && mara_number>'${lastMaraNumber}' && mara_number<'${filteredMaraAgentRange.highestNumber}'`;
+  let newQuery = `*[_type=='agent' && mara_number>'${lastMaraNumber}'`;
   // search value which typed
   if (searchCondition) newQuery = newQuery + searchCondition;
   //country filter
   if (selectedFiltersObj?.location?.country?.name) {
     newQuery =
       newQuery +
-      ` && "${selectedFiltersObj.location.country?.name}" in agencies[].country`;
+      ` && agencies[].country match "${selectedFiltersObj.location.country?.name}"`;
   }
   //state filter
-  if (selectedFiltersObj?.location?.state?.name) {
+  if (selectedFiltersObj?.location?.state) {
     newQuery =
       newQuery +
-      ` && "${selectedFiltersObj.location.state?.name}" in agencies[].state`;
+      ` && agencies[].state match  "${selectedFiltersObj.location.state}"`;
   }
 
   newQuery =
@@ -65,9 +58,9 @@ const getListQuery = ({
     _id,
     slug,
     name,
-    website,
-    contact,
-    mara_number
+    mara_number,
+    avatar,
+    agencies
 }`;
 
   return newQuery;
@@ -82,13 +75,11 @@ const getListQuery = ({
 type QueryParams = {
   lastMaraNumber?: string;
   search: string;
-  filteredMaraAgentRange: FilteredMaraAgentRange;
   selectedFiltersObj: SearchFilters;
 };
 const getAgentsList = async ({
   lastMaraNumber = '0',
   search,
-  filteredMaraAgentRange,
   selectedFiltersObj,
 }: QueryParams): Promise<MaraAgent[]> => {
   const searchCondition = getSearchConditions(search);
@@ -96,7 +87,6 @@ const getAgentsList = async ({
     getListQuery({
       lastMaraNumber,
       searchCondition,
-      filteredMaraAgentRange,
       selectedFiltersObj,
     })
   );

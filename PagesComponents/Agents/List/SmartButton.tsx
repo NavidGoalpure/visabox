@@ -14,7 +14,7 @@ interface Props {
   hasNextPage: boolean;
   fetchNextPage: (
     options?: FetchNextPageOptions | undefined
-  ) => Promise<InfiniteQueryObserverResult<MaraAgent[], ClientError>>;
+  ) => Promise<InfiniteQueryObserverResult<Partial<MaraAgent>[], ClientError>>;
 }
 export const SmartButton: React.FC<Props> = ({
   isError,

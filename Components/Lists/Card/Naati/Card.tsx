@@ -14,11 +14,13 @@ import {
   FieldTitle,
   FieldValue,
   FieldsContainer,
+  CopyIconTheme,
 } from '../styledComponents/NormalCard';
 import { componentStatements, LanguageKeys } from '../const';
 import styled from 'styled-components';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 import { Headline6Style } from 'Styles/Typo';
+import { IoMdCopy } from 'react-icons/io';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   fullName: En_FaLanguage;
@@ -96,4 +98,9 @@ const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
   overflow: hidden;
   ${({ $hasWebsite }) => !$hasWebsite && 'cursor: unset;'}
   direction:ltr;
+`;
+const CopyIcon = styled(IoMdCopy)`
+  ${CopyIconTheme};
+  width: 1.5rem;
+  height: auto;
 `;

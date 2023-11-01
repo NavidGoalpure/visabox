@@ -45,6 +45,7 @@ const IconTheme = theme("mode", {
 
 export const Container = styled.div`
   width: 100%;
+  postion: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;

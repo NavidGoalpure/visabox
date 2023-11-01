@@ -8,14 +8,17 @@ import {
   Container,
   AgentElement,
   MaraElement,
-  Socials,
   Title,
   Wrapper,
   FieldWrapper,
   FieldTitle,
   FieldValue,
+  FieldsContainer,
 } from '../styledComponents/NormalCard';
 import { componentStatements, LanguageKeys } from '../const';
+import styled from 'styled-components';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
+import { Headline6Style } from 'Styles/Typo';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   fullName: En_FaLanguage;
@@ -35,7 +38,7 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
     <Container className={slug} {...props}>
       <Wrapper>
         <Title>{dt(fullName)}</Title>
-        <Socials>
+        <FieldsContainer>
           <FieldWrapper
             onClick={() =>
               copyContent({
@@ -62,8 +65,8 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
             </FieldTitle>
             <FieldValue>{!!phone?.[0] ? phone?.[0] : BLANK_SYMBOL}</FieldValue>
           </FieldWrapper>
-          <WebsiteWrapper>
-            <WebsiteTitle>{t(LanguageKeys.Website)}:</WebsiteTitle>
+          <FieldWrapper>
+            <FieldTitle>{t(LanguageKeys.Website)}:</FieldTitle>
             <WebsiteUrl
               as={!!website ? 'a' : 'div'}
               href={
@@ -74,8 +77,8 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
             >
               {!!website ? website : BLANK_SYMBOL}
             </WebsiteUrl>
-          </WebsiteWrapper>
-        </Socials>
+          </FieldWrapper>
+        </FieldsContainer>
         <AgentElement>{t(LanguageKeys.Translator)}</AgentElement>
         <MaraElement>{t(LanguageKeys.NAATI)}</MaraElement>
       </Wrapper>
@@ -83,3 +86,14 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
   );
 }
 export default NaatiCard;
+const WebsiteUrl = styled.a<{ $hasWebsite: boolean }>`
+  ${layer2A_TextColor};
+  ${Headline6Style};
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  ${({ $hasWebsite }) => !$hasWebsite && 'cursor: unset;'}
+  direction:ltr;
+`;

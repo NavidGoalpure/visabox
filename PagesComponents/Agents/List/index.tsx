@@ -3,7 +3,7 @@ import { componentStatements, LanguageKeys } from './const';
 import CardsSection from './CardsSection';
 import Search from './Search';
 
-import { getHasNextPage, getLastFetchedAgent } from './utils';
+import { getHasNextPage } from './utils';
 import { SmartButton } from './SmartButton';
 import { ContentOrError } from 'Components/contentOrError';
 import styled from 'styled-components';
@@ -14,7 +14,6 @@ import {
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 import { SearchFilterContext } from './Context/SearchFilter';
-import { useLastAgentData } from './useLastAgentData';
 
 const Content: React.FC = () => {
   const isMounted = useRef(false);
@@ -35,11 +34,8 @@ const Content: React.FC = () => {
     setSearchValue,
   } = useContext(SearchFilterContext);
 
-  const { lastAgent } = useLastAgentData(searchValue);
   //
-  const lastFetchedAgent = getLastFetchedAgent(agents);
-  //
-  const hasNextPage = getHasNextPage({ lastAgent, lastFetchedAgent });
+  const hasNextPage = getHasNextPage({ agents });
   //
   const onChangeSearchValue = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchValue(e.currentTarget.value);

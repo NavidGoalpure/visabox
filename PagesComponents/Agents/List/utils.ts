@@ -1,5 +1,6 @@
 import { InfiniteData } from 'react-query';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
+import { AGENTS_PER_PAGE } from './const';
 
 /**
  * به ما میگه که آیا صفحه دیگه ای هم برای پینجینیشن وجود داره یا خیر
@@ -8,30 +9,19 @@ import { MaraAgent } from 'Interfaces/Database/Lists/agents';
  * @returns boolean
  */
 const getHasNextPage = ({
-  lastAgent,
-  lastFetchedAgent,
+  agents,
 }: {
-  lastAgent: Partial<MaraAgent> | undefined;
-  lastFetchedAgent: Partial<MaraAgent> | undefined;
+  agents: InfiniteData<Partial<MaraAgent>[]> | undefined;
 }): boolean => {
-  if (lastAgent?.mara_number === undefined) return false;
-  if (lastFetchedAgent?.mara_number === undefined) return false;
-  if (lastAgent?.mara_number <= lastFetchedAgent?.mara_number) return false;
+  const pageCount = agents?.pages.length;
+  const lastPage = pageCount ? agents?.pages?.[pageCount - 1] : undefined;
+
+  // اگه آخرین بار تعداد کمتری ایجنت رو نشون داده بود یعنی ایجنتها تموم شدن
+  // این روش یک باگ داره. اگه فرضا نتیجه یک سرچ دقیقا ۱۲ تا باشه و تو هر صفحه هم ۱۲ تا ایجنت نشون بدیم، یک بار دکمه اضافی نشون میده
+  // اما چون زیاد تکرار نمیشه ازش صرف نظر میکنیم
+
+  if ((lastPage?.length || 0) < AGENTS_PER_PAGE) return false;
   return true;
 };
-/////////////////////////
-/**
- * از توی لیست آکیوپیشن های فچ شده، آخریش رو برمیگردونه
- * @param {InfiniteData<Agent[]>|undefined} agents همه آکوپیشن های فچ شده
- * @returns {Agent | undefined } آخرین آکوپیشن فچ شده، اگه هیچ آکیوپیشنی فچ نشده باشه، آندیفایند برمیگردونه
- */
-const getLastFetchedAgent = (
-  agents: InfiniteData<Partial<MaraAgent>[]> | undefined
-): Partial<MaraAgent> | undefined => {
-  return agents?.pages?.[agents?.pages.length - 1][
-    agents?.pages?.[agents?.pages.length - 1].length - 1
-  ];
-};
-//////////
 
-export { getLastFetchedAgent, getHasNextPage };
+export { getHasNextPage };

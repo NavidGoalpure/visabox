@@ -45,6 +45,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 export const listsItems: DropdownItem[] = [
   {
     title: {
+      en: 'Mara Agents',
+      fa: 'لیست وکلای مارا',
+      zh: '代理商',
+    },
+    href: '/lists/agents',
+  },
+  {
+    title: {
       en: 'Naati',
       fa: 'لیست مترجمین',
       zh: 'Naati',

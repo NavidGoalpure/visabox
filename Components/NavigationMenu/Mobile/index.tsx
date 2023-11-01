@@ -1,28 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled, { css } from "styled-components";
-import { boxShadow, directionStyles } from "Styles/Theme";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
+import React, { useEffect, useRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+import { boxShadow, directionStyles } from 'Styles/Theme';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
 
-import SwitchTheme from "../switchTheme";
-import Link from "next/link";
-import { useLocale } from "Hooks/useLocale";
+import SwitchTheme from '../switchTheme';
+import Link from 'next/link';
+import { useLocale } from 'Hooks/useLocale';
 import {
   layer3_SubtitleStyle,
   layer3_TitleStyle,
-} from "Styles/Theme/Layers/layer3/style";
-import MobileLanguageChanger from "./LanguageChanger";
-import { ScrollBox } from "Elements/ScrollBox";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, getGsapTimeLine, LanguageKeys } from "../const";
-import OccupationDropdown from "./dropdownOccupation";
-import MobileBoxesDropdown from "./dropdownBoxes";
-import { useSession } from "next-auth/react";
-import AvatarComponent from "../AvatarComponent";
-import { LocalStorageKeys } from "Interfaces";
-import { getLocalStorage, setLocalStorage } from "Utils";
-import { isAgencyLogedIn } from "Utils/user";
-import { SupportedCountry } from "Interfaces/Database";
+} from 'Styles/Theme/Layers/layer3/style';
+import MobileLanguageChanger from './LanguageChanger';
+import { ScrollBox } from 'Elements/ScrollBox';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, getGsapTimeLine, LanguageKeys } from '../const';
+import OccupationDropdown from './dropdownOccupation';
+import MobileBoxesDropdown from './dropdownLists';
+import { useSession } from 'next-auth/react';
+import AvatarComponent from '../AvatarComponent';
+import { LocalStorageKeys } from 'Interfaces';
+import { getLocalStorage, setLocalStorage } from 'Utils';
+import { isAgencyLogedIn } from 'Utils/user';
+import { SupportedCountry } from 'Interfaces/Database';
 
 function SmartHeader({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -37,16 +37,16 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
     []
   );
   useEffect(() => {
-    document.body.style.overflow = "unset";
+    document.body.style.overflow = 'unset';
     if (isMenuClicked) {
       popupAnimationRef.current?.restart();
       hamburgerAnimationRef.current?.restart();
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     }
     if (isMenuClicked === false) {
       popupAnimationRef.current?.reverse();
       hamburgerAnimationRef.current?.reverse();
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
   }, [isMenuClicked]);
 
@@ -69,8 +69,8 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
           </Signin>
         )}
 
-        <MenuPopupContainer id={"popup"}>
-          <ScrollBox id={"scrollbox"} height={"18rem"}>
+        <MenuPopupContainer id={'popup'}>
+          <ScrollBox id={'scrollbox'} height={'18rem'}>
             <MenuPopupWrapper>
               <Nav>
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
@@ -84,9 +84,7 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
                   SupportedCountry.Iran) && (
                 <>
                   <Hr />
-                  <MenuLink href={`/fa/blog`}>
-                    {t(LanguageKeys.Blogs)}
-                  </MenuLink>
+                  <MenuLink href={`/fa/blog`}>{t(LanguageKeys.Blogs)}</MenuLink>
                 </>
               )}
               {isAgencyLogedIn() && (
@@ -109,8 +107,8 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
           id={`hamburg`}
           onClick={() => setIsMenuClicked(!isMenuClicked)}
         >
-          <span aria-hidden id={"line1"} />
-          <span aria-hidden id={"line2"} />
+          <span aria-hidden id={'line1'} />
+          <span aria-hidden id={'line2'} />
         </MenuBurger>
       </Wrapper>
     </Container>
@@ -118,7 +116,7 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
 }
 export default SmartHeader;
 
-const PopupBagroundTheme = theme("mode", {
+const PopupBagroundTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,

@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { WizardContext } from "../../Contexts/Wizard/Context";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { WizardContext } from '../../Contexts/Wizard/Context';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -14,11 +14,11 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { ClientMarital } from "Interfaces/Database/Client";
-import { maritalStatuses, YesOrNo } from "Consts/Client";
-import { componentStatements, LanguageKeys } from "./const";
+} from '../StyledComponents';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { ClientMarital } from 'Interfaces/Database/Client';
+import { maritalStatuses, YesOrNo } from 'Consts/Client';
+import { componentStatements, LanguageKeys } from './const';
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -28,7 +28,7 @@ const Step5 = () => {
     <Container>
       <Title>{t(LanguageKeys.maritalStatusTitle)}</Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={client?.marital}
         onValueChange={(value) =>
           client &&
@@ -44,7 +44,7 @@ const Step5 = () => {
       >
         {
           <>
-            {maritalStatuses.map((maritalStatus, i) => (
+            {maritalStatuses?.map((maritalStatus, i) => (
               <ToggleGroup.Item
                 key={i}
                 text={maritalStatus}
@@ -58,21 +58,21 @@ const Step5 = () => {
         <>
           <StyledTitle>{t(LanguageKeys.PartnerEnglishTitle)} </StyledTitle>
           <ToggleGroupRoot
-            type="single"
+            type='single'
             value={
               client?.is_partner_competent_english_speaker === undefined
                 ? undefined
                 : client?.is_partner_competent_english_speaker === true
-                ? "yes"
-                : "no"
+                ? 'yes'
+                : 'no'
             }
             onValueChange={(value: string) => {
               client &&
                 setClient({
                   ...client,
                   is_partner_competent_english_speaker:
-                    value === "yes" ? true : false,
-                  does_partner_have_assessment: value === "no" && undefined,
+                    value === 'yes' ? true : false,
+                  does_partner_have_assessment: value === 'no' && undefined,
                 });
             }}
           >
@@ -94,7 +94,7 @@ const Step5 = () => {
         client?.is_partner_competent_english_speaker && (
           <>
             <StyledTitle>
-              {t(LanguageKeys.DoesPartnerHaveAssessmentTitle)}{" "}
+              {t(LanguageKeys.DoesPartnerHaveAssessmentTitle)}{' '}
               <StyledTooltipTag
                 content={
                   <>
@@ -105,12 +105,12 @@ const Step5 = () => {
               />
             </StyledTitle>
             <ToggleGroupRoot
-              type="single"
+              type='single'
               value={
                 client?.does_partner_have_assessment !== undefined
                   ? client?.does_partner_have_assessment === true
-                    ? "yes"
-                    : "no"
+                    ? 'yes'
+                    : 'no'
                   : undefined
               }
               onValueChange={(value: string) => {
@@ -118,7 +118,7 @@ const Step5 = () => {
                   setClient({
                     ...client,
                     does_partner_have_assessment:
-                      value === "yes" ? true : false,
+                      value === 'yes' ? true : false,
                   });
               }}
             >

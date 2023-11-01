@@ -99,7 +99,7 @@ function Search({ searchValue, setSearchValue }: Props) {
                   });
                 }}
               >
-                {allCountries.map((country) => (
+                {allCountries?.map((country) => (
                   <MaraSelect.Item
                     key={country?.isoCode}
                     value={country?.isoCode}
@@ -130,7 +130,7 @@ function Search({ searchValue, setSearchValue }: Props) {
                     });
                   }}
                 >
-                  {allStates.map((state) => (
+                  {allStates?.map((state) => (
                     <MaraSelect.Item
                       key={state?.isoCode}
                       value={state?.name || ''}

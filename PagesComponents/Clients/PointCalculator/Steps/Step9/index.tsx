@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -13,11 +13,11 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { IELTSScores } from "Consts/Client";
-import { IELTSScore } from "Interfaces/Database/Client";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { WizardContext } from "../../Contexts/Wizard/Context";
+} from '../StyledComponents';
+import { IELTSScores } from 'Consts/Client';
+import { IELTSScore } from 'Interfaces/Database/Client';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../Contexts/Wizard/Context';
 
 const Step10 = () => {
   const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
@@ -27,7 +27,7 @@ const Step10 = () => {
   return (
     <Container>
       <Title>
-        {t(LanguageKeys.IELTSScoreSectionTitle)}{" "}
+        {t(LanguageKeys.IELTSScoreSectionTitle)}{' '}
         <StyledTooltipTag
           content={
             <>
@@ -38,7 +38,7 @@ const Step10 = () => {
         />
       </Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={client?.ielts_score}
         onValueChange={(value) => {
           client &&

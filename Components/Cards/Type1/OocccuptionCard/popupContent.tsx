@@ -21,7 +21,7 @@ const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
     <>
       <PopupTitle>{t(LanguageKeys.Tasks)}</PopupTitle>
       <ul style={{ direction: 'ltr' }}>
-        {tasks.en?.map((task, i) => (
+        {tasks?.en?.map((task, i) => (
           <Fragment key={i}>
             <li>{task}</li>
             <br />

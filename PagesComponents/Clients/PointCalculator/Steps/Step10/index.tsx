@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { Input } from "Components/Input";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { WizardContext } from "../../Contexts/Wizard/Context";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import { Input } from 'Components/Input';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { WizardContext } from '../../Contexts/Wizard/Context';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -16,9 +16,9 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { YesOrNo } from "Consts/Client";
+} from '../StyledComponents';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { YesOrNo } from 'Consts/Client';
 
 const Step10 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -27,7 +27,7 @@ const Step10 = () => {
   return (
     <Container>
       <StyledTitle>
-        {t(LanguageKeys.ProfessionalYearInAustralia)}{" "}
+        {t(LanguageKeys.ProfessionalYearInAustralia)}{' '}
         <StyledTooltipTag
           content={
             <>
@@ -38,25 +38,25 @@ const Step10 = () => {
         />
       </StyledTitle>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={
           client?.professional_year_in_australia !== null
             ? client?.professional_year_in_australia === true
-              ? "yes"
-              : "no"
+              ? 'yes'
+              : 'no'
             : undefined
         }
         onValueChange={(value: string) => {
           client &&
             setClient({
               ...client,
-              professional_year_in_australia: value === "yes" ? true : false,
+              professional_year_in_australia: value === 'yes' ? true : false,
             });
         }}
       >
         {
           <>
-            {YesOrNo.map((option, i) => (
+            {YesOrNo?.map((option, i) => (
               <ToggleGroup.Item
                 key={i}
                 text={option}
@@ -78,9 +78,7 @@ const Step10 = () => {
           onClick={() => {
             handleNextPress();
           }}
-          disabled={
-            client?.professional_year_in_australia === null
-          }
+          disabled={client?.professional_year_in_australia === null}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}

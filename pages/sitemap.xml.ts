@@ -12,7 +12,7 @@ function generateSiteMap(occupations: Pick<Occupation, 'slug'>[]) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
      <!--The URLs realated to Occupations-->
-      ${Domain_Langs.map((lang) => {
+      ${Domain_Langs?.map((lang) => {
         return `
          <url>
            <loc>${lang}/occupations</loc>

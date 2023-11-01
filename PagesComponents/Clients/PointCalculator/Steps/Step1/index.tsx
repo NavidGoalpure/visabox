@@ -38,7 +38,7 @@ const Step1 = () => {
       >
         {
           <>
-            {Countries.map((option, i) => (
+            {Countries?.map((option, i) => (
               <ToggleGroup.Item
                 key={i}
                 text={option}

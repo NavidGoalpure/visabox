@@ -8,11 +8,12 @@ import Swiper from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Headline7Style } from "Styles/Typo";
 import { MdOutlineEdit } from "react-icons/md";
 import theme from "styled-theming";
 import { AiOutlinePlus } from "react-icons/ai";
+import AddDegreeModal from "./AddDegreeModal";
 
 const MaraSwiper = () => {
   useEffect(() => {
@@ -36,11 +37,19 @@ const MaraSwiper = () => {
       },
     });
   }, []);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   return (
     <Container>
+      <AddDegreeModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
       <StyledSwiper className="my-swiper">
         <SwiperWrapper className="swiper-wrapper">
-          <DegreeCard className="swiper-slide">
+          <DegreeCard
+            onClick={() => setIsModalOpen(true)}
+            className="swiper-slide"
+          >
             <CardTitle>فوق دیپلم</CardTitle>
             <UniSectionWrapper>
               <FieldOfStudy> گواهی بیمه</FieldOfStudy>
@@ -50,7 +59,10 @@ const MaraSwiper = () => {
             <GraduationDate> فارغ التحصیل: 1398</GraduationDate>
             <EditIcon />
           </DegreeCard>
-          <DegreeCard className="swiper-slide">
+          <DegreeCard
+            onClick={() => setIsModalOpen(true)}
+            className="swiper-slide"
+          >
             <CardTitle> فوق دیپلم </CardTitle>
             <UniSectionWrapper>
               <FieldOfStudy> گواهی بیمه</FieldOfStudy>
@@ -60,7 +72,10 @@ const MaraSwiper = () => {
             <GraduationDate> فارغ التحصیل: 1398</GraduationDate>
             <EditIcon />
           </DegreeCard>
-          <AddDegreeCard className="swiper-slide">
+          <AddDegreeCard
+            onClick={() => setIsModalOpen(true)}
+            className="swiper-slide"
+          >
             <AddTitle>
               {" "}
               افزودن مشخصات <span>فوق دیپلم</span>

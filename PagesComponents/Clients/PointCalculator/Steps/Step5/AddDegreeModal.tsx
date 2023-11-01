@@ -1,135 +1,78 @@
 import ModalComponent from "Components/ModalComponent";
-import dynamic from "next/dynamic";
-import { FiInfo } from "react-icons/fi";
+import { PrimaryButton } from "Elements/Button/Primary";
+import ErrorToast from "Elements/Toast/Error";
+import SuccessToast from "Elements/Toast/Success";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Client } from "Interfaces/Database/Client";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { AiOutlineSave } from "react-icons/ai";
+import { MdNavigateNext } from "react-icons/md";
+import { useMutation, useQueryClient } from "react-query";
 import styled from "styled-components";
-import {
-  Hint_SecondaryContainer,
-  Hint_ModalTextStyle,
-  Hint_ModalIcon,
-} from "Styles/Theme/Hint/style";
-import { Headline6Style } from "Styles/Typo";
-import IranFlag from "public/Images/Flags/IranFlag.svg";
-import ChinaFlag from "public/Images/Flags/ChinaFlag.svg";
-import IndiaFlag from "public/Images/Flags/IndiaFlag.svg";
-import AustraliaFlag from "public/Images/Flags/AustraliaFlag.svg";
-import UnknownFlag from "public/Images/Flags/UnknownFlag.svg";
-import { useEffect, useState } from "react";
-import { getLocalStorage, setLocalStorage } from "Utils";
-import { LocalStorageKeys } from "Interfaces";
-import { deviceMin } from "Consts/device";
-import { SupportedCountry } from "Interfaces/Database";
+import { Headline7Style } from "Styles/Typo";
+import { ClientQueryKeys } from "Utils/query/keys";
+import * as ToggleGroup from "Elements/ToggleGroup";
+import { componentStatements, LanguageKeys } from "./const";
 
-const CountryModal = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  //
-  useEffect(() => {
-    // show the popup if there is nothing in localStorage
-    if (window && !getLocalStorage(LocalStorageKeys.Country)) {
-      setIsOpen(true);
-    }
-  }, [window]);
-  //
-  function clickHandler({ value }: { value: SupportedCountry }) {
-    setIsOpen(false);
-    setLocalStorage({ key: LocalStorageKeys.Country, value });
-    window.location.reload();
-  }
+interface Props {
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  isModalOpen: boolean;
+}
+const EditModal: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
+  const { t } = useStaticTranslation(componentStatements);
+  //   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
+  //   const successToastMessage = t(LanguageKeys.SuccessToastText);
+  // if this useEffect was not here the user could make a change then close the popup
+  // that would change the editedClient useState which is not ideal since
+  // the user did not confirm the change
   return (
     <ModalComponent
-      open={isOpen}
-      DialogTitleText="
-              Please select your country
-    "
+      doesModalCloseOnOutsideInteraction={true}
+      setOpen={setIsModalOpen}
+      open={isModalOpen}
     >
-      <OptionsContainer>
-        <Option onClick={() => clickHandler({ value: SupportedCountry.Iran })}>
-          <FlagWrapper>
-            <Flag fill src={IranFlag} alt={"england flag"} sizes="2.25rem" />
-          </FlagWrapper>
-          <Optiontext>Iran</Optiontext>
-        </Option>
-        <Option onClick={() => clickHandler({ value: SupportedCountry.China })}>
-          <FlagWrapper>
-            <Flag fill src={ChinaFlag} alt={"england flag"} sizes="2.25rem" />
-          </FlagWrapper>
-          <Optiontext>China</Optiontext>
-        </Option>
-        <Option onClick={() => clickHandler({ value: SupportedCountry.India })}>
-          <FlagWrapper>
-            <Flag fill src={IndiaFlag} alt={"england flag"} sizes="2.25rem" />
-          </FlagWrapper>
-          <Optiontext>India</Optiontext>
-        </Option>
-        <Option
-          onClick={() => clickHandler({ value: SupportedCountry.Australia })}
-        >
-          <FlagWrapper>
-            <Flag
-              fill
-              src={AustraliaFlag}
-              alt={"england flag"}
-              sizes="2.25rem"
-            />
-          </FlagWrapper>
-          <Optiontext>Australia</Optiontext>
-        </Option>
-        <Option onClick={() => clickHandler({ value: SupportedCountry.Other })}>
-          <FlagWrapper>
-            <Flag fill src={UnknownFlag} alt={"england flag"} sizes="2.25rem" />
-          </FlagWrapper>
-          <Optiontext>Other countries</Optiontext>
-        </Option>
-      </OptionsContainer>
-      <HintContainer>
-        {" "}
-        <HintInfoIcon />
-        <p>
-          The content that is displayed to you is categorized according to your
-          selected country
-        </p>
-      </HintContainer>
+      <ButtonWrapper>
+        <SaveButton>
+          {t(LanguageKeys.SaveTitle)} <SaveIcon />
+        </SaveButton>
+        <BackButton onClick={() => setIsModalOpen(false)}>
+          {t(LanguageKeys.BackTitle)}
+          <BackIcon />
+        </BackButton>
+      </ButtonWrapper>
     </ModalComponent>
   );
 };
-export default CountryModal;
-const OptionsContainer = styled.div`
+export default EditModal;
+const ButtonWrapper = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 2.5rem;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
 `;
-const Option = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 45%;
-  gap: 0.5rem;
+const BackButton = styled.button`
+  ${Headline7Style};
   cursor: pointer;
-`;
-const FlagWrapper = styled.div`
-  position: relative;
-  width: 2.25rem;
-  height: 2.25rem;
-`;
-//
-const DYImage = dynamic(() => import("next/image"));
-const Flag = styled(DYImage)`
-  position: relative !important;
-`;
-const Optiontext = styled.h4`
-  ${Headline6Style};
-  color: var(--color-gray4);
-`;
-const HintContainer = styled.div`
-  ${Hint_SecondaryContainer};
-  ${Hint_ModalTextStyle};
+  color: var(--color-gray10);
+  outline: none;
+  border: none;
+  background: transparent;
+  display: flex;
   align-items: center;
-  gap: 1rem;
-  @media ${deviceMin.tabletS} {
-    ${Hint_SecondaryContainer};
-  }
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
 `;
-const HintInfoIcon = styled(FiInfo)`
-  ${Hint_ModalIcon};
+const SaveButton = styled(PrimaryButton)``;
+const SaveIcon = styled(AiOutlineSave)`
+  width: auto;
+  height: 1rem;
+`;
+const BackIcon = styled(MdNavigateNext)`
+  width: auto;
+  height: 1.5rem;
+`;
+const ToggleGroupRoot = styled(ToggleGroup.Root)`
+  gap: 1rem;
 `;

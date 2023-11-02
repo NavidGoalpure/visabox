@@ -66,13 +66,12 @@ const AgentsQueryKeys = {
   key: ['agents'] as const,
   //
   list: (params: AgentsListParams) =>
-    [...OccupationsQueryKeys.key, 'list', params] as const,
+    [...AgentsQueryKeys.key, 'list', params] as const,
   //
   last: (params: AgentsListParams) =>
-    [...OccupationsQueryKeys.key, 'last', params] as const,
+    [...AgentsQueryKeys.key, 'last', params] as const,
   //
-  detail: (slug: string) =>
-    [...OccupationsQueryKeys.key, 'detail', slug] as const,
+  detail: (slug: string) => [...AgentsQueryKeys.key, 'detail', slug] as const,
 };
 export {
   OccupationsQueryKeys,

@@ -111,11 +111,13 @@ export const LogoBackground_layer2 = theme('mode', {
 export const Title = styled.h3`
   ${layer3_TitleStyle};
   ${layer2A_HeaderBG};
-  white-space: nowrap;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  width: fit-content;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
+overflow: hidden;
 `;
 
 export const ImageWrapper = styled.div<{ layerContext: '1' | '2' }>`

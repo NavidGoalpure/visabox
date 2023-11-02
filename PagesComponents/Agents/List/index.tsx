@@ -16,6 +16,7 @@ import {
 import { SearchFilterContext } from './Context/SearchFilter';
 
 const Content: React.FC = () => {
+  // navid work on IsMounted
   const isMounted = useRef(false);
   const { t } = useStaticTranslation(componentStatements);
   const { selectedFiltersObj } = useContext(SearchFilterContext);

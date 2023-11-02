@@ -2,6 +2,7 @@ import { sanityClient } from 'Utils/sanity';
 import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { ClientError } from '@sanity/client';
 import { OccupationDetailRes } from './interface';
+import { ParsedUrlQuery } from 'querystring';
 
 /**
  * گروک کوئری مورد نیاز برای لیست آکیوپیشن ها رو تولید میکنه
@@ -140,6 +141,7 @@ const getOccupationDetail = async ({
     throw error;
   }
 };
+
 //////////////
 const getAllOccupationSlugs = async (): Promise<Occupation[] | []> => {
   const query = `*[_type=='occupation' && !(_id in path('drafts.**'))]{

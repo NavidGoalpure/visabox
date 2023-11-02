@@ -11,6 +11,8 @@ import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
 import { copyContent } from 'Utils';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
+import { IoLocationSharp } from 'react-icons/io5';
+import { EnLanguage } from 'Interfaces/Database';
 interface Props {
   website?: string;
   email?: string;
@@ -18,6 +20,7 @@ interface Props {
   telegram?: string;
   instagram?: string;
   linkedin?: string;
+  address?: string;
 }
 const DesktopContactComponent = ({
   website,
@@ -26,6 +29,7 @@ const DesktopContactComponent = ({
   telegram,
   instagram,
   linkedin,
+  address,
 }: Props) => {
   const { t } = useStaticTranslation(componentStatements);
 const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
@@ -95,6 +99,14 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
           </LinkedinTitle>
         </LinkedinContainer>
       )}
+       {address && (
+        <AddressContainer>
+          <AddressIcon />
+          <AddressTitle>
+          {address}
+          </AddressTitle>
+        </AddressContainer>
+         )}
     </Container>
   );
 };
@@ -181,9 +193,18 @@ const InstagramTitle = styled(InternetTitle)`
 const LinkedinContainer = styled.a`
   ${SocialsContainerCss}
 `;
+const AddressContainer = styled.a`
+  ${SocialsContainerCss}
+`;
 const LinkedinIcon = styled(AiFillLinkedin)`
   ${Icon}
 `;
 const LinkedinTitle = styled(InternetTitle)`
+  direction: ltr;
+`;
+const AddressIcon = styled(IoLocationSharp)`
+  ${Icon}
+`;
+const AddressTitle = styled(InternetTitle)`
   direction: ltr;
 `;

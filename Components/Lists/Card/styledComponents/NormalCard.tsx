@@ -207,6 +207,11 @@ export const AgentElement = styled.h3`
   padding: 0.2rem 1.5rem;
   border-radius: 10px;
   box-shadow: unset;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: rotate(0deg) translate(-24%, 53%);
+    padding: 0.55rem 1.75rem;
+  }
 `;
 export const MaraElement = styled.h3`
   ${layer3_TextStyle}
@@ -217,6 +222,11 @@ export const MaraElement = styled.h3`
   transform: rotate(-3deg) translate(27%, 70%);
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: rotate(0deg) translate(27%, 70%);
+    padding: 0.55rem 1.75rem;
+  }
 `;
 export const ViewMoreButton = styled(PrimaryButton)`
   ${Headline7Style}

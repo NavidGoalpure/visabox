@@ -22,6 +22,7 @@ export type MaraAgentLang = Partial<MultiLanguageText>;
 export interface MaraAgent {
   _id: string;
   name?: MultiLanguageText;
+  phone?: string[];
   slug?: Slug;
   email?: string;
   desc?: string;

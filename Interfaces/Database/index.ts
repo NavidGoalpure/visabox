@@ -45,7 +45,8 @@ interface Contact {
   linkedin?: string;
   website?: string;
   mobile?: string;
-  address?: EnLanguage;
+  // address?: EnLanguage; navid
+  address?: string;
 }
 interface SanityKeys {
   _createdAt?: Date;

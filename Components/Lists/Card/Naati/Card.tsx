@@ -34,7 +34,7 @@ function NaatiCard({ fullName, email, website, phone, slug, ...props }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const emailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
-  useEffect(() => getGsapTimeLine_FadeUp(slug));
+  useEffect(() => getGsapTimeLine_FadeUp(slug), []);
 
   return (
     <Container className={slug} {...props}>

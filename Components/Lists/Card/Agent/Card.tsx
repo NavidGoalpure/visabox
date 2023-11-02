@@ -38,7 +38,7 @@ function AgentCard({
 }: Props) {
   const { t } = useStaticTranslation(componentStatements);
 
-  useEffect(() => getGsapTimeLine_FadeUp(slug));
+  useEffect(() => getGsapTimeLine_FadeUp(slug), []);
   const agencyCountries = agencies?.map((agency) => agency.country);
   const uniqueCountries = [...new Set(agencyCountries)];
 

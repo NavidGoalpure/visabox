@@ -66,7 +66,6 @@ const getAgentDetail = async ({
       getAgentDetailQuery(),
       params
     );
-    console.log('***navid params=', params);
     return data as MaraAgent;
   } catch (error) {
     throw error;

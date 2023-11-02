@@ -4,17 +4,16 @@ import DesktopAgentsPage from './Desktop/DesktopAgentsPage';
 import MobileAgentsPage from './Mobile/MobileAgentsPage';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 interface Props {
-  chosenAgent?: MaraAgent;
+  agent?: MaraAgent;
 }
-function Content({ chosenAgent }: Props) {
+function Content({ agent }: Props) {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
 
   useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');
   });
-  if (screen === 'MOBILE')
-    return <MobileAgentsPage ChosenAgent={chosenAgent} />;
-  return <DesktopAgentsPage ChosenAgent={chosenAgent} />;
+  if (screen === 'MOBILE') return <MobileAgentsPage ChosenAgent={agent} />;
+  return <DesktopAgentsPage ChosenAgent={agent} />;
 }
 export default Content;

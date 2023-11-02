@@ -111,11 +111,13 @@ export const LogoBackground_layer2 = theme('mode', {
 export const Title = styled.h3`
   ${layer3_TitleStyle};
   ${layer2A_HeaderBG};
-  white-space: nowrap;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  width: fit-content;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1;
+overflow: hidden;
 `;
 
 export const ImageWrapper = styled.div<{ layerContext: '1' | '2' }>`
@@ -205,6 +207,11 @@ export const AgentElement = styled.h3`
   padding: 0.2rem 1.5rem;
   border-radius: 10px;
   box-shadow: unset;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: rotate(0deg) translate(-24%, 53%);
+    padding: 0.55rem 1.75rem;
+  }
 `;
 export const MaraElement = styled.h3`
   ${layer3_TextStyle}
@@ -215,6 +222,11 @@ export const MaraElement = styled.h3`
   transform: rotate(-3deg) translate(27%, 70%);
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
+  transition: all 0.3s ease;
+  ${Wrapper}:hover & {
+    transform: rotate(0deg) translate(27%, 70%);
+    padding: 0.55rem 1.75rem;
+  }
 `;
 export const ViewMoreButton = styled(PrimaryButton)`
   ${Headline7Style}

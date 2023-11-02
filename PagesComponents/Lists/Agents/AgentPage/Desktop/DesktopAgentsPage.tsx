@@ -14,15 +14,31 @@ import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { DesktopContactComponent } from './DesktopContactComponent';
 import { layer2A_Key, layer2A_Value } from 'Styles/Theme/Layers/layer2/theme';
-import { useEffect, useState } from 'react';
+import { HTMLAttributes, useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { MaraAgent } from 'Interfaces/Database/Lists/agents';
+import { MaraAgency, MaraAgent } from 'Interfaces/Database/Lists/agents';
 
-interface Props {
+
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  name: string | undefined;
+  agencies: MaraAgency[] | undefined;
+  phone: string | undefined;
+  slug: string;
+  layerContext: '1' | '2';
+  avatar: string | undefined;
   ChosenAgent?: MaraAgent;
 }
-function DesktopAgentsPage({ ChosenAgent }: Props) {
+  
+function DesktopAgentsPage({ 
+  ChosenAgent,
+  name,
+  agencies,
+  slug,
+  avatar,
+  layerContext,
+  ...props
+ }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
@@ -33,7 +49,7 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
   }, [ChosenAgent]);
 
   return (
-    <Container>
+    <Container {...props}>
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
@@ -48,9 +64,9 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
               setImgSrc(`/Images/placeholder.jpeg`);
             }}
           />
-          <VIPBoxContainer aria-hidden={true}>
+          {/* <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
-          </VIPBoxContainer>
+          </VIPBoxContainer> */}
         </ProfilePictureWrapper>
         <Data>
           <Name>{dt(ChosenAgent?.name)}</Name>
@@ -63,22 +79,42 @@ function DesktopAgentsPage({ ChosenAgent }: Props) {
         </Data>
       </SmallBox>
       <AboutContainer>
-        <Title>{t(LanguageKeys.About)}</Title>
-        <Desc>{ChosenAgent?.desc}</Desc>
+        {/* <Title>{t(LanguageKeys.About)}</Title>
+        <Desc>{ChosenAgent?.desc}</Desc> */}
 
         <DesktopContactComponent
-          website={ChosenAgent?.contact?.website}
-          email={ChosenAgent?.contact?.email}
-          phone={ChosenAgent?.contact?.phone}
-          telegram={ChosenAgent?.contact?.telegram}
-          instagram={ChosenAgent?.contact?.instagram}
-          linkedin={ChosenAgent?.contact?.linkedin}
-        />
+          phone={ChosenAgent?.phone}
+          website={ChosenAgent?.website}
+          email={ChosenAgent?.email}
+          address={ChosenAgent?.contact?.address}
+/>
       </AboutContainer>
     </Container>
   );
 }
 export default DesktopAgentsPage;
+
+const HeaderBackground = theme("mode", {
+  light: css`
+    background-image: url("/Images/Patterns/LightPattern.svg");
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+  `,
+  dark: css`
+    background-image: url("/Images/Patterns/DarkPattern.svg");
+  `,
+});
+
+export const ContainerBackground = theme('mode', {
+  light: css`
+  background: linear-gradient(
+    var(--color-gray9) 0 50%,
+    var(--color-gray11) 0% 100%
+    );
+    `,
+    dark: css`
+    background: linear-gradient(180deg, var(--color-gray2) 58.85%,  var(--color-gray3) 100%);
+  `,
+});
 
 const TitleColor = theme('mode', {
   light: css`
@@ -90,6 +126,8 @@ const TitleColor = theme('mode', {
 });
 
 const Container = styled.div`
+  ${HeaderBackground}
+  ${ContainerBackground}
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -101,6 +139,7 @@ const Container = styled.div`
 `;
 const SmallBox = styled.header`
   ${layer2A_BodyStyle}
+  background: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,18 +148,26 @@ const SmallBox = styled.header`
   padding: 1.5rem;
   gap: 2rem;
   margin-bottom: 4rem;
+  align-items: center;
 `;
 const ProfilePictureWrapper = styled.div`
   flex-shrink: 0;
-  width: 16rem;
-  height: 16rem;
+  width: 14.125rem;
+  height: 14.125rem;
   z-index: 1;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(61, 61, 61, 0.15);
+  border-radius: 50%;
 `;
 const ProfilePicture = styled(Image)`
+  width: 10.5rem !important;
+  height: 10.5rem !important;
   object-fit: cover;
   position: relative !important;
-  border-radius: 15px;
+  border-radius: 50%;
 `;
 const VIPBoxContainer = styled.div`
   width: 3rem;
@@ -144,6 +191,7 @@ const Data = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  text-align: center;
   //   justify-content: center;
   //   align-items: center;
 `;
@@ -155,6 +203,7 @@ const Name = styled.h2`
 `;
 const MaraNumberContainer = styled.div`
   display: flex;
+  justify-content: center;
   margin-bottom: 2rem;
   ${layer2A_Value}
 `;

@@ -43,8 +43,8 @@ function AgentCard({
   const uniqueCountries = [...new Set(agencyCountries)];
 
   return (
-    <Link href={`/lists/agents/${slug}`} target='_blank'>
       <Container className={slug} {...props}>
+    <Link href={`/lists/agents/${slug}`} target='_blank'>
         <Wrapper>
           <ImageWrapper layerContext={layerContext}>
             <AgentLogo
@@ -76,8 +76,8 @@ function AgentCard({
           <AgentElement>{t(LanguageKeys.Agent)}</AgentElement>
           <MaraElement>{t(LanguageKeys.Mara)}</MaraElement>
         </Wrapper>
-      </Container>
     </Link>
+      </Container>
   );
 }
 export default AgentCard;

@@ -1,4 +1,5 @@
 import { MultiLanguageText } from "Interfaces/Database";
+import { ClientAllDegrees, ClientDegree } from "Interfaces/Database/Client";
 export enum LanguageKeys {
   /////////////popupSection////////////////////
   DegreePopupContent = "DegreePopupContent",
@@ -167,3 +168,29 @@ Did you complete a professional year program in Australia in your nominated skil
     zh: "后退",
   },
 };
+export const AllDegreesTemplate:ClientAllDegrees[] = [
+  {
+    label: ClientDegree.Diploma,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Bachelorsdegree,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Mastersdegree,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Doctorate,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+];

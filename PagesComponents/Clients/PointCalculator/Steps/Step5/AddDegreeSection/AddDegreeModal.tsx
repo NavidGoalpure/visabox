@@ -3,8 +3,19 @@ import { PrimaryButton } from "Elements/Button/Primary";
 import ErrorToast from "Elements/Toast/Error";
 import SuccessToast from "Elements/Toast/Success";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Client } from "Interfaces/Database/Client";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import {
+  Client,
+  ClientAllDegrees,
+  ClientDegree,
+  UniSections,
+} from "Interfaces/Database/Client";
+import {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { AiOutlineSave } from "react-icons/ai";
 import { MdNavigateNext } from "react-icons/md";
 import { useMutation, useQueryClient } from "react-query";
@@ -12,22 +23,36 @@ import styled from "styled-components";
 import { Headline7Style } from "Styles/Typo";
 import { ClientQueryKeys } from "Utils/query/keys";
 import * as ToggleGroup from "Elements/ToggleGroup";
-import { componentStatements, LanguageKeys } from "./const";
+import {
+  AllDegreesTemplate,
+  componentStatements,
+  LanguageKeys,
+} from "../const";
 import { Input } from "Components/Input";
-import { Title } from "../StyledComponents";
+import { Title } from "../../StyledComponents";
 import { uniSections } from "Consts/Client";
+import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   isModalOpen: boolean;
+  degreeLabel: string;
 }
-const EditModal: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
+const EditModal: React.FC<Props> = ({
+  setIsModalOpen,
+  isModalOpen,
+  degreeLabel,
+}) => {
   const { t } = useStaticTranslation(componentStatements);
-  //   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
-  //   const successToastMessage = t(LanguageKeys.SuccessToastText);
-  // if this useEffect was not here the user could make a change then close the popup
-  // that would change the editedClient useState which is not ideal since
-  // the user did not confirm the change
+  const { client, setClient } = useContext(FormDataContext);
+  const [selectedDegree, setSelectedDegree] = useState<
+    ClientAllDegrees | undefined
+  >(client?.all_degrees?.filter((el) => el.label === degreeLabel)[0]);
+  useEffect(() => {
+    setSelectedDegree(
+      client?.all_degrees?.filter((el) => el.label === degreeLabel)[0]
+    );
+  }, [client, degreeLabel]);
   return (
     <ModalComponent
       doesModalCloseOnOutsideInteraction={true}
@@ -35,35 +60,37 @@ const EditModal: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
       open={isModalOpen}
     >
       <Input
+        isInputInModal={true}
         required
         label={t(LanguageKeys.FieldOfStudyInputLabel)}
         inputName="field-of-study"
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        // value={client?.field_of_study}
-        // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-        //   client &&
-        //     setClient({
-        //       ...client,
-        //       field_of_study: e.target.value,
-        //     });
-        // }}
+        value={selectedDegree?.field_of_study || ""}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          selectedDegree &&
+            setSelectedDegree({
+              ...selectedDegree,
+              field_of_study: e.target.value,
+            });
+        }}
       />
       <Title>{t(LanguageKeys.UniSectionsSectionTitle)} </Title>
       <ToggleGroupRoot
         type="single"
-        // value={client?.uni_section}
-        // onValueChange={(value: UniSections) => {
-        //   client &&
-        //     setClient({
-        //       ...client,
-        //       uni_section: value,
-        //     });
-        // }}
+        value={selectedDegree?.uni_section || ""}
+        onValueChange={(value: UniSections) => {
+          selectedDegree &&
+            setSelectedDegree({
+              ...selectedDegree,
+              uni_section: value,
+            });
+        }}
       >
         {
           <>
             {uniSections.map((uniSection, i) => (
               <ToggleGroup.Item
+                isItemInModal={true}
                 key={i}
                 text={uniSection}
                 value={uniSection.en.toLowerCase()}
@@ -73,22 +100,42 @@ const EditModal: React.FC<Props> = ({ setIsModalOpen, isModalOpen }) => {
         }
       </ToggleGroupRoot>
       <Input
+        isInputInModal={true}
         required
         label={t(LanguageKeys.GraduationDateLabel)}
         type={"date"}
         inputName="field-of-study"
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        // value={client?.field_of_study}
-        // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-        //   client &&
-        //     setClient({
-        //       ...client,
-        //       field_of_study: e.target.value,
-        //     });
-        // }}
+        value={selectedDegree?.graduation_date || ""}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          selectedDegree &&
+            setSelectedDegree({
+              ...selectedDegree,
+              graduation_date: e.target.value.slice(0, 10),
+            });
+        }}
       />
       <ButtonWrapper>
-        <SaveButton>
+        <SaveButton
+          disabled={
+            !selectedDegree?.field_of_study ||
+            !selectedDegree?.graduation_date ||
+            !selectedDegree?.uni_section
+          }
+          onClick={() => {
+            client &&
+              setClient({
+                ...client,
+                all_degrees: client?.all_degrees?.map((degree) => {
+                  if (degree?.label === selectedDegree?.label) {
+                    return selectedDegree;
+                  }
+                  return degree;
+                }),
+              });
+            setIsModalOpen(false);
+          }}
+        >
           {t(LanguageKeys.SaveTitle)} <SaveIcon />
         </SaveButton>
         <BackButton onClick={() => setIsModalOpen(false)}>

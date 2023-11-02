@@ -5,18 +5,26 @@ import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import { useEffect, useState } from "react";
+// import "swiper/swiper-bundle.css";
+// import "swiper/css";
+// import "swiper/css/navigation";
+import { useContext, useEffect, useState } from "react";
 import { Headline7Style } from "Styles/Typo";
 import { MdOutlineEdit } from "react-icons/md";
 import theme from "styled-theming";
 import { AiOutlinePlus } from "react-icons/ai";
 import AddDegreeModal from "./AddDegreeModal";
 import { SecondaryButton } from "Elements/Button/Secondary";
+import { ClientAllDegrees } from "Interfaces/Database/Client";
+import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
+import { AllDegreesTemplate } from "../const";
+import { educations } from "Consts/Client";
+import { useLocale } from "Hooks/useLocale";
 
-const MaraSwiper = () => {
+const AddDegreesSection = () => {
+  const { client, setClient } = useContext(FormDataContext);
+  const { locale } = useLocale();
+  useEffect(() => {
     const swiper = new Swiper(".my-swiper", {
       // effect: "coverflow",
       slidesPerView: "auto",
@@ -36,73 +44,83 @@ const MaraSwiper = () => {
         prevEl: ".swiper-button-prev",
       },
     });
+  }, [client]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedDegreeLabel, setSelectedDegreeLabel] = useState<string>("");
   return (
     <Container>
       <AddDegreeModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
+        degreeLabel={selectedDegreeLabel}
       />
       <StyledSwiper className="my-swiper">
         <SwiperWrapper className="swiper-wrapper">
-          <DegreeCard
-            onClick={() => setIsModalOpen(true)}
-            className="swiper-slide"
-          >
-            <CardTitle>فوق دیپلم</CardTitle>
-            <UniSectionWrapper>
-              <FieldOfStudy> گواهی بیمه</FieldOfStudy>
-              <Dash />
-              <UniSection>سکشن 2</UniSection>
-            </UniSectionWrapper>
-            <GraduationDate> فارغ التحصیل: 1398</GraduationDate>
-            <EditIcon />
-          </DegreeCard>
-          <DegreeCard
-            onClick={() => setIsModalOpen(true)}
-            className="swiper-slide"
-          >
-            <CardTitle> فوق دیپلم </CardTitle>
-            <UniSectionWrapper>
-              <FieldOfStudy> گواهی بیمه</FieldOfStudy>
-              <Dash />
-              <UniSection>سکشن 2</UniSection>
-            </UniSectionWrapper>
-            <GraduationDate> فارغ التحصیل: 1398</GraduationDate>
-            <EditIcon />
-          </DegreeCard>
-          <AddDegreeCard
-            onClick={() => setIsModalOpen(true)}
-            className="swiper-slide"
-          >
-            <AddTitle>
-              {" "}
-              افزودن مشخصات <span>فوق دیپلم</span>
-            </AddTitle>
-            <PlusIcon />
-          </AddDegreeCard>
+          {client?.all_degrees?.map((degree) => {
+            if (degree.graduation_date !== null) {
+              return (
+                <DegreeCard
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setSelectedDegreeLabel(degree?.label);
+                  }}
+                  className="swiper-slide"
+                >
+                  <CardTitle>{degree.label}</CardTitle>
+                  <UniSectionWrapper>
+                    <FieldOfStudy>{degree.field_of_study}</FieldOfStudy>
+                    <Dash />
+                    <UniSection>{degree.uni_section}</UniSection>
+                  </UniSectionWrapper>
+                  <GraduationDate>{degree.graduation_date}</GraduationDate>
+                  <EditIcon />
+                </DegreeCard>
+              );
+            }
+            return (
+              <AddDegreeCard
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setSelectedDegreeLabel(degree?.label);
+                }}
+                className="swiper-slide"
+              >
+                <AddTitle>
+                  {" "}
+                  افزودن مشخصات{" "}
+                  <span>
+                    {
+                      educations.filter(
+                        (el) =>
+                          el.en.toLowerCase() === degree.label.toLowerCase()
+                      )?.[0]?.[locale]
+                    }
+                  </span>
+                </AddTitle>
+                <PlusIcon />
+              </AddDegreeCard>
+            );
+          })}
         </SwiperWrapper>
-        <BackArrow className="swiper-button-prev"></BackArrow>
-        <NextArrow className="swiper-button-next"></NextArrow>
       </StyledSwiper>
-      <StyledSecondaryButton
-        onClick={() => swiper.slideNext()}
-        icon={<ButtonArrowIcon />}
-      >
+      <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
         لیسانس
-      </StyledSecondaryButton>
+      </PrevButton>
+      <NextButton icon={<NextButtonArrow />} className="swiper-button-next">
+        لیسانس
+      </NextButton>
     </Container>
   );
 };
-export default MaraSwiper;
+export default AddDegreesSection;
 const BackgroundTheme = theme("mode", {
   light: css`
-    background-image: url("/Images/Patterns/LightPattern.svg");
+    background-image: url("/Images/Patterns/AlternativeLightPattern.svg");
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
     background-color: var(--color-gray8);
   `,
   dark: css`
-    background-image: url("/Images/Patterns/DarkPattern.svg");
+    background-image: url("/Images/Patterns/AlternativeDarkPattern.svg");
     background-color: var(--color-gray2);
   `,
 });
@@ -138,15 +156,8 @@ const AddCardBorderTheme = theme("mode", {
     border-color: var(--color-gray4);
   `,
 });
-const SwiperArrowTheme = theme("mode", {
-  light: css`
-    color: var(--color-gray12);
-  `,
-  dark: css`
-    color: var(--color-gray9);
-  `,
-});
-const BackArrowDir = theme("languageDirection", {
+
+const PrevArrowDir = theme("languageDirection", {
   ltr: css`
     transform: rotate(90deg);
   `,
@@ -268,18 +279,15 @@ const PlusIcon = styled(AiOutlinePlus)`
   border-radius: 50%;
 `;
 
-const BackArrow = styled(IoIosArrowDown)`
-  ${SwiperArrowTheme};
-  ${BackArrowDir};
-  
+const PrevButton = styled(SecondaryButton)`
+  flex-direction: row-reverse;
 `;
-const NextArrow = styled(IoIosArrowDown)`
-  ${SwiperArrowTheme};
-  ${NextArrowDir};
-`;
-const StyledSecondaryButton = styled(SecondaryButton)`
+const NextButton = styled(SecondaryButton)`
   position: unset;
 `;
-const ButtonArrowIcon = styled(IoIosArrowDown)`
+const PrevButtonArrow = styled(IoIosArrowDown)`
+  ${PrevArrowDir};
+`;
+const NextButtonArrow = styled(IoIosArrowDown)`
   ${NextArrowDir};
 `;

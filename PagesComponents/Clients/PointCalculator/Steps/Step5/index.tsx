@@ -2,9 +2,9 @@ import styled from "styled-components";
 import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { Input } from "Components/Input";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
+import { AllDegreesTemplate, componentStatements, LanguageKeys } from "./const";
 import { WizardContext } from "../../Contexts/Wizard/Context";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -21,21 +21,33 @@ import {
   Title,
 } from "../StyledComponents";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { ClientDegree, UniSections } from "Interfaces/Database/Client";
+import {
+  ClientAllDegrees,
+  ClientDegree,
+  UniSections,
+} from "Interfaces/Database/Client";
 import { educations, uniSections, YesOrNo } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
 import { SearchInputComponent } from "Components/SearchInputComponent";
 import { SupportedCountry } from "Interfaces/Database";
-import MaraSwiper from "./MaraSwiper";
-
+import AddDegreesSection from "./AddDegreeSection";
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient } = useContext(FormDataContext);
   const { locale } = useLocale();
-
+  useEffect(() => {
+    const AllDegreesTemplateIndex = AllDegreesTemplate.findIndex(
+      (el) => el.label === client?.degree
+    );
+    client &&
+      setClient({
+        ...client,
+        all_degrees: AllDegreesTemplate.slice(0, AllDegreesTemplateIndex + 1),
+      });
+  }, []);
   return (
     <Container>
       <StyledInput
@@ -52,7 +64,6 @@ const Step5 = () => {
             });
         }}
       />
-      <MaraSwiper />
       <StyledTitle>
         {t(LanguageKeys.UniSectionsSectionTitle)}{" "}
         <StyledTooltipTag
@@ -97,11 +108,11 @@ const Step5 = () => {
             <SearchInputComponent
               placeholder={t(LanguageKeys.UniInput_Placeholder)}
               theme={"LAYER1"}
-              callback={(univercity) => {
+              callback={(university) => {
                 client &&
                   setClient({
                     ...client,
-                    uni_section: univercity,
+                    uni_section: university,
                   });
               }}
             />
@@ -122,10 +133,17 @@ const Step5 = () => {
         type="single"
         value={client?.degree}
         onValueChange={(value: ClientDegree) => {
+          const AllDegreesTemplateIndex = AllDegreesTemplate.findIndex(
+            (el) => el.label === value
+          );
           client &&
             setClient({
               ...client,
               degree: value,
+              all_degrees: AllDegreesTemplate.slice(
+                0,
+                AllDegreesTemplateIndex + 1
+              ),
             });
         }}
       >
@@ -141,6 +159,8 @@ const Step5 = () => {
           </>
         }
       </ToggleGroupRoot>
+      <AddDegreesSection />
+
       <StyledTitle>
         {t(LanguageKeys.AustralianEducationalQualificationTitle)}{" "}
         <StyledTooltipTag

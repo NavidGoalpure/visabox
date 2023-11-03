@@ -9,11 +9,12 @@ import Link from 'next/link';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
-import { copyContent } from 'Utils';
-import { Languages } from 'Interfaces';
+import { copyContent, getLocalStorage } from 'Utils';
+import { Languages, LocalStorageKeys } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import { SupportedCountry } from 'Interfaces/Database';
 
-function MobileFooter() {
+function MobileFooter({ clientCountry }: { clientCountry: string }) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
 const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
@@ -34,12 +35,16 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
         >
           {t(LanguageKeys.AssessingAuthority)}
         </Items>
-        <Items
+        {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
+          <Items
             href={`/${locale}/occupations/university-section-search`}
             data-name={t(LanguageKeys.UniversitySection)}
           >
             {t(LanguageKeys.UniversitySection)}
           </Items>
+          )}
       </ItemsContainer>
       <ItemsContainer>
         <ItemsTitle>{t(LanguageKeys.Lists)}</ItemsTitle>
@@ -61,12 +66,17 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
           >
             {t(LanguageKeys.Exchanges)}
           </Items>
-          <Items
-            href={`/${locale}/lists/social-pages`}
-            data-name={t(LanguageKeys.SocialNetWorksBox)}
-          >
-            {t(LanguageKeys.SocialNetWorksBox)}
-          </Items>
+          {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
+                <Items
+                href={`/${locale}/lists/social-pages`}
+                data-name={t(LanguageKeys.SocialNetWorksBox)}
+              >
+                {t(LanguageKeys.SocialNetWorksBox)}
+              </Items>
+          )}
+       
           <Items
             href={`/${locale}/lists/naaties`}
             data-name={t(LanguageKeys.Naati)}

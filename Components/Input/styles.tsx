@@ -1,8 +1,13 @@
-import { FaExclamationTriangle } from 'react-icons/fa';
-import styled, { css, keyframes } from 'styled-components';
-import theme from 'styled-theming';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { Headline7Style } from 'Styles/Typo';
+import { FaExclamationTriangle } from "react-icons/fa";
+import styled, { css, keyframes } from "styled-components";
+import theme from "styled-theming";
+import {
+  input_Label,
+  input_Modal,
+  input_Modal_Focus,
+} from "Styles/Theme/elementsInModal/input";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
+import { Headline7Style } from "Styles/Typo";
 const LoadingAnimation = keyframes`
  0%{
     transform-origin: 75% 50%;
@@ -17,7 +22,7 @@ const SvgLoadingAnimation = keyframes`
     stroke-dashoffset:12rem;
   }
 `;
-const LoadingBackgroundTheme = theme('mode', {
+const LoadingBackgroundTheme = theme("mode", {
   light: css`
     stroke: var(--color-gray9);
   `,
@@ -25,7 +30,7 @@ const LoadingBackgroundTheme = theme('mode', {
     stroke: var(--color-gray5);
   `,
 });
-const LoadingMovingTheme = theme('mode', {
+const LoadingMovingTheme = theme("mode", {
   light: css`
     stroke: var(--color-gray3);
   `,
@@ -33,7 +38,7 @@ const LoadingMovingTheme = theme('mode', {
     stroke: var(--color-gray8);
   `,
 });
-const inputTheme = theme('mode', {
+const inputTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
     box-shadow: var(--box-shadow-layer2);
@@ -45,7 +50,7 @@ const inputTheme = theme('mode', {
     color-scheme: dark;
   `,
 });
-const InputDisabledTheme = theme('mode', {
+const InputDisabledTheme = theme("mode", {
   light: css`
     background: var(--color-gray10);
     color: var(--color-gray8);
@@ -55,7 +60,7 @@ const InputDisabledTheme = theme('mode', {
     color: var(--color-gray7);
   `,
 });
-const inputFocusTheme = theme('mode', {
+const inputFocusTheme = theme("mode", {
   light: css`
     border-bottom: 2px solid var(--color-gray2);
     background: white;
@@ -66,7 +71,7 @@ const inputFocusTheme = theme('mode', {
     border-bottom: 2px solid var(--color-gray10);
   `,
 });
-const inputPlaceHolderTheme = theme('mode', {
+const inputPlaceHolderTheme = theme("mode", {
   light: css`
     color: var(--color-gray9);
   `,
@@ -74,7 +79,7 @@ const inputPlaceHolderTheme = theme('mode', {
     color: var(--color-gray8);
   `,
 });
-const ErrorTheme = theme('mode', {
+const ErrorTheme = theme("mode", {
   light: css`
     box-shadow: var(--box-shadow-layer2);
   `,
@@ -108,7 +113,7 @@ const InputContainer = styled.div<{
     width: auto;
   }
   ////////////disabled////////////
-  ${({ disabled }) => disabled && 'border-color:var(--color-gray5); '};
+  ${({ disabled }) => disabled && "border-color:var(--color-gray5); "};
 `;
 const InputWrapper = styled.div`
   position: relative;
@@ -125,16 +130,18 @@ const InputWrapper = styled.div`
     transform: translateY(50%);
   }
 `;
-const Label = styled.label`
+const Label = styled.label<{ isInputInModal: boolean }>`
   ${Layer1_SubtitleStyle};
   margin: 0;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  ${({ isInputInModal }) => isInputInModal && `${input_Label}`}
 `;
 const InputStyle = css<{
   hasError: boolean;
   disabled: boolean;
+  isInputInModal: boolean;
 }>`
   ${inputTheme};
   ${Headline7Style};
@@ -147,6 +154,7 @@ const InputStyle = css<{
   box-sizing: border-box;
   transition: all 0.3s ease;
   -webkit-appearance: none;
+  ${({ isInputInModal }) => isInputInModal && `${input_Modal}`}
   //////////////error////////////
   ${({ hasError }) =>
     hasError &&
@@ -168,17 +176,18 @@ const InputStyle = css<{
     -webkit-appearance: none;
     margin: 0;
   }
-  &[type='number'] {
+  &[type="number"] {
     -moz-appearance: textfield;
   }
   /////////focus////////
-  ${({ hasError }) =>
-    !hasError &&
-    css`
-      :focus {
-        ${inputFocusTheme};
-      }
-    `}
+  ${({ hasError, isInputInModal }) =>
+    !hasError && isInputInModal
+      ? `:focus{${input_Modal_Focus}}`
+      : css`
+          :focus {
+            ${inputFocusTheme};
+          }
+        `}
   /////////placeholder//////////////
   ::placeholder {
     ${Headline7Style};
@@ -188,7 +197,7 @@ const InputStyle = css<{
     font-size: 16px;
     line-height: 22px;
     color: var(--color-gray10);
-    ${({ disabled }) => disabled && 'color:var(--color-gray5); '};
+    ${({ disabled }) => disabled && "color:var(--color-gray5); "};
   }
 `;
 const StyledInput = styled.input`

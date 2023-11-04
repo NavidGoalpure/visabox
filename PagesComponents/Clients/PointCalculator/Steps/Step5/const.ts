@@ -1,4 +1,5 @@
 import { MultiLanguageText } from "Interfaces/Database";
+import { ClientAllDegrees, ClientDegree } from "Interfaces/Database/Client";
 export enum LanguageKeys {
   /////////////popupSection////////////////////
   DegreePopupContent = "DegreePopupContent",
@@ -23,6 +24,11 @@ export enum LanguageKeys {
   UniInput_SectionTitle = "UniInput_SectionTitle",
   UniInput_Placeholder = "UniInput_Placeholder",
   UniInput_HintText = "UniInput_HintText",
+  // Graduation Date
+  GraduationDateLabel = "GraduationDateLabel",
+  //
+  SaveTitle = "SaveTitle",
+  BackTitle = "BackTitle",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   DegreePopupContent: {
@@ -146,4 +152,45 @@ Did you complete a professional year program in Australia in your nominated skil
                 (سکشن) ای قرار دارد`,
     zh: "您可以通过写下您的大学名称来搜索您的大学部分",
   },
+  GraduationDateLabel: {
+    en: "Graduation Date:",
+    fa: "تاریخ فارغ التحصیل:",
+    zh: "毕业日期：",
+  },
+  SaveTitle: {
+    en: "Save",
+    fa: "ذخیره",
+    zh: "节省",
+  },
+  BackTitle: {
+    en: "Back",
+    fa: "بازگشت",
+    zh: "后退",
+  },
 };
+export const AllDegreesTemplate:ClientAllDegrees[] = [
+  {
+    label: ClientDegree.Diploma,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Bachelorsdegree,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Mastersdegree,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Doctorate,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+];

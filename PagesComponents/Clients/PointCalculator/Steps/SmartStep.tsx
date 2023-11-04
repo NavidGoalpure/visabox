@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
 import Step0 from './SharableSteps/Step0';
-import Step1 from './SharableSteps/Step1';
-import Step2 from './SharableSteps/Step2';
+import Step1 from './AgentSteps/Step1';
+import Step2 from './AgentSteps/Step2';
 import Step3 from './SharableSteps/Step3';
 import Step4 from './SharableSteps/Step4';
 import Step5 from './SharableSteps/Step5';
-import Step6 from './SharableSteps/Step6';
+import Step6 from './AgentSteps/Step6';
 import Step7 from './SharableSteps/Step7';
 import Step8 from './SharableSteps/Step8';
 import Step9 from './SharableSteps/Step9';

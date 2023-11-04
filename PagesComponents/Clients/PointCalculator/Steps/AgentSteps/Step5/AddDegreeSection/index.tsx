@@ -8,7 +8,7 @@ import Swiper from "swiper";
 // import "swiper/swiper-bundle.css";
 // import "swiper/css";
 // import "swiper/css/navigation";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Headline7Style } from "Styles/Typo";
 import { MdOutlineEdit } from "react-icons/md";
 import theme from "styled-theming";
@@ -24,7 +24,6 @@ import { useLocale } from "Hooks/useLocale";
 const AddDegreesSection = () => {
   const { client, setClient } = useContext(FormDataContext);
   const { locale } = useLocale();
-  const [slideIndex, setSlideIndex] = useState(0);
   useEffect(() => {
     const swiper = new Swiper(".my-swiper", {
       // effect: "coverflow",
@@ -44,15 +43,8 @@ const AddDegreesSection = () => {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      on: {
-        slideChange: function (e: Swiper) {
-          // Get the current active slide index
-          setSlideIndex(e.activeIndex);
-        },
-      },
     });
   }, [client]);
-  console.log("navid slideIndex===", slideIndex);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDegreeLabel, setSelectedDegreeLabel] = useState<string>("");
   return (
@@ -112,20 +104,12 @@ const AddDegreesSection = () => {
         </SwiperWrapper>
       </StyledSwiper>
       <ButtonWrapper>
-        {slideIndex > 0 && (
-          <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
-            {client?.all_degrees?.[slideIndex - 1]?.label}
-          </PrevButton>
-        )}
-        {client?.all_degrees &&
-          slideIndex < client?.all_degrees?.length - 1 && (
-            <NextButton
-              icon={<NextButtonArrow />}
-              className="swiper-button-next"
-            >
-              لیسانس
-            </NextButton>
-          )}
+        <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
+          لیسانس
+        </PrevButton>
+        <NextButton icon={<NextButtonArrow />} className="swiper-button-next">
+          لیسانس
+        </NextButton>
       </ButtonWrapper>
     </Container>
   );

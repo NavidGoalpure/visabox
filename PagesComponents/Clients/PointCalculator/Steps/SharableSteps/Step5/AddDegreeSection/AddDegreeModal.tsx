@@ -1,37 +1,37 @@
-import ModalComponent from "Components/ModalComponent";
-import { PrimaryButton } from "Elements/Button/Primary";
-import ErrorToast from "Elements/Toast/Error";
-import SuccessToast from "Elements/Toast/Success";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import ModalComponent from 'Components/ModalComponent';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import ErrorToast from 'Elements/Toast/Error';
+import SuccessToast from 'Elements/Toast/Success';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   Client,
   ClientAllDegrees,
   ClientDegree,
   UniSections,
-} from "Interfaces/Database/Client";
+} from 'Interfaces/Database/Client';
 import {
   Dispatch,
   SetStateAction,
   useContext,
   useEffect,
   useState,
-} from "react";
-import { AiOutlineSave } from "react-icons/ai";
-import { MdNavigateNext } from "react-icons/md";
-import { useMutation, useQueryClient } from "react-query";
-import styled from "styled-components";
-import { Headline7Style } from "Styles/Typo";
-import { ClientQueryKeys } from "Utils/query/keys";
-import * as ToggleGroup from "Elements/ToggleGroup";
+} from 'react';
+import { AiOutlineSave } from 'react-icons/ai';
+import { MdNavigateNext } from 'react-icons/md';
+import { useMutation, useQueryClient } from 'react-query';
+import styled from 'styled-components';
+import { Headline7Style } from 'Styles/Typo';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import * as ToggleGroup from 'Elements/ToggleGroup';
 import {
   AllDegreesTemplate,
   componentStatements,
   LanguageKeys,
-} from "../const";
-import { Input } from "Components/Input";
-import { Title } from "../../StyledComponents";
-import { uniSections } from "Consts/Client";
-import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
+} from '../const';
+import { Input } from 'Components/Input';
+import { Title } from '../../../StyledComponents';
+import { uniSections } from 'Consts/Client';
+import { FormDataContext } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context';
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -63,9 +63,9 @@ const EditModal: React.FC<Props> = ({
         isInputInModal={true}
         required
         label={t(LanguageKeys.FieldOfStudyInputLabel)}
-        inputName="field-of-study"
+        inputName='field-of-study'
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        value={selectedDegree?.field_of_study || ""}
+        value={selectedDegree?.field_of_study || ''}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           selectedDegree &&
             setSelectedDegree({
@@ -76,8 +76,8 @@ const EditModal: React.FC<Props> = ({
       />
       <Title>{t(LanguageKeys.UniSectionsSectionTitle)} </Title>
       <ToggleGroupRoot
-        type="single"
-        value={selectedDegree?.uni_section || ""}
+        type='single'
+        value={selectedDegree?.uni_section || ''}
         onValueChange={(value: UniSections) => {
           selectedDegree &&
             setSelectedDegree({
@@ -103,10 +103,10 @@ const EditModal: React.FC<Props> = ({
         isInputInModal={true}
         required
         label={t(LanguageKeys.GraduationDateLabel)}
-        type={"date"}
-        inputName="field-of-study"
+        type={'date'}
+        inputName='field-of-study'
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
-        value={selectedDegree?.graduation_date || ""}
+        value={selectedDegree?.graduation_date || ''}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           selectedDegree &&
             setSelectedDegree({

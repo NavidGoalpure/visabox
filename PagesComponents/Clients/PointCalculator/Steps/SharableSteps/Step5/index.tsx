@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { Input } from "Components/Input";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { AllDegreesTemplate, componentStatements, LanguageKeys } from "./const";
-import { WizardContext } from "../../Contexts/Wizard/Context";
-import { useContext, useEffect } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../../Elements/ToggleGroup';
+import { Input } from 'Components/Input';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { AllDegreesTemplate, componentStatements, LanguageKeys } from './const';
+import { WizardContext } from '../../../Contexts/Wizard/Context';
+import { useContext, useEffect } from 'react';
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -19,19 +19,19 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
+} from '../../StyledComponents';
+import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
 import {
   ClientAllDegrees,
   ClientDegree,
   UniSections,
-} from "Interfaces/Database/Client";
-import { educations, uniSections, YesOrNo } from "Consts/Client";
-import { useLocale } from "Hooks/useLocale";
-import { Languages } from "Interfaces";
-import { SearchInputComponent } from "Components/SearchInputComponent";
-import { SupportedCountry } from "Interfaces/Database";
-import AddDegreesSection from "./AddDegreeSection";
+} from 'Interfaces/Database/Client';
+import { educations, uniSections, YesOrNo } from 'Consts/Client';
+import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
+import { SearchInputComponent } from 'Components/SearchInputComponent';
+import { SupportedCountry } from 'Interfaces/Database';
+import AddDegreesSection from './AddDegreeSection';
 
 const Step5 = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -53,7 +53,7 @@ const Step5 = () => {
       <StyledInput
         required
         label={t(LanguageKeys.FieldOfStudyInputLabel)}
-        inputName="field-of-study"
+        inputName='field-of-study'
         placeholder={t(LanguageKeys.FieldOfStudyInputPlaceholder)}
         value={client?.field_of_study}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,7 +65,7 @@ const Step5 = () => {
         }}
       />
       <StyledTitle>
-        {t(LanguageKeys.UniSectionsSectionTitle)}{" "}
+        {t(LanguageKeys.UniSectionsSectionTitle)}{' '}
         <StyledTooltipTag
           content={
             <>
@@ -76,7 +76,7 @@ const Step5 = () => {
         />
       </StyledTitle>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={client?.uni_section}
         onValueChange={(value: UniSections) => {
           client &&
@@ -107,7 +107,7 @@ const Step5 = () => {
             </HintContainer>
             <SearchInputComponent
               placeholder={t(LanguageKeys.UniInput_Placeholder)}
-              theme={"LAYER1"}
+              theme={'LAYER1'}
               callback={(university) => {
                 client &&
                   setClient({
@@ -119,7 +119,7 @@ const Step5 = () => {
           </>
         )}
       <Title>
-        {t(LanguageKeys.DegreeOfEducationSectionTitle)}{" "}
+        {t(LanguageKeys.DegreeOfEducationSectionTitle)}{' '}
         <StyledTooltipTag
           content={
             <>
@@ -130,7 +130,7 @@ const Step5 = () => {
         />
       </Title>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={client?.degree}
         onValueChange={(value: ClientDegree) => {
           const AllDegreesTemplateIndex = AllDegreesTemplate.findIndex(
@@ -162,7 +162,7 @@ const Step5 = () => {
       <AddDegreesSection />
 
       <StyledTitle>
-        {t(LanguageKeys.AustralianEducationalQualificationTitle)}{" "}
+        {t(LanguageKeys.AustralianEducationalQualificationTitle)}{' '}
         <StyledTooltipTag
           content={
             <>
@@ -176,12 +176,12 @@ const Step5 = () => {
         />
       </StyledTitle>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={
           client?.australian_educational_qualification !== null
             ? client?.australian_educational_qualification === true
-              ? "yes"
-              : "no"
+              ? 'yes'
+              : 'no'
             : undefined
         }
         onValueChange={(value: string) => {
@@ -189,10 +189,10 @@ const Step5 = () => {
             setClient({
               ...client,
               australian_educational_qualification:
-                value === "yes" ? true : false,
+                value === 'yes' ? true : false,
               //this shouldnt have a value if australian educational qulification === false
-              designated_regional_area_study: value === "no" && false,
-              specialist_educational_qualification: value === "no" && false,
+              designated_regional_area_study: value === 'no' && false,
+              specialist_educational_qualification: value === 'no' && false,
             });
         }}
       >
@@ -211,7 +211,7 @@ const Step5 = () => {
       {client?.australian_educational_qualification && (
         <>
           <StyledTitle>
-            {t(LanguageKeys.DesignatedRegionalAreaStudy)}{" "}
+            {t(LanguageKeys.DesignatedRegionalAreaStudy)}{' '}
             <StyledTooltipTag
               content={
                 <>
@@ -225,12 +225,12 @@ const Step5 = () => {
             />
           </StyledTitle>
           <ToggleGroupRoot
-            type="single"
+            type='single'
             value={
               client?.designated_regional_area_study !== null
                 ? client?.designated_regional_area_study === true
-                  ? "yes"
-                  : "no"
+                  ? 'yes'
+                  : 'no'
                 : undefined
             }
             onValueChange={(value: string) => {
@@ -238,7 +238,7 @@ const Step5 = () => {
                 setClient({
                   ...client,
                   designated_regional_area_study:
-                    value === "yes" ? true : false,
+                    value === 'yes' ? true : false,
                 });
             }}
           >
@@ -273,12 +273,12 @@ const Step5 = () => {
             />
           </StyledTitle>
           <ToggleGroupRoot
-            type="single"
+            type='single'
             value={
               client?.specialist_educational_qualification !== null
                 ? client?.specialist_educational_qualification === true
-                  ? "yes"
-                  : "no"
+                  ? 'yes'
+                  : 'no'
                 : undefined
             }
             onValueChange={(value: string) => {
@@ -286,7 +286,7 @@ const Step5 = () => {
                 setClient({
                   ...client,
                   specialist_educational_qualification:
-                    value === "yes" ? true : false,
+                    value === 'yes' ? true : false,
                 });
             }}
           >
@@ -305,7 +305,7 @@ const Step5 = () => {
         </>
       )}
       <StyledTitle>
-        {t(LanguageKeys.AccreditedCommunityLanguage)}{" "}
+        {t(LanguageKeys.AccreditedCommunityLanguage)}{' '}
         <StyledTooltipTag
           content={
             <>
@@ -316,19 +316,19 @@ const Step5 = () => {
         />
       </StyledTitle>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={
           client?.accredited_community_language !== null
             ? client?.accredited_community_language === true
-              ? "yes"
-              : "no"
+              ? 'yes'
+              : 'no'
             : undefined
         }
         onValueChange={(value: string) => {
           client &&
             setClient({
               ...client,
-              accredited_community_language: value === "yes" ? true : false,
+              accredited_community_language: value === 'yes' ? true : false,
             });
         }}
       >

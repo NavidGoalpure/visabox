@@ -1,21 +1,21 @@
-import { useContext } from "react";
-import styled, { css } from "styled-components";
-import { Headline4Style, Headline5Style, Headline6Style } from "Styles/Typo";
-import theme from "styled-theming";
+import { useContext } from 'react';
+import styled, { css } from 'styled-components';
+import { Headline4Style, Headline5Style, Headline6Style } from 'Styles/Typo';
+import theme from 'styled-theming';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { useRouter } from "next/router";
-import { useLocale } from "Hooks/useLocale";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { deviceMin } from "Consts/device";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { componentStatements, LanguageKeys } from "./const";
-import { HiOutlineCalculator } from "react-icons/hi2";
-import Link from "next/link";
-import { Languages } from "Interfaces";
+} from 'Styles/Theme/Layers/layer2/style';
+import { useRouter } from 'next/router';
+import { useLocale } from 'Hooks/useLocale';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { deviceMin } from 'Consts/device';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
+import { componentStatements, LanguageKeys } from './const';
+import { HiOutlineCalculator } from 'react-icons/hi2';
+import Link from 'next/link';
+import { Languages } from 'Interfaces';
 
 //
 const Step12 = () => {
@@ -32,10 +32,10 @@ const Step12 = () => {
         {t(LanguageKeys.Step12Desc)} <br />
         {locale === Languages.fa && (
           <>
-            اگر میخواهید درباره سابکلاس های ویزا اطلاعات کسب کنید{" "}
-            <StyledLink href={"/fa/blog/what-is-skilled-worker-visa"}>
+            اگر میخواهید درباره سابکلاس های ویزا اطلاعات کسب کنید{' '}
+            <StyledLink href={'/fa/blog/what-is-skilled-worker-visa'}>
               اینجا
-            </StyledLink>{" "}
+            </StyledLink>{' '}
             کلیک کنید
           </>
         )}
@@ -49,7 +49,7 @@ const Step12 = () => {
   );
 };
 export default Step12;
-const BackgroundTheme = theme("mode", {
+const BackgroundTheme = theme('mode', {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
     box-shadow: var(--box-shadow-layer2);
@@ -63,7 +63,7 @@ const BackgroundTheme = theme("mode", {
   `,
 });
 
-const GradeTheme = theme("mode", {
+const GradeTheme = theme('mode', {
   light: css`
     color: var(--color-secondary2);
   `,

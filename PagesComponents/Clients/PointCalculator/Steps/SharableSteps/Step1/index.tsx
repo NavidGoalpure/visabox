@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import * as ToggleGroup from '../../../../../../Elements/ToggleGroup';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useContext } from 'react';
 import {
@@ -10,10 +10,10 @@ import {
   PrevButton,
   PrevIcon,
   Title,
-} from '../StyledComponents';
+} from '../../StyledComponents';
 import { Countries } from 'Consts/Client';
-import { FormDataContext } from '../../Contexts/FormDataContext/Context';
-import { WizardContext } from '../../Contexts/Wizard/Context';
+import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../../Contexts/Wizard/Context';
 import { componentStatements, LanguageKeys } from './const';
 import { SupportedCountry } from 'Interfaces/Database';
 

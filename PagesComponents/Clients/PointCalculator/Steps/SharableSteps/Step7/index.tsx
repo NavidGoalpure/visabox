@@ -1,60 +1,62 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../../Elements/ToggleGroup';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
-  CalculatorIcon,
-  Container,
   NextButton,
   NextIcon,
+  Container,
   PrevButton,
   PrevIcon,
-  StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { IELTSScores } from "Consts/Client";
-import { IELTSScore } from "Interfaces/Database/Client";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { WizardContext } from "../../Contexts/Wizard/Context";
+  CalculatorIcon,
+  StyledTooltipTag,
+  InformationIcon,
+} from '../../StyledComponents';
+import { works } from 'Consts/Client';
+import { WorkExperience } from 'Interfaces/Database/Client';
+import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
+import { WizardContext } from '../../../Contexts/Wizard/Context';
 
-const Step10 = () => {
-  const { step, handleNextPress, handleBackPress } = useContext(WizardContext);
+const Step8 = () => {
   const { t } = useStaticTranslation(componentStatements);
+  const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { client, setClient, score } = useContext(FormDataContext);
 
   return (
     <Container>
       <Title>
-        {t(LanguageKeys.IELTSScoreSectionTitle)}{" "}
+        {t(LanguageKeys.WorkExperienceSectionTitle)}{' '}
         <StyledTooltipTag
           content={
             <>
               <CalculatorIcon />
+              <InformationIcon />
             </>
           }
-          popupContent={t(LanguageKeys.IeltsPopupContent)}
+          popupContent={t(LanguageKeys.OverseasPopupContent)}
         />
       </Title>
       <ToggleGroupRoot
-        type="single"
-        value={client?.ielts_score}
+        type='single'
+        value={client?.work_experience}
         onValueChange={(value) => {
           client &&
             setClient({
               ...client,
-              ielts_score: value as IELTSScore,
+              work_experience: value as WorkExperience,
             });
         }}
       >
         {
           <>
-            {IELTSScores.map((IELTSScore, i) => (
+            {works.map((work, i) => (
               <ToggleGroup.Item
                 key={i}
-                text={IELTSScore}
-                value={IELTSScore.en.toLowerCase()}
+                text={work}
+                value={work.en.toLowerCase()}
               ></ToggleGroup.Item>
             ))}
           </>
@@ -65,12 +67,13 @@ const Step10 = () => {
           <PrevIcon />
           {t(LanguageKeys.PrevButtonTitle)}
         </PrevButton>
+
         <NextButton
           step={step}
           onClick={() => {
             handleNextPress();
           }}
-          disabled={!client?.ielts_score}
+          disabled={!client?.work_experience}
           icon={<NextIcon />}
         >
           {t(LanguageKeys.NextButtonTitle)}
@@ -79,7 +82,8 @@ const Step10 = () => {
     </Container>
   );
 };
-export default Step10;
+export default Step8;
+
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
 `;

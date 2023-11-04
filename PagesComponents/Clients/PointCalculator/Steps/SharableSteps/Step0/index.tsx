@@ -1,18 +1,21 @@
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { useContext } from "react";
-import Image from "next/image";
-import styled, { css } from "styled-components";
-import useTheme from "Hooks/useTheme";
-import DarkKangorooLogo from "./Images/DarkKangorooLogo.svg";
-import LightKangorooLogo from "./Images/LightKangorooLogo.svg";
-import { Headline3Style, Headline4Style } from "Styles/Typo";
-import { ThemeModes } from "Interfaces";
-import theme from "styled-theming";
-import { layer2A_SubtitleStyle, layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { deviceMin } from "Consts/device";
-import { WizardContext } from "../../Contexts/Wizard/Context";
-import { NextIcon, NextButton } from "../StyledComponents";
-import { componentStatements, LanguageKeys } from "./const";
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useContext } from 'react';
+import Image from 'next/image';
+import styled, { css } from 'styled-components';
+import useTheme from 'Hooks/useTheme';
+import DarkKangorooLogo from './Images/DarkKangorooLogo.svg';
+import LightKangorooLogo from './Images/LightKangorooLogo.svg';
+import { Headline3Style, Headline4Style } from 'Styles/Typo';
+import { ThemeModes } from 'Interfaces';
+import theme from 'styled-theming';
+import {
+  layer2A_SubtitleStyle,
+  layer2A_TextStyle,
+} from 'Styles/Theme/Layers/layer2/style';
+import { deviceMin } from 'Consts/device';
+import { WizardContext } from '../../../Contexts/Wizard/Context';
+import { NextIcon, NextButton } from '../../StyledComponents';
+import { componentStatements, LanguageKeys } from './const';
 
 const Step0 = () => {
   const { theme } = useTheme();
@@ -25,7 +28,7 @@ const Step0 = () => {
           width={90}
           height={90}
           src={theme === ThemeModes.DARK ? DarkKangorooLogo : LightKangorooLogo}
-          alt={"site-logo"}
+          alt={'site-logo'}
         />
       </LogoContainer>
       <Title>{t(LanguageKeys.Step0Title)}</Title>
@@ -43,7 +46,7 @@ const Step0 = () => {
   );
 };
 export default Step0;
-const BackgroundTheme = theme("mode", {
+const BackgroundTheme = theme('mode', {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);
     box-shadow: var(--box-shadow-layer2);

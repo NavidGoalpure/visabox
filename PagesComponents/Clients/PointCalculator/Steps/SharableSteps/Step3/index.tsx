@@ -1,7 +1,7 @@
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { WizardContext } from "../../Contexts/Wizard/Context";
-import { useContext } from "react";
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { WizardContext } from '../../../Contexts/Wizard/Context';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -13,12 +13,12 @@ import {
   PrevButton,
   PrevIcon,
   StyledTooltipTag,
-} from "../StyledComponents";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { Input } from "Components/Input";
-import { calculateAge } from "Utils/clients";
-import { useRouter } from "next/router";
-import { useLocale } from "Hooks/useLocale";
+} from '../../StyledComponents';
+import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
+import { Input } from 'Components/Input';
+import { calculateAge } from 'Utils/clients';
+import { useRouter } from 'next/router';
+import { useLocale } from 'Hooks/useLocale';
 
 const Step3 = () => {
   const { t } = useStaticTranslation(componentStatements);
@@ -30,9 +30,9 @@ const Step3 = () => {
     ? new Date(client?.birthday).toISOString().slice(0, 10)
     : client?.age
     ? new Date(client?.age).toISOString().slice(0, 10)
-    : "";
+    : '';
   // 2023-01-01 is defensive
-  const birthday = new Date(client?.birthday || client?.age || "2023-01-01");
+  const birthday = new Date(client?.birthday || client?.age || '2023-01-01');
   const clientAge = calculateAge(new Date(birthday));
   return (
     <Container>
@@ -51,8 +51,8 @@ const Step3 = () => {
             />
           </>
         }
-        type={"date"}
-        inputName="age"
+        type={'date'}
+        inputName='age'
         value={mydate}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           client &&
@@ -61,7 +61,7 @@ const Step3 = () => {
               birthday: e.target.value?.slice(0, 10),
             });
         }}
-        id={"date-input"}
+        id={'date-input'}
       />
       {clientAge < 18 && (
         <HintContainer>

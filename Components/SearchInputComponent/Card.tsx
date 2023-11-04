@@ -1,19 +1,19 @@
-import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { Headline7Style } from "Styles/Typo";
-import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import { Headline7Style } from 'Styles/Typo';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from "../../PagesComponents/Clients/PointCalculator/Steps/Step5/const";
-import { University } from "Interfaces/Database/university";
-import theme from "styled-theming";
-import styled, { css } from "styled-components";
-import { deviceMin } from "Consts/device";
-import { Dispatch, HTMLAttributes, SetStateAction, useCallback } from "react";
-import { useContext } from "react";
-import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
-import { UniSections } from "Interfaces/Database/Client";
+} from '../../PagesComponents/Clients/PointCalculator/Steps/SharableSteps/Step5/const';
+import { University } from 'Interfaces/Database/university';
+import theme from 'styled-theming';
+import styled, { css } from 'styled-components';
+import { deviceMin } from 'Consts/device';
+import { Dispatch, HTMLAttributes, SetStateAction, useCallback } from 'react';
+import { useContext } from 'react';
+import { FormDataContext } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context';
+import { UniSections } from 'Interfaces/Database/Client';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   university: University;
@@ -53,7 +53,7 @@ export const Card: React.FC<Props> = ({
       onClick={() => {
         callbackFunction();
 
-        setInputValue(university?.title?.fa || "defensive");
+        setInputValue(university?.title?.fa || 'defensive');
       }}
     >
       <UniName>{dt(university.title)}</UniName>
@@ -66,7 +66,7 @@ export const Card: React.FC<Props> = ({
     </UniversityCard>
   );
 };
-const UniversityCardTheme = theme("mode", {
+const UniversityCardTheme = theme('mode', {
   light: css`
     background-color: var(--color-gray12);
     border-bottom: 3px solid var(--color-gray11);
@@ -76,7 +76,7 @@ const UniversityCardTheme = theme("mode", {
     border-bottom: 3px solid var(--color-gray6);
   `,
 });
-const UniversityCardTheme_Hover = theme("mode", {
+const UniversityCardTheme_Hover = theme('mode', {
   light: css`
     background-color: var(--color-gray9);
     h3 {
@@ -90,7 +90,7 @@ const UniversityCardTheme_Hover = theme("mode", {
     }
   `,
 });
-const UniSectionTheme = theme("mode", {
+const UniSectionTheme = theme('mode', {
   light: css`
     color: var(--color-primary2);
   `,
@@ -98,7 +98,7 @@ const UniSectionTheme = theme("mode", {
     color: var(--color-primary6);
   `,
 });
-const UniCityHoverTheme = theme("mode", {
+const UniCityHoverTheme = theme('mode', {
   light: css`
     color: var(--color-gray13);
   `,

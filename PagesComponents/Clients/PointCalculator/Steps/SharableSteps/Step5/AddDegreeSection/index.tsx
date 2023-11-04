@@ -46,13 +46,11 @@ const AddDegreesSection = () => {
       },
       on: {
         slideChange: function (e: Swiper) {
-          // Get the current active slide index
           setSlideIndex(e.activeIndex);
         },
       },
     });
   }, [client]);
-  console.log("navid slideIndex===", slideIndex);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDegreeLabel, setSelectedDegreeLabel] = useState<string>("");
   return (
@@ -112,11 +110,11 @@ const AddDegreesSection = () => {
         </SwiperWrapper>
       </StyledSwiper>
       <ButtonWrapper>
-        {slideIndex > 0 && (
+        {/* {slideIndex > 0 && ( */}
           <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
             {client?.all_degrees?.[slideIndex - 1]?.label}
           </PrevButton>
-        )}
+        {/* )} */}
         {client?.all_degrees &&
           slideIndex < client?.all_degrees?.length - 1 && (
             <NextButton
@@ -295,6 +293,7 @@ const PlusIcon = styled(AiOutlinePlus)`
   height: auto;
   background-color: var(--color-primary4);
   border-radius: 50%;
+  box-sizing: content-box;
 `;
 const ButtonWrapper = styled.div`
   width: 100%;

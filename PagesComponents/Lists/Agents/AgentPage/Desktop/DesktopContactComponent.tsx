@@ -13,6 +13,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 import { IoLocationSharp } from 'react-icons/io5';
 import { EnLanguage } from 'Interfaces/Database';
+import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 interface Props {
   website?: string;
   email?: string;
@@ -20,7 +21,7 @@ interface Props {
   telegram?: string;
   instagram?: string;
   linkedin?: string;
-  address?: string;
+  address?: EnLanguage;
 }
 const DesktopContactComponent = ({
   website,
@@ -34,6 +35,7 @@ const DesktopContactComponent = ({
   const { t } = useStaticTranslation(componentStatements);
 const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
 const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+const {dt} = useDynamicTranslation()
 
   return (
     <Container>
@@ -44,25 +46,6 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
             {website.replaceAll("https://", "").replaceAll("http://", "")}
           </InternetTitle>
         </InternetContainer>
-      )}
-      {phone && (
-        <PhoneContainer
-          onClick={() =>
-            copyContent({
-              text: phone?.[0] || "",
-              toastMessage: phoneToastMessage,
-            })
-          }
-        >
-          <PhoneIcon />
-          <PhoneTitle>
-            <PhonesRow>
-              {phone?.map((phoneNumber) => (
-                <p>{phoneNumber}</p>
-              ))}
-            </PhonesRow>
-          </PhoneTitle>
-        </PhoneContainer>
       )}
       {email && (
         <GmailContainer
@@ -99,14 +82,6 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
           </LinkedinTitle>
         </LinkedinContainer>
       )}
-       {address && (
-        <AddressContainer>
-          <AddressIcon />
-          <AddressTitle>
-          {address}
-          </AddressTitle>
-        </AddressContainer>
-         )}
     </Container>
   );
 };

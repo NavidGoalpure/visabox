@@ -50,6 +50,10 @@ function DesktopAgentsPage({
 
   return (
     <Container {...props}>
+    <BackgroundPattern>
+    </BackgroundPattern>
+    {/* <BackgroundColor>
+    </BackgroundColor> */}
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
@@ -78,6 +82,7 @@ function DesktopAgentsPage({
           </MaraNumberContainer>
         </Data>
       </SmallBox>
+      <Hr />
       <AboutContainer>
         {/* <Title>{t(LanguageKeys.About)}</Title>
         <Desc>{ChosenAgent?.desc}</Desc> */}
@@ -96,11 +101,11 @@ export default DesktopAgentsPage;
 
 const HeaderBackground = theme("mode", {
   light: css`
-    background-image: url("/Images/Patterns/LightPattern.svg");
+    background-image: url("/Images/Patterns/AlternativeLightPattern.svg");
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
   `,
   dark: css`
-    background-image: url("/Images/Patterns/DarkPattern.svg");
+    background-image: url("/Images/Patterns/AlternativeDarkPattern.svg");
   `,
 });
 
@@ -125,15 +130,40 @@ const TitleColor = theme('mode', {
   `,
 });
 
-const Container = styled.div`
+const LineColor = theme('mode', {
+  light: css`
+    background-color: var(--color-gray9);
+  `,
+  dark: css`
+    background-color: var(--color-gray3);
+  `,
+});
+
+
+const BackgroundPattern = styled.div`
   ${HeaderBackground}
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+// const BackgroundColor = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+// `;
+
+const Container = styled.div`
   ${ContainerBackground}
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: relative;
+  justify-content: center;
+  align-items: center;
   padding: 4rem 0;
   gap: 1rem;
 `;
@@ -187,6 +217,13 @@ const VIPBox = styled(FiBox)`
   height: auto;
 `;
 
+const Hr = styled.div`
+${LineColor}
+width: 8rem;
+height: 4px;
+transform: rotate(-90deg);
+`
+
 const Data = styled.div`
   display: flex;
   flex-direction: column;
@@ -214,6 +251,7 @@ const MaraNumberTitle = styled.h3`
 `;
 const MaraNumber = styled.h3`
   ${layer2A_Value}
+  color: var(--color-primary5)
 `;
 const AboutContainer = styled.div`
   padding: 0 1rem;

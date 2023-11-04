@@ -16,6 +16,7 @@ import {
   getAllPersianAgentsSlugs,
 } from 'Queries/agents/Detail';
 import { ComponentError } from 'Elements/Error/componentContent';
+import styled from 'styled-components';
 
 interface Props {
   agent?: MaraAgent;
@@ -29,7 +30,7 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
   if (errorCode) return <Error statusCode={errorCode} />;
   const date = new Date();
   return (
-    <PageLayout>
+    <PageLayout style={{padding:"0"}}>
       <Seo
         //navid fix persian seo
         title={
@@ -92,3 +93,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 };
+
+
+const StyledPageLayout = styled(PageLayout)`
+padding: 0;
+`

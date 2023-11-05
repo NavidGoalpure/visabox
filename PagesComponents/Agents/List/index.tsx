@@ -16,8 +16,6 @@ import {
 import { SearchFilterContext } from './Context/SearchFilter';
 
 const Content: React.FC = () => {
-  // navid work on IsMounted
-  const isMounted = useRef(false);
   const { t } = useStaticTranslation(componentStatements);
   const { selectedFiltersObj } = useContext(SearchFilterContext);
 
@@ -45,22 +43,13 @@ const Content: React.FC = () => {
   useEffect(() => {
     if (selectedFiltersObj?.location) remove();
   }, [selectedFiltersObj.location]);
-  //
-  // useEffect(() => {
-  //   if (isMounted.current) {
-  //     refetch();
-  //   } else {
-  //     // This block will run on the initial mount
-  //     isMounted.current = true;
-  //   }
-  // }, [selectedFiltersObj.location]);
 
   return (
     <>
       <PageTitle>{t(LanguageKeys.PageTitle)}</PageTitle>
       <Subtitle>{t(LanguageKeys.PageSubtitle)}</Subtitle>
       <Search searchValue={searchValue} setSearchValue={onChangeSearchValue} />
-      {!agents?.pages[0]?.length && !isFetching ? (
+      {!agents?.pages?.[0]?.length && !isFetching ? (
         <NoData hasIcon={false} themeLayer='1' />
       ) : (
         <>

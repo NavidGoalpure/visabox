@@ -13,7 +13,7 @@ const getHasNextPage = ({
 }: {
   agents: InfiniteData<Partial<MaraAgent>[]> | undefined;
 }): boolean => {
-  const pageCount = agents?.pages.length;
+  const pageCount = agents?.pages?.length;
   const lastPage = pageCount ? agents?.pages?.[pageCount - 1] : undefined;
 
   // اگه آخرین بار تعداد کمتری ایجنت رو نشون داده بود یعنی ایجنتها تموم شدن

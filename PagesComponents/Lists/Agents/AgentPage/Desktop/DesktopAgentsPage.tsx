@@ -18,6 +18,8 @@ import { HTMLAttributes, useEffect, useState } from 'react';
 import { useLocale } from 'Hooks/useLocale';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { MaraAgency, MaraAgent } from 'Interfaces/Database/Lists/agents';
+import { Headline7Style } from 'Styles/Typo';
+import { GoLinkExternal } from 'react-icons/go';
 
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -93,6 +95,12 @@ function DesktopAgentsPage({
           email={ChosenAgent?.email}
           address={ChosenAgent?.contact?.address}
 />
+      <MaraPageButton 
+      // navid inja bayad link konim to safhe mara khodeshoon
+      >
+         {t(LanguageKeys.MaraPageButton)}
+        <LinkIcon />
+      </MaraPageButton>
       </AboutContainer>
     </Container>
   );
@@ -136,6 +144,15 @@ const LineColor = theme('mode', {
   `,
   dark: css`
     background-color: var(--color-gray3);
+  `,
+});
+
+const MaraPageButtonTheme = theme("mode", {
+  light: css`
+    color: var(--color-gray8);
+  `,
+  dark: css`
+    color: var(--color-gray10);
   `,
 });
 
@@ -244,6 +261,25 @@ const MaraNumberContainer = styled.div`
   margin-bottom: 2rem;
   ${layer2A_Value}
 `;
+
+const MaraPageButton = styled.button`
+  ${Headline7Style};
+  ${MaraPageButtonTheme}
+  outline: none;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: auto;
+  backdrop-filter: blur(10px);
+`;
+
+const LinkIcon = styled(GoLinkExternal)`
+`
+
 const MaraNumberTitle = styled.h3`
   ${layer2A_Key}
   margin:0;
@@ -254,7 +290,8 @@ const MaraNumber = styled.h3`
   color: var(--color-primary5)
 `;
 const AboutContainer = styled.div`
-  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 const Title = styled.h3`
   ${Layer1_TitleStyle}

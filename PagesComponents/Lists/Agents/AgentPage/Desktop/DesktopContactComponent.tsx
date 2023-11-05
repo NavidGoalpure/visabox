@@ -14,6 +14,7 @@ import { componentStatements, LanguageKeys } from '../const';
 import { IoLocationSharp } from 'react-icons/io5';
 import { EnLanguage } from 'Interfaces/Database';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
+import theme from 'styled-theming';
 interface Props {
   website?: string;
   email?: string;
@@ -26,14 +27,11 @@ interface Props {
 const DesktopContactComponent = ({
   website,
   email,
-  phone,
   telegram,
   instagram,
   linkedin,
-  address,
 }: Props) => {
   const { t } = useStaticTranslation(componentStatements);
-const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
 const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
 const {dt} = useDynamicTranslation()
 
@@ -97,6 +95,7 @@ const Icon = css`
     height: 2rem;
   }
 `;
+
 const SocialsContainerCss = css`
   display: flex;
   align-items: center;
@@ -120,22 +119,6 @@ const InternetTitle = styled.h3`
   word-break: break-all;
 
   direction: ltr;
-`;
-const PhoneContainer = styled.div`
-  ${SocialsContainerCss}
-  cursor: auto;
-`;
-const PhoneIcon = styled(FaPhone)`
-  ${Icon}
-`;
-const PhoneTitle = styled(InternetTitle)`
-  display: flex;
-  flex-direction: column;
-  direction: ltr;
-`;
-const PhonesRow = styled.div`
-  display:flex;
-  gap 1rem;
 `;
 const GmailContainer = styled.div`
   ${SocialsContainerCss}
@@ -168,18 +151,9 @@ const InstagramTitle = styled(InternetTitle)`
 const LinkedinContainer = styled.a`
   ${SocialsContainerCss}
 `;
-const AddressContainer = styled.a`
-  ${SocialsContainerCss}
-`;
 const LinkedinIcon = styled(AiFillLinkedin)`
   ${Icon}
 `;
 const LinkedinTitle = styled(InternetTitle)`
-  direction: ltr;
-`;
-const AddressIcon = styled(IoLocationSharp)`
-  ${Icon}
-`;
-const AddressTitle = styled(InternetTitle)`
   direction: ltr;
 `;

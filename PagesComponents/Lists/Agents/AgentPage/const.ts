@@ -8,6 +8,7 @@ export enum LanguageKeys {
   Contacts = 'Contacts',
   MaraNumber = 'MaraNumber',
   Socials = 'Socials',
+  MaraPageButton = 'MaraPageButton',
   copyEmailToastMessage = 'copyEmailToastMessage',
   copyPhoneToastMessage = 'copyPhoneToastMessage',
 }
@@ -42,6 +43,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Socials',
     zh: '社交',
     fa: 'ارتباطات',
+  },
+  MaraPageButton: {
+    en: 'Mara Profile',
+    zh: '玛拉简介',
+    fa: 'پروفایل مارا',
   },
   copyEmailToastMessage: {
     en: 'Copied email to clipboard',

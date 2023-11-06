@@ -107,7 +107,7 @@ function MobileAgentsPage() {
         <StyledSection>
           <Title
             dangerouslySetInnerHTML={{
-              __html: t(LanguageKeys.BetterSeenInOccupationsPages_Title),
+              __html: t(LanguageKeys.PromoteInOccupationsPages_Title),
             }}
           />
           <OccupationListImage
@@ -122,7 +122,7 @@ function MobileAgentsPage() {
           />
           <Desc
             dangerouslySetInnerHTML={{
-              __html: t(LanguageKeys.BetterSeenInOccupationsPages_Desc),
+              __html: t(LanguageKeys.PromoteInOccupationsPages_Desc),
             }}
           />
         </StyledSection>

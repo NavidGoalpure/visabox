@@ -9,6 +9,7 @@ import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { deviceMin } from 'Consts/device';
+import { directionStyles } from 'Styles/Theme';
 
 const HeroTheme = theme('mode', {
   light: css`
@@ -90,6 +91,7 @@ const SectionDivider = styled.hr`
   margin-bottom: 5.5rem;
 `;
 const Section = styled.section`
+  ${directionStyles}
   width: 100%;
   margin-bottom: 5rem;
   min-height: 100vh;

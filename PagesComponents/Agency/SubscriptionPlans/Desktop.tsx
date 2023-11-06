@@ -145,7 +145,7 @@ function Desktop() {
           <Section>
             <Title
               dangerouslySetInnerHTML={{
-                __html: t(LanguageKeys.BetterSeenInOccupationsPages_Title),
+                __html: t(LanguageKeys.PromoteInOccupationsPages_Title),
               }}
             />
             <OccupationCardSection_Img
@@ -158,11 +158,20 @@ function Desktop() {
                   : `/Images/landing/Agents/LightOccupationList.webp`
               }
             />
-            <Desc
+            <StyledDesc
               dangerouslySetInnerHTML={{
-                __html: t(LanguageKeys.BetterSeenInOccupationsPages_Desc),
+                __html: t(LanguageKeys.PromoteInOccupationsPages_Desc),
               }}
             />
+            <StyledDesc style={{ zIndex: '10' }}>
+              <Link
+                href={'/occupations/construction-project-manager'}
+                rel='noopener noreferrer'
+                target='_blank'
+              >
+                <span>{t(LanguageKeys.ViewOccupationPage)}</span>
+              </Link>
+            </StyledDesc>
           </Section>
           <SectionDivider />
           {/* /////////////////////////صفحه فرم وال////////////////////////////// */}

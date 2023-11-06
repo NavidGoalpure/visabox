@@ -4,11 +4,11 @@ import {
   Section,
   SectionDivider,
   TitleSpanTheme,
-} from './styledComponents';
+} from '../styledComponents';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { deviceMin } from 'Consts/device';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { LanguageKeys, componentStatements } from './const';
+import { LanguageKeys, componentStatements } from '../const';
 import { GiSilverBullet } from 'react-icons/gi';
 import { AiTwotoneGold } from 'react-icons/ai';
 
@@ -21,6 +21,7 @@ const PriceList: React.FC = () => {
     <Section>
       <Title>{t(LanguageKeys.PriceTable_Title)}</Title>
       <Desc
+        style={{ marginBottom: '2rem' }}
         dangerouslySetInnerHTML={{
           __html: t(LanguageKeys.PriceTable_Subtitle),
         }}
@@ -38,9 +39,21 @@ const PriceList: React.FC = () => {
           </Price>
           <Option>
             <ul>
-              <Li>Better Visibility on the Mara Agents Page.</Li>
-              <Li disabled>Promote on the Occupations List Page</Li>
-              <Li disabled>Access Client Forms on the Forms Wall Page</Li>
+              <Li>
+                {t(LanguageKeys.BetterSeenInAgentPages_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <Li disabled>
+                {t(LanguageKeys.PromoteInOccupationsPages_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <Li disabled>
+                {t(LanguageKeys.AccessToFormsWall_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
             </ul>
           </Option>
           {/* <a
@@ -63,9 +76,21 @@ const PriceList: React.FC = () => {
           </Price>
           <Option>
             <ul>
-              <Li>Better Visibility on the Mara Agents Page.</Li>
-              <Li>Promote on the Occupations List Page</Li>
-              <Li disabled>Access Client Forms on the Forms Wall Page</Li>
+              <Li>
+                {t(LanguageKeys.BetterSeenInAgentPages_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <Li>
+                {t(LanguageKeys.PromoteInOccupationsPages_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <Li disabled>
+                {t(LanguageKeys.AccessToFormsWall_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
             </ul>
           </Option>
           {/* <a
@@ -88,9 +113,22 @@ const PriceList: React.FC = () => {
           </Price>
           <Option>
             <ul>
-              <Li>Better Visibility on the Mara Agents Page.</Li>
-              <Li>Promote on the Occupations List Page</Li>
-              <Li>Access Client Forms on the Forms Wall Page</Li>
+              <Li>
+                {t(LanguageKeys.BetterSeenInAgentPages_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <hr />
+              <Li>
+                {t(LanguageKeys.PromoteInOccupationsPages_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <Li>
+                {t(LanguageKeys.AccessToFormsWall_Title)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
             </ul>
           </Option>
           {/* <a
@@ -102,7 +140,7 @@ const PriceList: React.FC = () => {
         </MyCard>
       </Grid>
       <Desc
-        style={{ marginBottom: '2rem' }}
+        style={{ margin: '4rem 0' }}
         dangerouslySetInnerHTML={{
           __html: t(LanguageKeys.PriceTable_Desc),
         }}
@@ -163,7 +201,6 @@ const MyCard = styled.div`
     margin: 30px auto 8px;
     text-decoration: none;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-weight: bold;
   }
 `;

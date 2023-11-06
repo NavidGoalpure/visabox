@@ -10,8 +10,9 @@ export enum LanguageKeys {
   BetterSeenInAgentPages_Title = 'BetterSeenInAgentPages_Title',
   BetterSeenInAgentPages_Desc = 'BetterSeenInAgentPages_Desc',
   ViewAgentsPage = 'ViewAgentsPage',
-  BetterSeenInOccupationsPages_Title = 'BetterSeenInOccupationsPages_Title',
-  BetterSeenInOccupationsPages_Desc = 'BetterSeenInOccupationsPages_Desc',
+  ViewOccupationPage = 'ViewOccupationPage',
+  PromoteInOccupationsPages_Title = 'PromoteInOccupationsPages_Title',
+  PromoteInOccupationsPages_Desc = 'PromoteInOccupationsPages_Desc',
   PriceTable_Title = 'PriceTable_Title',
   AccessToFormsWall_Title = 'AccessToFormsWall_Title',
   AccessToFormsWall_Desc = 'AccessToFormsWall_Desc',
@@ -42,7 +43,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   MobileHero: {
     en: `Be&nbsp;
-     In The&nbsp;
+     I The&nbsp;
             <span>Right</span>
             &nbsp;Place`,
     fa: `در جای&nbsp;
@@ -57,7 +58,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: 'Marabox 每月有超过 2,000 名寻求移民澳大利亚的用户，这使得 Marabox 成为寻找新客户的合适平台。',
   },
   BetterSeenInAgentPages_Title: {
-    en: `Better Visibility on the <span>Mara Agents</span> Page.`,
+    en: `Better Visibility on the <span>Mara Agents</span> Page`,
     fa: 'موقعیت بهتر در صفحه <span>وکلای مهاجرت</span>',
     zh: '在移民律师页面上获得更好的可见性',
   },
@@ -74,12 +75,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'مشاهده صفحه وکلای مارا',
     zh: '查看马拉代理页面',
   },
-  BetterSeenInOccupationsPages_Title: {
+  ViewOccupationPage: {
+    en: `View the Occupation Page`,
+    fa: 'مشاهده صفحه یک کد شغلی',
+    zh: '查看职业页面',
+  },
+  PromoteInOccupationsPages_Title: {
     en: 'Promote on the <span>Occupations List</span> Page',
-    fa: 'معرفیظ در صفحه <span>لیست مشاغل</span>',
+    fa: 'معرفی در صفحه <span>لیست مشاغل</span>',
     zh: '职业列表页面的广告',
   },
-  BetterSeenInOccupationsPages_Desc: {
+  PromoteInOccupationsPages_Desc: {
     en: `By purchasing a <span>Gold</span> Marabox agent account, you can showcase your services on the dedicated page for each job. In this scenario, a user exploring the requirements of a specific occupation will become familiar with your services on that occupation's page`,
     fa: 'با خرید <span>اکانت نقره ای </span>وکلا در ماراباکس، می‌توانید تبلیغات خود را در صفحه اختصاصی هر شغل نمایش دهید. در این حالت، کاربری که در حال بررسی شرایط یک شغل خاص می‌باشد، با خدمات شما در صفحه همان کد شغلی آشنا خواهد شد.',
     zh: '在职业列表页面上获得更好的可见性',
@@ -113,7 +119,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   PriceTable_Desc: {
     en: 'The prices indicated on the cards are per month. Opt for an annual subscription on any plan to enjoy a <span>25%</span> discount.',
-    fa: 'قیمت‌های اعلام شده برای هر کارت، به صورت ماهیانه می‌باشند. با انتخاب اشتراک سالانه برای هر یک از طرح‌ها، شما می‌توانید از <span>25%</span> تخفیف بهره‌مند شوید.',
+    fa: 'قیمت‌های اعلام شده برای هر کارت، به صورت ماهیانه می‌باشند. با انتخاب اشتراک سالانه برای هر یک از طرح‌ها، می‌توانید از <span>25%</span> تخفیف بهره‌مند شوید.',
     zh: '卡片上显示的价格是每月的价格。 选择任何计划的年度订阅均可享受 25% 的折扣',
   },
 };

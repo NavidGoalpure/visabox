@@ -13,6 +13,7 @@ import { GiSilverBullet } from 'react-icons/gi';
 import { AiTwotoneGold } from 'react-icons/ai';
 
 import { MdDiamond } from 'react-icons/md';
+import { FiBox } from 'react-icons/fi';
 
 const PriceList: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
@@ -35,7 +36,7 @@ const PriceList: React.FC = () => {
             <h2>{t(LanguageKeys.SilverPlan)}</h2>
           </CardTitle>
           <Price>
-            <h4>$199</h4>
+            <h4>$199</h4> <h5>/mo</h5>
           </Price>
           <Option>
             <ul>
@@ -72,7 +73,7 @@ const PriceList: React.FC = () => {
             <h2>{t(LanguageKeys.GoldPlan)}</h2>
           </CardTitle>
           <Price>
-            <h4>$299</h4>
+            <h4>$299</h4> <h5>/mo</h5>
           </Price>
           <Option>
             <ul>
@@ -104,12 +105,15 @@ const PriceList: React.FC = () => {
           style={{ background: 'linear-gradient(-45deg, #24ff72, #9a4eff)' }}
         >
           <CardTitle>
+          <VIPBoxContainer aria-hidden={true}>
+            <VIPBox aria-hidden={true} />
+          </VIPBoxContainer>
             <StyledDiamondIcon />
 
             <h2>{t(LanguageKeys.DiamondPlan)}</h2>
           </CardTitle>
           <Price>
-            <h4>$399</h4>
+            <h4>$399</h4> <h5>/mo</h5>
           </Price>
           <Option>
             <ul>
@@ -183,8 +187,8 @@ const MyCard = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 40%;
-    background: rgba(255, 255, 255, 0.1);
+    height: 38%;
+    background: rgba(73, 73, 73, 0.25);
     z-index: 1;
     transform: skewY(-5deg) scale(1.5);
   }
@@ -237,6 +241,26 @@ const StyledGoldIcon = styled(AiTwotoneGold)`
   ${StyledIcon}
   background: linear-gradient(-45deg, #ffd700, #ffdb58);
 `;
+
+const VIPBoxContainer = styled.div`
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gray5);
+  border-radius: 0 0 50% 50%;
+  position: absolute;
+  top: 0;
+  right: 5%;
+`;
+const VIPBox = styled(FiBox)`
+  color: var(--color-secondary4);
+  width: 50%;
+  height: auto;
+`;
+
+
 const StyledDiamondIcon = styled(MdDiamond)`
   ${StyledIcon}
   background: linear-gradient(-45deg, #ffffff, #b3e0ff);
@@ -245,11 +269,21 @@ const StyledDiamondIcon = styled(MdDiamond)`
 const Price = styled.div`
   position: relative;
   z-index: 2;
+  padding: 32px 0px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
   h4 {
     margin: 0;
-    padding: 20px 0;
     color: #fff;
     font-size: 30px;
+  }
+  h5 {
+    margin: 0;
+    color: #fff;
+    font-size: 16px;
+    color: var(--color-gray12);
   }
 `;
 const Option = styled.div`
@@ -264,8 +298,8 @@ const Li = styled.li<{ disabled?: boolean }>`
   margin: 0 0 10px;
   padding: 0;
   list-style: none;
-  color: ${({ disabled }) => (disabled ? 'var(--color-gray7)' : 'white')};
-  text-decoration: ${({ disabled }) => (disabled ? 'line-through' : 'nonez')};
+  color: ${({ disabled }) => (disabled ? 'var(--color-gray10)' : 'white')};
+  text-decoration: ${({ disabled }) => (disabled ? 'line-through' : 'none')};
   font-size: 16px;
   font-weight: bold;
   text-align: start;

@@ -83,7 +83,6 @@ function Desktop() {
           </MouseSection>
         </HeroWrapper>
       </Hero>
-      <SectionDivider />
       <div ref={particlesContainer} style={{ position: 'relative' }}>
         <StyledParticles
           container={particlesContainer}

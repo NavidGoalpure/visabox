@@ -6,6 +6,7 @@ export enum LanguageKeys {
   copyGmailToastMessage = 'copyGmailToastMessage',
   HeroTitle = 'HeroTitle',
   HeroDesc = 'HeroDesc',
+  MobileHero = 'MobileHero',
   BetterSeenInAgentPages_Title = 'BetterSeenInAgentPages_Title',
   BetterSeenInAgentPages_Desc = 'BetterSeenInAgentPages_Desc',
   ViewAgentsPage = 'ViewAgentsPage',
@@ -39,6 +40,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'افزایش مشتریان',
     zh: '增加您的客户',
   },
+  MobileHero: {
+    en: `Be&nbsp;
+     In The&nbsp;
+            <span>Right</span>
+            &nbsp;Place`,
+    fa: `در جای&nbsp;
+            <span>درست</span>
+            &nbsp;باش`,
+    zh: `代替 &nbsp; <span>右</span> &nbsp;是`,
+  },
+
   HeroDesc: {
     en: 'Marabox has more than <span> 2,500 </span> monthly users who are searching for migration to Australia, making Marabox a suitable platform for finding new clients.',
     fa: 'ماراباکس ماهانه بیش از <span> 2,500 </span>  کاربر دارد که در جستجوی مهاجرت به استرالیا هستند و این واقعیت، ماراباکس را به یک پلتفرم ایده‌آل برای یافتن مشتریان جدید تبدیل کرده است.',

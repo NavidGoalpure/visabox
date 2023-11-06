@@ -21,7 +21,7 @@ import {
   TelegramLink,
   TitleSpanTheme,
 } from './styledComponents';
-import { ThemeModes } from 'Interfaces';
+import { Languages, ThemeModes } from 'Interfaces';
 import Image from 'next/image';
 import useTheme from 'Hooks/useTheme';
 import { copyContent } from 'Utils';
@@ -34,9 +34,11 @@ import Link from 'next/link';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { tsParticleOption_Mobile } from 'Styles/animation';
 import PriceList from './PriceTable';
+import { useLocale } from 'Hooks/useLocale';
 
 function MobileAgentsPage() {
   const { theme } = useTheme();
+  const { locale } = useLocale();
   /////////
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);
@@ -59,12 +61,10 @@ function MobileAgentsPage() {
           options={tsParticleOption_Mobile}
         />
         <Hero>
-          <RightPlaceTitle>
-            {' '}
-            در جای&nbsp;
-            <span>درست</span>
-            &nbsp;باش
-          </RightPlaceTitle>
+          <RightPlaceTitle
+            isFarsi={locale === Languages.fa}
+            dangerouslySetInnerHTML={{ __html: t(LanguageKeys.MobileHero) }}
+          />
         </Hero>
         <StyledSectionDivider />
         {/* /////////////////////////موسسات مهاجرتی////////////////////////////// */}

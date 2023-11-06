@@ -72,7 +72,7 @@ const PriceList: React.FC = () => {
             <h2>{t(LanguageKeys.GoldPlan)}</h2>
           </CardTitle>
           <Price>
-            <h4>$399</h4>
+            <h4>$299</h4>
           </Price>
           <Option>
             <ul>
@@ -109,7 +109,7 @@ const PriceList: React.FC = () => {
             <h2>{t(LanguageKeys.DiamondPlan)}</h2>
           </CardTitle>
           <Price>
-            <h4>$699</h4>
+            <h4>$399</h4>
           </Price>
           <Option>
             <ul>
@@ -131,12 +131,6 @@ const PriceList: React.FC = () => {
               </Li>
             </ul>
           </Option>
-          {/* <a
-            className='btn btn-light btn-block'
-            href='https://codepen.io/collection/XdWJOQ/'
-          >
-            Order Now
-          </a> */}
         </MyCard>
       </Grid>
       <Desc

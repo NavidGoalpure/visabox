@@ -122,7 +122,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   PriceTable_Desc: {
     en: 'The prices indicated on the cards are per month. Opt for an annual subscription on any plan to enjoy a <span>25%</span> discount.',
-    fa: 'قیمت‌های اعلام شده برای هر کارت، به صورت ماهیانه می‌باشند. با انتخاب اشتراک سالانه برای هر یک از طرح‌ها، می‌توانید از <span>25%</span> تخفیف بهره‌مند شوید.',
+    fa: 'قیمت‌های اعلام شده برای هر طرح به صورت ماهیانه می‌باشند. با انتخاب اشتراک سالانه برای هر یک از طرح‌ها، می‌توانید از <span>25%</span> تخفیف بهره‌مند شوید.',
     zh: '卡片上显示的价格是每月的价格。 选择任何计划的年度订阅均可享受 25% 的折扣',
   },
   SilverPlan: {

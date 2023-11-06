@@ -8,7 +8,7 @@ import { Hint_BG } from 'Styles/Theme/Hint/theme';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
-import {  deviceMin } from 'Consts/device';
+import { deviceMin } from 'Consts/device';
 const HeroTheme = theme('mode', {
   light: css`
     background: linear-gradient(
@@ -74,8 +74,8 @@ const Desc = styled.p`
   }
 
   @media ${deviceMin.tabletL} {
-    font-size: 32px;
-    line-height: 46px;
+    font-size: 26px;
+    line-height: 30px;
   }
 `;
 const SectionDivider = styled.hr`
@@ -93,6 +93,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 1rem;
 `;
 
 const ContactUsContainer = styled.div`

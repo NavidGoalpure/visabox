@@ -2,7 +2,6 @@ import { deviceMin } from 'Consts/device';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
-import { MdPersonSearch } from 'react-icons/md';
 import DarkHeroImage from './Images/DarkHeroImage.svg';
 import LightHeroImage from './Images/LightHeroImage.svg';
 import { BiMouse } from 'react-icons/bi';
@@ -10,14 +9,9 @@ import DarkAgentCard from './Images/DarkAgentCard.svg';
 import LightAgentCard from './Images/LightAgentCard.svg';
 import DarkVipAgentCard from './Images/DarkVipAgentCard.svg';
 import LightVipAgentCard from './Images/LightVipAgentCard.svg';
-import DarkProfileComponent from './Images/DarkProfileComponent.svg';
-import LightProfileComponent from './Images/LightProfileComponent.svg';
-import DarkAboutComponent from './Images/DarkAboutComponent.svg';
-import LightAboutComponent from './Images/LightAboutComponent.svg';
 import Image from 'next/image';
 import { copyContent, getThemeFromLocalStorage } from 'Utils';
 import { ThemeModes } from 'Interfaces';
-import SocialMediaBranch from './Images/SocialMediaBranch.svg';
 import {
   ContactsDesc,
   ContactsWrapper,
@@ -44,9 +38,12 @@ import type { Engine } from 'tsparticles-engine';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { tsParticleOption_Desktop } from 'Styles/animation';
 import { getGsapTimeLine_Hero } from 'Utils/animations';
+import PriceList from './PriceTable';
+import useTheme from 'Hooks/useTheme';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
+  const { theme } = useTheme();
   useEffect(() => {
     getGsapTimeLine_Hero(setIsActive);
   }, []);
@@ -67,22 +64,16 @@ function Desktop() {
       <Hero className='hero' $isActive={isActive}>
         <HeroWrapper>
           <MonthlyUsersWrapper>
-            <HeroTitle>افزایش مشتریان</HeroTitle>
-            <Desc>
-              ماراباکس ماهانه بیش از 2 هزار کاربر دارد که در جستجوی مهاجرت به
-              استرالیا هستند و این مسئله، ماراباکس را تبدیل به یک پلتفرم مناسب
-              برای پیدا کردن<span> کلاینت های جدید</span> نموده است.
-            </Desc>
+            <HeroTitle>{t(LanguageKeys.HeroTitle)}</HeroTitle>
+            <Desc
+              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.HeroDesc) }}
+            />
           </MonthlyUsersWrapper>
           <HeroPicture
             id={'hero-image'}
             width={431}
             height={272}
-            src={
-              getThemeFromLocalStorage() === ThemeModes.DARK
-                ? DarkHeroImage
-                : LightHeroImage
-            }
+            src={theme === ThemeModes.DARK ? DarkHeroImage : LightHeroImage}
             alt={'hero-image'}
           />
           <MouseSection>
@@ -103,25 +94,23 @@ function Desktop() {
         {/* /////////////////////////موسسات مهاجرتی////////////////////////////// */}
         <Wrapper $isActive={isActive}>
           <Section>
-            <Title>
-              بهتر دیده شدن در صفحه <span>وکلای مهاجرت</span>
-            </Title>
+            <Title
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.BetterSeenInAgentPages_Title),
+              }}
+            />
             <CardContainer>
               <AgentCard
                 width={250}
                 height={200}
-                src={
-                  getThemeFromLocalStorage() === ThemeModes.DARK
-                    ? DarkAgentCard
-                    : LightAgentCard
-                }
+                src={theme === ThemeModes.DARK ? DarkAgentCard : LightAgentCard}
                 alt='normal-agent-card'
               />
               <VipAgentCard
                 width={291}
                 height={304}
                 src={
-                  getThemeFromLocalStorage() === ThemeModes.DARK
+                  theme === ThemeModes.DARK
                     ? DarkVipAgentCard
                     : LightVipAgentCard
                 }
@@ -130,155 +119,96 @@ function Desktop() {
               <AgentCard
                 width={250}
                 height={200}
-                src={
-                  getThemeFromLocalStorage() === ThemeModes.DARK
-                    ? DarkAgentCard
-                    : LightAgentCard
-                }
+                src={theme === ThemeModes.DARK ? DarkAgentCard : LightAgentCard}
                 alt='normal-agent-card'
               />
             </CardContainer>
 
-            <StyledDesc>
-              لیست تمامی وکلای مهاجرت ایرانی که دارای پروانه مارا هستند, در
-              ماراباکس موجود است. با خرید اکانت <span>ویژه</span> وکلای ماراباکس
-              نسبت به رقبای خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار
-              خواهید شد.
-            </StyledDesc>
+            <StyledDesc
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.BetterSeenInAgentPages_Desc),
+              }}
+            />
+
             <StyledDesc style={{ zIndex: '10' }}>
               <Link
-                href={'/lists/agencies'}
+                href={'/lists/agents'}
                 rel='noopener noreferrer'
                 target='_blank'
               >
-                <span>مشاهده صفحه موسسات مهاجرتی</span>
+                <span>{t(LanguageKeys.ViewAgentsPage)}</span>
               </Link>
-            </StyledDesc>
-            {/* /////////////////////////شبکه های اجتماعی////////////////////////////// */}
-          </Section>
-          <SectionDivider />
-          <Section>
-            <Title>
-              بهتر دیده شدن در صفحه <span>شبکه های اجتماعی</span>
-            </Title>
-            <SocialMediaBranchContainer>
-              <SocialMediaBranchImage
-                width={450}
-                height={400}
-                src={SocialMediaBranch}
-                alt='vip-agent-card'
-              />
-            </SocialMediaBranchContainer>
-
-            <StyledDesc>
-              با خرید اکانت <span>ویژه</span> وکلای ماراباکس شبکه های اجتماعی
-              شما نسبت به رقبای خود از جایگاه و نحوه نمایش زیباتری برخودار
-              خواهند شد.
-            </StyledDesc>
-            <StyledDesc style={{ zIndex: '10' }}>
-              <Link
-                href={'/lists/social-pages'}
-                rel='noopener noreferrer'
-                target='_blank'
-              >
-                <span>مشاهده صفحه شبکه‌های اجتماعی</span>
-              </Link>
-            </StyledDesc>
-          </Section>
-          <SectionDivider />
-          {/* /////////////////////////وکلا////////////////////////////// */}
-          <Section>
-            <Title>
-              بهتر دیده شدن در صفحه <span>وکلای مهاجرت</span>
-            </Title>
-
-            <SearchPersonIcon width={291} height={304} />
-            <StyledDesc>
-              لیست تمامی وکلای مهاجرت ایرانی که دارای پروانه مارا هستند, در
-              ماراباکس موجود است. با خرید اکانت <span>ویژه</span> وکلای ماراباکس
-              نسبت به رقبای خود از جایگاه بهتر و نحوه نمایش زیباتری برخوردار
-              خواهید شد.
-            </StyledDesc>
-            <StyledDesc>
-              <span>
-                مشاهده صفحه وکلا
-                <Link href={'/list/agents'} />
-              </span>
             </StyledDesc>
           </Section>
           <SectionDivider />
           {/* /////////////////////////صفحه یک شغل////////////////////////////// */}
           <Section>
-            <Title>
-              دیده شدن در صفحه <span>مشاغل</span>
-            </Title>
+            <Title
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.BetterSeenInOccupationsPages_Title),
+              }}
+            />
             <OccupationCardSection_Img
               width={768}
               height={638}
               alt='occupation-agent-card'
               src={
-                getThemeFromLocalStorage() === ThemeModes.DARK
+                theme === ThemeModes.DARK
                   ? `/Images/landing/Agents/DarkOccupationList.webp`
                   : `/Images/landing/Agents/LightOccupationList.webp`
               }
             />
-            <Desc>
-              با خرید اکانت <span>ویژه</span> وکلای ماراباکس می‌توانید تبلیغات
-              خود را در صفحه اختصاصی هر شغل نشان دهید. در این حالت, کاربری که در
-              حال بررسی شرایط یک شغل خاص می‌باشد, در صفحه ی همان شغل با خدمات
-              شما آشنا خواهد شد.{' '}
-            </Desc>
+            <Desc
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.BetterSeenInOccupationsPages_Desc),
+              }}
+            />
           </Section>
           <SectionDivider />
-          {/* /////////////////////////صفحه اختصاصی////////////////////////////// */}
+          {/* /////////////////////////صفحه فرم وال////////////////////////////// */}
           <Section>
-            <Title>
-              <span>صفحه اختصاصی</span> خود را داشته باشید
-            </Title>
-            <ProfileComponentImage
-              src={
-                getThemeFromLocalStorage() === ThemeModes.DARK
-                  ? DarkProfileComponent
-                  : LightProfileComponent
-              }
-              alt={'profile-component'}
-              width={736}
-              height={213}
+            <Title
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.AccessToFormsWall_Title),
+              }}
             />
-            <AboutComponentImage
+            <OccupationCardSection_Img
+              width={768}
+              height={638}
+              alt='Form-Client-Page'
               src={
-                getThemeFromLocalStorage() === ThemeModes.DARK
-                  ? DarkAboutComponent
-                  : LightAboutComponent
+                theme === ThemeModes.DARK
+                  ? `/Images/landing/Agents/FormDark.webp`
+                  : `/Images/landing/Agents/FormLight.webp`
               }
-              alt={'about-component'}
-              width={734}
-              height={213}
             />
-
-            <Desc>
-              وکلای <span>ویژه</span> در صفحه اختصاصی خود میتوانند توضیحات
-              تکمیلی به کاربران اراِیه کنند تا آنها را مشتاق به تماس نمایند.
-            </Desc>
+            <Desc
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.AccessToFormsWall_Desc),
+              }}
+            />
           </Section>
           <SectionDivider />
+          {/* ////////////////Price Table////////////// */}
+          <PriceList />
           {/* ////////////////تماس با ما////////////// */}
           <ContactUsContainer>
-            <ContactsDesc>
-              اگر مایل هستید که <span>اکانت</span> ویژه وکلای ماراباکس را داشته
-              باشید,از راه های زیر با ما در ارتباط باشید.
-            </ContactsDesc>
+            <ContactsDesc
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.ContactUs),
+              }}
+            />
             <ContactsWrapper>
               <GmailContainer
                 onClick={() =>
                   copyContent({
-                    text: 'maraboxmigration@gmail.com',
+                    text: 'marketing@marabox.com.au',
                     toastMessage: phoneToastMessage,
                   })
                 }
               >
                 <GmailIcon />
-                <GmailLink>maraboxmigration@gmail.com</GmailLink>
+                <GmailLink>marketing@marabox.com.au</GmailLink>
               </GmailContainer>
               <TelegramContainer
                 href={'https://t.me/maraboxmigration'}
@@ -440,16 +370,6 @@ const LogoTheme = theme('mode', {
     color: var(--color-gray13);
   `,
 });
-const SearchPersonIcon = styled(MdPersonSearch)`
-  ${LogoTheme};
-  width: 8rem;
-  height: auto;
-  margin-bottom: 1.5rem;
-`;
-const SocialMediaBranchContainer = styled.div``;
-const SocialMediaBranchImage = styled(Image)`
-  z-index: 10;
-`;
 const OccupationCardSection_Img = styled(Image)`
   z-index: 10;
   width: 100%;
@@ -457,12 +377,4 @@ const OccupationCardSection_Img = styled(Image)`
   margin-bottom: 1.5rem;
   scale: 70%;
   margin-top: -5rem;
-`;
-const ProfileComponentImage = styled(Image)`
-  z-index: 10;
-  margin-bottom: 1.5rem;
-`;
-const AboutComponentImage = styled(Image)`
-  z-index: 10;
-  margin-bottom: 1.5rem;
 `;

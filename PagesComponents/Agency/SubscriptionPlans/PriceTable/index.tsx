@@ -32,7 +32,7 @@ const PriceList: React.FC = () => {
         >
           <CardTitle>
             <StyledSilverIcon />
-            <h2> Silver</h2>
+            <h2>{t(LanguageKeys.SilverPlan)}</h2>
           </CardTitle>
           <Price>
             <h4>$199</h4>
@@ -69,7 +69,7 @@ const PriceList: React.FC = () => {
           <CardTitle>
             <StyledGoldIcon />
 
-            <h2>Gold</h2>
+            <h2>{t(LanguageKeys.GoldPlan)}</h2>
           </CardTitle>
           <Price>
             <h4>$399</h4>
@@ -106,7 +106,7 @@ const PriceList: React.FC = () => {
           <CardTitle>
             <StyledDiamondIcon />
 
-            <h2>Diamond</h2>
+            <h2>{t(LanguageKeys.DiamondPlan)}</h2>
           </CardTitle>
           <Price>
             <h4>$699</h4>

@@ -19,6 +19,9 @@ export enum LanguageKeys {
   PriceTable_Subtitle = 'PriceTable_Subtitle',
   PriceTable_Desc = 'PriceTable_Desc',
   ContactUs = 'ContactUs',
+  SilverPlan = 'SilverPlan',
+  GoldPlan = 'GoldPlan',
+  DiamondPlan = 'DiamondPlan',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -43,7 +46,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   MobileHero: {
     en: `Be&nbsp;
-     I The&nbsp;
+     In The&nbsp;
             <span>Right</span>
             &nbsp;Place`,
     fa: `در جای&nbsp;
@@ -121,5 +124,20 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'The prices indicated on the cards are per month. Opt for an annual subscription on any plan to enjoy a <span>25%</span> discount.',
     fa: 'قیمت‌های اعلام شده برای هر کارت، به صورت ماهیانه می‌باشند. با انتخاب اشتراک سالانه برای هر یک از طرح‌ها، می‌توانید از <span>25%</span> تخفیف بهره‌مند شوید.',
     zh: '卡片上显示的价格是每月的价格。 选择任何计划的年度订阅均可享受 25% 的折扣',
+  },
+  SilverPlan: {
+    en: 'Silver Plan',
+    fa: ' طرح نقره ای',
+    zh: '白银计划',
+  },
+  GoldPlan: {
+    en: 'Gold Plan',
+    fa: 'طرح طلایی',
+    zh: '白银计划',
+  },
+  DiamondPlan: {
+    en: 'Diamond Plan',
+    fa: 'طرح الماس',
+    zh: '钻石计划',
   },
 };

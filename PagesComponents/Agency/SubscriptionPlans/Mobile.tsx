@@ -120,11 +120,20 @@ function MobileAgentsPage() {
             }
             alt='occupation-image'
           />
-          <Desc
+          <StyledDesc
             dangerouslySetInnerHTML={{
               __html: t(LanguageKeys.PromoteInOccupationsPages_Desc),
             }}
           />
+          <StyledDesc style={{ zIndex: '10' }}>
+            <Link
+              href={'/occupations/construction-project-manager'}
+              rel='noopener noreferrer'
+              target='_blank'
+            >
+              <span>{t(LanguageKeys.ViewOccupationPage)}</span>
+            </Link>
+          </StyledDesc>
         </StyledSection>
         <StyledSectionDivider />
         {/* /////////////////////////صفحه فرم وال////////////////////////////// */}

@@ -101,7 +101,6 @@ const PriceList: React.FC = () => {
           </a> */}
         </MyCard>
       </Grid>
-      {/* //navid */}
       <Desc
         style={{ marginBottom: '2rem' }}
         dangerouslySetInnerHTML={{

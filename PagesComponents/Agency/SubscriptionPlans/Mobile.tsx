@@ -208,7 +208,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 0 1rem;
   @media ${deviceMin.tabletS} {
     justify-content: space-between;
   }

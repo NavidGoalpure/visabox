@@ -20,7 +20,7 @@ import { calculateAge } from 'Utils/clients';
 import { useRouter } from 'next/router';
 import { useLocale } from 'Hooks/useLocale';
 
-const Step3 = () => {
+const BirthDateStep = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { client, setClient, score } = useContext(FormDataContext);
@@ -101,4 +101,4 @@ const Step3 = () => {
     </Container>
   );
 };
-export default Step3;
+export default BirthDateStep;

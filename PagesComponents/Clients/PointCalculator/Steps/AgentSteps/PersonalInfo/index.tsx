@@ -13,7 +13,7 @@ import {
 import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
 import { WizardContext } from '../../../Contexts/Wizard/Context';
 
-const Step2 = () => {
+const PersonalInfoStep = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { client, setClient } = useContext(FormDataContext);
@@ -87,4 +87,4 @@ const Step2 = () => {
     </Container>
   );
 };
-export default Step2;
+export default PersonalInfoStep;

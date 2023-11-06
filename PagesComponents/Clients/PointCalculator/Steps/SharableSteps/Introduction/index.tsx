@@ -17,7 +17,7 @@ import { WizardContext } from '../../../Contexts/Wizard/Context';
 import { NextIcon, NextButton } from '../../StyledComponents';
 import { componentStatements, LanguageKeys } from './const';
 
-const Step0 = () => {
+const IntroductionStep = () => {
   const { theme } = useTheme();
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleNextPress } = useContext(WizardContext);
@@ -45,7 +45,7 @@ const Step0 = () => {
     </Container>
   );
 };
-export default Step0;
+export default IntroductionStep;
 const BackgroundTheme = theme('mode', {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);

@@ -33,7 +33,7 @@ import { SearchInputComponent } from 'Components/SearchInputComponent';
 import { SupportedCountry } from 'Interfaces/Database';
 import AddDegreesSection from './AddDegreeSection';
 
-const Step5 = () => {
+const EducationStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient } = useContext(FormDataContext);
@@ -377,7 +377,7 @@ const Step5 = () => {
     </Container>
   );
 };
-export default Step5;
+export default EducationStep;
 
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;

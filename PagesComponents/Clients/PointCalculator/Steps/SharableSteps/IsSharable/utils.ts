@@ -12,6 +12,15 @@ import {
 } from "Interfaces/Database/Client";
 import { Status, SupportedCountry } from "Interfaces/Database";
 import ErrorToast from "Elements/Toast/Error";
+// this is made for all_degrees
+const clientAllDegreesSchema = object().shape({
+  label: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
+  uni_section: mixed()
+    .oneOf([...Object.values(UniSections)])
+    .nullable(),
+  field_of_study: string().nullable(),
+  graduation_date: string().nullable(),
+});
 
 export function validateClientDataWithYup(client: Client | undefined) {
   let userSchema = object({
@@ -31,6 +40,7 @@ export function validateClientDataWithYup(client: Client | undefined) {
     is_partner_competent_english_speaker: boolean().notRequired(),
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
+    all_degrees: array().of(clientAllDegreesSchema),
     current_job: string().required(),
     work_experience: mixed<WorkExperience>()
       .oneOf(Object.values(WorkExperience))

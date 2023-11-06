@@ -20,7 +20,7 @@ import { ClientMarital } from 'Interfaces/Database/Client';
 import { maritalStatuses, YesOrNo } from 'Consts/Client';
 import { componentStatements, LanguageKeys } from './const';
 
-const Step5 = () => {
+const MarriageStatusStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient, score } = useContext(FormDataContext);
@@ -183,7 +183,7 @@ const Step5 = () => {
     </Container>
   );
 };
-export default Step5;
+export default MarriageStatusStep;
 const ToggleGroupRoot = styled(ToggleGroup.Root)`
   gap: 1rem;
   width: 100%;

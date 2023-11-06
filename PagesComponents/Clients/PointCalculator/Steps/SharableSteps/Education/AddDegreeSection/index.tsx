@@ -24,7 +24,6 @@ import { useLocale } from "Hooks/useLocale";
 const AddDegreesSection = () => {
   const { client, setClient } = useContext(FormDataContext);
   const { locale } = useLocale();
-  const [slideIndex, setSlideIndex] = useState(0);
   useEffect(() => {
     const swiper = new Swiper(".my-swiper", {
       // effect: "coverflow",
@@ -44,15 +43,12 @@ const AddDegreesSection = () => {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      on: {
-        slideChange: function (e: Swiper) {
-          setSlideIndex(e.activeIndex);
-        },
-      },
+      
     });
   }, [client]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDegreeLabel, setSelectedDegreeLabel] = useState<string>("");
+  
   return (
     <Container>
       <AddDegreeModal
@@ -110,20 +106,14 @@ const AddDegreesSection = () => {
         </SwiperWrapper>
       </StyledSwiper>
       <ButtonWrapper>
-        {/* {slideIndex > 0 && ( */}
-          <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
-            {client?.all_degrees?.[slideIndex - 1]?.label}
-          </PrevButton>
-        {/* )} */}
-        {client?.all_degrees &&
-          slideIndex < client?.all_degrees?.length - 1 && (
-            <NextButton
-              icon={<NextButtonArrow />}
-              className="swiper-button-next"
-            >
-              لیسانس
-            </NextButton>
-          )}
+        <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
+          {/* {client?.all_degrees?.[slideIndex - 1]?.label} */}
+        </PrevButton>
+        <NextButton
+          icon={<NextButtonArrow />}
+          className="swiper-button-next"
+        >
+        </NextButton>
       </ButtonWrapper>
     </Container>
   );

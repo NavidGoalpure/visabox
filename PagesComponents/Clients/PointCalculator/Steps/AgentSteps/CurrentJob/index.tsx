@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { Input } from 'Components/Input';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { useContext } from 'react';
+import styled from "styled-components";
+import { Input } from "Components/Input";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { useContext } from "react";
 import {
   ButtonWrapper,
   NextButton,
@@ -10,11 +10,11 @@ import {
   Container,
   PrevButton,
   PrevIcon,
-} from '../../StyledComponents';
-import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
-import { WizardContext } from '../../../Contexts/Wizard/Context';
+} from "../../StyledComponents";
+import { FormDataContext } from "../../../Contexts/FormDataContext/Context";
+import { WizardContext } from "../../../Contexts/Wizard/Context";
 
-const Step7 = () => {
+const CurrentJobStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient, score } = useContext(FormDataContext);
@@ -24,7 +24,7 @@ const Step7 = () => {
       <StyledInput
         required
         label={t(LanguageKeys.CurrentJobInputLabel)}
-        inputName='current-job'
+        inputName="current-job"
         placeholder={t(LanguageKeys.CurrentJobInputPlaceholder)}
         value={client?.current_job}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +55,7 @@ const Step7 = () => {
     </Container>
   );
 };
-export default Step7;
+export default CurrentJobStep;
 
 const StyledInput = styled(Input)`
   margin-top: 1rem;

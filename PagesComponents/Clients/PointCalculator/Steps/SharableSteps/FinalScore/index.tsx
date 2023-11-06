@@ -18,7 +18,7 @@ import Link from 'next/link';
 import { Languages } from 'Interfaces';
 
 //
-const Step12 = () => {
+const FinalStep = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { score } = useContext(FormDataContext);
   const router = useRouter();
@@ -48,7 +48,7 @@ const Step12 = () => {
     </Container>
   );
 };
-export default Step12;
+export default FinalStep;
 const BackgroundTheme = theme('mode', {
   light: css`
     background: linear-gradient(140.49deg, #f5f8fc 53.63%, #dde2eb 99.96%);

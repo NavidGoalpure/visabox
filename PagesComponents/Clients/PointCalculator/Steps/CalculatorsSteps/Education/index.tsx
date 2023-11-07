@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import * as ToggleGroup from '../../../../../../Elements/ToggleGroup';
 import { Input } from 'Components/Input';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { AllDegreesTemplate, componentStatements, LanguageKeys } from './const';
-import { WizardContext } from '../../../../../../Components/Wizard/Context';
-import { useContext, useEffect } from 'react';
+import * as ToggleGroup from 'Elements/ToggleGroup';
+import { componentStatements, LanguageKeys } from './const';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -20,32 +19,21 @@ import {
   StyledTooltipTag,
   Title,
 } from '../../StyledComponents';
-import { FormDataContext } from '../../../Contexts/FormDataContext/Context';
 import { ClientDegree, UniSections } from 'Interfaces/Database/Client';
 import { educations, uniSections, YesOrNo } from 'Consts/Client';
 import { useLocale } from 'Hooks/useLocale';
 import { Languages } from 'Interfaces';
 import { SearchInputComponent } from 'Components/SearchInputComponent';
 import { SupportedCountry } from 'Interfaces/Database';
-import AddDegreesSection from './AddDegreeSection';
+import { WizardContext } from 'Components/Wizard/Context';
+import { FormDataContext } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context';
 
 const EducationStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
   const { client, setClient } = useContext(FormDataContext);
   const { locale } = useLocale();
-  useEffect(() => {
-    const AllDegreesTemplateIndex = AllDegreesTemplate.findIndex(
-      (el) => el.label === client?.degree
-    );
-    client &&
-      !client?.all_degrees &&
-      setClient({
-        ...client,
-        all_degrees: AllDegreesTemplate.slice(0, AllDegreesTemplateIndex + 1),
-      });
-  }, []);
-  console.log('navid client ===', client?.all_degrees);
+
   return (
     <Container>
       <StyledInput
@@ -106,16 +94,17 @@ const EducationStep = () => {
             <SearchInputComponent
               placeholder={t(LanguageKeys.UniInput_Placeholder)}
               theme={'LAYER1'}
-              callback={(university) => {
+              callback={(univercity) => {
                 client &&
                   setClient({
                     ...client,
-                    uni_section: university,
+                    uni_section: univercity,
                   });
               }}
             />
           </>
         )}
+
       <Title>
         {t(LanguageKeys.DegreeOfEducationSectionTitle)}{' '}
         <StyledTooltipTag
@@ -131,17 +120,10 @@ const EducationStep = () => {
         type='single'
         value={client?.degree}
         onValueChange={(value: ClientDegree) => {
-          const AllDegreesTemplateIndex = AllDegreesTemplate.findIndex(
-            (el) => el.label === value
-          );
           client &&
             setClient({
               ...client,
               degree: value,
-              all_degrees: AllDegreesTemplate.slice(
-                0,
-                AllDegreesTemplateIndex + 1
-              ),
             });
         }}
       >
@@ -157,9 +139,6 @@ const EducationStep = () => {
           </>
         }
       </ToggleGroupRoot>
-      {!!client?.degree && client?.degree !== ClientDegree.IDontHaveAny && (
-        <AddDegreesSection />
-      )}
 
       <StyledTitle>
         {t(LanguageKeys.AustralianEducationalQualificationTitle)}{' '}
@@ -356,11 +335,6 @@ const EducationStep = () => {
             handleNextPress();
           }}
           disabled={
-            (client?.all_degrees?.length &&
-              client?.all_degrees?.length > 0 &&
-              client?.all_degrees?.every(
-                (el) => el.graduation_date === null
-              )) ||
             !client?.field_of_study ||
             !client?.degree ||
             !client?.uni_section ||

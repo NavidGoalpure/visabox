@@ -28,8 +28,8 @@ const SmartSteps: React.FC = () => {
 
   return (
     <Container>
-      {step !== 0 && step !== 12 && (
-        <Slider currentStep={step} end={steps.length - 1} />
+      {step !== steps.length && (
+        <Slider currentStep={step + 1} end={steps.length - 1} />
       )}
       <StepsWrapper>{steps[step]}</StepsWrapper>
     </Container>

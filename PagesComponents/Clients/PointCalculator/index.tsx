@@ -19,7 +19,7 @@ function Content() {
 
   return (
     <Container>
-      <WizardContextProvider firstStep={0}>
+      <WizardContextProvider>
         <StyledMaraBgAnimation animationSpeed={60}>
           {status === 'loading' || status === 'unauthenticated' ? (
             <Loading />

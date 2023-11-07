@@ -8,7 +8,9 @@ import { Hint_BG } from 'Styles/Theme/Hint/theme';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
-import {  deviceMin } from 'Consts/device';
+import { deviceMin } from 'Consts/device';
+import { directionStyles } from 'Styles/Theme';
+
 const HeroTheme = theme('mode', {
   light: css`
     background: linear-gradient(
@@ -43,17 +45,20 @@ const TitleSpanTheme = theme('mode', {
   `,
 });
 
-const RightPlaceTitle = styled.h2`
+const RightPlaceTitle = styled.h2<{ isFarsi?: boolean }>`
   ${Headline1Style};
   ${layer1_TextColor};
   width: 100%;
   text-align: center;
   margin-bottom: 7rem;
+  white-space: pre-line;
+  line-height: ${({ isFarsi }) => (isFarsi ? '9rem' : '7rem')};
   span {
     padding: 0 1rem;
     display: inline-block;
     margin-top: 1rem;
-    transform: rotate(-10deg);
+    ${({ isFarsi }) => isFarsi && 'transform: rotate(-10deg);'}
+    line-height: ${({ isFarsi }) => (isFarsi ? '9rem' : '8rem')};
     background: var(--color-primary5);
     border-radius: 20px;
     color: white;
@@ -74,8 +79,8 @@ const Desc = styled.p`
   }
 
   @media ${deviceMin.tabletL} {
-    font-size: 32px;
-    line-height: 46px;
+    font-size: 26px;
+    line-height: 30px;
   }
 `;
 const SectionDivider = styled.hr`
@@ -86,6 +91,7 @@ const SectionDivider = styled.hr`
   margin-bottom: 5.5rem;
 `;
 const Section = styled.section`
+  ${directionStyles}
   width: 100%;
   margin-bottom: 5rem;
   min-height: 100vh;
@@ -93,6 +99,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 1rem;
 `;
 
 const ContactUsContainer = styled.div`

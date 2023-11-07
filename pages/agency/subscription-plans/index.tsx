@@ -6,9 +6,9 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Landings/Agents/const';
+} from 'PagesComponents/Agency/SubscriptionPlans/const';
 import styled from 'styled-components';
-import Content from 'PagesComponents/Landings/Agents';
+import Content from 'PagesComponents/Agency/SubscriptionPlans';
 
 const AgentsIntroduction: NextPage = () => {
   const { locale } = useLocale();
@@ -18,7 +18,7 @@ const AgentsIntroduction: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/landing/agents`}
+        canonical={`https://www.marabox.com/${locale}/agency/subscription-plans`}
       />
       <Content />
     </StyledPageLayout>

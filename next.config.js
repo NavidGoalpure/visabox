@@ -52,6 +52,7 @@ const config = {
   images: {
     formats: ['image/webp'],
     domains: ['binsta.dev', 'lh3.googleusercontent.com'],
+    disableStaticImages: false,
   },
 };
 const sentryWebpackPluginOptions = {

@@ -5,7 +5,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from '../../PagesComponents/Clients/PointCalculator/Steps/SharableSteps/Education/const';
+} from '../../PagesComponents/Clients/PointCalculator/Steps/CalculatorsSteps/Education/const';
 import { University } from 'Interfaces/Database/university';
 import theme from 'styled-theming';
 import styled, { css } from 'styled-components';

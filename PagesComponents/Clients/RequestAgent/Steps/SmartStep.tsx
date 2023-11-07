@@ -1,28 +1,40 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
-import BirthDate from './CalculatorsSteps/BirthDate';
-import MarriageStatus from './CalculatorsSteps/MarriageStatus';
-import Education from './CalculatorsSteps/Education';
-import OverseasWorkExperience from './CalculatorsSteps/OverseasWorkExperience';
-import AustralianWorkExperience from './CalculatorsSteps/AustralianWorkExperience';
-import English from './CalculatorsSteps/English';
-import ProfessionalYearInAustralia from './CalculatorsSteps/ProfessionalYearInAustralia';
-import FinalScore from './CalculatorsSteps/FinalScore';
-import { WizardContext } from '../../../../Components/Wizard/Context';
+import Introduction from './AgentSteps/Introduction';
+import Country from './AgentSteps/Country';
+import PersonalInfo from './AgentSteps/PersonalInfo';
+import BirthDate from './AgentSteps/BirthDate';
+import MarriageStatus from './AgentSteps/MarriageStatus';
+import Education from './AgentSteps/Education';
+import CurrentJob from './AgentSteps/CurrentJob';
+import OverseasWorkExperience from './AgentSteps/OverseasWorkExperience';
+import AustralianWorkExperience from './AgentSteps/AustralianWorkExperience';
+import English from './AgentSteps/English';
+import ProfessionalYearInAustralia from './AgentSteps/ProfessionalYearInAustralia';
+import IsSharable from './AgentSteps/IsSharable';
+import FinalScore from './AgentSteps/FinalScore';
+
 import Slider from 'Components/SliderComponent';
-import Wizard from '../../../../Components/Wizard';
+
 import { deviceMin } from 'Consts/device';
+import { WizardContext } from 'Components/Wizard/Context';
+import Wizard from 'Components/Wizard';
 
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
   const steps = [
+    <Introduction />,
+    <Country />,
+    <PersonalInfo />,
     <BirthDate />,
     <MarriageStatus />,
     <Education />,
+    <CurrentJob />,
     <OverseasWorkExperience />,
     <AustralianWorkExperience />,
     <English />,
     <ProfessionalYearInAustralia />,
+    <IsSharable />,
     <FinalScore />,
   ];
 

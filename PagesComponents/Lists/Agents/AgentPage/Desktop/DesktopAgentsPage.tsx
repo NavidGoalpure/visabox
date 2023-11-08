@@ -110,7 +110,6 @@ export default DesktopAgentsPage;
 const HeaderBackground = theme("mode", {
   light: css`
     background-image: url("/Images/Patterns/AlternativeLightPattern.svg");
-    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
   `,
   dark: css`
     background-image: url("/Images/Patterns/AlternativeDarkPattern.svg");
@@ -119,17 +118,14 @@ const HeaderBackground = theme("mode", {
 
 export const ContainerBackground = theme('mode', {
   light: css`
-  background: linear-gradient(
-    var(--color-gray9) 0 50%,
-    var(--color-gray11) 0% 100%
-    );
+    background: linear-gradient(180deg, var(--color-gray8) 58.85%, rgba(40, 40, 40, 0.00) 100%);
     `,
     dark: css`
     background: linear-gradient(180deg, var(--color-gray2) 58.85%,  var(--color-gray3) 100%);
   `,
 });
 
-const TitleColor = theme('mode', {
+const MaraNumberColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -147,6 +143,17 @@ const LineColor = theme('mode', {
   `,
 });
 
+
+const ProfileCircle = theme('mode', {
+  light: css`
+    background-color: rgba(177, 177, 177, 0.15);
+    `,
+    dark: css`
+    background-color: rgba(61, 61, 61, 0.15);
+  `,
+});
+
+
 const MaraPageButtonTheme = theme("mode", {
   light: css`
     color: var(--color-gray8);
@@ -160,9 +167,9 @@ const MaraPageButtonTheme = theme("mode", {
 const BackgroundPattern = styled.div`
   ${HeaderBackground}
   width: 100%;
-  height: 100%;
+  height: 50%;
   position: absolute;
-  top: 0;
+  // top: 0;
   right: 0;
 `;
 
@@ -176,7 +183,7 @@ const BackgroundPattern = styled.div`
 
 const Container = styled.div`
   ${ContainerBackground}
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -186,6 +193,7 @@ const Container = styled.div`
 `;
 const SmallBox = styled.header`
   ${layer2A_BodyStyle}
+  box-shadow: none;
   background: none;
   display: flex;
   flex-direction: column;
@@ -196,8 +204,9 @@ const SmallBox = styled.header`
   gap: 2rem;
   margin-bottom: 4rem;
   align-items: center;
-`;
-const ProfilePictureWrapper = styled.div`
+  `;
+  const ProfilePictureWrapper = styled.div`
+  ${ProfileCircle}
   flex-shrink: 0;
   width: 14.125rem;
   height: 14.125rem;
@@ -206,7 +215,6 @@ const ProfilePictureWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(61, 61, 61, 0.15);
   border-radius: 50%;
 `;
 const ProfilePicture = styled(Image)`
@@ -246,16 +254,19 @@ const Data = styled.div`
   flex-direction: column;
   width: 100%;
   text-align: center;
+  color: var(--color-gray13) !important;
   //   justify-content: center;
   //   align-items: center;
-`;
-const Name = styled.h2`
-  ${TitleColor}
+  `;
+  const Name = styled.h2`
+  ${MaraNumberColor}
   ${layer2A_TitleStyle}
   z-index:1;
+  color: var(--color-gray13) !important;
   margin-bottom: 1.5rem;
-`;
-const MaraNumberContainer = styled.div`
+  `;
+  const MaraNumberContainer = styled.div`
+  color: var(--color-gray13) !important;
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;

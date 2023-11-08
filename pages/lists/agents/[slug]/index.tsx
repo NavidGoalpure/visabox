@@ -30,7 +30,7 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
   if (errorCode) return <Error statusCode={errorCode} />;
   const date = new Date();
   return (
-    <PageLayout style={{padding:"0"}}>
+    <StyledPageLayout>
       <Seo
         //navid fix persian seo
         title={
@@ -53,7 +53,7 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
           errorSubTitle={`Sorry, we couldn't find the page you're looking for. Please check the URL you entered or try searching for what you need. If you believe this is an issue on our end, please contact our support team for assistance.`}
         />
       )}
-    </PageLayout>
+    </StyledPageLayout>
   );
 };
 export default AgentPage;
@@ -96,5 +96,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 
 const StyledPageLayout = styled(PageLayout)`
-padding: 0;
+#PageContainer-content{
+  padding: 0;
+  align-items: center;
+}
 `

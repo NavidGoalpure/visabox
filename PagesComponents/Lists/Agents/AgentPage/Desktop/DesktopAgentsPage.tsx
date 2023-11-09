@@ -54,8 +54,6 @@ function DesktopAgentsPage({
     <Container {...props}>
     <BackgroundPattern>
     </BackgroundPattern>
-    {/* <BackgroundColor>
-    </BackgroundColor> */}
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
@@ -90,10 +88,10 @@ function DesktopAgentsPage({
         <Desc>{ChosenAgent?.desc}</Desc> */}
 
         <DesktopContactComponent
-          phone={ChosenAgent?.phone}
+          // phone={ChosenAgent?.phone}
           website={ChosenAgent?.website}
           email={ChosenAgent?.email}
-          address={ChosenAgent?.contact?.address}
+          // address={ChosenAgent?.contact?.address}
 />
       <MaraPageButton 
       // navid inja bayad link konim to safhe mara khodeshoon
@@ -109,19 +107,12 @@ export default DesktopAgentsPage;
 
 const HeaderBackground = theme("mode", {
   light: css`
-    background-image: url("/Images/Patterns/AlternativeLightPattern.svg");
+    background-image: url("/Images/Patterns/LightPattern.svg");
+    opacity: 100%;
   `,
   dark: css`
-    background-image: url("/Images/Patterns/AlternativeDarkPattern.svg");
-  `,
-});
-
-export const ContainerBackground = theme('mode', {
-  light: css`
-    background: linear-gradient(180deg, var(--color-gray8) 58.85%, rgba(40, 40, 40, 0.00) 100%);
-    `,
-    dark: css`
-    background: linear-gradient(180deg, var(--color-gray2) 58.85%,  var(--color-gray3) 100%);
+    background-image: url("/Images/Patterns/DarkPattern.svg");
+    opacity: 50%;
   `,
 });
 
@@ -163,13 +154,21 @@ const MaraPageButtonTheme = theme("mode", {
   `,
 });
 
+const TitleColor = theme("mode", {
+  light: css`
+    color: var(--color-gray6);
+  `,
+  dark: css`
+    color: var(--color-gray13);
+  `,
+});
 
 const BackgroundPattern = styled.div`
   ${HeaderBackground}
   width: 100%;
-  height: 50%;
+  height: 100%;
   position: absolute;
-  // top: 0;
+  top: 0;
   right: 0;
 `;
 
@@ -182,7 +181,6 @@ const BackgroundPattern = styled.div`
 // `;
 
 const Container = styled.div`
-  ${ContainerBackground}
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -250,23 +248,23 @@ transform: rotate(-90deg);
 `
 
 const Data = styled.div`
+  ${TitleColor}
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
-  color: var(--color-gray13) !important;
   //   justify-content: center;
   //   align-items: center;
   `;
   const Name = styled.h2`
+  ${TitleColor}
   ${MaraNumberColor}
   ${layer2A_TitleStyle}
   z-index:1;
-  color: var(--color-gray13) !important;
   margin-bottom: 1.5rem;
   `;
   const MaraNumberContainer = styled.div`
-  color: var(--color-gray13) !important;
+  ${TitleColor}
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
@@ -285,7 +283,6 @@ const MaraPageButton = styled.button`
   gap: 0.5rem;
   transition: all 0.3s ease;
   cursor: auto;
-  backdrop-filter: blur(10px);
 `;
 
 const LinkIcon = styled(GoLinkExternal)`
@@ -293,6 +290,7 @@ const LinkIcon = styled(GoLinkExternal)`
 
 const MaraNumberTitle = styled.h3`
   ${layer2A_Key}
+  ${TitleColor}
   margin:0;
   width: auto;
 `;

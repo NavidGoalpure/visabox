@@ -86,7 +86,18 @@ const {dt} = useDynamicTranslation()
 
 export { DesktopContactComponent };
 
+const TitleAndIconColor = theme("mode", {
+  light: css`
+    color: var(--color-gray6);
+  `,
+  dark: css`
+    color: var(--color-gray13);
+  `,
+});
+
+
 const Icon = css`
+  ${TitleAndIconColor}
   ${layer2A_TextColor}
   width: 3rem;
   height: 3rem;
@@ -117,7 +128,6 @@ const InternetTitle = styled.h3`
   ${layer2A_TextColor}
   ${layer2A_SubtitleStyle}
   word-break: break-all;
-
   direction: ltr;
 `;
 const GmailContainer = styled.div`
@@ -125,7 +135,7 @@ const GmailContainer = styled.div`
   cursor: auto;
 `;
 const GmailIcon = styled(SiGmail)`
-  ${Icon}
+${Icon}
 `;
 const GmailTitle = styled(InternetTitle)`
   direction: ltr;

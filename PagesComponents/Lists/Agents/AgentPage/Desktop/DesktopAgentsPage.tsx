@@ -54,6 +54,8 @@ function DesktopAgentsPage({
     <Container {...props}>
     <BackgroundPattern>
     </BackgroundPattern>
+      <AgentContentContainer>
+
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
@@ -63,11 +65,11 @@ function DesktopAgentsPage({
               ChosenAgent?.name
                 ? `${dt(ChosenAgent?.name)} image`
                 : 'agent image'
-            }
-            onError={() => {
-              setImgSrc(`/Images/placeholder.jpeg`);
-            }}
-          />
+              }
+              onError={() => {
+                setImgSrc(`/Images/placeholder.jpeg`);
+              }}
+              />
           {/* <VIPBoxContainer aria-hidden={true}>
             <VIPBox aria-hidden={true} />
           </VIPBoxContainer> */}
@@ -100,6 +102,7 @@ function DesktopAgentsPage({
         <LinkIcon />
       </MaraPageButton>
       </AboutContainer>
+        </AgentContentContainer>
     </Container>
   );
 }
@@ -130,7 +133,7 @@ const LineColor = theme('mode', {
     background-color: var(--color-gray9);
   `,
   dark: css`
-    background-color: var(--color-gray3);
+    background-color: var(--color-gray6);
   `,
 });
 
@@ -189,31 +192,47 @@ const Container = styled.div`
   padding: 4rem 0;
   gap: 1rem;
 `;
-const SmallBox = styled.header`
+
+const AgentContentContainer = styled.div`
   ${layer2A_BodyStyle}
-  box-shadow: none;
-  background: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  width: 21rem;
-  border-radius: 15px;
-  padding: 1.5rem;
+  border-radius: 50px;
+  padding: 4rem;
   gap: 2rem;
   margin-bottom: 4rem;
   align-items: center;
+  z-index: 1;
+  `;
+
+const SmallBox = styled.header`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  gap: 1rem;
+  align-items: center;
   `;
   const ProfilePictureWrapper = styled.div`
-  ${ProfileCircle}
   flex-shrink: 0;
-  width: 14.125rem;
-  height: 14.125rem;
   z-index: 1;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  :before {
+    content: "";
+    background-color: var(--color-gray3);  
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    transform:scale(1.25);
+    opacity: 0.15;
+  }
 `;
 const ProfilePicture = styled(Image)`
   width: 10.5rem !important;
@@ -241,7 +260,7 @@ const VIPBox = styled(FiBox)`
 `;
 
 const Hr = styled.div`
-${LineColor}
+${ProfileCircle}
 width: 8rem;
 height: 4px;
 transform: rotate(-90deg);

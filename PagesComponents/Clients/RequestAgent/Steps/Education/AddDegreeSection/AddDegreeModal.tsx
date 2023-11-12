@@ -34,7 +34,7 @@ import {
   HintText,
   InfoHintIcon,
   Title,
-} from "../../../StyledComponents";
+} from "../../StyledComponents";
 import { uniSections } from "Consts/Client";
 import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
 import { SupportedCountry } from "Interfaces/Database";

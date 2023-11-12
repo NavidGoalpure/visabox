@@ -53,7 +53,7 @@ export interface ClientAllDegrees {
   graduation_date: string | null;
 }
 export interface ClientCompletedForms_obj {
-  forms: ClientCompletedForms;
+  form: ClientCompletedForms;
   _type: "client_completed_forms_obj";
   _key: string;
 }

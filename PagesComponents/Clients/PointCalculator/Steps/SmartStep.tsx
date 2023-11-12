@@ -1,17 +1,17 @@
-import { useContext } from 'react';
-import styled from 'styled-components';
-import BirthDate from './CalculatorsSteps/BirthDate';
-import MarriageStatus from './CalculatorsSteps/MarriageStatus';
-import Education from './CalculatorsSteps/Education';
-import OverseasWorkExperience from './CalculatorsSteps/OverseasWorkExperience';
-import AustralianWorkExperience from './CalculatorsSteps/AustralianWorkExperience';
-import English from './CalculatorsSteps/English';
-import ProfessionalYearInAustralia from './CalculatorsSteps/ProfessionalYearInAustralia';
-import FinalScore from './CalculatorsSteps/FinalScore';
-import { WizardContext } from '../../../../Components/Wizard/Context';
-import Slider from 'Components/SliderComponent';
-import Wizard from '../../../../Components/Wizard';
-import { deviceMin } from 'Consts/device';
+import { useContext } from "react";
+import styled from "styled-components";
+import BirthDate from "./BirthDate";
+import MarriageStatus from "./MarriageStatus";
+import Education from "./Education";
+import OverseasWorkExperience from "./OverseasWorkExperience";
+import AustralianWorkExperience from "./AustralianWorkExperience";
+import English from "./English";
+import ProfessionalYearInAustralia from "./ProfessionalYearInAustralia";
+import FinalScore from "./FinalScore";
+import { WizardContext } from "../../../../Components/Wizard/Context";
+import Slider from "Components/SliderComponent";
+import Wizard from "../../../../Components/Wizard";
+import { deviceMin } from "Consts/device";
 
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
@@ -28,7 +28,7 @@ const SmartSteps: React.FC = () => {
 
   return (
     <Container>
-      {step !== steps.length && (
+      {step !== 0 && step !== steps.length - 1 && (
         <Slider currentStep={step + 1} end={steps.length - 1} />
       )}
       <StepsWrapper>{steps[step]}</StepsWrapper>

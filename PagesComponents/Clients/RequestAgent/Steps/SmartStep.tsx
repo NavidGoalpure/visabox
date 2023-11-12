@@ -1,18 +1,17 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
-import Introduction from './AgentSteps/Introduction';
-import Country from './AgentSteps/Country';
-import PersonalInfo from './AgentSteps/PersonalInfo';
-import BirthDate from './AgentSteps/BirthDate';
-import MarriageStatus from './AgentSteps/MarriageStatus';
-import Education from './AgentSteps/Education';
-import CurrentJob from './AgentSteps/CurrentJob';
-import OverseasWorkExperience from './AgentSteps/OverseasWorkExperience';
-import AustralianWorkExperience from './AgentSteps/AustralianWorkExperience';
-import English from './AgentSteps/English';
-import ProfessionalYearInAustralia from './AgentSteps/ProfessionalYearInAustralia';
-import IsSharable from './AgentSteps/IsSharable';
-import FinalScore from './AgentSteps/FinalScore';
+import Introduction from './Introduction';
+import Country from './Country';
+import PersonalInfo from './PersonalInfo';
+import BirthDate from './BirthDate';
+import MarriageStatus from './MarriageStatus';
+import Education from './Education';
+import CurrentJob from './CurrentJob';
+import OverseasWorkExperience from './OverseasWorkExperience';
+import AustralianWorkExperience from './AustralianWorkExperience';
+import English from './English';
+import ProfessionalYearInAustralia from './ProfessionalYearInAustralia';
+import FinalScore from './FinalScore';
 
 import Slider from 'Components/SliderComponent';
 
@@ -34,13 +33,12 @@ const SmartSteps: React.FC = () => {
     <AustralianWorkExperience />,
     <English />,
     <ProfessionalYearInAustralia />,
-    <IsSharable />,
     <FinalScore />,
   ];
 
   return (
     <Container>
-      {step !== 0 && step !== 12 && (
+      {step !== 0 && step !== 11 && (
         <Slider currentStep={step} end={steps.length - 1} />
       )}
       <StepsWrapper>{steps[step]}</StepsWrapper>

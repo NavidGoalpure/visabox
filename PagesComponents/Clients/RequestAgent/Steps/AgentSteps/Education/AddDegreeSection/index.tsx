@@ -1,8 +1,6 @@
 import { EffectCoverflow, Navigation } from "swiper/modules";
 import { IoIosArrowDown } from "react-icons/io";
 import styled, { css } from "styled-components";
-import { BsCheck } from "react-icons/bs";
-import { IoCloseOutline } from "react-icons/io5";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 import Swiper from "swiper";
 // import "swiper/swiper-bundle.css";
@@ -15,15 +13,14 @@ import theme from "styled-theming";
 import { AiOutlinePlus } from "react-icons/ai";
 import AddDegreeModal from "./AddDegreeModal";
 import { SecondaryButton } from "Elements/Button/Secondary";
-import { ClientAllDegrees } from "Interfaces/Database/Client";
-import { FormDataContext } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/Context";
-import { AllDegreesTemplate } from "../const";
+import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
 import { educations } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 
 const AddDegreesSection = () => {
   const { client, setClient } = useContext(FormDataContext);
   const { locale } = useLocale();
+  console.log("navid client ===", client);
   useEffect(() => {
     const swiper = new Swiper(".my-swiper", {
       // effect: "coverflow",
@@ -104,12 +101,14 @@ const AddDegreesSection = () => {
         </SwiperWrapper>
       </StyledSwiper>
       <ButtonWrapper>
-        <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
-          لیسانس
-        </PrevButton>
-        <NextButton icon={<NextButtonArrow />} className="swiper-button-next">
-          لیسانس
-        </NextButton>
+        <PrevButton
+          icon={<PrevButtonArrow />}
+          className="swiper-button-prev"
+        >{}</PrevButton>
+        <NextButton
+          icon={<NextButtonArrow />}
+          className="swiper-button-next"
+        >{}</NextButton>
       </ButtonWrapper>
     </Container>
   );
@@ -277,6 +276,7 @@ const PlusIcon = styled(AiOutlinePlus)`
   padding: 0.4rem;
   width: 1rem;
   height: auto;
+  box-sizing: content-box;
   background-color: var(--color-primary4);
   border-radius: 50%;
 `;

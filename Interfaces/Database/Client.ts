@@ -44,6 +44,7 @@ export enum IELTSScore {
 }
 export enum ClientCompletedForms {
   BasicForm = "basic_form",
+  AgentForm = "agent_form"
 }
 export interface ClientAllDegrees {
   label: ClientDegree;

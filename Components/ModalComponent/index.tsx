@@ -140,6 +140,7 @@ const MobileLine = styled.hr`
 `;
 const Wrapper = styled.div`
   width: 100%;
+  postion: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

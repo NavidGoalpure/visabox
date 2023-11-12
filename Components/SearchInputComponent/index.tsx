@@ -1,22 +1,27 @@
-import { ScrollBox } from 'Elements/ScrollBox';
+import { ScrollBox } from "Elements/ScrollBox";
 import {
   ChangeEvent,
   Dispatch,
   SetStateAction,
   useContext,
   useState,
-} from 'react';
-import { CiSearch } from 'react-icons/ci';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { Headline7Style } from 'Styles/Typo';
-import { iran } from 'Consts/Occupations/university';
-import { Card } from './Card';
-import { Loading } from 'Elements/Loading';
-import { IoCloseOutline } from 'react-icons/io5';
-import { UniSections } from 'Interfaces/Database/Client';
+} from "react";
+import { CiSearch } from "react-icons/ci";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { Headline7Style } from "Styles/Typo";
+import { iran } from "Consts/Occupations/university";
+import { Card } from "./Card";
+import { Loading } from "Elements/Loading";
+import { IoCloseOutline } from "react-icons/io5";
+import { UniSections } from "Interfaces/Database/Client";
+import {
+  search_Input_Modal_Bg,
+  search_Input_Modal,
+} from "Styles/Theme/elementsInModal/searchInput";
 interface Props {
-  theme: 'LAYER1' | 'LAYER2';
+  theme: "LAYER1" | "LAYER2";
+  isInputInModal?: boolean;
   callback?: (university: UniSections) => void;
   placeholder: string;
 }
@@ -24,9 +29,10 @@ export const SearchInputComponent: React.FC<Props> = ({
   theme,
   callback,
   placeholder,
+  isInputInModal = false,
 }) => {
   const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>("");
   const SearchedUniversities = iran.filter(
     (university) =>
       university.title.en.toLowerCase().includes(inputValue.toLowerCase()) ||
@@ -47,6 +53,7 @@ export const SearchInputComponent: React.FC<Props> = ({
         <InputWrapper>
           <SearchIcon />
           <StyledInput
+            isInputInModal={isInputInModal}
             onFocus={handleFocus}
             onBlur={handleBlur}
             placeholder={placeholder}
@@ -58,7 +65,11 @@ export const SearchInputComponent: React.FC<Props> = ({
           />
         </InputWrapper>
 
-        <StyledScrollBox isVisible={isInputFocus} height={'15rem'}>
+        <StyledScrollBox
+          isInputInModal={isInputInModal}
+          isVisible={isInputFocus}
+          height={"15rem"}
+        >
           {inputValue.length < 3 ? (
             <LoadingContainer>
               <StyledLoading />
@@ -68,6 +79,7 @@ export const SearchInputComponent: React.FC<Props> = ({
             SearchedUniversities.map((uni, i) => {
               return (
                 <Card
+                  isInputInModal={isInputInModal}
                   key={i}
                   setInputValue={setInputValue}
                   university={uni}
@@ -86,7 +98,7 @@ export const SearchInputComponent: React.FC<Props> = ({
     </Container>
   );
 };
-const inputLayer1Theme = theme('mode', {
+const inputLayer1Theme = theme("mode", {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -104,7 +116,7 @@ const inputLayer1Theme = theme('mode', {
     }
   `,
 });
-const inputLayer2Theme = theme('mode', {
+const inputLayer2Theme = theme("mode", {
   light: css`
     background: var(--color-gray12);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
@@ -122,7 +134,7 @@ const inputLayer2Theme = theme('mode', {
     }
   `,
 });
-const inputPlaceHolderTheme = theme('mode', {
+const inputPlaceHolderTheme = theme("mode", {
   light: css`
     color: var(--color-gray9);
   `,
@@ -130,7 +142,7 @@ const inputPlaceHolderTheme = theme('mode', {
     color: var(--color-gray8);
   `,
 });
-const ScrollBoxBgTheme = theme('mode', {
+const ScrollBoxBgTheme = theme("mode", {
   light: css`
     background: var(--color-gray12);
   `,
@@ -173,7 +185,10 @@ const InputWrapper = styled.div`
     transform: translateY(50%);
   }
 `;
-const InputStyle = css<{ $theme: 'LAYER1' | 'LAYER2' }>`
+const InputStyle = css<{
+  $theme: "LAYER1" | "LAYER2";
+  isInputInModal: boolean;
+}>`
   ${Headline7Style};
   width: 100%;
   display: flex;
@@ -185,7 +200,7 @@ const InputStyle = css<{ $theme: 'LAYER1' | 'LAYER2' }>`
   transition: all 0.3s 0.3s ease;
   -webkit-appearance: none;
   ///////////theme///////////////
-  ${({ $theme }) => ($theme === 'LAYER1' ? inputLayer1Theme : inputLayer2Theme)}
+  ${({ $theme }) => ($theme === "LAYER1" ? inputLayer1Theme : inputLayer2Theme)}
   /////////focus////////
   :focus {
     transition: all 0.3s ease;
@@ -201,6 +216,7 @@ const InputStyle = css<{ $theme: 'LAYER1' | 'LAYER2' }>`
     line-height: 22px;
     color: var(--color-gray10);
   }
+  ${({ isInputInModal }) => isInputInModal && `${search_Input_Modal}`}
 `;
 const StyledInput = styled.input`
   ${InputStyle};
@@ -211,13 +227,18 @@ const SearchIcon = styled(CiSearch)`
   height: 1.5rem;
   margin-inline-end: 0.5rem;
 `;
-const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
+const StyledScrollBox = styled(ScrollBox)<{
+  isVisible: boolean;
+  isInputInModal: boolean;
+}>`
   ${ScrollBoxBgTheme};
+
   // do not touch the transition delay it messes with revaluation of uni_section
   // by clicking on the option
   transition: all 0.3s 0.1s ease;
   transform-origin: top;
   box-sizing: border-box;
+  flex-shrink: 0;
   ${({ isVisible }) =>
     isVisible
       ? css`
@@ -226,6 +247,7 @@ const StyledScrollBox = styled(ScrollBox)<{ isVisible: boolean }>`
       : css`
           height: 0rem;
         `}
+  ${({ isInputInModal }) => isInputInModal && `${search_Input_Modal_Bg}`}
 `;
 const LoadingContainer = styled.div`
   height: 15rem;

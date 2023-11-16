@@ -99,8 +99,8 @@ const TitleAndIconColor = theme("mode", {
 const Icon = css`
   ${TitleAndIconColor}
   ${layer2A_TextColor}
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   @media ${deviceMin.tabletS} {
     width: 2rem;
     height: 2rem;
@@ -110,7 +110,7 @@ const Icon = css`
 const SocialsContainerCss = css`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
   cursor: pointer;

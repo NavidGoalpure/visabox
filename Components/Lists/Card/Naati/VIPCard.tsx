@@ -203,11 +203,11 @@ const AgentElement = styled.h3`
     bottom: unset;
     left: 0;
     top: 0;
-    transform: rotate(-85deg) translate(-50%, -100%);
+    transform: rotate(-85deg) translate(-50%, -140%);
   }
   ${Wrapper}:hover & {
     @media ${deviceMin.tabletS} {
-      transform: rotate(-90deg) translate(-50%, -100%);
+      transform: rotate(-90deg) translate(-50%, -140%);
     }
   }
 `;

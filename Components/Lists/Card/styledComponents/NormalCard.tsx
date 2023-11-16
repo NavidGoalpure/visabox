@@ -63,16 +63,15 @@ export const Wrapper = styled.div`
   ${ContainerBorder};
   box-shadow: unset;
   width: 100%;
-  height: 26rem;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  padding: 3.125rem 0.5rem;
+  padding: 2rem 0.5rem;
   @media ${deviceMin.laptopXS} {
-    padding: 3.125rem 1.5rem;
+    padding: 2rem 1.5rem;
   }
 `;
 
@@ -111,10 +110,12 @@ export const LogoBackground_layer2 = theme('mode', {
 export const Title = styled.h3`
   ${layer3_TitleStyle};
   ${layer2A_HeaderBG};
+  display: flex;
+  align-items: center;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
-  display: -webkit-box;
+  // display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 1;
 overflow: hidden;

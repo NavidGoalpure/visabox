@@ -6,6 +6,7 @@ import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
 import { FiBox } from 'react-icons/fi';
 import {
   layer2A_BodyStyle,
+  layer2A_SubtitleStyle,
   layer2A_TextStyle,
   layer2A_TitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
@@ -20,11 +21,12 @@ import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { MaraAgency, MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { Headline7Style } from 'Styles/Typo';
 import { GoLinkExternal } from 'react-icons/go';
+import Link from 'next/link';
+import agency from 'Sanity/schemas/documents/agency/agency';
 
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: string | undefined;
-  agencies: MaraAgency[] | undefined;
   phone: string | undefined;
   slug: string;
   layerContext: '1' | '2';
@@ -35,7 +37,6 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 function DesktopAgentsPage({ 
   ChosenAgent,
   name,
-  agencies,
   slug,
   avatar,
   layerContext,
@@ -50,12 +51,13 @@ function DesktopAgentsPage({
     if (ChosenAgent?.avatar) setImgSrc(ChosenAgent?.avatar);
   }, [ChosenAgent]);
 
+  console.log(ChosenAgent?.agencies, 'navid')
+
+  
+
   return (
     <Container {...props}>
-    <BackgroundPattern>
-    </BackgroundPattern>
       <AgentContentContainer>
-
       <SmallBox>
         <ProfilePictureWrapper>
           <ProfilePicture
@@ -82,6 +84,7 @@ function DesktopAgentsPage({
             </MaraNumberTitle>
             <MaraNumber>{ChosenAgent?.mara_number}</MaraNumber>
           </MaraNumberContainer>
+          
         </Data>
       </SmallBox>
       <Hr />
@@ -95,14 +98,39 @@ function DesktopAgentsPage({
           email={ChosenAgent?.email}
           // address={ChosenAgent?.contact?.address}
 />
-      <MaraPageButton 
-      // navid inja bayad link konim to safhe mara khodeshoon
+       <Link
+       style={{ 
+        display: 'flex',
+        justifyContent: 'center'
+        }}
+        target='blank'
+      href={`https://portal.mara.gov.au/search-the-register-of-migration-agents/register-of-migration-agent-details/?ContactID=${ChosenAgent?._id}`}
       >
+      <MaraPageButton >
          {t(LanguageKeys.MaraPageButton)}
         <LinkIcon />
       </MaraPageButton>
+        </Link>
       </AboutContainer>
         </AgentContentContainer>
+          <Title>
+          Agency’s
+          </Title>
+        <AgencyContentContainer>
+      
+          {ChosenAgent?.agencies?.map((agency)=> {return (
+            <AgencyCard {...props}>
+  <AgencyName>{dt(agency.title)}</AgencyName>
+  <AgencyCountryContainer>
+  <AgencyCountryData>{agency.country}</AgencyCountryData>
+  <AgencyCountryData>,</AgencyCountryData>
+  <AgencyCountryData>{agency.state}</AgencyCountryData>
+  </AgencyCountryContainer>
+  <AgencyLocationData>{agency.contact?.full_address}</AgencyLocationData>
+</AgencyCard>
+    )})}
+        </AgencyContentContainer>
+        <BackgroundPattern />
     </Container>
   );
 }
@@ -166,7 +194,7 @@ const TitleColor = theme("mode", {
   `,
 });
 
-const BackgroundPattern = styled.div`
+const BackgroundPattern = styled.span`
   ${HeaderBackground}
   width: 100%;
   height: 100%;
@@ -186,11 +214,12 @@ const BackgroundPattern = styled.div`
 const Container = styled.div`
   width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 4rem 0;
   gap: 1rem;
+  position:relative;
 `;
 
 const AgentContentContainer = styled.div`
@@ -301,7 +330,6 @@ const MaraPageButton = styled.button`
   justify-content: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
-  cursor: auto;
 `;
 
 const LinkIcon = styled(GoLinkExternal)`
@@ -329,3 +357,43 @@ const Desc = styled.p`
   ${layer2A_TextStyle}
   margin-bottom:1.5rem;
 `;
+
+const AgencyContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 50px;
+  padding: 4rem;
+  gap: 2rem;
+  align-items: center;
+  z-index: 1;
+  `;
+  
+  const AgencyCard = styled.div`
+  ${layer2A_BodyStyle}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 2rem;
+  gap: 2rem;
+  align-items: center;
+  z-index: 1;
+  `;
+
+  const AgencyName = styled.h3`
+  ${layer2A_TitleStyle}
+  `;
+
+  const AgencyCountryContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  `
+
+  const AgencyCountryData = styled.div`
+  ${layer2A_SubtitleStyle}
+  `
+
+  const AgencyLocationData = styled.div`
+  ${layer2A_TextStyle}
+  `

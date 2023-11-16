@@ -20,6 +20,7 @@ import {
 } from '../styledComponents/NormalCard';
 import { MaraAgency } from 'Interfaces/Database/Lists/agents';
 import Link from 'next/link';
+import styled from 'styled-components';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: string | undefined;
@@ -45,7 +46,7 @@ function AgentCard({
   return (
       <Container className={slug} {...props}>
     <Link href={`/lists/agents/${slug}`} target='_blank'>
-        <Wrapper>
+        <StyledWrapper>
           <ImageWrapper layerContext={layerContext}>
             <AgentLogo
               alt={`${slug}`}
@@ -75,9 +76,13 @@ function AgentCard({
           <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
           <AgentElement>{t(LanguageKeys.Agent)}</AgentElement>
           <MaraElement>{t(LanguageKeys.Mara)}</MaraElement>
-        </Wrapper>
+        </StyledWrapper>
     </Link>
       </Container>
   );
 }
 export default AgentCard;
+
+const StyledWrapper = styled(Wrapper)`
+height: 26rem;
+`

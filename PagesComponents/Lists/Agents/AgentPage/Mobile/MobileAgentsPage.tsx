@@ -101,7 +101,7 @@ function MobileAgentsPage({
 export default MobileAgentsPage;
 const BoxBackgroundColor = theme('mode', {
   light: css`
-    background-color: var(--color-gray13);
+    background-color: var(--color-gray12);
   `,
   dark: css`
     background-color: var(--color-gray4);

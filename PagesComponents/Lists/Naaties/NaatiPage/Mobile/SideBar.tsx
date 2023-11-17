@@ -6,12 +6,11 @@ import { GrCircleInformation } from 'react-icons/gr';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { deviceMin } from 'Consts/device';
 import { AboutComponent } from './AboutComponent';
-import { MobileContactComponent } from './MobileContactComponent';
-import { En_FaLanguage, MultiLanguageText } from 'Interfaces/Database';
+import { En_FaLanguage } from 'Interfaces/Database';
 import { layer2A_style } from 'Styles/Theme/Layers/layer2/style';
 import { componentStatements, LanguageKeys } from '../const';
+import ShowContacts from 'Components/ShowContacts';
 interface Props {
-  maraNumber?: string;
   website?: string;
   email?: string;
   phone?: string[];
@@ -21,7 +20,6 @@ interface Props {
   desc?: En_FaLanguage;
 }
 const SidebarPage = ({
-  maraNumber,
   website,
   email,
   phone,
@@ -58,8 +56,7 @@ const SidebarPage = ({
           </SideBar.BodyItem>
           <SideBar.BodyItem value='socials'>
             <ContentWrapper>
-              <MobileContactComponent
-                maraNumber={maraNumber}
+              <ShowContacts
                 website={website}
                 email={email}
                 phone={phone}

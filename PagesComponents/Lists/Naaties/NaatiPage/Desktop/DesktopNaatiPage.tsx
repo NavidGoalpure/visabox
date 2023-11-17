@@ -14,10 +14,11 @@ import {
 
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { DesktopContactComponent } from './DesktopContactComponent';
+
 import { Naati } from 'Interfaces/Database/Lists/naaties';
 import { useLocale } from 'Hooks/useLocale';
 import { useState, useEffect } from 'react';
+import ShowContacts from 'Components/ShowContacts';
 
 interface Props {
   chosenNaati?: Naati;
@@ -55,14 +56,7 @@ function DesktopNaatiPage({ chosenNaati }: Props) {
         <RightSide>
           <Title>{dt(chosenNaati?.fullName)}</Title>
 
-          <DesktopContactComponent
-            website={chosenNaati?.contact?.website}
-            email={chosenNaati?.contact?.email}
-            phone={chosenNaati?.contact?.phone}
-            telegram={chosenNaati?.contact?.telegram}
-            instagram={chosenNaati?.contact?.instagram}
-            linkedin={chosenNaati?.contact?.linkedin}
-          />
+          <ShowContacts {...chosenNaati?.contact} />
         </RightSide>
       </Header>
       <AboutContainer>

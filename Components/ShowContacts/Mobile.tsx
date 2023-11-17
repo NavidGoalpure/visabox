@@ -1,9 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import {
-  layer2A_TextStyle,
-  layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
+
 import theme from 'styled-theming';
 import { Headline5Style, Headline6Style } from 'Styles/Typo';
 import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
@@ -14,10 +11,9 @@ import { deviceMin } from 'Consts/device';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
 import { copyContent } from 'Utils';
-import { componentStatements, LanguageKeys } from '../const';
+import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 interface Props {
-  maraNumber?: string;
   website?: string;
   email?: string;
   phone?: string[];
@@ -25,8 +21,7 @@ interface Props {
   instagram?: string;
   linkedin?: string;
 }
-const MobileContactComponent = ({
-  maraNumber,
+const Mobile = ({
   website,
   email,
   phone,
@@ -37,10 +32,6 @@ const MobileContactComponent = ({
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
-      <MaraNumberContainer>
-        <MaraNumberTitle>{t(LanguageKeys.MaraNumber)}: &nbsp;</MaraNumberTitle>
-        <MaraNumber>{maraNumber}</MaraNumber>
-      </MaraNumberContainer>
       {website && (
         <InternetContainer href={website} target={'_blank'}>
           <InternetIcon />
@@ -103,7 +94,7 @@ const MobileContactComponent = ({
   );
 };
 
-export { MobileContactComponent };
+export default Mobile;
 
 const DescBackground = theme('mode', {
   light: css`

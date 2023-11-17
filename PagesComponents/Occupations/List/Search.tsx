@@ -29,8 +29,7 @@ function Search({ searchValue, setSearchValue }: Props) {
   }, [isShowPanel]);
 
   const submajorItems = filteredList?.subMajorGroup;
-  //navid chera in estefade nashode?
-  const minorItems = filteredList?.minorGroup;
+
   return (
     <Container isShowPanel={isShowPanel}>
       <SearchElement

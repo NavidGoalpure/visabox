@@ -23,8 +23,6 @@ interface Props {
   errorCode?: number;
 }
 const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
-  console.log('navid agent=', agent);
-
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   if (errorCode) return <Error statusCode={errorCode} />;
@@ -32,7 +30,6 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
   return (
     <StyledPageLayout>
       <Seo
-        //navid fix persian seo
         title={
           t(LanguageKeys.SeoTitle, [{ $agent: agent?.name?.en || '' }]) +
           ` | ${date.getFullYear()}`
@@ -43,14 +40,13 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
         ])}
         canonical={`https://www.marabox.com/${locale}/lists/agents/${agent?.slug?.current}`}
       />
-      {/* // navid change errorTitle and errorSubtitle */}
-      {/* mobin */}
+
       {agent ? (
-        <Content agent={agent} />
+        <Content chosenAgent={agent} />
       ) : (
         <ComponentError
-          errorTitle='No Agent'
-          errorSubTitle={`Sorry, we couldn't find the page you're looking for. Please check the URL you entered or try searching for what you need. If you believe this is an issue on our end, please contact our support team for assistance.`}
+          errorTitle={t(LanguageKeys.NoAgent)}
+          errorSubTitle={t(LanguageKeys.NoAgentSub)}
         />
       )}
     </StyledPageLayout>
@@ -94,10 +90,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 };
 
-
 const StyledPageLayout = styled(PageLayout)`
-#PageContainer-content{
-  padding: 0;
-  align-items: center;
-}
-`
+  #PageContainer-content {
+    padding: 0;
+    align-items: center;
+  }
+`;

@@ -1,12 +1,7 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  layer2A_TextStyle,
-  layer2A_TitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
-import theme from 'styled-theming';
-import { Headline5Style, Headline6Style } from 'Styles/Typo';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+
+import { Headline6Style } from 'Styles/Typo';
 import { ImSphere } from 'react-icons/im';
 import { FaPhone, FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
@@ -14,9 +9,10 @@ import { deviceMin } from 'Consts/device';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
 import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
 import { copyContent } from 'Utils';
-import { LanguageKeys, componentStatements } from '../const';
+import { LanguageKeys, componentStatements } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-interface Props {
+import { log } from 'console';
+interface Props extends HTMLAttributes<HTMLDivElement> {
   website?: string;
   email?: string;
   phone?: string[];
@@ -24,24 +20,25 @@ interface Props {
   instagram?: string;
   linkedin?: string;
 }
-const DesktopContactComponent = ({
+const Desktop = ({
   website,
   email,
   phone,
   telegram,
   instagram,
   linkedin,
+  ...rest
 }: Props) => {
   const { t } = useStaticTranslation(componentStatements);
-const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
-const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
+  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
-    <Container>
+    <Container {...rest} style={rest.style}>
       {website && (
-        <InternetContainer href={website} target={"_blank"}>
+        <InternetContainer href={website} target={'_blank'}>
           <InternetIcon />
           <InternetTitle>
-            {website.replaceAll("https://", "").replaceAll("http://", "")}
+            {website.replaceAll('https://', '').replaceAll('http://', '')}
           </InternetTitle>
         </InternetContainer>
       )}
@@ -49,7 +46,7 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
         <PhoneContainer
           onClick={() =>
             copyContent({
-              text: phone?.[0] || "",
+              text: phone?.[0] || '',
               toastMessage: phoneToastMessage,
             })
           }
@@ -66,7 +63,7 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
         <GmailContainer
           onClick={() =>
             copyContent({
-              text: email || "",
+              text: email || '',
               toastMessage: gmailToastMessage,
             })
           }
@@ -76,24 +73,24 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
         </GmailContainer>
       )}
       {telegram && (
-        <TelegramContainer href={telegram} target={"_blank"}>
+        <TelegramContainer href={telegram} target={'_blank'}>
           <TelegramIcon />
           <TelegramTitle>{telegram}</TelegramTitle>
         </TelegramContainer>
       )}
       {instagram && (
-        <InstagramContainer href={instagram} target={"_blank"}>
+        <InstagramContainer href={instagram} target={'_blank'}>
           <InstagramIcon />
           <InstagramTitle>
-            {instagram.replaceAll("https://www.instagram.com/", "@")}
+            {instagram.replaceAll('https://www.instagram.com/', '@')}
           </InstagramTitle>
         </InstagramContainer>
       )}
       {linkedin && (
-        <LinkedinContainer href={linkedin} target={"_blank"}>
+        <LinkedinContainer href={linkedin} target={'_blank'}>
           <LinkedinIcon />
           <LinkedinTitle>
-            {linkedin.replaceAll("https://au.linkedin.com/in/", "")}
+            {linkedin.replaceAll('https://au.linkedin.com/in/', '')}
           </LinkedinTitle>
         </LinkedinContainer>
       )}
@@ -101,7 +98,7 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   );
 };
 
-export { DesktopContactComponent };
+export default Desktop;
 
 const Icon = css`
   ${layer2A_TextColor}
@@ -124,6 +121,7 @@ const Container = styled.div`
   justify-items: start;
   row-gap: 1rem;
   column-gap: 2rem;
+  direction: ltr;
 `;
 const InternetContainer = styled.a`
   ${SocialsContainerCss}

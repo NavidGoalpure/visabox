@@ -2,7 +2,6 @@ import { deviceMin } from 'Consts/device';
 import { Loading } from 'Elements/Loading';
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
 
 /**
  * Primary UI component for user interaction
@@ -56,7 +55,7 @@ export const SecondaryButtonCss = css<{
     css`
       padding: 0 1.5rem;
     `}
-    /////////hover/////////////
+  /////////hover/////////////
   &:hover {
     background-color: var(--color-secondary3);
   }

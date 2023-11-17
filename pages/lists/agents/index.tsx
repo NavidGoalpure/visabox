@@ -43,7 +43,6 @@ export const getServerSideProps: GetServerSideProps = withCSR(
     //
     const queryClient = new QueryClient();
     let statusCode = null;
-    console.log('***navid query=', AgentsQueryKeys.list({ search: '' }));
 
     try {
       await queryClient.fetchQuery(AgentsQueryKeys.list({ search: '' }), () =>

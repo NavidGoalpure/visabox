@@ -52,8 +52,6 @@ function FiltersContextProvider({ children }: Props) {
     {} as SearchFilters
   );
   const [searchValue, setSearchValue] = useState<string>('');
-  console.log('navid query=', AgentsQueryKeys.list({ search: searchValue }));
-
   const {
     hasNextPage,
     fetchNextPage,

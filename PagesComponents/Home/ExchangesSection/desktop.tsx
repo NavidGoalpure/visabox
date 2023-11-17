@@ -1,4 +1,4 @@
-import ExchangeCard from "Components/Lists/Card/Exchange/ExchangeCard";
+import ExchangeCard from "Components/Lists/Exchange/ExchangeCard";
 import { Exchanges } from "Consts/Lists/exchages";
 import { useLocale } from "Hooks/useLocale";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";

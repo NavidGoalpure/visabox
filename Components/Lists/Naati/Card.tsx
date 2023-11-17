@@ -15,7 +15,7 @@ import {
   FieldValue,
   FieldsContainer,
   CopyIconTheme,
-} from '../styledComponents/NormalCard';
+} from './styledComponents/NormalCard';
 import { componentStatements, LanguageKeys } from '../const';
 import styled from 'styled-components';
 import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';

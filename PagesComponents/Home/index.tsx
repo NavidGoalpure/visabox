@@ -65,16 +65,16 @@ const HomeContent: React.FC = () => {
           <Banner
             navigateTo={`/${locale}/clients/point-calculator`}
             desc={
-              <BannerDesc
+              <div
                 dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-              ></BannerDesc>
+              ></div>
             }
             stampText={t(LanguageKeys.StampText)}
             buttonText={t(LanguageKeys.BannerButtonText)}
           />
         )}
         <OccupationSection className='section' />
-        <NattiesSection className='section' />
+        {/* <AgentSection className='section' /> */}
         <ExchangesSection className='section' />
         {locale === Languages.fa && <SocialsSection className='section' />}
       </Container>
@@ -88,5 +88,3 @@ const Container = styled.div`
   position: relative;
   margin-top: 2rem;
 `;
-
-const BannerDesc = styled.div``;

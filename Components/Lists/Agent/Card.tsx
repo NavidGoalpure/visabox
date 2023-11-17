@@ -17,7 +17,7 @@ import {
   FieldValue,
   FieldWrapper,
   ValuesContainer,
-} from '../styledComponents/NormalCard';
+} from './styledComponents/NormalCard';
 import { MaraAgency } from 'Interfaces/Database/Lists/agents';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -44,8 +44,8 @@ function AgentCard({
   const uniqueCountries = [...new Set(agencyCountries)];
 
   return (
-      <Container className={slug} {...props}>
-    <Link href={`/lists/agents/${slug}`} target='_blank'>
+    <Container className={slug} {...props}>
+      <Link href={`/lists/agents/${slug}`} target='_blank'>
         <StyledWrapper>
           <ImageWrapper layerContext={layerContext}>
             <AgentLogo
@@ -77,12 +77,12 @@ function AgentCard({
           <AgentElement>{t(LanguageKeys.Agent)}</AgentElement>
           <MaraElement>{t(LanguageKeys.Mara)}</MaraElement>
         </StyledWrapper>
-    </Link>
-      </Container>
+      </Link>
+    </Container>
   );
 }
 export default AgentCard;
 
 const StyledWrapper = styled(Wrapper)`
-height: 26rem;
-`
+  height: 26rem;
+`;

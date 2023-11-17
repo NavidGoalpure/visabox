@@ -1,8 +1,5 @@
-import ExchangeCard from 'Components/Lists/Exchange/ExchangeCard';
-import { Exchanges } from 'Consts/Lists/exchages';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import Link from 'next/link';
 import { HTMLAttributes } from 'react';
 import { componentStatements, LanguageKeys } from './const';
 import {
@@ -12,7 +9,7 @@ import {
   Title,
   ViewAll,
 } from './styledComponents';
-
+import AgentCard from 'Components/Lists/Agent/Card';
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
@@ -22,10 +19,11 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   return (
     <Container {...props}>
       <Title>{t(LanguageKeys.Title)}</Title>
-      <ExchangeCard {...Exchanges[1]} />
+      {/* Navid */}
+      {/* <AgentCard {...[0]} /> */}
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-      <StyledLink href={`${locale}/lists/exchanges`}>
-        <ViewAll id={`home_all-exchanges_${locale}`}>
+      <StyledLink href={`${locale}/lists/social-pages`}>
+        <ViewAll id={`home_all-socials_${locale}`}>
           {t(LanguageKeys.CTA)}
         </ViewAll>
       </StyledLink>
@@ -33,5 +31,3 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   );
 };
 export default MobileIndex;
-
-///////////////

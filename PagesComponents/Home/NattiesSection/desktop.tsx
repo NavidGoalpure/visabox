@@ -1,4 +1,4 @@
-import NaatiCard from 'Components/Lists/Card/Naati/Card';
+import NaatiCard from 'Components/Lists/Naati/Card';
 import { NAATIES } from 'Consts/Lists/naati';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';

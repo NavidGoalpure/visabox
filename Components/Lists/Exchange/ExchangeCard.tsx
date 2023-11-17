@@ -19,13 +19,13 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from '../../../../PagesComponents/Lists/Exchanges/const';
+} from '../../../PagesComponents/Lists/Exchanges/const';
 import { Exchange } from 'Interfaces/Database/Lists/exchanges';
 import { HTMLAttributes } from 'react';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import Image from 'next/image';
 
-interface Props extends Exchange, HTMLAttributes<HTMLDivElement> { }
+interface Props extends Exchange, HTMLAttributes<HTMLDivElement> {}
 
 function MobileExchangeCard({
   desc,
@@ -146,7 +146,7 @@ const NotFeaturedSocialMediaTagStyle = css`
   box-shadow: unset;
 `;
 const Container = styled.div`
-    max-width: 25rem;
+  max-width: 25rem;
 `;
 
 const Wrapper = styled.a<{ featuredPlan: FeaturedPlan_Business }>`

@@ -20,10 +20,10 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-
   useEffect(() => {
     GsapSectionAnimation_1('Agent');
   }, []);
+
   return (
     <>
       <Container {...props}>

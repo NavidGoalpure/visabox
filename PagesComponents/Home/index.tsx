@@ -18,6 +18,7 @@ import CountryModal from '../../Components/Layouts/CountryModal';
 import { ClientError } from '@sanity/client';
 import { Client } from 'Interfaces/Database/Client';
 import { isAgencyLogedIn } from 'Utils/user';
+import AgentsSection from './AgentsSection';
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -74,7 +75,7 @@ const HomeContent: React.FC = () => {
           />
         )}
         <OccupationSection className='section' />
-        {/* <AgentSection className='section' /> */}
+        <AgentsSection className='section' />
         <ExchangesSection className='section' />
         {locale === Languages.fa && <SocialsSection className='section' />}
       </Container>

@@ -1,4 +1,4 @@
-import AgentCard from 'Components/Lists/Card/Agent/Card';
+import AgentCard from 'Components/Lists/Agent/Card';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import React from 'react';
 import { InfiniteData } from 'react-query';

@@ -19,8 +19,7 @@ import { GoLinkExternal } from 'react-icons/go';
 import Link from 'next/link';
 import { MaraAccordion } from 'Elements/Accordion';
 import ShowContacts from 'Components/ShowContacts';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { SecondaryButton } from 'Elements/Button/Secondary';
+
 import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,

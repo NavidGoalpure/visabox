@@ -163,9 +163,15 @@ export const FieldsContainer = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const FieldWrapper = styled.div`
+export const ColFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+`;
+export const RowFieldWrapper = styled.div`
+  display: flex;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
@@ -177,7 +183,6 @@ export const FieldTitle = styled.h4`
   transition: 0.3s all ease;
   display: flex;
   justify-content: space-between;
-  width: 100%;
 `;
 
 export const FieldValue = styled.h5`
@@ -185,7 +190,7 @@ export const FieldValue = styled.h5`
   ${Headline6Style};
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   word-break: break-all;
   margin-inline-end: 0.5rem;

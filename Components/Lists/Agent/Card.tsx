@@ -14,8 +14,9 @@ import {
   Wrapper,
   FieldTitle,
   FieldValue,
-  FieldWrapper,
+  ColFieldWrapper,
   ValuesContainer,
+  RowFieldWrapper,
 } from './styledComponents/NormalCard';
 import { MaraAgency } from 'Interfaces/Database/Lists/agents';
 import Link from 'next/link';
@@ -65,14 +66,16 @@ function AgentCard({
           </ImageWrapper>
           <Title>{name}</Title>
           <FieldsContainer>
-            <FieldWrapper>
+            <ColFieldWrapper>
               <FieldTitle>{t(LanguageKeys.BusinessName)}:</FieldTitle>
               <FieldValue style={{ direction: 'ltr' }}>
                 {agencies?.[0]?.title?.en || '...'}
               </FieldValue>
-            </FieldWrapper>
-            <FieldWrapper>
-              <FieldTitle>{t(LanguageKeys.Country)}:</FieldTitle>
+            </ColFieldWrapper>
+            <RowFieldWrapper>
+              <FieldTitle style={{ marginInlineEnd: '0.5rem' }}>
+                {t(LanguageKeys.Country)}:
+              </FieldTitle>
               <ValuesContainer>
                 {uniqueCountryFlags?.map((flag, i) => {
                   if (flag)
@@ -83,7 +86,7 @@ function AgentCard({
                     );
                 })}
               </ValuesContainer>
-            </FieldWrapper>
+            </RowFieldWrapper>
           </FieldsContainer>
           <ViewMoreButton>{t(LanguageKeys.ViewMore)}</ViewMoreButton>
           <AgentElement>{t(LanguageKeys.Agent)}</AgentElement>
@@ -96,5 +99,6 @@ function AgentCard({
 export default AgentCard;
 
 const StyledWrapper = styled(Wrapper)`
-  height: 26rem;
+  height: 24rem;
+  min-width: 340px;
 `;

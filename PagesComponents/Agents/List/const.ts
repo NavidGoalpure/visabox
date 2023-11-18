@@ -30,14 +30,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: 'لیست وکلای مارا',
-    en: 'Find MARA-Registered Agents',
-    zh: '查找 MARA 注册代理商',
-  },
-  PageSubtitle: {
     fa: 'جستجوی وکلای مورد تایید مارا برای رویای مهاجرت به استرالیا',
     en: 'Connecting You with Certified Migration Experts for Australia',
     zh: '为您联系澳大利亚认证移民专家',
+  },
+  PageSubtitle: {
+    fa: 'این اطلاعات از سایت رسمی portal.mara.gov.au گرفته شده است. درصورتی که معتقدید هر بخشی از این اطلاعات نادرست است، لطفا با پشتیبانی سایت تماس بگیرید. ',
+    en: 'This information is taken from the official website portal.mara.gov.au. If you believe any part of this information is incorrect, please contact the site support.',
+    zh: '该信息取自官方网站portal.mara.gov.au。 如果您认为此信息的任何部分不正确，请联系站点支持。',
   },
   Search: {
     fa: 'جستجو',

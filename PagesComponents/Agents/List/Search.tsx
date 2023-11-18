@@ -11,7 +11,7 @@ import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
 import { SelectItemCss } from 'Elements/Select/Item';
 import { LuSettings2 } from 'react-icons/lu';
-import { City, Country, State } from 'country-state-city';
+import { Country, State } from 'country-state-city';
 import { useRouter } from 'next/router';
 
 interface Props {

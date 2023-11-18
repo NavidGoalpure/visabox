@@ -21,6 +21,10 @@ import { MaraAccordion } from 'Elements/Accordion';
 import ShowContacts from 'Components/ShowContacts';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { SecondaryButton } from 'Elements/Button/Secondary';
+import {
+  Layer1_SubtitleStyle,
+  Layer1_TitleStyle,
+} from 'Styles/Theme/Layers/layer1/style';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   layerContext?: '1' | '2';
@@ -42,6 +46,7 @@ function DesktopAgentsPage({
   return (
     <Container {...props}>
       <Wrapper>
+        {/* <PageTitle>{dt(chosenAgent?.name)}</PageTitle> */}
         <AgentContentContainer>
           <SmallBox>
             <ProfilePictureWrapper>
@@ -125,6 +130,7 @@ function DesktopAgentsPage({
             />
           );
         })}
+        <Subtitle>{t(LanguageKeys.PageSubtitle)}</Subtitle>
       </Wrapper>
       <BackgroundPattern />
     </Container>
@@ -209,6 +215,13 @@ const Wrapper = styled.div`
   padding: 4rem 1rem;
   gap: 1rem;
   position: relative;
+`;
+const PageTitle = styled.h1`
+  ${Layer1_TitleStyle}
+`;
+const Subtitle = styled.h2`
+  ${Layer1_SubtitleStyle}
+  font-size: 16px;
 `;
 
 const AgentContentContainer = styled.div`

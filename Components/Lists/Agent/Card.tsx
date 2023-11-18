@@ -2,7 +2,6 @@ import { HTMLAttributes, useEffect } from 'react';
 import { getGsapTimeLine_FadeUp } from 'Utils';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-
 import {
   Container,
   AgentElement,
@@ -21,6 +20,7 @@ import {
 import { MaraAgency } from 'Interfaces/Database/Lists/agents';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { getCountryFlag, getCountryOrAlias } from 'Utils/country-state-city';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: string | undefined;
@@ -35,16 +35,23 @@ function AgentCard({
   slug,
   avatar,
   layerContext,
+  className,
   ...props
 }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-
   useEffect(() => getGsapTimeLine_FadeUp(slug), []);
-  const agencyCountries = agencies?.map((agency) => agency.country);
-  const uniqueCountries = [...new Set(agencyCountries)];
+  const agencyCountries = agencies?.map((agency) =>
+    getCountryOrAlias(agency?.country)
+  );
+  const flags = agencyCountries?.map((country) =>
+    getCountryFlag({
+      countryName: country,
+    })
+  );
+  const uniqueCountryFlags = [...new Set(flags)];
 
   return (
-    <Container className={slug} {...props}>
+    <Container className={`${slug} ${className}`} {...props}>
       <Link href={`/lists/agents/${slug}`} target='_blank'>
         <StyledWrapper>
           <ImageWrapper layerContext={layerContext}>
@@ -60,16 +67,21 @@ function AgentCard({
           <FieldsContainer>
             <FieldWrapper>
               <FieldTitle>{t(LanguageKeys.BusinessName)}:</FieldTitle>
-              <FieldValue>{agencies?.[0]?.title?.en || '...'}</FieldValue>
+              <FieldValue style={{ direction: 'ltr' }}>
+                {agencies?.[0]?.title?.en || '...'}
+              </FieldValue>
             </FieldWrapper>
             <FieldWrapper>
               <FieldTitle>{t(LanguageKeys.Country)}:</FieldTitle>
               <ValuesContainer>
-                {uniqueCountries?.map((country, i) => (
-                  <FieldValue key={i}>{`${country} ${
-                    i < uniqueCountries.length - 1 ? '-' : ''
-                  }`}</FieldValue>
-                ))}
+                {uniqueCountryFlags?.map((flag, i) => {
+                  if (flag)
+                    return (
+                      <FieldValue key={i}>{`${flag} ${
+                        i < uniqueCountryFlags.length - 1 ? '-' : ''
+                      }`}</FieldValue>
+                    );
+                })}
               </ValuesContainer>
             </FieldWrapper>
           </FieldsContainer>

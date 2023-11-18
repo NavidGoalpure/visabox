@@ -4,6 +4,7 @@ export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',
   //
+  PageSubtitle = 'PageSubtitle',
   About = 'About',
   Contacts = 'Contacts',
   MaraNumber = 'MaraNumber',
@@ -30,6 +31,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '企业名称: $businessName | 马拉数: $maraNumber  | Mara Box',
   },
   //
+
+  PageSubtitle: {
+    fa: 'این اطلاعات از سایت رسمی portal.mara.gov.au گرفته شده است. درصورتی که معتقدید هر بخشی از این اطلاعات نادرست است، لطفا با پشتیبانی سایت تماس بگیرید. ',
+    en: 'This information is taken from the official website portal.mara.gov.au. If you believe any part of this information is incorrect, please contact the site support.',
+    zh: '该信息取自官方网站portal.mara.gov.au。 如果您认为此信息的任何部分不正确，请联系站点支持。',
+  },
   About: {
     en: 'About',
     zh: '关于',

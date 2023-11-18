@@ -40,7 +40,7 @@ export function validateClientDataWithYup(client: Client | undefined) {
     is_partner_competent_english_speaker: boolean().notRequired(),
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
-    all_degrees: array().of(clientAllDegreesSchema),
+    all_degrees: array().of(clientAllDegreesSchema).nullable(),
     current_job: string().required(),
     work_experience: mixed<WorkExperience>()
       .oneOf(Object.values(WorkExperience))

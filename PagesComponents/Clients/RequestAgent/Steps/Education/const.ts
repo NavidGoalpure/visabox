@@ -27,6 +27,7 @@ export enum LanguageKeys {
   // Graduation Date
   GraduationDateLabel = "GraduationDateLabel",
   //
+  AddInfoSwiper = "AddInfoSwiper",
   SaveTitle = "SaveTitle",
   BackTitle = "BackTitle",
 }
@@ -167,8 +168,14 @@ Did you complete a professional year program in Australia in your nominated skil
     fa: "بازگشت",
     zh: "后退",
   },
+  // navid get a good text
+  AddInfoSwiper: {
+    en: "Add Information",
+    fa: "افزودن مشخصات",
+    zh: "添加信息",
+  },
 };
-export const AllDegreesTemplate:ClientAllDegrees[] = [
+export const AllDegreesTemplate: ClientAllDegrees[] = [
   {
     label: ClientDegree.Diploma,
     uni_section: null,

@@ -45,7 +45,6 @@ const EducationStep = () => {
         all_degrees: AllDegreesTemplate.slice(0, AllDegreesTemplateIndex + 1),
       });
   }, []);
-  console.log(`navid client?.all_degrees ===`, !client?.all_degrees);
   return (
     <Container>
       <StyledInput

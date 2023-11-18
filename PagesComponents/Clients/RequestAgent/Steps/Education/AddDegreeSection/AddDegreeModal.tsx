@@ -24,7 +24,6 @@ import { Headline7Style } from "Styles/Typo";
 import { ClientQueryKeys } from "Utils/query/keys";
 import * as ToggleGroup from "Elements/ToggleGroup";
 import {
-  AllDegreesTemplate,
   componentStatements,
   LanguageKeys,
 } from "../const";
@@ -39,6 +38,7 @@ import { uniSections } from "Consts/Client";
 import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
 import { SupportedCountry } from "Interfaces/Database";
 import { SearchInputComponent } from "Components/SearchInputComponent";
+import { Hint_Modal_Bg, Hint_Modal_Icon, Hint_Modal_Text } from "Styles/Theme/elementsInModal/hint";
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -109,10 +109,10 @@ const EditModal: React.FC<Props> = ({
       {selectedDegree?.uni_section === UniSections.IDontKnow &&
         client?.country === SupportedCountry.Iran && (
           <>
-            <HintContainer>
-              <InfoHintIcon />
-              <HintText>{t(LanguageKeys.UniInput_HintText)}</HintText>
-            </HintContainer>
+            <ModalHintContainer>
+              <ModalInfoHintIcon />
+              <ModalHintText>{t(LanguageKeys.UniInput_HintText)}</ModalHintText>
+            </ModalHintContainer>
             <SearchInputComponent
               isInputInModal={true}
               placeholder={t(LanguageKeys.UniInput_Placeholder)}
@@ -175,6 +175,15 @@ const EditModal: React.FC<Props> = ({
   );
 };
 export default EditModal;
+const ModalHintContainer = styled(HintContainer)`
+  ${Hint_Modal_Bg}
+`;
+const ModalInfoHintIcon = styled(InfoHintIcon)`
+${Hint_Modal_Icon}
+`;
+const ModalHintText = styled(HintText)`
+  ${Hint_Modal_Text}
+`;
 const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;

@@ -44,7 +44,7 @@ export enum IELTSScore {
 }
 export enum ClientCompletedForms {
   BasicForm = "basic_form",
-  AgentForm = "agent_form"
+  AgentForm = "agent_form",
 }
 export interface ClientAllDegrees {
   label: ClientDegree;
@@ -52,8 +52,14 @@ export interface ClientAllDegrees {
   field_of_study: string | null;
   graduation_date: string | null;
 }
+export interface ClientAllJobs {
+  title: string;
+  work_experience: WorkExperience;
+  is_able_to_provide_legal_proof: boolean;
+  was_job_in_australia: boolean;
+}
 export interface ClientCompletedForms_obj {
-  form: ClientCompletedForms;
+  forms: ClientCompletedForms;
   _type: "client_completed_forms_obj";
   _key: string;
 }
@@ -69,6 +75,7 @@ export interface Client extends SanityKeys {
   does_partner_have_assessment?: boolean;
   is_partner_competent_english_speaker?: boolean;
   all_degrees?: ClientAllDegrees[];
+  all_jobs?: ClientAllJobs[];
   field_of_study?: string;
   degree?: ClientDegree;
   current_job?: string;

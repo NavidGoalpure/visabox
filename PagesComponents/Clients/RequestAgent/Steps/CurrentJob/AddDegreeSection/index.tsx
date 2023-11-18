@@ -1,5 +1,3 @@
-import { EffectCoverflow, Navigation } from "swiper/modules";
-import { IoIosArrowDown } from "react-icons/io";
 import styled, { css } from "styled-components";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 // import "swiper/swiper-bundle.css";
@@ -10,10 +8,8 @@ import { Headline7Style } from "Styles/Typo";
 import { MdOutlineEdit } from "react-icons/md";
 import theme from "styled-theming";
 import { AiOutlinePlus } from "react-icons/ai";
-import AddDegreeModal from "./AddDegreeModal";
-import { SecondaryButton } from "Elements/Button/Secondary";
+import AddJobModal from "./AddJobModal";
 import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
-import { educations } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { deviceMin } from "Consts/device";
 import MaraSwiper from "Components/MaraSwiper";
@@ -22,69 +18,68 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 
-const AddDegreesSection = () => {
+const CurrentJobsSection = () => {
   const { client } = useContext(FormDataContext);
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedDegreeLabel, setSelectedDegreeLabel] = useState<string>("");
+  const [selectedJobIndex, setSelectedJobIndex] = useState<number | undefined>(
+    undefined
+  );
   const { t } = useStaticTranslation(componentStatements);
   return (
     <MaraSwiper updateSwiperVariables={client}>
-      <AddDegreeModal
+      <AddJobModal
+        clickedJobIndex={selectedJobIndex}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
-        degreeLabel={selectedDegreeLabel}
       />
-      {client?.all_degrees?.map((degree) => {
-        if (degree.graduation_date !== null) {
+      <AddJobCard
+        onClick={() => {
+          setIsModalOpen(true);
+          setSelectedJobIndex(undefined);
+        }}
+        className="swiper-slide"
+      >
+        <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
+        <PlusIcon />
+      </AddJobCard>
+      {client?.all_jobs?.map((job, index) => {
+        if (!!job.title) {
           return (
-            <DegreeCard
+            <JobCard
               onClick={() => {
                 setIsModalOpen(true);
-                setSelectedDegreeLabel(degree?.label);
+                setSelectedJobIndex(index);
               }}
               className="swiper-slide"
             >
-              <CardTitle>{degree.label}</CardTitle>
-              <UniSectionWrapper>
-                <FieldOfStudy>{degree.field_of_study}</FieldOfStudy>
-                <Dash />
-                <UniSection>{degree.uni_section}</UniSection>
-              </UniSectionWrapper>
-              <GraduationDate>{degree.graduation_date}</GraduationDate>
+              <CardTitle>{job.title}</CardTitle>
+              <WorkExperience>{job.work_experience}</WorkExperience>
+
+              <TrueOrFalseField>
+                {" "}
+                {t(LanguageKeys.WasTheJobInAustralia)}{" "}
+                {job.was_job_in_australia ? <Checkmark /> : <CloseIcon />}
+              </TrueOrFalseField>
+              <TrueOrFalseField>
+                {t(LanguageKeys.CanProvideLegalProofForExperience)}
+                {job.is_able_to_provide_legal_proof ? (
+                  <Checkmark />
+                ) : (
+                  <CloseIcon />
+                )}
+              </TrueOrFalseField>
               <EditIcon />
-            </DegreeCard>
+            </JobCard>
           );
         }
-        return (
-          <AddDegreeCard
-            onClick={() => {
-              setIsModalOpen(true);
-              setSelectedDegreeLabel(degree?.label);
-            }}
-            className="swiper-slide"
-          >
-            <AddTitle>
-              {t(LanguageKeys.AddInfoSwiper)}
-              {" "}
-              <span>
-                {
-                  educations.filter(
-                    (el) => el.en.toLowerCase() === degree.label.toLowerCase()
-                  )?.[0]?.[locale]
-                }
-              </span>
-            </AddTitle>
-            <PlusIcon />
-          </AddDegreeCard>
-        );
       })}
     </MaraSwiper>
   );
 };
-export default AddDegreesSection;
+export default CurrentJobsSection;
 
-const DegreeCardTheme = theme("mode", {
+const JobCardTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
   `,
@@ -134,8 +129,8 @@ const NextArrowDir = theme("languageDirection", {
   `,
 });
 
-const DegreeCard = styled.div`
-  ${DegreeCardTheme};
+const JobCard = styled.div`
+  ${JobCardTheme};
   cursor: pointer;
   padding: 1rem;
   border-radius: 15px;
@@ -143,7 +138,7 @@ const DegreeCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   height: 100%;
   max-width: 12.5rem;
 
@@ -155,14 +150,12 @@ const DegreeCard = styled.div`
 const CardTitle = styled.h3`
   ${Headline7Style};
   ${TitleTheme};
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 `;
-const UniSectionWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-`;
-const FieldOfStudy = styled.h3`
+const WorkExperience = styled.h3`
   ${layer3_TextStyle}
   display: flex;
   align-items: center;
@@ -174,16 +167,12 @@ const FieldOfStudy = styled.h3`
   overflow: hidden;
   flex-shrink: 0;
 `;
-const Dash = styled.span`
-  border: 1px solid var(--color-gray9);
-  width: 0.5rem;
-`;
-const UniSection = styled.h3`
+
+const TrueOrFalseField = styled.h3`
   ${layer3_TextStyle};
-  flex-shrink: 0;
-`;
-const GraduationDate = styled.h3`
-  ${layer3_TextStyle};
+  display: flex;
+  jusitfy-content: center;
+  gap: 0.5rem;
 `;
 const EditIcon = styled(MdOutlineEdit)`
   border-radius: 50px;
@@ -192,7 +181,7 @@ const EditIcon = styled(MdOutlineEdit)`
   box-sizing: content-box;
   background: var(--color-primary4);
 `;
-const AddDegreeCard = styled.div`
+const AddJobCard = styled.div`
   border: 3px dashed;
   ${AddCardBorderTheme};
   cursor: pointer;
@@ -206,17 +195,26 @@ const AddDegreeCard = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   @media ${deviceMin.tabletS} {
     max-width: unset;
   }
 `;
-
 const AddTitle = styled.h3`
   ${layer3_TextStyle};
   span {
     ${AddTitleTheme};
   }
+`;
+const Checkmark = styled(BsCheck)`
+  color: var(--color-primary3);
+  height: auto;
+  width: 2rem;
+`;
+const CloseIcon = styled(IoCloseOutline)`
+  color: var(--color-fail1);
+  width: 1.5rem;
+  height: auto;
 `;
 const PlusIcon = styled(AiOutlinePlus)`
   color: white;

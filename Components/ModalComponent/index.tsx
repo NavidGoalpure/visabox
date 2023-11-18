@@ -113,7 +113,6 @@ const DialogContent = styled(Dialog.Content)`
   @media ${deviceMin.tabletS} {
     padding: 2rem;
     height: fit-content;
-    max-height: none;
     border-radius: 15px;
     width: auto;
     max-width: 31.5rem;
@@ -150,7 +149,7 @@ const Wrapper = styled.div`
   padding: 0 2rem;
   @media ${deviceMin.tabletS} {
     padding: 0;
-    overflow: unset;
+    // overflow: unset;
     height: auto;
   }
 `;

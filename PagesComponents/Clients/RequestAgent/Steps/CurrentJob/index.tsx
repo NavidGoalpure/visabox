@@ -13,11 +13,12 @@ import {
 } from '../StyledComponents';
 import { FormDataContext } from '../../Contexts/FormDataContext/Context';
 import { WizardContext } from 'Components/Wizard/Context';
+import CurrentJobsSection from './AddDegreeSection';
 
 const CurrentJobStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient, score } = useContext(FormDataContext);
+  const { client, setClient } = useContext(FormDataContext);
 
   return (
     <Container>
@@ -35,6 +36,7 @@ const CurrentJobStep = () => {
             });
         }}
       />
+      <CurrentJobsSection />
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />

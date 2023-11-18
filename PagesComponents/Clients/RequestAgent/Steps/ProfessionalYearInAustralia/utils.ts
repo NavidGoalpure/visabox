@@ -21,6 +21,14 @@ const clientAllDegreesSchema = object().shape({
   field_of_study: string().nullable(),
   graduation_date: string().nullable(),
 });
+const clientAllJobsSchema = object().shape({
+  title: string().required(),
+  work_experience: mixed()
+    .oneOf([...Object.values(WorkExperience)])
+    .required(),
+  is_able_to_provide_legal_proof: boolean().required(),
+  was_job_in_australia: boolean().required(),
+});
 
 export function validateClientDataWithYup(client: Client | undefined) {
   let userSchema = object({
@@ -41,6 +49,7 @@ export function validateClientDataWithYup(client: Client | undefined) {
     field_of_study: string().required(),
     degree: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
     all_degrees: array().of(clientAllDegreesSchema),
+    all_jobs: array().of(clientAllJobsSchema),
     current_job: string().required(),
     work_experience: mixed<WorkExperience>()
       .oneOf(Object.values(WorkExperience))

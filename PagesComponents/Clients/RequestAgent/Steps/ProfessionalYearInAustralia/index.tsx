@@ -44,33 +44,34 @@ const ProfessionalYearInAustraliaStep = () => {
   const successToastMessage = t(LanguageKeys.SuccessToastText);
   const queryClient = useQueryClient();
   const { data: session } = useSession();
-  
+
   function getSmartCompletedForms(
     formsData: ClientCompletedForms_obj[] | undefined
   ): ClientCompletedForms_obj[] | undefined {
     if (!formsData)
       return [
         {
-          form: ClientCompletedForms.AgentForm,
+          forms: ClientCompletedForms.AgentForm,
           _type: "client_completed_forms_obj",
           _key: new Date().toString() + Math.random().toString(),
         },
       ];
     if (
       formsData.filter(
-        (formData) => formData.form === ClientCompletedForms.AgentForm
+        (formData) => formData.forms === ClientCompletedForms.AgentForm
       ).length > 0
     )
       return formsData;
     return [
       ...formsData,
       {
-        form: ClientCompletedForms.AgentForm,
+        forms: ClientCompletedForms.AgentForm,
         _type: "client_completed_forms_obj",
         _key: new Date().toString() + Math.random().toString(),
       },
     ];
   }
+
   const mutation = useMutation({
     mutationFn: () => {
       const fullData: Client | undefined = client
@@ -82,7 +83,6 @@ const ProfessionalYearInAustraliaStep = () => {
             completed_forms: getSmartCompletedForms(client?.completed_forms),
           }
         : undefined;
-
       // ولیدیت دیتایی که به سرور فرستاده میشه
       const validatedData = validateClientDataWithYup(fullData);
       //

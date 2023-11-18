@@ -30,7 +30,7 @@ import {
   ClientRole,
 } from "Interfaces/Database/Client";
 import { useSession } from "next-auth/react";
-import { validateClientDataWithYup } from "PagesComponents/Clients/RequestAgent/Steps/AgentSteps/ProfessionalYearInAustralia/utils";
+import { validateClientDataWithYup } from "./utils";
 import { useQueryClient, useMutation } from "react-query";
 import { removeLocalStorage } from "Utils";
 import { ClientQueryKeys } from "Utils/query/keys";
@@ -47,7 +47,7 @@ const ProfessionalYearInAustraliaStep = () => {
     completedForms: ClientCompletedForms_obj[] | undefined
   ) {
     completedForms?.map((completedForm) => {
-      if (completedForm.form === ClientCompletedForms.AgentForm) return true;
+      if (completedForm.forms === ClientCompletedForms.AgentForm) return true;
     });
     return false;
   }
@@ -57,21 +57,21 @@ const ProfessionalYearInAustraliaStep = () => {
     if (!formsData)
       return [
         {
-          form: ClientCompletedForms.BasicForm,
+          forms: ClientCompletedForms.BasicForm,
           _type: "client_completed_forms_obj",
           _key: new Date().toString() + Math.random().toString(),
         },
       ];
     if (
       formsData.filter(
-        (formData) => formData.form === ClientCompletedForms.BasicForm
+        (formData) => formData.forms === ClientCompletedForms.BasicForm
       ).length > 0
     )
       return formsData;
     return [
       ...formsData,
       {
-        form: ClientCompletedForms.BasicForm,
+        forms: ClientCompletedForms.BasicForm,
         _type: "client_completed_forms_obj",
         _key: new Date().toString() + Math.random().toString(),
       },

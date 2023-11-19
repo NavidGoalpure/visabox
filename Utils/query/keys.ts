@@ -42,8 +42,12 @@ const ClientQueryKeys = {
   //
   last: ({ resParams }: { resParams: string }) =>
     [...ClientQueryKeys.key, "last", resParams] as const,
-  listOfBasicForm: ({ resParams }: { resParams?: string }) =>
-    [...ClientQueryKeys.key, "listOfBasicForm", resParams] as const,
+  listOfBasicForm: ({ resParams }: { resParams?: string }) => {
+    if (resParams) {
+      return [...ClientQueryKeys.key, "listOfBasicForm", resParams] as const;
+    }
+    return [...ClientQueryKeys.key, "listOfBasicForm"] as const;
+  },
 };
 ////////////////////////////////
 //////Agency queries/////////////
@@ -61,6 +65,11 @@ const AgencyQueryKeys = {
   }: {
     reqParams: string;
     resParams?: string;
-  }) => [...AgencyQueryKeys.key, "detail", reqParams, resParams] as const,
+  }) => {
+    if (resParams) {
+      return [...AgencyQueryKeys.key, "detail", reqParams, resParams] as const;
+    }
+    return [...AgencyQueryKeys.key, "detail", reqParams] as const;
+  },
 };
 export { OccupationsQueryKeys, ClientQueryKeys, AgencyQueryKeys };

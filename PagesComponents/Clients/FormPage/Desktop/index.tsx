@@ -62,7 +62,7 @@ function DesktopAgentsPage({
   }
   return (
     <Container>
-      {!!client && !!userId && client?.completed_forms?.length !== 1 && (
+      {!!client && !!userId && client?.completed_forms?.length === 0 && (
         <HintContainer>
           <HintInfoIcon />
           <HintContent>
@@ -115,6 +115,7 @@ function DesktopAgentsPage({
             </ProfileData>
           </ProfileBox>
           <BoxesSection
+            is_sharable={client?.is_sharable}
             id={client?._id || "defensive"}
             email={client?.email || "defensive"}
           />

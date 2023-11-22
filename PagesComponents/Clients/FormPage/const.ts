@@ -15,10 +15,13 @@ export enum LanguageKeys {
   UserPageNotCompletedHint = "UserPageNotCompletedHint",
   PrintBoxTitle = "PrintBoxTitle",
   PrintBoxDesc = "PrintBoxDesc",
+  ShowFormTitle = "ShowFormTitle",
+  ShowFormDesc = "ShowFormDesc",
   EditBoxTitle = "EditBoxTitle",
   EditBoxDesc = "EditBoxDesc",
   ShareBoxTitle = "ShareBoxTitle",
   ShareBoxDesc = "ShareBoxDesc",
+
   copyShareToastMessage = "copyShareToastMessage",
   YesText = "YesText",
   NoText = "NoText",
@@ -49,6 +52,8 @@ export enum LanguageKeys {
   FailedToastMessage = "FailedToastMessage",
   SuccessToastText = "SuccessToastText",
   CurrentJobInputPlaceholder = "CurrentJobInputPlaceholder",
+  HideDataToast = "HideDataToast",
+  ShowDataToast = "ShowDataToast",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -114,6 +119,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "مشاهده نسخه قابل پرینت.",
     zh: "请参阅打印版本",
   },
+  ShowFormTitle: {
+    en: "Data publicity",
+    fa: "نمایش فرم",
+    zh: "数据公示",
+  },
+  ShowFormDesc: {
+    en: "Do you want mara agents to be able to see your profile?",
+    fa: "اطلاعات مهاجرتی شما برای وکلای مهاجرتی قابل مشاهده باشد؟",
+    zh: "您希望 Mara 代理能够看到您的个人资料吗？",
+  },
+
   EditBoxTitle: {
     en: "Edit",
     fa: "ویرایش",
@@ -286,6 +302,16 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: "Example: Web Developer",
     fa: "مثال: برنامه نویس اپلیکیشن موبایل",
     zh: "示例：Web 开发人员",
+  },
+  HideDataToast: {
+    en: "Your Data Is Now Hidden From Migration Agents",
+    fa: "داده های شما اکنون از دید وکلای مهاجرت پنهان شده است",
+    zh: "您的数据现在对迁移代理隐藏",
+  },
+  ShowDataToast: {
+    en: "Your Data Is Now Visible To Migration Agents",
+    fa: "داده های شما اکنون برای وکلای مهاجرت قابل مشاهده است",
+    zh: "迁移代理现在可以看到您的数据",
   },
 };
 export const profileResParams = ` 

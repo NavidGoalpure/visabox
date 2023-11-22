@@ -9,11 +9,12 @@ import Link from 'next/link';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
-import { copyContent } from 'Utils';
-import { Languages } from 'Interfaces';
+import { copyContent, getLocalStorage } from 'Utils';
+import { Languages, LocalStorageKeys } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import { SupportedCountry } from 'Interfaces/Database';
 
-function MobileFooter() {
+function MobileFooter({ clientCountry }: { clientCountry: string }) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
 const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
@@ -21,7 +22,7 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
     <Container>
       <StyledLogo />
       <ItemsContainer>
-        <ItemsTitle>{t(LanguageKeys.Occupations)}</ItemsTitle>
+        <ItemsTitle>{t(LanguageKeys.SkilledWorkerVisa)}</ItemsTitle>
         <Items
           href={`/${locale}/occupations`}
           data-name={t(LanguageKeys.SkilledOccupationList)}
@@ -34,27 +35,54 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
         >
           {t(LanguageKeys.AssessingAuthority)}
         </Items>
+        {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
+          <Items
+            href={`/${locale}/occupations/university-section-search`}
+            data-name={t(LanguageKeys.UniversitySection)}
+          >
+            {t(LanguageKeys.UniversitySection)}
+          </Items>
+          )}
       </ItemsContainer>
       <ItemsContainer>
-        <ItemsTitle>{t(LanguageKeys.Occupations)}</ItemsTitle>
+        <ItemsTitle>{t(LanguageKeys.Lists)}</ItemsTitle>
         <Items
-          href={`/${locale}/lists/agents`}
-          data-name={t(LanguageKeys.AgentsBox)}
-        >
-          {t(LanguageKeys.AgentsBox)}
-        </Items>
-        <Items
-          href={`/${locale}/lists/agencies`}
-          data-name={t(LanguageKeys.AgenciesBox)}
-        >
-          {t(LanguageKeys.AgenciesBox)}
-        </Items>
-        <Items
-          href={`/${locale}/lists/social-pages`}
-          data-name={t(LanguageKeys.SocialNetWorksBox)}
-        >
-          {t(LanguageKeys.SocialNetWorksBox)}
-        </Items>
+            href={`/${locale}/lists/agents`}
+            data-name={t(LanguageKeys.AgentsBox)}
+          >
+            {t(LanguageKeys.AgentsBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/agencies`}
+            data-name={t(LanguageKeys.AgenciesBox)}
+          >
+            {t(LanguageKeys.AgenciesBox)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/exchanges`}
+            data-name={t(LanguageKeys.Exchanges)}
+          >
+            {t(LanguageKeys.Exchanges)}
+          </Items>
+          {(clientCountry === SupportedCountry.Iran ||
+            getLocalStorage(LocalStorageKeys.Country) ===
+              SupportedCountry.Iran) && (
+                <Items
+                href={`/${locale}/lists/social-pages`}
+                data-name={t(LanguageKeys.SocialNetWorksBox)}
+              >
+                {t(LanguageKeys.SocialNetWorksBox)}
+              </Items>
+          )}
+       
+          <Items
+            href={`/${locale}/lists/naaties`}
+            data-name={t(LanguageKeys.Naati)}
+          >
+            {t(LanguageKeys.Naati)}
+          </Items>
         {/* {locale === Languages.fa && (
           <Items
             href={`/${locale}/landing/agents`}
@@ -117,7 +145,7 @@ const Container = styled.footer`
   ${footerBackground};
   clip-path: polygon(50% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
   padding-top: 19rem;
-  height: 64rem;
+  height: auto;
   width: 100%;
   position: relative;
   display: flex;

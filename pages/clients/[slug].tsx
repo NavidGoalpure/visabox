@@ -66,6 +66,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.slug;
   const reqParams = `_id == "${id}"`;
 
+      
   try {
     await queryClient.prefetchQuery(
       ClientQueryKeys.detail({

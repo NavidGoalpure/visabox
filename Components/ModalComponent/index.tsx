@@ -49,7 +49,11 @@ const ModalComponent: React.FC<Props> = ({
         >
           <MobileLine />
           <Wrapper>
-            <DialogTitle className="DialogTitle">{DialogTitleText}</DialogTitle>
+            {!!DialogTitleText && (
+              <DialogTitle className="DialogTitle">
+                {DialogTitleText}
+              </DialogTitle>
+            )}
             {children}
           </Wrapper>
         </DialogContent>
@@ -109,7 +113,6 @@ const DialogContent = styled(Dialog.Content)`
   @media ${deviceMin.tabletS} {
     padding: 2rem;
     height: fit-content;
-    max-height: none;
     border-radius: 15px;
     width: auto;
     max-width: 31.5rem;
@@ -136,6 +139,7 @@ const MobileLine = styled.hr`
 `;
 const Wrapper = styled.div`
   width: 100%;
+  postion: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -145,7 +149,7 @@ const Wrapper = styled.div`
   padding: 0 2rem;
   @media ${deviceMin.tabletS} {
     padding: 0;
-    overflow: unset;
+    // overflow: unset;
     height: auto;
   }
 `;

@@ -1,22 +1,37 @@
 import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
+  SkilledWorkerVisa = 'SkilledWorkerVisa',
   Occupations = 'Occupations',
+  Lists = 'Lists',
   Home = 'Home',
   SkilledOccupationList = 'SkilledOccupationList',
   AssessingAuthority = 'AssessingAuthority',
+  UniversitySection = 'UniversitySection',
   ContactUs = 'ContactUs',
   AgentsBox = 'AgentsBox',
   AgenciesBox = 'AgenciesBox',
+  Exchanges = 'Exchanges',
   SocialNetWorksBox = 'SocialNetWorksBox',
+  Naati = 'Naati',
   BecomeSponser = 'BecomeSponser',
   copyEmailToastMessage = 'copyEmailToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  SkilledWorkerVisa: {
+    fa: 'ویزای مهارتی',
+    en: 'Skilled Worker Visa',
+    zh: '技术工人签证',
+  },
   Occupations: {
     fa: 'ویزای مهارتی',
     en: 'Occupations',
     zh: '职业',
+  },
+  Lists: {
+    fa: 'لیست ها',
+    en: 'Lists',
+    zh: '列表',
   },
   Home: {
     fa: 'خانه',
@@ -38,20 +53,35 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Assessing Authority',
     zh: '评估机构',
   },
+  UniversitySection: {
+    fa: 'جستجوی سکشن دانشگاه',
+    en: 'Find university section',
+    zh: '大学部分搜索',
+  },
   AgentsBox: {
     fa: 'وکلای مهاجرت',
-    en: 'Agents Box',
+    en: 'Agents',
     zh: '代理箱',
   },
   AgenciesBox: {
     fa: 'دفاتر مهاجرتی',
-    en: 'Agencies Box',
+    en: 'Agencies',
     zh: '已将电子邮件复制到剪贴板',
+  },
+  Exchanges: {
+    fa: 'صرافی ها',
+    en: 'Exchanges',
+    zh: '交流',
   },
   SocialNetWorksBox: {
     fa: 'شبکه‌های اجتماعی',
-    en: 'Social Networks Box',
+    en: 'Social Networks',
     zh: '社交网络盒',
+  },
+  Naati: {
+    fa: 'لیست مترجمین',
+    en: 'Naati',
+    zh: '纳蒂',
   },
   BecomeSponser: {
     fa: 'اسپانسر شوید',

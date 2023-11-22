@@ -27,7 +27,21 @@ import BoxesSection from "../BoxesSection";
 import DescriptionSection from "../DescriptionSection";
 import { Dispatch, SetStateAction } from "react";
 import { useSession } from "next-auth/react";
-import { CreatedDate, EditButton, EditIcon, HeaderLabel, HintContainer, HintContent, HintInfoIcon, ImagePlaceholder, JobTitle, Name, ProfileData, ProfilePicture, ProfilePictureWrapper } from "../StyledComponents";
+import {
+  CreatedDate,
+  EditButton,
+  EditIcon,
+  HeaderLabel,
+  HintContainer,
+  HintContent,
+  HintInfoIcon,
+  ImagePlaceholder,
+  JobTitle,
+  Name,
+  ProfileData,
+  ProfilePicture,
+  ProfilePictureWrapper,
+} from "../StyledComponents";
 
 interface Props {
   client: Client;
@@ -67,8 +81,7 @@ function MobileAgentsPage({
       <ProfileData>
         <Name
           onClick={() =>
-            isViewerOwner &&
-            EditClickHandler(EditModalContentKeys.NAME)
+            isViewerOwner && EditClickHandler(EditModalContentKeys.NAME)
           }
         >
           {client?.name} {client?.lastname}{" "}
@@ -80,8 +93,7 @@ function MobileAgentsPage({
         </Name>
         <JobTitle
           onClick={() =>
-            isViewerOwner &&
-            EditClickHandler(EditModalContentKeys.CURRENT_JOB)
+            isViewerOwner && EditClickHandler(EditModalContentKeys.CURRENT_JOB)
           }
         >
           {client?.current_job}{" "}
@@ -111,7 +123,12 @@ function MobileAgentsPage({
           </HintContainer>
         )}
         <BoxesSection
-          id={client?._id || ""}
+          is_sharable={
+            client?.is_sharable ||
+            // defensive
+            undefined
+          }
+          id={client?._id || "defensive"}
           email={client?.email || "defensive"}
         />
       </ProfileData>
@@ -178,5 +195,3 @@ const Star = styled.div`
     37% 35%
   );
 `;
-
-

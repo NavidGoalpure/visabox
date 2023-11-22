@@ -33,7 +33,7 @@ const CurrentJobsSection = () => {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-      <AddJobCard
+      <AddCard
         onClick={() => {
           setIsModalOpen(true);
           setSelectedJobIndex(undefined);
@@ -42,7 +42,7 @@ const CurrentJobsSection = () => {
       >
         <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
         <PlusIcon />
-      </AddJobCard>
+      </AddCard>
       {client?.all_jobs?.map((job, index) => {
         if (!!job.title) {
           return (
@@ -103,32 +103,47 @@ const AddTitleTheme = theme("mode", {
     color: var(--color-primary6);
   `,
 });
-const AddCardBorderTheme = theme("mode", {
+const AddCardTheme = theme("mode", {
   light: css`
     border-color: var(--color-gray7);
+    backdrop-filter: blur(12px);
   `,
   dark: css`
     border-color: var(--color-gray4);
+    background: var(--color-gray2);
   `,
 });
-
-const PrevArrowDir = theme("languageDirection", {
-  ltr: css`
-    transform: rotate(90deg);
+const AddCardHoverTheme = theme("mode", {
+  light: css`
+    border: 3px solid var(--color-gray10);
+    background: var(--color-gray13);
   `,
-  rtl: css`
-    transform: rotate(-90deg);
-  `,
-});
-const NextArrowDir = theme("languageDirection", {
-  ltr: css`
-    transform: rotate(-90deg);
-  `,
-  rtl: css`
-    transform: rotate(90deg);
+  dark: css`
+    border: 3px solid var(--color-gray4);
+    background: var(--color-gray3);
   `,
 });
-
+ const AddCard = styled.div`
+  border: 3px dashed;
+  // ${AddCardTheme};
+  cursor: pointer;
+  max-width: 12.5rem;
+  width: max-content;
+  text-align: center;
+  height: auto;
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  
+  @media ${deviceMin.tabletS} {
+    padding: 2.5rem 4rem;
+    max-width: unset;
+  }
+`;
 const JobCard = styled.div`
   ${JobCardTheme};
   cursor: pointer;
@@ -181,25 +196,7 @@ const EditIcon = styled(MdOutlineEdit)`
   box-sizing: content-box;
   background: var(--color-primary4);
 `;
-const AddJobCard = styled.div`
-  border: 3px dashed;
-  ${AddCardBorderTheme};
-  cursor: pointer;
-  max-width: 12.5rem;
-  width: max-content;
-  text-align: center;
-  height: auto;
-  padding: 1rem;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  @media ${deviceMin.tabletS} {
-    max-width: unset;
-  }
-`;
+
 const AddTitle = styled.h3`
   ${layer3_TextStyle};
   span {

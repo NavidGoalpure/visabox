@@ -51,11 +51,11 @@ const MaraSwiper: React.FC<Props> = ({
       </StyledSwiper>
       {/* {screen === "DESKTOP" && ( */}
       <ButtonWrapper>
-        <PrevButton icon={<PrevButtonArrow />} className="swiper-button-prev">
-          {}
+        <PrevButton className="swiper-button-prev">
+          <PrevButtonArrow />
         </PrevButton>
-        <NextButton icon={<NextButtonArrow />} className="swiper-button-next">
-          {}
+        <NextButton className="swiper-button-next">
+          <NextButtonArrow />
         </NextButton>
       </ButtonWrapper>
       {/* )} */}
@@ -74,7 +74,14 @@ const BackgroundTheme = theme("mode", {
     background-color: var(--color-gray2);
   `,
 });
-
+const ButtonTheme = theme("mode", {
+  light: css`
+    background-color: var(--color-gray6);
+  `,
+  dark: css`
+    background-color: var(--color-gray3);
+  `,
+});
 const PrevArrowDir = theme("languageDirection", {
   ltr: css`
     transform: rotate(90deg);
@@ -106,6 +113,7 @@ const StyledSwiper = styled.div`
   overflow: hidden;
   .swiper-wrapper {
     width: auto;
+    display: flex;
   }
   .swiper-slide {
     filter: blur(10px);
@@ -118,10 +126,7 @@ const StyledSwiper = styled.div`
     z-index: 2;
   }
 `;
-const SwiperWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+const SwiperWrapper = styled.div``;
 
 const ButtonWrapper = styled.div`
   width: 100%;
@@ -131,12 +136,14 @@ const ButtonWrapper = styled.div`
   gap: 2rem;
   margin-top: 1.5rem;
 `;
-const PrevButton = styled(SecondaryButton)`
-  flex-direction: row-reverse;
+const PrevButton = styled.button`
+  ${ButtonTheme};
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  color: var(--color-gray13);
+  border-radius: 15px;
 `;
-const NextButton = styled(SecondaryButton)`
-  position: unset;
-`;
+const NextButton = styled(PrevButton)``;
 const PrevButtonArrow = styled(IoIosArrowDown)`
   ${PrevArrowDir};
 `;

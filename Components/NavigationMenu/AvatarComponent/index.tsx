@@ -120,7 +120,7 @@ function DesktopProfileOptions() {
               // this condition is to see if the user has completed the basic form
               // we don't want to show this item if the user haven't completed the basic form yet
               data?.client?.[0]?.completed_forms?.filter(
-                (forms) => forms.form === ClientCompletedForms.BasicForm
+                (forms) => forms.forms === ClientCompletedForms.AgentForm
               ).length === 1 && (
                 <PopOverItemContainer
                   onClick={() => {

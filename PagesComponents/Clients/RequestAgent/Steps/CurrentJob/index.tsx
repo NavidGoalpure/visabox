@@ -13,7 +13,7 @@ import {
 } from '../StyledComponents';
 import { FormDataContext } from '../../Contexts/FormDataContext/Context';
 import { WizardContext } from 'Components/Wizard/Context';
-import CurrentJobsSection from './AddDegreeSection';
+import CurrentJobsSection from './AddJobSection';
 
 const CurrentJobStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);

@@ -18,8 +18,9 @@ import { componentStatements, LanguageKeys } from "./const";
 import { Loading } from "Elements/Loading";
 import { isAgencyLogedIn, isClientLogedIn, isLogout } from "Utils/user";
 import CountryModal from "./CountryModal";
-import { Client } from "Interfaces/Database/Client";
+import { Client, ClientCompletedForms } from "Interfaces/Database/Client";
 import { ClientError } from "@sanity/client";
+import CompletedFormsObj from "Sanity/schemas/objects/client/CompletedFormsObj";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -65,17 +66,22 @@ const PageContainer: React.FC<Props> = ({
       enabled: !!session?.user?.email && isClientLogedIn(),
     }
   );
+  // the banner is shown when the user has not completed the request-agent form
   useEffect(() => {
     if (
       !isLoading &&
       !isIdle &&
-      (data?.client?.[0]?.completed_forms?.length || 0 >= 1)
+      data?.client?.[0]?.completed_forms?.filter(
+        (form) => form.forms === ClientCompletedForms.AgentForm
+      ).length === 1
     ) {
       setHasClientCompletedForm(true);
     } else if (
       !isLoading &&
       !isIdle &&
-      data?.client?.[0]?.completed_forms?.length === 0
+      data?.client?.[0]?.completed_forms?.filter(
+        (form) => form.forms === ClientCompletedForms.AgentForm
+      ).length === 0
     )
       setHasClientCompletedForm(false);
     if (!isLoading && !isIdle && !!data?.client?.[0]?.country) {

@@ -1,26 +1,26 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   layer2A_BodyStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import DescriptionSection from "../DescriptionSection";
-import { Client } from "Interfaces/Database/Client";
-import { Headline7Style } from "Styles/Typo";
-import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
-import { BsPersonCircle } from "react-icons/bs";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import DescriptionSection from '../DescriptionSection';
+import { Client } from 'Interfaces/Database/Client';
+import { Headline7Style } from 'Styles/Typo';
+import { CalculateClientScore } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from '../const';
+import { BsPersonCircle } from 'react-icons/bs';
 import {
   Hint_SecondaryContainer,
   Hint_SecondaryIcon,
   Hint_SecondaryTextStyle,
-} from "Styles/Theme/Hint/style";
-import { FiInfo } from "react-icons/fi";
-import BoxesSection from "../BoxesSection";
+} from 'Styles/Theme/Hint/style';
+import { FiInfo } from 'react-icons/fi';
+import BoxesSection from '../BoxesSection';
 interface Props {
-  client: Client;
+  client: Client | undefined;
   userId: string | undefined;
 }
 function DesktopAgentsPage({ client, userId }: Props) {
@@ -45,7 +45,7 @@ function DesktopAgentsPage({ client, userId }: Props) {
               {client?.avatar ? (
                 <ProfilePicture
                   src={client?.avatar}
-                  alt={client?.name ? `${client?.name} image` : "agent image"}
+                  alt={client?.name ? `${client?.name} image` : 'agent image'}
                 />
               ) : (
                 <ImagePlaceholder />
@@ -60,26 +60,26 @@ function DesktopAgentsPage({ client, userId }: Props) {
               {client?.country && (
                 <ScoreWrapper>
                   <HeaderLabel>
-                    {t(LanguageKeys.ScoreTitle)}{" "}
-                    <span id="score">{CalculateClientScore(client)}</span>
+                    {t(LanguageKeys.ScoreTitle)}{' '}
+                    <span id='score'>{CalculateClientScore(client)}</span>
                   </HeaderLabel>
                 </ScoreWrapper>
               )}
             </ProfileData>
           </ProfileBox>
           <BoxesSection
-            id={client?._id || "defensive"}
-            email={client?.email || "defensive"}
+            id={client?._id || 'defensive'}
+            email={client?.email || 'defensive'}
           />
         </SmallBoxesWrapper>
-        <DescriptionSection client={client} />
+        {client && <DescriptionSection client={client} />}
       </Wrapper>
     </Container>
   );
 }
 export default DesktopAgentsPage;
 
-const TitleColor = theme("mode", {
+const TitleColor = theme('mode', {
   light: css`
     color: var(--color-primary4);
   `,
@@ -87,16 +87,16 @@ const TitleColor = theme("mode", {
     color: var(--color-primary5);
   `,
 });
-const HeaderBackground = theme("mode", {
+const HeaderBackground = theme('mode', {
   light: css`
-    background-image: url("/Images/Patterns/LightPattern.svg");
+    background-image: url('/Images/Patterns/LightPattern.svg');
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
   `,
   dark: css`
-    background-image: url("/Images/Patterns/DarkPattern.svg");
+    background-image: url('/Images/Patterns/DarkPattern.svg');
   `,
 });
-const HeaderLabelTheme = theme("mode", {
+const HeaderLabelTheme = theme('mode', {
   light: css`
     color: var(--color-gray10);
   `,
@@ -104,7 +104,7 @@ const HeaderLabelTheme = theme("mode", {
     color: var(--color-gray11);
   `,
 });
-const HeaderScoreTheme = theme("mode", {
+const HeaderScoreTheme = theme('mode', {
   light: css`
     color: var(--color-secondary2);
   `,

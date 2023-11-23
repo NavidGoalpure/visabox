@@ -1,6 +1,6 @@
-import { Client } from "Interfaces/Database/Client";
-import { useSession } from "next-auth/react";
-import { sanityClient } from "Utils/sanity";
+import { Client } from 'Interfaces/Database/Client';
+import { useSession } from 'next-auth/react';
+import { sanityClient, sanityClient_WithoutCDN } from 'Utils/sanity';
 
 interface GetClientDetail {
   reqParams: string;
@@ -24,7 +24,7 @@ ${resParams}
   }`;
 
   try {
-    const data = await sanityClient.fetch(queryParams);
+    const data = await sanityClient_WithoutCDN.fetch(queryParams);
 
     return { client: data };
   } catch (error) {

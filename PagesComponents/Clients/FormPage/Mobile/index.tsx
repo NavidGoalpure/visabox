@@ -44,7 +44,7 @@ import {
 } from '../StyledComponents';
 
 interface Props {
-  client: Client | undefined;
+  client: Client;
   userId: string | undefined;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   setEditModalContentKey: Dispatch<SetStateAction<EditModalContentKeys | null>>;

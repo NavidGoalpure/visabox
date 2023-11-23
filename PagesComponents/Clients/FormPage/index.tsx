@@ -9,17 +9,23 @@ import { ClientError } from '@sanity/client';
 import { useSession } from 'next-auth/react';
 import { getClientDetail } from 'Queries/client';
 import EditModal from './EditModal';
-import { EditModalContentKeys } from './const';
+import { EditModalContentKeys, profileResParams } from './const';
 
 const Content: React.FC = () => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
   const { data: session } = useSession();
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
-  const resParams = `_id`;
+  const resParams = profileResParams;
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [editModalContentKey, setEditModalContentKey] =
     useState<EditModalContentKeys | null>(null);
+  console.log(
+    'navid inja0 tag=',
+    ClientQueryKeys.detail({
+      reqParams: profileResParams,
+    })
+  );
   const { data: user } = useQuery<{ client: Client[] }, ClientError>(
     ClientQueryKeys.detail({
       reqParams,
@@ -38,7 +44,9 @@ const Content: React.FC = () => {
   useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');
   });
+  const client = user?.client?.[0];
 
+  if (!client) return null;
   if (screen === 'MOBILE')
     return (
       <>
@@ -51,7 +59,7 @@ const Content: React.FC = () => {
         <MobileAgentsPage
           setEditModalContentKey={setEditModalContentKey}
           setIsModalOpen={setIsModalOpen}
-          userId={user?.client?.[0]?._id}
+          userId={client?._id}
           client={client}
         />
       </>
@@ -68,7 +76,7 @@ const Content: React.FC = () => {
         setEditModalContentKey={setEditModalContentKey}
         setIsModalOpen={setIsModalOpen}
         client={client}
-        userId={user?.client?.[0]?._id}
+        userId={client._id}
       />
     </>
   );

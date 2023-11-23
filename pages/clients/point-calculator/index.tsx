@@ -42,7 +42,8 @@ const UserForms: NextPage = ({}) => {
       current_job,
       is_sharable,
       uni_section,
-      completed_forms
+      completed_forms,
+      all_degrees
       `;
 
   const { data, isLoading, isError } = useQuery(
@@ -54,6 +55,7 @@ const UserForms: NextPage = ({}) => {
       return getClientDetail({
         reqParams,
         resParams,
+        hasCache: false,
       });
     },
     {

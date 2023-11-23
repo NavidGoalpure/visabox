@@ -13,13 +13,12 @@ import { useSession } from "next-auth/react";
 import { componentStatements, LanguageKeys } from "./const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { getClientDetail } from "Queries/client";
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
 import { ClientQueryKeys } from "Utils/query/keys";
-import CountryModal from "../../Components/Layouts/CountryModal";
+import { useQuery } from "react-query";
 import { ClientError } from "@sanity/client";
 import { Client } from "Interfaces/Database/Client";
 import { isAgencyLogedIn } from "Utils/user";
+import { useEffect, useState } from "react";
 
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
@@ -61,7 +60,6 @@ const HomeContent: React.FC = () => {
   }, [isLoading, isIdle, data]);
   return (
     <>
-
       <Hero />
       <Container id="section-container">
         {(!session || !hasClientCompletedForm) && !isAgencyLogedIn() && (
@@ -69,8 +67,9 @@ const HomeContent: React.FC = () => {
             navigateTo={`/${locale}/clients/point-calculator`}
             desc={
               <BannerDesc
-                dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-              ></BannerDesc>
+                dangerouslySetInnerHTML={{
+                  __html: t(LanguageKeys.BannerDesc),
+                }}></BannerDesc>
             }
             stampText={t(LanguageKeys.StampText)}
             buttonText={t(LanguageKeys.BannerButtonText)}

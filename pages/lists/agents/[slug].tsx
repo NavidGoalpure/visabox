@@ -30,7 +30,9 @@ const VipAgentPage: NextPage<Props> = ({ chosenAgent, errorCode }) => {
           { $agent: dt(chosenAgent?.name) || '' },
         ])}
         image={chosenAgent?.avatar}
-        description={dt(chosenAgent?.desc)}
+        //navid
+        //@ts-ignore
+        description={chosenAgent?.desc}
         canonical={`https://www.marabox.com/${locale}/lists/agents/${
           chosenAgent?.slug ? chosenAgent?.slug : ''
         }`}

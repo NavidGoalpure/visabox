@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Client } from "Interfaces/Database/Client";
 import { Headline7Style } from "Styles/Typo";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "../const";
+import { componentStatements, LanguageKeys } from "./const";
 import { useLocale } from "Hooks/useLocale";
 import { getMultiLanguageLabels } from "../utils";
 import { directionStyles } from "Styles/Theme";

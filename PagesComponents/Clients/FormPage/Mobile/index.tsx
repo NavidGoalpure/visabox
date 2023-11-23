@@ -8,9 +8,12 @@ import {
 } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import { Client } from 'Interfaces/Database/Client';
-import DescriptionSection from '../DescriptionSection';
 import { CalculateClientScore } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils';
-import { componentStatements, LanguageKeys } from '../const';
+import {
+  componentStatements,
+  EditModalContentKeys,
+  LanguageKeys,
+} from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Headline7Style } from 'Styles/Typo';
 import { BsPersonCircle } from 'react-icons/bs';
@@ -21,14 +24,45 @@ import {
 } from 'Styles/Theme/Hint/style';
 import { FiInfo } from 'react-icons/fi';
 import BoxesSection from '../BoxesSection';
+import DescriptionSection from '../DescriptionSection';
+import { Dispatch, SetStateAction } from 'react';
+import { useSession } from 'next-auth/react';
+import {
+  CreatedDate,
+  EditButton,
+  EditIcon,
+  HeaderLabel,
+  HintContainer,
+  HintContent,
+  HintInfoIcon,
+  ImagePlaceholder,
+  JobTitle,
+  Name,
+  ProfileData,
+  ProfilePicture,
+  ProfilePictureWrapper,
+} from '../StyledComponents';
 
 interface Props {
   client: Client | undefined;
   userId: string | undefined;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  setEditModalContentKey: Dispatch<SetStateAction<EditModalContentKeys | null>>;
 }
-function MobileAgentsPage({ client, userId }: Props) {
+function MobileAgentsPage({
+  client,
+  userId,
+  setEditModalContentKey,
+  setIsModalOpen,
+}: Props) {
   const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
   const { t } = useStaticTranslation(componentStatements);
+  const { data: session } = useSession();
+  const isViewerOwner = client?.email === session?.user?.email;
+  function EditClickHandler(key: EditModalContentKeys) {
+    setIsModalOpen(true);
+    setEditModalContentKey(key);
+  }
   return (
     <Container>
       <StarBackground aria-hidden={true}>
@@ -45,10 +79,30 @@ function MobileAgentsPage({ client, userId }: Props) {
         )}
       </ProfilePictureWrapper>
       <ProfileData>
-        <Name>
-          {client?.name} {client?.lastname}
+        <Name
+          onClick={() =>
+            isViewerOwner && EditClickHandler(EditModalContentKeys.NAME)
+          }
+        >
+          {client?.name} {client?.lastname}{' '}
+          {isViewerOwner && (
+            <EditButton>
+              <EditIcon />
+            </EditButton>
+          )}
         </Name>
-        <JobTitle>{client?.current_job}</JobTitle>
+        <JobTitle
+          onClick={() =>
+            isViewerOwner && EditClickHandler(EditModalContentKeys.CURRENT_JOB)
+          }
+        >
+          {client?.current_job}{' '}
+          {isViewerOwner && (
+            <EditButton>
+              <EditIcon />
+            </EditButton>
+          )}
+        </JobTitle>
         <CreatedDate>{dataCreatedAt}</CreatedDate>
         {client?.completed_forms?.length === 1 && (
           <HeaderLabel>
@@ -69,11 +123,21 @@ function MobileAgentsPage({ client, userId }: Props) {
           </HintContainer>
         )}
         <BoxesSection
-          id={client?._id || ''}
+          is_sharable={
+            client?.is_sharable ||
+            // defensive
+            undefined
+          }
+          id={client?._id || 'defensive'}
           email={client?.email || 'defensive'}
         />
       </ProfileData>
-      {client && <DescriptionSection client={client} />}
+      <DescriptionSection
+        client={client}
+        setEditModalContentKey={setEditModalContentKey}
+        setIsModalOpen={setIsModalOpen}
+        isMobile={true}
+      />
     </Container>
   );
 }
@@ -84,30 +148,6 @@ const StarBackgroundColor = theme('mode', {
   `,
   dark: css`
     background: var(--color-gray4);
-  `,
-});
-const TitleColor = theme('mode', {
-  light: css`
-    color: var(--color-primary4);
-  `,
-  dark: css`
-    color: var(--color-primary5);
-  `,
-});
-const HeaderLabelTheme = theme('mode', {
-  light: css`
-    color: var(--color-gray10);
-  `,
-  dark: css`
-    color: var(--color-gray11);
-  `,
-});
-const HeaderScoreTheme = theme('mode', {
-  light: css`
-    color: var(--color-secondary2);
-  `,
-  dark: css`
-    color: var(--color-secondary4);
   `,
 });
 const Container = styled.div`
@@ -153,66 +193,4 @@ const Star = styled.div`
     2% 35%,
     37% 35%
   );
-`;
-const ProfilePictureWrapper = styled.div`
-  width: 12rem;
-  height: 12rem;
-  z-index: 1;
-  margin-bottom: 4rem;
-  position: relative;
-`;
-const ProfilePicture = styled.img`
-  object-fit: contain;
-  position: relative !important;
-  border-radius: 15px;
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-`;
-const ImagePlaceholder = styled(BsPersonCircle)`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  color: var(--color-gray11);
-`;
-const HintContainer = styled.div`
-  ${Hint_SecondaryContainer};
-  gap: 2rem;
-`;
-const HintInfoIcon = styled(FiInfo)`
-  ${Hint_SecondaryIcon};
-`;
-const HintContent = styled.h3`
-  ${Hint_SecondaryTextStyle};
-`;
-const ProfileData = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-`;
-const Name = styled.h2`
-  ${TitleColor}
-  ${layer2A_TitleStyle}
-  z-index:1;
-`;
-const HeaderLabel = styled.h4`
-  ${Headline7Style};
-  ${HeaderLabelTheme}
-  #score {
-    ${HeaderScoreTheme};
-  }
-`;
-const JobTitle = styled.h3`
-  ${layer2A_Key}
-  margin:0;
-  width: auto;
-`;
-const CreatedDate = styled.div`
-  ${layer2A_Key}
-  margin:0;
-  width: auto;
 `;

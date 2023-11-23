@@ -1,32 +1,32 @@
-import { deviceMin } from "Consts/device";
-import styled, { css } from "styled-components";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import theme from "styled-theming";
+import { deviceMin } from 'Consts/device';
+import styled, { css } from 'styled-components';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import theme from 'styled-theming';
 import {
   layer2A_TextStyle,
   layer2A_TitleStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import { Client } from "Interfaces/Database/Client";
-import { CalculateClientScore } from "PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import { Client } from 'Interfaces/Database/Client';
+import { CalculateClientScore } from 'PagesComponents/Clients/PointCalculator/Contexts/FormDataContext/utils';
 import {
   componentStatements,
   EditModalContentKeys,
   LanguageKeys,
-} from "../const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Headline7Style } from "Styles/Typo";
-import { BsPersonCircle } from "react-icons/bs";
+} from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Headline7Style } from 'Styles/Typo';
+import { BsPersonCircle } from 'react-icons/bs';
 import {
   Hint_SecondaryContainer,
   Hint_SecondaryIcon,
   Hint_SecondaryTextStyle,
-} from "Styles/Theme/Hint/style";
-import { FiInfo } from "react-icons/fi";
-import BoxesSection from "../BoxesSection";
-import DescriptionSection from "../DescriptionSection";
-import { Dispatch, SetStateAction } from "react";
-import { useSession } from "next-auth/react";
+} from 'Styles/Theme/Hint/style';
+import { FiInfo } from 'react-icons/fi';
+import BoxesSection from '../BoxesSection';
+import DescriptionSection from '../DescriptionSection';
+import { Dispatch, SetStateAction } from 'react';
+import { useSession } from 'next-auth/react';
 import {
   CreatedDate,
   EditButton,
@@ -41,7 +41,7 @@ import {
   ProfileData,
   ProfilePicture,
   ProfilePictureWrapper,
-} from "../StyledComponents";
+} from '../StyledComponents';
 
 interface Props {
   client: Client;
@@ -71,8 +71,8 @@ function MobileAgentsPage({
       <ProfilePictureWrapper>
         {client?.avatar ? (
           <ProfilePicture
-            src={client?.avatar || "/Images/placeholder.jpeg"}
-            alt={client?.name ? `${client?.name} image` : "agent image"}
+            src={client?.avatar || '/Images/placeholder.jpeg'}
+            alt={client?.name ? `${client?.name} image` : 'agent image'}
           />
         ) : (
           <ImagePlaceholder />
@@ -84,7 +84,7 @@ function MobileAgentsPage({
             isViewerOwner && EditClickHandler(EditModalContentKeys.NAME)
           }
         >
-          {client?.name} {client?.lastname}{" "}
+          {client?.name} {client?.lastname}{' '}
           {isViewerOwner && (
             <EditButton>
               <EditIcon />
@@ -96,7 +96,7 @@ function MobileAgentsPage({
             isViewerOwner && EditClickHandler(EditModalContentKeys.CURRENT_JOB)
           }
         >
-          {client?.current_job}{" "}
+          {client?.current_job}{' '}
           {isViewerOwner && (
             <EditButton>
               <EditIcon />
@@ -106,8 +106,8 @@ function MobileAgentsPage({
         <CreatedDate>{dataCreatedAt}</CreatedDate>
         {client?.completed_forms?.length === 1 && (
           <HeaderLabel>
-            {t(LanguageKeys.ScoreTitle)}{" "}
-            <span id="score">{CalculateClientScore(client)}</span>
+            {t(LanguageKeys.ScoreTitle)}{' '}
+            <span id='score'>{CalculateClientScore(client)}</span>
           </HeaderLabel>
         )}
 
@@ -128,8 +128,8 @@ function MobileAgentsPage({
             // defensive
             undefined
           }
-          id={client?._id || "defensive"}
-          email={client?.email || "defensive"}
+          id={client?._id || 'defensive'}
+          email={client?.email || 'defensive'}
         />
       </ProfileData>
       <DescriptionSection
@@ -142,7 +142,7 @@ function MobileAgentsPage({
   );
 }
 export default MobileAgentsPage;
-const StarBackgroundColor = theme("mode", {
+const StarBackgroundColor = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -150,7 +150,6 @@ const StarBackgroundColor = theme("mode", {
     background: var(--color-gray4);
   `,
 });
-
 const Container = styled.div`
   width: 100%;
   display: flex;

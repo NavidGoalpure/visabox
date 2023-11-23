@@ -1,24 +1,25 @@
-import ModalComponent from "Components/ModalComponent";
-import { PrimaryButton } from "Elements/Button/Primary";
-import ErrorToast from "Elements/Toast/Error";
-import SuccessToast from "Elements/Toast/Success";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Client } from "Interfaces/Database/Client";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { AiOutlineSave } from "react-icons/ai";
-import { MdNavigateNext } from "react-icons/md";
-import { useMutation, useQueryClient } from "react-query";
-import styled from "styled-components";
-import { Headline7Style } from "Styles/Typo";
-import { ClientQueryKeys } from "Utils/query/keys";
-import * as ToggleGroup from "Elements/ToggleGroup";
+import ModalComponent from 'Components/ModalComponent';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import ErrorToast from 'Elements/Toast/Error';
+import SuccessToast from 'Elements/Toast/Success';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Client } from 'Interfaces/Database/Client';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { AiOutlineSave } from 'react-icons/ai';
+import { MdNavigateNext } from 'react-icons/md';
+import { useMutation, useQueryClient } from 'react-query';
+import styled from 'styled-components';
+import { Headline7Style } from 'Styles/Typo';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import * as ToggleGroup from 'Elements/ToggleGroup';
 import {
   componentStatements,
   LanguageKeys,
   EditModalContentKeys,
-} from "../const";
+  profileResParams,
+} from '../const';
 
-import { ContentBasedOnKeys } from "./Content";
+import { ContentBasedOnKeys } from './Content';
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -42,18 +43,32 @@ const EditModal: React.FC<Props> = ({
   }, [client]);
   const mutation = useMutation({
     mutationFn: () => {
-      return fetch("/api/clients/edit-profile", {
-        method: "POST",
+      return fetch('/api/clients/edit-profile', {
+        method: 'POST',
         body: JSON.stringify({ client: editedClient }),
       });
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        throw new Error("couldnt patch the user");
+        throw new Error('couldnt patch the user');
       }
-      queryClient.refetchQueries({
+      const reqParams = `email == "${client?.email || 'defensive'}"`;
+
+      console.log(
+        'navid inja tag=',
+        ClientQueryKeys.detail({
+          reqParams: reqParams,
+        })
+      );
+
+      // queryClient.removeQueries({
+      //   queryKey: ClientQueryKeys.detail({
+      //     reqParams: reqParams,
+      //   }),
+      // });
+      queryClient.invalidateQueries({
         queryKey: ClientQueryKeys.detail({
-          reqParams: `_id == "${client?._id || "defensive"}"`,
+          reqParams: reqParams,
         }),
       });
       setIsModalOpen(false);
@@ -98,7 +113,7 @@ const EditModal: React.FC<Props> = ({
         return t(LanguageKeys.EmailTitle);
 
       default:
-        return "";
+        return '';
     }
   }
   // if this useEffect was not here the user could make a change then close the popup

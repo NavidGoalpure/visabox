@@ -1,28 +1,31 @@
-import useDevice from "Hooks/useDevice";
-import { useState, useEffect } from "react";
-import DesktopAgentsPage from "./Desktop";
-import MobileAgentsPage from "./Mobile";
-import { Client } from "Interfaces/Database/Client";
-import { useQuery } from "react-query";
-import { ClientQueryKeys } from "Utils/query/keys";
-import { ClientError } from "@sanity/client";
-import { useSession } from "next-auth/react";
-import { getClientDetail } from "Queries/client";
-import EditModal from "./EditModal";
-import { EditModalContentKeys } from "./const";
+import useDevice from 'Hooks/useDevice';
+import { useState, useEffect } from 'react';
+import DesktopAgentsPage from './Desktop';
+import MobileAgentsPage from './Mobile';
+import { Client } from 'Interfaces/Database/Client';
+import { useQuery } from 'react-query';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import { ClientError } from '@sanity/client';
+import { useSession } from 'next-auth/react';
+import { getClientDetail } from 'Queries/client';
+import EditModal from './EditModal';
+import { EditModalContentKeys, profileResParams } from './const';
 
-interface Props {
-  client: Client;
-}
-const Content: React.FC<Props> = ({ client }) => {
-  const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
+const Content: React.FC = () => {
+  const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
   const { data: session } = useSession();
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
-  const resParams = `_id`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
+  const resParams = profileResParams;
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [editModalContentKey, setEditModalContentKey] =
     useState<EditModalContentKeys | null>(null);
+  console.log(
+    'navid inja0 tag=',
+    ClientQueryKeys.detail({
+      reqParams: profileResParams,
+    })
+  );
   const { data: user } = useQuery<{ client: Client[] }, ClientError>(
     ClientQueryKeys.detail({
       reqParams,
@@ -39,10 +42,12 @@ const Content: React.FC<Props> = ({ client }) => {
     }
   );
   useEffect(() => {
-    if (isLaptop) setScreen("DESKTOP");
+    if (isLaptop) setScreen('DESKTOP');
   });
+  const client = user?.client?.[0];
 
-  if (screen === "MOBILE")
+  if (!client) return null;
+  if (screen === 'MOBILE')
     return (
       <>
         <EditModal
@@ -54,7 +59,7 @@ const Content: React.FC<Props> = ({ client }) => {
         <MobileAgentsPage
           setEditModalContentKey={setEditModalContentKey}
           setIsModalOpen={setIsModalOpen}
-          userId={user?.client?.[0]?._id}
+          userId={client?._id}
           client={client}
         />
       </>
@@ -71,7 +76,7 @@ const Content: React.FC<Props> = ({ client }) => {
         setEditModalContentKey={setEditModalContentKey}
         setIsModalOpen={setIsModalOpen}
         client={client}
-        userId={user?.client?.[0]?._id}
+        userId={client._id}
       />
     </>
   );

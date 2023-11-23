@@ -45,23 +45,22 @@ import { deviceMin } from "Consts/device";
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   isModalOpen: boolean;
-  degreeLabel: string;
+  degree: ClientAllDegrees;
+  client:Client;
 }
 const EditModal: React.FC<Props> = ({
   setIsModalOpen,
   isModalOpen,
-  degreeLabel,
+  degree,
+  client,
 }) => {
   const { t } = useStaticTranslation(componentStatements);
-  const { client, setClient } = useContext(FormDataContext);
   const [selectedDegree, setSelectedDegree] = useState<
     ClientAllDegrees | undefined
-  >(client?.all_degrees?.filter((el) => el.label === degreeLabel)[0]);
+  >(degree);
   useEffect(() => {
-    setSelectedDegree(
-      client?.all_degrees?.filter((el) => el.label === degreeLabel)[0]
-    );
-  }, [client, degreeLabel]);
+    setSelectedDegree(degree);
+  }, [degree]);
   return (
     <ModalComponent
       doesModalCloseOnOutsideInteraction={true}

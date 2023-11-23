@@ -175,29 +175,3 @@ Did you complete a professional year program in Australia in your nominated skil
     zh: "添加信息",
   },
 };
-export const AllDegreesTemplate: ClientAllDegrees[] = [
-  {
-    label: ClientDegree.Diploma,
-    uni_section: null,
-    graduation_date: null,
-    field_of_study: null,
-  },
-  {
-    label: ClientDegree.Bachelorsdegree,
-    uni_section: null,
-    graduation_date: null,
-    field_of_study: null,
-  },
-  {
-    label: ClientDegree.Mastersdegree,
-    uni_section: null,
-    graduation_date: null,
-    field_of_study: null,
-  },
-  {
-    label: ClientDegree.Doctorate,
-    uni_section: null,
-    graduation_date: null,
-    field_of_study: null,
-  },
-];

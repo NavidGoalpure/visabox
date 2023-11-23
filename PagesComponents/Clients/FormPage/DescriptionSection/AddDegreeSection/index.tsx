@@ -13,26 +13,25 @@ import { AiOutlinePlus } from "react-icons/ai";
 import AddDegreeModal from "./AddDegreeModal";
 import { SecondaryButton } from "Elements/Button/Secondary";
 import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
-import { educations } from "Consts/Client";
+import { AllDegreesTemplate, educations } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { deviceMin } from "Consts/device";
 import MaraSwiper from "Components/MaraSwiper";
 import { componentStatements, LanguageKeys } from "../../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Client } from "Interfaces/Database/Client";
+import { Client, ClientAllDegrees } from "Interfaces/Database/Client";
 
 const AddDegreesSection = ({ user }: { user: Client }) => {
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedDegreeLabel, setSelectedDegreeLabel] = useState<string>("");
+  const [selectedDegree, setSelectedDegree] = useState<ClientAllDegrees>({} as ClientAllDegrees);
   const { t } = useStaticTranslation(componentStatements);
-  console.log("navid user ===", user)
   return (
     <MaraSwiper updateSwiperVariables={user}>
       <AddDegreeModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
-        degreeLabel={selectedDegreeLabel}
+        degree={selectedDegree}
       />
       {user?.all_degrees?.map((degree) => {
         if (degree.graduation_date !== null) {
@@ -59,7 +58,7 @@ const AddDegreesSection = ({ user }: { user: Client }) => {
           <AddDegreeCard
             onClick={() => {
               setIsModalOpen(true);
-              setSelectedDegreeLabel(degree?.label);
+              setSelectedDegree(degree);
             }}
             className="swiper-slide"
           >

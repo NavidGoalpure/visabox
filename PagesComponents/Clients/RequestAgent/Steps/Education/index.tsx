@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
 import { Input } from "Components/Input";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { AllDegreesTemplate, componentStatements, LanguageKeys } from "./const";
+import { componentStatements, LanguageKeys } from "./const";
 import { WizardContext } from "Components/Wizard/Context";
 import { useContext, useEffect } from "react";
 import {
@@ -22,7 +22,7 @@ import {
 } from "../StyledComponents";
 import { FormDataContext } from "../../Contexts/FormDataContext/Context";
 import { ClientDegree, UniSections } from "Interfaces/Database/Client";
-import { educations, uniSections, YesOrNo } from "Consts/Client";
+import { AllDegreesTemplate, educations, uniSections, YesOrNo } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { Languages } from "Interfaces";
 import { SearchInputComponent } from "Components/SearchInputComponent";

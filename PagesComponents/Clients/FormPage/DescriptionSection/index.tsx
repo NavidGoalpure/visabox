@@ -21,15 +21,16 @@ import { FiInfo } from "react-icons/fi";
 import { MdOutlineEdit } from "react-icons/md";
 import useDevice from "Hooks/useDevice";
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
-import { getMultiLanguageLabels } from "./utils";
-import EditModal from "./EditModal";
+import { getMultiLanguageLabels } from "../utils";
+import EditModal from "../EditModal";
 import {
   componentStatements,
   LanguageKeys,
   EditModalContentKeys,
-} from "./const";
+} from "../const";
 import { useSession } from "next-auth/react";
-import { EditButton, EditIcon } from "./StyledComponents";
+import { EditButton, EditIcon } from "../StyledComponents";
+import AddDegreesSection from "./AddDegreeSection";
 
 interface Props {
   client: Client;
@@ -50,6 +51,7 @@ function DescriptionSection({
   const { locale } = useLocale();
   const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  console.log("navid client ===", client);
   function EditClickHandler(key: EditModalContentKeys) {
     setIsModalOpen(true);
     setEditModalContentKey(key);
@@ -147,7 +149,6 @@ function DescriptionSection({
             </EditButton>
           )}
         </DataWrapper>
-
         {client?.country && (
           <DataWrapper
             $isViewerOwner={isViewerOwner}
@@ -187,6 +188,8 @@ function DescriptionSection({
             <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
           )}
         </DataWrapper>
+        {/* navid write the code which makes it use data instead of client */}
+        <AddDegreesSection user={client} />
         <NoLineDataWrapper
           $isViewerOwner={isViewerOwner}
           onClick={() =>

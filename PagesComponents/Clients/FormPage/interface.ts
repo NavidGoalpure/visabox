@@ -1,5 +1,5 @@
 import { MultiLanguageText } from "Interfaces/Database";
-import { IELTSScore } from "Interfaces/Database/Client";
+import { ClientAllDegrees, ClientAllJobs, IELTSScore } from "Interfaces/Database/Client";
 
 export interface GetLabelsProps {
   age?: string;
@@ -10,6 +10,8 @@ export interface GetLabelsProps {
   name?: string;
   lastname?: string;
   fieldOfStudy?: string;
+  all_degrees?: ClientAllDegrees[];
+  all_jobs?: ClientAllJobs[];
   marital: MultiLanguageText | undefined;
   does_partner_have_assessment?: boolean;
   is_partner_competent_english_speaker?: boolean;

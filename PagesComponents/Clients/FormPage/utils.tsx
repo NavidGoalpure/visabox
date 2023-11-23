@@ -11,6 +11,7 @@ import { MultiLanguageText, SupportedCountry } from "Interfaces/Database";
 import {
   AustralianWorkExperience,
   Client,
+  ClientAllDegrees,
   ClientDegree,
   ClientMarital,
   UniSections,
@@ -97,6 +98,18 @@ export function getWorkExperienceLabel({
       return undefined;
   }
 }
+// export function getAllDegreeLabels({
+//   all_degrees,
+// }: {
+//   all_degrees: ClientAllDegrees[];
+// }) {
+//   all_degrees.map((degree)=>{
+// switch(degree.label){
+//     case 
+//   }
+//   })
+  
+// }
 export function getAustralianWorkExperienceLabel({
   australianWorkExp,
 }: {
@@ -164,6 +177,7 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
     workExperience: getWorkExperienceLabel({
       workExperience: client?.work_experience,
     }),
+    // all_degrees: getAllDegreeLabels({ all_degrees: client?.all_degrees }),
     australianWorkExperience: getAustralianWorkExperienceLabel({
       australianWorkExp: client?.australian_work_experience,
     }),

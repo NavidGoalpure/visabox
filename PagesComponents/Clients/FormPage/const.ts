@@ -54,6 +54,17 @@ export enum LanguageKeys {
   CurrentJobInputPlaceholder = "CurrentJobInputPlaceholder",
   HideDataToast = "HideDataToast",
   ShowDataToast = "ShowDataToast",
+  // add degree text
+  AddInfoSwiper = "AddInfoSwiper",
+  //
+  // education modal
+  FieldOfStudyInputPlaceholder = "FieldOfStudyInputPlaceholder",
+  UniSectionsSectionTitle = "UniSectionsSectionTitle",
+  UniInput_SectionTitle = "UniInput_SectionTitle",
+  UniInput_Placeholder = "UniInput_Placeholder",
+  UniInput_HintText = "UniInput_HintText",
+  GraduationDateLabel = "GraduationDateLabel",
+  //
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -313,6 +324,44 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "داده های شما اکنون برای وکلای مهاجرت قابل مشاهده است",
     zh: "迁移代理现在可以看到您的数据",
   },
+  // add degree text
+  AddInfoSwiper: {
+    en: "Add Information",
+    fa: "افزودن مشخصات",
+    zh: "添加信息",
+  },
+  // education modal
+  FieldOfStudyInputPlaceholder: {
+    en: "Example: Math",
+    fa: "مثال: ریاضیات",
+    zh: "示例：数学",
+  },
+  UniSectionsSectionTitle: {
+    en: "University Section:",
+    fa: "سکشن دانشگاه:",
+    zh: "大学部分：",
+  },
+  UniInput_SectionTitle: {
+    en: "section",
+    fa: "سکشن",
+    zh: "部分",
+  },
+  UniInput_Placeholder: {
+    en: "Search",
+    fa: "جستجو",
+    zh: "搜索",
+  },
+  UniInput_HintText: {
+    en: "You can search your university section by writing the name of your university",
+    fa: `با وارد نمودن نام هر دانشگاه، می‌توانید ببینید در چه دسته بندی
+                (سکشن) ای قرار دارد`,
+    zh: "您可以通过写下您的大学名称来搜索您的大学部分",
+  },
+  GraduationDateLabel: {
+    en: "Graduation Date:",
+    fa: "تاریخ فارغ التحصیل:",
+    zh: "毕业日期：",
+  },
 };
 export const profileResParams = ` 
   ${Point_Calculator_Fragment}
@@ -328,7 +377,9 @@ export const profileResParams = `
       uni_section,
       avatar,
       email,
-      completed_forms
+      completed_forms,
+      all_degrees,
+      all_jobs,
       `;
 export enum EditModalContentKeys {
   NAME = "NAME",

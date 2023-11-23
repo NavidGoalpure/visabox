@@ -37,13 +37,14 @@ const UserForms: NextPage = ({}) => {
       all_degrees,
       email,
       name,
+      all_jobs,
       lastname,
       phone,
       field_of_study,
       current_job,
       is_sharable,
       uni_section,
-      completed_forms
+      completed_forms,
       `;
 
   const { data, isLoading, isError } = useQuery(

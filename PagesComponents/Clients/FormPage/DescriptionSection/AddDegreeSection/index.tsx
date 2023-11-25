@@ -21,19 +21,19 @@ import { componentStatements, LanguageKeys } from "../../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Client, ClientAllDegrees } from "Interfaces/Database/Client";
 
-const AddDegreesSection = ({ user }: { user: Client }) => {
+const AddDegreesSection = ({ client }: { client: Client }) => {
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDegree, setSelectedDegree] = useState<ClientAllDegrees>({} as ClientAllDegrees);
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <MaraSwiper updateSwiperVariables={user}>
+    <MaraSwiper updateSwiperVariables={client}>
       <AddDegreeModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         degree={selectedDegree}
       />
-      {user?.all_degrees?.map((degree) => {
+      {client?.all_degrees?.map((degree) => {
         if (degree.graduation_date !== null) {
           return (
             <DegreeCard

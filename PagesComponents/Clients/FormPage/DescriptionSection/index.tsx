@@ -31,6 +31,7 @@ import {
 import { useSession } from "next-auth/react";
 import { EditButton, EditIcon } from "../StyledComponents";
 import AddDegreesSection from "./AddDegreeSection";
+import CurrentJobsSection from "./AddJobSection";
 
 interface Props {
   client: Client;
@@ -189,7 +190,7 @@ function DescriptionSection({
           )}
         </DataWrapper>
         {/* navid write the code which makes it use data instead of client */}
-        <AddDegreesSection user={client} />
+        <AddDegreesSection client={client } />
         <NoLineDataWrapper
           $isViewerOwner={isViewerOwner}
           onClick={() =>
@@ -304,6 +305,7 @@ function DescriptionSection({
             <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
           )}
         </DataWrapper>
+        <CurrentJobsSection client={client} />
         <DataWrapper
           $isViewerOwner={isViewerOwner}
           onClick={() =>

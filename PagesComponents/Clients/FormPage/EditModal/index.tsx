@@ -52,7 +52,7 @@ const EditModal: React.FC<Props> = ({
       if (!res.ok) {
         throw new Error('couldnt patch the user');
       }
-      const reqParams = `email == "${client?.email || 'defensive'}"`;
+      const reqParams = `_id == "${client?._id || "defensive"}" `;
 
       console.log(
         'navid inja tag=',

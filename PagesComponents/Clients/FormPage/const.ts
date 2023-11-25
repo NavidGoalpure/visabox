@@ -54,6 +54,13 @@ export enum LanguageKeys {
   CurrentJobInputPlaceholder = "CurrentJobInputPlaceholder",
   HideDataToast = "HideDataToast",
   ShowDataToast = "ShowDataToast",
+  // add job text
+  AddJobSwiper = "AddJobSwiper",
+  CanProvideLegalProofForExperience = "CanProvideLegalProofForExperience",
+  WasTheJobInAustralia = "WasTheJobInAustralia",
+  SelectedJobTitle = "SelectedJobTitle",
+  ModalWorkExperienceSection = "ModalWorkExperienceSection",
+  //
   // add degree text
   AddInfoSwiper = "AddInfoSwiper",
   //
@@ -324,11 +331,38 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "داده های شما اکنون برای وکلای مهاجرت قابل مشاهده است",
     zh: "迁移代理现在可以看到您的数据",
   },
+  // add job text
+  AddJobSwiper: {
+    en: "Add Job Details",
+    fa: "افزودن مشخصات شغل",
+    zh: "添加职位详细信息",
+  },
+  ModalWorkExperienceSection: {
+    en: "Work Experience:",
+    fa: "سابقه کار:",
+    zh: "工作经验：",
+  },
+  SelectedJobTitle: {
+    en: "Job Title:",
+    fa: "شغل:",
+    zh: "职称",
+  },
+  //
   // add degree text
   AddInfoSwiper: {
     en: "Add Information",
     fa: "افزودن مشخصات",
     zh: "添加信息",
+  },
+  CanProvideLegalProofForExperience: {
+    en: "Can you submit legal documents?",
+    fa: "امکان ارائه مدارک قانونی",
+    zh: "可以提交法律文件吗？",
+  },
+  WasTheJobInAustralia: {
+    en: "Was this job done in Australia?",
+    fa: "آیا این شغل در استرالیا بوده؟",
+    zh: "这项工作是在澳大利亚完成的吗？",
   },
   // education modal
   FieldOfStudyInputPlaceholder: {

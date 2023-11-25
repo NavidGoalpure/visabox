@@ -92,6 +92,26 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
           </Items>
         )} */}
       </ItemsContainer>
+      <ItemsContainer>
+        <Items
+            href={`/${locale}/lists/agents`}
+            data-name={t(LanguageKeys.IranianAgents)}
+          >
+            {t(LanguageKeys.IranianAgents)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/agencies`}
+            data-name={t(LanguageKeys.IndianAgents)}
+          >
+            {t(LanguageKeys.IndianAgents)}
+          </Items>
+          <Items
+            href={`/${locale}/lists/exchanges`}
+            data-name={t(LanguageKeys.ChineseAgents)}
+          >
+            {t(LanguageKeys.ChineseAgents)}
+          </Items>
+      </ItemsContainer>
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
@@ -143,8 +163,8 @@ const TextColor = theme('mode', {
 
 const Container = styled.footer`
   ${footerBackground};
-  clip-path: polygon(50% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
-  padding-top: 19rem;
+  clip-path: polygon(50% 5%, 100% 0, 100% 100%, 0 100%, 0 0);
+  padding-top: 17rem;
   height: auto;
   width: 100%;
   position: relative;
@@ -156,7 +176,7 @@ const Container = styled.footer`
   :before {
     content: '';
     width: 1px;
-    height: 13rem;
+    height: 11rem;
     position: absolute;
     top: 0;
     left: 50%;
@@ -168,8 +188,8 @@ const StyledLogo = styled(Logo)`
   width: 6rem;
   height: auto;
   position: absolute;
-  top: 18%;
-  left: 50%;
+  top: 10%;
+  left: 49.6%;
   transform: translate(-50%, -50%);
   z-index: 3;
 `;

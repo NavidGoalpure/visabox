@@ -58,6 +58,38 @@ const EditModal: React.FC<Props> = ({
   const [selectedDegree, setSelectedDegree] = useState<
     ClientAllDegrees | undefined
   >(degree);
+   const [editedClient, setEditedClient] = useState<Client>(client);
+   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
+   const successToastMessage = t(LanguageKeys.SuccessToastText);
+   const queryClient = useQueryClient();
+   useEffect(() => {
+     setEditedClient(client);
+   }, [client]);
+  const mutation = useMutation({
+    mutationFn: () => {
+      return fetch("/api/clients/edit-profile", {
+        method: "POST",
+        body: JSON.stringify({ client: editedClient }),
+      });
+    },
+    onSuccess: (res) => {
+      if (!res.ok) {
+        throw new Error("couldnt patch the user");
+      }
+      const reqParams = `_id == "${client?._id || "defensive"}" `;
+      setIsModalOpen(false);
+      queryClient.refetchQueries({
+        queryKey: ClientQueryKeys.detail({
+          reqParams: reqParams,
+        }),
+      });
+      setIsModalOpen(false);
+      SuccessToast(successToastMessage);
+    },
+    onError: () => {
+      ErrorToast(FailedToastMessage);
+    },
+  });
   useEffect(() => {
     setSelectedDegree(degree);
   }, [degree]);
@@ -152,8 +184,8 @@ const EditModal: React.FC<Props> = ({
             !selectedDegree?.uni_section
           }
           onClick={() => {
-            client &&
-              setClient({
+            editedClient &&
+              setEditedClient({
                 ...client,
                 all_degrees: client?.all_degrees?.map((degree) => {
                   if (degree?.label === selectedDegree?.label) {

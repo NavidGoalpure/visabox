@@ -1,7 +1,11 @@
 import ModalComponent from "Components/ModalComponent";
 import { PrimaryButton } from "Elements/Button/Primary";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { ClientAllJobs, WorkExperience } from "Interfaces/Database/Client";
+import {
+  Client,
+  ClientAllJobs,
+  WorkExperience,
+} from "Interfaces/Database/Client";
 import {
   Dispatch,
   SetStateAction,
@@ -16,47 +20,82 @@ import { Headline7Style } from "Styles/Typo";
 import * as ToggleGroup from "Elements/ToggleGroup";
 import { componentStatements, LanguageKeys } from "../../const";
 import { Input } from "Components/Input";
-import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
-import {
-  Hint_Modal_Bg,
-  Hint_Modal_Icon,
-  Hint_Modal_Text,
-} from "Styles/Theme/elementsInModal/hint";
 import { works, YesOrNo } from "Consts/Client";
 import { deviceMin } from "Consts/device";
 import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
+import ErrorToast from "Elements/Toast/Error";
+import SuccessToast from "Elements/Toast/Success";
+import { useMutation, useQueryClient } from "react-query";
+import { ClientQueryKeys } from "Utils/query/keys";
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   isModalOpen: boolean;
   clickedJobIndex?: number;
-  clientJob?: ClientAllJobs[];
+  client: Client;
 }
 const AddJobModal: React.FC<Props> = ({
   setIsModalOpen,
   isModalOpen,
   clickedJobIndex,
-  clientJob,
+  client,
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const [selectedJob, setSelectedJob] = useState<ClientAllJobs>(
     {} as ClientAllJobs
   );
-  const updateAllJobs = clientJob?.all_jobs ? [...clientJob?.all_jobs] : [];
+  const [hasUpdatedEditedClient, setHasUpdatedEditedClient] =
+    useState<boolean>(false);
+  const [editedClient, setEditedClient] = useState<Client>(client);
+  const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
+  const successToastMessage = t(LanguageKeys.SuccessToastText);
+  const updateAllJobs = client?.all_jobs ? [...client?.all_jobs] : [];
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    setEditedClient(client);
+  }, [client]);
+  const mutation = useMutation({
+    mutationFn: () => {
+      return fetch("/api/clients/edit-profile", {
+        method: "POST",
+        body: JSON.stringify({ client: editedClient }),
+      });
+    },
+    onSuccess: (res) => {
+      if (!res.ok) {
+        throw new Error("couldnt patch the user");
+      }
+      const reqParams = `_id == "${client?._id || "defensive"}" `;
+      setIsModalOpen(false);
+      queryClient.refetchQueries({
+        queryKey: ClientQueryKeys.detail({
+          reqParams: reqParams,
+        }),
+      });
+      setIsModalOpen(false);
+      SuccessToast(successToastMessage);
+    },
+    onError: () => {
+      ErrorToast(FailedToastMessage);
+    },
+  });
   function HandleSaveClicked() {
     if (clickedJobIndex !== undefined) {
       updateAllJobs.splice(clickedJobIndex, 1, selectedJob);
-      clientJob && setClient({ ...clientJob, all_jobs: updateAllJobs });
+      editedClient && setEditedClient({ ...client, all_jobs: updateAllJobs });
+      setHasUpdatedEditedClient(true);
     } else if (clickedJobIndex === undefined) {
-      clientJob &&
-        setClient({
-          ...clientJob,
+      editedClient &&
+        setEditedClient({
+          ...client,
           all_jobs: [...updateAllJobs, selectedJob],
         });
+      setHasUpdatedEditedClient(true);
     }
-    setIsModalOpen(false);
   }
-
+  useEffect(() => {
+    if (hasUpdatedEditedClient) mutation.mutate();
+  }, [editedClient]);
   useEffect(() => {
     if (clickedJobIndex !== undefined) {
       setSelectedJob(updateAllJobs?.[clickedJobIndex]);
@@ -174,6 +213,7 @@ const AddJobModal: React.FC<Props> = ({
 
       <ButtonWrapper>
         <SaveButton
+          isLoading={mutation.isLoading}
           disabled={
             !selectedJob?.title ||
             !selectedJob?.work_experience ||

@@ -24,7 +24,9 @@ import { Client, ClientAllDegrees } from "Interfaces/Database/Client";
 const AddDegreesSection = ({ client }: { client: Client }) => {
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedDegree, setSelectedDegree] = useState<ClientAllDegrees>({} as ClientAllDegrees);
+  const [selectedDegree, setSelectedDegree] = useState<ClientAllDegrees>(
+    {} as ClientAllDegrees
+  );
   const { t } = useStaticTranslation(componentStatements);
   return (
     <MaraSwiper updateSwiperVariables={client}>
@@ -32,6 +34,7 @@ const AddDegreesSection = ({ client }: { client: Client }) => {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         degree={selectedDegree}
+        client={client}
       />
       {client?.all_degrees?.map((degree) => {
         if (degree.graduation_date !== null) {
@@ -39,7 +42,7 @@ const AddDegreesSection = ({ client }: { client: Client }) => {
             <DegreeCard
               onClick={() => {
                 setIsModalOpen(true);
-                setSelectedDegreeLabel(degree?.label);
+                setSelectedDegree(degree);
               }}
               className="swiper-slide"
             >

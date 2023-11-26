@@ -28,7 +28,7 @@ const CurrentJobsSection = ({ client }: { client: Client }) => {
   return (
     <MaraSwiper updateSwiperVariables={client}>
       <AddJobModal
-        clientJob={client?.all_jobs}
+        client={client}
         clickedJobIndex={selectedJobIndex}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}

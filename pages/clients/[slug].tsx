@@ -62,6 +62,10 @@ export default VipAgentPage;
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const id = params?.slug;
   const reqParams = `_id == "${id}"`;
+  console.log(
+    "navid queryClient ===",
+    ClientQueryKeys.detail({ reqParams, resParams: profileResParams })
+  );
   try {
     await queryClient.prefetchQuery(
       ClientQueryKeys.detail({ reqParams, resParams: profileResParams }),
@@ -69,7 +73,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
         return getClientDetail({
           reqParams,
           resParams: profileResParams,
-          useCDN: true,
+          useCDN: false,
         });
       }
     );

@@ -66,7 +66,7 @@ const EditModal: React.FC<Props> = ({
       //     reqParams: reqParams,
       //   }),
       // });
-      queryClient.invalidateQueries({
+      queryClient.refetchQueries({
         queryKey: ClientQueryKeys.detail({
           reqParams: reqParams,
         }),

@@ -12,7 +12,7 @@ export const getClientDetail = async ({
   reqParams,
   resParams,
   hasCache = true,
-  useCDN = false,
+  useCDN = true,
 }: GetClientDetail): Promise<{
   client: Client[];
 }> => {
@@ -26,7 +26,7 @@ ${resParams}
   }`;
 
   try {
-    if (useCDN) {
+    if (!useCDN) {
       const data = await sanityClient_WithoutCDN.fetch(queryParams);
 
       return { client: data };

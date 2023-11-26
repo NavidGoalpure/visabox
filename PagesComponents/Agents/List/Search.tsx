@@ -47,7 +47,7 @@ function Search({ searchValue, setSearchValue }: Props) {
         ...prev,
         location: {
           ...prev.location,
-          country: Country.getCountryByCode(countryInUrlParam),
+          country: Country.getCountryByCode(countryInUrlParam.toUpperCase()),
         },
       }));
     }

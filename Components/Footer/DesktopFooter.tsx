@@ -138,19 +138,19 @@ function DesktopFooter({ clientCountry }: { clientCountry: string }) {
       <Bottom>
 
           <BottomItems
-            href={`/${locale}/occupations/university-section-search`}
+            href={`/${locale}/lists/agents?country=ir`}
             data-name={t(LanguageKeys.IranianAgents)}
           >
             {t(LanguageKeys.IranianAgents)}
           </BottomItems>
           <BottomItems
-            href={`/${locale}/occupations/university-section-search`}
+            href={`/${locale}/lists/agents?country=in`}
             data-name={t(LanguageKeys.IndianAgents)}
           >
             {t(LanguageKeys.IndianAgents)}
           </BottomItems>
           <BottomItems
-            href={`/${locale}/occupations/university-section-search`}
+            href={`/${locale}/lists/agents?country=cn`}
             data-name={t(LanguageKeys.ChineseAgents)}
           >
             {t(LanguageKeys.ChineseAgents)}

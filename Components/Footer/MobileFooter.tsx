@@ -94,19 +94,19 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
       </ItemsContainer>
       <ItemsContainer>
         <Items
-            href={`/${locale}/lists/agents`}
+            href={`/${locale}/lists/agents?country=ir`}
             data-name={t(LanguageKeys.IranianAgents)}
           >
             {t(LanguageKeys.IranianAgents)}
           </Items>
           <Items
-            href={`/${locale}/lists/agencies`}
+            href={`/${locale}/lists/agents?country=in`}
             data-name={t(LanguageKeys.IndianAgents)}
           >
             {t(LanguageKeys.IndianAgents)}
           </Items>
           <Items
-            href={`/${locale}/lists/exchanges`}
+            href={`/${locale}/lists/agents?country=cn`}
             data-name={t(LanguageKeys.ChineseAgents)}
           >
             {t(LanguageKeys.ChineseAgents)}

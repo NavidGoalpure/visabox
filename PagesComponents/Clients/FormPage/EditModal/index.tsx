@@ -52,23 +52,9 @@ const EditModal: React.FC<Props> = ({
       if (!res.ok) {
         throw new Error('couldnt patch the user');
       }
-      const reqParams = `_id == "${client?._id || "defensive"}"`;
-
-      console.log(
-        'navid inja tag=',
-        ClientQueryKeys.detail({
-          reqParams: reqParams,
-        })
-      );
-
-      // queryClient.removeQueries({
-      //   queryKey: ClientQueryKeys.detail({
-      //     reqParams: reqParams,
-      //   }),
-      // });
       queryClient.refetchQueries({
         queryKey: ClientQueryKeys.detail({
-          reqParams: reqParams,
+          reqParams: `_id == "${client?._id || "defensive"}"`,
         }),
       });
       setIsModalOpen(false);

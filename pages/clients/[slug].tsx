@@ -37,6 +37,7 @@ const VipAgentPage: NextPage<Props> = ({
     return getClientDetail({
       reqParams: queryReqParams,
       resParams: queryResParams,
+      useCDN: false,
     });
   });
   const client = data?.client?.[0] || ({} as Client);
@@ -54,7 +55,7 @@ const VipAgentPage: NextPage<Props> = ({
         canonical={`https://www.marabox.com/${locale}/clients/${client?._id}`}
         isNoIndex={true}
       />{" "}
-      <Content />{" "}
+      <Content client={client} />{" "}
     </PageLayout>
   );
 };

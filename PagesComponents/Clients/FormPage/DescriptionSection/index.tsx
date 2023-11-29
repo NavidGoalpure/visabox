@@ -52,7 +52,6 @@ function DescriptionSection({
   const { locale } = useLocale();
   const phoneToastMessage = t(LanguageKeys.copyPhoneToastMessage);
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
-  console.log("navid client ===", client);
   function EditClickHandler(key: EditModalContentKeys) {
     setIsModalOpen(true);
     setEditModalContentKey(key);

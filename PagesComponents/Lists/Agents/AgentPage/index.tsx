@@ -277,9 +277,14 @@ const ProfilePicture = styled(Image)`
 `;
 const Hr = styled.div`
   ${ProfileCircle}
+  display: none;
   width: 8rem;
   height: 4px;
   transform: rotate(-90deg);
+  @media${deviceMin.tabletS} {
+    flex-direction: row;
+    display: flex;
+  }
 `;
 
 const Data = styled.div`

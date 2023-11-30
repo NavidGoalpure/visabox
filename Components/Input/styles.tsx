@@ -136,6 +136,7 @@ const Label = styled.label<{ isInputInModal: boolean }>`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  width: 100%;
   ${({ isInputInModal }) => isInputInModal && `${input_Label}`}
 `;
 const InputStyle = css<{

@@ -12,10 +12,12 @@ import { WizardContext } from "../../../../Components/Wizard/Context";
 import Slider from "Components/SliderComponent";
 import Wizard from "../../../../Components/Wizard";
 import { deviceMin } from "Consts/device";
+import Introduction from "./Introduction";
 
 const SmartSteps: React.FC = () => {
   const { step } = useContext(WizardContext);
   const steps = [
+    <Introduction />,
     <BirthDate />,
     <MarriageStatus />,
     <Education />,

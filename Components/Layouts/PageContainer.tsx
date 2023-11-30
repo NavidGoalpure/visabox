@@ -107,7 +107,7 @@ const PageContainer: React.FC<Props> = ({
             (!hasClientCompletedForm || !session) &&
             !isAgencyLogedIn() && (
               <SmartBanner
-                navigateTo={`/${locale}/clients/point-calculator`}
+                navigateTo={`/${locale}/clients/request-agent`}
                 desc={
                   <div
                     dangerouslySetInnerHTML={{

@@ -46,9 +46,9 @@ interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
   isModalOpen: boolean;
   degree: ClientAllDegrees;
-  client:Client;
+  client: Client;
 }
-const EditModal: React.FC<Props> = ({
+const AddDegreeModal: React.FC<Props> = ({
   setIsModalOpen,
   isModalOpen,
   degree,
@@ -58,13 +58,15 @@ const EditModal: React.FC<Props> = ({
   const [selectedDegree, setSelectedDegree] = useState<
     ClientAllDegrees | undefined
   >(degree);
-   const [editedClient, setEditedClient] = useState<Client>(client);
-   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
-   const successToastMessage = t(LanguageKeys.SuccessToastText);
-   const queryClient = useQueryClient();
-   useEffect(() => {
-     setEditedClient(client);
-   }, [client]);
+  const [hasUpdatedEditedClient, setHasUpdatedEditedClient] =
+    useState<boolean>(false);
+  const [editedClient, setEditedClient] = useState<Client>(client);
+  const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
+  const successToastMessage = t(LanguageKeys.SuccessToastText);
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    setEditedClient(client);
+  }, [client]);
   const mutation = useMutation({
     mutationFn: () => {
       return fetch("/api/clients/edit-profile", {
@@ -77,7 +79,6 @@ const EditModal: React.FC<Props> = ({
         throw new Error("couldnt patch the user");
       }
       const reqParams = `_id == "${client?._id || "defensive"}" `;
-      setIsModalOpen(false);
       queryClient.refetchQueries({
         queryKey: ClientQueryKeys.detail({
           reqParams: reqParams,
@@ -90,9 +91,25 @@ const EditModal: React.FC<Props> = ({
       ErrorToast(FailedToastMessage);
     },
   });
+  function HandleSaveClicked() {
+    editedClient &&
+      setEditedClient({
+        ...client,
+        all_degrees: client?.all_degrees?.map((degree) => {
+          if (degree?.label === selectedDegree?.label) {
+            return selectedDegree;
+          }
+          return degree;
+        }),
+      });
+    setHasUpdatedEditedClient(true);
+  }
   useEffect(() => {
     setSelectedDegree(degree);
   }, [degree]);
+  useEffect(() => {
+    if (hasUpdatedEditedClient) mutation.mutate();
+  }, [editedClient]);
   return (
     <ModalComponent
       doesModalCloseOnOutsideInteraction={true}
@@ -183,18 +200,9 @@ const EditModal: React.FC<Props> = ({
             !selectedDegree?.graduation_date ||
             !selectedDegree?.uni_section
           }
+          isLoading={mutation.isLoading}
           onClick={() => {
-            editedClient &&
-              setEditedClient({
-                ...client,
-                all_degrees: client?.all_degrees?.map((degree) => {
-                  if (degree?.label === selectedDegree?.label) {
-                    return selectedDegree;
-                  }
-                  return degree;
-                }),
-              });
-            setIsModalOpen(false);
+            HandleSaveClicked();
           }}
         >
           {t(LanguageKeys.SaveTitle)} <SaveIcon />
@@ -207,7 +215,7 @@ const EditModal: React.FC<Props> = ({
     </ModalComponent>
   );
 };
-export default EditModal;
+export default AddDegreeModal;
 const ModalHintContainer = styled(HintContainer)`
   ${Hint_Modal_Bg}
 `;

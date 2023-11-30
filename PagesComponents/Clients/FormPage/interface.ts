@@ -1,5 +1,9 @@
 import { MultiLanguageText } from "Interfaces/Database";
-import { ClientAllDegrees, ClientAllJobs, IELTSScore } from "Interfaces/Database/Client";
+import {
+  ClientAllDegrees,
+  ClientAllJobs,
+  IELTSScore,
+} from "Interfaces/Database/Client";
 
 export interface GetLabelsProps {
   age?: string;
@@ -10,8 +14,8 @@ export interface GetLabelsProps {
   name?: string;
   lastname?: string;
   fieldOfStudy?: string;
-  all_degrees?: ClientAllDegrees[];
-  all_jobs?: ClientAllJobs[];
+  all_degrees?: ClientAllDegreesLabels[];
+  all_jobs?: ClientAllJobsLabels[];
   marital: MultiLanguageText | undefined;
   does_partner_have_assessment?: boolean;
   is_partner_competent_english_speaker?: boolean;
@@ -25,4 +29,16 @@ export interface GetLabelsProps {
   specialist_educational_qualification: boolean | undefined;
   professional_year_in_australia: boolean | undefined;
   accredited_community_language: boolean | undefined;
+}
+export interface ClientAllDegreesLabels {
+  field_of_study: string | null;
+  graduation_date: string | null;
+  uni_section: MultiLanguageText | undefined;
+  label: MultiLanguageText | undefined;
+}
+export interface ClientAllJobsLabels {
+  title: string;
+  work_experience: MultiLanguageText | undefined;
+  is_able_to_provide_legal_proof: boolean;
+  was_job_in_australia: boolean;
 }

@@ -12,13 +12,18 @@ import {
   AustralianWorkExperience,
   Client,
   ClientAllDegrees,
+  ClientAllJobs,
   ClientDegree,
   ClientMarital,
   UniSections,
   WorkExperience,
 } from "Interfaces/Database/Client";
 import { ReactNode } from "react";
-import { GetLabelsProps } from "./interface";
+import {
+  ClientAllDegreesLabels,
+  ClientAllJobsLabels,
+  GetLabelsProps,
+} from "./interface";
 
 export function getMaritalLabel({
   marital,
@@ -98,18 +103,44 @@ export function getWorkExperienceLabel({
       return undefined;
   }
 }
-// export function getAllDegreeLabels({
-//   all_degrees,
-// }: {
-//   all_degrees: ClientAllDegrees[];
-// }) {
-//   all_degrees.map((degree)=>{
-// switch(degree.label){
-//     case 
-//   }
-//   })
-  
-// }
+export function getAllDegreeLabels({
+  all_degrees,
+}: {
+  all_degrees: ClientAllDegrees[] | undefined;
+}) {
+  const labeledAllDegrees: ClientAllDegreesLabels[] = [];
+  all_degrees?.map((degree) => {
+    const degreeLabel: ClientAllDegreesLabels = {
+      label: getdegreeLabel({ degree: degree.label }),
+      uni_section: getUniSectionLabel({
+        UniSection: degree.uni_section || undefined,
+      }),
+      field_of_study: degree.field_of_study,
+      graduation_date: degree.graduation_date,
+    };
+    labeledAllDegrees.push(degreeLabel);
+  });
+  return labeledAllDegrees;
+}
+export function getAllJobLabels({
+  all_jobs,
+}: {
+  all_jobs: ClientAllJobs[] | undefined;
+}) {
+  const labeledAllDegrees: ClientAllJobsLabels[] = [];
+  all_jobs?.map((job) => {
+    const degreeLabel: ClientAllJobsLabels = {
+      work_experience: getWorkExperienceLabel({
+        workExperience: job?.work_experience || undefined,
+      }),
+      is_able_to_provide_legal_proof: job.is_able_to_provide_legal_proof,
+      was_job_in_australia: job.was_job_in_australia,
+      title: job.title,
+    };
+    labeledAllDegrees.push(degreeLabel);
+  });
+  return labeledAllDegrees;
+}
 export function getAustralianWorkExperienceLabel({
   australianWorkExp,
 }: {
@@ -177,7 +208,8 @@ export function getMultiLanguageLabels(client: Client): GetLabelsProps {
     workExperience: getWorkExperienceLabel({
       workExperience: client?.work_experience,
     }),
-    // all_degrees: getAllDegreeLabels({ all_degrees: client?.all_degrees }),
+    all_degrees: getAllDegreeLabels({ all_degrees: client?.all_degrees }),
+    all_jobs: getAllJobLabels({ all_jobs: client?.all_jobs }),
     australianWorkExperience: getAustralianWorkExperienceLabel({
       australianWorkExp: client?.australian_work_experience,
     }),

@@ -17,8 +17,15 @@ import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import { Client } from "Interfaces/Database/Client";
+import { GetLabelsProps } from "../../interface";
 
-const CurrentJobsSection = ({ client }: { client: Client }) => {
+const CurrentJobsSection = ({
+  client,
+  labeledData,
+}: {
+  labeledData: GetLabelsProps;
+  client: Client;
+}) => {
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedJobIndex, setSelectedJobIndex] = useState<number | undefined>(
@@ -43,7 +50,7 @@ const CurrentJobsSection = ({ client }: { client: Client }) => {
         <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
         <PlusIcon />
       </AddCard>
-      {client?.all_jobs?.map((job, index) => {
+      {labeledData?.all_jobs?.map((job, index) => {
         if (!!job.title) {
           return (
             <JobCard
@@ -54,7 +61,7 @@ const CurrentJobsSection = ({ client }: { client: Client }) => {
               className="swiper-slide"
             >
               <CardTitle>{job.title}</CardTitle>
-              <WorkExperience>{job.work_experience}</WorkExperience>
+              <WorkExperience>{job.work_experience?.[locale]}</WorkExperience>
 
               <TrueOrFalseField>
                 {" "}

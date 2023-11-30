@@ -11,7 +11,11 @@ import { FaPhone } from "react-icons/fa";
 import { deviceMin } from "Consts/device";
 import { SiGmail } from "react-icons/si";
 import { copyContent } from "Utils";
-import { Client } from "Interfaces/Database/Client";
+import {
+  Client,
+  ClientCompletedForms,
+  ClientDegree,
+} from "Interfaces/Database/Client";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { useLocale } from "Hooks/useLocale";
 import { BsCheck } from "react-icons/bs";
@@ -176,20 +180,41 @@ function DescriptionSection({
             <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
           )}
         </DataWrapper>
-        <DataWrapper
-          $isViewerOwner={isViewerOwner}
-          onClick={() =>
-            isViewerOwner && EditClickHandler(EditModalContentKeys.DEGREE)
-          }
-        >
-          <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
-          <Value>{data?.degree?.[locale]}</Value>
-          {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+        {client?.degree !== ClientDegree.IDontHaveAny &&
+        client?.all_degrees?.length !== 0 ? (
+          <NoLineDataWrapper
+            $isViewerOwner={isViewerOwner}
+            onClick={() =>
+              isViewerOwner && EditClickHandler(EditModalContentKeys.DEGREE)
+            }
+          >
+            <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
+            <Value>{data?.degree?.[locale]}</Value>
+            {isViewerOwner && (
+              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            )}
+          </NoLineDataWrapper>
+        ) : (
+          <DataWrapper
+            $isViewerOwner={isViewerOwner}
+            onClick={() =>
+              isViewerOwner && EditClickHandler(EditModalContentKeys.DEGREE)
+            }
+          >
+            <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
+            <Value>{data?.degree?.[locale]}</Value>
+            {isViewerOwner && (
+              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            )}
+          </DataWrapper>
+        )}
+        {client?.completed_forms?.filter(
+          (form) => form.forms === ClientCompletedForms.AgentForm
+        ).length === 1 &&
+          client?.degree !== ClientDegree.IDontHaveAny &&
+          client?.all_degrees?.length !== 0 && (
+            <AddDegreesSection labeledData={data} client={client} />
           )}
-        </DataWrapper>
-        {/* navid write the code which makes it use data instead of client */}
-        <AddDegreesSection client={client } />
         <NoLineDataWrapper
           $isViewerOwner={isViewerOwner}
           onClick={() =>
@@ -291,20 +316,41 @@ function DescriptionSection({
             <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
           )}
         </DataWrapper>
-        <DataWrapper
-          $isViewerOwner={isViewerOwner}
-          onClick={() =>
-            isViewerOwner &&
-            EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
-          }
-        >
-          <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
-          <Value>{data?.uniSection?.[locale]}</Value>
-          {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+        {client?.all_jobs?.length !== 0 ? (
+          <NoLineDataWrapper
+            $isViewerOwner={isViewerOwner}
+            onClick={() =>
+              isViewerOwner &&
+              EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
+            }
+          >
+            <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
+            <Value>{data?.uniSection?.[locale]}</Value>
+            {isViewerOwner && (
+              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            )}
+          </NoLineDataWrapper>
+        ) : (
+          <DataWrapper
+            $isViewerOwner={isViewerOwner}
+            onClick={() =>
+              isViewerOwner &&
+              EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
+            }
+          >
+            <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
+            <Value>{data?.uniSection?.[locale]}</Value>
+            {isViewerOwner && (
+              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            )}
+          </DataWrapper>
+        )}
+        {client?.completed_forms?.filter(
+          (form) => form.forms === ClientCompletedForms.AgentForm
+        ).length === 1 &&
+          client?.all_jobs?.length !== 0 && (
+            <CurrentJobsSection labeledData={data} client={client} />
           )}
-        </DataWrapper>
-        <CurrentJobsSection client={client} />
         <DataWrapper
           $isViewerOwner={isViewerOwner}
           onClick={() =>
@@ -331,23 +377,26 @@ function DescriptionSection({
             <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
           )}
         </DataWrapper>
-        <StyledDataWrapper
-          $isViewerOwner={isViewerOwner}
-          onClick={() =>
-            isViewerOwner
-              ? EditClickHandler(EditModalContentKeys.PHONE_NUMBER)
-              : copyContent({
-                  text: data.phoneNumber || "",
-                  toastMessage: phoneToastMessage,
-                })
-          }
-        >
-          <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{" "}
-          <Value>{data?.phoneNumber}</Value>
-          {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
-          )}
-        </StyledDataWrapper>
+        {!!client?.phone && (
+          <StyledDataWrapper
+            $isViewerOwner={isViewerOwner}
+            onClick={() =>
+              isViewerOwner
+                ? EditClickHandler(EditModalContentKeys.PHONE_NUMBER)
+                : copyContent({
+                    text: data.phoneNumber || "",
+                    toastMessage: phoneToastMessage,
+                  })
+            }
+          >
+            <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{" "}
+            <Value>{data?.phoneNumber}</Value>
+            {isViewerOwner && (
+              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            )}
+          </StyledDataWrapper>
+        )}
+
         <StyledDataWrapper
           $isViewerOwner={isViewerOwner}
           onClick={() =>

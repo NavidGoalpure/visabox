@@ -41,9 +41,14 @@ const MobileLanguageChanger = ({ }) => {
           <PopupItem
             onClick={() => {
               setIsOpen(false);
-              router.push(router.pathname, router.asPath, {
-                locale: Languages.en,
-              });
+              router
+                .push(router.pathname, router.asPath, {
+                  locale: Languages.en,
+                })
+                .then(() => {
+                  router.reload();
+                });
+              router.reload();
             }}
           >
             <FlagWrapper>

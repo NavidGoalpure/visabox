@@ -11,17 +11,22 @@ import { MdOutlineEdit } from "react-icons/md";
 import theme from "styled-theming";
 import { AiOutlinePlus } from "react-icons/ai";
 import AddDegreeModal from "./AddDegreeModal";
-import { SecondaryButton } from "Elements/Button/Secondary";
-import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
-import { AllDegreesTemplate, educations } from "Consts/Client";
+import { educations } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { deviceMin } from "Consts/device";
 import MaraSwiper from "Components/MaraSwiper";
 import { componentStatements, LanguageKeys } from "../../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Client, ClientAllDegrees } from "Interfaces/Database/Client";
+import { ClientAllDegreesLabels, GetLabelsProps } from "../../interface";
 
-const AddDegreesSection = ({ client }: { client: Client }) => {
+const AddDegreesSection = ({
+  client,
+  labeledData,
+}: {
+  labeledData: GetLabelsProps;
+  client: Client;
+}) => {
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDegree, setSelectedDegree] = useState<ClientAllDegrees>(
@@ -36,23 +41,25 @@ const AddDegreesSection = ({ client }: { client: Client }) => {
         degree={selectedDegree}
         client={client}
       />
-      {client?.all_degrees?.map((degree) => {
+      {labeledData?.all_degrees?.map((degree, i) => {
         if (degree.graduation_date !== null) {
           return (
             <DegreeCard
               onClick={() => {
                 setIsModalOpen(true);
-                setSelectedDegree(degree);
+                setSelectedDegree(
+                  client?.all_degrees?.[i] || ({} as ClientAllDegrees)
+                );
               }}
               className="swiper-slide"
             >
-              <CardTitle>{degree.label}</CardTitle>
+              <CardTitle>{degree?.label?.[locale]}</CardTitle>
               <UniSectionWrapper>
                 <FieldOfStudy>{degree.field_of_study}</FieldOfStudy>
                 <Dash />
-                <UniSection>{degree.uni_section}</UniSection>
+                <UniSection>{degree?.uni_section?.[locale]}</UniSection>
               </UniSectionWrapper>
-              <GraduationDate>{degree.graduation_date}</GraduationDate>
+              <GraduationDate>{degree?.graduation_date}</GraduationDate>
               <EditIcon />
             </DegreeCard>
           );
@@ -61,7 +68,9 @@ const AddDegreesSection = ({ client }: { client: Client }) => {
           <AddDegreeCard
             onClick={() => {
               setIsModalOpen(true);
-              setSelectedDegree(degree);
+              setSelectedDegree(
+                client?.all_degrees?.[i] || ({} as ClientAllDegrees)
+              );
             }}
             className="swiper-slide"
           >
@@ -70,7 +79,9 @@ const AddDegreesSection = ({ client }: { client: Client }) => {
               <span>
                 {
                   educations.filter(
-                    (el) => el.en.toLowerCase() === degree.label.toLowerCase()
+                    (el) =>
+                      el.en.toLowerCase() ===
+                      degree?.label?.[locale]?.toLowerCase()
                   )?.[0]?.[locale]
                 }
               </span>

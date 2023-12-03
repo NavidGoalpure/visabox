@@ -23,6 +23,7 @@ import { LocalStorageKeys } from "Interfaces";
 import { getLocalStorage, setLocalStorage } from "Utils";
 import { isAgencyLogedIn } from "Utils/user";
 import { SupportedCountry } from "Interfaces/Database";
+import MobileFormsDropdown from "./dropdownForms";
 
 function SmartHeader({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -79,14 +80,14 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
               <MobileBoxesDropdown clientCountry={clientCountry} />
               <Hr />
               <OccupationDropdown clientCountry={clientCountry} />
+              <Hr />
+              {!isAgencyLogedIn() && <MobileFormsDropdown />}
               {(clientCountry === SupportedCountry.Iran ||
                 getLocalStorage(LocalStorageKeys.Country) ===
                   SupportedCountry.Iran) && (
                 <>
                   <Hr />
-                  <MenuLink href={`/fa/blog`}>
-                    {t(LanguageKeys.Blogs)}
-                  </MenuLink>
+                  <MenuLink href={`/fa/blog`}>{t(LanguageKeys.Blogs)}</MenuLink>
                 </>
               )}
               {isAgencyLogedIn() && (

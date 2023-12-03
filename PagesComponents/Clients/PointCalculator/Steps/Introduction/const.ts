@@ -7,7 +7,7 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Step0Title: {
     en: "Point calculator",
-    fa: "فرم ارزیابی ماراباکس ",
+    fa: "ماشین حساب امتیاز مهاجرت",
     zh: "点计算器",
   },
   Step0Desc: {

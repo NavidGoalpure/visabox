@@ -1,14 +1,14 @@
-import { MultiLanguageText } from 'Interfaces/Database';
+import { MultiLanguageText } from "Interfaces/Database";
 export enum LanguageKeys {
-  Step0Title = 'Step0Title',
-  Step0Desc = 'Step0Desc',
-  Step0Button = 'Step0Button',
+  Step0Title = "Step0Title",
+  Step0Desc = "Step0Desc",
+  Step0Button = "Step0Button",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Step0Title: {
-    en: "Point calculator",
-    fa: "فرم ارزیابی ماراباکس ",
-    zh: '点计算器'
+    en: "Request Agent Form",
+    fa: "فرم درخواست وکیل",
+    zh: "索取代理表格",
   },
   Step0Desc: {
     en: `Dear user
@@ -16,11 +16,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: `کاربر گرامی
     با صرف زمان ۳ دقیقه و پر کردن این فرم می توانید از نمره مهاجرت خود آگاه شوید و فرصت مشاوره رایگان از طرف بهترین وکلای مهاجرت را به دست آورید.`,
     zh: `亲爱的用户
-    只需花两分钟填写此表格，您就可以将您的信息提供给最好的移民律师，以便他们通过更仔细地审查您的条件为您提供最佳的移民解决方案。`
+    只需花两分钟填写此表格，您就可以将您的信息提供给最好的移民律师，以便他们通过更仔细地审查您的条件为您提供最佳的移民解决方案。`,
   },
   Step0Button: {
     en: `Start`,
     fa: `محاسبه امتیاز`,
-    zh: '开始'
+    zh: "开始",
   },
 };

@@ -36,6 +36,7 @@ import agencyObj from "./objects/agent/AgencyObj";
 import surveyChoiceObj from "./objects/survey/choice";
 //
 import AllDegrees from "./objects/client/AllDegreesObj";
+import AllJobs from "./objects/client/allJobsObj";
 import ClientCompletedFormsObj from "./objects/client/CompletedFormsObj";
 //Objects-other
 import { translateFields } from "./objects/fieldTranslation";
@@ -74,6 +75,7 @@ export default createSchema({
         survey,
         /////client Related ////
         client,
+        AllJobs,
         AllDegrees,
         ClientCompletedFormsObj,
         /////agencyRelated/////

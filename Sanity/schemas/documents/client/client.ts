@@ -259,5 +259,11 @@ export default {
       type: "array",
       of: [{ type: "all_degrees" }],
     },
+    {
+      name: "all_jobs",
+      title: "All Jobs",
+      type: "array",
+      of: [{ type: "all_jobs" }],
+    },
   ],
 };

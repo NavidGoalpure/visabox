@@ -18,6 +18,7 @@ import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
 import { Client } from "Interfaces/Database/Client";
 import { GetLabelsProps } from "../../interface";
+import { useSession } from "next-auth/react";
 
 const CurrentJobsSection = ({
   client,
@@ -31,6 +32,8 @@ const CurrentJobsSection = ({
   const [selectedJobIndex, setSelectedJobIndex] = useState<number | undefined>(
     undefined
   );
+  const { data: session } = useSession();
+  const isViewerOwner = client?.email === session?.user?.email;
   const { t } = useStaticTranslation(componentStatements);
   return (
     <MaraSwiper updateSwiperVariables={client}>
@@ -40,23 +43,28 @@ const CurrentJobsSection = ({
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-      <AddCard
-        onClick={() => {
-          setIsModalOpen(true);
-          setSelectedJobIndex(undefined);
-        }}
-        className="swiper-slide"
-      >
-        <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
-        <PlusIcon />
-      </AddCard>
+      {isViewerOwner && (
+        <AddCard
+          onClick={() => {
+            setIsModalOpen(true);
+            setSelectedJobIndex(undefined);
+          }}
+          className="swiper-slide"
+        >
+          <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
+          <PlusIcon />
+        </AddCard>
+      )}
       {labeledData?.all_jobs?.map((job, index) => {
         if (!!job.title) {
           return (
             <JobCard
+              $isViewerOwner={isViewerOwner}
               onClick={() => {
-                setIsModalOpen(true);
-                setSelectedJobIndex(index);
+                if (isViewerOwner) {
+                  setIsModalOpen(true);
+                  setSelectedJobIndex(index);
+                }
               }}
               className="swiper-slide"
             >
@@ -76,7 +84,7 @@ const CurrentJobsSection = ({
                   <CloseIcon />
                 )}
               </TrueOrFalseField>
-              <EditIcon />
+              {isViewerOwner && <EditIcon />}
             </JobCard>
           );
         }
@@ -151,9 +159,10 @@ const AddCard = styled.div`
     max-width: unset;
   }
 `;
-const JobCard = styled.div`
+const JobCard = styled.div<{
+  $isViewerOwner: boolean;
+}>`
   ${JobCardTheme};
-  cursor: pointer;
   padding: 1rem;
   border-radius: 15px;
   display: flex;
@@ -163,7 +172,11 @@ const JobCard = styled.div`
   gap: 0.5rem;
   height: 100%;
   max-width: 12.5rem;
-
+  ${({ $isViewerOwner }) =>
+    $isViewerOwner &&
+    css`
+      cursor: pointer;
+    `}
   width: max-content;
   @media ${deviceMin.tabletS} {
     max-width: unset;

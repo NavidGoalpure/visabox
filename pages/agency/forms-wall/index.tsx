@@ -62,11 +62,6 @@ const FormsWall: NextPage = () => {
           ErrorToast('We have trouble with your account. Please login again');
           Logout(`/${locale}/auth/signin`);
         }
-        // اگه اکانت ایجنسی دی اکتیو بود چیزی نشون نده
-        console.log(
-          'navid data?.agency?.[0]?.status=',
-          data?.agency?.[0]?.status
-        );
 
         if (data?.agency?.[0]?.status === Status.ACTIVE) {
           setIsShow(true);

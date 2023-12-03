@@ -102,7 +102,6 @@ const PageContainer: React.FC<Props> = ({
           <ToasterContainer />
           {(!hasCountryInDatabase || isLogout()) && <CountryModal />}
           {hasMenu && <Header />}
-          {/* navid talk about how you want to handle banner with two forms */}
           {hasBanner &&
             (!hasClientCompletedForm || !session) &&
             !isAgencyLogedIn() && (

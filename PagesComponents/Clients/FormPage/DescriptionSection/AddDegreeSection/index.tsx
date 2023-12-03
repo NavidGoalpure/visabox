@@ -19,6 +19,7 @@ import { componentStatements, LanguageKeys } from "../../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { Client, ClientAllDegrees } from "Interfaces/Database/Client";
 import { ClientAllDegreesLabels, GetLabelsProps } from "../../interface";
+import { useSession } from "next-auth/react";
 
 const AddDegreesSection = ({
   client,
@@ -28,10 +29,12 @@ const AddDegreesSection = ({
   client: Client;
 }) => {
   const { locale } = useLocale();
+  const { data: session } = useSession();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDegree, setSelectedDegree] = useState<ClientAllDegrees>(
     {} as ClientAllDegrees
   );
+  const isViewerOwner = client?.email === session?.user?.email;
   const { t } = useStaticTranslation(componentStatements);
   return (
     <MaraSwiper updateSwiperVariables={client}>
@@ -45,11 +48,14 @@ const AddDegreesSection = ({
         if (degree.graduation_date !== null) {
           return (
             <DegreeCard
+              $isViewerOwner={isViewerOwner}
               onClick={() => {
-                setIsModalOpen(true);
-                setSelectedDegree(
-                  client?.all_degrees?.[i] || ({} as ClientAllDegrees)
-                );
+                if(isViewerOwner){
+                  setIsModalOpen(true);
+                  setSelectedDegree(
+                    client?.all_degrees?.[i] || ({} as ClientAllDegrees)
+                  );
+                }
               }}
               className="swiper-slide"
             >
@@ -60,7 +66,7 @@ const AddDegreesSection = ({
                 <UniSection>{degree?.uni_section?.[locale]}</UniSection>
               </UniSectionWrapper>
               <GraduationDate>{degree?.graduation_date}</GraduationDate>
-              <EditIcon />
+              {isViewerOwner && <EditIcon />}
             </DegreeCard>
           );
         }
@@ -145,9 +151,10 @@ const NextArrowDir = theme("languageDirection", {
   `,
 });
 
-const DegreeCard = styled.div`
+const DegreeCard = styled.div<{
+  $isViewerOwner: boolean;
+}>`
   ${DegreeCardTheme};
-  cursor: pointer;
   padding: 1rem;
   border-radius: 15px;
   display: flex;
@@ -157,7 +164,11 @@ const DegreeCard = styled.div`
   gap: 1rem;
   height: 100%;
   max-width: 12.5rem;
-
+  ${({ $isViewerOwner }) =>
+    $isViewerOwner &&
+    css`
+      cursor: pointer;
+    `}
   width: max-content;
   @media ${deviceMin.tabletS} {
     max-width: unset;

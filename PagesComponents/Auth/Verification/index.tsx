@@ -79,7 +79,7 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
         });
     }
     if (chosenRole === UserRole.Agency) {
-      //navid بعدا باید به سنیتی رکوئست بزنیم که آیا این وکیل موجوده یا نه و آیا کانفرم شده یا نه
+      //navid بعدا باید به سنیتی رکوئست بزنیم که آیا این وکیل موجوده یا نه و آیا کانفرم شده یا نه -
       if (user?._type === 'agency') {
         fireGtmEvent({
           eventName: GtmEvents.agentLogin,

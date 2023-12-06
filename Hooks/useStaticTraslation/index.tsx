@@ -1,5 +1,6 @@
 import { MultiLanguageText } from 'Interfaces/Database';
 import { translatedObject } from './Utils';
+import { useLocale } from 'Hooks/useLocale';
 
 ////////////////
 /**
@@ -11,6 +12,7 @@ import { translatedObject } from './Utils';
 export const useStaticTranslation = (
   statements: Record<string, MultiLanguageText>
 ) => {
+  const { locale } = useLocale();
   return {
     ////////////////
     /**
@@ -24,7 +26,12 @@ export const useStaticTranslation = (
       aliases?: Record<string, string>[]
     ) => {
       if (!statementKey) return '';
-      return translatedObject({ statementKey, statements, aliases });
+      return translatedObject({
+        statementKey,
+        statements,
+        aliases,
+        locale,
+      });
     },
   };
 };

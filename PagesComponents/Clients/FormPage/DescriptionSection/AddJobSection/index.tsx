@@ -59,6 +59,7 @@ const CurrentJobsSection = ({
         if (!!job.title) {
           return (
             <JobCard
+              key={index}
               $isViewerOwner={isViewerOwner}
               onClick={() => {
                 if (isViewerOwner) {

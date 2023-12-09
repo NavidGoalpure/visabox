@@ -50,13 +50,14 @@ const AddDegreesSection = ({
             <DegreeCard
               $isViewerOwner={isViewerOwner}
               onClick={() => {
-                if(isViewerOwner){
+                if (isViewerOwner) {
                   setIsModalOpen(true);
                   setSelectedDegree(
                     client?.all_degrees?.[i] || ({} as ClientAllDegrees)
                   );
                 }
               }}
+              key={i}
               className="swiper-slide"
             >
               <CardTitle>{degree?.label?.[locale]}</CardTitle>

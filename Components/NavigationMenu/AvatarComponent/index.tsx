@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import useTheme from "Hooks/useTheme";
-import { ThemeModes } from "Interfaces";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import { useSession } from "next-auth/react";
 import SwitchTheme from "../switchTheme";
@@ -24,10 +22,11 @@ import { Logout } from "Utils/user";
 import { useRouter } from "next/router";
 import { useLocale } from "Hooks/useLocale";
 import { FaUser } from "react-icons/fa";
+import { ThemeContext } from "Contexts/ThemeContext";
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);
-  const { theme, setTheme } = useTheme();
+  const { toggleTheme } = useContext(ThemeContext);
   const { data: session } = useSession();
   const { locale } = useLocale();
   const router = useRouter();
@@ -115,13 +114,7 @@ function DesktopProfileOptions() {
                 <UserIcon />
               </PopOverItemContainer>
             )}
-            <PopOverItemContainer
-              onClick={() => {
-                theme === ThemeModes.DARK
-                  ? setTheme(ThemeModes.LIGHT)
-                  : setTheme(ThemeModes.DARK);
-              }}
-            >
+            <PopOverItemContainer onClick={() => toggleTheme()}>
               <MaraItemTitle>{t(LanguageKeys.ChangeTheme)}</MaraItemTitle>
               <SwitchTheme />
             </PopOverItemContainer>

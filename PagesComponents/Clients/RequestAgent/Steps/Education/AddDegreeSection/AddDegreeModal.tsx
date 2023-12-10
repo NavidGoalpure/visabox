@@ -23,10 +23,7 @@ import styled from "styled-components";
 import { Headline7Style } from "Styles/Typo";
 import { ClientQueryKeys } from "Utils/query/keys";
 import * as ToggleGroup from "Elements/ToggleGroup";
-import {
-  componentStatements,
-  LanguageKeys,
-} from "../const";
+import { componentStatements, LanguageKeys } from "../const";
 import { Input } from "Components/Input";
 import {
   HintContainer,
@@ -38,7 +35,11 @@ import { uniSections } from "Consts/Client";
 import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
 import { SupportedCountry } from "Interfaces/Database";
 import { SearchInputComponent } from "Components/SearchInputComponent";
-import { Hint_Modal_Bg, Hint_Modal_Icon, Hint_Modal_Text } from "Styles/Theme/elementsInModal/hint";
+import {
+  Hint_Modal_Bg,
+  Hint_Modal_Icon,
+  Hint_Modal_Text,
+} from "Styles/Theme/elementsInModal/hint";
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -97,7 +98,7 @@ const EditModal: React.FC<Props> = ({
           <>
             {uniSections.map((uniSection, i) => (
               <ToggleGroup.Item
-                isItemInModal={true}
+                isiteminmodal={true}
                 key={i}
                 text={uniSection}
                 value={uniSection.en.toLowerCase()}
@@ -179,7 +180,7 @@ const ModalHintContainer = styled(HintContainer)`
   ${Hint_Modal_Bg}
 `;
 const ModalInfoHintIcon = styled(InfoHintIcon)`
-${Hint_Modal_Icon}
+  ${Hint_Modal_Icon}
 `;
 const ModalHintText = styled(HintText)`
   ${Hint_Modal_Text}

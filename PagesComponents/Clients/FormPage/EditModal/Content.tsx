@@ -134,7 +134,7 @@ export function ContentBasedOnKeys({
             <>
               {IELTSScores.map((IELTSScore, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={IELTSScore}
                   value={IELTSScore.en.toLowerCase()}
@@ -166,7 +166,7 @@ export function ContentBasedOnKeys({
               <>
                 {maritalStatuses.map((maritalStatus, i) => (
                   <ToggleGroup.Item
-                    isItemInModal={true}
+                    isiteminmodal={true}
                     key={i}
                     text={maritalStatus}
                     value={maritalStatus.en.toLowerCase()}
@@ -203,7 +203,7 @@ export function ContentBasedOnKeys({
                   <>
                     {YesOrNo.map((option, i) => (
                       <ToggleGroup.Item
-                        isItemInModal={true}
+                        isiteminmodal={true}
                         key={i}
                         text={option}
                         value={option.en.toLowerCase()}
@@ -240,7 +240,7 @@ export function ContentBasedOnKeys({
                     <>
                       {YesOrNo.map((option, i) => (
                         <ToggleGroup.Item
-                          isItemInModal={true}
+                          isiteminmodal={true}
                           key={i}
                           text={option}
                           value={option.en.toLowerCase()}
@@ -270,7 +270,7 @@ export function ContentBasedOnKeys({
             <>
               {Countries.map((option, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={option}
                   value={option.en.toLowerCase()}
@@ -314,7 +314,7 @@ export function ContentBasedOnKeys({
             <>
               {educations.map((education, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={education}
                   value={education.en.toLowerCase()}
@@ -355,7 +355,7 @@ export function ContentBasedOnKeys({
               <>
                 {YesOrNo.map((option, i) => (
                   <ToggleGroup.Item
-                    isItemInModal={true}
+                    isiteminmodal={true}
                     key={i}
                     text={option}
                     value={option.en.toLowerCase()}
@@ -389,7 +389,7 @@ export function ContentBasedOnKeys({
                   <>
                     {YesOrNo.map((option, i) => (
                       <ToggleGroup.Item
-                        isItemInModal={true}
+                        isiteminmodal={true}
                         key={i}
                         text={option}
                         value={option.en.toLowerCase()}
@@ -428,7 +428,7 @@ export function ContentBasedOnKeys({
                   <>
                     {YesOrNo.map((option, i) => (
                       <ToggleGroup.Item
-                        isItemInModal={true}
+                        isiteminmodal={true}
                         key={i}
                         text={option}
                         value={option.en.toLowerCase()}
@@ -464,7 +464,7 @@ export function ContentBasedOnKeys({
             <>
               {YesOrNo.map((option, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={option}
                   value={option.en.toLowerCase()}
@@ -497,7 +497,7 @@ export function ContentBasedOnKeys({
             <>
               {YesOrNo.map((option, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={option}
                   value={option.en.toLowerCase()}
@@ -524,7 +524,7 @@ export function ContentBasedOnKeys({
             <>
               {uniSections.map((uniSection, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={uniSection}
                   value={uniSection.en.toLowerCase()}
@@ -551,7 +551,7 @@ export function ContentBasedOnKeys({
             <>
               {works.map((work, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={work}
                   value={work.en.toLowerCase()}
@@ -578,7 +578,7 @@ export function ContentBasedOnKeys({
             <>
               {australianWorks.map((australianWork, i) => (
                 <ToggleGroup.Item
-                  isItemInModal={true}
+                  isiteminmodal={true}
                   key={i}
                   text={australianWork}
                   value={australianWork.en.toLowerCase()}

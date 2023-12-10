@@ -2,7 +2,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useContext } from 'react';
 import Image from 'next/image';
 import styled, { css } from 'styled-components';
-import useTheme from 'Hooks/useTheme';
+import { ThemeContext } from "Contexts/ThemeContext";
 import DarkKangorooLogo from './Images/DarkKangorooLogo.svg';
 import LightKangorooLogo from './Images/LightKangorooLogo.svg';
 import { Headline3Style, Headline4Style } from 'Styles/Typo';
@@ -18,7 +18,7 @@ import { NextIcon, NextButton } from '../StyledComponents';
 import { componentStatements, LanguageKeys } from './const';
 
 const IntroductionStep = () => {
-  const { theme } = useTheme();
+  const { theme } = useContext(ThemeContext);
   const { t } = useStaticTranslation(componentStatements);
   const { step, handleNextPress } = useContext(WizardContext);
   return (

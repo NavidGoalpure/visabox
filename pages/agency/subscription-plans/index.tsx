@@ -1,16 +1,16 @@
-import { NextPage } from 'next';
-import PageLayout from 'Components/Layouts/PageContainer';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { useLocale } from 'Hooks/useLocale';
-import Seo from 'Components/Seo';
+import { NextPage } from "next";
+import PageLayout from "Components/Layouts/PageContainer";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { useLocale } from "Hooks/useLocale";
+import Seo from "Components/Seo";
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Agency/SubscriptionPlans/const';
-import styled from 'styled-components';
-import Content from 'PagesComponents/Agency/SubscriptionPlans';
+} from "PagesComponents/Agency/SubscriptionPlans/const";
+import styled from "styled-components";
+import Content from "PagesComponents/Agency/SubscriptionPlans";
 
-const AgentsIntroduction: NextPage = () => {
+const SubscriptionPlans: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
@@ -24,7 +24,7 @@ const AgentsIntroduction: NextPage = () => {
     </StyledPageLayout>
   );
 };
-export default AgentsIntroduction;
+export default SubscriptionPlans;
 const StyledPageLayout = styled(PageLayout)`
   max-width: none;
   #PageContainer-content {

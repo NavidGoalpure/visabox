@@ -17,9 +17,6 @@ import {
   occupationItems,
 } from "../const";
 import Link from "next/link";
-import { Languages, LocalStorageKeys } from "Interfaces";
-import { SupportedCountry } from "Interfaces/Database";
-import { getLocalStorage } from "Utils";
 const MobileFormsDropdown = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);

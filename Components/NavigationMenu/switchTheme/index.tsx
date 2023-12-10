@@ -1,41 +1,37 @@
-import * as RdxSwitch from '@radix-ui/react-switch';
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
-import Sun from './Images/Sun.svg';
-import Moon from './Images/Moon.svg';
-import MoonLogo from './MoonLogo';
-import SunLogo from './SunLogo';
-import theme from 'styled-theming';
-import { ThemeModes } from 'Interfaces';
-import useTheme from 'Hooks/useTheme';
-import { Loading } from 'Elements/Loading';
-
+import * as RdxSwitch from "@radix-ui/react-switch";
+import React, { useContext, useState } from "react";
+import styled, { css } from "styled-components";
+import Sun from "./Images/Sun.svg";
+import Moon from "./Images/Moon.svg";
+import MoonLogo from "./MoonLogo";
+import SunLogo from "./SunLogo";
+import theme from "styled-theming";
+import { ThemeModes } from "Interfaces";
+import { ThemeContext } from "Contexts/ThemeContext";
 
 const SwitchTheme = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const isChecked = theme === ThemeModes.LIGHT;
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  if (isLoading) return <Loading style={{ width: 'auto' }} />;
+  // if (isLoading) return <Loading style={{ width: 'auto' }} />;
   return (
     <SwitchRoot
       aria-label={theme as string}
       checked={isChecked}
       onCheckedChange={() => {
         setIsLoading(true);
-        theme === ThemeModes.DARK
-          ? setTheme(ThemeModes.LIGHT)
-          : setTheme(ThemeModes.DARK);
+        toggleTheme();
       }}
     >
-      <MoonLogo id='moon' />
+      <MoonLogo id="moon" />
       <SwitchThumb />
-      {!isChecked && <SunLogo id='sun' />}
+      {!isChecked && <SunLogo id="sun" />}
     </SwitchRoot>
   );
 };
 
 export default SwitchTheme;
-const BorderColor = theme('mode', {
+const BorderColor = theme("mode", {
   light: css`
     border-color: var(--color-gray10);
   `,
@@ -44,7 +40,7 @@ const BorderColor = theme('mode', {
   `,
 });
 const SwitchRoot = styled(RdxSwitch.Root)`
-cursor: pointer;
+  cursor: pointer;
   border: 3px solid;
   ${BorderColor};
   position: relative;
@@ -80,7 +76,7 @@ cursor: pointer;
       stroke: var(--color-gray9);
     }
   }
-  &[data-state='checked'] {
+  &[data-state="checked"] {
     justify-content: flex-end;
     .sun {
       display: none;
@@ -104,7 +100,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
   justify-content: center;
   background-color: var(--color-gray9);
   :before {
-    content: '';
+    content: "";
     z-index: 2;
     width: 70%;
     background-size: contain;
@@ -112,7 +108,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
     background-repeat: no-repeat;
     background-image: url(${Moon});
   }
-  &[data-state='checked'] {
+  &[data-state="checked"] {
     transform: translateX(3px);
     background-color: var(--color-secondary4);
     :before {

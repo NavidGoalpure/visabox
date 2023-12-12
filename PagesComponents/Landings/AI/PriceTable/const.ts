@@ -1,0 +1,69 @@
+import { MultiLanguageText } from 'Interfaces/Database';
+
+export enum LanguageKeys {
+  PriceTable_Title = 'PriceTable_Title',
+  PriceTable_Subtitle = 'PriceTable_Subtitle',
+  PlanDescription1 = 'PlanDescription1',
+  PlanDescription2 = 'PlanDescription2',
+  PlanDescription3 = 'PlanDescription3',
+  ContactUs = 'ContactUs',
+  TestPlan = 'TestPlan',
+  AnnualPlan = 'AnnualPlan',
+  MonthlyPlan = 'MonthlyPlan',
+  CTA = 'CTA',
+}
+export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
+  PriceTable_Title: {
+    en: 'Ready To Purchase?',
+    fa: 'سبد قیمت',
+    zh: '准备购买了吗？',
+  },
+  PriceTable_Subtitle: {
+    en: 'Find the Perfect Plan for You.',
+    fa: 'بهترین پلن را برای بیزینس خود انتخاب کنید.',
+    zh: '找到最适合您的计划',
+  },
+
+  PlanDescription3: {
+    en: 'Answer questions based on "Migration Strategy 2023" documents',
+    fa: 'پاسخ به سوالات بر اساس مستندات «Migration Strategy 2023»',
+    zh: '根据《2023年移民战略》文件回答问题',
+  },
+
+  PlanDescription1: {
+    en: 'Using ChatGPT4 chat engine',
+    fa: 'با استفاده از نیروی قدرتمند ChatGPT4',
+    zh: '使用ChatGPT4聊天引擎',
+  },
+  PlanDescription2: {
+    en: 'Answer questions based on "Vetassess" documentation',
+    fa: 'پاسخ به سوالات بر اساس مستندات «Vetassess»',
+    zh: '根据“Vetassess”文档回答问题',
+  },
+  ContactUs: {
+    en: 'navid',
+    fa: 'navid',
+    zh: 'navid',
+  },
+
+  TestPlan: {
+    en: 'Test Plan',
+    fa: ' طرح آزمایشی',
+    zh: '测试计划',
+  },
+  AnnualPlan: {
+    en: 'Annual Plan',
+    fa: 'طرح سالانه',
+    zh: '年度计划',
+  },
+  MonthlyPlan: {
+    en: 'Monthly Plan',
+    fa: 'طرح ماهیانه',
+    zh: '月度计划',
+  },
+  CTA: {
+    en: 'Order Now',
+    fa: 'دسترسی خود را با ماهانه ۱۵ دلار تضمین کنید',
+    zh: '以 15 美元/月的价格解锁见解',
+  },
+};

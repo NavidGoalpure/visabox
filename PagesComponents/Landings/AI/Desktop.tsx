@@ -26,10 +26,10 @@ import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Headline4Style } from 'Styles/Typo';
-import { PrimaryButton } from 'Elements/Button/Primary';
 import theme from 'styled-theming';
 import { getGsapTimeLine_Hero } from 'Utils/animations';
 import { tsParticleOption_Desktop } from 'Styles/animation';
+import PriceList from './PriceTable';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -48,70 +48,77 @@ function Desktop() {
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <Container className='container'>
-      <Hero className='hero' $isActive={isActive}>
-        <HeroWrapper>
-          <MonthlyUsersWrapper>
-            <HeroTitle>{t(LanguageKeys.BotName)} </HeroTitle>
-            <Desc>{t(LanguageKeys.BotDesc)}</Desc>
-          </MonthlyUsersWrapper>
-          <HeroPictureWrapper>
-            <HeroPicture
-              id={'hero-image'}
-              width={450}
-              height={450}
-              src={HeroMovingRobot}
-              alt={'hero-image'}
-            />
-          </HeroPictureWrapper>
-          <MouseSection>
-            <Line />
-            <MouseIcon />
-            <Line />
-          </MouseSection>
-        </HeroWrapper>
-      </Hero>
-      <SectionDivider />
-      <div ref={particlesContainer} style={{ position: 'relative' }}>
-        <StyledParticles
-          container={particlesContainer}
-          id='tsparticles'
-          init={particlesInit}
-          options={tsParticleOption_Desktop}
-        />
-        <Wrapper $isActive={isActive}>
-          <Section>
-            <PhoneImage
-              width={329}
-              height={281}
-              src={
-                getThemeFromLocalStorage() === ThemeModes.DARK
-                  ? DarkPhone
-                  : LightPhone
-              }
-              alt='phone-image'
-            />
-            <Title>{t(LanguageKeys.Section2Title)}</Title>
-            <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
-          </Section>
-          <SectionDivider />
-          <StyledSection>
-            <TestRobotContainer>
-              <RobotImg
-                width={291}
-                height={304}
-                src={RobotImage}
+    <>
+      <Container className='container'>
+        <Hero className='hero' $isActive={isActive}>
+          <HeroWrapper>
+            <MonthlyUsersWrapper>
+              <HeroTitle>{t(LanguageKeys.BotName)} </HeroTitle>
+              <Desc>{t(LanguageKeys.BotDesc)}</Desc>
+            </MonthlyUsersWrapper>
+            <HeroPictureWrapper>
+              <HeroPicture
+                id={'hero-image'}
+                width={450}
+                height={450}
+                src={HeroMovingRobot}
+                alt={'hero-image'}
+              />
+            </HeroPictureWrapper>
+            <MouseSection>
+              <Line />
+              <MouseIcon />
+              <Line />
+            </MouseSection>
+          </HeroWrapper>
+        </Hero>
+        <SectionDivider />
+        <div ref={particlesContainer} style={{ position: 'relative' }}>
+          <StyledParticles
+            container={particlesContainer}
+            id='tsparticles'
+            init={particlesInit}
+            options={tsParticleOption_Desktop}
+          />
+          <Wrapper $isActive={isActive}>
+            <Section>
+              <PhoneImage
+                width={329}
+                height={281}
+                src={
+                  getThemeFromLocalStorage() === ThemeModes.DARK
+                    ? DarkPhone
+                    : LightPhone
+                }
                 alt='phone-image'
-              />{' '}
-              <TestRobotWrapper>
-                <TestRobotTitle>{t(LanguageKeys.CTATitle)}</TestRobotTitle>
-                <PrimaryButton>{t(LanguageKeys.CTA)}</PrimaryButton>
-              </TestRobotWrapper>
-            </TestRobotContainer>
-          </StyledSection>
-        </Wrapper>
-      </div>
-    </Container>
+              />
+              <Title>{t(LanguageKeys.Section2Title)}</Title>
+              <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
+            </Section>
+            <SectionDivider />
+            <StyledSection>
+              <TestRobotContainer>
+                <RobotImg
+                  width={291}
+                  height={304}
+                  src={RobotImage}
+                  alt='phone-image'
+                />{' '}
+                <TestRobotWrapper>
+                  <TestRobotTitle>
+                    {t(LanguageKeys.CTATitle_Logined)}
+                  </TestRobotTitle>
+                  <PriceList></PriceList>
+                </TestRobotWrapper>
+              </TestRobotContainer>
+            </StyledSection>
+          </Wrapper>
+        </div>
+      </Container>
+      <Wrapper $isActive={true}>
+        <Section></Section>
+      </Wrapper>
+    </>
   );
 }
 export default Desktop;

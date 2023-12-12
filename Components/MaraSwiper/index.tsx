@@ -1,64 +1,50 @@
-import { EffectCoverflow, Navigation } from "swiper/modules";
 import { IoIosArrowDown } from "react-icons/io";
 import styled, { css } from "styled-components";
-import Swiper from "swiper";
-// import "swiper/swiper-bundle.css";
-// import "swiper/css";
-// import "swiper/css/navigation";
-import { HTMLAttributes, useContext, useEffect, useState } from "react";
+import { Swiper } from "swiper/react";
+import { EffectCoverflow, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import { HTMLAttributes } from "react";
 import theme from "styled-theming";
-import { SecondaryButton } from "Elements/Button/Secondary";
-import useDevice from "Hooks/useDevice";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   updateSwiperVariables?: any;
 }
+// only pass SwiperSlides as children
 const MaraSwiper: React.FC<Props> = ({
   updateSwiperVariables,
   children,
   ...props
 }) => {
-  const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
-  const { isLaptop } = useDevice();
-  useEffect(() => {
-    if (isLaptop) setScreen("DESKTOP");
-  });
-  useEffect(() => {
-    const swiper = new Swiper(".my-swiper", {
-      // effect: "coverflow",
-      slidesPerView: "auto",
-      centeredSlides: true,
-      spaceBetween: "-100px",
-      allowTouchMove: false,
-      modules: [Navigation, EffectCoverflow],
-      EffectCoverflow: {
-        rotate: 40,
-        stretch: 25,
-        depth: 200,
-        modifier: 1,
-        slideShadows: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  }, [updateSwiperVariables]);
-
   return (
     <Container {...props}>
-      <StyledSwiper className="my-swiper">
-        <SwiperWrapper className="swiper-wrapper">{children}</SwiperWrapper>
+      <StyledSwiper
+        effect="coverflow"
+        centeredSlides={true}
+        slidesPerView="auto"
+        modules={[Navigation, EffectCoverflow]}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 25,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        }}
+        spaceBetween={"-300px"}
+      >
+        {children}
+        <ButtonWrapper>
+          <PrevButton className="swiper-button-prev">
+            <PrevButtonArrow />
+          </PrevButton>
+          <NextButton className="swiper-button-next">
+            <NextButtonArrow />
+          </NextButton>
+        </ButtonWrapper>
       </StyledSwiper>
-      {/* {screen === "DESKTOP" && ( */}
-      <ButtonWrapper>
-        <PrevButton className="swiper-button-prev">
-          <PrevButtonArrow />
-        </PrevButton>
-        <NextButton className="swiper-button-next">
-          <NextButtonArrow />
-        </NextButton>
-      </ButtonWrapper>
-      {/* )} */}
     </Container>
   );
 };
@@ -105,28 +91,27 @@ const Container = styled.div`
   border-radius: 15px;
   overflow: hidden;
 `;
-const StyledSwiper = styled.div`
+const StyledSwiper = styled(Swiper)`
   width: 100%;
-  height: max-content;
-  display: flex;
-  position: relative;
-  overflow: hidden;
   .swiper-wrapper {
     width: auto;
     display: flex;
+    align-items: center;
   }
   .swiper-slide {
     filter: blur(10px);
-    transform: scale(0.5);
+    scale: 0.5;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .swiper-slide-active {
     filter: blur(0px);
-    transform: scale(1);
+    scale: 1;
     z-index: 2;
   }
 `;
-const SwiperWrapper = styled.div``;
 
 const ButtonWrapper = styled.div`
   width: 100%;

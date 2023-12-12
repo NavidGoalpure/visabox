@@ -1,4 +1,3 @@
-import { EffectCoverflow, Navigation } from "swiper/modules";
 import { IoIosArrowDown } from "react-icons/io";
 import styled, { css } from "styled-components";
 import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
@@ -11,79 +10,169 @@ import { MdOutlineEdit } from "react-icons/md";
 import theme from "styled-theming";
 import { AiOutlinePlus } from "react-icons/ai";
 import AddDegreeModal from "./AddDegreeModal";
-import { SecondaryButton } from "Elements/Button/Secondary";
 import { FormDataContext } from "PagesComponents/Clients/RequestAgent/Contexts/FormDataContext/Context";
 import { educations } from "Consts/Client";
 import { useLocale } from "Hooks/useLocale";
 import { deviceMin } from "Consts/device";
-import MaraSwiper from "Components/MaraSwiper";
 import { componentStatements, LanguageKeys } from "../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { BsCheck } from "react-icons/bs";
-import { IoCloseOutline } from "react-icons/io5";
+import { getdegreeLabel, getUniSectionLabel } from "Utils/clients";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Navigation } from "swiper/modules";
+import { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import { MultiLanguageText } from "Interfaces/Database";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
 
 const AddDegreesSection = () => {
   const { client } = useContext(FormDataContext);
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedDegreeLabel, setSelectedDegreeLabel] = useState<string>("");
+  const [swiper, setSwiper] = useState<SwiperType>(null);
+  const [prevText, setPrevText] = useState<MultiLanguageText>(
+    {} as MultiLanguageText
+  );
+  const [nextText, setNextText] = useState<MultiLanguageText>(
+    {} as MultiLanguageText
+  );
   const { t } = useStaticTranslation(componentStatements);
+  const { dt } = useDynamicTranslation();
+  useEffect(() => {
+    setPrevText(
+      getdegreeLabel({
+        degree: client?.all_degrees?.[swiper?.activeIndex - 1]?.label,
+      }) || ({} as MultiLanguageText)
+    );
+    setNextText(
+      getdegreeLabel({
+        degree: client?.all_degrees?.[swiper?.activeIndex + 1]?.label,
+      }) || ({} as MultiLanguageText)
+    );
+  }, [client, swiper]);
+  const handleSwiper = (swiperInstance: SwiperType) => {
+    setSwiper(swiperInstance);
+    setPrevText(
+      getdegreeLabel({
+        degree: client?.all_degrees?.[swiper?.activeIndex - 1]?.label,
+      }) || ({} as MultiLanguageText)
+    );
+
+    setNextText(
+      getdegreeLabel({
+        degree: client?.all_degrees?.[swiper?.activeIndex + 1]?.label,
+      }) || ({} as MultiLanguageText)
+    );
+  };
   return (
-    <MaraSwiper updateSwiperVariables={client}>
+    <Container>
       <AddDegreeModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         degreeLabel={selectedDegreeLabel}
       />
-      {client?.all_degrees?.map((degree) => {
-        if (degree.graduation_date !== null) {
+      <StyledSwiper
+        onSwiper={(swiperInstance: SwiperType) => setSwiper(swiperInstance)}
+        onSlideChange={handleSwiper}
+        effect="coverflow"
+        centeredSlides={true}
+        slidesPerView="auto"
+        modules={[Navigation, EffectCoverflow]}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 25,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        }}
+        spaceBetween={"-300px"}
+      >
+        {client?.all_degrees?.map((degree, i) => {
+          if (degree.graduation_date !== null) {
+            return (
+              <SwiperSlide key={i}>
+                <DegreeCard
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setSelectedDegreeLabel(degree?.label);
+                  }}
+                >
+                  <CardTitle>
+                    {dt(getdegreeLabel({ degree: degree.label }))}
+                  </CardTitle>
+                  <UniSectionWrapper>
+                    <FieldOfStudy>{degree.field_of_study}</FieldOfStudy>
+                    <Dash />
+                    <UniSection>
+                      {dt(
+                        getUniSectionLabel({
+                          UniSection: degree.uni_section || undefined,
+                        })
+                      )}
+                    </UniSection>
+                  </UniSectionWrapper>
+                  <GraduationDate>{degree.graduation_date}</GraduationDate>
+                  <EditIcon />
+                </DegreeCard>
+              </SwiperSlide>
+            );
+          }
           return (
-            <DegreeCard
-              onClick={() => {
-                setIsModalOpen(true);
-                setSelectedDegreeLabel(degree?.label);
-              }}
-              className="swiper-slide"
-            >
-              <CardTitle>{degree.label}</CardTitle>
-              <UniSectionWrapper>
-                <FieldOfStudy>{degree.field_of_study}</FieldOfStudy>
-                <Dash />
-                <UniSection>{degree.uni_section}</UniSection>
-              </UniSectionWrapper>
-              <GraduationDate>{degree.graduation_date}</GraduationDate>
-              <EditIcon />
-            </DegreeCard>
+            <SwiperSlide key={i}>
+              <AddDegreeCard
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setSelectedDegreeLabel(degree?.label);
+                }}
+              >
+                <AddTitle>
+                  {t(LanguageKeys.AddInfoSwiper)}{" "}
+                  <span>
+                    {
+                      educations.filter(
+                        (el) =>
+                          el.en.toLowerCase() === degree.label.toLowerCase()
+                      )?.[0]?.[locale]
+                    }
+                  </span>
+                </AddTitle>
+                <PlusIcon />
+              </AddDegreeCard>
+            </SwiperSlide>
           );
-        }
-        return (
-          <AddDegreeCard
-            onClick={() => {
-              setIsModalOpen(true);
-              setSelectedDegreeLabel(degree?.label);
-            }}
-            className="swiper-slide"
-          >
-            <AddTitle>
-              {t(LanguageKeys.AddInfoSwiper)}
-              {" "}
-              <span>
-                {
-                  educations.filter(
-                    (el) => el.en.toLowerCase() === degree.label.toLowerCase()
-                  )?.[0]?.[locale]
-                }
-              </span>
-            </AddTitle>
-            <PlusIcon />
-          </AddDegreeCard>
-        );
-      })}
-    </MaraSwiper>
+        })}
+        <ButtonWrapper>
+          <PrevButton className="swiper-button-prev">
+            <PrevButtonArrow />
+            {dt(prevText)}
+          </PrevButton>
+          <NextButton className="swiper-button-next">
+            {dt(nextText)}
+            <NextButtonArrow />{" "}
+          </NextButton>
+        </ButtonWrapper>
+      </StyledSwiper>
+    </Container>
   );
 };
 export default AddDegreesSection;
-
+const BackgroundTheme = theme("mode", {
+  light: css`
+    background-image: url("/Images/Patterns/AlternativeLightPattern.svg");
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+    background-color: var(--color-gray8);
+  `,
+  dark: css`
+    background-image: url("/Images/Patterns/AlternativeDarkPattern.svg");
+    background-color: var(--color-gray2);
+  `,
+});
 const DegreeCardTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
@@ -116,7 +205,6 @@ const AddCardBorderTheme = theme("mode", {
     border-color: var(--color-gray4);
   `,
 });
-
 const PrevArrowDir = theme("languageDirection", {
   ltr: css`
     transform: rotate(90deg);
@@ -133,7 +221,41 @@ const NextArrowDir = theme("languageDirection", {
     transform: rotate(90deg);
   `,
 });
-
+const ButtonTheme = theme("mode", {
+  light: css`
+    background-color: var(--color-gray6);
+  `,
+  dark: css`
+    background-color: var(--color-gray3);
+  `,
+});
+const Container = styled.div`
+  ${BackgroundTheme}
+  width:100%;
+  padding: 2rem;
+  border-radius: 15px;
+  overflow: hidden;
+`;
+const StyledSwiper = styled(Swiper)`
+  width: 100%;
+  .swiper-wrapper {
+    width: auto;
+    display: flex;
+  }
+  .swiper-slide {
+    filter: blur(10px);
+    scale: 0.5;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-slide-active {
+    filter: blur(0px);
+    scale: 1;
+    z-index: 2;
+  }
+`;
 const DegreeCard = styled.div`
   ${DegreeCardTheme};
   cursor: pointer;
@@ -226,4 +348,30 @@ const PlusIcon = styled(AiOutlinePlus)`
   box-sizing: content-box;
   background-color: var(--color-primary4);
   border-radius: 50%;
+`;
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+`;
+const PrevButton = styled.button`
+  ${ButtonTheme};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  color: var(--color-gray13);
+  border-radius: 15px;
+`;
+const NextButton = styled(PrevButton)``;
+const PrevButtonArrow = styled(IoIosArrowDown)`
+  ${PrevArrowDir};
+`;
+const NextButtonArrow = styled(IoIosArrowDown)`
+  ${NextArrowDir};
 `;

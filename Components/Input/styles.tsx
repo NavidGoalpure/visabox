@@ -146,7 +146,9 @@ const InputStyle = css<{
 }>`
   ${inputTheme};
   ${Headline7Style};
-  width: 100%;
+  // this is for box shadow to not get cut off
+  width: calc(100% - 4px);
+  margin: 0 2px;
   display: flex;
   justify-content: space-between;
   align-items: center;

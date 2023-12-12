@@ -3,6 +3,7 @@ import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
 // import "swiper/swiper-bundle.css";
 // import "swiper/css";
 // import "swiper/css/navigation";
+import { SwiperSlide } from "swiper/react";
 import { useContext, useEffect, useState } from "react";
 import { Headline7Style } from "Styles/Typo";
 import { MdOutlineEdit } from "react-icons/md";
@@ -17,6 +18,8 @@ import { componentStatements, LanguageKeys } from "../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { BsCheck } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
+import { getWorkExperienceLabel } from "Utils/clients";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
 
 const CurrentJobsSection = () => {
   const { client } = useContext(FormDataContext);
@@ -26,55 +29,66 @@ const CurrentJobsSection = () => {
     undefined
   );
   const { t } = useStaticTranslation(componentStatements);
+  const { dt } = useDynamicTranslation();
   return (
-    <MaraSwiper updateSwiperVariables={client}>
+    <>
       <AddJobModal
         clickedJobIndex={selectedJobIndex}
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
-      <AddCard
-        onClick={() => {
-          setIsModalOpen(true);
-          setSelectedJobIndex(undefined);
-        }}
-        className="swiper-slide"
-      >
-        <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
-        <PlusIcon />
-      </AddCard>
-      {client?.all_jobs?.map((job, index) => {
-        if (!!job.title) {
-          return (
-            <JobCard
-              onClick={() => {
-                setIsModalOpen(true);
-                setSelectedJobIndex(index);
-              }}
-              className="swiper-slide"
-            >
-              <CardTitle>{job.title}</CardTitle>
-              <WorkExperience>{job.work_experience}</WorkExperience>
+      <MaraSwiper updateSwiperVariables={client}>
+        <SwiperSlide>
+          <AddCard
+            onClick={() => {
+              setIsModalOpen(true);
+              setSelectedJobIndex(undefined);
+            }}
+          >
+            <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
+            <PlusIcon />
+          </AddCard>
+        </SwiperSlide>
+        {client?.all_jobs?.map((job, index) => {
+          if (!!job.title) {
+            return (
+              <SwiperSlide key={index}>
+                <JobCard
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setSelectedJobIndex(index);
+                  }}
+                >
+                  <CardTitle>{job.title}</CardTitle>
+                  <WorkExperience>
+                    {dt(
+                      getWorkExperienceLabel({
+                        workExperience: job.work_experience || "",
+                      })
+                    )}
+                  </WorkExperience>
 
-              <TrueOrFalseField>
-                {" "}
-                {t(LanguageKeys.WasTheJobInAustralia)}{" "}
-                {job.was_job_in_australia ? <Checkmark /> : <CloseIcon />}
-              </TrueOrFalseField>
-              <TrueOrFalseField>
-                {t(LanguageKeys.CanProvideLegalProofForExperience)}
-                {job.is_able_to_provide_legal_proof ? (
-                  <Checkmark />
-                ) : (
-                  <CloseIcon />
-                )}
-              </TrueOrFalseField>
-              <EditIcon />
-            </JobCard>
-          );
-        }
-      })}
-    </MaraSwiper>
+                  <TrueOrFalseField>
+                    {" "}
+                    {t(LanguageKeys.WasTheJobInAustralia)}{" "}
+                    {job.was_job_in_australia ? <Checkmark /> : <CloseIcon />}
+                  </TrueOrFalseField>
+                  <TrueOrFalseField>
+                    {t(LanguageKeys.CanProvideLegalProofForExperience)}
+                    {job.is_able_to_provide_legal_proof ? (
+                      <Checkmark />
+                    ) : (
+                      <CloseIcon />
+                    )}
+                  </TrueOrFalseField>
+                  <EditIcon />
+                </JobCard>
+              </SwiperSlide>
+            );
+          }
+        })}
+      </MaraSwiper>
+    </>
   );
 };
 export default CurrentJobsSection;
@@ -123,7 +137,7 @@ const AddCardHoverTheme = theme("mode", {
     background: var(--color-gray3);
   `,
 });
- const AddCard = styled.div`
+const AddCard = styled.div`
   border: 3px dashed;
   // ${AddCardTheme};
   cursor: pointer;
@@ -138,7 +152,7 @@ const AddCardHoverTheme = theme("mode", {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  
+
   @media ${deviceMin.tabletS} {
     padding: 2.5rem 4rem;
     max-width: unset;

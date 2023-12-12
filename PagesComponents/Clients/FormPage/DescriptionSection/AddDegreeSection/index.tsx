@@ -37,67 +37,68 @@ const AddDegreesSection = ({
   const isViewerOwner = client?.email === session?.user?.email;
   const { t } = useStaticTranslation(componentStatements);
   return (
-    <MaraSwiper updateSwiperVariables={client}>
-      <AddDegreeModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        degree={selectedDegree}
-        client={client}
-      />
-      {labeledData?.all_degrees?.map((degree, i) => {
-        if (degree.graduation_date !== null) {
-          return (
-            <DegreeCard
-              $isViewerOwner={isViewerOwner}
-              onClick={() => {
-                if (isViewerOwner) {
-                  setIsModalOpen(true);
-                  setSelectedDegree(
-                    client?.all_degrees?.[i] || ({} as ClientAllDegrees)
-                  );
-                }
-              }}
-              key={i}
-              className="swiper-slide"
-            >
-              <CardTitle>{degree?.label?.[locale]}</CardTitle>
-              <UniSectionWrapper>
-                <FieldOfStudy>{degree.field_of_study}</FieldOfStudy>
-                <Dash />
-                <UniSection>{degree?.uni_section?.[locale]}</UniSection>
-              </UniSectionWrapper>
-              <GraduationDate>{degree?.graduation_date}</GraduationDate>
-              {isViewerOwner && <EditIcon />}
-            </DegreeCard>
-          );
-        }
-        return (
-          <AddDegreeCard
-            onClick={() => {
-              setIsModalOpen(true);
-              setSelectedDegree(
-                client?.all_degrees?.[i] || ({} as ClientAllDegrees)
-              );
-            }}
-            className="swiper-slide"
-          >
-            <AddTitle>
-              {t(LanguageKeys.AddInfoSwiper)}{" "}
-              <span>
-                {
-                  educations.filter(
-                    (el) =>
-                      el.en.toLowerCase() ===
-                      degree?.label?.[locale]?.toLowerCase()
-                  )?.[0]?.[locale]
-                }
-              </span>
-            </AddTitle>
-            <PlusIcon />
-          </AddDegreeCard>
-        );
-      })}
-    </MaraSwiper>
+    // <MaraSwiper updateSwiperVariables={client}>
+    //   <AddDegreeModal
+    //     isModalOpen={isModalOpen}
+    //     setIsModalOpen={setIsModalOpen}
+    //     degree={selectedDegree}
+    //     client={client}
+    //   />
+    //   {labeledData?.all_degrees?.map((degree, i) => {
+    //     if (degree.graduation_date !== null) {
+    //       return (
+    //         <DegreeCard
+    //           $isViewerOwner={isViewerOwner}
+    //           onClick={() => {
+    //             if (isViewerOwner) {
+    //               setIsModalOpen(true);
+    //               setSelectedDegree(
+    //                 client?.all_degrees?.[i] || ({} as ClientAllDegrees)
+    //               );
+    //             }
+    //           }}
+    //           key={i}
+    //           className="swiper-slide"
+    //         >
+    //           <CardTitle>{degree?.label?.[locale]}</CardTitle>
+    //           <UniSectionWrapper>
+    //             <FieldOfStudy>{degree.field_of_study}</FieldOfStudy>
+    //             <Dash />
+    //             <UniSection>{degree?.uni_section?.[locale]}</UniSection>
+    //           </UniSectionWrapper>
+    //           <GraduationDate>{degree?.graduation_date}</GraduationDate>
+    //           {isViewerOwner && <EditIcon />}
+    //         </DegreeCard>
+    //       );
+    //     }
+    //     return (
+    //       <AddDegreeCard
+    //         onClick={() => {
+    //           setIsModalOpen(true);
+    //           setSelectedDegree(
+    //             client?.all_degrees?.[i] || ({} as ClientAllDegrees)
+    //           );
+    //         }}
+    //         className="swiper-slide"
+    //       >
+    //         <AddTitle>
+    //           {t(LanguageKeys.AddInfoSwiper)}{" "}
+    //           <span>
+    //             {
+    //               educations.filter(
+    //                 (el) =>
+    //                   el.en.toLowerCase() ===
+    //                   degree?.label?.[locale]?.toLowerCase()
+    //               )?.[0]?.[locale]
+    //             }
+    //           </span>
+    //         </AddTitle>
+    //         <PlusIcon />
+    //       </AddDegreeCard>
+    //     );
+    //   })}
+    // </MaraSwiper>
+    <></>
   );
 };
 export default AddDegreesSection;

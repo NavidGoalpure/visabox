@@ -12,6 +12,7 @@ import AddJobModal from "./AddJobModal";
 import { useLocale } from "Hooks/useLocale";
 import { deviceMin } from "Consts/device";
 import MaraSwiper from "Components/MaraSwiper";
+import { SwiperSlide } from "swiper/react";
 import { componentStatements, LanguageKeys } from "../../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { BsCheck } from "react-icons/bs";
@@ -44,49 +45,51 @@ const CurrentJobsSection = ({
         setIsModalOpen={setIsModalOpen}
       />
       {isViewerOwner && (
-        <AddCard
-          onClick={() => {
-            setIsModalOpen(true);
-            setSelectedJobIndex(undefined);
-          }}
-          className="swiper-slide"
-        >
-          <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
-          <PlusIcon />
-        </AddCard>
+        <SwiperSlide>
+          <AddCard
+            onClick={() => {
+              setIsModalOpen(true);
+              setSelectedJobIndex(undefined);
+            }}
+          >
+            <AddTitle>{t(LanguageKeys.AddJobSwiper)} </AddTitle>
+            <PlusIcon />
+          </AddCard>
+        </SwiperSlide>
       )}
       {labeledData?.all_jobs?.map((job, index) => {
         if (!!job.title) {
           return (
-            <JobCard
-              key={index}
-              $isViewerOwner={isViewerOwner}
-              onClick={() => {
-                if (isViewerOwner) {
-                  setIsModalOpen(true);
-                  setSelectedJobIndex(index);
-                }
-              }}
-              className="swiper-slide"
-            >
-              <CardTitle>{job.title}</CardTitle>
-              <WorkExperience>{job.work_experience?.[locale]}</WorkExperience>
+            <SwiperSlide>
+              <JobCard
+                key={index}
+                $isViewerOwner={isViewerOwner}
+                onClick={() => {
+                  if (isViewerOwner) {
+                    setIsModalOpen(true);
+                    setSelectedJobIndex(index);
+                  }
+                }}
+              >
+                <CardTitle>{job.title}</CardTitle>
+                <WorkExperience>{job.work_experience?.[locale]}</WorkExperience>
 
-              <TrueOrFalseField>
-                {" "}
-                {t(LanguageKeys.WasTheJobInAustralia)}{" "}
-                {job.was_job_in_australia ? <Checkmark /> : <CloseIcon />}
-              </TrueOrFalseField>
-              <TrueOrFalseField>
-                {t(LanguageKeys.CanProvideLegalProofForExperience)}
-                {job.is_able_to_provide_legal_proof ? (
-                  <Checkmark />
-                ) : (
-                  <CloseIcon />
-                )}
-              </TrueOrFalseField>
-              {isViewerOwner && <EditIcon />}
-            </JobCard>
+                <TrueOrFalseField>
+                  {" "}
+                  {t(LanguageKeys.WasTheJobInAustralia)}{" "}
+                  {job.was_job_in_australia ? <Checkmark /> : <CloseIcon />}
+                </TrueOrFalseField>
+                <TrueOrFalseField>
+                  {t(LanguageKeys.CanProvideLegalProofForExperience)}
+                  {job.is_able_to_provide_legal_proof ? (
+                    <Checkmark />
+                  ) : (
+                    <CloseIcon />
+                  )}
+                </TrueOrFalseField>
+                {isViewerOwner && <EditIcon />}
+              </JobCard>
+            </SwiperSlide>
           );
         }
       })}

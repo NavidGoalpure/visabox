@@ -8,6 +8,8 @@ export enum LanguageKeys {
   Section2Title = 'Section2Title',
   Section2Subitle = 'Section2Subitle',
   CTATitle_Logined = 'CTATitle_Logined',
+  ContactUs = 'ContactUs',
+  copyGmailToastMessage = 'copyGmailToastMessage',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -44,5 +46,15 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: `Your All-in-One Solution for Successful Migration: Marci - Providing Answers to Vetassess Questions and Expert Insights into the Latest Migration Strategies for 2023`,
     fa: 'راه حل جامع برای موفقیت در مهاجرت: [Marci] - ارائه پاسخ به سوالات Vetassess و دیدگاه‌های تخصصی در استراتژی‌های مهاجرت جدید برای 2023',
     zh: '通往成功移民的全方位解决方案：[Marci] - 提供对Vetassess问题的答案和对2023年最新移民策略的专业见解',
+  },
+  ContactUs: {
+    en: `If you have any questions or would like to consult with our sales team before making a payment, please feel free to reach out to us using the following contact methods.`,
+    fa: `اگر سوالی دارید یا می خواهید قبل از پرداخت با تیم فروش ما مشورت کنید، لطفاً با استفاده از روش های تماس زیر با ما تماس بگیرید.`,
+    zh: '如果您有任何疑问或想在付款前咨询我们的销售团队，请随时使用以下联系方式与我们联系',
+  },
+  copyGmailToastMessage: {
+    en: 'Copied Gmail number to clipboard',
+    zh: '已将 Gmail 号码复制到剪贴板',
+    fa: 'ایمیل در حافظه کپی شد',
   },
 };

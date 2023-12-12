@@ -41,9 +41,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '根据“Vetassess”文档回答问题',
   },
   ContactUs: {
-    en: 'navid',
-    fa: 'navid',
-    zh: 'navid',
+    en: `If you're interested in having a <span>Special</span> Marabox agent account, please get in touch with us through the following methods.`,
+    fa: `  اگر مایل هستید که <span>اکانت</span> ویژه وکلای ماراباکس را داشته
+              باشید, از راه های زیر با ما در ارتباط باشید.`,
+    zh: '如果您有兴趣拥有Marabox特惠代理账户，请通过以下方式与我们联系。',
   },
 
   TestPlan: {

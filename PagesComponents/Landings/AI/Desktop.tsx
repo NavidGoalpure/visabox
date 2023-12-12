@@ -10,7 +10,7 @@ import HeroMovingRobot from './Images/HeroMovingRobot.svg';
 import DarkPattern from './Images/DarkPattern.svg';
 import LightPattern from './Images/LightPattern.svg';
 import Image from 'next/image';
-import { getThemeFromLocalStorage } from 'Utils';
+import { copyContent, getThemeFromLocalStorage } from 'Utils';
 import { ThemeModes } from 'Interfaces';
 import {
   Desc,
@@ -25,11 +25,15 @@ import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Headline4Style } from 'Styles/Typo';
+import { Headline4Style, Headline5Style } from 'Styles/Typo';
 import theme from 'styled-theming';
 import { getGsapTimeLine_Hero } from 'Utils/animations';
 import { tsParticleOption_Desktop } from 'Styles/animation';
 import PriceList from './PriceTable';
+import { Hint_BG } from 'Styles/Theme/Hint/theme';
+import { FaTelegramPlane } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
+import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -47,6 +51,8 @@ function Desktop() {
   }, []);
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
+  const phoneToastMessage = t(LanguageKeys.copyGmailToastMessage);
+
   return (
     <>
       <Container className='container'>
@@ -115,8 +121,34 @@ function Desktop() {
           </Wrapper>
         </div>
       </Container>
-      <Wrapper $isActive={true}>
-        <Section></Section>
+      <Wrapper $isActive={true} style={{ minHeight: 'unset' }}>
+        <ContactUsContainer>
+          <ContactsDesc
+            dangerouslySetInnerHTML={{
+              __html: t(LanguageKeys.ContactUs),
+            }}
+          />
+          <ContactsWrapper>
+            <GmailContainer
+              onClick={() =>
+                copyContent({
+                  text: 'marketing@marabox.com.au',
+                  toastMessage: phoneToastMessage,
+                })
+              }
+            >
+              <GmailIcon />
+              <GmailLink>marketing@marabox.com.au</GmailLink>
+            </GmailContainer>
+            <TelegramContainer
+              href={'https://t.me/maraboxmigration'}
+              target={'_blank'}
+            >
+              <TelegramIcon />
+              <TelegramLink>@maraboxmigration</TelegramLink>
+            </TelegramContainer>
+          </ContactsWrapper>
+        </ContactUsContainer>
       </Wrapper>
     </>
   );
@@ -305,3 +337,61 @@ const TestRobotTitle = styled.h3`
   color: white;
   text-align: center;
 `;
+const ContactUsContainer = styled.div`
+  ${Hint_BG}
+  padding: 2rem 5rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+`;
+const ContactsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const ContactsDesc = styled(Desc)`
+  ${Hint_SubTitleStyle};
+`;
+const TelegramContainer = styled.a`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  direction: ltr;
+  cursor: pointer;
+`;
+const GmailContainer = styled.button`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  direction: ltr;
+  cursor: pointer;
+`;
+const GmailIcon = styled(SiGmail)`
+  color: var(--color-secondary4);
+  width: 1.5rem;
+  height: auto;
+`;
+const GmailLink = styled.h3`
+  ${Headline5Style};
+  text-align: center;
+  word-break: break-all;
+  color: var(--color-secondary4);
+  direction: ltr;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+`;
+const TelegramIcon = styled(FaTelegramPlane)`
+  color: var(--color-secondary4);
+  width: 1.5rem;
+  height: auto;
+`;
+const TelegramLink = styled(GmailLink)``;

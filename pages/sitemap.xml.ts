@@ -39,7 +39,6 @@ export async function getServerSideProps({ res }: any) {
     await getAllOccupationCodes();
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(allOccupationcodes);
-  console.log('*** navid sitemap=', sitemap);
 
   res.setHeader('Content-Type', 'text/xml');
   // we send the XML to the browser

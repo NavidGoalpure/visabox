@@ -24,10 +24,11 @@ import { PrimaryButton } from 'Elements/Button/Primary';
 import theme from 'styled-theming';
 import { tsParticleOption_Mobile } from 'Styles/animation';
 import { Headline5Style } from 'Styles/Typo';
+import { LanguageKeys, componentStatements } from './const';
+import PriceList from './PriceTable';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 function Desktop() {
-  const [isActive, setIsActive] = useState(true);
-
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);
 
@@ -38,6 +39,9 @@ function Desktop() {
   }, []);
   const particlesContainer = useRef(null);
   /////////
+  const { t } = useStaticTranslation(componentStatements);
+  const phoneToastMessage = t(LanguageKeys.copyGmailToastMessage);
+  //
   return (
     <Container className='container' ref={particlesContainer}>
       <StyledParticles
@@ -49,25 +53,17 @@ function Desktop() {
       <Hero className='hero'>
         <HeroWrapper>
           <MonthlyUsersWrapper>
-            <HeroTitle>اسم رباتمون</HeroTitle>
-            <Desc>
-              دستیار مجازی جامع شما برای سوالات و راهنمایی های بی دردسر مهاجرت
-              به استرالیا.
-            </Desc>
+            <HeroTitle>Marcy</HeroTitle>
+            <Desc>{t(LanguageKeys.BotDesc)}</Desc>
           </MonthlyUsersWrapper>
         </HeroWrapper>
       </Hero>
       <SectionDivider />
 
       <Section>
-        <Title>
-          <span>دستیار مجازی</span> خود را داشته باشید
-        </Title>
+        <Title>{t(LanguageKeys.Section2Title)}</Title>
 
-        <StyledDesc>
-          شما با استفاده از *اسم رباتمون* میتوانید در هر جا هر گونه سوال مربوط
-          به مهاجرت به استرالیا داشته باشید مطرح کنید.
-        </StyledDesc>
+        <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
         <StyledPhoneImage
           width={329}
           height={281}
@@ -78,10 +74,6 @@ function Desktop() {
           }
           alt='phone-image'
         />
-        <StyledDesc>
-          هوش مصنوعی ** مخصوص سایت ماراباکس هست که با هدف کمک به شما در مساعل
-          مهاجرتی در دست ساخت است.
-        </StyledDesc>
       </Section>
       <SectionDivider />
       <StyledSection>
@@ -93,12 +85,8 @@ function Desktop() {
             alt='phone-image'
           />{' '}
           <TestRobotWrapper>
-            <TestRobotTitle>
-              شما میتونید با استفاده از دکمه زیر برای تست زودرس *اسم رباتمون*
-              شرکت کنید. زمانی که تست *اسم رباتمون* شروع بشه به شما از طریق
-              ایمیل اطلاع داده میشه.
-            </TestRobotTitle>
-            <PrimaryButton>ثبت نام</PrimaryButton>
+            <TestRobotTitle>{t(LanguageKeys.CTATitle_Logined)}</TestRobotTitle>
+            <PriceList></PriceList>
           </TestRobotWrapper>
         </TestRobotContainer>
       </StyledSection>

@@ -59,7 +59,7 @@ const PriceList: React.FC = () => {
             <h2>{t(LanguageKeys.MonthlyPlan)}</h2>
           </CardTitle>
           <Price>
-            <h4>$19</h4> <h5>/ mo</h5>
+            <h4>$19</h4> <h5>{t(LanguageKeys.MonthlyABV)}</h5>
           </Price>
           <Option>
             <ul>

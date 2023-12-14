@@ -94,32 +94,36 @@ const PageContainer: React.FC<Props> = ({
   // this is needed in order to verify serverside rendering is over and it is on the client side
   useEffect(() => {
     if (typeof window !== "undefined") setHasWindow(true);
-  });
+  }, []);
+  if (!hasWindow)
+    return (
+      <LoadingContainer>
+        <Loading />
+
+      </LoadingContainer>
+    );
   return (
     <Container {...props}>
-      {hasWindow ? (
-        <>
-          {" "}
-          <ToasterContainer />
-          {(!hasCountryInDatabase || isLogout()) && <CountryModal />}
-          {hasMenu && <Header />}
-          {hasBanner &&
-            (!hasClientCompletedForm || !session) &&
-            !isAgencyLogedIn() && (
-              <SmartBanner
-                navigateTo={`/${locale}/clients/request-agent`}
-                desc={
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: bannerDesc,
-                    }}
-                  ></div>
-                }
-                buttonText={buttonText}
-                stampText={stampText}
-              />
-            )}
-          {/* <Survay.Root
+      <ToasterContainer />
+      {(!hasCountryInDatabase || isLogout()) && <CountryModal />}
+      {hasMenu && <Header />}
+      {hasBanner &&
+        (!hasClientCompletedForm || !session) &&
+        !isAgencyLogedIn() && (
+          <SmartBanner
+            navigateTo={`/${locale}/clients/request-agent`}
+            desc={
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: bannerDesc,
+                }}
+              ></div>
+            }
+            buttonText={buttonText}
+            stampText={stampText}
+          />
+        )}
+      {/* <Survay.Root
         title={{
           en: 'How do you prefer to do the legal procedures of immigration?',
           fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
@@ -142,17 +146,24 @@ const PageContainer: React.FC<Props> = ({
           />
         </MultiChoice>
       </Survay.Root> */}
-          <Content id="PageContainer-content">{children}</Content>
-          {hasFooter && <Footer />}
-        </>
-      ) : (
-        <Loading />
-      )}
+      <Content id="PageContainer-content">{children}</Content>
+      {hasFooter && <Footer />}
     </Container>
   );
 };
 export default PageContainer;
+const LoadingContainer = styled.div`
+  ${layer1_BG};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+`;
 const Container = styled.main`
+  ${layer1_BG};
   ${directionStyles};
   display: flex;
   justify-content: center;
@@ -164,7 +175,6 @@ const Container = styled.main`
 `;
 
 const Content = styled.article`
-  ${layer1_BG};
   width: 100%;
   display: flex;
   flex-direction: column;

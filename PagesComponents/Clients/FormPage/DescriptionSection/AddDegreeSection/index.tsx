@@ -179,15 +179,26 @@ const AddTitleTheme = theme("mode", {
     color: var(--color-primary6);
   `,
 });
-const AddCardBorderTheme = theme("mode", {
+const AddCardTheme = theme("mode", {
   light: css`
     border-color: var(--color-gray7);
+    background: rgba(221, 226, 235, 0.8);
   `,
   dark: css`
     border-color: var(--color-gray4);
+    background: rgba(61, 61, 61, 0.8);
   `,
 });
-
+const AddCardHoverTheme = theme("mode", {
+  light: css`
+    border: 3px solid var(--color-gray10);
+    background: var(--color-gray13);
+  `,
+  dark: css`
+    border: 3px solid var(--color-gray4);
+    background: var(--color-gray3);
+  `,
+});
 const PrevArrowDir = theme("languageDirection", {
   ltr: css`
     transform: rotate(90deg);
@@ -277,7 +288,7 @@ const EditIcon = styled(MdOutlineEdit)`
 `;
 const AddDegreeCard = styled.div`
   border: 3px dashed;
-  ${AddCardBorderTheme};
+  ${AddCardTheme};
   cursor: pointer;
   max-width: 12.5rem;
   width: max-content;
@@ -290,6 +301,10 @@ const AddDegreeCard = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  backdrop-filter: blur(20px);
+  :hover {
+    ${AddCardHoverTheme}
+  }
   @media ${deviceMin.tabletS} {
     max-width: unset;
   }
@@ -315,19 +330,28 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 0.7rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
+  @media ${deviceMin.tabletS} {
+    gap: 2rem;
+  }
 `;
 const PrevButton = styled.button`
   ${ButtonTheme};
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 1.5rem;
   cursor: pointer;
   color: var(--color-gray13);
   border-radius: 15px;
+  width: 100%;
+  @media ${deviceMin.tabletS} {
+    width: auto;
+    justify-content: space-between;
+  }
 `;
 const NextButton = styled(PrevButton)``;
 const PrevButtonArrow = styled(IoIosArrowDown)`

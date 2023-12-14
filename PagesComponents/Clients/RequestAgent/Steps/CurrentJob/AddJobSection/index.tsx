@@ -120,11 +120,11 @@ const AddTitleTheme = theme("mode", {
 const AddCardTheme = theme("mode", {
   light: css`
     border-color: var(--color-gray7);
-    backdrop-filter: blur(12px);
+    background: rgba(221, 226, 235, 0.8);
   `,
   dark: css`
     border-color: var(--color-gray4);
-    background: var(--color-gray2);
+    background: rgba(61, 61, 61, 0.8);
   `,
 });
 const AddCardHoverTheme = theme("mode", {
@@ -139,7 +139,7 @@ const AddCardHoverTheme = theme("mode", {
 });
 const AddCard = styled.div`
   border: 3px dashed;
-  // ${AddCardTheme};
+  ${AddCardTheme};
   cursor: pointer;
   max-width: 12.5rem;
   width: max-content;
@@ -152,7 +152,10 @@ const AddCard = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-
+  backdrop-filter: blur(20px);
+  :hover {
+    ${AddCardHoverTheme}
+  }
   @media ${deviceMin.tabletS} {
     padding: 2.5rem 4rem;
     max-width: unset;

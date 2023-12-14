@@ -13,17 +13,13 @@ import { copyContent, getLocalStorage } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages, LocalStorageKeys } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { ThemeModes } from 'Interfaces';
-import useTheme from 'Hooks/useTheme';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
-import { directionStyles } from 'Styles/Theme';
 import { SupportedCountry } from 'Interfaces/Database';
 
 function DesktopFooter({ clientCountry }: { clientCountry: string }) {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
-  const { theme, setTheme } = useTheme();
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <Container>
@@ -124,11 +120,7 @@ function DesktopFooter({ clientCountry }: { clientCountry: string }) {
             />
           </LogosContainer>
           <SwitchThemeContainer
-            onClick={() => {
-              theme === ThemeModes.DARK
-                ? setTheme(ThemeModes.LIGHT)
-                : setTheme(ThemeModes.DARK);
-            }}
+            
           >
             <SwitchTheme />
           </SwitchThemeContainer>

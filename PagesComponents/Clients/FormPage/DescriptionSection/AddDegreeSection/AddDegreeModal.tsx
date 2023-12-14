@@ -147,7 +147,7 @@ const AddDegreeModal: React.FC<Props> = ({
           <>
             {uniSections.map((uniSection, i) => (
               <ToggleGroup.Item
-                isItemInModal={true}
+                isiteminmodal={true}
                 key={i}
                 text={uniSection}
                 value={uniSection.en.toLowerCase()}

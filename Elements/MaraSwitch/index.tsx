@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import theme from "styled-theming";
 import { ThemeModes } from "Interfaces";
-import useTheme from "Hooks/useTheme";
 import { Loading } from "Elements/Loading";
 import { IoMdClose } from "react-icons/io";
 import { AiOutlineCheck } from "react-icons/ai";

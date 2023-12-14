@@ -14,19 +14,19 @@ import { toggleGroup_Modal } from "Styles/Theme/elementsInModal/toggleGroup";
 export interface RadioItemProps extends ToggleGroup.ToggleGroupItemProps {
   text: MultiLanguageText;
   value: string;
-  isItemInModal?: boolean;
+  isiteminmodal?: boolean;
 }
 export const Item: React.FC<RadioItemProps> = ({
   className,
   text,
   value,
-  isItemInModal = false,
+  isiteminmodal = false,
   ...props
 }) => {
   const { dt } = useDynamicTranslation();
   return (
     <Container
-      isItemInModal={isItemInModal}
+      $isiteminmodal={isiteminmodal}
       className={className}
       {...props}
       value={value}
@@ -63,7 +63,7 @@ transform:scale(1);
 opacity:1;
 }
 `;
-const Container = styled(ToggleGroup.Item)<{ isItemInModal: boolean }>`
+const Container = styled(ToggleGroup.Item)<{ $isiteminmodal: boolean }>`
   ${ContainerTheme}
   ${Headline7Style}
   direction: ltr;
@@ -77,7 +77,7 @@ const Container = styled(ToggleGroup.Item)<{ isItemInModal: boolean }>`
   padding: 1rem 3rem;
   width: fit-content;
   height: fit-content;
-  ${({ isItemInModal }) => isItemInModal && `${toggleGroup_Modal}`}
+  ${({ $isiteminmodal }) => $isiteminmodal && `${toggleGroup_Modal}`}
   @supports ${deviceTypes.Ios} {
     width: 40%;
     height: 1rem;

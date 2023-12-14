@@ -142,7 +142,7 @@ const AddJobModal: React.FC<Props> = ({
           <>
             {works.map((option, i) => (
               <ToggleGroup.Item
-                isItemInModal={true}
+                isiteminmodal={true}
                 key={i}
                 text={option}
                 value={option.en.toLowerCase()}
@@ -172,7 +172,7 @@ const AddJobModal: React.FC<Props> = ({
         <>
           {YesOrNo.map((option, i) => (
             <ToggleGroup.Item
-              isItemInModal={true}
+              isiteminmodal={true}
               key={i}
               text={option}
               value={option.en.toLowerCase()}
@@ -201,7 +201,7 @@ const AddJobModal: React.FC<Props> = ({
         <>
           {YesOrNo.map((option, i) => (
             <ToggleGroup.Item
-              isItemInModal={true}
+              isiteminmodal={true}
               key={i}
               text={option}
               value={option.en.toLowerCase()}

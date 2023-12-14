@@ -27,6 +27,9 @@ export function CustomThemeContextProvider(props: Props) {
       value: theme as unknown as string,
     });
   }, [theme]);
+  useEffect(() => {
+    setTheme(getLocalStorage(LocalStorageKeys.Theme) as ThemeModes);
+  }, []);
   const toggleTheme = () => {
     setTheme(theme === ThemeModes.DARK ? ThemeModes.LIGHT : ThemeModes.DARK);
   };

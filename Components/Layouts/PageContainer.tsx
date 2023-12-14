@@ -96,7 +96,7 @@ const PageContainer: React.FC<Props> = ({
     if (typeof window !== "undefined") setHasWindow(true);
   });
   return (
-    <Container {...props} $locale={locale}>
+    <Container {...props}>
       {hasWindow ? (
         <>
           {" "}
@@ -152,8 +152,7 @@ const PageContainer: React.FC<Props> = ({
   );
 };
 export default PageContainer;
-export const Container = styled.main<{ $locale: Languages }>`
-  ${layer1_BG};
+const Container = styled.main`
   ${directionStyles};
   display: flex;
   justify-content: center;
@@ -165,6 +164,7 @@ export const Container = styled.main<{ $locale: Languages }>`
 `;
 
 const Content = styled.article`
+  ${layer1_BG};
   width: 100%;
   display: flex;
   flex-direction: column;

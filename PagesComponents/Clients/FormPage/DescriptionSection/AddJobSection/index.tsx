@@ -60,7 +60,7 @@ const CurrentJobsSection = ({
       {labeledData?.all_jobs?.map((job, index) => {
         if (!!job.title) {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <JobCard
                 key={index}
                 $isViewerOwner={isViewerOwner}

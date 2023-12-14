@@ -343,6 +343,14 @@ const EducationStep = () => {
           </>
         }
       </ToggleGroupRoot>
+      {!client?.all_degrees?.every(
+        (degree) => degree.graduation_date !== null
+      ) && (
+        <HintContainer>
+          <InfoHintIcon />
+          <HintText>{t(LanguageKeys.AddDegreeWarning)}</HintText>
+        </HintContainer>
+      )}
       <ButtonWrapper>
         <PrevButton step={step} onClick={() => step > 0 && handleBackPress()}>
           <PrevIcon />

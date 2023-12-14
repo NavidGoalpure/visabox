@@ -18,13 +18,13 @@ import { componentStatements, LanguageKeys } from "../const";
 import { useStaticTranslation } from "Hooks/useStaticTraslation";
 import { getdegreeLabel, getUniSectionLabel } from "Utils/clients";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Navigation } from "swiper/modules";
+import { SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { MultiLanguageText } from "Interfaces/Database";
 import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import MaraSwiper from "Components/MaraSwiper";
 
 const AddDegreesSection = () => {
   const { client } = useContext(FormDataContext);
@@ -67,31 +67,27 @@ const AddDegreesSection = () => {
     );
   };
   return (
-    <Container>
+    <>
       <AddDegreeModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
         degreeLabel={selectedDegreeLabel}
       />
-      <StyledSwiper
+      <MaraSwiper
         onSwiper={(swiperInstance: SwiperType) => setSwiper(swiperInstance)}
         onSlideChange={handleSwiper}
-        effect="coverflow"
-        centeredSlides={true}
-        slidesPerView="auto"
-        modules={[Navigation, EffectCoverflow]}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 25,
-          depth: 100,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        spaceBetween={"-300px"}
+        customButtons={
+          <ButtonWrapper>
+            <PrevButton className="swiper-button-prev">
+              <PrevButtonArrow />
+              {dt(prevText)}
+            </PrevButton>
+            <NextButton className="swiper-button-next">
+              {dt(nextText)}
+              <NextButtonArrow />{" "}
+            </NextButton>
+          </ButtonWrapper>
+        }
       >
         {client?.all_degrees?.map((degree, i) => {
           if (degree.graduation_date !== null) {
@@ -147,18 +143,8 @@ const AddDegreesSection = () => {
             </SwiperSlide>
           );
         })}
-        <ButtonWrapper>
-          <PrevButton className="swiper-button-prev">
-            <PrevButtonArrow />
-            {dt(prevText)}
-          </PrevButton>
-          <NextButton className="swiper-button-next">
-            {dt(nextText)}
-            <NextButtonArrow />{" "}
-          </NextButton>
-        </ButtonWrapper>
-      </StyledSwiper>
-    </Container>
+      </MaraSwiper>
+    </>
   );
 };
 export default AddDegreesSection;
@@ -229,33 +215,8 @@ const ButtonTheme = theme("mode", {
     background-color: var(--color-gray3);
   `,
 });
-const Container = styled.div`
-  ${BackgroundTheme}
-  width:100%;
-  padding: 2rem;
-  border-radius: 15px;
-  overflow: hidden;
-`;
-const StyledSwiper = styled(Swiper)`
-  width: 100%;
-  .swiper-wrapper {
-    width: auto;
-    display: flex;
-  }
-  .swiper-slide {
-    filter: blur(10px);
-    scale: 0.5;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .swiper-slide-active {
-    filter: blur(0px);
-    scale: 1;
-    z-index: 2;
-  }
-`;
+
+
 const DegreeCard = styled.div`
   ${DegreeCardTheme};
   cursor: pointer;

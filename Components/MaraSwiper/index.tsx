@@ -1,30 +1,47 @@
 import { IoIosArrowDown } from "react-icons/io";
 import styled, { css } from "styled-components";
-import { Swiper } from "swiper/react";
+import { Swiper, useSwiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import theme from "styled-theming";
-interface Props extends HTMLAttributes<HTMLDivElement> {
+import { Swiper as SwiperType } from "swiper";
+
+interface Props extends HTMLAttributes<SwiperType> {
   updateSwiperVariables?: any;
+  onSwiper?: (swiper: SwiperType) => void;
+  onSlideChange?: (swiper: SwiperType) => void;
+  customButtons?: ReactNode;
 }
+
 // only pass SwiperSlides as children
 const MaraSwiper: React.FC<Props> = ({
   updateSwiperVariables,
   children,
+  onSwiper,
+  onSlideChange,
+  customButtons,
   ...props
 }) => {
+  const swiper = useSwiper();
   return (
     <Container {...props}>
       <StyledSwiper
+        onSwiper={onSwiper}
+        onSlideChange={onSlideChange}
         effect="coverflow"
         centeredSlides={true}
         slidesPerView="auto"
-        modules={[Navigation, EffectCoverflow]}
+        modules={[EffectCoverflow, Navigation]}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
+        }}
+        breakpoints={{
+          768: {
+            spaceBetween: -300,
+          },
         }}
         coverflowEffect={{
           rotate: 0,
@@ -33,9 +50,12 @@ const MaraSwiper: React.FC<Props> = ({
           modifier: 1,
           slideShadows: false,
         }}
-        spaceBetween={"-300px"}
       >
         {children}
+
+        {customButtons ? (
+          customButtons
+        ) : (
         <ButtonWrapper>
           <PrevButton className="swiper-button-prev">
             <PrevButtonArrow />
@@ -44,6 +64,7 @@ const MaraSwiper: React.FC<Props> = ({
             <NextButtonArrow />
           </NextButton>
         </ButtonWrapper>
+        )} 
       </StyledSwiper>
     </Container>
   );

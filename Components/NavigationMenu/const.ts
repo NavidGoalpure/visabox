@@ -3,12 +3,13 @@ import { MultiLanguageText } from 'Interfaces/Database';
 import { DropdownItem } from './interface';
 
 export enum LanguageKeys {
-  Home = 'Home',
-  Lists = 'Lists',
-  Occupations = 'Occupations',
-  Login = 'Login',
-  Blogs = 'Blogs',
-  FormsWall = 'FormsWall',
+  Home = "Home",
+  Lists = "Lists",
+  Occupations = "Occupations",
+  Login = "Login",
+  Blogs = "Blogs",
+  FormsWall = "FormsWall",
+  Forms = "Forms",
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
@@ -40,6 +41,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'forms-wall',
     fa: 'صفحه فرم ها',
     zh: '形式墙',
+  },
+  Forms: {
+    en: "Forms",
+    fa: "فرم ها ‌",
+    zh: "形式",
   },
 };
 export const listsItems: DropdownItem[] = [
@@ -101,6 +107,24 @@ export const occupationItems: DropdownItem[] = [
       zh: '查找大学部分',
     },
     href: '/occupations/university-section-search',
+  },
+];
+export const FormsItems: DropdownItem[] = [
+  {
+    title: {
+      en: "Request Agent",
+      fa: "درخواست وکیل",
+      zh: "请求代理",
+    },
+    href: "/clients/request-agent",
+  },
+  {
+    title: {
+      en: "Point Calculator",
+      fa: "محاسبه امتیاز مهاجرت",
+      zh: "请求代理",
+    },
+    href: "/clients/point-calculator",
   },
 ];
 

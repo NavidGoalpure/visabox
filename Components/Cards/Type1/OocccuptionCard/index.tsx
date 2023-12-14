@@ -2,9 +2,6 @@ import { useLocale } from 'Hooks/useLocale';
 import {
   EnLanguage,
   EnLanguageArray,
-  En_FaLanguageArray,
-  MultiLanguageText,
-  MultiLanguageTextArray,
 } from 'Interfaces/Database';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';

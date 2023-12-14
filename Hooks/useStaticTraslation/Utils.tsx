@@ -52,18 +52,20 @@ function convertKeyWithValueInString({
  * @param  statementKey جمله
  * @param  statements آبجکتی از تمام گزاره های یک پیج یا کامپوننت به زبان های مختلف
  * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
+ * @param locale زبان کاربر که از نکست جی اس گرفته میشود
  * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
  */
 export const translatedObject = ({
   statementKey,
   statements,
   aliases,
+  locale,
 }: {
   statementKey: string;
   statements: Record<string, MultiLanguageText>;
   aliases?: Record<string, string>[];
+  locale?: Languages;
 }): string => {
-  const { locale } = useLocale();
   if (!statementKey || !locale) return '';
 
   if (!aliases || aliases.length === 0) {

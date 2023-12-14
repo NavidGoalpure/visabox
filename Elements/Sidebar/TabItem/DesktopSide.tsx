@@ -34,7 +34,7 @@ const ContentContainer = styled.div`
 export const TabsTriggerDirStyle = theme('languageDirection', {
   ltr: css`
     border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px; ;
+    border-bottom-left-radius: 30px;
   `,
   rtl: css`
     border-top-right-radius: 30px;

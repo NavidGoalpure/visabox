@@ -20,6 +20,7 @@ import { LocalStorageKeys } from 'Interfaces';
 import { getLocalStorage, setLocalStorage } from 'Utils';
 import { isAgencyLogedIn } from 'Utils/user';
 import { SupportedCountry } from 'Interfaces/Database';
+import DesktopFormsDropdown from './dropdownForms';
 
 function Desktop({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
@@ -67,6 +68,7 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
 
           <DesktopOccupationDropdown clientCountry={clientCountry} />
           <DesktopBoxsesDropdown clientCountry={clientCountry} />
+          {!isAgencyLogedIn() && <DesktopFormsDropdown />}
           {(clientCountry === SupportedCountry.Iran ||
             getLocalStorage(LocalStorageKeys.Country) ===
               SupportedCountry.Iran) && (

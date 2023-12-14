@@ -1,4 +1,5 @@
 import { MultiLanguageText } from 'Interfaces/Database';
+import { ClientAllDegrees, ClientDegree } from 'Interfaces/Database/Client';
 
 export const Countries: MultiLanguageText[] = [
   { en: "Iran", fa: "ایران", zh: "伊朗" },
@@ -58,4 +59,30 @@ export const IELTSScores: MultiLanguageText[] = [
   { en: "6", fa: "6", zh: "6" },
   { en: "7", fa: "7", zh: "7" },
   { en: "8", fa: "8", zh: "8" },
+];
+export const AllDegreesTemplate: ClientAllDegrees[] = [
+  {
+    label: ClientDegree.Diploma,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Bachelorsdegree,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Mastersdegree,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
+  {
+    label: ClientDegree.Doctorate,
+    uni_section: null,
+    graduation_date: null,
+    field_of_study: null,
+  },
 ];

@@ -21,7 +21,9 @@ function DesktopLanguageChanger() {
     zh: "中国人",
   };
   function onClickHandler(value: string) {
-    router.push(router.asPath, router.asPath, { locale: value });
+    router.push(router.asPath, router.asPath, { locale: value }).then(() => {
+      router.reload();
+    });
   }
   return (
     <NavigationMenu.Item>

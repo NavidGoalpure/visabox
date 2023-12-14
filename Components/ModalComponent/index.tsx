@@ -4,27 +4,56 @@ import styled, { keyframes } from "styled-components";
 import { Headline5Style, Headline6Style } from "Styles/Typo";
 
 import { deviceMin } from "Consts/device";
-import { ReactNode } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 interface Props extends Dialog.DialogProps {
   trigger?: ReactNode;
   DialogTitleText?: string;
+  doesModalCloseOnOutsideInteraction?: boolean;
+  open: boolean;
+  setOpen?: Dispatch<SetStateAction<boolean>>;
 }
 const ModalComponent: React.FC<Props> = ({
   children,
   DialogTitleText,
   trigger,
+  doesModalCloseOnOutsideInteraction = false,
+  open,
+  setOpen,
   ...props
 }) => {
+  if (doesModalCloseOnOutsideInteraction && !setOpen) {
+    throw new Error(
+      "setOpen is required when doesModalCloseOnOutsideInteraction is provided"
+    );
+  }
   return (
-    <Dialog.Root {...props}>
+    <Dialog.Root open={open} {...props}>
       <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
 
       <Dialog.Portal>
         <DialogOverlay className="DialogOverlay" />
-        <DialogContent className="DialogContent">
+        <DialogContent
+          onPointerDownOutside={() => {
+            if (doesModalCloseOnOutsideInteraction && setOpen) {
+              setOpen(false);
+            }
+          }}
+          className="DialogContent"
+        >
           <MobileLine />
           <Wrapper>
-            <DialogTitle className="DialogTitle">{DialogTitleText}</DialogTitle>
+            {!!DialogTitleText && (
+              <DialogTitle className="DialogTitle">
+                {DialogTitleText}
+              </DialogTitle>
+            )}
             {children}
           </Wrapper>
         </DialogContent>
@@ -84,7 +113,6 @@ const DialogContent = styled(Dialog.Content)`
   @media ${deviceMin.tabletS} {
     padding: 2rem;
     height: fit-content;
-    max-height: none;
     border-radius: 15px;
     width: auto;
     max-width: 31.5rem;
@@ -110,6 +138,8 @@ const MobileLine = styled.hr`
   }
 `;
 const Wrapper = styled.div`
+  width: 100%;
+  postion: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -118,7 +148,8 @@ const Wrapper = styled.div`
   gap: 2rem;
   padding: 0 2rem;
   @media ${deviceMin.tabletS} {
-    overflow: unset;
+    padding: 0;
+    // overflow: unset;
     height: auto;
   }
 `;

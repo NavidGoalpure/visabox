@@ -13,6 +13,7 @@ export const Layer1_TitleStyle = css<{
   color?: string;
 }>`
   ${Headline4Style};
+  ${directionStyles}
   ${layer1_TitleColor};
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;
@@ -27,6 +28,7 @@ export const Layer1_SubtitleStyle = css<{
   color?: string;
 }>`
   ${Headline5Style}
+  ${directionStyles}
   ${layer1_SubtitleColor}
   ${({ color }) => color && color};
   margin-bottom: 2.5rem;

@@ -1,24 +1,24 @@
-import styled, { css } from "styled-components";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { SmallBox_BG_Textured } from "Styles/Theme/SmallBox/theme";
-import { AiOutlinePrinter } from "react-icons/ai";
-import { MdOutlineEdit } from "react-icons/md";
-import { BiShareAlt } from "react-icons/bi";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { useRouter } from "next/router";
-import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from "Consts/agents";
-import { useLocale } from "Hooks/useLocale";
-import theme from "styled-theming";
-import { useSession } from "next-auth/react";
-import { copyContent } from "Utils";
-import useDevice from "Hooks/useDevice";
-import SuccessToast from "Elements/Toast/Success";
-import ErrorToast from "Elements/Toast/Error";
-import { useMutation, useQueryClient } from "react-query";
-import { useEffect, useState } from "react";
-import { ClientQueryKeys } from "Utils/query/keys";
-import MaraSwitch from "Elements/MaraSwitch";
+import styled, { css } from 'styled-components';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { SmallBox_BG_Textured } from 'Styles/Theme/SmallBox/theme';
+import { AiOutlinePrinter } from 'react-icons/ai';
+import { MdOutlineEdit } from 'react-icons/md';
+import { BiShareAlt } from 'react-icons/bi';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { useRouter } from 'next/router';
+import { PAGE_PARAMS_VERSION_PRINTABLE_VALUE } from 'Consts/agents';
+import { useLocale } from 'Hooks/useLocale';
+import theme from 'styled-theming';
+import { useSession } from 'next-auth/react';
+import { copyContent } from 'Utils';
+import useDevice from 'Hooks/useDevice';
+import SuccessToast from 'Elements/Toast/Success';
+import ErrorToast from 'Elements/Toast/Error';
+import { useMutation, useQueryClient } from 'react-query';
+import { useEffect, useState } from 'react';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import MaraSwitch from 'Elements/MaraSwitch';
 interface Props {
   id: string;
   email: string;
@@ -40,8 +40,8 @@ function BoxesSection({ id, email, is_sharable }: Props) {
   >(undefined);
   const mutation = useMutation({
     mutationFn: () => {
-      return fetch("/api/clients/is-sharable", {
-        method: "POST",
+      return fetch('/api/clients/is-sharable', {
+        method: 'POST',
         body: JSON.stringify({
           is_sharable: !isSharableChecked,
           _id: id,
@@ -50,7 +50,7 @@ function BoxesSection({ id, email, is_sharable }: Props) {
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        throw new Error("couldnt patch the user");
+        throw new Error('couldnt patch the user');
       }
       setIsSharableChecked((prevState) => !prevState);
       if (isSharableChecked === true) {
@@ -60,7 +60,7 @@ function BoxesSection({ id, email, is_sharable }: Props) {
       }
       queryClient.removeQueries(
         ClientQueryKeys.detail({
-          reqParams: `email == "${session?.user?.email || "defensive"}"`,
+          reqParams: `email == "${session?.user?.email || 'defensive'}"`,
         })
       );
     },
@@ -70,11 +70,12 @@ function BoxesSection({ id, email, is_sharable }: Props) {
   });
   useEffect(() => {
     setIsSharableChecked(is_sharable);
-  }, [is_sharable,id]);
+  }, [is_sharable, id]);
   return (
     <Container>
       <SmallBoxesWrapper>
-        {session?.user?.email === email && (
+        {/* چون فعلا قسمت تماس وکلا رو نداریم اینجا کامنت شده تا زمانی که وکیلی برای تماس گرفتن داشته باشیم */}
+        {/* {session?.user?.email === email && (
           <>
             <SmallBox onClick={() => mutation.mutate()}>
               <ShareTitle>{t(LanguageKeys.ShowFormTitle)}</ShareTitle>
@@ -85,13 +86,13 @@ function BoxesSection({ id, email, is_sharable }: Props) {
               />
             </SmallBox>
           </>
-        )}
+        )} */}
         {isLaptop && (
           <SmallBox
             onClick={() =>
               window.open(
                 `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
-                "_blank"
+                '_blank'
               )
             }
           >
@@ -101,7 +102,7 @@ function BoxesSection({ id, email, is_sharable }: Props) {
               onClick={() =>
                 window.open(
                   `/${locale}/clients/${id}?version=${PAGE_PARAMS_VERSION_PRINTABLE_VALUE}`,
-                  "_blank"
+                  '_blank'
                 )
               }
             >
@@ -132,7 +133,7 @@ function BoxesSection({ id, email, is_sharable }: Props) {
   );
 }
 export default BoxesSection;
-export const TitleTheme = theme("mode", {
+export const TitleTheme = theme('mode', {
   light: css`
     color: var(--color-gray7);
   `,
@@ -140,7 +141,7 @@ export const TitleTheme = theme("mode", {
     color: var(--color-primary6);
   `,
 });
-export const DescTheme = theme("mode", {
+export const DescTheme = theme('mode', {
   light: css`
     color: var(--color-gray6);
   `,

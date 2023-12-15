@@ -1,15 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { useLocale } from "Hooks/useLocale";
-import * as MaraSelect from "Elements/Select";
-import { useRouter } from "next/router";
-import {
-  componentStatements,
-  FormsItems,
-  LanguageKeys,
-} from "../const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import React from 'react';
+import styled from 'styled-components';
+import { useLocale } from 'Hooks/useLocale';
+import * as MaraSelect from 'Elements/Select';
+import { useRouter } from 'next/router';
+import { componentStatements, FormsItems, LanguageKeys } from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 function DesktopFormsDropdown() {
   const { locale } = useLocale();
@@ -20,7 +16,7 @@ function DesktopFormsDropdown() {
       <StyledMaraSelectRoot
         noScroll
         triggerProps={{
-          id: "occupation-trigger",
+          id: 'occupation-trigger',
           placeholder: t(LanguageKeys.Forms),
         }}
       >
@@ -30,12 +26,12 @@ function DesktopFormsDropdown() {
           onClick={() => router.push(`/${locale}/${FormsItems[0].href}`)}
           disabled
         />
-        <MaraSelect.Item
+        {/* <MaraSelect.Item
           text={FormsItems[1].title[locale]}
           value={FormsItems[1].title[locale] as string}
           onClick={() => router.push(`/${locale}/${FormsItems[1].href}`)}
           disabled
-        />
+        /> */}
       </StyledMaraSelectRoot>
     </NavigationMenu.Item>
   );

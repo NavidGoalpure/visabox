@@ -3,13 +3,13 @@ import { MultiLanguageText } from 'Interfaces/Database';
 import { DropdownItem } from './interface';
 
 export enum LanguageKeys {
-  Home = "Home",
-  Lists = "Lists",
-  Occupations = "Occupations",
-  Login = "Login",
-  Blogs = "Blogs",
-  FormsWall = "FormsWall",
-  Forms = "Forms",
+  Home = 'Home',
+  Lists = 'Lists',
+  Occupations = 'Occupations',
+  Login = 'Login',
+  Blogs = 'Blogs',
+  FormsWall = 'FormsWall',
+  Forms = 'Forms',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
@@ -18,9 +18,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '家',
   },
   Lists: {
-    en: 'Lists',
-    fa: 'لیست‌ها',
-    zh: '列表',
+    en: 'Agents & Professionals',
+    fa: 'متخصصان',
+    zh: '代理商和专业人士',
   },
   Occupations: {
     en: 'Skilled Worker Visa',
@@ -43,9 +43,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '形式墙',
   },
   Forms: {
-    en: "Forms",
-    fa: "فرم ها ‌",
-    zh: "形式",
+    en: 'Tools',
+    fa: 'ابزار ها ‌',
+    zh: '工具',
   },
 };
 export const listsItems: DropdownItem[] = [
@@ -110,21 +110,22 @@ export const occupationItems: DropdownItem[] = [
   },
 ];
 export const FormsItems: DropdownItem[] = [
+  //  فعلا بخش درخواست وکیل رو غیرفعال  کردیم تا زمانی که وکیلی برای تماس داشته باشیم
+  // {
+  //   title: {
+  //     en: 'Request Agent',
+  //     fa: 'درخواست وکیل',
+  //     zh: '请求代理',
+  //   },
+  //   href: '/clients/request-agent',
+  // },
   {
     title: {
-      en: "Request Agent",
-      fa: "درخواست وکیل",
-      zh: "请求代理",
+      en: 'Point Calculator',
+      fa: 'محاسبه امتیاز مهاجرت',
+      zh: '请求代理',
     },
-    href: "/clients/request-agent",
-  },
-  {
-    title: {
-      en: "Point Calculator",
-      fa: "محاسبه امتیاز مهاجرت",
-      zh: "请求代理",
-    },
-    href: "/clients/point-calculator",
+    href: '/clients/point-calculator',
   },
 ];
 

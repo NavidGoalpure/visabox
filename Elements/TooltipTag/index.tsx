@@ -1,6 +1,6 @@
-import * as Tooltip from "@radix-ui/react-tooltip";
-import { deviceMin } from "Consts/device";
-import useDevice from "Hooks/useDevice";
+import * as Tooltip from '@radix-ui/react-tooltip';
+import { deviceMin } from 'Consts/device';
+import useDevice from 'Hooks/useDevice';
 import {
   HTMLAttributes,
   ReactNode,
@@ -8,20 +8,18 @@ import {
   useEffect,
   useRef,
   useState,
-} from "react";
-import styled, { css, keyframes } from "styled-components";
-import theme from "styled-theming";
-import { directionStyles, TagTheme } from "Styles/Theme";
-import { BorderSvg } from "./BorderSvg";
-import { Montserrat } from "@next/font/google";
-import { Headline7Style } from "Styles/Typo";
+} from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import theme from 'styled-theming';
+import { directionStyles, TagTheme } from 'Styles/Theme';
+import { BorderSvg } from './BorderSvg';
+import { Headline7Style } from 'Styles/Typo';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   content: string | ReactNode;
   popupContent?: ReactNode | string;
   delayDuration?: number;
 }
-const montserrat = Montserrat({ subsets: ["latin"] });
 const TooltipTag: React.FC<Props> = ({
   content,
   popupContent,
@@ -34,12 +32,12 @@ const TooltipTag: React.FC<Props> = ({
   useEffect(() => {
     if (isLaptop) {
       if (triggerRef?.current) {
-        triggerRef?.current?.addEventListener("mouseover", () =>
+        triggerRef?.current?.addEventListener('mouseover', () =>
           setIsContentOpen(true)
         );
       }
       if (triggerRef?.current) {
-        triggerRef?.current?.addEventListener("mouseout", () =>
+        triggerRef?.current?.addEventListener('mouseout', () =>
           setIsContentOpen(false)
         );
       }
@@ -55,10 +53,10 @@ const TooltipTag: React.FC<Props> = ({
   };
 
   useEffect(() => {
-    document.addEventListener("click", handleClick);
+    document.addEventListener('click', handleClick);
 
     return () => {
-      document.removeEventListener("click", handleClick);
+      document.removeEventListener('click', handleClick);
     };
   });
   return (
@@ -71,7 +69,7 @@ const TooltipTag: React.FC<Props> = ({
         >
           <ButtonContainer {...props}>
             <LeftBorder aria-hidden={true} />
-            <Button id={"trigger_button"}>{content}</Button>
+            <Button id={'trigger_button'}>{content}</Button>
             <RightBorder aria-hidden={true} />
           </ButtonContainer>
         </Tooltip.Trigger>
@@ -100,7 +98,7 @@ const FadeInAnimation = keyframes`
   }
 `;
 
-export const ButtonBorderTheme = theme("mode", {
+export const ButtonBorderTheme = theme('mode', {
   light: css`
     fill: var(--color-primary4);
   `,
@@ -108,7 +106,7 @@ export const ButtonBorderTheme = theme("mode", {
     fill: var(--color-primary6);
   `,
 });
-export const TooltipContentTheme = theme("mode", {
+export const TooltipContentTheme = theme('mode', {
   light: css`
     color: white;
     background-color: var(--color-gray2);
@@ -125,7 +123,7 @@ export const TooltipContentTheme = theme("mode", {
   `,
 });
 
-const DirectionStyle = theme("languageDirection", {
+const DirectionStyle = theme('languageDirection', {
   ltr: css``,
   rtl: css`
     flex-direction: row-reverse;
@@ -167,10 +165,10 @@ const TooltipContent = styled(Tooltip.Content)`
   @media ${deviceMin.tabletS} {
     max-width: 37rem;
   }
-  &[data-state="delayed-open"] {
+  &[data-state='delayed-open'] {
     animation: ${FadeInAnimation} 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  &[data-state="instant-open"] {
+  &[data-state='instant-open'] {
     animation: ${FadeInAnimation} 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 `;

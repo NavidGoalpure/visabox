@@ -1,38 +1,46 @@
-import React from 'react';
-import * as ToggleGroup from '@radix-ui/react-toggle-group';
-import { Label } from '@radix-ui/react-label';
-import styled, { css, keyframes } from 'styled-components';
-import { MultiLanguageText } from 'Interfaces/Database';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import theme from 'styled-theming';
-import { AiOutlineCheck } from 'react-icons/ai';
-import { Headline7Style } from 'Styles/Typo';
-import { deviceTypes } from 'Consts/device';
-import { directionStyles } from 'Styles/Theme';
+import React from "react";
+import * as ToggleGroup from "@radix-ui/react-toggle-group";
+import { Label } from "@radix-ui/react-label";
+import styled, { css, keyframes } from "styled-components";
+import { MultiLanguageText } from "Interfaces/Database";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import theme from "styled-theming";
+import { AiOutlineCheck } from "react-icons/ai";
+import { Headline7Style } from "Styles/Typo";
+import { deviceTypes } from "Consts/device";
+import { directionStyles } from "Styles/Theme";
+import { toggleGroup_Modal } from "Styles/Theme/elementsInModal/toggleGroup";
 
 export interface RadioItemProps extends ToggleGroup.ToggleGroupItemProps {
   text: MultiLanguageText;
   value: string;
+  isiteminmodal?: boolean;
 }
 export const Item: React.FC<RadioItemProps> = ({
   className,
   text,
   value,
+  isiteminmodal = false,
   ...props
 }) => {
   const { dt } = useDynamicTranslation();
   return (
-    <Container className={className} {...props} value={value}>
+    <Container
+      $isiteminmodal={isiteminmodal}
+      className={className}
+      {...props}
+      value={value}
+    >
       <RadioGroupIndicator>
-        <Checkmark />{' '}
+        <Checkmark />{" "}
       </RadioGroupIndicator>
-      <StyledLabel className='label' htmlFor={props.id}>
+      <StyledLabel className="label" htmlFor={props.id}>
         {dt(text)}
       </StyledLabel>
     </Container>
   );
 };
-const ContainerTheme = theme('mode', {
+const ContainerTheme = theme("mode", {
   light: css`
     border: 2px solid var(--color-gray9);
     color: var(--color-gray9);
@@ -55,7 +63,7 @@ transform:scale(1);
 opacity:1;
 }
 `;
-const Container = styled(ToggleGroup.Item)`
+const Container = styled(ToggleGroup.Item)<{ $isiteminmodal: boolean }>`
   ${ContainerTheme}
   ${Headline7Style}
   direction: ltr;
@@ -69,6 +77,7 @@ const Container = styled(ToggleGroup.Item)`
   padding: 1rem 3rem;
   width: fit-content;
   height: fit-content;
+  ${({ $isiteminmodal }) => $isiteminmodal && `${toggleGroup_Modal}`}
   @supports ${deviceTypes.Ios} {
     width: 40%;
     height: 1rem;
@@ -78,7 +87,7 @@ const Container = styled(ToggleGroup.Item)`
   span {
     opacity: 0;
   }
-  &[data-state='on'] {
+  &[data-state="on"] {
     color: var(--color-primary4);
     border-color: var(--color-primary3);
     background: rgba(194, 255, 250, 0.1);

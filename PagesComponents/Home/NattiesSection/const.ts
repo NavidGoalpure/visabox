@@ -1,5 +1,5 @@
 import { MultiLanguageText, MultiLanguageTextArray } from 'Interfaces/Database';
-import { Slug } from 'Interfaces/Database/Occupation/Fields';
+import { Slug } from 'Interfaces/Database/Fields';
 export enum LanguageKeys {
   Title = 'Title',
   Subtitle = 'Subtitle',
@@ -19,7 +19,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   CTA: {
     fa: 'مشاهده همه ',
     en: 'View All',
-    zh: '查看全部'
+    zh: '查看全部',
   },
 };
 export const CardData = {

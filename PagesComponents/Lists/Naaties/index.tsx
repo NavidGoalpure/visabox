@@ -9,8 +9,8 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { NAATIES } from 'Consts/Lists/naati';
 import { slugify } from 'Utils';
 import { Status } from 'Interfaces/Database';
-import VIPNaatiCard from 'Components/Lists/Card/Naati/VIPCard';
-import NaatiCard from 'Components/Lists/Card/Naati/Card';
+import VIPNaatiCard from 'Components/Lists/Naati/VIPCard';
+import NaatiCard from 'Components/Lists/Naati/Card';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 
 function Content() {

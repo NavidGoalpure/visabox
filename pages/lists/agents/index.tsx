@@ -1,26 +1,64 @@
-import { NextPage } from 'next';
-import PageLayout from 'Components/Layouts/PageContainer';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { useLocale } from 'Hooks/useLocale';
-import Content from 'PagesComponents/Lists/Agents';
-import Seo from 'Components/Seo';
+import type { GetServerSideProps, NextPage, NextPageContext } from 'next';
 import {
-  componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Lists/Agents/const';
+  componentStatements,
+} from 'PagesComponents/Agents/List/const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import Content from 'PagesComponents/Agents/List';
+import PageLayout from 'Components/Layouts/PageContainer';
+import { sanityClient } from 'Utils/sanity';
+import { dehydrate, QueryClient } from 'react-query';
+import { getListQuery } from 'Queries/agents/List';
+import { withCSR } from 'Hoc/withCSR';
+import Error from 'next/error';
+import { useLocale } from 'Hooks/useLocale';
+import Seo from 'Components/Seo';
+import { FiltersContextProvider } from 'PagesComponents/Agents/List/Context/SearchFilter';
+import { AgentsQueryKeys } from 'Utils/query/keys';
 
-const BusinessesPage: NextPage = () => {
-  const { locale } = useLocale();
+interface Props {
+  statusCode: number | null;
+}
+const AgentList: NextPage<Props> = ({ statusCode }) => {
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
+  //
+  if (statusCode) <Error statusCode={statusCode} />;
   return (
     <PageLayout>
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/lists/agents`}
+        canonical={`https://www.marabox.com/${locale}/agents/`}
       />
-      <Content />
+      <FiltersContextProvider>
+        <Content />
+      </FiltersContextProvider>
     </PageLayout>
   );
 };
-export default BusinessesPage;
+
+export const getServerSideProps: GetServerSideProps = withCSR(
+  async (ctx: NextPageContext) => {
+    //
+    const queryClient = new QueryClient();
+    let statusCode = null;
+
+    try {
+      await queryClient.fetchQuery(AgentsQueryKeys.list({ search: '' }), () =>
+        sanityClient.fetch(getListQuery({}))
+      );
+    } catch (error: any) {
+      if (ctx.res) ctx.res.statusCode = error?.response?.status;
+      statusCode = ctx?.res?.statusCode || null;
+    }
+    return {
+      props: {
+        statusCode: statusCode,
+        dehydratedState: dehydrate(queryClient),
+      },
+    };
+  }
+);
+
+export default AgentList;

@@ -70,7 +70,7 @@ export default function SignInContent({ authProviders }: Props) {
           </RoleBox>
         </RoleBoxContainer>
         {userRole &&
-          authProviders.map(
+          authProviders?.map(
             (
               provider: {
                 name: string;

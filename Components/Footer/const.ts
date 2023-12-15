@@ -16,6 +16,10 @@ export enum LanguageKeys {
   Naati = 'Naati',
   BecomeSponser = 'BecomeSponser',
   copyEmailToastMessage = 'copyEmailToastMessage',
+  IranianAgents = 'IranianAgents',
+  IndianAgents = 'IndianAgents',
+  ChineseAgents = 'ChineseAgents',
+
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SkilledWorkerVisa: {
@@ -92,5 +96,20 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Copied email to clipboard',
     fa: 'ایمیل در حافظه کپی شد',
     zh: '已将电子邮件复制到剪贴板',
+  },
+  IranianAgents: {
+    fa: 'وکلای ایرانی',
+    en: 'Iranian Agents',
+    zh: '伊朗特工',
+  },
+  IndianAgents: {
+    fa: 'وکلای هندی',
+    en: 'Indian Agents',
+    zh: '印度特工',
+  },
+  ChineseAgents: {
+    fa: 'وکلای چینی',
+    en: 'Chinese Agent',
+    zh: '中国代理商',
   },
 };

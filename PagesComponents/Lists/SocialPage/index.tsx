@@ -7,7 +7,7 @@ import {
   Layer1_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
-import SmartSocialCard from 'Components/Lists/Card/SocialCard';
+import SmartSocialCard from 'Components/Lists/SocialCard';
 import { Status } from 'Interfaces/Database';
 
 function Content() {

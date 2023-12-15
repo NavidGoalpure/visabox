@@ -98,9 +98,7 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
   return (
     <Container>
       {isLoading && <StyledLoading />}
-      {/* // navid  اولی که این صفحه باز میشه یکبار این دیده میشه و بعد میره واسه نشون دادن کانتست
-      برای اینکه این مشکل رو حل کنیم یک انیمیشن بهش بدیم که باعث بشه ظاهر شدنش یک ثانیه مثلا طول بکشه
-      این کار راحت تر از روش های دیگه حل این مشکله*/}
+
       {status === 'idle' ? (
         <>
           <RedirectTile>{t(LanguageKeys.NavigateTitle)}</RedirectTile>

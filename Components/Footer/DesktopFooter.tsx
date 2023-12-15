@@ -13,22 +13,19 @@ import { copyContent, getLocalStorage } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
 import { Languages, LocalStorageKeys } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { ThemeModes } from 'Interfaces';
-import useTheme from 'Hooks/useTheme';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
-import { directionStyles } from 'Styles/Theme';
 import { SupportedCountry } from 'Interfaces/Database';
 
 function DesktopFooter({ clientCountry }: { clientCountry: string }) {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
-  const { theme, setTheme } = useTheme();
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <Container>
       <StyledLogo />
       <Wrapper>
+        <Top>
         <SideContainer locale={locale}>
           <Items
             href={`/${locale}/lists/agents`}
@@ -123,16 +120,35 @@ function DesktopFooter({ clientCountry }: { clientCountry: string }) {
             />
           </LogosContainer>
           <SwitchThemeContainer
-            onClick={() => {
-              theme === ThemeModes.DARK
-                ? setTheme(ThemeModes.LIGHT)
-                : setTheme(ThemeModes.DARK);
-            }}
+            
           >
             <SwitchTheme />
           </SwitchThemeContainer>
           <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
         </LeftSideContainer>
+      </Top>
+      <Bottom>
+
+          <BottomItems
+            href={`/${locale}/lists/agents?country=ir`}
+            data-name={t(LanguageKeys.IranianAgents)}
+          >
+            {t(LanguageKeys.IranianAgents)}
+          </BottomItems>
+          <BottomItems
+            href={`/${locale}/lists/agents?country=in`}
+            data-name={t(LanguageKeys.IndianAgents)}
+          >
+            {t(LanguageKeys.IndianAgents)}
+          </BottomItems>
+          <BottomItems
+            href={`/${locale}/lists/agents?country=cn`}
+            data-name={t(LanguageKeys.ChineseAgents)}
+          >
+            {t(LanguageKeys.ChineseAgents)}
+          </BottomItems>
+    
+      </Bottom>
       </Wrapper>
     </Container>
   );
@@ -142,7 +158,7 @@ export default DesktopFooter;
 const Container = styled.footer`
   position: relative;
   width: 100%;
-  height: 35rem;
+  height: 50rem;
   margin-top: 4rem;
 `;
 const footerBackground = theme('mode', {
@@ -177,40 +193,70 @@ const LogoHover = theme('mode', {
 });
 
 const Wrapper = styled.div`
-  ${footerBackground};
-  clip-path: polygon(20% 17.5%, 80% 17.5%, 100% 0, 100% 100%, 0 100%, 0 0);
-  width: 100%;
+${footerBackground};
+clip-path: polygon(20% 17.5%, 80% 17.5%, 100% 0, 100% 100%, 0 100%, 0 0);
+width: 100%;
+height: 100%;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-direction: column;
+transform: skew(10deg);
+transform: scaleX(1);
+:before {
+  content: '';
+  width: 1px;
   height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transform: skew(10deg);
-  transform: scaleX(1);
-  :before {
-    content: '';
-    width: 1px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 20%;
-    z-index: 2;
-  }
-  :after {
-    content: '';
-    width: 1px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 80%;
-    z-index: 2;
-  }
+  position: absolute;
+  top: 0;
+  left: 20%;
+  z-index: -1;
+}
+:after {
+  content: '';
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 80%;
+  z-index: -1;
+}
 `;
+
+const Top = styled.div`
+width: 100%;
+height: 100%;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-between;
+`
+
+const Bottom = styled.div`
+${footerBackground};
+position: relative;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2.75rem 0rem;
+gap: 2rem;
+:before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+`
+
 const StyledLogo = styled(Logo)`
   width: 6rem;
   height: auto;
   position: absolute;
-  top: 6rem;
+  top: 8.5rem;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -266,6 +312,10 @@ const Items = styled(Link)`
     }
   }
 `;
+
+const BottomItems = styled(Items)` 
+ margin: 0;
+`
 //
 
 const SideContainer = styled.div<{ locale: Languages }>`

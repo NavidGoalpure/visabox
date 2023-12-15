@@ -13,44 +13,76 @@ import theme from "styled-theming";
 import { useSession } from "next-auth/react";
 import { copyContent } from "Utils";
 import useDevice from "Hooks/useDevice";
+import SuccessToast from "Elements/Toast/Success";
+import ErrorToast from "Elements/Toast/Error";
+import { useMutation, useQueryClient } from "react-query";
+import { useEffect, useState } from "react";
+import { ClientQueryKeys } from "Utils/query/keys";
+import MaraSwitch from "Elements/MaraSwitch";
 interface Props {
   id: string;
   email: string;
+  is_sharable: boolean | undefined;
 }
-function BoxesSection({ id, email }: Props) {
+function BoxesSection({ id, email, is_sharable }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
   const { data: session } = useSession();
   const { locale } = useLocale();
   const { isLaptop } = useDevice();
+  const queryClient = useQueryClient();
   const ShareToastMessage = t(LanguageKeys.copyShareToastMessage);
+  const showDataMessage = t(LanguageKeys.ShowDataToast);
+  const hideDataMessage = t(LanguageKeys.HideDataToast);
+  const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
+  const [isSharableChecked, setIsSharableChecked] = useState<
+    boolean | undefined
+  >(undefined);
+  const mutation = useMutation({
+    mutationFn: () => {
+      return fetch("/api/clients/is-sharable", {
+        method: "POST",
+        body: JSON.stringify({
+          is_sharable: !isSharableChecked,
+          _id: id,
+        }),
+      });
+    },
+    onSuccess: (res) => {
+      if (!res.ok) {
+        throw new Error("couldnt patch the user");
+      }
+      setIsSharableChecked((prevState) => !prevState);
+      if (isSharableChecked === true) {
+        SuccessToast(hideDataMessage);
+      } else {
+        SuccessToast(showDataMessage);
+      }
+      queryClient.removeQueries(
+        ClientQueryKeys.detail({
+          reqParams: `email == "${session?.user?.email || "defensive"}"`,
+        })
+      );
+    },
+    onError: () => {
+      ErrorToast(FailedToastMessage);
+    },
+  });
+  useEffect(() => {
+    setIsSharableChecked(is_sharable);
+  }, [is_sharable,id]);
   return (
     <Container>
       <SmallBoxesWrapper>
         {session?.user?.email === email && (
           <>
-            <SmallBox
-              onClick={() =>
-                copyContent({
-                  text: `www.marabox.com/${locale}/clients/${id}`,
-                  toastMessage: ShareToastMessage,
-                })
-              }
-            >
-              <ShareTitle>{t(LanguageKeys.ShareBoxTitle)}</ShareTitle>
-              <ShareDesc>{t(LanguageKeys.ShareBoxDesc)}</ShareDesc>
-              <PrimaryButton>
-                <ShareIcon />
-              </PrimaryButton>
-            </SmallBox>
-            <SmallBox
-              onClick={() => window.open(`/${locale}/clients/point-calculator`)}
-            >
-              <EditTitle>{t(LanguageKeys.EditBoxTitle)}</EditTitle>
-              <EditDesc>{t(LanguageKeys.EditBoxDesc)}</EditDesc>
-              <PrimaryButton>
-                <EditIcon />
-              </PrimaryButton>
+            <SmallBox onClick={() => mutation.mutate()}>
+              <ShareTitle>{t(LanguageKeys.ShowFormTitle)}</ShareTitle>
+              <ShareDesc>{t(LanguageKeys.ShowFormDesc)}</ShareDesc>
+              <MaraSwitch
+                isChecked={isSharableChecked}
+                isLoading={mutation.isLoading}
+              />
             </SmallBox>
           </>
         )}
@@ -76,6 +108,24 @@ function BoxesSection({ id, email }: Props) {
               <PrintIcon />
             </PrimaryButton>
           </SmallBox>
+        )}
+        {session?.user?.email === email && (
+          <>
+            <SmallBox
+              onClick={() =>
+                copyContent({
+                  text: `www.marabox.com/${locale}/clients/${id}`,
+                  toastMessage: ShareToastMessage,
+                })
+              }
+            >
+              <ShareTitle>{t(LanguageKeys.ShareBoxTitle)}</ShareTitle>
+              <ShareDesc>{t(LanguageKeys.ShareBoxDesc)}</ShareDesc>
+              <PrimaryButton>
+                <ShareIcon />
+              </PrimaryButton>
+            </SmallBox>
+          </>
         )}
       </SmallBoxesWrapper>
     </Container>

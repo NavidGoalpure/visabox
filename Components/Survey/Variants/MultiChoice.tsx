@@ -12,7 +12,7 @@ export const MultiChoice: React.FC<Props> = ({ children }) => {
   const items = children as unknown as RadioItemProps[];
   return (
     <Container>
-      <RadioGroup.Root>{<>{items.map((item) => item)}</>}</RadioGroup.Root>
+      <RadioGroup.Root>{<>{items?.map((item) => item)}</>}</RadioGroup.Root>
     </Container>
   );
 };

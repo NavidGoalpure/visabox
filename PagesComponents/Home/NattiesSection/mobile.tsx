@@ -10,7 +10,7 @@ import {
   Title,
   ViewAll,
 } from './styledComponents';
-import NaatiCard from 'Components/Lists/Card/Naati/Card';
+import NaatiCard from 'Components/Lists/Naati/Card';
 import { NAATIES } from 'Consts/Lists/naati';
 import { slugify } from 'Utils';
 import { Status } from 'Interfaces/Database';

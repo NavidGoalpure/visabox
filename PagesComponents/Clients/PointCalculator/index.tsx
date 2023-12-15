@@ -1,18 +1,18 @@
-import styled from "styled-components";
-import MaraBgAnimation from "Components/MaraBgAnimation";
-import SmartSteps from "./Steps/SmartStep";
-import { WizardContextProvider } from "./Contexts/Wizard/Context";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import { useLocale } from "Hooks/useLocale";
-import { useEffect } from "react";
-import { Loading } from "Elements/Loading";
+import styled from 'styled-components';
+import MaraBgAnimation from 'Components/MaraBgAnimation';
+import SmartSteps from './Steps/SmartStep';
+import { WizardContextProvider } from '../../../Components/Wizard/Context';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { useLocale } from 'Hooks/useLocale';
+import { useEffect } from 'react';
+import { Loading } from 'Elements/Loading';
 function Content() {
   const { status } = useSession();
   const router = useRouter();
   const { locale } = useLocale();
   useEffect(() => {
-    if (status === "unauthenticated") {
+    if (status === 'unauthenticated') {
       router.push(`/${locale}/auth/signin`);
     }
   }, [status]);
@@ -21,7 +21,7 @@ function Content() {
     <Container>
       <WizardContextProvider>
         <StyledMaraBgAnimation animationSpeed={60}>
-          {status === "loading" || status === "unauthenticated" ? (
+          {status === 'loading' || status === 'unauthenticated' ? (
             <Loading />
           ) : (
             <SmartSteps />

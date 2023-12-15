@@ -1,6 +1,6 @@
-import { MultiLanguageText } from "Interfaces/Database";
-import { useLocale } from "Hooks/useLocale";
-import { Languages } from "Interfaces";
+import { MultiLanguageText } from 'Interfaces/Database';
+import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
 
 /**
  *  بوسیله این فانکشن که برای متون هوشمند استفاده می‌شود میتوان کلماتی از متن را که به صورت تمپلیت مشخص شده اند
@@ -17,7 +17,7 @@ function convertAllTempKeysWithAllAliases({
   aliases: Record<string, string>[];
 }): string {
   let mylocaleSentence = localeSentence;
-  aliases.map((pair) => {
+  aliases?.map((pair) => {
     mylocaleSentence = convertKeyWithValueInString({
       senttence: mylocaleSentence,
       pair,
@@ -52,32 +52,34 @@ function convertKeyWithValueInString({
  * @param  statementKey جمله
  * @param  statements آبجکتی از تمام گزاره های یک پیج یا کامپوننت به زبان های مختلف
  * @param  aliases جفت کلیدهایی که با آن مشخص میکنیم چه کلماتی باید با چه کلماتی جایگزین شوند
+ * @param locale زبان کاربر که از نکست جی اس گرفته میشود
  * @return      جمله نهایی به زبان کاربر- که از یوآرال گرفته شده- بعد از جایگزینی تمپلیت ها با آلیاس ها
  */
 export const translatedObject = ({
   statementKey,
   statements,
   aliases,
+  locale,
 }: {
   statementKey: string;
   statements: Record<string, MultiLanguageText>;
   aliases?: Record<string, string>[];
+  locale?: Languages;
 }): string => {
-  const { locale } = useLocale();
-  if (!statementKey || !locale) return "";
+  if (!statementKey || !locale) return '';
 
   if (!aliases || aliases.length === 0) {
     if (
-      statements?.[statementKey]?.[locale] === "" ||
+      statements?.[statementKey]?.[locale] === '' ||
       !statements?.[statementKey]?.[locale]
     ) {
-      return statements?.[statementKey]?.[Languages.en] || "";
+      return statements?.[statementKey]?.[Languages.en] || '';
     }
-    return statements?.[statementKey]?.[locale] || "";
+    return statements?.[statementKey]?.[locale] || '';
   }
   //
   return convertAllTempKeysWithAllAliases({
-    localeSentence: statements?.[statementKey]?.[locale] || "",
+    localeSentence: statements?.[statementKey]?.[locale] || '',
     aliases,
   });
 };

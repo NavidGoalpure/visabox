@@ -1,4 +1,4 @@
-import { Languages } from "Interfaces";
+import { Languages } from 'Interfaces';
 
 interface MultiLanguageText {
   [Languages.en]: string;
@@ -25,15 +25,15 @@ interface En_FaLanguageArray {
   [Languages.fa]: string[];
 }
 enum Status {
-  "ACTIVE" = "active",
-  "DEACTIVE" = "deactive",
+  'ACTIVE' = 'active',
+  'DEACTIVE' = 'deactive',
 }
 enum UserRole {
-  Normal = "normal",
-  Admin = "admin",
-  Client = "Client",
-  Agent = "Agent",
-  Agency = "Agency",
+  Normal = 'normal',
+  Admin = 'admin',
+  Client = 'Client',
+  Agent = 'Agent',
+  Agency = 'Agency',
 }
 interface Contact {
   email?: string;
@@ -46,6 +46,7 @@ interface Contact {
   website?: string;
   mobile?: string;
   address?: EnLanguage;
+  // address?: en;
 }
 interface SanityKeys {
   _createdAt?: Date;
@@ -57,11 +58,11 @@ interface SanityKeys {
 
 // the enum values should be the same as sanity document name and toggle group english text
 export enum SupportedCountry {
-  Iran = "iran",
-  China = "china",
-  India = "india",
-  Australia = "australia",
-  Other = "other",
+  Iran = 'iran',
+  China = 'china',
+  India = 'india',
+  Australia = 'australia',
+  Other = 'other',
 }
 export type {
   MultiLanguageText,

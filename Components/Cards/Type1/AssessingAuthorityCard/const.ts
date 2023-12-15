@@ -41,4 +41,4 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 };
 
-export const OCCUPATION_PER_PAGE = 9;
+export const OCCUPATION_PER_PAGE = 12;

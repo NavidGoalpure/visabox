@@ -1,5 +1,3 @@
-import { AGENCYS } from 'Consts/Lists/agency';
-import { Agents } from 'Consts/Lists/agents';
 import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { AssessingAuthoritiesListPages } from 'PagesComponents/sitemap/AssessingAuthoritiesListPages';

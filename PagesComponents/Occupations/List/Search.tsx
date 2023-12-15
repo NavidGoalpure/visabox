@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
-import { SearchInput } from "Elements/SearchInput";
-import styled from "styled-components";
-import { CiSearch } from "react-icons/ci";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { layer2A_Bg, layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
-import * as MaraSelect from "Elements/Select";
-import { AnszcoGroup, MAJOR_GROUP } from "Consts/Occupations/anszco";
-import { useLocale } from "Hooks/useLocale";
-import { SearchFilterContext } from "./Context/SearchFilter";
-import { deviceMin } from "Consts/device";
-import { SelectItemCss } from "Elements/Select/Item";
-import { LuSettings2 } from "react-icons/lu";
+import React, { useContext, useEffect, useState } from 'react';
+import { SearchInput } from 'Elements/SearchInput';
+import styled from 'styled-components';
+import { CiSearch } from 'react-icons/ci';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import * as MaraSelect from 'Elements/Select';
+import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
+import { useLocale } from 'Hooks/useLocale';
+import { SearchFilterContext } from './Context/SearchFilter';
+import { deviceMin } from 'Consts/device';
+import { SelectItemCss } from 'Elements/Select/Item';
+import { LuSettings2 } from 'react-icons/lu';
 
 interface Props {
   searchValue: string;
@@ -29,7 +29,7 @@ function Search({ searchValue, setSearchValue }: Props) {
   }, [isShowPanel]);
 
   const submajorItems = filteredList?.subMajorGroup;
-  const minorItems = filteredList?.minorGroup;
+
   return (
     <Container isShowPanel={isShowPanel}>
       <SearchElement

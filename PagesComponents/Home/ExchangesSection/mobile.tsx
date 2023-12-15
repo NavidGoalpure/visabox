@@ -1,17 +1,17 @@
-import ExchangeCard from "Components/Lists/Card/Exchange/ExchangeCard";
-import { Exchanges } from "Consts/Lists/exchages";
-import { useLocale } from "Hooks/useLocale";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import Link from "next/link";
-import { HTMLAttributes } from "react";
-import { componentStatements, LanguageKeys } from "./const";
+import ExchangeCard from 'Components/Lists/Exchange/ExchangeCard';
+import { Exchanges } from 'Consts/Lists/exchages';
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import Link from 'next/link';
+import { HTMLAttributes } from 'react';
+import { componentStatements, LanguageKeys } from './const';
 import {
   Container,
   StyledLink,
   Subtitle,
   Title,
   ViewAll,
-} from "./styledComponents";
+} from './styledComponents';
 
 const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props

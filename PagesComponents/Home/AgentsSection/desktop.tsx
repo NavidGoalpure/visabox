@@ -1,9 +1,8 @@
-import VIPAgentCard from 'Components/Lists/Card/Agent/VIPCard';
-import { Agents } from 'Consts/Lists/agents';
+import AgentCard from 'Components/Lists/Agent/Card';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled from 'styled-components';
-import { componentStatements, LanguageKeys } from './const';
+import { componentStatements, ExampleAgent, LanguageKeys } from './const';
 import {
   Container,
   StyledLink,
@@ -13,32 +12,30 @@ import {
 } from './styledComponents';
 import { HTMLAttributes, useEffect } from 'react';
 import { GsapSectionAnimation_1 } from '../utils';
-import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
+import { Exchanges } from 'Consts/Lists/exchages';
+import ExchangeCard from 'Components/Lists/Exchange/ExchangeCard';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const vipAgent = Agents.find(
-    (agent) => agent.featuredPlan === FeaturedPlan_Business.VIP
-  );
   useEffect(() => {
     GsapSectionAnimation_1('Agent');
   }, []);
+
   return (
     <>
       <Container {...props}>
         <Side className='Agent-card-section'>
-          {vipAgent && (
-            <StyledCard
-              name={vipAgent?.name}
-              desc={vipAgent?.desc}
-              slug={vipAgent?.slug}
-              layerContext='1'
-              avatar={vipAgent?.avatar || '/Images/placeholder.jpeg'}
-            />
-          )}
+          <StyledCard
+            name={ExampleAgent?.name?.en}
+            slug={ExampleAgent?.slug?.current || ''}
+            agencies={ExampleAgent?.agencies}
+            layerContext='1'
+            avatar={ExampleAgent?.avatar || '/Images/placeholder.jpeg'}
+          />
+          {/* <StyledExchangeCard {...Exchanges[1]} /> */}
         </Side>
         <Side className='Agent-text-section'>
           <Title>{t(LanguageKeys.Title)}</Title>
@@ -58,8 +55,9 @@ export default DesktopIndex;
 const Side = styled.div`
   flex: 1;
 `;
-const StyledCard = styled(VIPAgentCard)`
+const StyledCard = styled(AgentCard)`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
+const StyledExchangeCard = styled(ExchangeCard)``;

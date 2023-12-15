@@ -1,3 +1,4 @@
+import { Point_Calculator_Fragment } from "Consts/GroqFragments";
 import { MultiLanguageText } from "Interfaces/Database";
 
 export enum LanguageKeys {
@@ -5,10 +6,26 @@ export enum LanguageKeys {
   SeoDesc = "SeoDesc",
   //
   ScoreTitle = "ScoreTitle",
-  AboutLabel = "AboutLabel",
   FullNameLabel = "FullNameLabel",
-  ProfileNotCompletedHint ="ProfileNotCompletedHint",
+  NameInputLabel = "NameInputLabel",
+  NameInputPlaceholder = "NameInputPlaceholder",
+  LastNameInputLabel = "LastNameInputLabel",
+  LastNameInputPlaceholder = "LastNameInputPlaceholder",
+  ProfileNotCompletedHint = "ProfileNotCompletedHint",
   UserPageNotCompletedHint = "UserPageNotCompletedHint",
+  PrintBoxTitle = "PrintBoxTitle",
+  PrintBoxDesc = "PrintBoxDesc",
+  ShowFormTitle = "ShowFormTitle",
+  ShowFormDesc = "ShowFormDesc",
+  EditBoxTitle = "EditBoxTitle",
+  EditBoxDesc = "EditBoxDesc",
+  ShareBoxTitle = "ShareBoxTitle",
+  ShareBoxDesc = "ShareBoxDesc",
+
+  copyShareToastMessage = "copyShareToastMessage",
+  YesText = "YesText",
+  NoText = "NoText",
+  AboutLabel = "AboutLabel",
   BirthDateLabel = "BirthDateLabel",
   EnglishSkillsLabel = "EnglishSkillsLabel",
   MarriageStatusLabel = "MarriageStatusLabel",
@@ -30,15 +47,31 @@ export enum LanguageKeys {
   EmailTitle = "EmailTitle",
   copyEmailToastMessage = "copyEmailToastMessage",
   copyPhoneToastMessage = "copyPhoneToastMessage",
-  PrintBoxTitle = "PrintBoxTitle",
-  PrintBoxDesc = "PrintBoxDesc",
-  EditBoxTitle = "EditBoxTitle",
-  EditBoxDesc = "EditBoxDesc",
-  ShareBoxTitle = "ShareBoxTitle",
-  ShareBoxDesc = "ShareBoxDesc",
-  copyShareToastMessage = "copyShareToastMessage",
-  YesText = "YesText",
-  NoText = "NoText",
+  SaveTitle = "SaveTitle",
+  BackTitle = "BackTitle",
+  FailedToastMessage = "FailedToastMessage",
+  SuccessToastText = "SuccessToastText",
+  CurrentJobInputPlaceholder = "CurrentJobInputPlaceholder",
+  HideDataToast = "HideDataToast",
+  ShowDataToast = "ShowDataToast",
+  // add job text
+  AddJobSwiper = "AddJobSwiper",
+  CanProvideLegalProofForExperience = "CanProvideLegalProofForExperience",
+  WasTheJobInAustralia = "WasTheJobInAustralia",
+  SelectedJobTitle = "SelectedJobTitle",
+  ModalWorkExperienceSection = "ModalWorkExperienceSection",
+  //
+  // add degree text
+  AddInfoSwiper = "AddInfoSwiper",
+  //
+  // education modal
+  FieldOfStudyInputPlaceholder = "FieldOfStudyInputPlaceholder",
+  UniSectionsSectionTitle = "UniSectionsSectionTitle",
+  UniInput_SectionTitle = "UniInput_SectionTitle",
+  UniInput_Placeholder = "UniInput_Placeholder",
+  UniInput_HintText = "UniInput_HintText",
+  GraduationDateLabel = "GraduationDateLabel",
+  //
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -58,11 +91,6 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: "分数：",
   },
 
-  AboutLabel: {
-    en: "About",
-    fa: "توضیحات",
-    zh: "关于",
-  },
   ProfileNotCompletedHint: {
     en: `Bring Your Profile to Life! Add the missing details and make it complete.`,
     fa: `پروفایل خود را زنده کنید! اطلاعات جا مانده را پر و پروفایل خود را کامل کنید.`,
@@ -79,23 +107,26 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "نام و نام خانوادگی:",
     zh: "全名：",
   },
-  BirthDateLabel: {
-    en: "Birth Date:",
-    fa: "تاریخ تولد:",
-    zh: "出生日期：",
+  NameInputLabel: {
+    en: "Name:",
+    fa: "نام:",
+    zh: "姓名：",
   },
-
-  PhoneNumberTitle: {
-    en: "Phone Number:",
-    fa: "شماره تماس:",
-    zh: "电话号码：",
+  NameInputPlaceholder: {
+    en: "Example: Simon",
+    fa: "مثال: علی",
+    zh: "例子： 静",
   },
-  EmailTitle: {
-    en: "Email:",
-    fa: "ایمیل:",
-    zh: "电子邮件：",
+  LastNameInputLabel: {
+    en: "Last Name:",
+    fa: "نام خانوادگی:",
+    zh: "姓：",
   },
-
+  LastNameInputPlaceholder: {
+    en: "Example: Smith",
+    fa: "مثال: محمدی",
+    zh: "例子：刘",
+  },
   PrintBoxTitle: {
     en: "Print",
     fa: "پرینت",
@@ -106,6 +137,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "مشاهده نسخه قابل پرینت.",
     zh: "请参阅打印版本",
   },
+  ShowFormTitle: {
+    en: "Data publicity",
+    fa: "نمایش فرم",
+    zh: "数据公示",
+  },
+  ShowFormDesc: {
+    en: "Do you want mara agents to be able to see your profile?",
+    fa: "اطلاعات مهاجرتی شما برای وکلای مهاجرتی قابل مشاهده باشد؟",
+    zh: "您希望 Mara 代理能够看到您的个人资料吗？",
+  },
+
   EditBoxTitle: {
     en: "Edit",
     fa: "ویرایش",
@@ -141,6 +183,29 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "خیر",
     zh: "不",
   },
+  AboutLabel: {
+    en: "About",
+    fa: "توضیحات",
+    zh: "关于",
+  },
+
+  BirthDateLabel: {
+    en: "Birth Date:",
+    fa: "تاریخ تولد:",
+    zh: "出生日期：",
+  },
+
+  PhoneNumberTitle: {
+    en: "Phone Number:",
+    fa: "شماره تماس:",
+    zh: "电话号码：",
+  },
+  EmailTitle: {
+    en: "Email:",
+    fa: "ایمیل:",
+    zh: "电子邮件：",
+  },
+
   EnglishSkillsLabel: {
     en: "English Skill:",
     fa: "سطح زبان انگیلیسی:",
@@ -197,7 +262,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: "澳大利亚职业年：",
   },
   AccreditedCommunityLanguageLabel: {
-    en: "Accredited Community Language",
+    en: "Accredited Community Language:",
     fa: "گواهی نامه زبان ناتی:",
     zh: "认可的社区语言",
   },
@@ -208,7 +273,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   CurrentJobLabel: {
     en: "Current Job:",
-    fa: "شغل الان:",
+    fa: "شغل فعلی:",
     zh: "目前的工作：",
   },
   WorkExperienceLabel: {
@@ -231,4 +296,140 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: "شماره تلفن در حافظه کپی شد",
     zh: "已将电话号码复制到剪贴板",
   },
+  SaveTitle: {
+    en: "Save",
+    fa: "ذخیره",
+    zh: "节省",
+  },
+  BackTitle: {
+    en: "Back",
+    fa: "بازگشت",
+    zh: "后退",
+  },
+  FailedToastMessage: {
+    en: "Request failed! Try again later",
+    fa: "خطا! بعدا تلاش کنید",
+    zh: "请求失败！ 稍后再试",
+  },
+  SuccessToastText: {
+    en: "Congrats! You Are Done",
+    fa: "تبریک! فرم کامل شد",
+    zh: "请求失败！ 稍后再试",
+  },
+  CurrentJobInputPlaceholder: {
+    en: "Example: Web Developer",
+    fa: "مثال: برنامه نویس اپلیکیشن موبایل",
+    zh: "示例：Web 开发人员",
+  },
+  HideDataToast: {
+    en: "Your Data Is Now Hidden From Migration Agents",
+    fa: "داده های شما اکنون از دید وکلای مهاجرت پنهان شده است",
+    zh: "您的数据现在对迁移代理隐藏",
+  },
+  ShowDataToast: {
+    en: "Your Data Is Now Visible To Migration Agents",
+    fa: "داده های شما اکنون برای وکلای مهاجرت قابل مشاهده است",
+    zh: "迁移代理现在可以看到您的数据",
+  },
+  // add job text
+  AddJobSwiper: {
+    en: "Add Job Details",
+    fa: "افزودن مشخصات شغل",
+    zh: "添加职位详细信息",
+  },
+  ModalWorkExperienceSection: {
+    en: "Work Experience:",
+    fa: "سابقه کار:",
+    zh: "工作经验：",
+  },
+  SelectedJobTitle: {
+    en: "Job Title:",
+    fa: "شغل:",
+    zh: "职称",
+  },
+  //
+  // add degree text
+  AddInfoSwiper: {
+    en: "Add Information",
+    fa: "افزودن مشخصات",
+    zh: "添加信息",
+  },
+  CanProvideLegalProofForExperience: {
+    en: "Can you submit legal documents?",
+    fa: "امکان ارائه مدارک قانونی",
+    zh: "可以提交法律文件吗？",
+  },
+  WasTheJobInAustralia: {
+    en: "Was this job done in Australia?",
+    fa: "آیا این شغل در استرالیا بوده؟",
+    zh: "这项工作是在澳大利亚完成的吗？",
+  },
+  // education modal
+  FieldOfStudyInputPlaceholder: {
+    en: "Example: Math",
+    fa: "مثال: ریاضیات",
+    zh: "示例：数学",
+  },
+  UniSectionsSectionTitle: {
+    en: "University Section:",
+    fa: "سکشن دانشگاه:",
+    zh: "大学部分：",
+  },
+  UniInput_SectionTitle: {
+    en: "section",
+    fa: "سکشن",
+    zh: "部分",
+  },
+  UniInput_Placeholder: {
+    en: "Search",
+    fa: "جستجو",
+    zh: "搜索",
+  },
+  UniInput_HintText: {
+    en: "You can search your university section by writing the name of your university",
+    fa: `با وارد نمودن نام هر دانشگاه، می‌توانید ببینید در چه دسته بندی
+                (سکشن) ای قرار دارد`,
+    zh: "您可以通过写下您的大学名称来搜索您的大学部分",
+  },
+  GraduationDateLabel: {
+    en: "Graduation Date:",
+    fa: "تاریخ فارغ التحصیل:",
+    zh: "毕业日期：",
+  },
 };
+export const profileResParams = ` 
+  ${Point_Calculator_Fragment}
+      _id,
+      _createdAt,
+      country,
+      name,
+      lastname,
+      phone,
+      field_of_study,
+      current_job,
+      is_sharable,
+      uni_section,
+      avatar,
+      email,
+      completed_forms,
+      all_degrees,
+      all_jobs,
+      `;
+export enum EditModalContentKeys {
+  NAME = "NAME",
+  CURRENT_JOB = "CURRENT_JOB",
+  BIRTH_DATE = "BIRTH_DATE",
+  ENGLISH_SKILL = "ENGLISH_SKILL",
+  MARRIAGE_STATUS = "MARRIAGE_STATUS",
+  COUNTRY = "COUNTRY",
+  FIELD_OF_STUDY = "FIELD_OF_STUDY",
+  DEGREE = "DEGREE",
+  AUSTRALIAN_EDUCATIONAL_QUALIFICATION_RELATED = "AUSTRALIAN_EDUCATIONAL_QUALIFICATION_RELATED",
+  PROFESSIONAL_YEAR_IN_AUSTRALIA = "PROFESSIONAL_YEAR_IN_AUSTRALIA",
+  ACCREDITED_COMMUNITY_LANGUAGE = "ACCREDITED_COMMUNITY_LANGUAGE",
+  UNIVERSITY_SECTION = "UNIVERSITY_SECTION",
+  WORK_EXPERIENCE_OVERSEAS = "WORK_EXPERIENCE_OVERSEAS",
+  AUSTRALIAN_WORK_EXPERIENCE = "AUSTRALIAN_WORK_EXPERIENCE",
+  PHONE_NUMBER = "PHONE_NUMBER",
+  EMAIL = "EMAIL",
+}

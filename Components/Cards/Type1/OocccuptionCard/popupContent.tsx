@@ -1,11 +1,11 @@
-import { useLocale } from "Hooks/useLocale";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Slug } from "Interfaces/Database/Occupation/Fields";
-import { useRouter } from "next/router";
-import React, { Fragment } from "react";
-import { componentStatements, LanguageKeys } from "./const";
-import { PopupTitle, StyledButton } from "../StyledComponents";
-import { EnLanguageArray } from "Interfaces/Database";
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useRouter } from 'next/router';
+import React, { Fragment } from 'react';
+import { componentStatements, LanguageKeys } from './const';
+import { PopupTitle, StyledButton } from '../StyledComponents';
+import { EnLanguageArray } from 'Interfaces/Database';
+import { Slug } from 'Interfaces/Database/Fields';
 
 interface Props {
   slug?: Slug;
@@ -20,8 +20,8 @@ const PopupContent: React.FC<Props> = ({ slug, tasks }) => {
   return (
     <>
       <PopupTitle>{t(LanguageKeys.Tasks)}</PopupTitle>
-      <ul style={{ direction: "ltr" }}>
-        {tasks.en?.map((task, i) => (
+      <ul style={{ direction: 'ltr' }}>
+        {tasks?.en?.map((task, i) => (
           <Fragment key={i}>
             <li>{task}</li>
             <br />

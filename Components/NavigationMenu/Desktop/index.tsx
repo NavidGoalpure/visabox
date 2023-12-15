@@ -1,25 +1,26 @@
-import { Logo } from "Elements/Logo";
-import Link from "next/link";
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import { boxShadow, directionStyles } from "Styles/Theme";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import theme from "styled-theming";
-import { useLocale } from "Hooks/useLocale";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import { layer3_TextStyle } from "Styles/Theme/Layers/layer3/style";
-import { componentStatements, LanguageKeys } from "../const";
-import DesktopLanguageChanger from "./LanguageChanger";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import DesktopBoxsesDropdown from "./dropdownBoxes";
-import DesktopOccupationDropdown from "./dropdownOccupation";
-import { useSession } from "next-auth/react";
-import AvatarComponent from "../AvatarComponent";
-import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
-import { LocalStorageKeys } from "Interfaces";
-import { getLocalStorage, setLocalStorage } from "Utils";
-import { isAgencyLogedIn } from "Utils/user";
-import { SupportedCountry } from "Interfaces/Database";
+import { Logo } from 'Elements/Logo';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import { boxShadow, directionStyles } from 'Styles/Theme';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import theme from 'styled-theming';
+import { useLocale } from 'Hooks/useLocale';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
+import { componentStatements, LanguageKeys } from '../const';
+import DesktopLanguageChanger from './LanguageChanger';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import DesktopBoxsesDropdown from './dropdownLists';
+import DesktopOccupationDropdown from './dropdownOccupation';
+import { useSession } from 'next-auth/react';
+import AvatarComponent from '../AvatarComponent';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import { LocalStorageKeys } from 'Interfaces';
+import { getLocalStorage, setLocalStorage } from 'Utils';
+import { isAgencyLogedIn } from 'Utils/user';
+import { SupportedCountry } from 'Interfaces/Database';
+import DesktopFormsDropdown from './dropdownForms';
 
 function Desktop({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
@@ -36,13 +37,13 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
             id={`hamburg`}
             onClick={() => setIsMenuClicked(!isMenuClicked)}
           >
-            <span aria-hidden id={"line1"} />
-            <span aria-hidden id={"line2"} />
+            <span aria-hidden id={'line1'} />
+            <span aria-hidden id={'line2'} />
           </MenuBurger>
           <Link href={`/${locale}`}>
             <Logo />
           </Link>
-          <StyledMenuItem as={"div"}>
+          <StyledMenuItem as={'div'}>
             {session ? (
               <AvatarComponent />
             ) : (
@@ -67,6 +68,7 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
 
           <DesktopOccupationDropdown clientCountry={clientCountry} />
           <DesktopBoxsesDropdown clientCountry={clientCountry} />
+          {!isAgencyLogedIn() && <DesktopFormsDropdown />}
           {(clientCountry === SupportedCountry.Iran ||
             getLocalStorage(LocalStorageKeys.Country) ===
               SupportedCountry.Iran) && (
@@ -99,7 +101,7 @@ const Container = styled(NavigationMenu.Root)`
   width: 100%;
   // padding: 0 1rem;
 `;
-const dirFlexStyle = theme("languageDirection", {
+const dirFlexStyle = theme('languageDirection', {
   ltr: css`
     flex-direction: row;
   `,
@@ -107,7 +109,7 @@ const dirFlexStyle = theme("languageDirection", {
     flex-direction: row-reverse;
   `,
 });
-const itemHover = theme("mode", {
+const itemHover = theme('mode', {
   light: css`
     color: var(--color-gray6);
   `,
@@ -115,7 +117,7 @@ const itemHover = theme("mode", {
     color: var(--color-gray13);
   `,
 });
-const BottomTheme = theme("mode", {
+const BottomTheme = theme('mode', {
   light: css`
     background: var(--color-gray12);
   `,
@@ -174,7 +176,7 @@ const MenuLink = styled(Link)`
   ${layer3_TextStyle};
   position: relative;
   :before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -250,7 +252,7 @@ const Item = styled.h4`
   transition: all 400ms ease;
   margin: auto;
   :before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0px;
     left: 0;

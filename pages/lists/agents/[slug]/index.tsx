@@ -11,10 +11,7 @@ import Error from 'next/error';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
-import {
-  getAgentDetail,
-  getAllPersianAgentsSlugs,
-} from 'Queries/agents/Detail';
+import { getAgentDetail, getAllAgentsSlugs } from 'Queries/agents/Detail';
 import { ComponentError } from 'Elements/Error/componentContent';
 import styled from 'styled-components';
 
@@ -36,7 +33,7 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
         }
         description={t(LanguageKeys.SeoDesc, [
           { $businessName: agent?.agencies?.[0]?.title?.en || '' },
-          { $maraNumber: agent?.mara_number || '' },
+          { $address: agent?.agencies?.[0]?.contact?.full_address || '' },
         ])}
         canonical={`https://www.marabox.com/${locale}/lists/agents/${agent?.slug?.current}`}
       />
@@ -57,13 +54,13 @@ export default AgentPage;
 export const getStaticPaths = async () => {
   let paths: { params: { slug: string }; locale: Languages }[] = [];
   /////get Allpage base on their slug/////////
-  const allAgents_Slug = await getAllPersianAgentsSlugs();
+  const allAgents_Slug = await getAllAgentsSlugs();
   if (allAgents_Slug?.length > 0)
     allAgents_Slug?.map((agent: MaraAgent) => {
       if (agent?.slug?.current)
         paths.push({
           params: { slug: agent?.slug?.current },
-          locale: Languages.fa,
+          locale: Languages.en,
         });
     });
 

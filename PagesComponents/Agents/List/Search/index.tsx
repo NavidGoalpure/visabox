@@ -79,8 +79,6 @@ function Search({ searchValue, setSearchValue }: Props) {
     }
   }, [stateInUrlParam]);
   //
-  console.log('navid defaultContry?.isoCode=', defaultContry?.isoCode);
-
   return (
     <Container isShowPanel={isShowPanel}>
       (

@@ -26,9 +26,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: '$agent وکیل مهاجرت | ماراباکس',
   },
   SeoDesc: {
-    en: 'Business name: $businessName | Mara Number: $maraNumber  | Mara Box',
-    fa: 'دفتر وکالت: $businessName | شماره مارا: $maraNumber  | Mara Box',
-    zh: '企业名称: $businessName | 马拉数: $maraNumber  | Mara Box',
+    en: 'Business name: $businessName | address: $address  | Mara Box',
+    fa: 'دفتر وکالت: $businessName | آدرس: $address  | Mara Box',
+    zh: '企业名称: $businessName | 地址: $address  | Mara Box',
   },
   //
 

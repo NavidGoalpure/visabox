@@ -33,20 +33,6 @@ const getAllAgentsSlugs = async (): Promise<MaraAgent[] | []> => {
   }
 };
 ///////////////
-const getAllPersianAgentsSlugs = async (): Promise<MaraAgent[] | []> => {
-  const query = `*[_type=='agent' && !(_id in path('drafts.**')) && agencies[].state match "Iran"]{
-  slug{
-    current
-  },
-}`;
-  try {
-    const agents = await sanityClient.fetch(query);
-    return agents as MaraAgent[];
-  } catch (error) {
-    return [];
-  }
-};
-/////////////////
 
 /**
  * درخواست به سنیتی برای گرفتن اطلاعات یک ایجنت بر اساس اسلاگ
@@ -71,4 +57,4 @@ const getAgentDetail = async ({
     throw error;
   }
 };
-export { getAllAgentsSlugs, getAllPersianAgentsSlugs, getAgentDetail };
+export { getAllAgentsSlugs, getAgentDetail };

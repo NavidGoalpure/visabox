@@ -32,7 +32,8 @@
     "pages/indexold.old",
     "Hoc/withCSR.js",
     "types.d.ts",
-    "Sanity/schemas/schema.js"
+    "Sanity/schemas/schema.js",
+    "pages/sitemap.xml.old"
   ],
   "exclude": ["node_modules"],
   "types": ["cypress", "@testing-library/cypress", "@types/gtag.js"]

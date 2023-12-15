@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
 import { QueryClient, QueryClientProvider, Hydrate } from "react-query";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { Montserrat, Vazirmatn } from "@next/font/google";
+import { Montserrat, Vazirmatn } from "next/font/google";
 import "../Styles/global.css";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { useState } from "react";

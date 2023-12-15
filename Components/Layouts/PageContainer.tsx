@@ -1,25 +1,25 @@
-import SmartBanner from "Components/SmartBanner";
-import Footer from "Components/Footer";
-import ToasterContainer from "Components/ToasterContainer";
-import { deviceMin } from "Consts/device";
-import { useLocale } from "Hooks/useLocale";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { Languages, LocalStorageKeys } from "Interfaces";
-import { useSession } from "next-auth/react";
-import { getClientDetail } from "Queries/client";
-import React, { HTMLAttributes, ReactNode, useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import styled from "styled-components";
-import { directionStyles } from "Styles/Theme";
-import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
-import { ClientQueryKeys } from "Utils/query/keys";
-import Header from "../NavigationMenu";
-import { componentStatements, LanguageKeys } from "./const";
-import { Loading } from "Elements/Loading";
-import { isAgencyLogedIn, isClientLogedIn, isLogout } from "Utils/user";
-import CountryModal from "./CountryModal";
-import { Client, ClientCompletedForms } from "Interfaces/Database/Client";
-import { ClientError } from "@sanity/client";
+import SmartBanner from 'Components/SmartBanner';
+import Footer from 'Components/Footer';
+import ToasterContainer from 'Components/ToasterContainer';
+import { deviceMin } from 'Consts/device';
+import { useLocale } from 'Hooks/useLocale';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { Languages, LocalStorageKeys } from 'Interfaces';
+import { useSession } from 'next-auth/react';
+import { getClientDetail } from 'Queries/client';
+import React, { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import styled from 'styled-components';
+import { directionStyles } from 'Styles/Theme';
+import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import Header from '../NavigationMenu';
+import { componentStatements, LanguageKeys } from './const';
+import { Loading } from 'Elements/Loading';
+import { isAgencyLogedIn, isClientLogedIn, isLogout } from 'Utils/user';
+import CountryModal from './CountryModal';
+import { Client, ClientCompletedForms } from 'Interfaces/Database/Client';
+import { ClientError } from '@sanity/client';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   hasFooter?: boolean;
@@ -45,7 +45,7 @@ const PageContainer: React.FC<Props> = ({
   const [hasCountryInDatabase, setHasCountryInDatabase] =
     useState<boolean>(true);
   const { data: session } = useSession();
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `name,
                   completed_forms,
                   country`;
@@ -93,13 +93,12 @@ const PageContainer: React.FC<Props> = ({
   }, [isLoading, isIdle, data]);
   // this is needed in order to verify serverside rendering is over and it is on the client side
   useEffect(() => {
-    if (typeof window !== "undefined") setHasWindow(true);
+    if (typeof window !== 'undefined') setHasWindow(true);
   }, []);
   if (!hasWindow)
     return (
       <LoadingContainer>
         <Loading />
-
       </LoadingContainer>
     );
   return (
@@ -107,7 +106,8 @@ const PageContainer: React.FC<Props> = ({
       <ToasterContainer />
       {(!hasCountryInDatabase || isLogout()) && <CountryModal />}
       {hasMenu && <Header />}
-      {hasBanner &&
+      {/* تا وقتی وکیلی نداریم، اسمارت بنر دعوت به پر کردن فرم هم نداریم */}
+      {/* {hasBanner &&
         (!hasClientCompletedForm || !session) &&
         !isAgencyLogedIn() && (
           <SmartBanner
@@ -122,7 +122,7 @@ const PageContainer: React.FC<Props> = ({
             buttonText={buttonText}
             stampText={stampText}
           />
-        )}
+        )} */}
       {/* <Survay.Root
         title={{
           en: 'How do you prefer to do the legal procedures of immigration?',
@@ -146,7 +146,7 @@ const PageContainer: React.FC<Props> = ({
           />
         </MultiChoice>
       </Survay.Root> */}
-      <Content id="PageContainer-content">{children}</Content>
+      <Content id='PageContainer-content'>{children}</Content>
       {hasFooter && <Footer />}
     </Container>
   );

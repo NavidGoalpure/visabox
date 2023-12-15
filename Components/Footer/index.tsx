@@ -11,7 +11,7 @@ const SmartFooter = () => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
   const { data: session } = useSession();
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `
       country
       `;
@@ -34,7 +34,12 @@ const SmartFooter = () => {
   useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');
   });
-  if (screen === 'MOBILE') return <MobileFooter clientCountry={data?.client?.[0]?.country || "defensive"}/>;
-  return <DesktopFooter clientCountry={data?.client?.[0]?.country || "defensive"}/>;
+  if (screen === 'MOBILE')
+    return (
+      <MobileFooter clientCountry={data?.client?.[0]?.country || 'defensive'} />
+    );
+  return (
+    <DesktopFooter clientCountry={data?.client?.[0]?.country || 'defensive'} />
+  );
 };
 export default SmartFooter;

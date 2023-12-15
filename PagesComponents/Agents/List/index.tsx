@@ -41,6 +41,7 @@ const Content: React.FC = () => {
   };
   //////////useEffects////////////
   useEffect(() => {
+    // اگه کاربر فیلتر لوکیشن رو پاک کرد از اول کوئری بزن
     if (selectedFiltersObj?.location) remove();
   }, [selectedFiltersObj.location]);
 

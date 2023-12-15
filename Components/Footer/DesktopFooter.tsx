@@ -26,71 +26,71 @@ function DesktopFooter({ clientCountry }: { clientCountry: string }) {
       <StyledLogo />
       <Wrapper>
         <Top>
-        <SideContainer locale={locale}>
-          <Items
-            href={`/${locale}/lists/agents`}
-            data-name={t(LanguageKeys.AgentsBox)}
-          >
-            {t(LanguageKeys.AgentsBox)}
-          </Items>
-          <Items
-            href={`/${locale}/lists/agencies`}
-            data-name={t(LanguageKeys.AgenciesBox)}
-          >
-            {t(LanguageKeys.AgenciesBox)}
-          </Items>
-          <Items
-            href={`/${locale}/lists/exchanges`}
-            data-name={t(LanguageKeys.Exchanges)}
-          >
-            {t(LanguageKeys.Exchanges)}
-          </Items>
-          {(clientCountry === SupportedCountry.Iran ||
-            getLocalStorage(LocalStorageKeys.Country) ===
-              SupportedCountry.Iran) && (
-                <Items
+          <SideContainer locale={locale}>
+            <Items
+              href={`/${locale}/lists/agents`}
+              data-name={t(LanguageKeys.AgentsBox)}
+            >
+              {t(LanguageKeys.AgentsBox)}
+            </Items>
+            <Items
+              href={`/${locale}/lists/agencies`}
+              data-name={t(LanguageKeys.AgenciesBox)}
+            >
+              {t(LanguageKeys.AgenciesBox)}
+            </Items>
+            <Items
+              href={`/${locale}/lists/exchanges`}
+              data-name={t(LanguageKeys.Exchanges)}
+            >
+              {t(LanguageKeys.Exchanges)}
+            </Items>
+            {(clientCountry === SupportedCountry.Iran ||
+              getLocalStorage(LocalStorageKeys.Country) ===
+                SupportedCountry.Iran) && (
+              <Items
                 href={`/${locale}/lists/social-pages`}
                 data-name={t(LanguageKeys.SocialNetWorksBox)}
               >
                 {t(LanguageKeys.SocialNetWorksBox)}
               </Items>
-          )}
-       
-          <Items
-            href={`/${locale}/lists/naaties`}
-            data-name={t(LanguageKeys.Naati)}
-          >
-            {t(LanguageKeys.Naati)}
-          </Items>
-        </SideContainer>
-        <CenterItemsContainer>
-          <SwitchButton></SwitchButton>
-          <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
-            {t(LanguageKeys.Home)}
-          </Items>
-          <Items
-            href={`/${locale}/occupations`}
-            data-name={t(LanguageKeys.SkilledOccupationList)}
-          >
-            {t(LanguageKeys.SkilledOccupationList)}
-          </Items>
-          <Items
-            href={`/${locale}/occupations/assssing-authorities`}
-            data-name={t(LanguageKeys.AssessingAuthority)}
-          >
-            {t(LanguageKeys.AssessingAuthority)}
-          </Items>
-          {(clientCountry === SupportedCountry.Iran ||
-            getLocalStorage(LocalStorageKeys.Country) ===
-              SupportedCountry.Iran) && (
-          <Items
-            href={`/${locale}/occupations/university-section-search`}
-            data-name={t(LanguageKeys.UniversitySection)}
-          >
-            {t(LanguageKeys.UniversitySection)}
-          </Items>
-          )}
-          {/* {locale === Languages.fa && (
+            )}
+
+            <Items
+              href={`/${locale}/lists/naaties`}
+              data-name={t(LanguageKeys.Naati)}
+            >
+              {t(LanguageKeys.Naati)}
+            </Items>
+          </SideContainer>
+          <CenterItemsContainer>
+            <SwitchButton></SwitchButton>
+            <Items href={`/${locale}`} data-name={t(LanguageKeys.Home)}>
+              {t(LanguageKeys.Home)}
+            </Items>
+            <Items
+              href={`/${locale}/occupations`}
+              data-name={t(LanguageKeys.SkilledOccupationList)}
+            >
+              {t(LanguageKeys.SkilledOccupationList)}
+            </Items>
+            <Items
+              href={`/${locale}/occupations/assssing-authorities`}
+              data-name={t(LanguageKeys.AssessingAuthority)}
+            >
+              {t(LanguageKeys.AssessingAuthority)}
+            </Items>
+            {(clientCountry === SupportedCountry.Iran ||
+              getLocalStorage(LocalStorageKeys.Country) ===
+                SupportedCountry.Iran) && (
+              <Items
+                href={`/${locale}/occupations/university-section-search`}
+                data-name={t(LanguageKeys.UniversitySection)}
+              >
+                {t(LanguageKeys.UniversitySection)}
+              </Items>
+            )}
+            {/* {locale === Languages.fa && (
             <Items
               href={`/${locale}/landing/agents`}
               data-name={t(LanguageKeys.BecomeSponser)}
@@ -98,57 +98,53 @@ function DesktopFooter({ clientCountry }: { clientCountry: string }) {
               {t(LanguageKeys.BecomeSponser)}
             </Items>
           )} */}
-        </CenterItemsContainer>
-        <LeftSideContainer locale={locale}>
-          <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
-          <LogosContainer>
-            <a
-              target={'_blank'}
-              href='https://www.t.me/maraboxmigration'
-              aria-label='Telegram logo'
-            >
-              <TelegramLogo />
-            </a>
+          </CenterItemsContainer>
+          <LeftSideContainer locale={locale}>
+            <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
+            <LogosContainer>
+              <a
+                target={'_blank'}
+                href='https://www.t.me/maraboxmigration'
+                aria-label='Telegram logo'
+              >
+                <TelegramLogo />
+              </a>
 
-            <GmailLogo
-              onClick={() =>
-                copyContent({
-                  text: 'maraboxmigration@gmail.com',
-                  toastMessage: gmailToastMessage,
-                })
-              }
-            />
-          </LogosContainer>
-          <SwitchThemeContainer
-            
-          >
-            <SwitchTheme />
-          </SwitchThemeContainer>
-          <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
-        </LeftSideContainer>
-      </Top>
-      <Bottom>
-
+              <GmailLogo
+                onClick={() =>
+                  copyContent({
+                    text: 'maraboxmigration@gmail.com',
+                    toastMessage: gmailToastMessage,
+                  })
+                }
+              />
+            </LogosContainer>
+            <SwitchThemeContainer>
+              <SwitchTheme />
+            </SwitchThemeContainer>
+            <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
+          </LeftSideContainer>
+        </Top>
+        <Bottom>
           <BottomItems
-            href={`/${locale}/lists/agents?country=ir`}
+            href={`/${locale}/lists/agents?country=IR`}
             data-name={t(LanguageKeys.IranianAgents)}
           >
             {t(LanguageKeys.IranianAgents)}
           </BottomItems>
           <BottomItems
-            href={`/${locale}/lists/agents?country=in`}
+            href={`/${locale}/lists/agents?country=IN`}
             data-name={t(LanguageKeys.IndianAgents)}
           >
             {t(LanguageKeys.IndianAgents)}
           </BottomItems>
           <BottomItems
-            href={`/${locale}/lists/agents?country=cn`}
+            href={`/${locale}/lists/agents?country=CN`}
             data-name={t(LanguageKeys.ChineseAgents)}
           >
             {t(LanguageKeys.ChineseAgents)}
           </BottomItems>
-    
-      </Bottom>
+        </Bottom>
       </Wrapper>
     </Container>
   );
@@ -193,64 +189,64 @@ const LogoHover = theme('mode', {
 });
 
 const Wrapper = styled.div`
-${footerBackground};
-clip-path: polygon(20% 17.5%, 80% 17.5%, 100% 0, 100% 100%, 0 100%, 0 0);
-width: 100%;
-height: 100%;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-direction: column;
-transform: skew(10deg);
-transform: scaleX(1);
-:before {
-  content: '';
-  width: 1px;
+  ${footerBackground};
+  clip-path: polygon(20% 17.5%, 80% 17.5%, 100% 0, 100% 100%, 0 100%, 0 0);
+  width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 20%;
-  z-index: -1;
-}
-:after {
-  content: '';
-  width: 1px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 80%;
-  z-index: -1;
-}
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  transform: skew(10deg);
+  transform: scaleX(1);
+  :before {
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 20%;
+    z-index: -1;
+  }
+  :after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 80%;
+    z-index: -1;
+  }
 `;
 
 const Top = styled.div`
-width: 100%;
-height: 100%;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: space-between;
-`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 const Bottom = styled.div`
-${footerBackground};
-position: relative;
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 2.75rem 0rem;
-gap: 2rem;
-:before {
-  content: '';
+  ${footerBackground};
+  position: relative;
   width: 100%;
-  height: 1px;
-  position: absolute;
-  top: 0;
-  z-index: 2;
-}
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.75rem 0rem;
+  gap: 2rem;
+  :before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+`;
 
 const StyledLogo = styled(Logo)`
   width: 6rem;
@@ -313,9 +309,9 @@ const Items = styled(Link)`
   }
 `;
 
-const BottomItems = styled(Items)` 
- margin: 0;
-`
+const BottomItems = styled(Items)`
+  margin: 0;
+`;
 //
 
 const SideContainer = styled.div<{ locale: Languages }>`

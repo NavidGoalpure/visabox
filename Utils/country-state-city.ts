@@ -65,3 +65,24 @@ export const getCountryOrAlias = (
 
   return COUNTRY_ALIASES?.[country] || country;
 };
+/**
+ * Gets the symbol of country base on country name or its alias.
+ *
+ * @param {string} country - The country name or alias.
+ * @returns {string} - The country Symbol.
+ *
+ * @example
+ * const actualCountry = getCountryOrAlias('Iran, Islamic Republic of');
+ * // Returns 'Iran' for the provided alias.
+ */
+export const getCountrySymbolBaseOnNameOrAlias = (
+  country: string | undefined
+): string | undefined => {
+  if (!country) return undefined;
+  const COUNTRY_ALIASES: { [key: string]: string } = {
+    iran: 'IR',
+    // Add more aliases as needed
+  };
+
+  return COUNTRY_ALIASES?.[country] || country;
+};

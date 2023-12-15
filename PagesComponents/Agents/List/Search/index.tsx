@@ -3,16 +3,20 @@ import { SearchInput } from 'Elements/SearchInput';
 import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
+import { componentStatements, LanguageKeys } from '../const';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
-import { SearchFilterContext } from './Context/SearchFilter';
+import { SearchFilterContext } from '../Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
 import { SelectItemCss } from 'Elements/Select/Item';
 import { LuSettings2 } from 'react-icons/lu';
-import { Country, State } from 'country-state-city';
+import { Country, ICountry, State } from 'country-state-city';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
+import { getUserCountry } from 'Queries/client';
+
+import { getDefaultCountry } from './utils';
 
 interface Props {
   searchValue: string;
@@ -29,6 +33,9 @@ function Search({ searchValue, setSearchValue }: Props) {
   ///
   const { t } = useStaticTranslation(componentStatements);
   const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
+  const [defaultContry, setDefaultContry] = useState<ICountry | undefined>(
+    undefined
+  );
   const { selectedFiltersObj, setSelectedFiltersObj, resetFilters } =
     useContext(SearchFilterContext);
   useEffect(() => {
@@ -39,19 +46,24 @@ function Search({ searchValue, setSearchValue }: Props) {
   const allStates = State.getStatesOfCountry(smartCountryCode);
 
   //////////////////////////////////////////////////////////////
-  //این یوزافکت به یوآرال پارام کشور نگاه میکنه و اگه مقدار داشته باشه فیلتر سرچ رو با اون هماهنگ میکنه
+  //این یوزافکت به یوآرال پارام کشور و ولیو کشور در پروفایل کاربر نگاه میکنه و اگه مقدار داشته باشن فیلتر سرچ رو با اون هماهنگ میکنه
   /////////////////////////////////////////////////////////////
+  const { data: session } = useSession();
+  const userCountry = getUserCountry(session);
   useEffect(() => {
-    if (countryInUrlParam) {
+    if (countryInUrlParam || userCountry) {
+      const country = getDefaultCountry({ countryInUrlParam, userCountry });
+      setDefaultContry(country);
       setSelectedFiltersObj((prev) => ({
         ...prev,
         location: {
           ...prev.location,
-          country: Country.getCountryByCode(countryInUrlParam.toUpperCase()),
+          country,
         },
       }));
     }
-  }, [countryInUrlParam]);
+  }, [countryInUrlParam, userCountry]);
+
   //////////////////////////////////////////////////////////////
   //این یوزافکت به یوآرال پارام شهر نگاه میکنه و اگه مقدار داشته باشه فیلتر سرچ رو با اون هماهنگ میکنه
   /////////////////////////////////////////////////////////////
@@ -66,10 +78,12 @@ function Search({ searchValue, setSearchValue }: Props) {
       }));
     }
   }, [stateInUrlParam]);
-  /////////
+  //
+  console.log('navid defaultContry?.isoCode=', defaultContry?.isoCode);
 
   return (
     <Container isShowPanel={isShowPanel}>
+      (
       <SearchElement
         value={searchValue}
         onChange={setSearchValue}
@@ -82,6 +96,7 @@ function Search({ searchValue, setSearchValue }: Props) {
         }
         isShowPanel={isShowPanel}
       />
+      )
       {isShowPanel && (
         <Panel>
           <FilterContainer>
@@ -90,7 +105,7 @@ function Search({ searchValue, setSearchValue }: Props) {
 
               <SelectRoot
                 maxHeightInRem={20}
-                defaultValue={countryInUrlParam}
+                value={selectedFiltersObj?.location?.country?.isoCode}
                 triggerProps={{ placeholder: t(LanguageKeys.Select) }}
                 onValueChange={(newCountry) => {
                   const countryObj = Country.getCountryByCode(newCountry);

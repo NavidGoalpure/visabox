@@ -27,7 +27,7 @@ const getSearchConditions = (searchValue: string): string => {
  * @param  searchCondition عبارتی که یوزر در باکس سرچ تایپ کرده
  * @returns
  */
-const getListQuery = ({
+const getAgentsListQuery = ({
   lastMaraNumber = '0',
   searchCondition,
   selectedFiltersObj,
@@ -84,7 +84,7 @@ const getAgentsList = async ({
 }: QueryParams): Promise<MaraAgent[]> => {
   const searchCondition = getSearchConditions(search);
   const data = await sanityClient.fetch(
-    getListQuery({
+    getAgentsListQuery({
       lastMaraNumber,
       searchCondition,
       selectedFiltersObj,
@@ -110,4 +110,4 @@ const getlastAgentCode = async (): Promise<MaraAgent> => {
   return data;
 };
 
-export { getListQuery, getAgentsList, getlastAgentCode };
+export { getAgentsListQuery, getAgentsList, getlastAgentCode };

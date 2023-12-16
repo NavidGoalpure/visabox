@@ -8,7 +8,7 @@ import Content from 'PagesComponents/Agents/List';
 import PageLayout from 'Components/Layouts/PageContainer';
 import { sanityClient } from 'Utils/sanity';
 import { dehydrate, QueryClient } from 'react-query';
-import { getAgentListQuery } from 'Queries/agents/List';
+import { getAgentsListQuery } from 'Queries/agents/List';
 import { withCSR } from 'Hoc/withCSR';
 import Error from 'next/error';
 import { useLocale } from 'Hooks/useLocale';
@@ -46,7 +46,7 @@ export const getServerSideProps: GetServerSideProps = withCSR(
 
     try {
       await queryClient.fetchQuery(AgentsQueryKeys.list({ search: '' }), () =>
-        sanityClient.fetch(getAgentListQuery({}))
+        sanityClient.fetch(getAgentsListQuery({}))
       );
     } catch (error: any) {
       if (ctx.res) ctx.res.statusCode = error?.response?.status;

@@ -1,4 +1,3 @@
-import { FeaturedPlan_Business } from 'Interfaces/Database/Lists';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { AgentsDetailsPages } from 'PagesComponents/sitemap/AgentDetailsPages';
@@ -23,14 +22,14 @@ async function generateSiteMap({
    ${OccupationsSearchPages()}
    ${OccupationDetailsPages(allOccupationSlugs)}
    ${AssessingAuthoritiesListPages()}
-   ${NaatiListPages()}      
+   ${NaatiListPages()}
    <url>
    <loc>${Domain_FA}/lists/exchanges</loc>
    </url>
    ${BlogsDetailsPages()}
     <url>
-        <loc>${Domain_EN}/lists/agents
-    </url>      
+        <loc>${Domain_EN}/lists/agents</loc>
+    </url>
    ${AgentsDetailsPages(allAgentsSlug)}
    </urlset>
  `;

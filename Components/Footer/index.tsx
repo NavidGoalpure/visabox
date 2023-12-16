@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react';
 import DesktopFooter from './DesktopFooter';
 import MobileFooter from './MobileFooter';
 import { useSession } from 'next-auth/react';
-import { ClientQueryKeys } from 'Utils/query/keys';
-import { getUserCountry, getClientDetail } from 'Queries/client';
-import { Session } from 'next-auth';
+import { getUserCountry } from 'Queries/client';
 
 const SmartFooter = () => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');

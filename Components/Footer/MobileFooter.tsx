@@ -10,14 +10,18 @@ import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import { copyContent, getLocalStorage } from 'Utils';
-import { Languages, LocalStorageKeys } from 'Interfaces';
+import { LocalStorageKeys } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { SupportedCountry } from 'Interfaces/Database';
 
-function MobileFooter({ clientCountry }: { clientCountry: string }) {
+function MobileFooter({
+  clientCountry,
+}: {
+  clientCountry: string | undefined;
+}) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
   return (
     <Container>
       <StyledLogo />
@@ -36,53 +40,53 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
           {t(LanguageKeys.AssessingAuthority)}
         </Items>
         {(clientCountry === SupportedCountry.Iran ||
-            getLocalStorage(LocalStorageKeys.Country) ===
-              SupportedCountry.Iran) && (
+          getLocalStorage(LocalStorageKeys.Country) ===
+            SupportedCountry.Iran) && (
           <Items
             href={`/${locale}/occupations/university-section-search`}
             data-name={t(LanguageKeys.UniversitySection)}
           >
             {t(LanguageKeys.UniversitySection)}
           </Items>
-          )}
+        )}
       </ItemsContainer>
       <ItemsContainer>
         <ItemsTitle>{t(LanguageKeys.Lists)}</ItemsTitle>
         <Items
-            href={`/${locale}/lists/agents`}
-            data-name={t(LanguageKeys.AgentsBox)}
-          >
-            {t(LanguageKeys.AgentsBox)}
-          </Items>
+          href={`/${locale}/lists/agents`}
+          data-name={t(LanguageKeys.AgentsBox)}
+        >
+          {t(LanguageKeys.AgentsBox)}
+        </Items>
+        <Items
+          href={`/${locale}/lists/agencies`}
+          data-name={t(LanguageKeys.AgenciesBox)}
+        >
+          {t(LanguageKeys.AgenciesBox)}
+        </Items>
+        <Items
+          href={`/${locale}/lists/exchanges`}
+          data-name={t(LanguageKeys.Exchanges)}
+        >
+          {t(LanguageKeys.Exchanges)}
+        </Items>
+        {(clientCountry === SupportedCountry.Iran ||
+          getLocalStorage(LocalStorageKeys.Country) ===
+            SupportedCountry.Iran) && (
           <Items
-            href={`/${locale}/lists/agencies`}
-            data-name={t(LanguageKeys.AgenciesBox)}
+            href={`/${locale}/lists/social-pages`}
+            data-name={t(LanguageKeys.SocialNetWorksBox)}
           >
-            {t(LanguageKeys.AgenciesBox)}
+            {t(LanguageKeys.SocialNetWorksBox)}
           </Items>
-          <Items
-            href={`/${locale}/lists/exchanges`}
-            data-name={t(LanguageKeys.Exchanges)}
-          >
-            {t(LanguageKeys.Exchanges)}
-          </Items>
-          {(clientCountry === SupportedCountry.Iran ||
-            getLocalStorage(LocalStorageKeys.Country) ===
-              SupportedCountry.Iran) && (
-                <Items
-                href={`/${locale}/lists/social-pages`}
-                data-name={t(LanguageKeys.SocialNetWorksBox)}
-              >
-                {t(LanguageKeys.SocialNetWorksBox)}
-              </Items>
-          )}
-       
-          <Items
-            href={`/${locale}/lists/naaties`}
-            data-name={t(LanguageKeys.Naati)}
-          >
-            {t(LanguageKeys.Naati)}
-          </Items>
+        )}
+
+        <Items
+          href={`/${locale}/lists/naaties`}
+          data-name={t(LanguageKeys.Naati)}
+        >
+          {t(LanguageKeys.Naati)}
+        </Items>
         {/* {locale === Languages.fa && (
           <Items
             href={`/${locale}/landing/agents`}
@@ -94,44 +98,44 @@ const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
       </ItemsContainer>
       <ItemsContainer>
         <Items
-            href={`/${locale}/lists/agents?country=ir`}
-            data-name={t(LanguageKeys.IranianAgents)}
-          >
-            {t(LanguageKeys.IranianAgents)}
-          </Items>
-          <Items
-            href={`/${locale}/lists/agents?country=in`}
-            data-name={t(LanguageKeys.IndianAgents)}
-          >
-            {t(LanguageKeys.IndianAgents)}
-          </Items>
-          <Items
-            href={`/${locale}/lists/agents?country=cn`}
-            data-name={t(LanguageKeys.ChineseAgents)}
-          >
-            {t(LanguageKeys.ChineseAgents)}
-          </Items>
+          href={`/${locale}/lists/agents?country=ir`}
+          data-name={t(LanguageKeys.IranianAgents)}
+        >
+          {t(LanguageKeys.IranianAgents)}
+        </Items>
+        <Items
+          href={`/${locale}/lists/agents?country=in`}
+          data-name={t(LanguageKeys.IndianAgents)}
+        >
+          {t(LanguageKeys.IndianAgents)}
+        </Items>
+        <Items
+          href={`/${locale}/lists/agents?country=cn`}
+          data-name={t(LanguageKeys.ChineseAgents)}
+        >
+          {t(LanguageKeys.ChineseAgents)}
+        </Items>
       </ItemsContainer>
       <ContactUsContainer>
         <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
         <LogosContainer>
           <a
-            target={"_blank"}
-            href="https://www.t.me/maraboxmigration"
-            aria-label="Telegram logo"
+            target={'_blank'}
+            href='https://www.t.me/maraboxmigration'
+            aria-label='Telegram logo'
           >
             <TelegramLogo />
           </a>
           <GmailLogo
             onClick={() =>
               copyContent({
-                text: "maraboxmigration@gmail.com",
+                text: 'maraboxmigration@gmail.com',
                 toastMessage: gmailToastMessage,
               })
             }
           />
         </LogosContainer>
-        <Privacy href="/privacy-policy">Privacy and Policy</Privacy>
+        <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
       </ContactUsContainer>
     </Container>
   );

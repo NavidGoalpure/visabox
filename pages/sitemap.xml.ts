@@ -7,7 +7,7 @@ import { BlogsDetailsPages } from 'PagesComponents/sitemap/BlogsDetailsPages';
 import { NaatiListPages } from 'PagesComponents/sitemap/NaatiListPages';
 import { OccupationDetailsPages } from 'PagesComponents/sitemap/OccupationDetailsPages';
 import { OccupationsSearchPages } from 'PagesComponents/sitemap/OccupationsSearchPage';
-import { Domain_FA } from 'PagesComponents/sitemap/const';
+import { Domain_EN, Domain_FA } from 'PagesComponents/sitemap/const';
 import { getAllAgentsSlugs } from 'Queries/agents/Detail';
 import { getAllOccupationSlugs } from 'Queries/sitemap';
 
@@ -27,7 +27,10 @@ async function generateSiteMap({
    <url>
    <loc>${Domain_FA}/lists/exchanges</loc>
    </url>
-   ${BlogsDetailsPages()}      
+   ${BlogsDetailsPages()}
+    <url>
+        <loc>${Domain_EN}/lists/agents
+    </url>      
    ${AgentsDetailsPages(allAgentsSlug)}
    </urlset>
  `;

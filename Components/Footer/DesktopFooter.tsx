@@ -17,7 +17,11 @@ import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { Headline6Style, Headline7Style } from 'Styles/Typo';
 import { SupportedCountry } from 'Interfaces/Database';
 
-function DesktopFooter({ clientCountry }: { clientCountry: string }) {
+function DesktopFooter({
+  clientCountry,
+}: {
+  clientCountry: string | undefined;
+}) {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);

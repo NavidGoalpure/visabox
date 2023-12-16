@@ -53,7 +53,7 @@ export default AgentPage;
 
 export const getStaticPaths = async () => {
   let paths: { params: { slug: string }; locale: Languages }[] = [];
-  /////get Allpage base on their slug/////////
+  /////get Allpage base on their slug////////
   const allAgents_Slug = await getAllAgentsSlugs();
   if (allAgents_Slug?.length > 0)
     allAgents_Slug?.map((agent: MaraAgent) => {

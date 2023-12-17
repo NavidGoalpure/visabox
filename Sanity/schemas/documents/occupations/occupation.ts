@@ -33,10 +33,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
-
-      localize: true,
-      // validation: (Rule: { required: () => any }) => Rule.required(),
+      type: 'en_lang',
     },
 
     {
@@ -148,16 +145,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
-      subtitle: 'code',
+      title: 'title.en',
     },
-    // prepare(selection) {
-    //   const { title, code } = selection;
-
-    //   return {
-    //     title: title,
-    //     subtitle: title,
-    //   };
-    // },
   },
 };

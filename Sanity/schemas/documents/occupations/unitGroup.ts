@@ -15,15 +15,13 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
@@ -52,15 +50,12 @@ export default {
     {
       name: 'tasks',
       title: 'Tasks',
-      type: 'array',
-      of: [{ type: 'string' }],
-      localize: true,
-      // validation: (Rule: { required: () => any }) => Rule.required(),
+      type: 'multi_lang_arr',
     },
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'title.en',
     },
   },
 };

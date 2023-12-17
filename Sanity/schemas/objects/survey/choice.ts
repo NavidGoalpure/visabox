@@ -7,16 +7,14 @@ export default {
     {
       name: 'title_en',
       title: 'English Choice',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
 
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'title_fa',
       title: 'Farsi Choice',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
 
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },

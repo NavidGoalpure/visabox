@@ -6,8 +6,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {

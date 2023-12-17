@@ -7,30 +7,25 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'description',
       title: 'Description',
-      type: 'string',
-      localize: true,
-      // validation: (Rule: { required: () => any }) => Rule.required(),
+      type: 'multi_lang',
     },
     //
     // صفحه توضیحات این نوع ویزا
     {
       name: 'url',
       title: 'URL',
-      type: 'url',
-      localize: true,
-      // validation: (Rule: { required: () => any }) => Rule.required(),
+      type: 'multi_lang_url',
     },
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'title.en',
     },
   },
 };

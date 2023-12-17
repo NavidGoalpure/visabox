@@ -6,8 +6,7 @@ export default {
     {
       name: 'name',
       title: 'Name',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
     },
     {
       name: 'slug',
@@ -31,10 +30,7 @@ export default {
     {
       name: 'desc',
       title: 'Description',
-      type: 'string',
-
-      localize: true,
-      // validation: (Rule: { required: () => any }) => Rule.required(),
+      type: 'multi_lang',
     },
     {
       name: 'plan',

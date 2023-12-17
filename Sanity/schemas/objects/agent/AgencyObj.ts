@@ -13,8 +13,7 @@ export default {
     {
       name: 'title',
       title: 'Title',
-      type: 'string',
-      localize: true,
+      type: 'multi_lang',
     },
     {
       name: 'country',

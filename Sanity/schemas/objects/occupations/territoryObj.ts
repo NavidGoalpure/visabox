@@ -14,12 +14,7 @@ export default {
       name: 'desc',
       title: 'Description',
       type: 'array',
-      of: [
-        { type: 'block' },
-        {
-          type: 'table',
-        },
-      ],
+      of: [{ type: 'block' }],
       // validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {

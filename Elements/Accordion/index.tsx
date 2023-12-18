@@ -1,22 +1,24 @@
-import * as Accordion from "@radix-ui/react-accordion";
-import React, { HTMLAttributes, ReactNode } from "react";
-import styled, { css, keyframes } from "styled-components";
-import { Headline7Style } from "Styles/Typo";
-import { getSmartBgBaseOnLevel } from "Styles/utils";
+import * as Accordion from '@radix-ui/react-accordion';
+import React, { HTMLAttributes, ReactNode } from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import { Headline7Style } from 'Styles/Typo';
+import { getSmartBgBaseOnLevel } from 'Styles/utils';
 
-import { AiOutlinePlus } from "react-icons/ai";
-import theme from "styled-theming";
-import { deviceMin } from "Consts/device";
+import { AiOutlinePlus } from 'react-icons/ai';
+import theme from 'styled-theming';
+import { deviceMin } from 'Consts/device';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer3_style } from "Styles/Theme/Layers/layer3/style";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer3_style } from 'Styles/Theme/Layers/layer3/style';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface IDivWithoutContent
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'content'> {}
+interface Props extends IDivWithoutContent {
   triggerText: string;
   content: ReactNode;
-  backgroundLayer: "1" | "2A" | "2B" | "3";
+  backgroundLayer: '1' | '2A' | '2B' | '3';
   isOpen?: boolean;
 }
 
@@ -29,12 +31,12 @@ export const MaraAccordion: React.FC<Props> = ({
 }) => (
   <AccordionRoot
     {...props}
-    type="single"
-    defaultValue={isOpen ? "item" : ""}
+    type='single'
+    defaultValue={isOpen ? 'item' : ''}
     collapsible
-    data-testid="Marabox-Accordion"
+    data-testid='Marabox-Accordion'
   >
-    <AccordionItem value="item">
+    <AccordionItem value='item'>
       <AccordionHeader $backgroundLayer={backgroundLayer}>
         <AccordionTrigger>
           <PlusIcon />
@@ -42,13 +44,13 @@ export const MaraAccordion: React.FC<Props> = ({
         </AccordionTrigger>
       </AccordionHeader>
       <AccordionContent>
-        <Content id="content">{content}</Content>
+        <Content id='content'>{content}</Content>
       </AccordionContent>
     </AccordionItem>
   </AccordionRoot>
 );
 
-const TextColor = theme("mode", {
+const TextColor = theme('mode', {
   light: css`
     color: black;
   `,
@@ -79,14 +81,14 @@ const AccordionRoot = styled(Accordion.Root)`
 const AccordionItem = styled(Accordion.Item)`
   overflow: hidden;
   margin-top: 1px;
-  :-within  {
+  :-within {
     position: relative;
     z-index: 1;
     box-shadow: 0 0 0 2px var(--mauve12);
   }
 `;
 const AccordionHeader = styled(Accordion.Header)<{
-  $backgroundLayer: "1" | "2A" | "2B" | "3";
+  $backgroundLayer: '1' | '2A' | '2B' | '3';
 }>`
   display: flex;
   position: relative;
@@ -115,7 +117,7 @@ const AccordionTrigger = styled(Accordion.Trigger)`
     margin: 0;
     color: white;
   }
-  &[data-state="open"] {
+  &[data-state='open'] {
     border-radius: 30px 30px 0 0;
     svg {
       path:nth-child(2) {
@@ -148,10 +150,10 @@ const AccordionContent = styled(Accordion.Content)`
   font-size: 15px;
   border-top: unset;
   border-radius: 0px 0px 30px 30px;
-  &[data-state="open"] {
+  &[data-state='open'] {
     animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards;
   }
-  &[data-state="closed"] {
+  &[data-state='closed'] {
     animation: ${slideUp} 300ms cubic-bezier(0.87, 0, 0.13, 1) forwards;
   }
 `;

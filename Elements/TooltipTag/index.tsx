@@ -15,9 +15,11 @@ import { directionStyles, TagTheme } from 'Styles/Theme';
 import { BorderSvg } from './BorderSvg';
 import { Headline7Style } from 'Styles/Typo';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface IDivWithoutContent
+  extends Omit<HTMLAttributes<HTMLDivElement>, 'content'> {}
+interface Props extends IDivWithoutContent {
   content: string | ReactNode;
-  popupContent?: ReactNode | string;
+  popupContent?: ReactNode;
   delayDuration?: number;
 }
 const TooltipTag: React.FC<Props> = ({

@@ -17,7 +17,11 @@
     "incremental": true,
     "baseUrl": ".",
     // "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    }
+
     // "paths": {
     //   "@/PagesComponents/*": ["PagesComponents/*"],
     //   "@/pages/*": ["pages/*"],

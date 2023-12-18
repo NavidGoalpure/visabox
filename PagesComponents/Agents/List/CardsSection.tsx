@@ -19,7 +19,6 @@ const CardsSection: React.FC<Props> = ({ agents }) => {
               name={agent?.name?.en}
               agencies={agent?.agencies}
               slug={agent?.slug?.current || 'defensive'}
-              avatar={agent?.avatar}
               layerContext={'1'}
             />
           );

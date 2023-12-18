@@ -28,13 +28,11 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   agencies: MaraAgency[] | undefined;
   slug: string;
   layerContext: '1' | '2';
-  avatar: string | undefined;
 }
 function AgentCard({
   name,
   agencies,
   slug,
-  avatar,
   layerContext,
   className,
   ...props
@@ -55,15 +53,17 @@ function AgentCard({
     <Container className={`${slug} ${className}`} {...props}>
       <Link href={`/lists/agents/${slug}`} target='_blank'>
         <StyledWrapper>
-          <ImageWrapper layerContext={layerContext}>
+          {/* <ImageWrapper layerContext={layerContext}>
             <AgentLogo
               alt={`${slug}`}
               fill
-              src={avatar || `/Images/placeholder.jpeg`}
+              //navid
+              src={`/Images/placeholder.jpeg`}
+              // src={avatar || `/Images/placeholder.jpeg`}
               quality={100}
               sizes='96px'
             />
-          </ImageWrapper>
+          </ImageWrapper> */}
           <Title>{name}</Title>
           <FieldsContainer>
             <ColFieldWrapper>

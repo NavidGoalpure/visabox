@@ -14,7 +14,6 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { layer2A_Key, layer2A_Value } from 'Styles/Theme/Layers/layer2/theme';
 import { HTMLAttributes, useEffect, useState } from 'react';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
-import { Headline7Style } from 'Styles/Typo';
 import { GoLinkExternal } from 'react-icons/go';
 import Link from 'next/link';
 import { MaraAccordion } from 'Elements/Accordion';
@@ -24,6 +23,7 @@ import {
   Layer1_SubtitleStyle,
   Layer1_TitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
+import { getAgentAvatar } from 'Queries/agents/Detail';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   layerContext?: '1' | '2';
@@ -40,8 +40,25 @@ function DesktopAgentsPage({
   const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
 
   useEffect(() => {
-    if (chosenAgent?.avatar) setImgSrc(chosenAgent?.avatar);
+    const fetchAvatar = async () => {
+      try {
+        const avatar = await getAgentAvatar({
+          slug: chosenAgent?.slug?.current,
+        });
+
+        if (avatar) {
+          setImgSrc(avatar);
+        }
+      } catch (error: any) {
+        console.error('Error fetching avatar:', error?.message);
+      }
+    };
+
+    if (chosenAgent?.slug?.current) {
+      fetchAvatar();
+    }
   }, [chosenAgent]);
+
   return (
     <Container {...props}>
       <Wrapper>

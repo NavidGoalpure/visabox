@@ -59,7 +59,6 @@ const getAgentsListQuery = ({
     slug,
     name,
     mara_number,
-    avatar,
     agencies
 }`;
 

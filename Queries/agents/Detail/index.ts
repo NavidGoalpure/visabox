@@ -3,20 +3,27 @@ import { sanityClient } from 'Utils/sanity';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { ClientError } from '@sanity/client';
 
-/**
- * گروک کوئری مورد نیاز برای لیست آکیوپیشن ها رو تولید میکنه
- * @param  lastCode کد آخرین آکیوپیشنی که در پیج قبلی گرفته شده. این کد برای پیجینیشن مورد نیازه تا در پیج های بعدی کدهای تکراری نیاد
- * @param  searchCondition عبارتی که یوزر در باکس سرچ تایپ کرده
- * @returns
- */
 const getAgentDetailQuery = (): string => {
   const query = `*[_type=='agent' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
    {
-    ...
+    mara_number,
+    slug,
+    agencies,
+    website,
+    name,
+    email,
+
    }`;
   return query;
 };
-
+//////////////
+const getAgentAvatarQuery = (): string => {
+  const query = `*[_type=='agent' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
+   {
+    avatar
+   }`;
+  return query;
+};
 /////////////////
 //////////////
 const getAllAgentsSlugs = async (): Promise<MaraAgent[] | []> => {
@@ -57,4 +64,38 @@ const getAgentDetail = async ({
     throw error;
   }
 };
-export { getAllAgentsSlugs, getAgentDetail };
+/**
+ * درخواست به سنیتی برای گرفتن آواتار یک ایجنت بر اساس اسلاگ
+ * چون حجم آواتار وکیلها در بعضی مواقع خیلی زیاده، رکوئست درخواست آوارتار رو جدا کردیم که دیتای اصلی رو کند نکنه
+ * @param  {string} slug
+ * @returns {Occupation}
+ */
+const getAgentAvatar = async ({
+  slug,
+}: {
+  slug: string | undefined;
+}): Promise<string | null> => {
+  if (!slug) {
+    console.error('No slug provided for getAgentAvatar');
+    return null;
+  }
+
+  try {
+    const params = { slug };
+    const data = await sanityClient.fetch<MaraAgent | ClientError>(
+      getAgentAvatarQuery(),
+      params
+    );
+
+    if ('avatar' in data) {
+      return (data as MaraAgent).avatar || null;
+    } else {
+      console.warn('No avatar data found for the given slug');
+      return null;
+    }
+  } catch (error: any) {
+    console.error('Error fetching agent avatar:', error.message);
+    throw error; // Rethrow the error if needed elsewhere
+  }
+};
+export { getAllAgentsSlugs, getAgentDetail, getAgentAvatar };

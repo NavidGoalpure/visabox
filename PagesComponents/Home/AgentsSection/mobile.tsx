@@ -24,6 +24,7 @@ const MobileIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
         name={ExampleAgent?.name?.en}
         slug={ExampleAgent?.slug?.current || ''}
         agencies={ExampleAgent?.agencies}
+        hasAvatar={ExampleAgent?.hasAvatar}
         layerContext='1'
       />
       <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>

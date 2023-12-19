@@ -59,7 +59,9 @@ const getAgentsListQuery = ({
     slug,
     name,
     mara_number,
-    agencies
+    agencies,
+    "hasAvatar": select(avatar==''=>false,true)
+
 }`;
 
   return newQuery;

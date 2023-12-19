@@ -12,6 +12,7 @@ const getAgentDetailQuery = (): string => {
     website,
     name,
     email,
+    "hasAvatar": select(avatar==''=>false,true)
 
    }`;
   return query;

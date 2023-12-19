@@ -54,7 +54,7 @@ function DesktopAgentsPage({
       }
     };
 
-    if (chosenAgent?.slug?.current) {
+    if (chosenAgent?.slug?.current && chosenAgent?.hasAvatar) {
       fetchAvatar();
     }
   }, [chosenAgent]);

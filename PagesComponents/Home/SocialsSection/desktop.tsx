@@ -1,4 +1,3 @@
-import VIPAgentCard from 'Components/Lists/Agent/VIPCard';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled from 'styled-components';
@@ -46,9 +45,4 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 export default DesktopIndex;
 const Side = styled.div`
   flex: 1;
-`;
-const StyledCard = styled(VIPAgentCard)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;

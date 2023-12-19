@@ -1,9 +1,8 @@
 import { Domain_FA, Domain_Langs } from './const';
 
-function BlogsDetailsPages(): string[] {
-  const res = Domain_Langs.map(() => {
-    return `
-         <url>
+function BlogsDetailsPages(): string {
+  return `
+    <url>
        <loc>${Domain_FA}/blog/assessment-organizations-in-australia</loc>
     </url>
 
@@ -21,7 +20,5 @@ function BlogsDetailsPages(): string[] {
     <url>
        <loc>${Domain_FA}/blog/what-is-skilled-worker-visa</loc>
     </url>`;
-  });
-  return res;
 }
 export { BlogsDetailsPages };

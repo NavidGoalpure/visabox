@@ -38,7 +38,11 @@ const Desktop = ({
         <InternetContainer href={website} target={'_blank'}>
           <InternetIcon />
           <InternetTitle>
-            {website.replaceAll('https://', '').replaceAll('http://', '')}
+            {/* //navid fix this */}
+            {website
+              .replaceAll('https://', '')
+              .replaceAll('http://', '')
+              .replaceAll('www.', '')}
           </InternetTitle>
         </InternetContainer>
       )}

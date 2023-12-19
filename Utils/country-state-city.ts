@@ -1,4 +1,4 @@
-import { Country } from 'country-state-city';
+import { Country, ICountry } from 'country-state-city';
 
 /**
  * Retrieves the flag of a country based on either the exact country name or a possible country name found in an address.
@@ -85,4 +85,20 @@ export const getCountrySymbolBaseOnNameOrAlias = (
   };
 
   return COUNTRY_ALIASES?.[country] || country;
+};
+
+//
+export const getCountryBasedOnSymbol = (
+  countrySymbol: string | undefined
+): ICountry | undefined => {
+  if (!countrySymbol) {
+    return undefined;
+  }
+
+  const allCountries = Country.getAllCountries();
+  const foundCountry = allCountries.find(
+    (country) => country.isoCode === countrySymbol
+  );
+
+  return foundCountry;
 };

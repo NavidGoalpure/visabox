@@ -4,7 +4,7 @@ import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { ClientError } from '@sanity/client';
 
 const getAgentDetailQuery = (): string => {
-  const query = `*[_type=='agent' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
+  const query = `*[_type=='agent' && status=='active' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
    {
     mara_number,
     slug,
@@ -18,7 +18,7 @@ const getAgentDetailQuery = (): string => {
 };
 //////////////
 const getAgentAvatarQuery = (): string => {
-  const query = `*[_type=='agent' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
+  const query = `*[_type=='agent' && status=='active' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
    {
     avatar
    }`;
@@ -27,7 +27,7 @@ const getAgentAvatarQuery = (): string => {
 /////////////////
 //////////////
 const getAllAgentsSlugs = async (): Promise<MaraAgent[] | []> => {
-  const query = `*[_type=='agent' && !(_id in path('drafts.**'))]{
+  const query = `*[_type=='agent' && status=='active' && !(_id in path('drafts.**'))]{
   slug{
     current
   },

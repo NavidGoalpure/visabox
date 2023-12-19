@@ -66,7 +66,7 @@ export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 15px;
   padding: 2rem 0.5rem;
@@ -161,6 +161,7 @@ export const FieldsContainer = styled.div`
   width: 100%;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  height: 50%;
 `;
 
 export const ColFieldWrapper = styled.div`

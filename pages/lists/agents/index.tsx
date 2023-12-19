@@ -15,19 +15,37 @@ import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import { FiltersContextProvider } from 'PagesComponents/Agents/List/Context/SearchFilter';
 import { AgentsQueryKeys } from 'Utils/query/keys';
+import { useRouter } from 'next/router';
+import { getCountryBasedOnSymbol } from 'Utils/country-state-city';
 
 interface Props {
   statusCode: number | null;
 }
+
 const AgentList: NextPage<Props> = ({ statusCode }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   //
   if (statusCode) <Error statusCode={statusCode} />;
+  // get Url Params
+  const router = useRouter();
+  const countryInUrlParam = router?.query?.country?.toString();
+
+  function getSeoTitle(countrySymbol: string | undefined): string {
+    if (!countrySymbol) return t(LanguageKeys.SeoDesc);
+    else {
+      const country = getCountryBasedOnSymbol(countryInUrlParam);
+      return t(LanguageKeys.SeoTitleWithCountry, [
+        {
+          $countryName: country?.name || '',
+        },
+      ]);
+    }
+  }
   return (
     <PageLayout>
       <Seo
-        title={t(LanguageKeys.SeoTitle)}
+        title={getSeoTitle(countryInUrlParam)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com/${locale}/agents/`}
       />

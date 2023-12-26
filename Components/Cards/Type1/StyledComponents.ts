@@ -62,7 +62,7 @@ export const Code = styled.h3`
   width:min-content;
   padding: 0.5rem;
   align-items: center;
-  border-radius: 55px;
+  border-radius: 16px;
   margin-bottom: 1rem;
 `;
 

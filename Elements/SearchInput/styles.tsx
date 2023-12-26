@@ -1,14 +1,6 @@
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-height: 64px;
-  width: 100%;
-  height: 100%;
-`;
 export const inputContainerTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
@@ -31,8 +23,8 @@ const InputContainer = styled.div<{
   padding-inline-start: 3rem;
   padding-inline-end: 1rem;
   width: 100%;
-  height: 100%;
-  border-radius: 65px;
+  height: max-content;
+  border-radius: 16px;
   ////////////disabled////////////
   ${({ disabled }) => disabled && 'border-color:var(--color-gray5); '};
 `;
@@ -61,9 +53,12 @@ const InputStyle = css<{
 const StyledInput = styled.input`
   ${InputStyle}
 `;
+const StyledTextarea = styled.textarea`
+  ${InputStyle}
+`;
 
 const Error = styled.h5`
   color: var(--color-error);
   margin-top: 0.5rem;
 `;
-export { Error, StyledInput, InputContainer, Container, InputStyle };
+export { Error, StyledInput, InputContainer, InputStyle, StyledTextarea };

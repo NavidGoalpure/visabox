@@ -35,3 +35,12 @@ export const layer3_TextColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
+export const layer3_AnotherMessage_Bg = theme('mode', {
+  light: css`
+    background-color: white;
+    border: 2px solid var(--color-gray11);
+  `,
+  dark: css`
+    background-color: var(--color-gray10);
+  `,
+});

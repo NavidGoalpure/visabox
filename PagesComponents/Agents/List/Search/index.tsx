@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { SearchInput } from 'Elements/SearchInput';
+import { SearchInput } from 'Elements/SearchInput/input';
 import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -81,7 +81,6 @@ function Search({ searchValue, setSearchValue }: Props) {
   //
   return (
     <Container isShowPanel={isShowPanel}>
-      (
       <SearchElement
         value={searchValue}
         onChange={setSearchValue}
@@ -94,7 +93,7 @@ function Search({ searchValue, setSearchValue }: Props) {
         }
         isShowPanel={isShowPanel}
       />
-      )
+
       {isShowPanel && (
         <Panel>
           <FilterContainer>
@@ -186,7 +185,7 @@ const SearchIcon = styled(CiSearch)`
   margin-inline-end: 0.5rem;
 `;
 const PanelButton = styled(PrimaryButton)`
-  border-radius: 50px;
+  border-radius: 0.5rem;
   padding: 0;
   height: 3rem;
   width: 3rem;

@@ -5,8 +5,9 @@ import { CiSearch } from 'react-icons/ci';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { FaRegCircleStop } from 'react-icons/fa6';
 import { VscSend } from 'react-icons/vsc';
+
 interface Props {
-  sendMessage: (message?: string | undefined) => boolean;
+  sendMessage: (message?: string | undefined) => void;
   isLoading: boolean;
   stopStream: () => boolean;
 }
@@ -14,8 +15,6 @@ interface Props {
 function QuestionRow({ sendMessage, isLoading, stopStream }: Props) {
   const [inputValue, setInputValue] = useState<string>('');
   function sendQuestionHandler() {
-    console.log('navid inja');
-
     sendMessage(inputValue);
     setInputValue('');
   }

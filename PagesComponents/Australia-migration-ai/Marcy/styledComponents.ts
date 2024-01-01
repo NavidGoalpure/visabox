@@ -63,7 +63,7 @@ const PhoneImage = styled(Image)`
   width: 18rem;
   height: auto;
 `;
-const Desc = styled.p`
+const Desc = styled.div`
   ${Layer1_TextStyle};
   text-align: center;
   margin: 0;

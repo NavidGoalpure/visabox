@@ -16,7 +16,7 @@ import { ClientQueryKeys } from 'Utils/query/keys';
 import Header from '../NavigationMenu';
 import { componentStatements, LanguageKeys } from './const';
 import { Loading } from 'Elements/Loading';
-import { isAgencyLogedIn, isClientLogedIn, isLogout } from 'Utils/user';
+import { isClientLogedIn, isLogout } from 'Utils/user';
 import CountryModal from './CountryModal';
 import { Client, ClientCompletedForms } from 'Interfaces/Database/Client';
 import { ClientError } from '@sanity/client';

@@ -34,6 +34,7 @@ import { Hint_BG } from 'Styles/Theme/Hint/theme';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
+import { layer1_TitleColor } from 'Styles/Theme/Layers/layer1/theme';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -99,7 +100,11 @@ function Desktop() {
                 alt='phone-image'
               />
               <Title>{t(LanguageKeys.Section2Title)}</Title>
-              <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
+              <StyledDesc
+                dangerouslySetInnerHTML={{
+                  __html: t(LanguageKeys.Section2Subitle),
+                }}
+              />
             </Section>
             <SectionDivider />
             <StyledSection>
@@ -111,10 +116,13 @@ function Desktop() {
                   alt='phone-image'
                 />{' '}
                 <TestRobotWrapper>
-                  <TestRobotTitle>
-                    {t(LanguageKeys.CTATitle_Logined)}
-                  </TestRobotTitle>
-                  <PriceList></PriceList>
+                  <Title>{t(LanguageKeys.Section3Title)}</Title>
+                  <StyledDesc
+                    dangerouslySetInnerHTML={{
+                      __html: t(LanguageKeys.Section3Desc),
+                    }}
+                  />
+                  <PriceList />
                 </TestRobotWrapper>
               </TestRobotContainer>
             </StyledSection>
@@ -293,10 +301,10 @@ const Title = styled.h2`
   ${Layer1_TitleStyle};
   margin: 0;
   margin-bottom: 1.5rem;
+  text-align: center;
   span {
     ${TitleSpanTheme}
   }
-  text-align: center;
 `;
 const StyledSection = styled(Section)`
   min-height: unset;
@@ -332,11 +340,7 @@ const TestRobotWrapper = styled.div`
   align-items: center;
   gap: 1.5rem;
 `;
-const TestRobotTitle = styled.h3`
-  ${Headline4Style};
-  color: white;
-  text-align: center;
-`;
+
 const ContactUsContainer = styled.div`
   ${Hint_BG}
   padding: 2rem 5rem;

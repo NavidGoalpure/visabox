@@ -1,24 +1,43 @@
 import { FunctionCall, Message, TextMessage } from 'fixie';
-import { JSX } from 'react';
+import { AnchorHTMLAttributes, ClassAttributes, JSX } from 'react';
 import styled from 'styled-components';
 import {
   AnotherMessage_Style,
   layer3_TextStyle,
 } from 'Styles/Theme/Layers/layer3/style';
-import { ILookupEnum } from '../Interface';
-import { getLookupLabel } from '../Utils';
+import { containsArabicOrPersianAlphabets } from 'Utils';
+import { ILookupEnum } from './Interface';
+import { convertMarkdownToHTML, getLookupLabel } from './Utils';
 
 interface Props {
   messages: Message[] | undefined;
 }
+
 function AssistantMsg({ messages }: Props) {
   if (messages?.length === 0) return null;
   let outputComponent: JSX.Element[] = [];
-  messages?.map((message) => {
+  messages?.map(async (message) => {
     switch (message.kind) {
       case 'text':
+        // convertMarkdownToHtml(message.content).then((content) => {
+
+        //   outputComponent.push(<Container>{content}</Container>);
+        // });
+        const state = message.metadata;
+
         outputComponent.push(
-          <Container>{(message as TextMessage).content}</Container>
+          <Container>
+            <div
+              style={{
+                direction: containsArabicOrPersianAlphabets(message.content)
+                  ? 'rtl'
+                  : 'ltr',
+              }}
+              dangerouslySetInnerHTML={{
+                __html: convertMarkdownToHTML(message.content),
+              }}
+            />
+          </Container>
         );
         break;
       case 'functionCall':
@@ -52,7 +71,7 @@ const Container = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
   margin-inline-end: auto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
   white-space-collapse: break-spaces;
 `;
 const Aware = styled.div`

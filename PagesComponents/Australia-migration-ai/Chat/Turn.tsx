@@ -13,7 +13,7 @@ function Turn({ turn }: Props) {
   const { role, timestamp, state } = turn;
   if (role === 'assistant') return <AssistantMsg messages={turn?.messages} />;
 
-  return <SelfMessage>{message}</SelfMessage>;
+  return <SelfMessage>{message.trim()}</SelfMessage>;
 }
 export default Turn;
 

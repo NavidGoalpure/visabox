@@ -11,7 +11,7 @@ export const config = {
    *
    * https://nextjs.org/docs/basic-features/environment-variables
    **/
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'occupation-list',
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'occupation',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   apiVersion: '2021-10-21', // Learn more: https://www.sanity.io/docs/api-versioning
   /**

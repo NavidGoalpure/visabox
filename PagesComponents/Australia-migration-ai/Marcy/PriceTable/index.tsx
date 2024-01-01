@@ -15,111 +15,124 @@ const PriceList: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
-    <div>
-      <Grid>
-        {/* <MyCard
-          style={{ background: 'linear-gradient(-45deg, #f403d1, #64b5f6)' }}
-        >
-          <CardTitle>
-            <StyledSilverIcon />
-            <h2>{t(LanguageKeys.TestPlan)}</h2>
-          </CardTitle>
-          <Price>
-            <h4>$0</h4>
-            <h5>/only 3 answers</h5>
-          </Price>
-          <Option>
-            <ul>
-              <Li>
-                {t(LanguageKeys.PlanDescription1)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription2)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription3)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-            </ul>
-          </Option>
+    <Grid>
+      {/* ///////////Card1/////////// */}
+      <MyCard
+        style={{
+          background:
+            'linear-gradient(-45deg, rgb(236, 143, 95), rgb(113 113 104))',
+        }}
+      >
+        <CardTitle>
+          <StyledSilverIcon />
+          <h2>{t(LanguageKeys.TestPlan_Title)}</h2>
+        </CardTitle>
+        <Price>
+          <h4>{t(LanguageKeys.TestPlan_Price)}</h4>
+          <h5>{t(LanguageKeys.TestPlan_ABV)}</h5>
+        </Price>
+        <Option>
+          <ul>
+            <Li>
+              {t(LanguageKeys.PlanDescription1)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+            <Li>
+              {t(LanguageKeys.PlanDescription2)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+            <Li>
+              {t(LanguageKeys.PlanDescription3)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+          </ul>
+        </Option>
 
-          <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
-        </MyCard> */}
-        <MyCard
-          style={{ background: 'linear-gradient(-45deg,  #f321d7,#ffec61)' }}
-        >
-          <CardTitle>
-            <StyledGoldIcon />
+        <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
+      </MyCard>
+      {/* ///////////Card2/////////// */}
+      <MyCard
+        // style={{ background: 'linear-gradient(-45deg,  #f321d7,#ffec61)' }}
+        style={{
+          background:
+            'linear-gradient(-45deg, rgb(241, 159, 159), rgb(164 0 143))',
+        }}
+      >
+        <CardTitle>
+          <VIPBoxContainer aria-hidden={true}>
+            <VIPBox aria-hidden={true} />
+          </VIPBoxContainer>
+          <StyledGoldIcon />
+          <h2>{t(LanguageKeys.NormalPlan_Title)}</h2>
+        </CardTitle>
+        <Price>
+          <h4>{t(LanguageKeys.NormalPlan_Price)}</h4>
+          <h5>{t(LanguageKeys.NormalPlan_ABV)}</h5>
+        </Price>
+        <Option>
+          <ul>
+            <Li>
+              {t(LanguageKeys.PlanDescription1)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+            <Li>
+              {t(LanguageKeys.PlanDescription2)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+            <Li>
+              {t(LanguageKeys.PlanDescription3)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+          </ul>
+        </Option>
+        <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
+      </MyCard>
+      {/* ///////////Card3/////////// */}
+      <MyCard
+        // style={{ background: 'linear-gradient(-45deg, #24ff72, #9a4eff)' }}
+        style={{
+          background:
+            'linear-gradient(-45deg, rgb(133, 156, 255), rgb(21 48 145))',
+        }}
+      >
+        <CardTitle>
+          <StyledDiamondIcon />
 
-            <h2>{t(LanguageKeys.MonthlyPlan)}</h2>
-          </CardTitle>
-          <Price>
-            <h4>$19</h4> <h5>{t(LanguageKeys.MonthlyABV)}</h5>
-          </Price>
-          <Option>
-            <ul>
-              <Li>
-                {t(LanguageKeys.PlanDescription1)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription2)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription3)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-            </ul>
-          </Option>
-          <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
-        </MyCard>
-        <MyCard
-          style={{ background: 'linear-gradient(-45deg, #24ff72, #9a4eff)' }}
-        >
-          <CardTitle>
-            <VIPBoxContainer aria-hidden={true}>
-              <VIPBox aria-hidden={true} />
-            </VIPBoxContainer>
-            <StyledDiamondIcon />
-
-            <h2>{t(LanguageKeys.AnnualPlan)}</h2>
-          </CardTitle>
-          <Price>
-            <h4>$189</h4> <h5>/ year</h5>
-          </Price>
-          <Option>
-            <ul>
-              <Li>
-                {t(LanguageKeys.PlanDescription1)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <hr />
-              <Li>
-                {t(LanguageKeys.PlanDescription2)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription3)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-            </ul>
-          </Option>
-          <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
-        </MyCard>
-      </Grid>
-    </div>
+          <h2>{t(LanguageKeys.UnlimitedPlan)}</h2>
+        </CardTitle>
+        <Price>
+          <h4>{t(LanguageKeys.UnlimitedPlan_Price)}</h4>
+          <h5>{t(LanguageKeys.UnlimitedPlan_ABV)}</h5>
+        </Price>
+        <Option>
+          <ul>
+            <Li>
+              {t(LanguageKeys.PlanDescription1)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+            <hr />
+            <Li>
+              {t(LanguageKeys.PlanDescription2)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+            <Li>
+              {t(LanguageKeys.UnlimitedPlan_DescItem)
+                .replace('<span>', '')
+                .replace('</span>', '')}
+            </Li>
+          </ul>
+        </Option>
+        <CustomButton>{t(LanguageKeys.UnlimitedPlan_Button)}</CustomButton>
+      </MyCard>
+    </Grid>
   );
 };
 export default PriceList;
@@ -178,15 +191,11 @@ const MyCard = styled.div`
   }
 `;
 const CustomButton = styled(PrimaryButton)`
-  background: transparent;
-  color: var(--color-primary1);
+  background: var(--color-primary4);
+  color: #fff;
   height: 3rem;
   padding: 0 1rem;
   margin: auto;
-  &:hover {
-    background: transparent;
-    transition: all 0.4s ease 0s;
-  }
 `;
 const CardTitle = styled.div`
   .fa {
@@ -254,26 +263,28 @@ const StyledDiamondIcon = styled(MdDiamond)`
 const Price = styled.div`
   position: relative;
   z-index: 2;
-  padding: 32px 0px;
+  padding-bottom: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
+  flex-wrap: wrap;
+  h5 {
+    margin: 0;
+    color: var(--color-primary6);
+    font-size: 22px;
+  }
   h4 {
     margin: 0;
     color: #fff;
-    font-size: 30px;
-  }
-  h5 {
-    margin: 0;
-    color: #fff;
-    font-size: 16px;
-    color: var(--color-gray12);
+    font-size: 18px;
+    color: var(--color-primary6);
   }
 `;
 const Option = styled.div`
   position: relative;
   z-index: 2;
+  padding-bottom: 1rem;
   ul {
     margin: 0;
     padding: 0;
@@ -288,4 +299,8 @@ const Li = styled.li<{ disabled?: boolean }>`
   font-size: 16px;
   font-weight: bold;
   text-align: start;
+
+  &::before {
+    content: '• ';
+  }
 `;

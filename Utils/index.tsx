@@ -139,6 +139,14 @@ function convertToMd5(text: string) {
   return crypto.createHash('md5').update(text).digest('hex');
 }
 
+export function containsArabicOrPersianAlphabets(inputString: string): boolean {
+  // Regular expression for Arabic and Persian alphabets
+  const arabicOrPersianRegex =
+    /[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]/;
+
+  // Check if the input string contains any character within the Arabic and Persian Unicode ranges
+  return arabicOrPersianRegex.test(inputString);
+}
 export {
   getThemeFromLocalStorage,
   isItOnLive,

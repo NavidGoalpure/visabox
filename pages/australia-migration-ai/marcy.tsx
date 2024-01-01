@@ -6,9 +6,9 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Landings/AI/const';
+} from 'PagesComponents/Australia-migration-ai/Marcy/const';
 import styled from 'styled-components';
-import Content from 'PagesComponents/Landings/AI';
+import Content from 'PagesComponents/Australia-migration-ai/Marcy';
 
 const AIIntroduction: NextPage = () => {
   const { locale } = useLocale();

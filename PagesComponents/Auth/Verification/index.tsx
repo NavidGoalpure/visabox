@@ -21,7 +21,7 @@ import { ContentOrError } from 'Components/contentOrError';
 import { AxiosError } from 'axios';
 import { Logout } from 'Utils/user';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { fireGtmEvent, removeLocalStorage } from 'Utils';
+import { fireGtmEvent, getLocalStorage, removeLocalStorage } from 'Utils';
 
 interface Props {
   chosenRole: UserRole;
@@ -61,14 +61,14 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
           if (res?.client[0]?.country) {
             removeLocalStorage(LocalStorageKeys.Country);
           }
-          // اگر کلاینت قبلا وجود داشت برو به هوم پیج
-          if (res?.client[0]?.name) {
-            router.push(`/${locale}`);
+          const lastPage = getLocalStorage(LocalStorageKeys.Url_Before_Login);
+          if (lastPage) {
+            removeLocalStorage(LocalStorageKeys.Url_Before_Login);
+            router.push(lastPage);
           }
-          // اگر کلاینت برای اولین بار ثبت نام کرده بود
-          else {
-            router.push(`/${locale}/clients/point-calculator`);
-          }
+
+          router.push(`/${locale}`);
+
           SuccessToast(successToastMessage);
         })
         .catch(() => {

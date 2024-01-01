@@ -63,7 +63,9 @@ function Desktop() {
       <Section>
         <Title>{t(LanguageKeys.Section2Title)}</Title>
 
-        <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
+        <StyledDesc
+          dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Section2Subitle) }}
+        />
         <StyledPhoneImage
           width={329}
           height={281}
@@ -85,8 +87,11 @@ function Desktop() {
             alt='phone-image'
           />{' '}
           <TestRobotWrapper>
-            <TestRobotTitle>{t(LanguageKeys.CTATitle_Logined)}</TestRobotTitle>
-            <PriceList></PriceList>
+            <Title>{t(LanguageKeys.Section3Title)}</Title>
+            <Desc
+              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Section3Desc) }}
+            />
+            <PriceList />
           </TestRobotWrapper>
         </TestRobotContainer>
       </StyledSection>

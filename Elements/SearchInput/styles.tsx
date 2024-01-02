@@ -1,5 +1,8 @@
+import { Montserrat, Vazirmatn } from 'next/font/google';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
+const montserrat = Montserrat({ subsets: ['latin'] });
+const vazirmatn = Vazirmatn({ subsets: ['arabic'] });
 
 export const inputContainerTheme = theme('mode', {
   light: css`
@@ -42,6 +45,9 @@ const InputStyle = css<{
   height: inherit;
 
   ::placeholder {
+    font-family: ${montserrat.style.fontFamily}, ${vazirmatn.style.fontFamily},
+      'Open Sans', 'Poppin';
+
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

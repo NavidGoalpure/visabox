@@ -122,6 +122,7 @@ function Desktop() {
                       __html: t(LanguageKeys.Section3Desc),
                     }}
                   />
+                  {/* //////////Price List///// */}
                   <PriceList />
                 </TestRobotWrapper>
               </TestRobotContainer>

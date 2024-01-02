@@ -57,7 +57,10 @@ export const getUserCountry = (session: Session | null): string | undefined => {
   return data?.client?.[0]?.country;
 };
 ///////////////////
-export async function getCredit(email: string): Promise<Client | undefined> {
+export async function getCredit(
+  email: string | undefined
+): Promise<Client | null> {
+  if (!email) return null;
   const reqParams = `email == "${email}"`;
   const resParams = `credit,_id`;
   try {
@@ -68,6 +71,6 @@ export async function getCredit(email: string): Promise<Client | undefined> {
     });
     return clientData?.client?.[0];
   } catch (error) {
-    return undefined;
+    return null;
   }
 }

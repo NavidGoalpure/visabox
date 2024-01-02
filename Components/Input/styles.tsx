@@ -1,28 +1,20 @@
-import { FaExclamationTriangle } from "react-icons/fa";
-import styled, { css, keyframes } from "styled-components";
-import theme from "styled-theming";
+import { FaExclamationTriangle } from 'react-icons/fa';
+import styled, { css, keyframes } from 'styled-components';
+import theme from 'styled-theming';
 import {
   input_Label,
   input_Modal,
   input_Modal_Focus,
-} from "Styles/Theme/elementsInModal/input";
-import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { Headline7Style } from "Styles/Typo";
-const LoadingAnimation = keyframes`
- 0%{
-    transform-origin: 75% 50%;
-    transform: rotate(0deg) translateY(-50%);
-  }
-  100%{
-    transform: rotate(360deg) translateY(-50%);
-  }
-`;
+} from 'Styles/Theme/elementsInModal/input';
+import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { Headline7Style } from 'Styles/Typo';
+
 const SvgLoadingAnimation = keyframes`
   100%{
     stroke-dashoffset:12rem;
   }
 `;
-const LoadingBackgroundTheme = theme("mode", {
+const LoadingBackgroundTheme = theme('mode', {
   light: css`
     stroke: var(--color-gray9);
   `,
@@ -30,7 +22,7 @@ const LoadingBackgroundTheme = theme("mode", {
     stroke: var(--color-gray5);
   `,
 });
-const LoadingMovingTheme = theme("mode", {
+const LoadingMovingTheme = theme('mode', {
   light: css`
     stroke: var(--color-gray3);
   `,
@@ -38,7 +30,7 @@ const LoadingMovingTheme = theme("mode", {
     stroke: var(--color-gray8);
   `,
 });
-const inputTheme = theme("mode", {
+const inputTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: var(--box-shadow-layer2);
@@ -50,7 +42,7 @@ const inputTheme = theme("mode", {
     color-scheme: dark;
   `,
 });
-const InputDisabledTheme = theme("mode", {
+const InputDisabledTheme = theme('mode', {
   light: css`
     background: var(--color-gray10);
     color: var(--color-gray8);
@@ -60,7 +52,7 @@ const InputDisabledTheme = theme("mode", {
     color: var(--color-gray7);
   `,
 });
-const inputFocusTheme = theme("mode", {
+const inputFocusTheme = theme('mode', {
   light: css`
     border-bottom: 2px solid var(--color-gray2);
     background: white;
@@ -71,7 +63,7 @@ const inputFocusTheme = theme("mode", {
     border-bottom: 2px solid var(--color-gray10);
   `,
 });
-const inputPlaceHolderTheme = theme("mode", {
+const inputPlaceHolderTheme = theme('mode', {
   light: css`
     color: var(--color-gray9);
   `,
@@ -79,7 +71,7 @@ const inputPlaceHolderTheme = theme("mode", {
     color: var(--color-gray8);
   `,
 });
-const ErrorTheme = theme("mode", {
+const ErrorTheme = theme('mode', {
   light: css`
     box-shadow: var(--box-shadow-layer2);
   `,
@@ -103,7 +95,7 @@ const InputContainer = styled.div<{
   width: 100%;
   height: 100%;
 
-  input[type="date"]::-webkit-calendar-picker-indicator {
+  input[type='date']::-webkit-calendar-picker-indicator {
     background: transparent;
     color: transparent;
     cursor: pointer;
@@ -113,7 +105,7 @@ const InputContainer = styled.div<{
     width: auto;
   }
   ////////////disabled////////////
-  ${({ disabled }) => disabled && "border-color:var(--color-gray5); "};
+  ${({ disabled }) => disabled && 'border-color:var(--color-gray5); '};
 `;
 const InputWrapper = styled.div`
   position: relative;
@@ -179,7 +171,7 @@ const InputStyle = css<{
     -webkit-appearance: none;
     margin: 0;
   }
-  &[type="number"] {
+  &[type='number'] {
     -moz-appearance: textfield;
   }
   /////////focus////////
@@ -200,7 +192,7 @@ const InputStyle = css<{
     font-size: 16px;
     line-height: 22px;
     color: var(--color-gray10);
-    ${({ disabled }) => disabled && "color:var(--color-gray5); "};
+    ${({ disabled }) => disabled && 'color:var(--color-gray5); '};
   }
 `;
 const StyledInput = styled.input`

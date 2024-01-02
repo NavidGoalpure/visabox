@@ -1,30 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { FaShoppingCart } from 'react-icons/fa';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import Link from 'next/link';
 
-function NoCredit() {
+function MustLogin() {
   const { t } = useStaticTranslation(componentStatements);
   return (
     <Container>
       <Wrapper>
-        <Alarm>{t(LanguageKeys.OutOfChargeMessage)}</Alarm>
-        <Link href={`/australia-migration-ai/marcya`}>
-          <SendButton>
-            {t(LanguageKeys.Buy)}
-            <FaShoppingCart />
-          </SendButton>
+        <Alarm>{t(LanguageKeys.MustLoginDesc)}</Alarm>
+        <Link href={`/auth/signin`}>
+          <SendButton>{t(LanguageKeys.Login)}</SendButton>
         </Link>
       </Wrapper>
     </Container>
   );
 }
 
-export default NoCredit;
+export default MustLogin;
 const Container = styled.section`
   width: 100%;
   padding: 0 1rem 1rem;

@@ -22,9 +22,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: 'Marcy',
-    zh: 'Marcy',
-    en: 'Welcome to Marcy',
+    fa: 'به قلمرو «مارسیا» خوش آمدید',
+    zh: 'MARCYA',
+    en: 'Welcome to MARCYA',
   },
   PageSubtitle: {
     fa: 'آموزش دیده برای پاسخ به سوالات مربوط به اسناد «VETASSESS»،«ACS»،«TRA» و «Migration Strategy»',
@@ -32,9 +32,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: `Trained to answer questions related to "VETASSESS", "ACS", "TRA" and "Migration Strategy" documents`,
   },
   Disclaimer: {
-    fa: 'Disclaimer: هر چند که هوش مصنوعی ما راهنمایی های مفیدی در زمینه ارزیابی مدارک و مهاجرت به استرالیا ارائه می‌دهد، اما در نظر داشته باشید که این پلتفرم جایگزین مهارت‌ها و مشاوره شخصی که توسط کارشناسان مهاجرتی ارائه می‌شود، نمی‌باشد.',
-    zh: 'Disclaimer: 接受过回答与“VETASSESS”、“ACS”、“TRA”和“迁移策略”文件相关问题的培训',
-    en: `Disclaimer: While our AI provides guidance on Australia migration, it is essential to understand that this platform does not replace the expertise and personalized advice that can be provided by immigration experts or professionals.`,
+    fa: `<span>توجه:</span> هر چند که هوش مصنوعی ما راهنمایی های مفیدی در زمینه ارزیابی مدارک و مهاجرت به استرالیا ارائه می‌دهد، اما در نظر داشته باشید که این پلتفرم جایگزین مهارت‌ها و مشاوره شخصی که توسط کارشناسان مهاجرتی ارائه می‌شود، نمی‌باشد.`,
+    zh: `<span>免责声明:</span> 接受过回答与“VETASSESS”、“ACS”、“TRA”和“迁移策略”文件相关问题的培训`,
+    en: `<span>Disclaimer:</span> While our AI provides guidance on Australia migration, it is essential to understand that this platform does not replace the expertise and personalized advice that can be provided by immigration experts or professionals.`,
   },
 };
 export const LOOKUP_STORE: Record<ILookupEnum, string> = {

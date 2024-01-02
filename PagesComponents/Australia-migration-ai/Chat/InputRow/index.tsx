@@ -1,10 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AdvanceTextArea } from 'Elements/SearchInput/textarea';
 import styled from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { FaRegCircleStop } from 'react-icons/fa6';
 import { VscSend } from 'react-icons/vsc';
+import { useLocale } from 'Hooks/useLocale';
+import { Languages } from 'Interfaces';
+import { componentStatements, LanguageKeys } from './const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
 interface Props {
   sendMessage: (message?: string | undefined) => void;
@@ -13,7 +17,10 @@ interface Props {
 }
 
 function QuestionRow({ sendMessage, isLoading, stopStream }: Props) {
+  const { t } = useStaticTranslation(componentStatements);
+
   const [inputValue, setInputValue] = useState<string>('');
+  const { locale } = useLocale();
   function sendQuestionHandler() {
     sendMessage(inputValue);
     setInputValue('');
@@ -32,10 +39,10 @@ function QuestionRow({ sendMessage, isLoading, stopStream }: Props) {
             setInputValue(e.target.value);
           }}
           onKeyDown={handleKeyPress}
-          placeholder={'ask question'}
+          placeholder={t(LanguageKeys.Placeholder)}
           endElement={
             <SendButton onClick={isLoading ? stopStream : sendQuestionHandler}>
-              {isLoading ? <FaRegCircleStop /> : <VscSend />}
+              {isLoading ? <FaRegCircleStop /> : <SendIcon $locale={locale} />}
             </SendButton>
           }
         />
@@ -75,4 +82,8 @@ const SendButton = styled(PrimaryButton)`
   width: 3rem;
   flex-shrink: 0;
   margin-top: auto;
+`;
+const SendIcon = styled(VscSend)<{ $locale: Languages }>`
+  transform: ${({ $locale }) =>
+    $locale === Languages.fa ? 'rotate(180deg)' : 'none'};
 `;

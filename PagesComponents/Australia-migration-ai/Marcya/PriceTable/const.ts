@@ -74,7 +74,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   TestPlan_ABV: {
     en: '/ 20 Q&A',
-    fa: 'برای 20 پاسخ',
+    fa: 'برای ۲۰ پاسخ',
     zh: '为20个答案',
   },
   //

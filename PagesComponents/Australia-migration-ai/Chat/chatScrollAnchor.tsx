@@ -1,6 +1,6 @@
 'use client';
 
-import { useAtBottom } from 'PagesComponents/Australia-migration-ai/hooks/useAtBootom';
+import { useAtBottom } from 'PagesComponents/Australia-migration-ai/Chat/hooks/useAtBootom';
 import * as React from 'react';
 import { useInView } from 'react-intersection-observer';
 

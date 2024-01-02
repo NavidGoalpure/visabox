@@ -16,10 +16,10 @@ import { ContentOrError } from 'Components/contentOrError';
 
 interface Props {
   aiAgentId: string;
-  userData: Client | undefined;
+  userData: Client | null;
   errorCode?: string;
 }
-const MarcyPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
+const MarcyaPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
 
@@ -32,7 +32,7 @@ const MarcyPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
         canonical={`https://www.marabox.com/${locale}/australia-migration-ai/chat`}
       />
       <ContentOrError
-        isError={!!errorCode || !userData}
+        isError={!!errorCode}
         content={
           <Content
             aiAgentId={aiAgentId}
@@ -44,18 +44,20 @@ const MarcyPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
   );
 };
 
-export default MarcyPages;
+export default MarcyaPages;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
   try {
-    const userData = await getCredit(session?.user?.email || 'defensive');
+    const userData = await getCredit(session?.user?.email || undefined);
+    console.log('***navid userData=', userData);
+
     return {
       props: {
         //When you supply a session prop in _app.js, useSession won't show a loading state, as it'll already have the session available.
         // In this way, you can provide a more seamless user experience.
         session,
         aiAgentId: process?.env?.MIGRATION_AGENT_ID || 'defensive',
-        userData: userData,
+        userData: userData || {},
       },
     };
   } catch (error: any) {

@@ -1,167 +1,149 @@
 import styled, { css } from 'styled-components';
-import {
-  Desc,
-  Section,
-  SectionDivider,
-  TitleSpanTheme,
-} from '../styledComponents';
+import { TitleSpanTheme } from '../styledComponents';
 import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
 import { deviceMin } from 'Consts/device';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { LanguageKeys, componentStatements } from '../const';
+import { LanguageKeys, componentStatements } from './const';
 import { GiSilverBullet } from 'react-icons/gi';
 import { AiTwotoneGold } from 'react-icons/ai';
+import { PrimaryButton } from 'Elements/Button/Primary';
 
 import { MdDiamond } from 'react-icons/md';
 import { FiBox } from 'react-icons/fi';
+import { Languages } from 'Interfaces';
+import { useLocale } from 'Hooks/useLocale';
+import IranPaymentModal from '../IranPaymentModal';
 
 const PriceList: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
-
+  const { locale } = useLocale();
   return (
-    <Section>
-      <Title>{t(LanguageKeys.PriceTable_Title)}</Title>
-      <Desc
-        style={{ marginBottom: '2rem' }}
-        dangerouslySetInnerHTML={{
-          __html: t(LanguageKeys.PriceTable_Subtitle),
-        }}
-      />
+    <>
+      <IranPaymentModal />
       <Grid>
+        {/* ///////////Card1/////////// */}
         <MyCard
-          style={{ background: 'linear-gradient(-45deg, #f403d1, #64b5f6)' }}
+          $locale={locale}
+          style={{
+            background:
+              'linear-gradient(-45deg, rgb(236, 143, 95), rgb(113 113 104))',
+          }}
         >
           <CardTitle>
             <StyledSilverIcon />
-            <h2>{t(LanguageKeys.SilverPlan)}</h2>
+            <h2>{t(LanguageKeys.TestPlan_Title)}</h2>
           </CardTitle>
           <Price>
-            <h4>$199</h4> <h5>/mo</h5>
+            <h4>{t(LanguageKeys.TestPlan_Price)}</h4>
+            <h5>{t(LanguageKeys.TestPlan_ABV)}</h5>
           </Price>
           <Option>
             <ul>
               <Li>
-                {t(LanguageKeys.BetterSeenInAgentPages_Title)
+                {t(LanguageKeys.PlanDescription1)
                   .replace('<span>', '')
                   .replace('</span>', '')}
               </Li>
-              <Li disabled>
-                {t(LanguageKeys.PromoteInOccupationsPages_Title)
+              <Li>
+                {t(LanguageKeys.PlanDescription2)
                   .replace('<span>', '')
                   .replace('</span>', '')}
               </Li>
-              <Li disabled>
-                {t(LanguageKeys.AccessToFormsWall_Title)
+              <Li>
+                {t(LanguageKeys.PlanDescription3)
                   .replace('<span>', '')
                   .replace('</span>', '')}
               </Li>
             </ul>
           </Option>
-          {/* <a
-            className='btn btn-light btn-block'
-            href='https://codepen.io/collection/XdWJOQ/'
-          >
-            Order Now
-          </a> */}
-        </MyCard>
-        <MyCard
-          style={{ background: 'linear-gradient(-45deg,  #f321d7,#ffec61)' }}
-        >
-          <CardTitle>
-            <StyledGoldIcon />
 
-            <h2>{t(LanguageKeys.GoldPlan)}</h2>
-          </CardTitle>
-          <Price>
-            <h4>$299</h4> <h5>/mo</h5>
-          </Price>
-          <Option>
-            <ul>
-              <Li>
-                {t(LanguageKeys.BetterSeenInAgentPages_Title)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PromoteInOccupationsPages_Title)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li disabled>
-                {t(LanguageKeys.AccessToFormsWall_Title)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-            </ul>
-          </Option>
-          {/* <a
-            className='btn btn-light btn-block'
-            href='https://codepen.io/collection/XdWJOQ/'
-          >
-            Order Now
-          </a> */}
+          <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
         </MyCard>
+        {/* ///////////Card2/////////// */}
         <MyCard
-          style={{ background: 'linear-gradient(-45deg, #24ff72, #9a4eff)' }}
+          $locale={locale}
+          style={{
+            background:
+              'linear-gradient(-45deg, rgb(241, 159, 159), rgb(164 0 143))',
+          }}
         >
           <CardTitle>
             <VIPBoxContainer aria-hidden={true}>
               <VIPBox aria-hidden={true} />
             </VIPBoxContainer>
-            <StyledDiamondIcon />
-
-            <h2>{t(LanguageKeys.DiamondPlan)}</h2>
+            <StyledGoldIcon />
+            <h2>{t(LanguageKeys.NormalPlan_Title)}</h2>
           </CardTitle>
           <Price>
-            <h4>$399</h4> <h5>/mo</h5>
+            <h4>{t(LanguageKeys.NormalPlan_Price)}</h4>
+            <h5>{t(LanguageKeys.NormalPlan_ABV)}</h5>
           </Price>
           <Option>
             <ul>
               <Li>
-                {t(LanguageKeys.BetterSeenInAgentPages_Title)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <hr />
-              <Li>
-                {t(LanguageKeys.PromoteInOccupationsPages_Title)
+                {t(LanguageKeys.PlanDescription1)
                   .replace('<span>', '')
                   .replace('</span>', '')}
               </Li>
               <Li>
-                {t(LanguageKeys.AccessToFormsWall_Title)
+                {t(LanguageKeys.PlanDescription2)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <Li>
+                {t(LanguageKeys.PlanDescription3)
                   .replace('<span>', '')
                   .replace('</span>', '')}
               </Li>
             </ul>
           </Option>
+          <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
+        </MyCard>
+        {/* ///////////Card3/////////// */}
+        <MyCard
+          $locale={locale}
+          style={{
+            background:
+              'linear-gradient(-45deg, rgb(133, 156, 255), rgb(21 48 145))',
+          }}
+        >
+          <CardTitle>
+            <StyledDiamondIcon />
+
+            <h2>{t(LanguageKeys.UnlimitedPlan)}</h2>
+          </CardTitle>
+          <Price>
+            <h4>{t(LanguageKeys.UnlimitedPlan_Price)}</h4>
+            <h5>{t(LanguageKeys.UnlimitedPlan_ABV)}</h5>
+          </Price>
+          <Option>
+            <ul>
+              <Li>
+                {t(LanguageKeys.PlanDescription1)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <hr />
+              <Li>
+                {t(LanguageKeys.PlanDescription2)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+              <Li>
+                {t(LanguageKeys.UnlimitedPlan_DescItem)
+                  .replace('<span>', '')
+                  .replace('</span>', '')}
+              </Li>
+            </ul>
+          </Option>
+          <CustomButton>{t(LanguageKeys.UnlimitedPlan_Button)}</CustomButton>
         </MyCard>
       </Grid>
-      <Desc
-        style={{ margin: '4rem 0' }}
-        dangerouslySetInnerHTML={{
-          __html: t(LanguageKeys.PriceTable_Desc),
-        }}
-      />
-      <SectionDivider />
-    </Section>
+    </>
   );
 };
 export default PriceList;
 
-const Title = styled.h2`
-  ${Layer1_TitleStyle};
-  margin: 0;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  @media ${deviceMin.tabletS} {
-    text-align: start;
-  }
-  span {
-    ${TitleSpanTheme}
-  }
-`;
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -170,7 +152,7 @@ const Grid = styled.div`
   width: 100%;
   margin: 1rem auto;
 `;
-const MyCard = styled.div`
+const MyCard = styled.div<{ $locale?: Languages }>`
   text-align: center;
   position: relative;
   border-radius: 15px;
@@ -178,19 +160,13 @@ const MyCard = styled.div`
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
   transition: 0.5s;
   overflow: hidden;
+  min-height: ${({ $locale }) =>
+    $locale === Languages.fa ? '29rem' : '25rem'};
+  @media ${deviceMin.tabletS} {
+    min-height: 27rem;
+  }
   :hover {
     transform: scale(1.1);
-  }
-  :before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 38%;
-    background: rgba(73, 73, 73, 0.25);
-    z-index: 1;
-    transform: skewY(-5deg) scale(1.5);
   }
   a {
     position: relative;
@@ -201,6 +177,17 @@ const MyCard = styled.div`
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     font-weight: bold;
   }
+`;
+const CustomButton = styled(PrimaryButton)`
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  background: var(--color-primary4);
+  color: #fff;
+  height: 3rem;
+  padding: 0 1rem;
+  margin: auto;
 `;
 const CardTitle = styled.div`
   .fa {
@@ -268,26 +255,26 @@ const StyledDiamondIcon = styled(MdDiamond)`
 const Price = styled.div`
   position: relative;
   z-index: 2;
-  padding: 32px 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 1rem;
+
   gap: 0.2rem;
+  flex-wrap: wrap;
+  h5 {
+    margin: 0;
+    color: var(--color-primary6);
+    font-size: 22px;
+  }
   h4 {
     margin: 0;
     color: #fff;
-    font-size: 30px;
-  }
-  h5 {
-    margin: 0;
-    color: #fff;
-    font-size: 16px;
-    color: var(--color-gray12);
+    font-size: 18px;
+    color: var(--color-primary6);
   }
 `;
 const Option = styled.div`
   position: relative;
   z-index: 2;
+  padding-bottom: 1rem;
   ul {
     margin: 0;
     padding: 0;
@@ -302,4 +289,9 @@ const Li = styled.li<{ disabled?: boolean }>`
   font-size: 16px;
   font-weight: bold;
   text-align: start;
+
+  &::before {
+    content: '• ';
+    margin-initial-start: -1rem;
+  }
 `;

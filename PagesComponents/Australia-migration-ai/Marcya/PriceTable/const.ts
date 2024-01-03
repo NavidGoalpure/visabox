@@ -13,9 +13,9 @@ export enum LanguageKeys {
   TestPlan_Price = 'TestPlan_Price',
   TestPlan_ABV = 'TestPlan_ABV',
   //
-  NormalPlan_Title = 'NormalPlan_Title',
-  NormalPlan_Price = 'NormalPlan_Price',
-  NormalPlan_ABV = 'NormalPlan_ABV',
+  ProPlan_Title = 'ProPlan_Title',
+  ProPlan_Price = 'ProPlan_Price',
+  ProPlan_ABV = 'ProPlan_ABV',
   //
 
   UnlimitedPlan = 'UnlimitedPlan',
@@ -78,17 +78,17 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '为20个答案',
   },
   //
-  NormalPlan_Title: {
+  ProPlan_Title: {
     en: 'Normal Plan',
     fa: 'طرح نرمال',
     zh: '普通计划',
   },
-  NormalPlan_Price: {
+  ProPlan_Price: {
     en: '15AU',
     fa: '۳۰۰ هزار تومان',
     zh: '澳15',
   },
-  NormalPlan_ABV: {
+  ProPlan_ABV: {
     en: '/ 100 Q&A',
     fa: 'برای 100 پاسخ',
     zh: '为100个答案',

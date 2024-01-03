@@ -13,13 +13,22 @@ import { FiBox } from 'react-icons/fi';
 import { Languages } from 'Interfaces';
 import { useLocale } from 'Hooks/useLocale';
 import IranPaymentModal from '../IranPaymentModal';
+import { useState } from 'react';
 
 const PriceList: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+  const [iranPrice, setIranPrice] = useState<string>(
+    componentStatements.ProPlan_Price.fa
+  );
   return (
     <>
-      <IranPaymentModal />
+      <IranPaymentModal
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+        price={iranPrice}
+      />
       <Grid>
         {/* ///////////Card1/////////// */}
         <MyCard
@@ -39,25 +48,20 @@ const PriceList: React.FC = () => {
           </Price>
           <Option>
             <ul>
-              <Li>
-                {t(LanguageKeys.PlanDescription1)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription2)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription3)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
+              <Li>{t(LanguageKeys.PlanDescription1)}</Li>
+              <Li>{t(LanguageKeys.PlanDescription2)}</Li>
+              <Li>{t(LanguageKeys.PlanDescription3)}</Li>
             </ul>
           </Option>
 
-          <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
+          <CustomButton
+            onClick={() => {
+              setIranPrice(componentStatements.TestPlan_Price.fa);
+              setIsModalOpen(true);
+            }}
+          >
+            {t(LanguageKeys.CTA)}
+          </CustomButton>
         </MyCard>
         {/* ///////////Card2/////////// */}
         <MyCard
@@ -72,32 +76,27 @@ const PriceList: React.FC = () => {
               <VIPBox aria-hidden={true} />
             </VIPBoxContainer>
             <StyledGoldIcon />
-            <h2>{t(LanguageKeys.NormalPlan_Title)}</h2>
+            <h2>{t(LanguageKeys.ProPlan_Title)}</h2>
           </CardTitle>
           <Price>
-            <h4>{t(LanguageKeys.NormalPlan_Price)}</h4>
-            <h5>{t(LanguageKeys.NormalPlan_ABV)}</h5>
+            <h4>{t(LanguageKeys.ProPlan_Price)}</h4>
+            <h5>{t(LanguageKeys.ProPlan_ABV)}</h5>
           </Price>
           <Option>
             <ul>
-              <Li>
-                {t(LanguageKeys.PlanDescription1)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription2)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.PlanDescription3)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
+              <Li>{t(LanguageKeys.PlanDescription1)}</Li>
+              <Li>{t(LanguageKeys.PlanDescription2)}</Li>
+              <Li>{t(LanguageKeys.PlanDescription3)}</Li>
             </ul>
           </Option>
-          <CustomButton>{t(LanguageKeys.CTA)}</CustomButton>
+          <CustomButton
+            onClick={() => {
+              setIranPrice(componentStatements.ProPlan_Price.fa);
+              setIsModalOpen(true);
+            }}
+          >
+            {t(LanguageKeys.CTA)}
+          </CustomButton>
         </MyCard>
         {/* ///////////Card3/////////// */}
         <MyCard
@@ -118,22 +117,10 @@ const PriceList: React.FC = () => {
           </Price>
           <Option>
             <ul>
-              <Li>
-                {t(LanguageKeys.PlanDescription1)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
+              <Li>{t(LanguageKeys.PlanDescription1)}</Li>
               <hr />
-              <Li>
-                {t(LanguageKeys.PlanDescription2)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
-              <Li>
-                {t(LanguageKeys.UnlimitedPlan_DescItem)
-                  .replace('<span>', '')
-                  .replace('</span>', '')}
-              </Li>
+              <Li>{t(LanguageKeys.PlanDescription2)}</Li>
+              <Li>{t(LanguageKeys.UnlimitedPlan_DescItem)}</Li>
             </ul>
           </Option>
           <CustomButton>{t(LanguageKeys.UnlimitedPlan_Button)}</CustomButton>

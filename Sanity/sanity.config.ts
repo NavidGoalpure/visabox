@@ -1,7 +1,6 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
-import { internationalizedArray } from 'sanity-plugin-internationalized-array';
 
 import schemaTypes from './schemas/schema.js';
 

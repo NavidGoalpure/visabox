@@ -1,8 +1,8 @@
-import { device } from "Consts/device";
-import { useLocale } from "Hooks/useLocale";
-import { LanguageDirection } from "Interfaces";
-import React, { HTMLAttributes, useContext } from "react";
-import styled, { css } from "styled-components";
+import { device } from 'Consts/device';
+import { useLocale } from 'Hooks/useLocale';
+import { LanguageDirection } from 'Interfaces';
+import React, { HTMLAttributes, useContext } from 'react';
+import styled, { css } from 'styled-components';
 import {
   mobileFormAnimationBackOut,
   mobileFormAnimationOut,
@@ -16,9 +16,9 @@ import {
   DesktopFormAnimationBackOut_ltr,
   DesktopFormAnimationIn_ltr,
   DesktopFormAnimationOut_ltr,
-} from "./Animations";
+} from './Animations';
 
-import { WizardContext } from "./Context";
+import { WizardContext } from './Context';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }

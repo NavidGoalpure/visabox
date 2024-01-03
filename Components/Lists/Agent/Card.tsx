@@ -1,4 +1,4 @@
-import { HTMLAttributes, useEffect } from 'react';
+import { HTMLAttributes, useEffect, useState } from 'react';
 import { getGsapTimeLine_FadeUp } from 'Utils';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -22,24 +22,45 @@ import { MaraAgency } from 'Interfaces/Database/Lists/agents';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { getCountryFlag, getCountryOrAlias } from 'Utils/country-state-city';
+import { getAgentAvatar } from 'Queries/agents/Detail';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   name: string | undefined;
   agencies: MaraAgency[] | undefined;
   slug: string;
+  hasAvatar?: boolean;
   layerContext: '1' | '2';
-  avatar: string | undefined;
 }
 function AgentCard({
   name,
   agencies,
   slug,
-  avatar,
+  hasAvatar,
   layerContext,
   className,
   ...props
 }: Props) {
   const { t } = useStaticTranslation(componentStatements);
+  const [imgSrc, setImgSrc] = useState('/Images/placeholder.jpeg');
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      try {
+        const avatar = await getAgentAvatar({
+          slug,
+        });
+
+        if (avatar) {
+          setImgSrc(avatar);
+        }
+      } catch (error: any) {
+        console.error('Error fetching avatar:', error?.message);
+      }
+    };
+
+    if (slug && hasAvatar) {
+      fetchAvatar();
+    }
+  }, [hasAvatar]);
   useEffect(() => getGsapTimeLine_FadeUp(slug), []);
   const agencyCountries = agencies?.map((agency) =>
     getCountryOrAlias(agency?.country)
@@ -53,13 +74,13 @@ function AgentCard({
 
   return (
     <Container className={`${slug} ${className}`} {...props}>
-      <Link href={`/lists/agents/${slug}`} target='_blank'>
+      <Link href={`/lists/agents/${slug}`} target='_blank' prefetch={false}>
         <StyledWrapper>
           <ImageWrapper layerContext={layerContext}>
             <AgentLogo
               alt={`${slug}`}
               fill
-              src={avatar || `/Images/placeholder.jpeg`}
+              src={imgSrc}
               quality={100}
               sizes='96px'
             />

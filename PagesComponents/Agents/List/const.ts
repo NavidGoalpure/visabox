@@ -2,6 +2,7 @@ import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
+  SeoTitleWithCountry = 'SeoTitleWithCountry',
   SeoDesc = 'SeoDesc',
   //
   PageTitle = 'PageTitle',
@@ -23,6 +24,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Find MARA-Registered Agents | Mara Box',
     zh: '查找 MARA 注册代理商 | Mara Box',
   },
+  SeoTitleWithCountry: {
+    fa: 'جستجوی وکلای مهاجرت به استرالیا در کشور $countryName  | مارا باکس',
+    en: 'Find MARA-Registered Agents in $countryName | Mara Box',
+    zh: '查找 MARA 注册代理商 $countryName | Mara Box',
+  },
+
   SeoDesc: {
     fa: 'جستجوی وکلای مورد تایید مارا برای دریافت کمک های حرفه ای در فرایند پیچیده مهاجرت به استرالیا',
     en: 'Connecting You with Certified Migration Experts, Guiding You through the Complex Australian Visa Process.',

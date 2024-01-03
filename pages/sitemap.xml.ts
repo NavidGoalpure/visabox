@@ -1,6 +1,7 @@
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import { AgentsDetailsPages } from 'PagesComponents/sitemap/AgentDetailsPages';
+import { AgentLintInCountries } from 'PagesComponents/sitemap/AgentLintInCountries';
 import { AssessingAuthoritiesListPages } from 'PagesComponents/sitemap/AssessingAuthoritiesListPages';
 import { BlogsDetailsPages } from 'PagesComponents/sitemap/BlogsDetailsPages';
 import { NaatiListPages } from 'PagesComponents/sitemap/NaatiListPages';
@@ -31,6 +32,7 @@ async function generateSiteMap({
         <loc>${Domain_EN}/lists/agents</loc>
     </url>
    ${AgentsDetailsPages(allAgentsSlug)}
+   ${AgentLintInCountries()}
    </urlset>
  `;
 }

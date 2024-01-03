@@ -36,7 +36,7 @@ const getAgentsListQuery = ({
   searchCondition?: string;
   selectedFiltersObj?: SearchFilters;
 }): string => {
-  let newQuery = `*[_type=='agent' && mara_number>'${lastMaraNumber}'`;
+  let newQuery = `*[_type=='agent' && status=='active' && mara_number>'${lastMaraNumber}'`;
   // search value which typed
   if (searchCondition) newQuery = newQuery + searchCondition;
   //country filter
@@ -59,8 +59,9 @@ const getAgentsListQuery = ({
     slug,
     name,
     mara_number,
-    avatar,
-    agencies
+    agencies,
+    "hasAvatar": select(avatar==''=>false,true)
+
 }`;
 
   return newQuery;
@@ -103,7 +104,7 @@ const getAgentsList = async ({
  * @returns
  */
 const getlastAgentCode = async (): Promise<MaraAgent> => {
-  const lastAgentCodeQuery = `*[_type=='agent']| order(mara_number desc)[0] {
+  const lastAgentCodeQuery = `*[_type=='agent && status=='active']| order(mara_number desc)[0] {
   mara_number,
 }`;
   const data = await sanityClient.fetch(lastAgentCodeQuery);

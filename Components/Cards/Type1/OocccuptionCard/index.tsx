@@ -1,8 +1,5 @@
 import { useLocale } from 'Hooks/useLocale';
-import {
-  EnLanguage,
-  EnLanguageArray,
-} from 'Interfaces/Database';
+import { EnLanguage, EnLanguageArray } from 'Interfaces/Database';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';

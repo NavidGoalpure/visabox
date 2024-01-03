@@ -34,4 +34,7 @@ export interface MaraAgent {
   reg_date?: string;
   website?: string;
   agencies?: MaraAgency[];
+  //فیلدهای زیر به عنوان پراپرتی در سنیتی حضور ندارند
+  // اما در کوئری ها از آنها استفاده می‌کنیم و دیتایی که میخواهیم را درونشان میگذاریم
+  hasAvatar?: boolean;
 }

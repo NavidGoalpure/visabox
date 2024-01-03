@@ -1,17 +1,17 @@
-import { deviceMin } from "Consts/device";
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
-import styled, { css, keyframes } from "styled-components";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import DarkHeroImage from "./Images/DarkHeroImage.svg";
-import LightHeroImage from "./Images/LightHeroImage.svg";
-import { BiMouse } from "react-icons/bi";
-import DarkAgentCard from "./Images/DarkAgentCard.svg";
-import LightAgentCard from "./Images/LightAgentCard.svg";
-import DarkVipAgentCard from "./Images/DarkVipAgentCard.svg";
-import LightVipAgentCard from "./Images/LightVipAgentCard.svg";
-import Image from "next/image";
-import { copyContent } from "Utils";
-import { ThemeModes } from "Interfaces";
+import { deviceMin } from 'Consts/device';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import DarkHeroImage from './Images/DarkHeroImage.svg';
+import LightHeroImage from './Images/LightHeroImage.svg';
+import { BiMouse } from 'react-icons/bi';
+import DarkAgentCard from './Images/DarkAgentCard.svg';
+import LightAgentCard from './Images/LightAgentCard.svg';
+import DarkVipAgentCard from './Images/DarkVipAgentCard.svg';
+import LightVipAgentCard from './Images/LightVipAgentCard.svg';
+import Image from 'next/image';
+import { copyContent } from 'Utils';
+import { ThemeModes } from 'Interfaces';
 import {
   ContactsDesc,
   ContactsWrapper,
@@ -28,18 +28,18 @@ import {
   TelegramLink,
   TitleSpanTheme,
   VipAgentCard,
-} from "./styledComponents";
-import { LanguageKeys, componentStatements } from "./const";
-import Link from "next/link";
-import theme from "styled-theming";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import type { Engine } from "tsparticles-engine";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { tsParticleOption_Desktop } from "Styles/animation";
-import { getGsapTimeLine_Hero } from "Utils/animations";
-import PriceList from "./PriceTable";
-import { ThemeContext } from "Contexts/ThemeContext";
+} from './styledComponents';
+import { LanguageKeys, componentStatements } from './const';
+import Link from 'next/link';
+import theme from 'styled-theming';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import type { Engine } from 'tsparticles-engine';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { tsParticleOption_Desktop } from 'Styles/animation';
+import { getGsapTimeLine_Hero } from 'Utils/animations';
+import PriceList from './PriceTable';
+import { ThemeContext } from 'Contexts/ThemeContext';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
@@ -60,8 +60,8 @@ function Desktop() {
   const { t } = useStaticTranslation(componentStatements);
   const phoneToastMessage = t(LanguageKeys.copyGmailToastMessage);
   return (
-    <Container className="container">
-      <Hero className="hero" $isActive={isActive}>
+    <Container className='container'>
+      <Hero className='hero' $isActive={isActive}>
         <HeroWrapper>
           <MonthlyUsersWrapper>
             <HeroTitle>{t(LanguageKeys.HeroTitle)}</HeroTitle>
@@ -70,11 +70,11 @@ function Desktop() {
             />
           </MonthlyUsersWrapper>
           <HeroPicture
-            id={"hero-image"}
+            id={'hero-image'}
             width={431}
             height={272}
             src={theme === ThemeModes.DARK ? DarkHeroImage : LightHeroImage}
-            alt={"hero-image"}
+            alt={'hero-image'}
           />
           <MouseSection>
             <Line />
@@ -83,10 +83,10 @@ function Desktop() {
           </MouseSection>
         </HeroWrapper>
       </Hero>
-      <div ref={particlesContainer} style={{ position: "relative" }}>
+      <div ref={particlesContainer} style={{ position: 'relative' }}>
         <StyledParticles
           container={particlesContainer}
-          id="tsparticles"
+          id='tsparticles'
           init={particlesInit}
           options={tsParticleOption_Desktop}
         />
@@ -103,7 +103,7 @@ function Desktop() {
                 width={250}
                 height={200}
                 src={theme === ThemeModes.DARK ? DarkAgentCard : LightAgentCard}
-                alt="normal-agent-card"
+                alt='normal-agent-card'
               />
               <VipAgentCard
                 width={291}
@@ -113,13 +113,13 @@ function Desktop() {
                     ? DarkVipAgentCard
                     : LightVipAgentCard
                 }
-                alt="vip-agent-card"
+                alt='vip-agent-card'
               />
               <AgentCard
                 width={250}
                 height={200}
                 src={theme === ThemeModes.DARK ? DarkAgentCard : LightAgentCard}
-                alt="normal-agent-card"
+                alt='normal-agent-card'
               />
             </CardContainer>
 
@@ -129,11 +129,11 @@ function Desktop() {
               }}
             />
 
-            <StyledDesc style={{ zIndex: "10" }}>
+            <StyledDesc style={{ zIndex: '10' }}>
               <Link
-                href={"/lists/agents"}
-                rel="noopener noreferrer"
-                target="_blank"
+                href={'/lists/agents'}
+                rel='noopener noreferrer'
+                target='_blank'
               >
                 <span>{t(LanguageKeys.ViewAgentsPage)}</span>
               </Link>
@@ -150,7 +150,7 @@ function Desktop() {
             <OccupationCardSection_Img
               width={768}
               height={638}
-              alt="occupation-agent-card"
+              alt='occupation-agent-card'
               src={
                 theme === ThemeModes.DARK
                   ? `/Images/landing/Agents/DarkOccupationList.webp`
@@ -162,11 +162,11 @@ function Desktop() {
                 __html: t(LanguageKeys.PromoteInOccupationsPages_Desc),
               }}
             />
-            <StyledDesc style={{ zIndex: "10" }}>
+            <StyledDesc style={{ zIndex: '10' }}>
               <Link
-                href={"/occupations/construction-project-manager"}
-                rel="noopener noreferrer"
-                target="_blank"
+                href={'/occupations/construction-project-manager'}
+                rel='noopener noreferrer'
+                target='_blank'
               >
                 <span>{t(LanguageKeys.ViewOccupationPage)}</span>
               </Link>
@@ -183,7 +183,7 @@ function Desktop() {
             <OccupationCardSection_Img
               width={768}
               height={638}
-              alt="Form-Client-Page"
+              alt='Form-Client-Page'
               src={
                 theme === ThemeModes.DARK
                   ? `/Images/landing/Agents/FormDark.webp`
@@ -210,7 +210,7 @@ function Desktop() {
               <GmailContainer
                 onClick={() =>
                   copyContent({
-                    text: "marketing@marabox.com.au",
+                    text: 'marketing@marabox.com.au',
                     toastMessage: phoneToastMessage,
                   })
                 }
@@ -219,8 +219,8 @@ function Desktop() {
                 <GmailLink>marketing@marabox.com.au</GmailLink>
               </GmailContainer>
               <TelegramContainer
-                href={"https://t.me/maraboxmigration"}
-                target={"_blank"}
+                href={'https://t.me/maraboxmigration'}
+                target={'_blank'}
               >
                 <TelegramIcon />
                 <TelegramLink>@maraboxmigration</TelegramLink>
@@ -370,14 +370,6 @@ const Title = styled.h2`
   text-align: center;
 `;
 
-const LogoTheme = theme("mode", {
-  light: css`
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    color: var(--color-gray13);
-  `,
-});
 const OccupationCardSection_Img = styled(Image)`
   z-index: 10;
   width: 100%;

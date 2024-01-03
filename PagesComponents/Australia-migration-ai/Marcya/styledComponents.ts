@@ -63,7 +63,7 @@ const PhoneImage = styled(Image)`
   width: 18rem;
   height: auto;
 `;
-const Desc = styled.p`
+const Desc = styled.div`
   ${Layer1_TextStyle};
   text-align: center;
   margin: 0;
@@ -71,7 +71,17 @@ const Desc = styled.p`
   span {
     ${DescSpanTheme}
   }
-
+  li {
+    margin-bottom: 1rem;
+    text-align: start;
+    &::before {
+      content: '• ';
+      margin-inline-start: -1rem;
+    }
+  }
+  p {
+    text-align: start;
+  }
   @media ${deviceMin.tabletL} {
     font-size: 32px;
     line-height: 46px;
@@ -92,7 +102,10 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0 0.5rem;
+  padding: 0 1.5rem;
+  @media ${deviceMin.tabletS} {
+    padding: 0 1rem;
+  }
 `;
 
 const ContactUsContainer = styled.div`

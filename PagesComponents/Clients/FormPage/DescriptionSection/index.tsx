@@ -1,41 +1,41 @@
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from "Styles/Theme/Layers/layer2/style";
-import { layer2A_TextColor } from "Styles/Theme/Layers/layer2/theme";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { Headline7Style } from "Styles/Typo";
-import { FaPhone } from "react-icons/fa";
-import { deviceMin } from "Consts/device";
-import { SiGmail } from "react-icons/si";
-import { copyContent } from "Utils";
+} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_TextColor } from 'Styles/Theme/Layers/layer2/theme';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { Headline7Style } from 'Styles/Typo';
+import { FaPhone } from 'react-icons/fa';
+import { deviceMin } from 'Consts/device';
+import { SiGmail } from 'react-icons/si';
+import { copyContent } from 'Utils';
 import {
   Client,
   ClientCompletedForms,
   ClientDegree,
-} from "Interfaces/Database/Client";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { useLocale } from "Hooks/useLocale";
-import { BsCheck } from "react-icons/bs";
-import { IoCloseOutline } from "react-icons/io5";
-import TooltipTag from "Elements/TooltipTag";
-import { FiInfo } from "react-icons/fi";
-import { MdOutlineEdit } from "react-icons/md";
-import useDevice from "Hooks/useDevice";
-import { useState, useEffect, Dispatch, SetStateAction } from "react";
-import { getMultiLanguageLabels } from "../utils";
-import EditModal from "../EditModal";
+} from 'Interfaces/Database/Client';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useLocale } from 'Hooks/useLocale';
+import { BsCheck } from 'react-icons/bs';
+import { IoCloseOutline } from 'react-icons/io5';
+import TooltipTag from 'Elements/TooltipTag';
+import { FiInfo } from 'react-icons/fi';
+import { MdOutlineEdit } from 'react-icons/md';
+import useDevice from 'Hooks/useDevice';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { getMultiLanguageLabels } from '../utils';
+import EditModal from '../EditModal';
 import {
   componentStatements,
   LanguageKeys,
   EditModalContentKeys,
-} from "../const";
-import { useSession } from "next-auth/react";
-import { EditButton, EditIcon } from "../StyledComponents";
-import AddDegreesSection from "./AddDegreeSection";
-import CurrentJobsSection from "./AddJobSection";
+} from '../const';
+import { useSession } from 'next-auth/react';
+import { EditButton, EditIcon } from '../StyledComponents';
+import AddDegreesSection from './AddDegreeSection';
+import CurrentJobsSection from './AddJobSection';
 
 interface Props {
   client: Client;
@@ -70,14 +70,14 @@ function DescriptionSection({
             isViewerOwner && EditClickHandler(EditModalContentKeys.BIRTH_DATE)
           }
         >
-          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.BirthDateLabel)}</Label>{' '}
           <Value>
             {data?.birthday
               ? data?.birthday?.slice(0, 10)
               : data?.age?.slice(0, 10)}
           </Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </DataWrapper>
         <DataWrapper
@@ -87,10 +87,10 @@ function DescriptionSection({
             EditClickHandler(EditModalContentKeys.ENGLISH_SKILL)
           }
         >
-          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.EnglishSkillsLabel)}</Label>{' '}
           <Value>{data?.IELTSScore}</Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </DataWrapper>
         <DataWrapper $isViewerOwner={isViewerOwner} $isCursorAuto={true}>
@@ -101,10 +101,10 @@ function DescriptionSection({
             }
           >
             {t(LanguageKeys.MarriageStatusLabel)}
-          </Label>{" "}
+          </Label>{' '}
           <Value>
-            {data?.marital?.[locale]}{" "}
-            {data?.marital?.en === "Married" && (
+            {data?.marital?.[locale]}{' '}
+            {data?.marital?.en === 'Married' && (
               <TooltipTag
                 popupContent={
                   <>
@@ -123,7 +123,7 @@ function DescriptionSection({
                     )}
                     <PartnerPopupContent>
                       <PartnerPopupLabel>
-                        {" "}
+                        {' '}
                         {t(LanguageKeys.PartnerEnglishLabel)}
                       </PartnerPopupLabel>
                       {data?.is_partner_competent_english_speaker ? (
@@ -149,7 +149,7 @@ function DescriptionSection({
                 EditClickHandler(EditModalContentKeys.MARRIAGE_STATUS)
               }
             >
-              {isMobile ? <EditIcon /> : "[edit]"}
+              {isMobile ? <EditIcon /> : '[edit]'}
             </EditButton>
           )}
         </DataWrapper>
@@ -160,10 +160,10 @@ function DescriptionSection({
               isViewerOwner && EditClickHandler(EditModalContentKeys.COUNTRY)
             }
           >
-            <Label>{t(LanguageKeys.CountryLabel)}</Label>{" "}
+            <Label>{t(LanguageKeys.CountryLabel)}</Label>{' '}
             <Value>{data?.country?.[locale]}</Value>
             {isViewerOwner && (
-              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+              <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
             )}
           </DataWrapper>
         )}
@@ -174,10 +174,10 @@ function DescriptionSection({
             EditClickHandler(EditModalContentKeys.FIELD_OF_STUDY)
           }
         >
-          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.FieldOfStudyLabel)}</Label>{' '}
           <Value>{data?.fieldOfStudy}</Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </DataWrapper>
         {client?.degree !== ClientDegree.IDontHaveAny &&
@@ -188,10 +188,10 @@ function DescriptionSection({
               isViewerOwner && EditClickHandler(EditModalContentKeys.DEGREE)
             }
           >
-            <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
+            <Label>{t(LanguageKeys.DegreeLabel)}</Label>{' '}
             <Value>{data?.degree?.[locale]}</Value>
             {isViewerOwner && (
-              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+              <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
             )}
           </NoLineDataWrapper>
         ) : (
@@ -201,10 +201,10 @@ function DescriptionSection({
               isViewerOwner && EditClickHandler(EditModalContentKeys.DEGREE)
             }
           >
-            <Label>{t(LanguageKeys.DegreeLabel)}</Label>{" "}
+            <Label>{t(LanguageKeys.DegreeLabel)}</Label>{' '}
             <Value>{data?.degree?.[locale]}</Value>
             {isViewerOwner && (
-              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+              <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
             )}
           </DataWrapper>
         )}
@@ -226,7 +226,7 @@ function DescriptionSection({
         >
           <Label>
             {t(LanguageKeys.AustralianEducationalQualificationLabel)}
-          </Label>{" "}
+          </Label>{' '}
           <Value>
             {data?.australian_educational_qualification ? (
               <Checkmark />
@@ -244,7 +244,7 @@ function DescriptionSection({
             )
           }
         >
-          <Label>{t(LanguageKeys.DesignatedRegionalAreaStudyLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.DesignatedRegionalAreaStudyLabel)}</Label>{' '}
           <Value>
             {data?.designated_regional_area_study ? (
               <Checkmark />
@@ -253,7 +253,7 @@ function DescriptionSection({
             )}
           </Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </NoLineDataWrapper>
         <DataWrapper
@@ -267,7 +267,7 @@ function DescriptionSection({
         >
           <Label>
             {t(LanguageKeys.SpecialistEducationalQualificationLabel)}
-          </Label>{" "}
+          </Label>{' '}
           <Value>
             {data?.specialist_educational_qualification ? (
               <Checkmark />
@@ -285,7 +285,7 @@ function DescriptionSection({
             )
           }
         >
-          <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.ProfessionalYearInAustraliaLabel)}</Label>{' '}
           <Value>
             {data?.professional_year_in_australia ? (
               <Checkmark />
@@ -294,7 +294,7 @@ function DescriptionSection({
             )}
           </Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </DataWrapper>
         <DataWrapper
@@ -304,7 +304,7 @@ function DescriptionSection({
             EditClickHandler(EditModalContentKeys.ACCREDITED_COMMUNITY_LANGUAGE)
           }
         >
-          <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.AccreditedCommunityLanguageLabel)}</Label>{' '}
           <Value>
             {data?.accredited_community_language ? (
               <Checkmark />
@@ -313,7 +313,7 @@ function DescriptionSection({
             )}
           </Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </DataWrapper>
         {client?.all_jobs?.length !== 0 ? (
@@ -324,10 +324,10 @@ function DescriptionSection({
               EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
             }
           >
-            <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
+            <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{' '}
             <Value>{data?.uniSection?.[locale]}</Value>
             {isViewerOwner && (
-              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+              <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
             )}
           </NoLineDataWrapper>
         ) : (
@@ -338,10 +338,10 @@ function DescriptionSection({
               EditClickHandler(EditModalContentKeys.UNIVERSITY_SECTION)
             }
           >
-            <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{" "}
+            <Label>{t(LanguageKeys.UniversitySectionLabel)}</Label>{' '}
             <Value>{data?.uniSection?.[locale]}</Value>
             {isViewerOwner && (
-              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+              <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
             )}
           </DataWrapper>
         )}
@@ -358,10 +358,10 @@ function DescriptionSection({
             EditClickHandler(EditModalContentKeys.WORK_EXPERIENCE_OVERSEAS)
           }
         >
-          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.WorkExperienceLabel)}</Label>{' '}
           <Value>{data?.workExperience?.[locale]}</Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </DataWrapper>
         <DataWrapper
@@ -371,10 +371,10 @@ function DescriptionSection({
             EditClickHandler(EditModalContentKeys.AUSTRALIAN_WORK_EXPERIENCE)
           }
         >
-          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{" "}
+          <Label>{t(LanguageKeys.AustralianWorkExperienceLabel)}</Label>{' '}
           <Value>{data?.australianWorkExperience?.[locale]}</Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </DataWrapper>
         {!!client?.phone && (
@@ -384,15 +384,15 @@ function DescriptionSection({
               isViewerOwner
                 ? EditClickHandler(EditModalContentKeys.PHONE_NUMBER)
                 : copyContent({
-                    text: data.phoneNumber || "",
+                    text: data.phoneNumber || '',
                     toastMessage: phoneToastMessage,
                   })
             }
           >
-            <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{" "}
+            <Label>{t(LanguageKeys.PhoneNumberTitle)}</Label>{' '}
             <Value>{data?.phoneNumber}</Value>
             {isViewerOwner && (
-              <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+              <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
             )}
           </StyledDataWrapper>
         )}
@@ -403,15 +403,15 @@ function DescriptionSection({
             isViewerOwner
               ? EditClickHandler(EditModalContentKeys.EMAIL)
               : copyContent({
-                  text: data.email || "",
+                  text: data.email || '',
                   toastMessage: gmailToastMessage,
                 })
           }
         >
-          <Label>{t(LanguageKeys.EmailTitle)}</Label>{" "}
+          <Label>{t(LanguageKeys.EmailTitle)}</Label>{' '}
           <Value>{data?.email}</Value>
           {isViewerOwner && (
-            <EditButton>{isMobile ? <EditIcon /> : "[edit]"}</EditButton>
+            <EditButton>{isMobile ? <EditIcon /> : '[edit]'}</EditButton>
           )}
         </StyledDataWrapper>
       </Wrapper>
@@ -420,7 +420,7 @@ function DescriptionSection({
 }
 export default DescriptionSection;
 
-const FormDataTheme = theme("mode", {
+const FormDataTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
   `,
@@ -428,7 +428,7 @@ const FormDataTheme = theme("mode", {
     background: var(--color-gray6);
   `,
 });
-const BorderColor = theme("mode", {
+const BorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray11);
   `,
@@ -436,13 +436,13 @@ const BorderColor = theme("mode", {
     border-color: var(--color-gray7);
   `,
 });
-const FormDataDropshadow = theme("mode", {
+const FormDataDropshadow = theme('mode', {
   light: css`
     filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
   `,
   dark: css``,
 });
-const LabelTheme = theme("mode", {
+const LabelTheme = theme('mode', {
   light: css`
     color: var(--color-gray8);
   `,
@@ -451,7 +451,7 @@ const LabelTheme = theme("mode", {
   `,
 });
 
-const IconTheme = theme("mode", {
+const IconTheme = theme('mode', {
   light: css`
     color: var(--color-primary13);
   `,
@@ -459,22 +459,7 @@ const IconTheme = theme("mode", {
     color: var(--color-primary1);
   `,
 });
-const Icon = css`
-  ${layer2A_TextColor}
-  width: 3rem;
-  height: 3rem;
-  @media ${deviceMin.tabletS} {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-`;
-const SocialsContainerCss = css`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  cursor: pointer;
-`;
+
 const FormData = styled.div`
   ${FormDataTheme};
   ${FormDataDropshadow};
@@ -559,30 +544,7 @@ const PartnerPopupContent = styled.div`
 const PartnerPopupLabel = styled.div`
   ${Headline7Style};
 `;
-const PhoneContainer = styled.div`
-  ${SocialsContainerCss};
-  cursor: auto;
-  @media ${deviceMin.tabletS} {
-    ${FormDataTheme};
-    border-radius: 0 0 15px 15px;
-    padding: 0.5rem;
-    position: absolute;
-    bottom: 0;
-    inset-inline-start: 0;
-    transform: translateY(90%);
-  }
-`;
-const PhoneIcon = styled(FaPhone)`
-  ${Icon}
-`;
-const PhoneTitle = styled.h3`
-  ${layer2A_TextColor};
-  ${layer2A_SubtitleStyle};
-  word-break: break-all;
-  display: flex;
-  flex-direction: column;
-  direction: ltr;
-`;
+
 const Checkmark = styled(BsCheck)`
   color: var(--color-primary3);
   height: auto;

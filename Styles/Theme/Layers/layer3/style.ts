@@ -2,7 +2,12 @@ import { css } from 'styled-components';
 import theme from 'styled-theming';
 import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
 import { borderTheme, directionStyles } from '../..';
-import { layer3_BG, layer3_SubtitleColor, layer3_TextColor } from './theme';
+import {
+  layer3_AnotherMessage_style,
+  layer3_BG,
+  layer3_SubtitleColor,
+  layer3_TextColor,
+} from './theme';
 
 ///////////////layer3/////////////
 export const layer3_TitleStyle = css`
@@ -37,6 +42,18 @@ export const layer3_HeaderStyle = css`
   border-top: none;
   border-right: none;
   border-left: none;
+`;
+export const AnotherMessage_Style = css`
+  ${layer3_AnotherMessage_style}
+  ${directionStyles}
+  font-size:18px;
+  line-height: 26px;
+`;
+export const SelfMessage_Style = css`
+  ${directionStyles}
+  background-color: var(--color-primary5);
+  font-size: 18px;
+  line-height: 26px;
 `;
 export const layer3_style = css`
   ${layer3_BG}

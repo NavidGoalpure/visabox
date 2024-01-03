@@ -20,7 +20,6 @@ import {
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
-import { PrimaryButton } from 'Elements/Button/Primary';
 import theme from 'styled-theming';
 import { tsParticleOption_Mobile } from 'Styles/animation';
 import { Headline5Style } from 'Styles/Typo';
@@ -40,7 +39,6 @@ function Desktop() {
   const particlesContainer = useRef(null);
   /////////
   const { t } = useStaticTranslation(componentStatements);
-  const phoneToastMessage = t(LanguageKeys.copyGmailToastMessage);
   //
   return (
     <Container className='container' ref={particlesContainer}>
@@ -53,7 +51,7 @@ function Desktop() {
       <Hero className='hero'>
         <HeroWrapper>
           <MonthlyUsersWrapper>
-            <HeroTitle>Marcy</HeroTitle>
+            <HeroTitle>{t(LanguageKeys.BotName)}</HeroTitle>
             <Desc>{t(LanguageKeys.BotDesc)}</Desc>
           </MonthlyUsersWrapper>
         </HeroWrapper>
@@ -61,9 +59,6 @@ function Desktop() {
       <SectionDivider />
 
       <Section>
-        <Title>{t(LanguageKeys.Section2Title)}</Title>
-
-        <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
         <StyledPhoneImage
           width={329}
           height={281}
@@ -73,6 +68,11 @@ function Desktop() {
               : '/Images/landing/AI/LightMobile.png'
           }
           alt='phone-image'
+        />
+        <Title>{t(LanguageKeys.Section2Title)}</Title>
+
+        <StyledDesc
+          dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Section2Subitle) }}
         />
       </Section>
       <SectionDivider />
@@ -85,8 +85,11 @@ function Desktop() {
             alt='phone-image'
           />{' '}
           <TestRobotWrapper>
-            <TestRobotTitle>{t(LanguageKeys.CTATitle_Logined)}</TestRobotTitle>
-            <PriceList></PriceList>
+            <Title>{t(LanguageKeys.Section3Title)}</Title>
+            <Desc
+              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Section3Desc) }}
+            />
+            <PriceList />
           </TestRobotWrapper>
         </TestRobotContainer>
       </StyledSection>

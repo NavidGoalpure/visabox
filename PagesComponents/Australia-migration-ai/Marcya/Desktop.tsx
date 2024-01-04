@@ -34,8 +34,13 @@ import { Hint_BG } from 'Styles/Theme/Hint/theme';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
+import { SupportedCountry } from 'Interfaces/Database';
 
-function Desktop() {
+interface Props {
+  isLogin: boolean;
+  userCountry: SupportedCountry;
+}
+function Desktop({ isLogin, userCountry }: Props) {
   const [isActive, setIsActive] = useState(true);
   useEffect(() => {
     getGsapTimeLine_Hero(setIsActive);
@@ -122,7 +127,7 @@ function Desktop() {
                     }}
                   />
                   {/* //////////Price List///// */}
-                  <PriceList />
+                  <PriceList isLogin={isLogin} userCountry={userCountry} />
                 </TestRobotWrapper>
               </TestRobotContainer>
             </StyledSection>

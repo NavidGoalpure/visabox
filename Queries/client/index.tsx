@@ -34,7 +34,9 @@ export const getClientDetail = async ({
     throw error;
   }
 };
-export const getUserCountry = (session: Session | null): string | undefined => {
+export const getUserCountry = async (
+  session: Session | null
+): Promise<string | undefined> => {
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `country`;
 

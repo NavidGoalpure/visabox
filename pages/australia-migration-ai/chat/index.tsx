@@ -19,7 +19,7 @@ interface Props {
   userData: Client | null;
   errorCode?: string;
 }
-const MarcyaPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
+const AIChatPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
 
@@ -44,7 +44,7 @@ const MarcyaPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
   );
 };
 
-export default MarcyaPages;
+export default AIChatPages;
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
   try {

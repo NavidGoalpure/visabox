@@ -9,9 +9,9 @@ export enum LanguageKeys {
   PlanDescription3 = 'PlanDescription3',
   ContactUs = 'ContactUs',
   //
-  TestPlan_Title = 'TestPlan_Title',
-  TestPlan_Price = 'TestPlan_Price',
-  TestPlan_ABV = 'TestPlan_ABV',
+  BasicPlan_Title = 'BasicPlan_Title',
+  BasicPlan_Price = 'BasicPlan_Price',
+  BasicPlan_ABV = 'BasicPlan_ABV',
   //
   ProPlan_Title = 'ProPlan_Title',
   ProPlan_Price = 'ProPlan_Price',
@@ -61,18 +61,18 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '如果您有兴趣拥有Marabox特惠代理账户，请通过以下方式与我们联系。',
   },
 
-  TestPlan_Title: {
+  BasicPlan_Title: {
     en: 'Test Plan',
     fa: ' طرح آزمایشی',
     zh: '测试计划',
   },
 
-  TestPlan_Price: {
+  BasicPlan_Price: {
     en: '5AU',
     fa: '۱۰۰ هزار تومان',
     zh: '澳5',
   },
-  TestPlan_ABV: {
+  BasicPlan_ABV: {
     en: '/ 20 Q&A',
     fa: 'برای ۲۰ پاسخ',
     zh: '为20个答案',

@@ -12,21 +12,22 @@ import { FiBox } from 'react-icons/fi';
 import { Languages } from 'Interfaces';
 import { useLocale } from 'Hooks/useLocale';
 import IranPaymentModal from '../IranPaymentModal';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import StripeButton from './stripeButton';
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+import { IPriceIds } from 'Interfaces/Payment';
+import { SupportedCountry } from 'Interfaces/Database';
+import LoginButton from 'Components/LoginButton';
+import SmartStripeButton from './stripeButton';
 
-const PriceList: React.FC = () => {
+interface Props {
+  isLogin: boolean;
+  userCountry: SupportedCountry;
+}
+const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [iranPrice, setIranPrice] = useState<string>(
     componentStatements.ProPlan_Price.fa
   );
@@ -49,11 +50,11 @@ const PriceList: React.FC = () => {
         >
           <CardTitle>
             <StyledSilverIcon />
-            <h2>{t(LanguageKeys.TestPlan_Title)}</h2>
+            <h2>{t(LanguageKeys.BasicPlan_Title)}</h2>
           </CardTitle>
           <Price>
-            <h4>{t(LanguageKeys.TestPlan_Price)}</h4>
-            <h5>{t(LanguageKeys.TestPlan_ABV)}</h5>
+            <h4>{t(LanguageKeys.BasicPlan_Price)}</h4>
+            <h5>{t(LanguageKeys.BasicPlan_ABV)}</h5>
           </Price>
           <Option>
             <ul>
@@ -62,10 +63,18 @@ const PriceList: React.FC = () => {
               <Li>{t(LanguageKeys.PlanDescription3)}</Li>
             </ul>
           </Option>
-          <Elements stripe={stripePromise}>
-            <StripeButton label='navid pay' />
-          </Elements>
+          {/* ///////دکمه پرداخت یا لاگین/////////// */}
+          <SmartStripeButton
+            label={t(LanguageKeys.CTA)}
+            priceId={IPriceIds.BasicPlan}
+            isLogin={isLogin}
+            userCountry={userCountry}
+            iranPrice={componentStatements.BasicPlan_Price.fa}
+            setIranPrice={setIranPrice}
+            setIsModalOpen={setIsModalOpen}
+          />
         </MyCard>
+
         {/* ///////////Card2/////////// */}
         <MyCard
           $locale={locale}
@@ -92,14 +101,16 @@ const PriceList: React.FC = () => {
               <Li>{t(LanguageKeys.PlanDescription3)}</Li>
             </ul>
           </Option>
-          <CustomButton
-            onClick={() => {
-              setIranPrice(componentStatements.ProPlan_Price.fa);
-              setIsModalOpen(true);
-            }}
-          >
-            {t(LanguageKeys.CTA)}
-          </CustomButton>
+          {/* ///////دکمه پرداخت یا لاگین/////////// */}
+          <SmartStripeButton
+            label={t(LanguageKeys.CTA)}
+            priceId={IPriceIds.ProPlan}
+            isLogin={isLogin}
+            userCountry={userCountry}
+            iranPrice={componentStatements.ProPlan_Price.fa}
+            setIranPrice={setIranPrice}
+            setIsModalOpen={setIsModalOpen}
+          />
         </MyCard>
         {/* ///////////Card3/////////// */}
         <MyCard
@@ -178,6 +189,8 @@ const CustomButton = styled(PrimaryButton)`
   height: 3rem;
   padding: 0 1rem;
   margin: auto;
+  width: 8rem;
+  border-radius: 50px;
 `;
 const CardTitle = styled.div`
   .fa {

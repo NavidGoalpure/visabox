@@ -29,8 +29,6 @@
     "@sanity/image-url": "^1.0.1",
     "@sentry/cli": "^2.11.0",
     "@sentry/nextjs": "^7.34.0",
-    "@stripe/react-stripe-js": "^2.4.0",
-    "@stripe/stripe-js": "^2.2.2",
     "@types/gsap": "^3.0.0",
     "@types/react-gtm-module": "^2.0.1",
     "ai": "^2.2.29",

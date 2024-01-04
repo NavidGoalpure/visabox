@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import { TitleSpanTheme } from '../styledComponents';
-import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+
 import { deviceMin } from 'Consts/device';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { LanguageKeys, componentStatements } from './const';
@@ -15,6 +14,15 @@ import { useLocale } from 'Hooks/useLocale';
 import IranPaymentModal from '../IranPaymentModal';
 import { useState } from 'react';
 
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import StripeButton from './stripeButton';
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
+
 const PriceList: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
@@ -22,6 +30,7 @@ const PriceList: React.FC = () => {
   const [iranPrice, setIranPrice] = useState<string>(
     componentStatements.ProPlan_Price.fa
   );
+
   return (
     <>
       <IranPaymentModal
@@ -53,15 +62,9 @@ const PriceList: React.FC = () => {
               <Li>{t(LanguageKeys.PlanDescription3)}</Li>
             </ul>
           </Option>
-
-          <CustomButton
-            onClick={() => {
-              setIranPrice(componentStatements.TestPlan_Price.fa);
-              setIsModalOpen(true);
-            }}
-          >
-            {t(LanguageKeys.CTA)}
-          </CustomButton>
+          <Elements stripe={stripePromise}>
+            <StripeButton label='navid pay' />
+          </Elements>
         </MyCard>
         {/* ///////////Card2/////////// */}
         <MyCard

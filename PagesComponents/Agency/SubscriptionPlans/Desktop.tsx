@@ -59,6 +59,7 @@ function Desktop() {
   const particlesContainer = useRef(null);
   const { t } = useStaticTranslation(componentStatements);
   const phoneToastMessage = t(LanguageKeys.copyGmailToastMessage);
+
   return (
     <Container className='container'>
       <Hero className='hero' $isActive={isActive}>
@@ -197,7 +198,7 @@ function Desktop() {
             />
           </Section>
           <SectionDivider />
-          {/* ////////////////Price Table////////////// */}
+          {/* ////////////////Price Table////////////// */}\
           <PriceList />
           {/* ////////////////تماس با ما////////////// */}
           <ContactUsContainer>

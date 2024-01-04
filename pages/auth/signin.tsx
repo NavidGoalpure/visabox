@@ -23,7 +23,7 @@ export default function SignIn({
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/auth/signin`}
+        canonical={`https://www.marabox.com.au/auth/signin`}
         isNoIndex={true}
       />
       <SignInContent authProviders={providers} />

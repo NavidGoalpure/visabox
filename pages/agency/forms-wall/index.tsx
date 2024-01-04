@@ -86,7 +86,7 @@ const FormsWall: NextPage = () => {
         <Seo
           title={t(LanguageKeys.SeoTitle)}
           description={t(LanguageKeys.SeoDesc)}
-          canonical={`https://www.marabox.com/${locale}/agency/forms-wall`}
+          canonical={`https://www.marabox.com.au/${locale}/agency/forms-wall`}
           isNoIndex={true}
         />
         {(isShow === null || isLoading) && <StyledLoading />}

@@ -25,7 +25,7 @@ function Seo({
   const { defaultTitle, defaultDescription } = siteMetadata;
   const smartTitle = titleProps || defaultTitle?.[locale];
   const smartDescription = descriptionProps || defaultDescription?.[locale];
-  const smartImage = image || `https://marabox.com/ogImage.png`;
+  const smartImage = image || `https://marabox.com.au/ogImage.png`;
   return (
     <Head>
       <title>{smartTitle}</title>

@@ -18,7 +18,7 @@ const AIIntroduction: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/landing/AI`}
+        canonical={`https://www.marabox.com.au/${locale}/landing/AI`}
       />
       <Content />
     </StyledPageLayout>

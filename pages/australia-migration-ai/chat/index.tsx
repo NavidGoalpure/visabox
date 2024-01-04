@@ -29,7 +29,7 @@ const MarcyaPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com/${locale}/australia-migration-ai/chat`}
+        canonical={`https://www.marabox.com.au/${locale}/australia-migration-ai/chat`}
       />
       <ContentOrError
         isError={!!errorCode}
@@ -49,8 +49,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await getServerSession(context.req, context.res, authOptions);
   try {
     const userData = await getCredit(session?.user?.email || undefined);
-    console.log('***navid userData=', userData);
-
     return {
       props: {
         //When you supply a session prop in _app.js, useSession won't show a loading state, as it'll already have the session available.

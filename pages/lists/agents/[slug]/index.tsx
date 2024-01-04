@@ -35,7 +35,7 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
           { $businessName: agent?.agencies?.[0]?.title?.en || '' },
           { $address: agent?.agencies?.[0]?.contact?.full_address || '' },
         ])}
-        canonical={`https://www.marabox.com/${locale}/lists/agents/${agent?.slug?.current}`}
+        canonical={`https://www.marabox.com.au/${locale}/lists/agents/${agent?.slug?.current}`}
       />
 
       {agent ? (

@@ -34,7 +34,6 @@ import { Hint_BG } from 'Styles/Theme/Hint/theme';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
-import { layer1_TitleColor } from 'Styles/Theme/Layers/layer1/theme';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);

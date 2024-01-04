@@ -10,9 +10,9 @@ const BlogPage: NextPage = () => {
   return (
     <PageLayout>
       <Seo
-        title={"ویزای زبان نمره و نیروی متخصص | مارا باکس"}
-        description={"مقاله های کاربردی و کمکی برای مهاجران به استرالیا"}
-        canonical={`https://www.marabox.com/${locale}/blog/Language-score-and-skilled-worker-visa`}
+        title={'ویزای زبان نمره و نیروی متخصص | مارا باکس'}
+        description={'مقاله های کاربردی و کمکی برای مهاجران به استرالیا'}
+        canonical={`https://www.marabox.com.au/${locale}/blog/Language-score-and-skilled-worker-visa`}
       />
       <PostContent />
     </PageLayout>

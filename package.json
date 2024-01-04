@@ -29,7 +29,7 @@
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "@sentry/cli": "^2.11.0",
-    "@sentry/nextjs": "^7.34.0",
+    "@sentry/nextjs": "^7.77.0",
     "@types/gsap": "^3.0.0",
     "@types/react-gtm-module": "^2.0.1",
     "axios": "^1.4.0",

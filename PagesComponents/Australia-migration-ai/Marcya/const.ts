@@ -8,7 +8,6 @@ export enum LanguageKeys {
   Section2Title = 'Section2Title',
   Section2Subitle = 'Section2Subitle',
   Section3Title = 'Section3Title',
-  Section3Desc = 'Section3Desc',
   ContactUs = 'ContactUs',
   copyGmailToastMessage = 'copyGmailToastMessage',
 }
@@ -30,27 +29,27 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   BotDesc: {
     en: 'Your Expert Guide to Australian Immigration: AI-Enhanced Solutions for Achieving Your Australian Dream.',
-    fa: ' هوش مصنوعی تعلیم دیده، برای پاسخ به سوالات مهاجرتی به مقصد استرالیا',
+    fa: ' هوش مصنوعی آموزش دیده، برای پاسخ به سوالات مهاجرتی استرالیا',
     zh: '您的澳大利亚移民专家：AI增强解决方案，实现您的澳大利亚梦想。',
   },
   Section2Title: {
     en: 'Your Tireless Expert',
-    fa: 'مشاور خستگی ناپذیر شما',
+    fa: 'پاسخ به سوالات تخصصی درباره:',
     zh: '您孜孜不倦的专家',
   },
   Section2Subitle: {
     en: `<ul>
-  <li>Expert answers to specialized questions from legal documents including <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span></li>
+  <li>Expert answers to specialized questions from legal documents including <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span> </li>
   <li>Specialized insights on the latest <span>Migration Strategies</span> based on documents published in 2023</li>
   <li>Specialized answers regarding documents published on the <span>Department of Home Affairs</span> website</li>
   </ul>
   <p>And hundreds of pages of legal documents from various other sources.</p>`,
     fa: `<ul>
-  <li>پاسخ به سوالات تخصصی از درون اسناد قانونی شامل اسناد <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span></li>
-  <li>دیدگاه‌های تخصصی در مورد آخرین <span>استراتژی‌های مهاجرت</span> بر اساس اسناد منتشر شده در سال ۲۰۲۳</li>
-  <li>پاسخ به سوالات تخصصی درباره مستندات منتشر شده در ,وبسایت <span>Department of Home Affairs</span></li>
+  <li>  سیستم‌های ارزیابی استرالیا مانند  <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span> و ...</li>
+  <li> روند اخذ ویزاهای <span>مهاجرتی</span>، <span>تحصیلی</span>، <span>توریستی</span> به استرالیا</li>
+  <li>اخبار و اطلاعات بروز منتشر شده توسط توسط سازمان های مهاجرتی قانونی مانند  <span>Migration Strategy</span></li>
   </ul>
-  <p>و صدها صفحه اسناد قانونی از مراجع متنوع دیگر</p> `,
+  <p>و صدها صفحه، اسناد قانونی از مراجع متنوع دیگر</p> `,
     zh: `<ul>
   <li>专家回答来自法律文件的专业问题，包括 <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span></li>
   <li>基于2023年发布的文件的最新<span>移民策略</span>的专业见解</li>
@@ -64,14 +63,10 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'پکیج خود را انتخاب کنید',
     zh: `选择您的计划`,
   },
-  Section3Desc: {
-    en: `Experience Immediate and High-Quality Responses to Your Immigration Queries with the Help of <span>MARCYA</span>, Your Trusted AI Assistant.`,
-    fa: 'با کمک <span>MARCYA</span> می‌توانید پاسخ سوالات مهاجرتی خود را به صورت آنی و با دقت مثال‌زدنی دریافت کنید.',
-    zh: `在您值得信赖的人工智能助手<span>MARCYA</span>的帮助下，体验对您的移民查询的即时、高质量的答复。`,
-  },
+
   ContactUs: {
     en: `If you have any questions or would like to consult with our sales team before making a payment, please feel free to reach out to us using the following contact methods.`,
-    fa: `برای آگاهی از روش های پرداخت، لطفاً با استفاده از روش های تماس زیر با ما تماس بگیرید.`,
+    fa: `با ما در تماس باشید.`,
     zh: '如果您有任何疑问或想在付款前咨询我们的销售团队，请随时使用以下联系方式与我们联系',
   },
   copyGmailToastMessage: {

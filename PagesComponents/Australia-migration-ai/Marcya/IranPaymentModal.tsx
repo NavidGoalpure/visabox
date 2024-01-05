@@ -1,7 +1,9 @@
 import ModalComponent from 'Components/ModalComponent';
+import { deviceMin } from 'Consts/device';
+import { PrimaryButton } from 'Elements/Button/Primary';
 
-import { SecondaryButton } from 'Elements/Button/Secondary';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { SecondaryButton, SecondaryButtonCss } from 'Elements/Button/Secondary';
+import { Dispatch, SetStateAction } from 'react';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { LuMail } from 'react-icons/lu';
 import styled from 'styled-components';
@@ -33,10 +35,7 @@ const IranPaymentModal: React.FC<Props> = ({ isOpen, setIsOpen, price }) => {
           به نام: <span>سید شایان شریف الحسینی </span>
           <br />
           کارت به کارت کنید و رسید آن را به آدرس ایمیل یا تلگرام زیر ارسال
-          نمایید.
-          <br />
-          برای دریافت هرگونه پشتیبانی، می‌توانید از طریق همان روش ها با ما در
-          ارتباط باشید.
+          نمایید. حساب شما، ظرف ۲۴ ساعت شارژ خواهد شد.
         </p>
 
         <ContactsWrapper>
@@ -59,7 +58,12 @@ const IranPaymentModal: React.FC<Props> = ({ isOpen, setIsOpen, price }) => {
             <TelegramLink>@maraboxmigration</TelegramLink>
           </TelegramContainer>
         </ContactsWrapper>
-        <CTA onClick={() => setIsOpen(false)}>فهمیدم</CTA>
+        <BtnContainer>
+          <CTA onClick={() => setIsOpen(false)}>فهمیدم</CTA>
+          <SupportBtn href={'https://t.me/maraboxmigration'} target={'_blank'}>
+            پشتیبانی
+          </SupportBtn>
+        </BtnContainer>
       </ContentContainer>
     </ModalComponent>
   );
@@ -117,6 +121,18 @@ const GmailContainer = styled.button`
   cursor: pointer;
   margin-right: auto;
 `;
-const CTA = styled(SecondaryButton)`
-  margin: 0 auto;
+const BtnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  @media ${deviceMin.tabletS} {
+    flex-direction: row;
+  }
+`;
+const CTA = styled(PrimaryButton)``;
+const SupportBtn = styled.a`
+  ${SecondaryButtonCss}
 `;

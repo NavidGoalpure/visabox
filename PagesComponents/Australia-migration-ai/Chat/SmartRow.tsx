@@ -13,8 +13,15 @@ interface Props {
   sendMessage: (message?: string | undefined) => boolean;
   isLoading: boolean;
   stop: () => boolean;
+  setQuestionRemain: React.Dispatch<React.SetStateAction<number>>;
 }
-function SmartRow({ userData, sendMessage, isLoading, stop }: Props) {
+function SmartRow({
+  userData,
+  sendMessage,
+  isLoading,
+  stop,
+  setQuestionRemain,
+}: Props) {
   const [credit, setCredit] = useState<number>(userData?.credit || 0);
   const queryClient = useQueryClient();
   //////////////
@@ -38,7 +45,7 @@ function SmartRow({ userData, sendMessage, isLoading, stop }: Props) {
       if (!res.ok) {
         throw new Error(`couldn't patch the user`);
       }
-
+      setQuestionRemain((prev) => prev - 1);
       setCredit((prevCredit) => prevCredit - 1);
       queryClient.removeQueries({
         queryKey: ClientQueryKeys.detail({

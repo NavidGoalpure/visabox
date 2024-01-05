@@ -121,13 +121,9 @@ function Desktop({ isLogin, userCountry }: Props) {
                 />{' '}
                 <TestRobotWrapper>
                   <Title>{t(LanguageKeys.Section3Title)}</Title>
-                  <StyledDesc
-                    dangerouslySetInnerHTML={{
-                      __html: t(LanguageKeys.Section3Desc),
-                    }}
-                  />
                   {/* //////////Price List///// */}
                   <PriceList isLogin={isLogin} userCountry={userCountry} />
+                  {/* // */}
                 </TestRobotWrapper>
               </TestRobotContainer>
             </StyledSection>
@@ -354,13 +350,16 @@ const ContactUsContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
+  margin: 0 auto;
 `;
 const ContactsWrapper = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  direction: ltr;
 `;
 const ContactsDesc = styled(Desc)`
   ${Hint_SubTitleStyle};

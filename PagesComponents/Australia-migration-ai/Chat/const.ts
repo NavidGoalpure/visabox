@@ -8,6 +8,7 @@ export enum LanguageKeys {
   PageTitle = 'PageTitle',
   PageSubtitle = 'PageSubtitle',
   Disclaimer = 'Disclaimer',
+  QuestionRemain = 'QuestionRemain',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -22,19 +23,25 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
   //
   PageTitle: {
-    fa: 'به قلمرو «مارسیا» خوش آمدید',
+    fa: 'مارسیا',
     zh: 'MARCYA',
     en: 'Welcome to MARCYA',
   },
   PageSubtitle: {
-    fa: 'آموزش دیده برای پاسخ به سوالات مربوط به اسناد «VETASSESS»،«ACS»،«TRA» و «Migration Strategy»',
-    zh: '您的澳大利亚移民AI助手',
-    en: `Trained to answer questions related to "VETASSESS", "ACS", "TRA" and "Migration Strategy" documents`,
+    fa: 'راهنمایی به سوی استرالیا: همراه دیجیتال معتبر شما',
+    zh: '解锁澳大利亚签证洞见：您值得信赖的数字伙伴',
+    en: 'Unlocking Australian Visa Insights: Your Trusted Digital Companion',
   },
+
   Disclaimer: {
     fa: `<span>توجه:</span> هر چند که هوش مصنوعی ما راهنمایی های مفیدی در زمینه ارزیابی مدارک و مهاجرت به استرالیا ارائه می‌دهد، اما در نظر داشته باشید که این پلتفرم جایگزین مهارت‌ها و مشاوره شخصی که توسط کارشناسان مهاجرتی ارائه می‌شود، نمی‌باشد.`,
     zh: `<span>免责声明:</span> 接受过回答与“VETASSESS”、“ACS”、“TRA”和“迁移策略”文件相关问题的培训`,
     en: `<span>Disclaimer:</span> While our AI provides guidance on Australia migration, it is essential to understand that this platform does not replace the expertise and personalized advice that can be provided by immigration experts or professionals.`,
+  },
+  QuestionRemain: {
+    fa: 'سوالات باقیمانده: <span> $number</span> ',
+    zh: '剩余问题 <span> $number</span> 个:',
+    en: 'Questions remaining: <span> $number</span>',
   },
 };
 export const LOOKUP_STORE: Record<ILookupEnum, string> = {

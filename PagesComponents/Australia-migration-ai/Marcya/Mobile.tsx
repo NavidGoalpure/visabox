@@ -22,10 +22,14 @@ import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import theme from 'styled-theming';
 import { tsParticleOption_Mobile } from 'Styles/animation';
-import { Headline5Style } from 'Styles/Typo';
+import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
 import { LanguageKeys, componentStatements } from './const';
 import PriceList from './PriceTable';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { FaTelegramPlane } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
+import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
+import { Hint_BG } from 'Styles/Theme/Hint/theme';
 
 function Desktop() {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -72,6 +76,7 @@ function Desktop() {
         <Title>{t(LanguageKeys.Section2Title)}</Title>
 
         <StyledDesc
+          style={{ padding: '0 1rem' }}
           dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Section2Subitle) }}
         />
       </Section>
@@ -86,12 +91,33 @@ function Desktop() {
           />{' '}
           <TestRobotWrapper>
             <Title>{t(LanguageKeys.Section3Title)}</Title>
-            <Desc
-              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Section3Desc) }}
-            />
             <PriceList />
           </TestRobotWrapper>
         </TestRobotContainer>
+        {/* ///////////Contact us//////////// */}
+        <Wrapper $isActive={true} style={{ minHeight: 'unset' }}>
+          <ContactUsContainer>
+            <ContactsDesc
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.ContactUs),
+              }}
+            />
+            <ContactsWrapper>
+              {/* // navid این قسمت رو تغییر بده تا با کلیک روی اون به بخش ایمیل گوشی بره تا بتونه ایمیل بزنه */}
+              <GmailContainer>
+                <GmailIcon />
+                <GmailLink>marketing@marabox.com.au</GmailLink>
+              </GmailContainer>
+              <TelegramContainer
+                href={'https://t.me/maraboxmigration'}
+                target={'_blank'}
+              >
+                <TelegramIcon />
+                <TelegramLink>@maraboxmigration</TelegramLink>
+              </TelegramContainer>
+            </ContactsWrapper>
+          </ContactUsContainer>
+        </Wrapper>
       </StyledSection>
     </Container>
   );
@@ -161,6 +187,7 @@ const StyledPhoneImage = styled(PhoneImage)`
 `;
 const Title = styled.h2`
   ${Layer1_TitleStyle};
+  font-size: 28px;
   margin: 0;
   margin-bottom: 1.5rem;
   span {
@@ -200,8 +227,90 @@ const TestRobotWrapper = styled.div`
   align-items: center;
   gap: 1.5rem;
 `;
-const TestRobotTitle = styled.h3`
-  ${Headline5Style};
-  color: white;
-  text-align: center;
+
+//this will be position fixed untill the hero is onscreen and after that it will turn to relative in order to scroll normally
+const Wrapper = styled.div<{ $isActive: boolean }>`
+  margin-top: 3rem;
+  width: 100%;
+  max-width: var(--max-width-page);
+  padding: 0 var(--wrapper-padding-side);
+  min-height: 200vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  ${({ $isActive }) =>
+    $isActive
+      ? css`
+          position: relative;
+        `
+      : css`
+          position: fixed;
+          top: 5.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+        `}
 `;
+const ContactUsContainer = styled.div`
+  ${Hint_BG}
+  padding: 0.5rem;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  width: 100%;
+`;
+const ContactsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  direction: ltr;
+`;
+const ContactsDesc = styled(Desc)`
+  ${Hint_SubTitleStyle};
+`;
+const TelegramContainer = styled.a`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  direction: ltr;
+  cursor: pointer;
+`;
+const GmailContainer = styled.button`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  direction: ltr;
+  cursor: pointer;
+`;
+const GmailIcon = styled(SiGmail)`
+  color: var(--color-secondary4);
+  width: 1.5rem;
+  height: auto;
+`;
+const GmailLink = styled.h3`
+  ${Headline6Style};
+  text-align: center;
+  word-break: break-all;
+  color: var(--color-secondary4);
+  direction: ltr;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+`;
+const TelegramIcon = styled(FaTelegramPlane)`
+  color: var(--color-secondary4);
+  width: 1.5rem;
+  height: auto;
+`;
+const TelegramLink = styled(GmailLink)``;

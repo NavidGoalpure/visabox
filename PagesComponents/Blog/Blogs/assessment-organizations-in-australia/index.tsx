@@ -20,7 +20,8 @@ export default function PostContent() {
         <Images
           fill
           src='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'
-          alt='assessment-organizations-in-australia' />
+          alt='assessment-organizations-in-australia'
+        />
       </ImageContainer>
 
       <h1> آنچه باید در مورد سازمانهای ارزیاب استرالیا بدانیم </h1>
@@ -175,7 +176,8 @@ export default function PostContent() {
         <Images
           fill
           src='https://binsta.dev/api/v1/files/lxIVJdLhgF/transform?format=webp&size=lg&quality=best'
-          alt='assessment-organizations-in-australia' />
+          alt='assessment-organizations-in-australia'
+        />
       </ImageContainer>
 
       <h2> گروه E </h2>
@@ -417,7 +419,8 @@ export default function PostContent() {
         <Images
           fill
           src='https://binsta.dev/api/v1/files/GpcrMjbVoc/transform?format=webp&size=lg&quality=best'
-          alt='assessment-organizations-in-australia' />
+          alt='assessment-organizations-in-australia'
+        />
       </ImageContainer>
 
       <h2>
@@ -487,32 +490,34 @@ export default function PostContent() {
           ارائه شده در وبلاگ های ما انجام شود کاملاً به عهده شماست. اکیداً توصیه
           می‌شود که قبل از تصمیم گیری در مورد مهاجرت از مشاوره حرفه ای استفاده
           کنید.
-          <Link href={'/lists/agencies'} target='_blank'>
-            {` لیست موسسات مهاجرتی قانونی مربوط به استرالیا `}
+          <Link href={'/lists/agents?country=IR'} target='_blank'>
+            {` لیست وکلای مهاجرت قانونی ایرانی برای استرالیا `}
           </Link>
           را می‌توانید از طریق این لینک پیدا کنید.
         </HintText>
-      </HintBG><MoreBlogsContainer>
+      </HintBG>
+      <MoreBlogsContainer>
         <h2>مقاله های مشابه</h2>
         <MoreBlogsCardsContainer>
-
           <PagesConnectorCard
             title={'ویزای مهارتی استرالیا (Skilled worker)'}
             href={`/${locale}/blog/what-is-skilled-worker-visa`}
-            img='https://binsta.dev/api/v1/files/A-YzruQXR1/transform?format=webp&size=lg&quality=best' />
+            img='https://binsta.dev/api/v1/files/A-YzruQXR1/transform?format=webp&size=lg&quality=best'
+          />
 
           <PagesConnectorCard
             title={'نمره زبان و ویزای مهارتی یا اسکیل ورکر'}
             href={`/${locale}/blog/Language-score-and-skilled-worker-visa`}
-            img='https://binsta.dev/api/v1/files/z7jW9EIqKf/transform?format=webp&size=lg&quality=best' />
+            img='https://binsta.dev/api/v1/files/z7jW9EIqKf/transform?format=webp&size=lg&quality=best'
+          />
 
           <PagesConnectorCard
             title={'قدم به قدم تا ویزای اسکیل ورکر (مهارتی)'}
             href={`/${locale}/blog/getting-skilled-worker-visa`}
-            img='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best' />
-
+            img='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best'
+          />
         </MoreBlogsCardsContainer>
       </MoreBlogsContainer>
-    </BlogContainer >
+    </BlogContainer>
   );
 }

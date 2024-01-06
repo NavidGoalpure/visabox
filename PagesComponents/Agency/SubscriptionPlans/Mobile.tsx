@@ -93,7 +93,7 @@ function MobileAgentsPage() {
           />
           <StyledDesc style={{ zIndex: '10' }}>
             <Link
-              href={'/lists/agencies'}
+              href={'lists/agents'}
               rel='noopener noreferrer'
               target='_blank'
             >

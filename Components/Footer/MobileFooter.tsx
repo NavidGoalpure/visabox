@@ -58,12 +58,7 @@ function MobileFooter({
         >
           {t(LanguageKeys.AgentsBox)}
         </Items>
-        <Items
-          href={`/${locale}/lists/agencies`}
-          data-name={t(LanguageKeys.AgenciesBox)}
-        >
-          {t(LanguageKeys.AgenciesBox)}
-        </Items>
+
         <Items
           href={`/${locale}/lists/exchanges`}
           data-name={t(LanguageKeys.Exchanges)}

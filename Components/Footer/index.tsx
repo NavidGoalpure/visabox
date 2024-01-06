@@ -11,15 +11,13 @@ const SmartFooter = () => {
   const { isLaptop } = useDevice();
   const { data: session } = useSession();
 
-  useEffect(() => {
-    // Fetch user country asynchronously
-    const fetchUserCountry = async () => {
-      const country = await getUserCountry(session);
-      setUserCountry(country);
-    };
+  const fetchUserCountry = async () => {
+    const country = await getUserCountry(session);
+    if (userCountry !== country) setUserCountry(country);
+  };
 
-    fetchUserCountry();
-  }, [session]);
+  if (session) fetchUserCountry();
+  console.log('navid session=', session);
 
   useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');

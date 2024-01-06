@@ -1,5 +1,14 @@
 import { useLocale } from 'Hooks/useLocale';
-import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images, MoreBlogsContainer, MoreBlogsCardsContainer } from '../StyledComponents';
+import {
+  BlogContainer,
+  HintBG,
+  HintText,
+  HintTitle,
+  ImageContainer,
+  Images,
+  MoreBlogsContainer,
+  MoreBlogsCardsContainer,
+} from '../StyledComponents';
 import Link from 'next/link';
 import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
 
@@ -196,10 +205,11 @@ export default function PostContent() {
         را <a href={`/${locale}/occupations`}>جستجو</a> کنید.
       </p>
 
-
-      <p>برای محاسبه امتیاز خود
-        <a href={`/${locale}/clients/point-calculator`}>  کلیک  </a>
-        کنید</p>
+      <p>
+        برای محاسبه امتیاز خود
+        <a href={`/${locale}/clients/point-calculator`}> کلیک </a>
+        کنید
+      </p>
 
       <HintBG>
         <HintTitle>توجه:</HintTitle>
@@ -211,8 +221,8 @@ export default function PostContent() {
           ارائه شده در وبلاگ های ما انجام شود کاملاً به عهده شماست. اکیداً توصیه
           می‌شود که قبل از تصمیم گیری در مورد مهاجرت از مشاوره حرفه ای استفاده
           کنید.
-          <Link href={'/lists/agencies'} target='_blank'>
-            {` لیست موسسات مهاجرتی قانونی مربوط به استرالیا `}
+          <Link href={'/lists/agents?country=IR'} target='_blank'>
+            {` لیست وکلای مهاجرت ایرانی برای استرالیا `}
           </Link>
           را می‌توانید از طریق این لینک پیدا کنید.
         </HintText>
@@ -221,19 +231,24 @@ export default function PostContent() {
         <h2>مقاله های مشابه</h2>
         <MoreBlogsCardsContainer>
           <PagesConnectorCard
-            title={'آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم'}
+            title={
+              'آنچه باید درباره اسسمنت یا ارزیابی مدارک در استرالیا بدانیم'
+            }
             href={`/${locale}/blog/document-assessment-in-australia`}
-            img='https://binsta.dev/api/v1/files/Jbb2xZFcyX/transform?format=webp&size=lg&quality=best' />
+            img='https://binsta.dev/api/v1/files/Jbb2xZFcyX/transform?format=webp&size=lg&quality=best'
+          />
 
           <PagesConnectorCard
             title={'آنچه باید درباره ی سازمان های ارزیابی بدانیم'}
             href={`/${locale}/blog/assessment-organizations-in-australia`}
-            img='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best' />
+            img='https://binsta.dev/api/v1/files/Qdt-lai_Fs/transform?format=webp&size=lg&quality=best'
+          />
 
           <PagesConnectorCard
             title={'قدم به قدم تا ویزای اسکیل ورکر (مهارتی)'}
             href={`/${locale}/blog/getting-skilled-worker-visa`}
-            img='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best' />
+            img='https://binsta.dev/api/v1/files/wVuNNAlgop/transform?format=webp&size=lg&quality=best'
+          />
         </MoreBlogsCardsContainer>
       </MoreBlogsContainer>
     </BlogContainer>

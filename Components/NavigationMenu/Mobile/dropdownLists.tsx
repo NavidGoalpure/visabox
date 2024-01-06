@@ -58,18 +58,7 @@ const MobileBusinessDropdown = ({
             </StyledLink>
           </PopupItem>
           <Hr />
-          <PopupItem
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <StyledLink href={listsItems[1].href}>
-              {listsItems[1].title[locale]}
-            </StyledLink>
-          </PopupItem>
-          <Hr />
 
-          <Hr />
           {(clientCountry === SupportedCountry.Iran ||
             getLocalStorage(LocalStorageKeys.Country) ===
               SupportedCountry.Iran) && (

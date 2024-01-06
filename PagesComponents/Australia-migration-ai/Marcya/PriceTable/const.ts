@@ -9,13 +9,13 @@ export enum LanguageKeys {
   PlanDescription3 = 'PlanDescription3',
   ContactUs = 'ContactUs',
   //
-  BasicPlan_Title = 'BasicPlan_Title',
-  BasicPlan_Price = 'BasicPlan_Price',
-  BasicPlan_ABV = 'BasicPlan_ABV',
+  SilverPlan_Title = 'SilverPlan_Title',
+  SilverPlan_Price = 'SilverPlan_Price',
+  SilverPlan_ABV = 'SilverPlan_ABV',
   //
-  ProPlan_Title = 'ProPlan_Title',
-  ProPlan_Price = 'ProPlan_Price',
-  ProPlan_ABV = 'ProPlan_ABV',
+  GoldPlan_Title = 'GoldPlan_Title',
+  GoldPlan_Price = 'GoldPlan_Price',
+  GoldPlan_ABV = 'GoldPlan_ABV',
   //
 
   UnlimitedPlan = 'UnlimitedPlan',
@@ -61,38 +61,41 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '如果您有兴趣拥有Marabox特惠代理账户，请通过以下方式与我们联系。',
   },
 
-  BasicPlan_Title: {
-    en: 'Test Plan',
-    fa: ' طرح آزمایشی',
-    zh: '测试计划',
+  SilverPlan_Title: {
+    en: 'Silver Plan',
+    fa: 'طرح نقره‌ای',
+    zh: '银牌计划',
   },
 
-  BasicPlan_Price: {
+  SilverPlan_Price: {
     en: '5AU',
     fa: '۱۰۰ هزار تومان',
     zh: '澳5',
   },
-  BasicPlan_ABV: {
-    en: '/ 20 Q&A',
-    fa: 'برای ۲۰ پاسخ',
-    zh: '为20个答案',
+  SilverPlan_ABV: {
+    en: '20 Questions',
+    fa: 'برای ۲۰ پرسش',
+    zh: '20个问题',
   },
+
   //
-  ProPlan_Title: {
-    en: 'Normal Plan',
-    fa: 'طرح نرمال',
-    zh: '普通计划',
+  GoldPlan_Title: {
+    en: 'Gold Plan',
+    fa: 'طرح طلایی',
+    zh: '金牌计划',
   },
-  ProPlan_Price: {
+
+  GoldPlan_Price: {
     en: '15AU',
     fa: '۳۰۰ هزار تومان',
     zh: '澳15',
   },
-  ProPlan_ABV: {
-    en: '/ 100 Q&A',
-    fa: 'برای 100 پاسخ',
-    zh: '为100个答案',
+  GoldPlan_ABV: {
+    en: '100 Questions',
+    fa: 'برای 100 پرسش',
+    zh: '100个问题',
   },
+
   //
   UnlimitedPlan: {
     en: 'Unlimited Plan',
@@ -105,10 +108,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '--',
   },
   UnlimitedPlan_ABV: {
-    en: '/ Mo',
-    fa: ' برای وکلای مهاجرت',
-    zh: '/ 每月',
+    en: 'For Mara Agents',
+    fa: 'برای وکلای مهاجرت',
+    zh: '适用于Mara代理',
   },
+
   UnlimitedPlan_Button: {
     en: 'Contact Us',
     fa: 'تماس بگیرید',

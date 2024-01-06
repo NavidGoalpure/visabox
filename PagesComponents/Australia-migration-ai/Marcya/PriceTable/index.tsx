@@ -29,7 +29,7 @@ const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [iranPrice, setIranPrice] = useState<string>(
-    componentStatements.ProPlan_Price.fa
+    componentStatements.GoldPlan_Price.fa
   );
 
   return (
@@ -50,11 +50,11 @@ const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
         >
           <CardTitle>
             <StyledSilverIcon />
-            <h2>{t(LanguageKeys.BasicPlan_Title)}</h2>
+            <h2>{t(LanguageKeys.SilverPlan_Title)}</h2>
           </CardTitle>
           <Price>
-            <h4>{t(LanguageKeys.BasicPlan_Price)}</h4>
-            <h5>{t(LanguageKeys.BasicPlan_ABV)}</h5>
+            <h4>{t(LanguageKeys.SilverPlan_Price)}</h4>
+            <h5>{t(LanguageKeys.SilverPlan_ABV)}</h5>
           </Price>
           <Option>
             <ul>
@@ -69,7 +69,7 @@ const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
             priceId={IPriceIds.BasicPlan}
             isLogin={isLogin}
             userCountry={userCountry}
-            iranPrice={componentStatements.BasicPlan_Price.fa}
+            iranPrice={componentStatements.SilverPlan_Price.fa}
             setIranPrice={setIranPrice}
             setIsModalOpen={setIsModalOpen}
           />
@@ -88,11 +88,11 @@ const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
               <VIPBox aria-hidden={true} />
             </VIPBoxContainer>
             <StyledGoldIcon />
-            <h2>{t(LanguageKeys.ProPlan_Title)}</h2>
+            <h2>{t(LanguageKeys.GoldPlan_Title)}</h2>
           </CardTitle>
           <Price>
-            <h4>{t(LanguageKeys.ProPlan_Price)}</h4>
-            <h5>{t(LanguageKeys.ProPlan_ABV)}</h5>
+            <h4>{t(LanguageKeys.GoldPlan_Price)}</h4>
+            <h5>{t(LanguageKeys.GoldPlan_ABV)}</h5>
           </Price>
           <Option>
             <ul>
@@ -107,7 +107,7 @@ const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
             priceId={IPriceIds.ProPlan}
             isLogin={isLogin}
             userCountry={userCountry}
-            iranPrice={componentStatements.ProPlan_Price.fa}
+            iranPrice={componentStatements.GoldPlan_Price.fa}
             setIranPrice={setIranPrice}
             setIsModalOpen={setIsModalOpen}
           />

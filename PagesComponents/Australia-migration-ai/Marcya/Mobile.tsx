@@ -22,7 +22,7 @@ import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import theme from 'styled-theming';
 import { tsParticleOption_Mobile } from 'Styles/animation';
-import { Headline5Style, Headline6Style, Headline7Style } from 'Styles/Typo';
+import { Headline6Style } from 'Styles/Typo';
 import { LanguageKeys, componentStatements } from './const';
 import PriceList from './PriceTable';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
@@ -30,8 +30,13 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
 import { Hint_BG } from 'Styles/Theme/Hint/theme';
+import { SupportedCountry } from 'Interfaces/Database';
 
-function Desktop() {
+interface Props {
+  isLogin: boolean;
+  userCountry: SupportedCountry;
+}
+function Mobile({ isLogin, userCountry }: Props) {
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);
 
@@ -91,7 +96,7 @@ function Desktop() {
           />{' '}
           <TestRobotWrapper>
             <Title>{t(LanguageKeys.Section3Title)}</Title>
-            <PriceList />
+            <PriceList isLogin={isLogin} userCountry={userCountry} />
           </TestRobotWrapper>
         </TestRobotContainer>
         {/* ///////////Contact us//////////// */}
@@ -122,7 +127,7 @@ function Desktop() {
     </Container>
   );
 }
-export default Desktop;
+export default Mobile;
 const StyledParticles = styled(Particles)`
   position: absolute;
   top: 0;

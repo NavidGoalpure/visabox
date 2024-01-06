@@ -16,7 +16,8 @@ function Content({ isLogin, userCountry }: Props) {
     if (isLaptop) setScreen('DESKTOP');
   });
   // improve mobile props
-  if (screen === 'MOBILE') return <Mobile />;
+  if (screen === 'MOBILE')
+    return <Mobile isLogin={isLogin} userCountry={userCountry} />;
   return <Desktop isLogin={isLogin} userCountry={userCountry} />;
 }
 export default Content;

@@ -33,29 +33,29 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '您的澳大利亚移民专家：AI增强解决方案，实现您的澳大利亚梦想。',
   },
   Section2Title: {
-    en: 'Your Tireless Expert',
+    en: 'Answers to Specialized Questions About:',
     fa: 'پاسخ به سوالات تخصصی درباره:',
-    zh: '您孜孜不倦的专家',
+    zh: '针对以下问题的专业回答：',
   },
   Section2Subitle: {
     en: `<ul>
-  <li>Expert answers to specialized questions from legal documents including <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span> </li>
-  <li>Specialized insights on the latest <span>Migration Strategies</span> based on documents published in 2023</li>
-  <li>Specialized answers regarding documents published on the <span>Department of Home Affairs</span> website</li>
+  <li>Australia's assessment systems like <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span>, and more.</li>
+  <li>The process of obtaining Australian <span>migration</span>, <span>educational</span>, and <span>tourist</span> visas.</li>
+  <li>Latest news and updates published by legal migration organizations like <span>Migration Strategy</span>.</li>
   </ul>
   <p>And hundreds of pages of legal documents from various other sources.</p>`,
     fa: `<ul>
-  <li>  سیستم‌های ارزیابی استرالیا مانند  <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span> و ...</li>
+  <li> سیستم‌های ارزیابی استرالیا مانند  <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span> و ...</li>
   <li> روند اخذ ویزاهای <span>مهاجرتی</span>، <span>تحصیلی</span>، <span>توریستی</span> به استرالیا</li>
   <li>اخبار و اطلاعات بروز منتشر شده توسط توسط سازمان های مهاجرتی قانونی مانند  <span>Migration Strategy</span></li>
   </ul>
-  <p>و صدها صفحه، اسناد قانونی از مراجع متنوع دیگر</p> `,
+  <p>و صدها صفحه، اسناد قانونی از مراجع متنوع دیگر</p>`,
     zh: `<ul>
-  <li>专家回答来自法律文件的专业问题，包括 <span>Vetassess</span>, <span>TRA</span>, <span>ACS</span>, <span>EA</span></li>
-  <li>基于2023年发布的文件的最新<span>移民策略</span>的专业见解</li>
-  <li>关于在 <span>Department of Home Affairs</span> 网站上发布的文件的专业答案</li>
+  <li>澳大利亚的评估系统，如 <span>Vetassess</span>、<span>TRA</span>、<span>ACS</span>、<span>EA</span> 等。</li>
+  <li>获取到澳大利亚的<span>移民</span>、<span>教育</span>和<span>旅游</span>签证的流程。</li>
+  <li>由法定移民组织如<span>Migration Strategy</span>发布的最新新闻和更新。</li>
   </ul>
-  <p>和来自其他各种来源的数百页法律文件。</p>`,
+  <p>以及来自其他各种来源的数百页法律文件。</p>`,
   },
 
   Section3Title: {
@@ -65,9 +65,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   ContactUs: {
-    en: `If you have any questions or would like to consult with our sales team before making a payment, please feel free to reach out to us using the following contact methods.`,
+    en: `Get in touch with us for any assistance you may need.`,
     fa: `با ما در تماس باشید.`,
-    zh: '如果您有任何疑问或想在付款前咨询我们的销售团队，请随时使用以下联系方式与我们联系',
+    zh: '如有任何疑问或需要协助，请与我们联系。',
   },
   copyGmailToastMessage: {
     en: 'Copied Gmail number to clipboard',

@@ -34,8 +34,13 @@ import { Hint_BG } from 'Styles/Theme/Hint/theme';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
+import { SupportedCountry } from 'Interfaces/Database';
 
-function Desktop() {
+interface Props {
+  isLogin: boolean;
+  userCountry: SupportedCountry;
+}
+function Desktop({ isLogin, userCountry }: Props) {
   const [isActive, setIsActive] = useState(true);
   useEffect(() => {
     getGsapTimeLine_Hero(setIsActive);
@@ -99,7 +104,11 @@ function Desktop() {
                 alt='phone-image'
               />
               <Title>{t(LanguageKeys.Section2Title)}</Title>
-              <StyledDesc>{t(LanguageKeys.Section2Subitle)}</StyledDesc>
+              <StyledDesc
+                dangerouslySetInnerHTML={{
+                  __html: t(LanguageKeys.Section2Subitle),
+                }}
+              />
             </Section>
             <SectionDivider />
             <StyledSection>
@@ -111,10 +120,10 @@ function Desktop() {
                   alt='phone-image'
                 />{' '}
                 <TestRobotWrapper>
-                  <TestRobotTitle>
-                    {t(LanguageKeys.CTATitle_Logined)}
-                  </TestRobotTitle>
-                  <PriceList></PriceList>
+                  <Title>{t(LanguageKeys.Section3Title)}</Title>
+                  {/* //////////Price List///// */}
+                  <PriceList isLogin={isLogin} userCountry={userCountry} />
+                  {/* // */}
                 </TestRobotWrapper>
               </TestRobotContainer>
             </StyledSection>
@@ -293,10 +302,10 @@ const Title = styled.h2`
   ${Layer1_TitleStyle};
   margin: 0;
   margin-bottom: 1.5rem;
+  text-align: center;
   span {
     ${TitleSpanTheme}
   }
-  text-align: center;
 `;
 const StyledSection = styled(Section)`
   min-height: unset;
@@ -332,11 +341,7 @@ const TestRobotWrapper = styled.div`
   align-items: center;
   gap: 1.5rem;
 `;
-const TestRobotTitle = styled.h3`
-  ${Headline4Style};
-  color: white;
-  text-align: center;
-`;
+
 const ContactUsContainer = styled.div`
   ${Hint_BG}
   padding: 2rem 5rem;
@@ -345,13 +350,16 @@ const ContactUsContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
+  margin: 0 auto;
 `;
 const ContactsWrapper = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  direction: ltr;
 `;
 const ContactsDesc = styled(Desc)`
   ${Hint_SubTitleStyle};

@@ -16,7 +16,7 @@ export default function NotFound() {
     <PageLayout>
       <Seo
         title={'Not Found'}
-        canonical={`https://www.marabox.com/404`}
+        canonical={`https://www.marabox.com.au/404`}
         isNoIndex={true}
       />
 

@@ -7,7 +7,7 @@ import { deviceMin } from 'Consts/device';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  height: string;
+  height?: string;
 }
 const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
   return (
@@ -34,7 +34,7 @@ const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
 
 export { ScrollBox };
 
-const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height: string }>`
+const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height?: string }>`
   ${directionStyles}
   width: 100%;
   height: auto;
@@ -43,7 +43,7 @@ const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height: string }>`
   --scrollbar-size: 0.5rem;
   position: relative;
   @media ${deviceMin.tabletS} {
-    height: ${({ $height }) => $height || 'auto'};
+    ${({ $height }) => ($height ? $height : 'auto')};
   }
 `;
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`

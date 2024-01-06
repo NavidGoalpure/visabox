@@ -86,7 +86,7 @@ const FormsWall: NextPage = () => {
         <Seo
           title={t(LanguageKeys.SeoTitle)}
           description={t(LanguageKeys.SeoDesc)}
-          canonical={`https://www.marabox.com/${locale}/agency/forms-wall`}
+          canonical={`https://www.marabox.com.au/${locale}/agency/forms-wall`}
           isNoIndex={true}
         />
         {(isShow === null || isLoading) && <StyledLoading />}
@@ -107,15 +107,6 @@ const FormsWall: NextPage = () => {
   }
 };
 export default FormsWall;
-const StyledLoading = styled(Loading)`
-  width: 10rem;
-  height: 10rem;
-  margin: auto;
-`;
-const NeedConfirmDesc = styled.p`
-  ${Layer1_SubtitleStyle};
-  margin-bottom: 4rem;
-`;
 export const getServerSideProps: GetServerSideProps = withCSR(
   async (ctx: NextPageContext) => {
     //
@@ -143,3 +134,13 @@ export const getServerSideProps: GetServerSideProps = withCSR(
     };
   }
 );
+
+const StyledLoading = styled(Loading)`
+  width: 10rem;
+  height: 10rem;
+  margin: auto;
+`;
+const NeedConfirmDesc = styled.p`
+  ${Layer1_SubtitleStyle};
+  margin-bottom: 4rem;
+`;

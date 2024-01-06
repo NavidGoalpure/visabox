@@ -1,17 +1,10 @@
-import * as Dialog from "@radix-ui/react-dialog";
+import * as Dialog from '@radix-ui/react-dialog';
 
-import styled, { keyframes } from "styled-components";
-import { Headline5Style, Headline6Style } from "Styles/Typo";
+import styled, { keyframes } from 'styled-components';
+import { Headline5Style, Headline6Style } from 'Styles/Typo';
 
-import { deviceMin } from "Consts/device";
-import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { deviceMin } from 'Consts/device';
+import { Dispatch, ReactNode, SetStateAction } from 'react';
 interface Props extends Dialog.DialogProps {
   trigger?: ReactNode;
   DialogTitleText?: string;
@@ -30,7 +23,7 @@ const ModalComponent: React.FC<Props> = ({
 }) => {
   if (doesModalCloseOnOutsideInteraction && !setOpen) {
     throw new Error(
-      "setOpen is required when doesModalCloseOnOutsideInteraction is provided"
+      'setOpen is required when doesModalCloseOnOutsideInteraction is provided'
     );
   }
   return (
@@ -38,19 +31,19 @@ const ModalComponent: React.FC<Props> = ({
       <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
 
       <Dialog.Portal>
-        <DialogOverlay className="DialogOverlay" />
+        <DialogOverlay className='DialogOverlay' />
         <DialogContent
           onPointerDownOutside={() => {
             if (doesModalCloseOnOutsideInteraction && setOpen) {
               setOpen(false);
             }
           }}
-          className="DialogContent"
+          className='DialogContent'
         >
           <MobileLine />
           <Wrapper>
             {!!DialogTitleText && (
-              <DialogTitle className="DialogTitle">
+              <DialogTitle className='DialogTitle'>
                 {DialogTitleText}
               </DialogTitle>
             )}

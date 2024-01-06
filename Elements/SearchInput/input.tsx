@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, ReactNode, useEffect, useRef } from 'react';
-import { Container, InputContainer, StyledInput, Error } from './styles';
+import styled from 'styled-components';
+import { InputContainer, StyledInput, Error, StyledTextarea } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
@@ -17,7 +18,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const SearchInput = ({
   icon,
-  type = "text",
+  type = 'text',
   errorMasage,
   value,
   disabled = false,
@@ -30,7 +31,6 @@ export const SearchInput = ({
   ...props
 }: InputProps) => {
   const inputElement = useRef<HTMLInputElement>(null);
-
   useEffect(() => {
     if (inputElement?.current && focus) {
       inputElement?.current?.focus();
@@ -38,9 +38,11 @@ export const SearchInput = ({
   }, [focus]);
   return (
     <Container className={className}>
-      <InputContainer disabled={disabled} id="input-container">
+      <InputContainer disabled={disabled} id='input-container'>
         {icon ? icon : null}
+
         <StyledInput
+          ref={inputElement}
           type={type}
           onChange={onChange}
           hasError={!!errorMasage}
@@ -49,10 +51,18 @@ export const SearchInput = ({
           pattern={pattern}
           placeholder={placeholder}
           {...props}
-        ></StyledInput>
+        />
         {endElement ? endElement : null}
       </InputContainer>
-      {errorMasage && <Error data-testid="error-input">{errorMasage}</Error>}
+      {errorMasage && <Error data-testid='error-input'>{errorMasage}</Error>}
     </Container>
   );
 };
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-height: 64px;
+  width: 100%;
+  height: 100%;
+`;

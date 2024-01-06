@@ -115,7 +115,7 @@ function BoxesSection({ id, email, is_sharable }: Props) {
             <SmallBox
               onClick={() =>
                 copyContent({
-                  text: `www.marabox.com/${locale}/clients/${id}`,
+                  text: `www.marabox.com.au/${locale}/clients/${id}`,
                   toastMessage: ShareToastMessage,
                 })
               }

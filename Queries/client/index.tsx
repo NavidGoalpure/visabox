@@ -7,25 +7,19 @@ import { useQuery } from 'react-query';
 interface GetClientDetail {
   reqParams: string;
   resParams: string;
-  hasCache?: boolean;
   useCDN?: boolean;
 }
+
 export const getClientDetail = async ({
   reqParams,
   resParams,
-  hasCache = true,
   useCDN = true,
 }: GetClientDetail): Promise<{
   client: Client[];
 }> => {
-  const clientreqParams = reqParams;
-  const queryParams = hasCache
-    ? `*[_type=='client' && ${clientreqParams} ]{
-${resParams}
-  }`
-    : `*[_type=='client' && ${clientreqParams} ]?cacheBust=${Date.now()}{
-${resParams}
-  }`;
+  const clientReqParams = reqParams;
+  const queryParams = `*[_type=='client' && ${clientReqParams} ]{${resParams}  }
+   `;
 
   try {
     if (!useCDN) {
@@ -40,7 +34,9 @@ ${resParams}
     throw error;
   }
 };
-export const getUserCountry = (session: Session | null): string | undefined => {
+export const getUserCountry = async (
+  session: Session | null
+): Promise<string | undefined> => {
   const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `country`;
 
@@ -62,3 +58,21 @@ export const getUserCountry = (session: Session | null): string | undefined => {
 
   return data?.client?.[0]?.country;
 };
+///////////////////
+export async function getCredit(
+  email: string | undefined
+): Promise<Client | null> {
+  if (!email) return null;
+  const reqParams = `email == "${email}"`;
+  const resParams = `credit,_id`;
+  try {
+    const clientData = await getClientDetail({
+      reqParams,
+      resParams,
+      useCDN: false,
+    });
+    return clientData?.client?.[0];
+  } catch (error) {
+    return null;
+  }
+}

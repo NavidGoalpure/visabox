@@ -54,7 +54,7 @@ const EditModal: React.FC<Props> = ({
       }
       queryClient.refetchQueries({
         queryKey: ClientQueryKeys.detail({
-          reqParams: `_id == "${client?._id || "defensive"}"`,
+          reqParams: `_id == "${client?._id || 'defensive'}"`,
         }),
       });
       setIsModalOpen(false);

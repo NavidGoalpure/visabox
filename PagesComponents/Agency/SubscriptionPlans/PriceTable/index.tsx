@@ -105,9 +105,9 @@ const PriceList: React.FC = () => {
           style={{ background: 'linear-gradient(-45deg, #24ff72, #9a4eff)' }}
         >
           <CardTitle>
-          <VIPBoxContainer aria-hidden={true}>
-            <VIPBox aria-hidden={true} />
-          </VIPBoxContainer>
+            <VIPBoxContainer aria-hidden={true}>
+              <VIPBox aria-hidden={true} />
+            </VIPBoxContainer>
             <StyledDiamondIcon />
 
             <h2>{t(LanguageKeys.DiamondPlan)}</h2>
@@ -165,7 +165,7 @@ const Title = styled.h2`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  grid-gap: 50px;
+  grid-gap: 1rem;
   align-items: stretch;
   width: 100%;
   margin: 1rem auto;
@@ -260,7 +260,6 @@ const VIPBox = styled(FiBox)`
   height: auto;
 `;
 
-
 const StyledDiamondIcon = styled(MdDiamond)`
   ${StyledIcon}
   background: linear-gradient(-45deg, #ffffff, #b3e0ff);
@@ -271,9 +270,9 @@ const Price = styled.div`
   z-index: 2;
   padding: 32px 0px;
   display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
   h4 {
     margin: 0;
     color: #fff;

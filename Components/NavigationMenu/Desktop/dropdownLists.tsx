@@ -6,12 +6,9 @@ import { useRouter } from 'next/router';
 import { listsItems } from '../const';
 import { componentStatements, LanguageKeys } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Languages, LocalStorageKeys } from 'Interfaces';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { SupportedCountry } from 'Interfaces/Database';
-import { getLocalStorage } from 'Utils';
 
-function DesktopBusinessDropdown({ clientCountry }: { clientCountry: string }) {
+function DesktopBusinessDropdown() {
   const { locale } = useLocale();
   const router = useRouter();
   const { t } = useStaticTranslation(componentStatements);

@@ -11,7 +11,7 @@ import { layer3_TextStyle } from 'Styles/Theme/Layers/layer3/style';
 import { componentStatements, LanguageKeys } from '../const';
 import DesktopLanguageChanger from './LanguageChanger';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import DesktopBoxsesDropdown from './dropdownLists';
+import DesktopBusinessDropdown from './dropdownLists';
 import DesktopOccupationDropdown from './dropdownOccupation';
 import { useSession } from 'next-auth/react';
 import AvatarComponent from '../AvatarComponent';
@@ -67,7 +67,7 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
           <DesktopLanguageChanger />
 
           <DesktopOccupationDropdown clientCountry={clientCountry} />
-          <DesktopBoxsesDropdown clientCountry={clientCountry} />
+          <DesktopBusinessDropdown />
           {!isAgencyLogedIn() && <DesktopFormsDropdown />}
           {(clientCountry === SupportedCountry.Iran ||
             getLocalStorage(LocalStorageKeys.Country) ===

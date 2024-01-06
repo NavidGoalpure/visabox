@@ -13,15 +13,16 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: 'AI-Powered Australia Immigration FAQs | Mara Box',
-    fa: ' پاسخ پرسش های مهاجرتی به استرالیا با هوش مصنوعی| مارا باکس',
-    zh: '人工智能驱动的澳大利亚移民常见问题解答 | Mara Box',
+    en: 'MARCYA: Your AI-Powered Chat Bot for Australian Immigration Guidance',
+    fa: 'مارسیا: راهنمای هوش مصنوعی شما برای مهاجرت به استرالیا',
+    zh: 'MARCYA：您的澳大利亚移民AI聊天机器人助手',
   },
   SeoDesc: {
-    fa: 'پاسخ به سوالات مهاجرت شامل ارزیابی های Vetassess و مستندات آخرین استراتژی های مهاجرت  که در سال  2023 منتشر شده است',
-    en: `"Unlock AI-Powered Answers for a Smooth Migration to Australia! Explore Expert Guidance on Vetassess Assessment and Stay Informed about Cutting-Edge Migration Strategies in 2023. Your Essential Resource for a Successful Journey Down Under!"`,
-    zh: '解锁通往澳大利亚之路的人工智能答案！包括：Vetassess评估、移民战略…… 探索2023年最新移民策略的专业指导。成为您成功之旅的重要资源！',
+    en: 'MARCYA, your AI-powered chat bot, provides expert guidance on Australian immigration, covering assessment systems, visa processes, and updates from legal migration organizations. Connect with MARCYA for a seamless journey towards achieving your Australian dream.',
+    fa: 'مارسیا راهنمای تخصصی شما در موضوع مهاجرت به استرالیا است، از سیستم‌های ارزیابی گرفته تا روند اخذ ویزا و اخبار از سازمان‌های مهاجرتی قانونی. با مارسیا همراه شوید تا به آرزوی استرالیایی‌تان برسید.',
+    zh: 'MARCYA是您的AI聊天机器人，为您提供澳大利亚移民的专家指导，涵盖评估系统、签证流程以及法定移民组织的最新动态。与MARCYA联系，顺利实现您的澳大利亚梦想。',
   },
+
   BotName: {
     en: 'MARCYA',
     fa: 'مارسیا',

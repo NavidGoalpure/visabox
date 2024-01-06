@@ -13,7 +13,7 @@ function NoCredit() {
     <Container>
       <Wrapper>
         <Alarm>{t(LanguageKeys.OutOfChargeMessage)}</Alarm>
-        <Link href={`/australia-migration-ai/marcya`}>
+        <Link href={`/australia-migration-ai/introduce-marcya`}>
           <SendButton>
             {t(LanguageKeys.Buy)}
             <FaShoppingCart />

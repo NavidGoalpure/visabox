@@ -1,7 +1,7 @@
 import Hero from './Hero';
 import OccupationSection from './OccupationSection';
 import ExchangesSection from './ExchangesSection';
-import SocialsSection from './SocialsSection';
+// import SocialsSection from './SocialsSection';
 import styled from 'styled-components';
 import { useLocale } from 'Hooks/useLocale';
 import { Languages } from 'Interfaces';
@@ -75,7 +75,7 @@ const HomeContent: React.FC = () => {
         <OccupationSection className='section' />
         <AgentsSection className='section' />
         <ExchangesSection className='section' />
-        {locale === Languages.fa && <SocialsSection className='section' />}
+        {/* {locale === Languages.fa && <SocialsSection className='section' />} */}
       </Container>
     </>
   );

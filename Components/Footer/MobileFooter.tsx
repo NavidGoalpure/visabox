@@ -70,16 +70,6 @@ function MobileFooter({
         >
           {t(LanguageKeys.Exchanges)}
         </Items>
-        {(clientCountry === SupportedCountry.Iran ||
-          getLocalStorage(LocalStorageKeys.Country) ===
-            SupportedCountry.Iran) && (
-          <Items
-            href={`/${locale}/lists/social-pages`}
-            data-name={t(LanguageKeys.SocialNetWorksBox)}
-          >
-            {t(LanguageKeys.SocialNetWorksBox)}
-          </Items>
-        )}
 
         <Items
           href={`/${locale}/lists/naaties`}

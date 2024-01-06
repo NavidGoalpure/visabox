@@ -1,10 +1,6 @@
 import { NextPage } from 'next';
 import styled from 'styled-components';
 import { MdError } from 'react-icons/md';
-import {
-  layer2A_TitleStyle,
-  layer2A_SubtitleStyle,
-} from 'Styles/Theme/Layers/layer2/style';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import {
@@ -25,7 +21,7 @@ const Content: NextPage = () => {
       <h1>{t(LanguageKeys.Title)}</h1>
       <h2>{t(LanguageKeys.Subtitle)}</h2>
       <ButtonContainer>
-        <Link href={'/australia-migration-ai/marcya'}>
+        <Link href={'/australia-migration-ai/introduce-marcya'}>
           <PrimaryButton style={{ width: '11rem' }}>
             Goto MARCYA Page
           </PrimaryButton>

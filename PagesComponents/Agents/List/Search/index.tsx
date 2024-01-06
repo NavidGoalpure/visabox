@@ -9,7 +9,7 @@ import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
 import { SearchFilterContext } from '../Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
-import { SelectItemCss } from 'Elements/Select/Item';
+
 import { LuSettings2 } from 'react-icons/lu';
 import { Country, ICountry, State } from 'country-state-city';
 import { useRouter } from 'next/router';
@@ -17,6 +17,7 @@ import { useSession } from 'next-auth/react';
 import { getUserCountry } from 'Queries/client';
 
 import { getDefaultCountry } from './utils';
+import { Session } from 'next-auth';
 
 interface Props {
   searchValue: string;
@@ -25,6 +26,15 @@ interface Props {
 
 const allCountries = Country.getAllCountries();
 function Search({ searchValue, setSearchValue }: Props) {
+  const fetchUserCountry = async (session: Session | null) => {
+    try {
+      const userCountry = await getUserCountry(session);
+      return userCountry;
+    } catch (error) {
+      console.error('Error fetching user country:', error);
+      return null;
+    }
+  };
   // get Url Params
   const router = useRouter();
   const countryInUrlParam = router?.query?.country?.toString();
@@ -49,20 +59,31 @@ function Search({ searchValue, setSearchValue }: Props) {
   //این یوزافکت به یوآرال پارام کشور و ولیو کشور در پروفایل کاربر نگاه میکنه و اگه مقدار داشته باشن فیلتر سرچ رو با اون هماهنگ میکنه
   /////////////////////////////////////////////////////////////
   const { data: session } = useSession();
-  const userCountry = getUserCountry(session);
   useEffect(() => {
-    if (countryInUrlParam || userCountry) {
-      const country = getDefaultCountry({ countryInUrlParam, userCountry });
-      setDefaultContry(country);
-      setSelectedFiltersObj((prev) => ({
-        ...prev,
-        location: {
-          ...prev.location,
-          country,
-        },
-      }));
-    }
-  }, [countryInUrlParam, userCountry]);
+    const setCountry = async () => {
+      if (countryInUrlParam || session) {
+        const userCountry = await fetchUserCountry(session);
+        const validUserCountry = userCountry ?? undefined; // Convert null to undefined
+
+        if (countryInUrlParam || validUserCountry) {
+          const country = getDefaultCountry({
+            countryInUrlParam,
+            userCountry: validUserCountry,
+          });
+          setDefaultContry(country);
+          setSelectedFiltersObj((prev) => ({
+            ...prev,
+            location: {
+              ...prev.location,
+              country,
+            },
+          }));
+        }
+      }
+    };
+
+    setCountry();
+  }, [countryInUrlParam, session]);
 
   //////////////////////////////////////////////////////////////
   //این یوزافکت به یوآرال پارام شهر نگاه میکنه و اگه مقدار داشته باشه فیلتر سرچ رو با اون هماهنگ میکنه
@@ -237,8 +258,4 @@ const SelectRoot = styled(MaraSelect.Root)`
   #select-portal {
     height: 35rem !important;
   }
-`;
-const DropboxItem = styled.h5`
-  ${SelectItemCss}
-  padding: 0;
 `;

@@ -68,9 +68,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   SilverPlan_Price: {
-    en: '5AU',
+    en: '9.99 AU',
     fa: '۱۰۰ هزار تومان',
-    zh: '澳5',
+    zh: '澳 9.99',
   },
   SilverPlan_ABV: {
     en: '20 Questions',
@@ -86,9 +86,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   GoldPlan_Price: {
-    en: '15AU',
+    en: '29.99 AU',
     fa: '۳۰۰ هزار تومان',
-    zh: '澳15',
+    zh: '澳29.99',
   },
   GoldPlan_ABV: {
     en: '100 Questions',

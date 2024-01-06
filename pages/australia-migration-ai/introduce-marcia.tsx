@@ -6,32 +6,28 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Australia-migration-ai/Marcya/const';
+} from 'PagesComponents/Australia-migration-ai/IntroduceMarcia/const';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 import styled from 'styled-components';
-import Content from 'PagesComponents/Australia-migration-ai/Marcya';
+import Content from 'PagesComponents/Australia-migration-ai/IntroduceMarcia';
 import { getServerSession } from 'next-auth';
-import { getClientDetail, getUserCountry } from 'Queries/client';
+import { getClientDetail } from 'Queries/client';
 import { Client } from 'Interfaces/Database/Client';
 import { ContentOrError } from 'Components/contentOrError';
-import { AxiosError } from 'axios';
 
 interface Props {
   userData: Client | null;
   errorCode?: string;
 }
 const AIIntroduction: NextPage<Props> = ({ errorCode, userData }) => {
-  console.log('***navid2 userData=', userData);
-
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
     <StyledPageLayout>
-      {/* // navid seo */}
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com.au/${locale}/landing/AI`}
+        canonical={`https://www.marabox.com.au/${locale}//australia-migration-ai/introduce-marcia`}
       />
       <ContentOrError
         isError={!!errorCode}

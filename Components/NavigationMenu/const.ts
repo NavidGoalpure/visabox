@@ -73,15 +73,6 @@ export const listsItems: DropdownItem[] = [
     },
     href: '/lists/exchanges',
   },
-
-  {
-    title: {
-      en: 'Social Network',
-      fa: 'شبکه های اجتماعی',
-      zh: '社交网络',
-    },
-    href: '/lists/social-pages',
-  },
 ];
 export const occupationItems: DropdownItem[] = [
   {

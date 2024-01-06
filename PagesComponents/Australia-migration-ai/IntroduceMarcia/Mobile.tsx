@@ -108,8 +108,7 @@ function Mobile({ isLogin, userCountry }: Props) {
               }}
             />
             <ContactsWrapper>
-              {/* // navid این قسمت رو تغییر بده تا با کلیک روی اون به بخش ایمیل گوشی بره تا بتونه ایمیل بزنه */}
-              <GmailContainer>
+              <GmailContainer href='mailto:marketing@marabox.com.au'>
                 <GmailIcon />
                 <GmailLink>marketing@marabox.com.au</GmailLink>
               </GmailContainer>
@@ -288,7 +287,7 @@ const TelegramContainer = styled.a`
   direction: ltr;
   cursor: pointer;
 `;
-const GmailContainer = styled.button`
+const GmailContainer = styled.a`
   display: flex;
   gap: 0.5rem;
   justify-content: center;

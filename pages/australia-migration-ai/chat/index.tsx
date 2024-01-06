@@ -4,7 +4,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Lists/SocialPage/const';
+} from 'PagesComponents/Australia-migration-ai/Chat/const';
 import { useLocale } from 'Hooks/useLocale';
 import Content from 'PagesComponents/Australia-migration-ai/Chat';
 import Seo from 'Components/Seo';
@@ -25,7 +25,6 @@ const AIChatPages: NextPage<Props> = ({ aiAgentId, userData, errorCode }) => {
 
   return (
     <PageLayout>
-      {/* navid correct seo */}
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}

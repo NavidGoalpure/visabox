@@ -13,20 +13,19 @@ export default async function handler(
   const domain = isItOnLive()
     ? process.env.NEXT_PUBLIC_DOMAIN
     : 'http://localhost:3000';
-  // navid change priceId
   const { priceId } = await req.body;
   try {
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: 'price_1OUkcDC05yXRTcF2FFHoAmmL',
+          price: priceId,
           quantity: 1,
         },
       ],
       mode: 'payment',
-      success_url: `${domain}/success.html`,
-      cancel_url: `${domain}/cancel.html`,
+      success_url: `${domain}/payment/success`,
+      cancel_url: `${domain}/payment/cancel`,
       automatic_tax: { enabled: true },
     });
 

@@ -7,14 +7,23 @@ import { getUserCountry } from 'Queries/client';
 
 const SmartFooter = () => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
+  const [userCountry, setUserCountry] = useState<string | undefined>(undefined);
   const { isLaptop } = useDevice();
   const { data: session } = useSession();
 
   useEffect(() => {
+    // Fetch user country asynchronously
+    const fetchUserCountry = async () => {
+      const country = await getUserCountry(session);
+      setUserCountry(country);
+    };
+
+    fetchUserCountry();
+  }, [session]);
+
+  useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');
   }, [isLaptop]);
-
-  const userCountry = getUserCountry(session);
 
   if (screen === 'MOBILE') {
     return <MobileFooter clientCountry={userCountry} />;

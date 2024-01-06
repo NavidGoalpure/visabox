@@ -7,7 +7,7 @@ interface Props {
   description?: string;
   type?: string;
   image?: string;
-  canonical: string;
+  canonical?: string;
   isNoIndex?: boolean;
   structuredData?: Record<string, any>;
 }
@@ -30,7 +30,7 @@ function Seo({
     <Head>
       <title>{smartTitle}</title>
       <meta name='description' content={smartDescription} />
-      <link rel='canonical' href={canonical}></link>
+      {canonical && <link rel='canonical' href={canonical}></link>}
       <link rel='icon' href='/favicon.ico' />
       {/* <!-- Facebook Meta Tags --> */}
       <meta property='og:title' content={smartTitle} />

@@ -1,38 +1,34 @@
-import { MaraAgent } from 'Interfaces/Database/Lists/agents';
-import { Occupation } from 'Interfaces/Database/Occupation/occupation';
-import { AgentsDetailsPages } from 'PagesComponents/sitemap/AgentDetailsPages';
 import { AgentLintInCountries } from 'PagesComponents/sitemap/AgentLintInCountries';
 import { AssessingAuthoritiesListPages } from 'PagesComponents/sitemap/AssessingAuthoritiesListPages';
 import { BlogsDetailsPages } from 'PagesComponents/sitemap/BlogsDetailsPages';
 import { NaatiListPages } from 'PagesComponents/sitemap/NaatiListPages';
-import { OccupationDetailsPages } from 'PagesComponents/sitemap/OccupationDetailsPages';
 import { OccupationsSearchPages } from 'PagesComponents/sitemap/OccupationsSearchPage';
 import { Domain_EN, Domain_FA } from 'PagesComponents/sitemap/const';
-import { getAllAgentsSlugs } from 'Queries/agents/Detail';
-import { getAllOccupationSlugs } from 'Queries/sitemap';
+import { MarcyaIntroducePages } from 'PagesComponents/sitemap/MarcyaIntroducePages';
+import { MarcyaChatPages } from 'PagesComponents/sitemap/MarcyaChatPages';
+// import { getAllAgentsSlugs } from 'Queries/agents/Detail';
+// import { getAllOccupationSlugs } from 'Queries/sitemap';
 
-async function generateSiteMap({
-  allOccupationSlugs,
-  allAgentsSlug,
-}: {
-  allOccupationSlugs: Pick<Occupation, 'slug'>[] | undefined;
-  allAgentsSlug: Pick<MaraAgent, 'slug'>[];
-}) {
+async function generateSiteMap() {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   ${OccupationsSearchPages()}
-   ${OccupationDetailsPages(allOccupationSlugs)}
-   ${AssessingAuthoritiesListPages()}
-   ${NaatiListPages()}
-   <url>
-   <loc>${Domain_FA}/lists/exchanges</loc>
-   </url>
-   ${BlogsDetailsPages()}
+    ${MarcyaIntroducePages()}
+    ${MarcyaChatPages()}
+
+    ${OccupationsSearchPages()}
+    ${AssessingAuthoritiesListPages()}
+    ${NaatiListPages()}
     <url>
-        <loc>${Domain_EN}/lists/agents</loc>
+    <loc>${Domain_FA}/lists/exchanges</loc>
     </url>
-   ${AgentsDetailsPages(allAgentsSlug)}
-   ${AgentLintInCountries()}
+    ${BlogsDetailsPages()}
+    <url>
+      <loc>${Domain_EN}/lists/agents</loc>
+    </url>
+    ${AgentLintInCountries()}
+    
+    ${MarcyaIntroducePages()}
+    ${MarcyaChatPages()}
    </urlset>
  `;
 }
@@ -43,17 +39,17 @@ function SiteMap() {
 
 export async function getServerSideProps({ res }: any) {
   try {
-    // We make an API call to gather the URLs for our site
-    const [allOccupationSlugs, allAgentsSlug] = await Promise.all([
-      getAllOccupationSlugs(),
-      getAllAgentsSlugs(),
-    ]);
+    //اگه بخوایم آدرس صحفه وکلا و آکیوپیشن رو به این لیست اضافه کنیم باید این ها رو آنکامنت کنیم و به لیست اضافه کنیم،
+    // اما به نظر میاد گوگل بهمون اونقدر بودجه نمیده که همه این صفحات رو بررسی کنه.
+    // پس فعلا کامنت کردم تا صحفات مهم تر از دست نرن
+
+    // const [allOccupationSlugs, allAgentsSlug] = await Promise.all([
+    //   getAllOccupationSlugs(),
+    //   getAllAgentsSlugs(),
+    // ]);
 
     // We generate the XML sitemap with the posts data
-    const sitemap = await generateSiteMap({
-      allOccupationSlugs,
-      allAgentsSlug,
-    });
+    const sitemap = await generateSiteMap();
 
     res.setHeader('Content-Type', 'text/xml');
     // we send the XML to the browser
@@ -75,3 +71,5 @@ export async function getServerSideProps({ res }: any) {
 }
 
 export default SiteMap;
+
+//

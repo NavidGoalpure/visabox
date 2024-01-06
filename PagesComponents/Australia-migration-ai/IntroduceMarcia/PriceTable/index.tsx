@@ -164,7 +164,7 @@ const MyCard = styled.div<{ $locale?: Languages }>`
   min-height: ${({ $locale }) =>
     $locale === Languages.fa ? '29rem' : '25rem'};
   @media ${deviceMin.tabletS} {
-    min-height: 27rem;
+    min-height: 29rem;
   }
   :hover {
     transform: scale(1.1);
@@ -209,6 +209,7 @@ const CardTitle = styled.div`
     color: #fff;
     font-size: 20px;
     z-index: 2;
+    margin-bottom: 1rem;
   }
 `;
 const StyledIcon = css`

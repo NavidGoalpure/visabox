@@ -68,7 +68,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   SilverPlan_Price: {
-    en: '9.99 AU',
+    en: '9.99 AUD',
     fa: '۱۰۰ هزار تومان',
     zh: '澳 9.99',
   },
@@ -86,7 +86,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   GoldPlan_Price: {
-    en: '29.99 AU',
+    en: '29.99 AUD',
     fa: '۳۰۰ هزار تومان',
     zh: '澳29.99',
   },

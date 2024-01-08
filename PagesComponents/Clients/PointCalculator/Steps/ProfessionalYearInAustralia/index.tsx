@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import * as ToggleGroup from "../../../../../Elements/ToggleGroup";
-import { Input } from "Components/Input";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { WizardContext } from "../../../../../Components/Wizard/Context";
-import { useContext } from "react";
+import styled from 'styled-components';
+import * as ToggleGroup from '../../../../../Elements/ToggleGroup';
+import { Input } from 'Components/Input';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { WizardContext } from '../../../../../Components/Wizard/Context';
+import { useContext } from 'react';
 import {
   ButtonWrapper,
   CalculatorIcon,
@@ -16,24 +16,24 @@ import {
   PrevIcon,
   StyledTooltipTag,
   Title,
-} from "../StyledComponents";
-import { FormDataContext } from "../../Contexts/FormDataContext/Context";
-import { YesOrNo } from "Consts/Client";
-import ErrorToast from "Elements/Toast/Error";
-import SuccessToast from "Elements/Toast/Success";
-import { LocalStorageKeys } from "Interfaces";
-import { Status } from "Interfaces/Database";
+} from '../StyledComponents';
+import { FormDataContext } from '../../Contexts/FormDataContext/Context';
+import { YesOrNo } from 'Consts/Client';
+import ErrorToast from 'Elements/Toast/Error';
+import SuccessToast from 'Elements/Toast/Success';
+import { LocalStorageKeys } from 'Interfaces';
+import { Status } from 'Interfaces/Database';
 import {
   ClientCompletedForms_obj,
   ClientCompletedForms,
   Client,
   ClientRole,
-} from "Interfaces/Database/Client";
-import { useSession } from "next-auth/react";
-import { validateClientDataWithYup } from "./utils";
-import { useQueryClient, useMutation } from "react-query";
-import { removeLocalStorage } from "Utils";
-import { ClientQueryKeys } from "Utils/query/keys";
+} from 'Interfaces/Database/Client';
+import { useSession } from 'next-auth/react';
+import { validateClientDataWithYup } from './utils';
+import { useQueryClient, useMutation } from 'react-query';
+import { removeLocalStorage } from 'Utils';
+import { ClientQueryKeys } from 'Utils/query/keys';
 
 const ProfessionalYearInAustraliaStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -58,7 +58,7 @@ const ProfessionalYearInAustraliaStep = () => {
       return [
         {
           forms: ClientCompletedForms.BasicForm,
-          _type: "client_completed_forms_obj",
+          _type: 'client_completed_forms_obj',
           _key: new Date().toString() + Math.random().toString(),
         },
       ];
@@ -72,7 +72,7 @@ const ProfessionalYearInAustraliaStep = () => {
       ...formsData,
       {
         forms: ClientCompletedForms.BasicForm,
-        _type: "client_completed_forms_obj",
+        _type: 'client_completed_forms_obj',
         _key: new Date().toString() + Math.random().toString(),
       },
     ];
@@ -92,21 +92,20 @@ const ProfessionalYearInAustraliaStep = () => {
       // ولیدیت دیتایی که به سرور فرستاده میشه
       const validatedData = validateClientDataWithYup(fullData);
       //
-      return fetch("/api/clients/point-calculator", {
-        method: "POST",
+      return fetch('/api/clients/point-calculator', {
+        method: 'POST',
         body: JSON.stringify({ client: validatedData }),
       });
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        throw new Error("couldnt patch the user");
+        throw new Error('couldnt patch the user');
       }
       handleNextPress();
-      removeLocalStorage(LocalStorageKeys.Country);
       SuccessToast(successToastMessage);
       queryClient.refetchQueries(
         ClientQueryKeys.detail({
-          reqParams: `email == "${session?.user?.email || "defensive"}"`,
+          reqParams: `email == "${session?.user?.email || 'defensive'}"`,
         })
       );
     },
@@ -117,7 +116,7 @@ const ProfessionalYearInAustraliaStep = () => {
   return (
     <Container>
       <StyledTitle>
-        {t(LanguageKeys.ProfessionalYearInAustralia)}{" "}
+        {t(LanguageKeys.ProfessionalYearInAustralia)}{' '}
         <StyledTooltipTag
           content={
             <>
@@ -128,19 +127,19 @@ const ProfessionalYearInAustraliaStep = () => {
         />
       </StyledTitle>
       <ToggleGroupRoot
-        type="single"
+        type='single'
         value={
           client?.professional_year_in_australia !== null
             ? client?.professional_year_in_australia === true
-              ? "yes"
-              : "no"
+              ? 'yes'
+              : 'no'
             : undefined
         }
         onValueChange={(value: string) => {
           client &&
             setClient({
               ...client,
-              professional_year_in_australia: value === "yes" ? true : false,
+              professional_year_in_australia: value === 'yes' ? true : false,
             });
         }}
       >

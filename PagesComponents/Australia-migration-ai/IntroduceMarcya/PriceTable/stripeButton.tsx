@@ -5,17 +5,14 @@ import { PrimaryButton } from 'Elements/Button/Primary';
 import { IPriceIds } from 'Interfaces/Payment';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 import LoginButton from 'Components/LoginButton';
-import { Languages } from 'Interfaces';
-import { useLocale } from 'Hooks/useLocale';
-import { SupportedCountry } from 'Interfaces/Database';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { useSession } from 'next-auth/react';
+import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
 
 interface Props {
   label: string;
   priceId: IPriceIds;
-  isLogin: boolean;
-  userCountry: SupportedCountry;
   iranPrice: string;
   setIranPrice: Dispatch<SetStateAction<string>>;
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -23,22 +20,19 @@ interface Props {
 const SmartStripeButton: React.FC<Props> = ({
   label,
   priceId,
-  isLogin,
-  userCountry,
   iranPrice,
   setIranPrice,
   setIsModalOpen,
 }) => {
-  const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
+  const { data: session } = useSession();
 
   //اگه لاگین نکرده بود لاگین کنه
-  // اگه ایران بود بهش مودال پرداخت در ایران رو نشون بدیم
-  if (!isLogin) return <CustomLoginBTN />;
+  if (!session) return <CustomLoginBTN />;
 
   ///////چک کردن موقعیت جغرافیایی کاربر/////////
-  const isIranPayment =
-    locale === Languages.fa || userCountry === SupportedCountry.Iran;
+  // اگه ایران بود بهش مودال پرداخت در ایران رو نشون بدیم
+  const isIranPayment = isUserLiveInIran();
 
   if (isIranPayment)
     return (

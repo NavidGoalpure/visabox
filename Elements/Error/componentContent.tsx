@@ -1,7 +1,7 @@
 import { globalComponentStatements, LanguageKeys } from 'Consts/language';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
 import { MdError } from 'react-icons/md';
@@ -10,7 +10,7 @@ import {
   layer2A_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   errorTitle?: string;
   errorSubTitle?: string;
 }
@@ -18,11 +18,12 @@ interface Props {
 export const ComponentError: React.FC<Props> = ({
   errorTitle,
   errorSubTitle,
+  ...props
 }) => {
   const { t } = useStaticTranslation(globalComponentStatements);
 
   return (
-    <Container>
+    <Container {...props}>
       <ErrorIcon />
       <h3>{errorTitle || t(LanguageKeys.WentWrongTitle)}</h3>
       <p>{errorSubTitle || t(LanguageKeys.WentWrongSubtitle)}</p>

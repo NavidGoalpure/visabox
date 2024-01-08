@@ -6,20 +6,13 @@ import Seo from 'Components/Seo';
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Australia-migration-ai/IntroduceMarcia/const';
+} from 'PagesComponents/Australia-migration-ai/IntroduceMarcya/const';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 import styled from 'styled-components';
-import Content from 'PagesComponents/Australia-migration-ai/IntroduceMarcia';
+import Content from 'PagesComponents/Australia-migration-ai/IntroduceMarcya';
 import { getServerSession } from 'next-auth';
-import { getClientDetail } from 'Queries/client';
-import { Client } from 'Interfaces/Database/Client';
-import { ContentOrError } from 'Components/contentOrError';
 
-interface Props {
-  userData: Client | null;
-  errorCode?: string;
-}
-const AIIntroduction: NextPage<Props> = ({ errorCode, userData }) => {
+const AIIntroduction: NextPage = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   return (
@@ -29,15 +22,7 @@ const AIIntroduction: NextPage<Props> = ({ errorCode, userData }) => {
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com.au/${locale}//australia-migration-ai/introduce-marcia`}
       />
-      <ContentOrError
-        isError={!!errorCode}
-        content={
-          <Content
-            isLogin={!!(userData as Client)?.email}
-            userCountry={(userData as Client)?.country}
-          />
-        }
-      />
+      <Content />
     </StyledPageLayout>
   );
 };
@@ -56,19 +41,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       context.res,
       authOptions
     );
-    const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
-    const resParams = `country,email`;
-    const userData = await getClientDetail({
-      reqParams,
-      resParams,
-    });
 
     return {
       props: {
         //When you supply a session prop in _app.js, useSession won't show a loading state, as it'll already have the session available.
         // In this way, you can provide a more seamless user experience.
         session,
-        userData: userData?.client[0] || null,
       },
     };
   } catch (error: any) {

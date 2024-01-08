@@ -13,11 +13,7 @@ import { deviceMin } from 'Consts/device';
 import { LuSettings2 } from 'react-icons/lu';
 import { Country, ICountry, State } from 'country-state-city';
 import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
-import { getUserCountry } from 'Queries/client';
-
 import { getDefaultCountry } from './utils';
-import { Session } from 'next-auth';
 
 interface Props {
   searchValue: string;
@@ -26,15 +22,6 @@ interface Props {
 
 const allCountries = Country.getAllCountries();
 function Search({ searchValue, setSearchValue }: Props) {
-  const fetchUserCountry = async (session: Session | null) => {
-    try {
-      const userCountry = await getUserCountry(session);
-      return userCountry;
-    } catch (error) {
-      console.error('Error fetching user country:', error);
-      return null;
-    }
-  };
   // get Url Params
   const router = useRouter();
   const countryInUrlParam = router?.query?.country?.toString();
@@ -43,9 +30,7 @@ function Search({ searchValue, setSearchValue }: Props) {
   ///
   const { t } = useStaticTranslation(componentStatements);
   const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
-  const [defaultContry, setDefaultContry] = useState<ICountry | undefined>(
-    undefined
-  );
+  //navid check useage of country
   const { selectedFiltersObj, setSelectedFiltersObj, resetFilters } =
     useContext(SearchFilterContext);
   useEffect(() => {
@@ -56,34 +41,26 @@ function Search({ searchValue, setSearchValue }: Props) {
   const allStates = State.getStatesOfCountry(smartCountryCode);
 
   //////////////////////////////////////////////////////////////
-  //این یوزافکت به یوآرال پارام کشور و ولیو کشور در پروفایل کاربر نگاه میکنه و اگه مقدار داشته باشن فیلتر سرچ رو با اون هماهنگ میکنه
+  //این یوزافکت به یوآرال پارام کشور نگاه میکنه و اگه مقدار داشته باشن فیلتر سرچ رو با اون هماهنگ میکنه
   /////////////////////////////////////////////////////////////
-  const { data: session } = useSession();
   useEffect(() => {
     const setCountry = async () => {
-      if (countryInUrlParam || session) {
-        const userCountry = await fetchUserCountry(session);
-        const validUserCountry = userCountry ?? undefined; // Convert null to undefined
-
-        if (countryInUrlParam || validUserCountry) {
-          const country = getDefaultCountry({
-            countryInUrlParam,
-            userCountry: validUserCountry,
-          });
-          setDefaultContry(country);
-          setSelectedFiltersObj((prev) => ({
-            ...prev,
-            location: {
-              ...prev.location,
-              country,
-            },
-          }));
-        }
+      if (countryInUrlParam) {
+        const country = getDefaultCountry({
+          countryInUrlParam,
+        });
+        setSelectedFiltersObj((prev) => ({
+          ...prev,
+          location: {
+            ...prev.location,
+            country,
+          },
+        }));
       }
     };
 
     setCountry();
-  }, [countryInUrlParam, session]);
+  }, [countryInUrlParam]);
 
   //////////////////////////////////////////////////////////////
   //این یوزافکت به یوآرال پارام شهر نگاه میکنه و اگه مقدار داشته باشه فیلتر سرچ رو با اون هماهنگ میکنه

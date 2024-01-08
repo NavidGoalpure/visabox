@@ -3,6 +3,9 @@ import { Session } from 'next-auth';
 import { ClientQueryKeys } from 'Utils/query/keys';
 import { sanityClient, sanityClient_WithoutCDN } from 'Utils/sanity';
 import { useQuery } from 'react-query';
+import { getLocalStorage } from 'Utils';
+import { LocalStorageKeys } from 'Interfaces';
+import { SupportedCountry } from 'Interfaces/Database';
 
 interface GetClientDetail {
   reqParams: string;
@@ -34,33 +37,10 @@ export const getClientDetail = async ({
     throw error;
   }
 };
-export const getUserCountry = async (
-  session: Session | null
-): Promise<string | undefined> => {
-  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
-  const resParams = `country`;
 
-  const { data } = useQuery(
-    ClientQueryKeys.detail({
-      reqParams,
-      resParams,
-    }),
-    () => {
-      return getClientDetail({
-        reqParams,
-        resParams,
-      });
-    },
-    {
-      enabled: !!session?.user?.email,
-    }
-  );
-
-  return data?.client?.[0]?.country;
-};
 ///////////////////
-export async function getCredit(
-  email: string | undefined
+export async function getClientCredit(
+  email: string | undefined | null
 ): Promise<Client | null> {
   if (!email) return null;
   const reqParams = `email == "${email}"`;
@@ -74,5 +54,25 @@ export async function getCredit(
     return clientData?.client?.[0];
   } catch (error) {
     return null;
+  }
+}
+////////////////////
+///////////////////
+// به صورت نرمال هروقت یوزر توسط سایت ساخته میشه آیدی اون برابر با هش ام دی فایو ایمیل هست
+// اما چون شاید یک زمانی این قاعده عوض شه یا یوزری با پنل ساخته بشه، این تابع روش بهتری برای پیدا کردن یوزر کلاینت هست
+export async function getClientId(
+  email: string | undefined
+): Promise<string | undefined> {
+  if (!email) return undefined;
+  const reqParams = `email == "${email}"`;
+  const resParams = `_id`;
+  try {
+    const clientData = await getClientDetail({
+      reqParams,
+      resParams,
+    });
+    return clientData?.client?.[0]?._id;
+  } catch (error) {
+    return undefined;
   }
 }

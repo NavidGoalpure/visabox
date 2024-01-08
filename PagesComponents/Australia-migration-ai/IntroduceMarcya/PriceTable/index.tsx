@@ -12,19 +12,12 @@ import { FiBox } from 'react-icons/fi';
 import { Languages } from 'Interfaces';
 import { useLocale } from 'Hooks/useLocale';
 import IranPaymentModal from '../IranPaymentModal';
-import { ReactNode, useState } from 'react';
-
-import StripeButton from './stripeButton';
+import { useState } from 'react';
 import { IPriceIds } from 'Interfaces/Payment';
-import { SupportedCountry } from 'Interfaces/Database';
-import LoginButton from 'Components/LoginButton';
 import SmartStripeButton from './stripeButton';
+import { useSession } from 'next-auth/react';
 
-interface Props {
-  isLogin: boolean;
-  userCountry: SupportedCountry;
-}
-const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
+const PriceList: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -67,8 +60,6 @@ const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
           <SmartStripeButton
             label={t(LanguageKeys.CTA)}
             priceId={IPriceIds.BasicPlan}
-            isLogin={isLogin}
-            userCountry={userCountry}
             iranPrice={componentStatements.SilverPlan_Price.fa}
             setIranPrice={setIranPrice}
             setIsModalOpen={setIsModalOpen}
@@ -103,10 +94,9 @@ const PriceList: React.FC<Props> = ({ isLogin, userCountry }) => {
           </Option>
           {/* ///////دکمه پرداخت یا لاگین/////////// */}
           <SmartStripeButton
+            // navid remove test
             label={t(LanguageKeys.CTA)}
             priceId={IPriceIds.ProPlan}
-            isLogin={isLogin}
-            userCountry={userCountry}
             iranPrice={componentStatements.GoldPlan_Price.fa}
             setIranPrice={setIranPrice}
             setIsModalOpen={setIsModalOpen}

@@ -16,22 +16,20 @@ import { layer2A_BodyStyle } from 'Styles/Theme/Layers/layer2/style';
 import ShowConversation from './ShowConversation';
 import { Loading } from 'Elements/Loading';
 import { ChatScrollAnchor } from './chatScrollAnchor';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 
-import { Client } from 'Interfaces/Database/Client';
 import SmartRow from './SmartRow';
+import { AiChatContext, AiChatContextProvider } from './hooks/useAiCredit';
 
 interface Props {
   aiAgentId: string;
-  userData: Client | undefined;
 }
-function Content({ aiAgentId, userData }: Props) {
+function Content({ aiAgentId }: Props) {
   const { status } = useSession();
-  const [questionRemain, setQuestionRemain] = useState<number>(
-    (userData?.credit || 0) + Math.abs(FREE_CREDIT_THRESHOLD)
-  );
   const { t } = useStaticTranslation(componentStatements);
+  const { questionRemain } = useContext(AiChatContext);
+  //
   const { conversation, sendMessage, stop } = useFixie({
     agentId: aiAgentId,
     agentStartsConversation: false,
@@ -67,13 +65,7 @@ function Content({ aiAgentId, userData }: Props) {
           <ChatScrollAnchor trackVisibility={isLoading} />;
         </Scroll>
 
-        <SmartRow
-          userData={userData}
-          sendMessage={sendMessage}
-          isLoading={isLoading}
-          stop={stop}
-          setQuestionRemain={setQuestionRemain}
-        />
+        <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
       </ChatArea>
       <Disclaimer
         dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Disclaimer) }}

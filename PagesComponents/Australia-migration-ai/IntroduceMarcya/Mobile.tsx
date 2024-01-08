@@ -30,13 +30,8 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
 import { Hint_BG } from 'Styles/Theme/Hint/theme';
-import { SupportedCountry } from 'Interfaces/Database';
 
-interface Props {
-  isLogin: boolean;
-  userCountry: SupportedCountry;
-}
-function Mobile({ isLogin, userCountry }: Props) {
+function Mobile() {
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);
 
@@ -96,7 +91,7 @@ function Mobile({ isLogin, userCountry }: Props) {
           />{' '}
           <TestRobotWrapper>
             <Title>{t(LanguageKeys.Section3Title)}</Title>
-            <PriceList isLogin={isLogin} userCountry={userCountry} />
+            <PriceList />
           </TestRobotWrapper>
         </TestRobotContainer>
         {/* ///////////Contact us//////////// */}

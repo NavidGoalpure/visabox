@@ -1,4 +1,7 @@
 import { Country, ICountry } from 'country-state-city';
+import { LocalStorageKeys } from 'Interfaces';
+import { SupportedCountry } from 'Interfaces/Database';
+import { getLocalStorage } from 'Utils';
 
 /**
  * Retrieves the flag of a country based on either the exact country name or a possible country name found in an address.
@@ -79,6 +82,7 @@ export const getCountrySymbolBaseOnNameOrAlias = (
   country: string | undefined
 ): string | undefined => {
   if (!country) return undefined;
+  //navid add other Aliases for other supported country
   const COUNTRY_ALIASES: { [key: string]: string } = {
     iran: 'IR',
     // Add more aliases as needed
@@ -102,3 +106,35 @@ export const getCountryBasedOnSymbol = (
 
   return foundCountry;
 };
+//////////////////
+export const convertSupportedCountryToCountryObj = (
+  supportedCountry: string | null | undefined
+): ICountry | undefined => {
+  if (!supportedCountry) return undefined;
+  const allCountries = Country.getAllCountries();
+
+  if (supportedCountry === SupportedCountry.Australia)
+    return allCountries.find((country) => country.isoCode === 'AU');
+  if (supportedCountry === SupportedCountry.China)
+    return allCountries.find((country) => country.isoCode === 'CN');
+  if (supportedCountry === SupportedCountry.India)
+    return allCountries.find((country) => country.isoCode === 'IN');
+  if (supportedCountry === SupportedCountry.Iran)
+    return allCountries.find((country) => country.isoCode === 'IR');
+  //
+  return undefined;
+};
+////////////////////
+// only work on csr
+export const getUserCountry = (): SupportedCountry => {
+  const country = getLocalStorage(LocalStorageKeys.Country as LocalStorageKeys);
+  const typeCountry = country as SupportedCountry;
+  return typeCountry;
+};
+
+////////آیا محل زندگی کاربر ایرانه؟//////
+// navid جایگزینی این فانکشن تو جاهایی که مانولی چک کردیم
+export function isUserLiveInIran(): boolean {
+  const country = getLocalStorage(LocalStorageKeys.Country as LocalStorageKeys);
+  return country === SupportedCountry.Iran;
+}

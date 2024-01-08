@@ -6,7 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST!, {
     typescript: true,
     apiVersion: '2023-10-16',
   });
@@ -24,7 +24,7 @@ export default async function handler(
         },
       ],
       mode: 'payment',
-      success_url: `${domain}/payment/success`,
+      success_url: `${domain}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${domain}/payment/cancel`,
       automatic_tax: { enabled: true },
     });

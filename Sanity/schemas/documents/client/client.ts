@@ -9,13 +9,11 @@ export default {
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'lastname',
       title: 'Last Name',
       type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'email',
@@ -86,7 +84,6 @@ export default {
         layout: 'radio',
         direction: 'horizontal',
       },
-      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'country',
@@ -131,7 +128,6 @@ export default {
       name: 'field_of_study',
       title: 'Field Of Study',
       type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'degree',
@@ -178,7 +174,6 @@ export default {
       name: 'current_job',
       title: 'Current Job',
       type: 'string',
-      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: 'work_experience',

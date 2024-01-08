@@ -2,8 +2,6 @@ import { Domain_EN } from './const';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 
 function AgentsDetailsPages(allAgentsSlug: Pick<MaraAgent, 'slug'>[]): string {
-  console.log('navid inja');
-
   const res = allAgentsSlug
     .map(({ slug }) => {
       return `

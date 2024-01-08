@@ -1,5 +1,5 @@
 import { ScrollBox } from 'Elements/ScrollBox';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState, useState } from 'react';
 import { CiSearch } from 'react-icons/ci';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';

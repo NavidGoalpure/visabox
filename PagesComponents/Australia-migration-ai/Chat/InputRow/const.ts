@@ -5,8 +5,8 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Placeholder: {
-    fa: 'سوال خود را بپرسید',
-    zh: '提出您的问题',
-    en: 'Ask Your Question',
+    fa: 'سوالت رو به هر زبانی مثل انگلیسی یا فارسی بپرس',
+    zh: '用英文、波斯语或中文提问',
+    en: 'Ask in any language like English, Persian, Chinese, and more',
   },
 };

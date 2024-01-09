@@ -1,13 +1,19 @@
-import MaraBgAnimation from "Components/MaraBgAnimation";
-import { deviceMin } from "Consts/device";
-import { PrimaryButton } from "Elements/Button/Primary";
-import { useRouter } from "next/router";
-import { HTMLAttributes, ReactNode } from "react";
-import { MdNavigateNext } from "react-icons/md";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import BannerStamp from "./Images/BannerStamp.svg";
-import { Headline4Style, Headline7Style } from "Styles/Typo";
+import MaraBgAnimation from 'Components/MaraBgAnimation';
+import { deviceMin } from 'Consts/device';
+import { PrimaryButton } from 'Elements/Button/Primary';
+import { useRouter } from 'next/router';
+import { HTMLAttributes, ReactNode } from 'react';
+import { MdNavigateNext } from 'react-icons/md';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import BannerStamp from './Images/BannerStamp.svg';
+import {
+  Headline4Style,
+  Headline5Style,
+  Headline6Style,
+  Headline7Style,
+} from 'Styles/Typo';
+import { SecondaryButton } from 'Elements/Button/Secondary';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
@@ -27,25 +33,18 @@ const Banner: React.FC<Props> = ({
         <Stamp dangerouslySetInnerHTML={{ __html: stampText }}></Stamp>
       )}
       <Wrapper>
-        <MaraBgAnimation
-          animationSpeed={60}
-          DarkPrimaryColor={"var(--color-primary3)"}
-          LightPrimaryColor={"var(--color-primary3)"}
-          LightSecondaryColor={"transparent"}
-        >
-          <Content>
-            <Title>{desc}</Title>{" "}
-            <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
-              {buttonText}
-            </Button>
-          </Content>
-        </MaraBgAnimation>
+        <Content>
+          <Title>{desc}</Title>{' '}
+          <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
+            {buttonText}
+          </Button>
+        </Content>
       </Wrapper>
     </Container>
   );
 };
 export default Banner;
-const NextIconDirectionStyle = theme("languageDirection", {
+const NextIconDirectionStyle = theme('languageDirection', {
   ltr: css``,
   rtl: css`
     transform: rotate(180deg);
@@ -88,8 +87,17 @@ const Stamp = styled.div`
     font-weight: 900;
   }
 `;
+///////////////////////////
+const wrapperBG = theme('mode', {
+  light: css`
+    background: var(--color-gray7);
+  `,
+  dark: css`
+    background: var(--color-primary4);
+  `,
+});
 const Wrapper = styled.div`
-  background: var(--color-primary1);
+  ${wrapperBG}
   text-align: center;
   position: relative;
   top: -2rem;
@@ -99,10 +107,10 @@ const Wrapper = styled.div`
   z-index: 0;
   overflow: hidden;
   :before {
-    content: "";
+    content: '';
     width: 20%;
     height: 50%;
-    background: var(--color-primary3);
+    background: var(--color-gray7);
     opacity: 0.5;
     filter: blur(100px);
     transform: rotate(180deg);
@@ -112,10 +120,10 @@ const Wrapper = styled.div`
     z-index: 10;
   }
   :after {
-    content: "";
+    content: '';
     width: 20%;
     height: 50%;
-    background: var(--color-primary3);
+    background: var(--color-gray7);
     opacity: 0.5;
     filter: blur(100px);
     transform: rotate(180deg);
@@ -138,16 +146,23 @@ const Content = styled.div`
   }
 `;
 const Title = styled.h2`
-  ${Headline4Style};
-  color: var(--color-gray13);
+  ${Headline5Style};
+  color: var(--color-secondary3);
+  font-weight: bold;
   @media ${deviceMin.tabletS} {
     width: 80%;
   }
+  p {
+    ${Headline5Style};
+    font-weight: bold;
+
+    color: var(--color-gray13);
+  }
   span {
-    color: var(--color-primary5);
+    color: var(--color-secondary4);
   }
 `;
-const Button = styled(PrimaryButton)`
+const Button = styled(SecondaryButton)`
   width: fit-content;
 `;
 

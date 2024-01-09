@@ -13,7 +13,7 @@ import { deviceMin } from 'Consts/device';
 import { LuSettings2 } from 'react-icons/lu';
 import { Country, ICountry, State } from 'country-state-city';
 import { useRouter } from 'next/router';
-import { getDefaultCountry } from './utils';
+import { getDefaultCountry } from 'Utils/country-state-city';
 
 interface Props {
   searchValue: string;
@@ -30,7 +30,6 @@ function Search({ searchValue, setSearchValue }: Props) {
   ///
   const { t } = useStaticTranslation(componentStatements);
   const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
-  //navid check useage of country
   const { selectedFiltersObj, setSelectedFiltersObj, resetFilters } =
     useContext(SearchFilterContext);
   useEffect(() => {

@@ -13,23 +13,23 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
-    en: 'MARCYA: Your AI-Powered Chat Bot for Australian Immigration Guidance',
+    en: 'Marcya: Your AI-Powered Chat Bot for Australian Immigration Guidance',
     fa: 'مارسیا: راهنمای هوش مصنوعی شما برای مهاجرت به استرالیا',
-    zh: 'MARCYA：您的澳大利亚移民AI聊天机器人助手',
+    zh: 'Marcya：您的澳大利亚移民AI聊天机器人助手',
   },
   SeoDesc: {
-    en: 'MARCYA, your AI-powered chat bot, provides expert guidance on Australian immigration, covering assessment systems, visa processes, and updates from legal migration organizations. Connect with MARCYA for a seamless journey towards achieving your Australian dream.',
+    en: 'Marcya, your AI-powered chat bot, provides expert guidance on Australian immigration, covering assessment systems, visa processes, and updates from legal migration organizations. Connect with Marcya for a seamless journey towards achieving your Australian dream.',
     fa: 'مارسیا راهنمای تخصصی شما در موضوع مهاجرت به استرالیا است، از سیستم‌های ارزیابی گرفته تا روند اخذ ویزا و اخبار از سازمان‌های مهاجرتی قانونی. با مارسیا همراه شوید تا به آرزوی استرالیایی‌تان برسید.',
-    zh: 'MARCYA是您的AI聊天机器人，为您提供澳大利亚移民的专家指导，涵盖评估系统、签证流程以及法定移民组织的最新动态。与MARCYA联系，顺利实现您的澳大利亚梦想。',
+    zh: 'Marcya是您的AI聊天机器人，为您提供澳大利亚移民的专家指导，涵盖评估系统、签证流程以及法定移民组织的最新动态。与Marcya联系，顺利实现您的澳大利亚梦想。',
   },
 
   BotName: {
-    en: 'MARCYA',
+    en: 'Marcya',
     fa: 'مارسیا',
-    zh: 'MARCYA',
+    zh: 'Marcya',
   },
   BotDesc: {
-    en: 'Your Expert Guide to Australian Immigration: AI-Enhanced Solutions for Achieving Your Australian Dream.',
+    en: 'Your AI Guide to Australian Immigration: AI-Enhanced Solutions for Achieving Your Australian Dream.',
     fa: ' هوش مصنوعی آموزش دیده، برای پاسخ به سوالات مهاجرتی استرالیا',
     zh: '您的澳大利亚移民专家：AI增强解决方案，实现您的澳大利亚梦想。',
   },

@@ -138,3 +138,22 @@ export function isUserLiveInIran(): boolean {
   const country = getLocalStorage(LocalStorageKeys.Country as LocalStorageKeys);
   return country === SupportedCountry.Iran;
 }
+/////////////////////////////////////////////
+// اگه از کشور به وسیلیه یوآرآل پارامز مشخص شده بود آبجکتش رو برمیگردونه
+// اگه نشده بود، نگاه میکنه کشور زندگی کاربر مشخص هست یا نه، اون رو برمیگردونه
+// اگه هیچکدوم نبود آندیفایند برمیگردونه یعنی دیفالت کانتری نداریم
+export function getDefaultCountry({
+  countryInUrlParam,
+  userCountry,
+}: {
+  countryInUrlParam?: string | undefined;
+  userCountry?: string | undefined;
+}): ICountry | undefined {
+  if (countryInUrlParam) return Country.getCountryByCode(countryInUrlParam);
+  if (userCountry)
+    return Country.getCountryByCode(
+      // AU is defensive
+      getCountrySymbolBaseOnNameOrAlias(userCountry) || 'AU'
+    );
+  return undefined;
+}

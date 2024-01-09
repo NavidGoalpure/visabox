@@ -50,7 +50,6 @@ type Props = {
 };
 
 const SearchFilterContext = createContext({} as ContexValues);
-//navid check this page
 function FiltersContextProvider({ children }: Props) {
   const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>({
     location: {

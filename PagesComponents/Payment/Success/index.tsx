@@ -23,7 +23,7 @@ const Content: NextPage = () => {
       <ButtonContainer>
         <Link href={'/australia-migration-ai/chat'}>
           <PrimaryButton style={{ width: '11rem' }}>
-            Chat With MARCYA
+            Chat With Marcya
           </PrimaryButton>
         </Link>
         {/* // */}

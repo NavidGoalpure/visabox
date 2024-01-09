@@ -21,6 +21,7 @@ import { useSession } from 'next-auth/react';
 
 import SmartRow from './SmartRow';
 import { AiChatContext, AiChatContextProvider } from './hooks/useAiCredit';
+import { findSmartHeight } from 'Elements/Select/utils';
 
 interface Props {
   aiAgentId: string;
@@ -59,7 +60,10 @@ function Content({ aiAgentId }: Props) {
         }}
       />
       <ChatArea>
-        <Scroll $size={conversation ? 'full' : 'mini'}>
+        <Scroll
+          $size={conversation ? 'full' : 'mini'}
+          // height={'40vh'}
+        >
           <ShowConversation turns={conversation?.turns} />
           {isLoading && <Loading />}
           <ChatScrollAnchor trackVisibility={isLoading} />;

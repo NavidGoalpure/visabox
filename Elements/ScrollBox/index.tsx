@@ -6,7 +6,9 @@ import { directionStyles } from 'Styles/Theme';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  height: string;
+  // اگه ارتفاع داده بشه یک اسکرول داخلی خواهیم داشت در محدوده اون ارتفاع
+  // اگه ارتفاع ندیم، اسکرول نمیکنه و کانیتنر رو به اندازه کل متن بزرگ میکنه
+  height?: string;
 }
 const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
   return (
@@ -33,11 +35,11 @@ const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
 
 export { ScrollBox };
 
-const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height: string }>`
+const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height?: string }>`
   ${directionStyles}
   width: 100%;
   height: auto;
-  height: ${({ $height }) => $height};
+  height: ${({ $height }) => ($height ? $height : 'auto')};
   overflow: hidden;
   --scrollbar-size: 0.5rem;
 `;

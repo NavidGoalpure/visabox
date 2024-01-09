@@ -28,7 +28,6 @@ function SmartRow({ sendMessage, isLoading, stop }: Props) {
 
     // Configuration object
     {
-      onSuccess: decreaseCreditByOne,
       //
       onError: (error: any) => {
         console.error('Mutation failed:', error);
@@ -46,7 +45,7 @@ function SmartRow({ sendMessage, isLoading, stop }: Props) {
   if (questionRemain > FREE_CREDIT_THRESHOLD) {
     return (
       <QuestionRow
-        sendMessage={asqQuestion}
+        asqQuestion={asqQuestion}
         isLoading={isLoading}
         stopStream={stop}
       />

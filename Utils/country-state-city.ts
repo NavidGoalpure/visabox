@@ -82,9 +82,10 @@ export const getCountrySymbolBaseOnNameOrAlias = (
   country: string | undefined
 ): string | undefined => {
   if (!country) return undefined;
-  //navid add other Aliases for other supported country
   const COUNTRY_ALIASES: { [key: string]: string } = {
     iran: 'IR',
+    chinese: 'CN',
+    india: 'IN',
     // Add more aliases as needed
   };
 

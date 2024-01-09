@@ -94,7 +94,6 @@ const PriceList: React.FC = () => {
           </Option>
           {/* ///////دکمه پرداخت یا لاگین/////////// */}
           <SmartStripeButton
-            // navid remove test
             label={t(LanguageKeys.CTA)}
             priceId={IPriceIds.ProPlan}
             iranPrice={componentStatements.GoldPlan_Price.fa}

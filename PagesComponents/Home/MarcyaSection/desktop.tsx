@@ -26,8 +26,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   const { locale } = useLocale();
   return (
     <Container {...props}>
-      {/* //navid change exchange */}
-      <Side className='exchanges-card-section'>
+      <Side className='marcya-card-section'>
         <MarcyaPictureWrapper>
           <MarcyaPicture
             id={'marcya-image'}
@@ -38,7 +37,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
           />
         </MarcyaPictureWrapper>
       </Side>
-      <Side className='exchanges-text-section'>
+      <Side className='marcya-text-section'>
         <Title>{t(LanguageKeys.BotName)}</Title>
         <Subtitle>{t(LanguageKeys.BotDesc)}</Subtitle>
         <StyledLink href={`/australia-migration-ai/introduce-marcya`}>

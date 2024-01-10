@@ -17,10 +17,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '您的澳大利亚移民专家：AI增强解决方案，实现您的澳大利亚梦想。',
   },
   MarcyaCTA: {
-    fa: 'معرفی مارسیا',
-    en: 'Discover Marcya',
-    zh: '了解Marcya',
+    en: 'Discover & Buy',
+    fa: 'توضیحات و خرید',
+    zh: '探索与购买',
   },
+
   ChatCTA: {
     fa: 'چت با مارسیا',
     en: 'Chat with Marcya',

@@ -16,11 +16,9 @@ import Link from 'next/link';
 import { Languages, LocalStorageKeys } from 'Interfaces';
 import { SupportedCountry } from 'Interfaces/Database';
 import { getLocalStorage } from 'Utils';
-const MobileBusinessDropdown = ({
-  clientCountry,
-}: {
-  clientCountry: string;
-}) => {
+import { isUserLiveInIran } from 'Utils/country-state-city';
+
+const MobileBusinessDropdown = () => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -59,9 +57,7 @@ const MobileBusinessDropdown = ({
           </PopupItem>
           <Hr />
 
-          {(clientCountry === SupportedCountry.Iran ||
-            getLocalStorage(LocalStorageKeys.Country) ===
-              SupportedCountry.Iran) && (
+          {isUserLiveInIran() && (
             <PopupItem
               onClick={() => {
                 setIsOpen(false);

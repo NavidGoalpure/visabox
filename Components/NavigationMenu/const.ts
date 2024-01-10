@@ -96,7 +96,7 @@ export const occupationItems: DropdownItem[] = [
       fa: 'موسسات ارزیابی',
       zh: '评估机构',
     },
-    href: '/occupations/assssing-authorities',
+    href: '/occupations/assessing-authorities',
   },
   {
     title: {

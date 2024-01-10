@@ -9,7 +9,6 @@ const index: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
   useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');
   });
-  //navid fix mobile
   if (screen === 'MOBILE') return <MobileIndex {...props} />;
   return <DesktopIndex {...props} />;
 };

@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { IPriceIds } from 'Interfaces/Payment';
-import { Dispatch, HTMLAttributes, ReactNode, SetStateAction } from 'react';
+import { Dispatch, HTMLAttributes, SetStateAction } from 'react';
 import LoginButton from 'Components/LoginButton';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useSession } from 'next-auth/react';
-import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
+import { isUserLiveInIran } from 'Utils/country-state-city';
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   label: string;

@@ -51,7 +51,7 @@ const Content: React.FC<Props> = ({ occupation }) => {
             }).map((assess, i) => (
               <Link
                 key={i}
-                href={`/${locale}/occupations/assssing-authorities/#${
+                href={`/${locale}/occupations/assessing-authorities/#${
                   assess.split('_')[0]
                 }`}
                 target='_blank'

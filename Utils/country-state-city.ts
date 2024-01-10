@@ -134,7 +134,6 @@ export const getUserCountry = (): SupportedCountry => {
 };
 
 ////////آیا محل زندگی کاربر ایرانه؟//////
-// navid جایگزینی این فانکشن تو جاهایی که مانولی چک کردیم
 export function isUserLiveInIran(): boolean {
   const country = getLocalStorage(LocalStorageKeys.Country as LocalStorageKeys);
   return country === SupportedCountry.Iran;

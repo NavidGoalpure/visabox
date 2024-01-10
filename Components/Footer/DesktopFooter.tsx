@@ -1,5 +1,5 @@
 import { Logo } from 'Elements/Logo';
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { FaTelegramPlane } from 'react-icons/fa';
@@ -9,46 +9,46 @@ import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
 import Link from 'next/link';
 import { useLocale } from 'Hooks/useLocale';
-import { copyContent, getLocalStorage } from 'Utils';
+import { copyContent } from 'Utils';
 import { layer2A_SubtitleStyle } from 'Styles/Theme/Layers/layer2/style';
-import { Languages, LocalStorageKeys } from 'Interfaces';
+import { Languages } from 'Interfaces';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
-import { Headline6Style, Headline7Style } from 'Styles/Typo';
-import { SupportedCountry } from 'Interfaces/Database';
+import { BiWorld } from 'react-icons/bi';
+import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
+import CountryModal from 'Components/CountryModal';
 
-function DesktopFooter({
-  clientCountry,
-}: {
-  clientCountry: string | undefined;
-}) {
+function DesktopFooter() {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
+  const userCountry = getUserCountry();
+  const [mustShowCountryModal, setMustShowCountryModal] = useState<boolean>(
+    !userCountry
+  );
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+
   return (
     <Container>
+      <CountryModal
+        isOpen={mustShowCountryModal}
+        setIsOpen={setMustShowCountryModal}
+      />
       <StyledLogo />
       <Wrapper>
         <Top>
           <SideContainer locale={locale}>
-            <Items
-              href={`/${locale}/lists/agents`}
-              data-name={t(LanguageKeys.AgentsBox)}
-            >
+            <Items href={`/lists/agents`} data-name={t(LanguageKeys.AgentsBox)}>
               {t(LanguageKeys.AgentsBox)}
             </Items>
 
             <Items
-              href={`/${locale}/lists/exchanges`}
+              href={`/lists/exchanges`}
               data-name={t(LanguageKeys.Exchanges)}
             >
               {t(LanguageKeys.Exchanges)}
             </Items>
 
-            <Items
-              href={`/${locale}/lists/naaties`}
-              data-name={t(LanguageKeys.Naati)}
-            >
+            <Items href={`/lists/naaties`} data-name={t(LanguageKeys.Naati)}>
               {t(LanguageKeys.Naati)}
             </Items>
           </SideContainer>
@@ -58,27 +58,31 @@ function DesktopFooter({
               {t(LanguageKeys.Home)}
             </Items>
             <Items
-              href={`/${locale}/occupations`}
+              href={`/occupations`}
               data-name={t(LanguageKeys.SkilledOccupationList)}
             >
               {t(LanguageKeys.SkilledOccupationList)}
             </Items>
             <Items
-              href={`/${locale}/occupations/assssing-authorities`}
+              href={`/occupations/assessing-authorities`}
               data-name={t(LanguageKeys.AssessingAuthority)}
             >
               {t(LanguageKeys.AssessingAuthority)}
             </Items>
-            {(clientCountry === SupportedCountry.Iran ||
-              getLocalStorage(LocalStorageKeys.Country) ===
-                SupportedCountry.Iran) && (
+            {isUserLiveInIran() && (
               <Items
-                href={`/${locale}/occupations/university-section-search`}
+                href={`/occupations/university-section-search`}
                 data-name={t(LanguageKeys.UniversitySection)}
               >
                 {t(LanguageKeys.UniversitySection)}
               </Items>
             )}
+            <Items
+              href={`/australia-migration-ai/chat`}
+              data-name={t(LanguageKeys.AssessingAuthority)}
+            >
+              {t(LanguageKeys.AskMarcya)}
+            </Items>
           </CenterItemsContainer>
           <LeftSideContainer locale={locale}>
             <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>
@@ -100,27 +104,41 @@ function DesktopFooter({
                 }
               />
             </LogosContainer>
+            {/* //////Country Changer//////////////// */}
+            <Items
+              href={'#footer'}
+              onClick={() => {
+                setMustShowCountryModal(true);
+              }}
+            >
+              <CountryChangerContainer>
+                <WorldIcon />
+                <div>{userCountry}</div>
+              </CountryChangerContainer>
+            </Items>
+            {/* ///////////Theme Changer/////////// */}
             <SwitchThemeContainer>
               <SwitchTheme />
             </SwitchThemeContainer>
+            {/* ////////////Privacy and Policy////////////// */}
             <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
           </LeftSideContainer>
         </Top>
         <Bottom>
           <BottomItems
-            href={`/${locale}/lists/agents?country=IR`}
+            href={`/lists/agents?country=IR`}
             data-name={t(LanguageKeys.IranianAgents)}
           >
             {t(LanguageKeys.IranianAgents)}
           </BottomItems>
           <BottomItems
-            href={`/${locale}/lists/agents?country=IN`}
+            href={`/lists/agents?country=IN`}
             data-name={t(LanguageKeys.IndianAgents)}
           >
             {t(LanguageKeys.IndianAgents)}
           </BottomItems>
           <BottomItems
-            href={`/${locale}/lists/agents?country=CN`}
+            href={`/lists/agents?country=CN`}
             data-name={t(LanguageKeys.ChineseAgents)}
           >
             {t(LanguageKeys.ChineseAgents)}
@@ -316,7 +334,7 @@ const SideContainer = styled.div<{ locale: Languages }>`
 `;
 
 const LeftSideContainer = styled(SideContainer)`
-  margin-top: 6rem !important;
+  margin-top: 10rem !important;
 `;
 
 const SwitchButton = styled.div`
@@ -336,12 +354,15 @@ const LogosContainer = styled.div`
 
 const SwitchThemeContainer = styled.div``;
 
-const MaraItemTitle = styled.h4`
-  ${Headline7Style};
-  color: var(--color-gray4);
-  @media ${deviceMin.tabletS} {
-    ${Headline6Style};
-  }
+const CountryChangerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  font-weight: 600;
+`;
+const WorldIcon = styled(BiWorld)`
+  width: 2rem;
+  height: 2rem;
 `;
 
 const Privacy = styled.a`

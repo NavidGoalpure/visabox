@@ -29,7 +29,7 @@ export default function PostContent() {
       <p>
         در استرالیا بیش از 40 سازمان ارزیاب وجود دارد. که می‌توانید اسامی آنها و
         اطلاعات مرتبط با هر یک را در این{' '}
-        <a href={`/${locale}/occupations/assssing-authorities`}>صفحه</a> مشاهده
+        <a href={`/${locale}/occupations/assessing-authorities`}>صفحه</a> مشاهده
         کنید.
       </p>
 

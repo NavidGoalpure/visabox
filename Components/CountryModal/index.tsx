@@ -1,65 +1,67 @@
-import ModalComponent from "Components/ModalComponent";
-import dynamic from "next/dynamic";
-import { FiInfo } from "react-icons/fi";
-import styled from "styled-components";
+import ModalComponent from 'Components/ModalComponent';
+import dynamic from 'next/dynamic';
+import { FiInfo } from 'react-icons/fi';
+import styled from 'styled-components';
 import {
   Hint_SecondaryContainer,
   Hint_ModalTextStyle,
   Hint_ModalIcon,
-} from "Styles/Theme/Hint/style";
-import { Headline6Style } from "Styles/Typo";
-import IranFlag from "public/Images/Flags/IranFlag.svg";
-import ChinaFlag from "public/Images/Flags/ChinaFlag.svg";
-import IndiaFlag from "public/Images/Flags/IndiaFlag.svg";
-import AustraliaFlag from "public/Images/Flags/AustraliaFlag.svg";
-import UnknownFlag from "public/Images/Flags/UnknownFlag.svg";
-import { useEffect, useState } from "react";
-import { getLocalStorage, setLocalStorage } from "Utils";
-import { LocalStorageKeys } from "Interfaces";
-import { deviceMin } from "Consts/device";
-import { SupportedCountry } from "Interfaces/Database";
+} from 'Styles/Theme/Hint/style';
+import { Headline6Style } from 'Styles/Typo';
+import IranFlag from 'public/Images/Flags/IranFlag.svg';
+import ChinaFlag from 'public/Images/Flags/ChinaFlag.svg';
+import IndiaFlag from 'public/Images/Flags/IndiaFlag.svg';
+import AustraliaFlag from 'public/Images/Flags/AustraliaFlag.svg';
+import UnknownFlag from 'public/Images/Flags/UnknownFlag.svg';
+import { getLocalStorage, setLocalStorage } from 'Utils';
+import { LocalStorageKeys } from 'Interfaces';
+import { deviceMin } from 'Consts/device';
+import { SupportedCountry } from 'Interfaces/Database';
 
-const CountryModal = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  //
-  useEffect(() => {
-    // show the popup if there is nothing in localStorage
-    if (window && !getLocalStorage(LocalStorageKeys.Country)) {
-      setIsOpen(true);
-    }
-  }, [window]);
+interface Props {
+  runAfterSelect?: () => any;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const CountryModal: React.FC<Props> = ({
+  runAfterSelect,
+  isOpen,
+  setIsOpen,
+}) => {
   //
   function clickHandler({ value }: { value: SupportedCountry }) {
     setIsOpen(false);
     setLocalStorage({ key: LocalStorageKeys.Country, value });
+    if (runAfterSelect) runAfterSelect();
     window.location.reload();
   }
   return (
     <ModalComponent
       open={isOpen}
-      DialogTitleText="
+      DialogTitleText='
               Please select your country
-    "
+    '
     >
       <OptionsContainer>
         <Option onClick={() => clickHandler({ value: SupportedCountry.Iran })}>
           <FlagWrapper>
-            <Flag fill src={IranFlag} alt={"england flag"} sizes="2.25rem" />
+            <Flag fill src={IranFlag} alt={'iran flag'} sizes='2.25rem' />
           </FlagWrapper>
           <Optiontext>Iran</Optiontext>
         </Option>
-        <Option onClick={() => clickHandler({ value: SupportedCountry.China })}>
-          <FlagWrapper>
-            <Flag fill src={ChinaFlag} alt={"england flag"} sizes="2.25rem" />
-          </FlagWrapper>
-          <Optiontext>China</Optiontext>
-        </Option>
         <Option onClick={() => clickHandler({ value: SupportedCountry.India })}>
           <FlagWrapper>
-            <Flag fill src={IndiaFlag} alt={"england flag"} sizes="2.25rem" />
+            <Flag fill src={IndiaFlag} alt={'india flag'} sizes='2.25rem' />
           </FlagWrapper>
           <Optiontext>India</Optiontext>
         </Option>
+        <Option onClick={() => clickHandler({ value: SupportedCountry.China })}>
+          <FlagWrapper>
+            <Flag fill src={ChinaFlag} alt={'china flag'} sizes='2.25rem' />
+          </FlagWrapper>
+          <Optiontext>China</Optiontext>
+        </Option>
+
         <Option
           onClick={() => clickHandler({ value: SupportedCountry.Australia })}
         >
@@ -67,21 +69,26 @@ const CountryModal = () => {
             <Flag
               fill
               src={AustraliaFlag}
-              alt={"england flag"}
-              sizes="2.25rem"
+              alt={'australia flag'}
+              sizes='2.25rem'
             />
           </FlagWrapper>
           <Optiontext>Australia</Optiontext>
         </Option>
         <Option onClick={() => clickHandler({ value: SupportedCountry.Other })}>
           <FlagWrapper>
-            <Flag fill src={UnknownFlag} alt={"england flag"} sizes="2.25rem" />
+            <Flag
+              fill
+              src={UnknownFlag}
+              alt={'question mark'}
+              sizes='2.25rem'
+            />
           </FlagWrapper>
           <Optiontext>Other countries</Optiontext>
         </Option>
       </OptionsContainer>
       <HintContainer>
-        {" "}
+        {' '}
         <HintInfoIcon />
         <p>
           The content that is displayed to you is categorized according to your
@@ -113,7 +120,7 @@ const FlagWrapper = styled.div`
   height: 2.25rem;
 `;
 //
-const DYImage = dynamic(() => import("next/image"));
+const DYImage = dynamic(() => import('next/image'));
 const Flag = styled(DYImage)`
   position: relative !important;
 `;

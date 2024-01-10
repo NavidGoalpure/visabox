@@ -38,7 +38,7 @@ function AssessingAuthorityCard({
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
 
   return (
-    <Container {...props} style={{ cursor: 'initial' }}>
+    <Container {...props} style={{ cursor: 'initial', height: '21rem' }}>
       <Wrapper>
         <Code>{abv}</Code>
         <Title>{fullTitle.en}</Title>

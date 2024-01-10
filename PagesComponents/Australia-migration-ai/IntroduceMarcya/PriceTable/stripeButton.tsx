@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { IPriceIds } from 'Interfaces/Payment';
-import { Dispatch, ReactNode, SetStateAction } from 'react';
+import { Dispatch, HTMLAttributes, ReactNode, SetStateAction } from 'react';
 import LoginButton from 'Components/LoginButton';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useSession } from 'next-auth/react';
 import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLButtonElement> {
   label: string;
   priceId: IPriceIds;
   iranPrice: string;
@@ -23,12 +23,13 @@ const SmartStripeButton: React.FC<Props> = ({
   iranPrice,
   setIranPrice,
   setIsModalOpen,
+  ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
 
   //اگه لاگین نکرده بود لاگین کنه
-  if (!session) return <CustomLoginBTN />;
+  if (!session) return <CustomLoginBTN {...props} />;
 
   ///////چک کردن موقعیت جغرافیایی کاربر/////////
   // اگه ایران بود بهش مودال پرداخت در ایران رو نشون بدیم
@@ -37,6 +38,7 @@ const SmartStripeButton: React.FC<Props> = ({
   if (isIranPayment)
     return (
       <CustomButton
+        {...props}
         onClick={() => {
           setIranPrice(iranPrice);
           setIsModalOpen(true);
@@ -75,7 +77,7 @@ const CustomButton = styled(PrimaryButton)`
   height: 3rem;
   padding: 0 1rem;
   margin: auto;
-  width: 8rem;
+  width: 59%;
   border-radius: 50px;
 `;
 const CustomLoginBTN = styled(LoginButton)`

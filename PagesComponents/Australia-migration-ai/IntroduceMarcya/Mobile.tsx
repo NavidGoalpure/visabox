@@ -24,7 +24,7 @@ import theme from 'styled-theming';
 import { tsParticleOption_Mobile } from 'Styles/animation';
 import { Headline6Style } from 'Styles/Typo';
 import { LanguageKeys, componentStatements } from './const';
-import PriceList from './PriceTable';
+import PriceList from './PriceTable/ForClients';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';

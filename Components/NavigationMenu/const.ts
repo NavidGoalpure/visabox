@@ -10,6 +10,7 @@ export enum LanguageKeys {
   Blogs = 'Blogs',
   FormsWall = 'FormsWall',
   Forms = 'Forms',
+  BotName = 'BotName',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
@@ -47,6 +48,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'ابزار ها ‌',
     zh: '工具',
   },
+  BotName: {
+    en: 'Marcya-AI',
+    fa: 'هوش مصنوعی مارسیا',
+    zh: 'Marcya-AI',
+  },
 };
 export const listsItems: DropdownItem[] = [
   {
@@ -74,6 +80,7 @@ export const listsItems: DropdownItem[] = [
     href: '/lists/exchanges',
   },
 ];
+
 export const occupationItems: DropdownItem[] = [
   {
     title: {
@@ -119,7 +126,26 @@ export const FormsItems: DropdownItem[] = [
     href: '/clients/point-calculator',
   },
 ];
+export const MarcyaItems: DropdownItem[] = [
+  {
+    title: {
+      en: 'Introduce & Buy',
+      fa: 'معرفی و خرید',
+      zh: '介绍与购买',
+    },
 
+    href: '/australia-migration-ai/introduce-marcya',
+  },
+  {
+    title: {
+      en: 'Chat With Marcya',
+      fa: 'چت با مارسیا',
+      zh: '与Marcya聊天',
+    },
+
+    href: '/australia-migration-ai/chat',
+  },
+];
 export const getGsapTimeLine = ({
   hamburgerAnimationRef,
   popupAnimationRef,

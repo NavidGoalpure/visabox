@@ -9,6 +9,11 @@ export enum LanguageKeys {
   PlanDescription3 = 'PlanDescription3',
   ContactUs = 'ContactUs',
   //
+  FreePlan_Button = 'FreePlan_Button',
+  FreePlan_Title = 'FreePlan_Title',
+  FreePlan_Price = 'FreePlan_Price',
+  FreePlan_ABV = 'FreePlan_ABV',
+  //
   SilverPlan_Title = 'SilverPlan_Title',
   SilverPlan_Price = 'SilverPlan_Price',
   SilverPlan_ABV = 'SilverPlan_ABV',
@@ -60,7 +65,31 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
               باشید, از راه های زیر با ما در ارتباط باشید.`,
     zh: '如果您有兴趣拥有Marabox特惠代理账户，请通过以下方式与我们联系。',
   },
+  //
+  FreePlan_Title: {
+    en: 'Free Plan',
+    fa: 'طرح آزمایشی',
+    zh: '免费计划',
+  },
 
+  FreePlan_Price: {
+    en: 'Free',
+    fa: 'رایگان',
+    zh: '免费',
+  },
+
+  FreePlan_ABV: {
+    en: '3 Questions',
+    fa: 'برای ۳ پرسش',
+    zh: '3个问题',
+  },
+  FreePlan_Button: {
+    en: 'Chat Now',
+    fa: 'چت کن',
+    zh: '现在聊天',
+  },
+
+  //
   SilverPlan_Title: {
     en: 'Silver Plan',
     fa: 'طرح نقره‌ای',

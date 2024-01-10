@@ -24,6 +24,7 @@ import { getLocalStorage, setLocalStorage } from 'Utils';
 import { isAgencyLogedIn } from 'Utils/user';
 import { SupportedCountry } from 'Interfaces/Database';
 import MobileFormsDropdown from './dropdownForms';
+import MobileMarcyaDropdown from './dropdownMarcya';
 
 function SmartHeader({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -77,6 +78,8 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
                 <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
                 <Hr />
               </Nav>
+              <MobileMarcyaDropdown />
+              <Hr />
               <MobileBoxesDropdown clientCountry={clientCountry} />
               <Hr />
               <OccupationDropdown clientCountry={clientCountry} />

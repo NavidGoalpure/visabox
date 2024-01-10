@@ -31,7 +31,7 @@ const MobileBusinessDropdown = ({
   useOnClickOutside(containerRef, closePopup);
 
   return (
-    <Container id={'container'} ref={containerRef}>
+    <Container id={'dropdown-lists-container'} ref={containerRef}>
       <TriggerContainer onClick={() => setIsOpen((prevState) => !prevState)}>
         <TriggerText>{t(LanguageKeys.Lists)}</TriggerText>
         <ArrowIcon $isOpen={isOpen} />

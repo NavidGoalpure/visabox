@@ -21,6 +21,7 @@ import { getLocalStorage, setLocalStorage } from 'Utils';
 import { isAgencyLogedIn } from 'Utils/user';
 import { SupportedCountry } from 'Interfaces/Database';
 import DesktopFormsDropdown from './dropdownForms';
+import DesktopMarcyaDropdown from './dropdownMarcya';
 
 function Desktop({ clientCountry }: { clientCountry: string }) {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
@@ -65,7 +66,7 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
       <Bottom isMenuClicked={isMenuClicked}>
         <MenuItems>
           <DesktopLanguageChanger />
-
+          <DesktopMarcyaDropdown />
           <DesktopOccupationDropdown clientCountry={clientCountry} />
           <DesktopBusinessDropdown />
           {!isAgencyLogedIn() && <DesktopFormsDropdown />}

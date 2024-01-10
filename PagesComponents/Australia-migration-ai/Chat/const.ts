@@ -9,6 +9,8 @@ export enum LanguageKeys {
   PageSubtitle = 'PageSubtitle',
   Disclaimer = 'Disclaimer',
   QuestionRemain = 'QuestionRemain',
+  //
+  MobileHint = 'MobileHint',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SeoTitle: {
@@ -43,6 +45,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'سوالات باقیمانده: <span> $number</span> ',
     zh: '剩余问题 <span> $number</span> 个:',
     en: 'Questions remaining: <span> $number</span>',
+  },
+  MobileHint: {
+    en: '<span>Hint:</span> You can ask questions in any language like English, Persian, Chinese, and more',
+    fa: '<span>راهنمایی:</span> می‌توانید سوالات خود را به زبان‌های مختلف مانند انگلیسی، فارسی، چینی و غیره مطرح کنید',
+    zh: '<span>提示:</span> 您可以用英语、波斯语、中文等多种语言提问',
   },
 };
 export const LOOKUP_STORE: Record<ILookupEnum, string> = {

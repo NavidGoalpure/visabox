@@ -30,8 +30,7 @@ export async function checkSessionAndActivePlanAfterPayment({
   //
   try {
     const response: AxiosResponse<PaymentResponse> = await axios.post(
-      //navid شاید بهتر باشه اسم این رو به چیزی که اکتیو کردن هم توش باشه تغییر بدم
-      '/api/payment/check-payment-status',
+      '/api/payment/check-payment-and-active-plan',
       {
         sessionId,
         userId,

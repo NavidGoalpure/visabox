@@ -22,6 +22,7 @@ import { useSession } from 'next-auth/react';
 import SmartRow from './SmartRow';
 import { AiChatContext, AiChatContextProvider } from './hooks/useAiCredit';
 import { findSmartHeight } from 'Elements/Select/utils';
+import useDevice from 'Hooks/useDevice';
 
 interface Props {
   aiAgentId: string;
@@ -30,6 +31,7 @@ function Content({ aiAgentId }: Props) {
   const { status } = useSession();
   const { t } = useStaticTranslation(componentStatements);
   const { questionRemain } = useContext(AiChatContext);
+  const { isMobile } = useDevice();
   //
   const { conversation, sendMessage, stop } = useFixie({
     agentId: aiAgentId,
@@ -71,6 +73,11 @@ function Content({ aiAgentId }: Props) {
 
         <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
       </ChatArea>
+      {isMobile && (
+        <Hint
+          dangerouslySetInnerHTML={{ __html: t(LanguageKeys.MobileHint) }}
+        />
+      )}
       <Disclaimer
         dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Disclaimer) }}
       />
@@ -134,3 +141,4 @@ const Disclaimer = styled.div`
     color: var(--color-secondary4);
   }
 `;
+const Hint = styled(Disclaimer)``;

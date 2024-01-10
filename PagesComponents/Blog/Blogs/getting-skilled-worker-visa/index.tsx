@@ -1,5 +1,14 @@
 import { useLocale } from 'Hooks/useLocale';
-import { BlogContainer, HintBG, HintText, HintTitle, ImageContainer, Images, MoreBlogsCardsContainer, MoreBlogsContainer } from '../StyledComponents';
+import {
+  BlogContainer,
+  HintBG,
+  HintText,
+  HintTitle,
+  ImageContainer,
+  Images,
+  MoreBlogsCardsContainer,
+  MoreBlogsContainer,
+} from '../StyledComponents';
 import Link from 'next/link';
 import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
 
@@ -303,7 +312,7 @@ export default function PostContent() {
 
       <p>
         شما می‌توانید برای بررسی شرایط این سازمان‌ها به صفحه
-        <a href={`/${locale}/occupations/assssing-authorities`}>
+        <a href={`/${locale}/occupations/assessing-authorities`}>
           {` موسسات ارزیابی مدارک استرالیا `}
         </a>
         مراجعه کنید.

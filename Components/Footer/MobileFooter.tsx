@@ -1,5 +1,5 @@
 import { Logo } from 'Elements/Logo';
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { Headline5Style } from 'Styles/Typo';
@@ -8,42 +8,46 @@ import { SiGmail } from 'react-icons/si';
 import Link from 'next/link';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { useLocale } from 'Hooks/useLocale';
-import { copyContent, getLocalStorage } from 'Utils';
-import { LocalStorageKeys } from 'Interfaces';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { SupportedCountry } from 'Interfaces/Database';
 
-function MobileFooter({
-  clientCountry,
-}: {
-  clientCountry: string | undefined;
-}) {
+import { copyContent } from 'Utils';
+
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+
+import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
+import { BiWorld } from 'react-icons/bi';
+import CountryModal from 'Components/CountryModal';
+
+function MobileFooter() {
   const { t } = useStaticTranslation(componentStatements);
-  const { locale } = useLocale();
   const gmailToastMessage = t(LanguageKeys.copyEmailToastMessage);
+  const userCountry = getUserCountry();
+  const [mustShowCountryModal, setMustShowCountryModal] = useState<boolean>(
+    !userCountry
+  );
   return (
     <Container>
+      <CountryModal
+        isOpen={mustShowCountryModal}
+        setIsOpen={setMustShowCountryModal}
+      />
       <StyledLogo />
       <ItemsContainer>
         <ItemsTitle>{t(LanguageKeys.SkilledWorkerVisa)}</ItemsTitle>
         <Items
-          href={`/${locale}/occupations`}
+          href={`/occupations`}
           data-name={t(LanguageKeys.SkilledOccupationList)}
         >
           {t(LanguageKeys.SkilledOccupationList)}
         </Items>
         <Items
-          href={`/${locale}/occupations/assssing-authorities`}
+          href={`/occupations/assessing-authorities`}
           data-name={t(LanguageKeys.AssessingAuthority)}
         >
           {t(LanguageKeys.AssessingAuthority)}
         </Items>
-        {(clientCountry === SupportedCountry.Iran ||
-          getLocalStorage(LocalStorageKeys.Country) ===
-            SupportedCountry.Iran) && (
+        {isUserLiveInIran() && (
           <Items
-            href={`/${locale}/occupations/university-section-search`}
+            href={`/occupations/university-section-search`}
             data-name={t(LanguageKeys.UniversitySection)}
           >
             {t(LanguageKeys.UniversitySection)}
@@ -52,29 +56,20 @@ function MobileFooter({
       </ItemsContainer>
       <ItemsContainer>
         <ItemsTitle>{t(LanguageKeys.Lists)}</ItemsTitle>
-        <Items
-          href={`/${locale}/lists/agents`}
-          data-name={t(LanguageKeys.AgentsBox)}
-        >
+        <Items href={`/lists/agents`} data-name={t(LanguageKeys.AgentsBox)}>
           {t(LanguageKeys.AgentsBox)}
         </Items>
 
-        <Items
-          href={`/${locale}/lists/exchanges`}
-          data-name={t(LanguageKeys.Exchanges)}
-        >
+        <Items href={`/lists/exchanges`} data-name={t(LanguageKeys.Exchanges)}>
           {t(LanguageKeys.Exchanges)}
         </Items>
 
-        <Items
-          href={`/${locale}/lists/naaties`}
-          data-name={t(LanguageKeys.Naati)}
-        >
+        <Items href={`/lists/naaties`} data-name={t(LanguageKeys.Naati)}>
           {t(LanguageKeys.Naati)}
         </Items>
         {/* {locale === Languages.fa && (
           <Items
-            href={`/${locale}/landing/agents`}
+            href={`/landing/agents`}
             data-name={t(LanguageKeys.BecomeSponser)}
           >
             {t(LanguageKeys.BecomeSponser)}
@@ -83,19 +78,19 @@ function MobileFooter({
       </ItemsContainer>
       <ItemsContainer>
         <Items
-          href={`/${locale}/lists/agents?country=ir`}
+          href={`/lists/agents?country=ir`}
           data-name={t(LanguageKeys.IranianAgents)}
         >
           {t(LanguageKeys.IranianAgents)}
         </Items>
         <Items
-          href={`/${locale}/lists/agents?country=in`}
+          href={`/lists/agents?country=in`}
           data-name={t(LanguageKeys.IndianAgents)}
         >
           {t(LanguageKeys.IndianAgents)}
         </Items>
         <Items
-          href={`/${locale}/lists/agents?country=cn`}
+          href={`/lists/agents?country=cn`}
           data-name={t(LanguageKeys.ChineseAgents)}
         >
           {t(LanguageKeys.ChineseAgents)}
@@ -120,6 +115,18 @@ function MobileFooter({
             }
           />
         </LogosContainer>
+        {/* //////Country Changer//////////////// */}
+        <Items
+          href={'#footer'}
+          onClick={() => {
+            setMustShowCountryModal(true);
+          }}
+        >
+          <CountryChangerContainer>
+            <WorldIcon />
+            <div>{userCountry}</div>
+          </CountryChangerContainer>
+        </Items>
         <Privacy href='/privacy-policy'>Privacy and Policy</Privacy>
       </ContactUsContainer>
     </Container>
@@ -221,7 +228,16 @@ const LogosContainer = styled.div`
   gap: 1rem;
   align-items: center;
 `;
-
+const CountryChangerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  font-weight: 600;
+`;
+const WorldIcon = styled(BiWorld)`
+  width: 2rem;
+  height: 2rem;
+`;
 const Privacy = styled.a`
   ${layer2A_TextStyle}
   color: var(--color-gray9);

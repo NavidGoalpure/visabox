@@ -1,20 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { useLocale } from "Hooks/useLocale";
-import * as MaraSelect from "Elements/Select";
-import { useRouter } from "next/router";
-import { componentStatements, LanguageKeys, occupationItems } from "../const";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { Languages, LocalStorageKeys } from "Interfaces";
-import { SupportedCountry } from "Interfaces/Database";
-import { getLocalStorage } from "Utils";
+import React from 'react';
+import styled from 'styled-components';
+import { useLocale } from 'Hooks/useLocale';
+import * as MaraSelect from 'Elements/Select';
+import { useRouter } from 'next/router';
+import { componentStatements, LanguageKeys, occupationItems } from '../const';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { Languages, LocalStorageKeys } from 'Interfaces';
+import { SupportedCountry } from 'Interfaces/Database';
+import { getLocalStorage } from 'Utils';
+import { isUserLiveInIran } from 'Utils/country-state-city';
 
-function DesktopOccupationDropdown({
-  clientCountry,
-}: {
-  clientCountry: string;
-}) {
+function DesktopOccupationDropdown() {
   const { locale } = useLocale();
   const router = useRouter();
   const { t } = useStaticTranslation(componentStatements);
@@ -23,7 +20,7 @@ function DesktopOccupationDropdown({
       <StyledMaraSelectRoot
         noScroll
         triggerProps={{
-          id: "occupation-trigger",
+          id: 'occupation-trigger',
           placeholder: t(LanguageKeys.Occupations),
         }}
       >
@@ -39,9 +36,7 @@ function DesktopOccupationDropdown({
           onClick={() => router.push(`/${locale}/${occupationItems[1].href}`)}
           disabled
         />
-        {(clientCountry === SupportedCountry.Iran ||
-          getLocalStorage(LocalStorageKeys.Country) ===
-            SupportedCountry.Iran) && (
+        {isUserLiveInIran() && (
           <MaraSelect.Item
             text={occupationItems[2].title[locale]}
             value={occupationItems[2].title[locale] as string}

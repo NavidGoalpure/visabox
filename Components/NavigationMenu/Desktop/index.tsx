@@ -22,8 +22,9 @@ import { isAgencyLogedIn } from 'Utils/user';
 import { SupportedCountry } from 'Interfaces/Database';
 import DesktopFormsDropdown from './dropdownForms';
 import DesktopMarcyaDropdown from './dropdownMarcya';
+import { isUserLiveInIran } from 'Utils/country-state-city';
 
-function Desktop({ clientCountry }: { clientCountry: string }) {
+function Desktop() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const { locale } = useLocale();
   const { data: session } = useSession();
@@ -67,12 +68,10 @@ function Desktop({ clientCountry }: { clientCountry: string }) {
         <MenuItems>
           <DesktopLanguageChanger />
           <DesktopMarcyaDropdown />
-          <DesktopOccupationDropdown clientCountry={clientCountry} />
+          <DesktopOccupationDropdown />
           <DesktopBusinessDropdown />
           {!isAgencyLogedIn() && <DesktopFormsDropdown />}
-          {(clientCountry === SupportedCountry.Iran ||
-            getLocalStorage(LocalStorageKeys.Country) ===
-              SupportedCountry.Iran) && (
+          {isUserLiveInIran() && (
             <NavigationMenu.Item>
               <Link href={`/fa/blog`}>
                 <Item>{t(LanguageKeys.Blogs)}</Item>

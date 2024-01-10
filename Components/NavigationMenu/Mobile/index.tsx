@@ -25,8 +25,9 @@ import { isAgencyLogedIn } from 'Utils/user';
 import { SupportedCountry } from 'Interfaces/Database';
 import MobileFormsDropdown from './dropdownForms';
 import MobileMarcyaDropdown from './dropdownMarcya';
+import { isUserLiveInIran } from 'Utils/country-state-city';
 
-function SmartHeader({ clientCountry }: { clientCountry: string }) {
+function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
   const { locale } = useLocale();
 
@@ -80,14 +81,12 @@ function SmartHeader({ clientCountry }: { clientCountry: string }) {
               </Nav>
               <MobileMarcyaDropdown />
               <Hr />
-              <MobileBoxesDropdown clientCountry={clientCountry} />
+              <MobileBoxesDropdown />
               <Hr />
-              <OccupationDropdown clientCountry={clientCountry} />
+              <OccupationDropdown />
               <Hr />
               {!isAgencyLogedIn() && <MobileFormsDropdown />}
-              {(clientCountry === SupportedCountry.Iran ||
-                getLocalStorage(LocalStorageKeys.Country) ===
-                  SupportedCountry.Iran) && (
+              {isUserLiveInIran() && (
                 <>
                   <Hr />
                   <MenuLink href={`/fa/blog`}>{t(LanguageKeys.Blogs)}</MenuLink>

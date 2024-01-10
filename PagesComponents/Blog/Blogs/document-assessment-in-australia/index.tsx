@@ -176,7 +176,7 @@ export default function PostContent() {
       <p>
         در استرالیا بیش از 40 سازمان ارزیاب وجود دارد که می‌توانید اسامی و
         اطلاعات مرتبط با هر یک را در صفحه
-        <a href={`/${locale}/occupations/assssing-authorities`}>
+        <a href={`/${locale}/occupations/assessing-authorities`}>
           {` موسسات ارزیابی مدارک استرالیا `}
         </a>
         مشاهده کنید.

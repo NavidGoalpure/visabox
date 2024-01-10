@@ -7,6 +7,7 @@ export enum LanguageKeys {
   Home = 'Home',
   SkilledOccupationList = 'SkilledOccupationList',
   AssessingAuthority = 'AssessingAuthority',
+  AskMarcya = 'AskMarcya',
   UniversitySection = 'UniversitySection',
   ContactUs = 'ContactUs',
   AgentsBox = 'AgentsBox',
@@ -55,6 +56,12 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Assessing Authority',
     zh: '评估机构',
   },
+  AskMarcya: {
+    en: 'Ask Marcya',
+    fa: 'از مارسیا بپرس',
+    zh: '问Marcya',
+  },
+
   UniversitySection: {
     fa: 'جستجوی سکشن دانشگاه',
     en: 'Find university section',

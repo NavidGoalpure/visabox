@@ -3,10 +3,11 @@ import * as ScrollArea from '@radix-ui/react-scroll-area';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { directionStyles } from 'Styles/Theme';
-import { deviceMin } from 'Consts/device';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
+  // اگه ارتفاع داده بشه یک اسکرول داخلی خواهیم داشت در محدوده اون ارتفاع
+  // اگه ارتفاع ندیم، اسکرول نمیکنه و کانیتنر رو به اندازه کل متن بزرگ میکنه
   height?: string;
 }
 const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
@@ -38,13 +39,9 @@ const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height?: string }>`
   ${directionStyles}
   width: 100%;
   height: auto;
-  height: auto;
+  height: ${({ $height }) => ($height ? $height : 'auto')};
   overflow: hidden;
   --scrollbar-size: 0.5rem;
-  position: relative;
-  @media ${deviceMin.tabletS} {
-    ${({ $height }) => ($height ? $height : 'auto')};
-  }
 `;
 const ScrollAreaViewport = styled(ScrollArea.Viewport)`
   width: 100%;
@@ -68,7 +65,6 @@ const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   padding: 2px;
   background: lightgray;
   transition: background 160ms ease-out;
-  z-index: 10;
 
   ${positionDirStyle}
   ${ScrollAreaRoot}:hover & {

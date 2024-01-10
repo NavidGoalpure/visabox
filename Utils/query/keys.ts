@@ -6,23 +6,23 @@ type OccupationsListParams = {
 //////ocupation queries/////////////
 ///////////////////////////////
 const OccupationsQueryKeys = {
-  key: ["occupations"] as const,
+  key: ['occupations'] as const,
   //
   list: (params: OccupationsListParams) =>
-    [...OccupationsQueryKeys.key, "list", params] as const,
+    [...OccupationsQueryKeys.key, 'list', params] as const,
   //
   last: (params: OccupationsListParams) =>
-    [...OccupationsQueryKeys.key, "last", params] as const,
+    [...OccupationsQueryKeys.key, 'last', params] as const,
   //
   detail: (slug: string) =>
-    [...OccupationsQueryKeys.key, "detail", slug] as const,
+    [...OccupationsQueryKeys.key, 'detail', slug] as const,
 };
 ////////////////////////////////
 //////client queries/////////////
 ///////////////////////////////
 const ClientQueryKeys = {
   // this key is not useful outside of here
-  key: ["client"] as const,
+  key: ['client'] as const,
 
   // we use the detail key to return a client's data.
   // you should pass reParams when you are sending a query
@@ -35,18 +35,18 @@ const ClientQueryKeys = {
     resParams?: string;
   }) => {
     if (resParams) {
-      return [...ClientQueryKeys.key, "detail", reqParams, resParams] as const;
+      return [...ClientQueryKeys.key, 'detail', reqParams, resParams] as const;
     }
-    return [...ClientQueryKeys.key, "detail", reqParams] as const;
+    return [...ClientQueryKeys.key, 'detail', reqParams] as const;
   },
   //
   last: ({ resParams }: { resParams: string }) =>
-    [...ClientQueryKeys.key, "last", resParams] as const,
+    [...ClientQueryKeys.key, 'last', resParams] as const,
   listOfBasicForm: ({ resParams }: { resParams?: string }) => {
     if (resParams) {
-      return [...ClientQueryKeys.key, "listOfBasicForm", resParams] as const;
+      return [...ClientQueryKeys.key, 'listOfBasicForm', resParams] as const;
     }
-    return [...ClientQueryKeys.key, "listOfBasicForm"] as const;
+    return [...ClientQueryKeys.key, 'listOfBasicForm'] as const;
   },
 };
 ////////////////////////////////
@@ -58,7 +58,7 @@ type AgentsListParams = {
 };
 const AgencyQueryKeys = {
   // this key is not useful outside of here
-  key: ["agency"] as const,
+  key: ['agency'] as const,
 
   // we use the detail key to return a client's data.
   // you should pass reParams when you are sending a query
@@ -71,9 +71,9 @@ const AgencyQueryKeys = {
     resParams?: string;
   }) => {
     if (resParams) {
-      return [...AgencyQueryKeys.key, "detail", reqParams, resParams] as const;
+      return [...AgencyQueryKeys.key, 'detail', reqParams, resParams] as const;
     }
-    return [...AgencyQueryKeys.key, "detail", reqParams] as const;
+    return [...AgencyQueryKeys.key, 'detail', reqParams] as const;
   },
 };
 const AgentsQueryKeys = {

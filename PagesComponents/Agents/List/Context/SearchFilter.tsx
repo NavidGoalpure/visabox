@@ -15,6 +15,9 @@ import { ClientError } from '@sanity/client';
 import { MaraAgent } from 'Interfaces/Database/Lists/agents';
 import { getAgentsList } from 'Queries/agents/List';
 import { AgentsQueryKeys } from 'Utils/query/keys';
+import { convertSupportedCountryToCountryObj } from 'Utils/country-state-city';
+import { getLocalStorage } from 'Utils';
+import { LocalStorageKeys } from 'Interfaces';
 
 interface ContexValues {
   searchValue: string;
@@ -48,9 +51,13 @@ type Props = {
 
 const SearchFilterContext = createContext({} as ContexValues);
 function FiltersContextProvider({ children }: Props) {
-  const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>(
-    {} as SearchFilters
-  );
+  const [selectedFiltersObj, setSelectedFiltersObj] = useState<SearchFilters>({
+    location: {
+      country: convertSupportedCountryToCountryObj(
+        getLocalStorage(LocalStorageKeys.Country)
+      ),
+    },
+  } as SearchFilters);
   const [searchValue, setSearchValue] = useState<string>('');
   const {
     hasNextPage,

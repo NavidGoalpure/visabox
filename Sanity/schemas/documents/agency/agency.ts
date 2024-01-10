@@ -31,5 +31,7 @@ export default {
       },
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
+    // تعداد سوالاتی که میتواند از هوش مصنوعی بپرسد
+    { name: 'credit', title: 'Credit', type: 'number', initialValue: 0 },
   ],
 };

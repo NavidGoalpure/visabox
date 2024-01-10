@@ -22,7 +22,7 @@ export default function PageErrorContent() {
 
             <Desc>{`there most be some problems in the servers please try again later`}</Desc>
 
-            <Link href='/occupations'>
+            <Link href='/'>
               <PrimaryButton>Home</PrimaryButton>
             </Link>
           </BlurContainer>

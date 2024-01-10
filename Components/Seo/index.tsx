@@ -7,7 +7,7 @@ interface Props {
   description?: string;
   type?: string;
   image?: string;
-  canonical: string;
+  canonical?: string;
   isNoIndex?: boolean;
   structuredData?: Record<string, any>;
 }
@@ -25,12 +25,12 @@ function Seo({
   const { defaultTitle, defaultDescription } = siteMetadata;
   const smartTitle = titleProps || defaultTitle?.[locale];
   const smartDescription = descriptionProps || defaultDescription?.[locale];
-  const smartImage = image || `https://marabox.com/ogImage.png`;
+  const smartImage = image || `https://marabox.com.au/ogImage.png`;
   return (
     <Head>
       <title>{smartTitle}</title>
       <meta name='description' content={smartDescription} />
-      <link rel='canonical' href={canonical}></link>
+      {canonical && <link rel='canonical' href={canonical}></link>}
       <link rel='icon' href='/favicon.ico' />
       {/* <!-- Facebook Meta Tags --> */}
       <meta property='og:title' content={smartTitle} />

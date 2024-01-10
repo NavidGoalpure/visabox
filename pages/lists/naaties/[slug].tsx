@@ -34,7 +34,7 @@ const NaatiPage: NextPage<Props> = ({ chosenNaati, errorCode }) => {
         ])}
         image={chosenNaati?.avatar}
         description={dt(chosenNaati?.desc)}
-        canonical={`https://www.marabox.com/${locale}/lists/naaties/${chosenNaati?.slug}`}
+        canonical={`https://www.marabox.com.au/${locale}/lists/naaties/${chosenNaati?.slug}`}
       />
       <Content chosenNaati={chosenNaati} />
     </PageLayout>

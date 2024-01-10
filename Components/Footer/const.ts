@@ -12,14 +12,12 @@ export enum LanguageKeys {
   AgentsBox = 'AgentsBox',
   AgenciesBox = 'AgenciesBox',
   Exchanges = 'Exchanges',
-  SocialNetWorksBox = 'SocialNetWorksBox',
   Naati = 'Naati',
   BecomeSponser = 'BecomeSponser',
   copyEmailToastMessage = 'copyEmailToastMessage',
   IranianAgents = 'IranianAgents',
   IndianAgents = 'IndianAgents',
   ChineseAgents = 'ChineseAgents',
-
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   SkilledWorkerVisa: {
@@ -77,11 +75,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Exchanges',
     zh: '交流',
   },
-  SocialNetWorksBox: {
-    fa: 'شبکه‌های اجتماعی',
-    en: 'Social Networks',
-    zh: '社交网络盒',
-  },
+
   Naati: {
     fa: 'لیست مترجمین',
     en: 'Naati',

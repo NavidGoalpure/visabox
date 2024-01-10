@@ -33,8 +33,8 @@ export const SecondaryButton = ({
   );
 };
 export const SecondaryButtonCss = css<{
-  disabled: boolean | undefined;
-  hasIcon: boolean;
+  disabled?: boolean | undefined;
+  hasIcon?: boolean;
 }>`
   display: flex;
   justify-content: center;

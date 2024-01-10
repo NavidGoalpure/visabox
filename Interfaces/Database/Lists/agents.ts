@@ -15,6 +15,7 @@ export interface MaraAgency {
   state?: string;
   city?: string;
   contact?: MaraAgencyContact;
+  credit?: number;
 }
 // فعلا فقط انگلیسی داره اما بعدا ممکنه کسی بخواد اسم فارسی و ... رو اضافه کنه
 // برای اینکه تایپ اصلیمون رو نگم فیلدهاش اختیاریه، این رو پارشیال تایپ اصلی ساختم

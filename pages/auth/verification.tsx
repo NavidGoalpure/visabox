@@ -21,7 +21,7 @@ const UserVerification: NextPage<Props> = ({ chosenRole }) => {
   return (
     <StyledPageLayout hasFooter={false} hasMenu={false} hasBanner={false}>
       <Seo
-        canonical={`https://www.marabox.com/${locale}/auth/verification`}
+        canonical={`https://www.marabox.com.au/${locale}/auth/verification`}
         isNoIndex={true}
       />
       <Content chosenRole={chosenRole} />

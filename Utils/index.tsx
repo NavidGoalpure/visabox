@@ -43,10 +43,10 @@ function isItOnLive(): boolean {
   const smartLocation =
     typeof window === 'undefined' ? '' : window?.location?.href;
   if (
-    smartLocation.includes('https://marabox.com') ||
-    smartLocation.includes('http://marabox.com') ||
-    smartLocation.includes('https://www.marabox.com') ||
-    smartLocation.includes('http://www.marabox.com')
+    smartLocation.includes('https://marabox.com.au') ||
+    smartLocation.includes('http://marabox.com.au') ||
+    smartLocation.includes('https://www.marabox.com.au') ||
+    smartLocation.includes('http://www.marabox.com.au')
   )
     return true;
   return false;

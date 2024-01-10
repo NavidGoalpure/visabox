@@ -58,28 +58,13 @@ function MobileFooter({
         >
           {t(LanguageKeys.AgentsBox)}
         </Items>
-        <Items
-          href={`/${locale}/lists/agencies`}
-          data-name={t(LanguageKeys.AgenciesBox)}
-        >
-          {t(LanguageKeys.AgenciesBox)}
-        </Items>
+
         <Items
           href={`/${locale}/lists/exchanges`}
           data-name={t(LanguageKeys.Exchanges)}
         >
           {t(LanguageKeys.Exchanges)}
         </Items>
-        {(clientCountry === SupportedCountry.Iran ||
-          getLocalStorage(LocalStorageKeys.Country) ===
-            SupportedCountry.Iran) && (
-          <Items
-            href={`/${locale}/lists/social-pages`}
-            data-name={t(LanguageKeys.SocialNetWorksBox)}
-          >
-            {t(LanguageKeys.SocialNetWorksBox)}
-          </Items>
-        )}
 
         <Items
           href={`/${locale}/lists/naaties`}

@@ -4,7 +4,7 @@ import { PrimaryButton } from 'Elements/Button/Primary';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { deviceMin } from 'Consts/device';
-import Link from 'next/link';
+import LoginButton from 'Components/LoginButton';
 
 function MustLogin() {
   const { t } = useStaticTranslation(componentStatements);
@@ -12,9 +12,7 @@ function MustLogin() {
     <Container>
       <Wrapper>
         <Alarm>{t(LanguageKeys.MustLoginDesc)}</Alarm>
-        <Link href={`/auth/signin`}>
-          <SendButton>{t(LanguageKeys.Login)}</SendButton>
-        </Link>
+        <LoginButton />
       </Wrapper>
     </Container>
   );

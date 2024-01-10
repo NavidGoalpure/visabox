@@ -1,63 +1,57 @@
-import { Client } from 'Interfaces/Database/Client';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useMutation, useQueryClient } from 'react-query';
-import { ClientQueryKeys } from 'Utils/query/keys';
-import { FREE_CREDIT_THRESHOLD } from './const';
+import { useMutation } from 'react-query';
+import { useSession } from 'next-auth/react';
 import QuestionRow from './InputRow';
 import MustLogin from './MustLogin';
 import NoCredit from './NoCredit';
+import { UserRole } from 'Interfaces/Database';
+import { FREE_CREDIT_THRESHOLD } from './const';
+import { useContext } from 'react';
+import { AiChatContext } from './hooks/useAiCredit';
 
 interface Props {
-  userData: Client | undefined;
   sendMessage: (message?: string | undefined) => boolean;
   isLoading: boolean;
   stop: () => boolean;
 }
-function SmartRow({ userData, sendMessage, isLoading, stop }: Props) {
-  const [credit, setCredit] = useState<number>(userData?.credit || 0);
-  const queryClient = useQueryClient();
-  //////////////
 
+function SmartRow({ sendMessage, isLoading, stop }: Props) {
+  // Fetch user role and ID based on the email using the custom hook
+  const { userId, questionRemain, decreaseCreditByOne } =
+    useContext(AiChatContext);
+
+  const mutation = useMutation(
+    // Mutation key (a string or an array) that uniquely identifies this mutation
+    'decreaseCredit',
+
+    // Mutation function
+    decreaseCreditByOne,
+
+    // Configuration object
+    {
+      //
+      onError: (error: any) => {
+        console.error('Mutation failed:', error);
+      },
+    }
+  );
   function asqQuestion(message: string | undefined) {
     if (message) {
       mutation.mutate();
       sendMessage(message);
     }
   }
-  const mutation = useMutation({
-    mutationFn: () => {
-      return fetch('/api/clients/edit-profile', {
-        method: 'POST',
-        body: JSON.stringify({
-          client: { _id: userData?._id, credit: credit - 1 },
-        } as Partial<Client>),
-      });
-    },
-    onSuccess: (res) => {
-      if (!res.ok) {
-        throw new Error(`couldn't patch the user`);
-      }
 
-      setCredit((prevCredit) => prevCredit - 1);
-      queryClient.removeQueries({
-        queryKey: ClientQueryKeys.detail({
-          reqParams: `_id == "${userData?._id || 'defensive'}"`,
-        }),
-      });
-    },
-  });
-
-  // حالتی که یوزر دیتا مساوی آبجکت خالی باشه رو هم تست میکنیم
-  if (!userData?._id || userData === undefined) return <MustLogin />;
-  if (credit > FREE_CREDIT_THRESHOLD)
+  if (!userId) return <MustLogin />;
+  if (questionRemain > FREE_CREDIT_THRESHOLD) {
     return (
       <QuestionRow
-        sendMessage={asqQuestion}
+        asqQuestion={asqQuestion}
         isLoading={isLoading}
         stopStream={stop}
       />
     );
+  }
   return <NoCredit />;
 }
+
 export default SmartRow;

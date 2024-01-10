@@ -26,6 +26,7 @@ export interface Agency {
 }
 
 export interface AgencySanity extends SanityKeys {
+  credit: number | undefined;
   email: string; // ایمیلی که برای لاگین استفاده میکنه
   avatar: string;
   status: Status;

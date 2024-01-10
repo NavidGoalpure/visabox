@@ -1,26 +1,20 @@
 import { ScrollBox } from 'Elements/ScrollBox';
-import {
-  ChangeEvent,
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useState,
-} from "react";
-import { CiSearch } from "react-icons/ci";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import { Headline7Style } from "Styles/Typo";
-import { iran } from "Consts/Occupations/university";
-import { Card } from "./Card";
-import { Loading } from "Elements/Loading";
-import { IoCloseOutline } from "react-icons/io5";
-import { UniSections } from "Interfaces/Database/Client";
+import { ChangeEvent, useState } from 'react';
+import { CiSearch } from 'react-icons/ci';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { Headline7Style } from 'Styles/Typo';
+import { iran } from 'Consts/Occupations/university';
+import { Card } from './Card';
+import { Loading } from 'Elements/Loading';
+import { IoCloseOutline } from 'react-icons/io5';
+import { UniSections } from 'Interfaces/Database/Client';
 import {
   search_Input_Modal_Bg,
   search_Input_Modal,
-} from "Styles/Theme/elementsInModal/searchInput";
+} from 'Styles/Theme/elementsInModal/searchInput';
 interface Props {
-  theme: "LAYER1" | "LAYER2";
+  theme: 'LAYER1' | 'LAYER2';
   isInputInModal?: boolean;
   callback?: (university: UniSections) => void;
   placeholder: string;
@@ -68,7 +62,7 @@ export const SearchInputComponent: React.FC<Props> = ({
         <StyledScrollBox
           isInputInModal={isInputInModal}
           isVisible={isInputFocus}
-          height={"15rem"}
+          height={'15rem'}
         >
           {inputValue.length < 3 ? (
             <LoadingContainer>
@@ -186,7 +180,7 @@ const InputWrapper = styled.div`
   }
 `;
 const InputStyle = css<{
-  $theme: "LAYER1" | "LAYER2";
+  $theme: 'LAYER1' | 'LAYER2';
   isInputInModal: boolean;
 }>`
   ${Headline7Style};

@@ -15,7 +15,7 @@ function Content() {
     <TermsDesc>
       <h1>Privacy Policy of Marabox</h1>
       <p>
-        Marabox operates the https://www.marabox.com/ website, which provides
+        Marabox operates the https://www.marabox.com.au/ website, which provides
         the SERVICE.
       </p>
       <p>
@@ -32,8 +32,9 @@ function Content() {
       </p>
       <p>
         The terms used in this Privacy Policy have the same meanings as in our
-        Terms and Conditions, which is accessible at https://www.marabox.com/,
-        unless otherwise defined in this Privacy Policy.
+        Terms and Conditions, which is accessible at
+        https://www.marabox.com.au/, unless otherwise defined in this Privacy
+        Policy.
       </p>
       <h2>Information Collection and Use</h2>
       <p>

@@ -5,27 +5,34 @@ import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import { componentStatements, LanguageKeys } from './const';
+import {
+  componentStatements,
+  FREE_CREDIT_THRESHOLD,
+  LanguageKeys,
+} from './const';
 import { useFixie } from 'fixie/web';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { layer2A_BodyStyle } from 'Styles/Theme/Layers/layer2/style';
 import ShowConversation from './ShowConversation';
 import { Loading } from 'Elements/Loading';
 import { ChatScrollAnchor } from './chatScrollAnchor';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 
-import { Client } from 'Interfaces/Database/Client';
 import SmartRow from './SmartRow';
+import { AiChatContext, AiChatContextProvider } from './hooks/useAiCredit';
+import { findSmartHeight } from 'Elements/Select/utils';
+import useDevice from 'Hooks/useDevice';
 
 interface Props {
   aiAgentId: string;
-  userData: Client | undefined;
 }
-function Content({ aiAgentId, userData }: Props) {
+function Content({ aiAgentId }: Props) {
   const { status } = useSession();
-
   const { t } = useStaticTranslation(componentStatements);
+  const { questionRemain } = useContext(AiChatContext);
+  const { isMobile } = useDevice();
+  //
   const { conversation, sendMessage, stop } = useFixie({
     agentId: aiAgentId,
     agentStartsConversation: false,
@@ -44,20 +51,33 @@ function Content({ aiAgentId, userData }: Props) {
       {!conversation && (
         <PageSubtitle>{t(LanguageKeys.PageSubtitle)}</PageSubtitle>
       )}
+      <QuestionRemain
+        dangerouslySetInnerHTML={{
+          __html: t(LanguageKeys.QuestionRemain, [
+            // به عدد باقیمانده سوالات ۳ تا اضافه میکنیم چون همیشه ۳ ا اشانتیون وجود دارد
+            {
+              $number: questionRemain.toString(),
+            },
+          ]),
+        }}
+      />
       <ChatArea>
-        <Scroll $size={conversation ? 'full' : 'mini'}>
+        <Scroll
+          $size={conversation ? 'full' : 'mini'}
+          // height={'40vh'}
+        >
           <ShowConversation turns={conversation?.turns} />
           {isLoading && <Loading />}
           <ChatScrollAnchor trackVisibility={isLoading} />;
         </Scroll>
 
-        <SmartRow
-          userData={userData}
-          sendMessage={sendMessage}
-          isLoading={isLoading}
-          stop={stop}
-        />
+        <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
       </ChatArea>
+      {isMobile && (
+        <Hint
+          dangerouslySetInnerHTML={{ __html: t(LanguageKeys.MobileHint) }}
+        />
+      )}
       <Disclaimer
         dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Disclaimer) }}
       />
@@ -85,9 +105,23 @@ const PageTitle = styled.h1`
 const ChatArea = styled.section`
   width: 100%;
   ${layer2A_BodyStyle};
-  border-radius: 15px;
+  border-radius: 0 15px 15px 15px;
   padding: 0;
   margin-bottom: 1rem;
+`;
+const QuestionRemain = styled.div`
+  display: flex;
+  background: var(--color-secondary4);
+  color: var(--color-gray1);
+  font-weight: 600;
+  width: max-content;
+  padding: 1rem;
+  margin-inline-end: auto;
+  border-radius: 15px 15px 0 0;
+  white-space-collapse: preserve;
+  span {
+    color: var(--color-secondary1);
+  }
 `;
 const PageSubtitle = styled.h2`
   ${Layer1_SubtitleStyle};
@@ -96,8 +130,8 @@ const Scroll = styled(ScrollBox)<{ $size: 'mini' | 'full' }>`
   border-radius: 15px;
   ${({ $size }) =>
     $size === 'full'
-      ? 'min-height: calc(100vh - 12rem);'
-      : 'min-height: calc(100vh - 27rem);'}
+      ? 'min-height: calc(100vh - 15rem);'
+      : 'min-height: calc(100vh - 26rem);'}
 `;
 const Disclaimer = styled.div`
   ${Layer1_SubtitleStyle};
@@ -107,3 +141,4 @@ const Disclaimer = styled.div`
     color: var(--color-secondary4);
   }
 `;
+const Hint = styled(Disclaimer)``;

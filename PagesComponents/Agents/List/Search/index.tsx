@@ -9,14 +9,11 @@ import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
 import { SearchFilterContext } from '../Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
-import { SelectItemCss } from 'Elements/Select/Item';
+
 import { LuSettings2 } from 'react-icons/lu';
 import { Country, ICountry, State } from 'country-state-city';
 import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
-import { getUserCountry } from 'Queries/client';
-
-import { getDefaultCountry } from './utils';
+import { getDefaultCountry } from 'Utils/country-state-city';
 
 interface Props {
   searchValue: string;
@@ -33,9 +30,6 @@ function Search({ searchValue, setSearchValue }: Props) {
   ///
   const { t } = useStaticTranslation(componentStatements);
   const [isShowPanel, setIsShowPanel] = useState<boolean>(true);
-  const [defaultContry, setDefaultContry] = useState<ICountry | undefined>(
-    undefined
-  );
   const { selectedFiltersObj, setSelectedFiltersObj, resetFilters } =
     useContext(SearchFilterContext);
   useEffect(() => {
@@ -46,23 +40,26 @@ function Search({ searchValue, setSearchValue }: Props) {
   const allStates = State.getStatesOfCountry(smartCountryCode);
 
   //////////////////////////////////////////////////////////////
-  //این یوزافکت به یوآرال پارام کشور و ولیو کشور در پروفایل کاربر نگاه میکنه و اگه مقدار داشته باشن فیلتر سرچ رو با اون هماهنگ میکنه
+  //این یوزافکت به یوآرال پارام کشور نگاه میکنه و اگه مقدار داشته باشن فیلتر سرچ رو با اون هماهنگ میکنه
   /////////////////////////////////////////////////////////////
-  const { data: session } = useSession();
-  const userCountry = getUserCountry(session);
   useEffect(() => {
-    if (countryInUrlParam || userCountry) {
-      const country = getDefaultCountry({ countryInUrlParam, userCountry });
-      setDefaultContry(country);
-      setSelectedFiltersObj((prev) => ({
-        ...prev,
-        location: {
-          ...prev.location,
-          country,
-        },
-      }));
-    }
-  }, [countryInUrlParam, userCountry]);
+    const setCountry = async () => {
+      if (countryInUrlParam) {
+        const country = getDefaultCountry({
+          countryInUrlParam,
+        });
+        setSelectedFiltersObj((prev) => ({
+          ...prev,
+          location: {
+            ...prev.location,
+            country,
+          },
+        }));
+      }
+    };
+
+    setCountry();
+  }, [countryInUrlParam]);
 
   //////////////////////////////////////////////////////////////
   //این یوزافکت به یوآرال پارام شهر نگاه میکنه و اگه مقدار داشته باشه فیلتر سرچ رو با اون هماهنگ میکنه
@@ -237,8 +234,4 @@ const SelectRoot = styled(MaraSelect.Root)`
   #select-portal {
     height: 35rem !important;
   }
-`;
-const DropboxItem = styled.h5`
-  ${SelectItemCss}
-  padding: 0;
 `;

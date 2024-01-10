@@ -9,20 +9,22 @@ import { useLocale } from 'Hooks/useLocale';
 import { Languages } from 'Interfaces';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import useDevice from 'Hooks/useDevice';
 
 interface Props {
-  sendMessage: (message?: string | undefined) => void;
+  asqQuestion: (message?: string | undefined) => void;
   isLoading: boolean;
   stopStream: () => boolean;
 }
 
-function QuestionRow({ sendMessage, isLoading, stopStream }: Props) {
+function QuestionRow({ asqQuestion, isLoading, stopStream }: Props) {
   const { t } = useStaticTranslation(componentStatements);
-
+  const { isMobile } = useDevice();
   const [inputValue, setInputValue] = useState<string>('');
   const { locale } = useLocale();
+  //
   function sendQuestionHandler() {
-    sendMessage(inputValue);
+    asqQuestion(inputValue);
     setInputValue('');
   }
   const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -30,6 +32,7 @@ function QuestionRow({ sendMessage, isLoading, stopStream }: Props) {
       sendQuestionHandler();
     }
   };
+
   return (
     <Container>
       <Wrapper>
@@ -39,7 +42,11 @@ function QuestionRow({ sendMessage, isLoading, stopStream }: Props) {
             setInputValue(e.target.value);
           }}
           onKeyDown={handleKeyPress}
-          placeholder={t(LanguageKeys.Placeholder)}
+          placeholder={
+            isMobile
+              ? t(LanguageKeys.MobilePlaceholder)
+              : t(LanguageKeys.DesktopPlaceholder)
+          }
           endElement={
             <SendButton onClick={isLoading ? stopStream : sendQuestionHandler}>
               {isLoading ? <FaRegCircleStop /> : <SendIcon $locale={locale} />}

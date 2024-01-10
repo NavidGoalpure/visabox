@@ -2,19 +2,16 @@ import useDevice from 'Hooks/useDevice';
 import { useEffect, useState } from 'react';
 import DesktopFooter from './DesktopFooter';
 import MobileFooter from './MobileFooter';
-import { useSession } from 'next-auth/react';
-import { getUserCountry } from 'Queries/client';
+import { getUserCountry } from 'Utils/country-state-city';
 
 const SmartFooter = () => {
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
-  const { data: session } = useSession();
 
   useEffect(() => {
     if (isLaptop) setScreen('DESKTOP');
   }, [isLaptop]);
-
-  const userCountry = getUserCountry(session);
+  const userCountry = getUserCountry();
 
   if (screen === 'MOBILE') {
     return <MobileFooter clientCountry={userCountry} />;

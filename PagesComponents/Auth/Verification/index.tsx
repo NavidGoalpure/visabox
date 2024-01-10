@@ -57,10 +57,7 @@ const Content: React.FC<Props> = ({ chosenRole }) => {
     // بر اساس اون تصمیم میگیریم کجا بفرستیمش
     if (chosenRole === UserRole.Client) {
       getClientDetail({ reqParams, resParams })
-        .then((res) => {
-          if (res?.client[0]?.country) {
-            removeLocalStorage(LocalStorageKeys.Country);
-          }
+        .then(() => {
           const lastPage = getLocalStorage(LocalStorageKeys.Url_Before_Login);
           if (lastPage) {
             removeLocalStorage(LocalStorageKeys.Url_Before_Login);

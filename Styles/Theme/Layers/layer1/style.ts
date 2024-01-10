@@ -16,7 +16,7 @@ export const Layer1_TitleStyle = css<{
   ${directionStyles}
   ${layer1_TitleColor};
   ${({ color }) => color && color};
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   margin-top: 1rem;
   font-weight: bold;
   text-align: center;

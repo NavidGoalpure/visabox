@@ -26,12 +26,6 @@ function DesktopFormsDropdown() {
           onClick={() => router.push(`/${locale}/${FormsItems[0].href}`)}
           disabled
         />
-        {/* <MaraSelect.Item
-          text={FormsItems[1].title[locale]}
-          value={FormsItems[1].title[locale] as string}
-          onClick={() => router.push(`/${locale}/${FormsItems[1].href}`)}
-          disabled
-        /> */}
       </StyledMaraSelectRoot>
     </NavigationMenu.Item>
   );

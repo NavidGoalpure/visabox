@@ -1,77 +1,72 @@
 import MaraBgAnimation from 'Components/MaraBgAnimation';
 import { deviceMin } from 'Consts/device';
 import { SecondaryButton } from 'Elements/Button/Secondary';
-import { LocalStorageKeys } from 'Interfaces';
+import { LocalStorageKeys, SessionStorageKeys } from 'Interfaces';
 import { useRouter } from 'next/router';
 import { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import { IoCloseOutline } from 'react-icons/io5';
 import { MdNavigateNext } from 'react-icons/md';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import theme from 'styled-theming';
 import { Headline5Style, Headline7Style } from 'Styles/Typo';
-import { getLocalStorage, setLocalStorage } from 'Utils';
+import { getSessionStorage } from 'Utils';
 import BannerStamp from './Images/BannerStamp.svg';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
   buttonText: string;
   stampText?: string;
+  onClose: () => void;
 }
-const SmartBanner: React.FC<Props> = ({ navigateTo, desc, buttonText,stampText }) => {
+const SmartBanner: React.FC<Props> = ({
+  onClose,
+  navigateTo,
+  desc,
+  buttonText,
+  stampText,
+}) => {
   const router = useRouter();
   const [isBannerClosed, setIsBannerClosed] = useState(true);
   useEffect(() => {
-    if (
-      getLocalStorage(LocalStorageKeys.Client_IsFormBannerClosed) === 'true'
-    ) {
+    if (getSessionStorage(SessionStorageKeys.isCloseMarcyaBanner) === 'true') {
       setIsBannerClosed(true);
     } else {
       setIsBannerClosed(false);
     }
   }, []);
+  if (isBannerClosed) return null;
   return (
-    <Container isBannerClosed={isBannerClosed}>
-      {stampText && <Stamp
-        dangerouslySetInnerHTML={{ __html: stampText }}
-      >
-      </Stamp>}
+    <Container>
+      {stampText && (
+        <Stamp dangerouslySetInnerHTML={{ __html: stampText }}></Stamp>
+      )}
       <Wrapper>
-        {' '}
-        <MaraBgAnimation
-          animationSpeed={60}
-          DarkPrimaryColor={'var(--color-primary3)'}
-          LightPrimaryColor={'var(--color-primary3)'}
-          LightSecondaryColor={'transparent'}
-        >
+        <ContentWrapper>
           <Content>
-            <Title>{desc}</Title>{' '}
-            <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
-              {buttonText}
-            </Button>
-            <CloseIconWrapper
-              onClick={() => {
-                setLocalStorage({
-                  key: LocalStorageKeys.Client_IsFormBannerClosed,
-                  value: 'true',
-                });
-                setIsBannerClosed(true);
-              }}
-            >
-              <CloseIcon />
-            </CloseIconWrapper>
+            <Title>{desc}</Title>
           </Content>
-        </MaraBgAnimation>
+          <Button onClick={() => router.push(navigateTo)} icon={<NextIcon />}>
+            {buttonText}
+          </Button>
+          <CloseIconWrapper
+            onClick={() => {
+              onClose();
+              setIsBannerClosed(true);
+            }}
+          >
+            <CloseIcon />
+          </CloseIconWrapper>
+        </ContentWrapper>
       </Wrapper>
     </Container>
   );
 };
 export default SmartBanner;
 
-const Container = styled.div<{ isBannerClosed: boolean }>`
+const Container = styled.div`
   position: relative;
   width: 100%;
   ///////////
-  ${({ isBannerClosed }) => isBannerClosed && `display:none;`}///////
 `;
 
 const Stamp = styled.div`
@@ -148,28 +143,71 @@ const Wrapper = styled.div`
     z-index: 0;
   }
 `;
+// const Content = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding: 2rem 0.3rem 1rem;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 1rem;
+//   backdrop-filter: blur(5px);
+//   @media ${deviceMin.tabletS} {
+//     flex-direction: row;
+//     padding: 0.3rem;
+//   }
+// `;
 const Content = styled.div`
+  display: inline-block;
+  margin-inline-end: 2rem;
+`;
+const ContentWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  padding: 2rem 0.3rem 1rem;
+  width: var(--max-width-page);
   justify-content: center;
+  margin: 0 auto;
+  min-height: 4rem;
   align-items: center;
-  gap: 1rem;
-  backdrop-filter: blur(5px);
-  @media ${deviceMin.tabletS} {
-    flex-direction: row;
-    padding: 0.3rem;
+  z-index: 10;
+  position: relative;
+  width: var(--max-width-page);
+  margin: 0 auto;
+`;
+const typing = keyframes`
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 `;
-const Title = styled.h2`
+const blinking = keyframes`
+  0% {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: var(--color-gray10);
+  }
+  100% {
+    border-right-color: transparent;
+  }
+`;
+
+const Title = styled.p`
   ${Headline5Style};
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: ${typing} 3s steps(30, end) forwards, ${blinking} 1s infinite;
   color: var(--color-gray13);
+  padding: 0 0.5rem;
+  border-inline-end: 2px solid;
   span {
     color: var(--color-primary5);
   }
 `;
+
 const Button = styled(SecondaryButton)`
-  width: auto;
+  width: auto;block
 `;
 export const NextIcon = styled(MdNavigateNext)`
   ${NextIconDirectionStyle};

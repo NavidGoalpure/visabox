@@ -53,11 +53,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 };
 export const LOOKUP_STORE: Record<ILookupEnum, string> = {
-  lookUpKnowVetassess: 'Vetassess documents',
-  lookUpKnowACS: 'ACS documents',
-  lookUpKnowTRA: 'TRA documents',
-  lookUpKnowSkillWorker: 'SkillWorker documents',
-  loadBySimilarity: 'similarity documents',
+  lookUpKnowMigrationStrategy: 'Migration Strategy documents',
+  lookUpKnowVetassess: 'Vetassess Documents',
+  lookUpKnowACS: 'ACS Documents',
+  lookUpKnowTRA: 'TRA Documents',
+  lookUpKnowEA: ' EA Documents',
+  lookUpKnowRegionsStates: 'States And Territories Documents',
+  lookUpKnowSkillWorker: 'Skilled Worker Documents',
+  loadBySimilarity: 'Similarity Documents',
 };
 const navidAnswer = `برای ویزای توریستی مادرتان به کشور استرالیا می‌توانید از ویزاهای مختلف بازدید کننده استفاده کنید که شامل دسته‌های زیر می‌شوند:
 

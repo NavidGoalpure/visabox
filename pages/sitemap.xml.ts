@@ -1,4 +1,4 @@
-import { AgentLintInCountries } from 'PagesComponents/sitemap/AgentLintInCountries';
+import { AgentLinkInCountries } from 'PagesComponents/sitemap/AgentLinkInCountries';
 import { AssessingAuthoritiesListPages } from 'PagesComponents/sitemap/AssessingAuthoritiesListPages';
 import { BlogsDetailsPages } from 'PagesComponents/sitemap/BlogsDetailsPages';
 import { NaatiListPages } from 'PagesComponents/sitemap/NaatiListPages';
@@ -25,10 +25,8 @@ async function generateSiteMap() {
     <url>
       <loc>${Domain_EN}/lists/agents</loc>
     </url>
-    ${AgentLintInCountries()}
-    
-    ${MarcyaIntroducePages()}
-    ${MarcyaChatPages()}
+    ${AgentLinkInCountries()}
+  
    </urlset>
  `;
 }

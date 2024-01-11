@@ -1,6 +1,6 @@
 import { Domain_Langs } from './const';
 
-function AgentLintInCountries(): string[] {
+function AgentLinkInCountries(): string[] {
   const res = Domain_Langs.map((domain) => {
     return `
          <url>
@@ -17,4 +17,4 @@ function AgentLintInCountries(): string[] {
   });
   return res;
 }
-export { AgentLintInCountries };
+export { AgentLinkInCountries };

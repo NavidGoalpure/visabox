@@ -8,7 +8,7 @@ export enum LanguageKeys {
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   BannerDesc: {
     en: 'Need Answers on Australian <span>Migration?</span>',
-    fa: 'درباره مهاجرت به استرالیا سوالی داری؟',
+    fa: 'اگه درباره مهاجرت به استرالیا <span>سوال</span> داری؟',
     zh: '需要关于<span>澳大利亚移民</span>的答案吗？',
   },
 

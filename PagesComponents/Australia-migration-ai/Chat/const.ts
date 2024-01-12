@@ -19,9 +19,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: 'Marcya聊天机器人：您的澳大利亚移民辅助AI伴侣 | Mara Box',
   },
   SeoDesc: {
-    en: 'Explore the capabilities of Marcya, the AI chatbot designed to assist you with comprehensive guidance on Australian immigration. From assessment systems to visa processes, Marcya is your virtual companion on the journey to realizing your Australian dream. | Mara Box',
-    fa: 'تجربه قابلیت‌های چت‌بات مارسیا، چت‌بات هوش مصنوعی طراحی شده برای همراهی شما در ارائه راهنمای جامع در مهاجرت به استرالیا. از سیستم‌های ارزیابی تا روند اخذ ویزا، مارسیا همراه مجازی‌تان در سفر به تحقق آرزوی استرالیایی‌تان است. | Mara Box',
-    zh: '探索Marcya的功能，这是一款旨在为您提供关于澳大利亚移民的全面指导的AI聊天机器人。从评估系统到签证流程，Marcya是您在实现澳大利亚梦想之旅中的虚拟伴侣。| Mara Box',
+    en: 'the AI chatbot designed to assist you with comprehensive guidance on Australian immigration. From assessment systems to visa processes, The latest backlog status, Marcya is your virtual companion on the journey to realizing your Australian dream. | Mara Box',
+    fa: 'تجربه قابلیت‌های چت‌بات مارسیا، چت‌بات هوش مصنوعی طراحی شده برای همراهی شما در ارائه راهنمای جامع در مهاجرت به استرالیا. از سیستم‌های ارزیابی تا روند اخذ ویزا و اطلاعات آخرین وضعیت بک لاگ، مارسیا همراه مجازی‌تان در سفر به تحقق آرزوی استرالیایی‌تان است. | Mara Box',
+    zh: '这是一个AI聊天机器人，旨在为您提供关于澳大利亚移民的全面指导。从评估系统到签证流程，以及最新的积压状态，Marcya是您在实现澳大利亚梦想旅程中的虚拟伴侣',
   },
 
   //

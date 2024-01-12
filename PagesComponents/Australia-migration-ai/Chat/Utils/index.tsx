@@ -52,5 +52,25 @@ export function convertMarkdownToHTML(markdown: string): string {
   const uiRegex = /__(.*?)__/g;
   markdown = markdown.replace(uiRegex, '<u>$1</u>');
 
+  // Handle tables: | Header 1 | Header 2 | ... |
+  const tableRegex = /^\|(.+)\|$/gm;
+  markdown = markdown.replace(tableRegex, (tableRow) => {
+    const cells = tableRow
+      .split('|')
+      .map((cell) => cell.trim())
+      .filter(Boolean);
+    const isHeader = tableRow.startsWith('|:') && tableRow.endsWith(':|');
+    if (isHeader) {
+      return (
+        '<thead><tr>' +
+        cells.map((cell) => `<th>${cell}</th>`).join('') +
+        '</tr></thead><tbody>'
+      );
+    }
+    return '<tr>' + cells.map((cell) => `<td>${cell}</td>`).join('') + '</tr>';
+  });
+  // Close the tbody for table if opened
+  markdown = markdown.replace(/<tbody>/g, '</tbody>');
+
   return markdown;
 }

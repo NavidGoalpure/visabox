@@ -8,13 +8,19 @@ body,
 title,
 _updatedAt,
 slug,
-mainImage
+mainImage,
+otherArticles[]-> {
+  title,
+  slug,
+  mainImage
+      
+  }
    }`;
   return query;
 };
 import { ClientError } from '@sanity/client';
+import { IBlog } from 'Interfaces/Database/blog';
 ////////////////////////////
-import { IBlog } from 'Interfaces/Database/Lists/blog';
 import { sanityClient } from 'Utils/sanity';
 
 const getAllBlogsSlugs = async (): Promise<IBlog[] | []> => {

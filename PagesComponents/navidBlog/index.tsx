@@ -1,26 +1,87 @@
+import { FiInfo } from 'react-icons/fi';
+import styled, { css } from 'styled-components';
 import { borderTheme } from 'Styles/Theme';
-import Image from 'next/image';
-
 import {
   Hint_BGStyle,
-  Hint_SecondaryContainer,
-  Hint_SecondaryIcon,
-  Hint_SecondaryTextStyle,
-  Hint_TextStyle,
   Hint_TitleStyle,
+  Hint_TextStyle,
+  Hint_SecondaryContainer,
+  Hint_SecondaryTextStyle,
+  Hint_SecondaryIcon,
 } from 'Styles/Theme/Hint/style';
-
 import {
   Layer1_TextStyle,
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import {
+  layer2A_HeaderStyle,
+  layer2A_TextStyle,
+} from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
-import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
-import { FiInfo } from 'react-icons/fi';
+import { IBlog } from 'Interfaces/Database/blog';
+import { PortableText } from '@portabletext/react';
+import { useLocale } from 'Hooks/useLocale';
+import { isRtl } from 'Utils';
+import { urlFor } from 'Utils/sanity';
+import { CustomPortableTextComponents } from './customComponents';
+import { ImageContainer, Images } from './styed-components';
+import Link from 'next/link';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
 
+interface Props {
+  blog: IBlog;
+}
+const NavidBlogContent: React.FC<Props> = ({ blog }) => {
+  console.log('navid blog=', blog);
+  const { locale } = useLocale();
+  const { t } = useStaticTranslation(componentStatements);
+
+  return (
+    <>
+      <Title>{blog.title}</Title>
+      <ImageContainer>
+        <Images
+          fill
+          src={urlFor(blog?.mainImage).url()}
+          alt={`${blog.title}-header`}
+        />
+      </ImageContainer>
+      <BlogContainer isRTL={isRtl(locale)}>
+        <PortableText
+          value={blog.body}
+          components={CustomPortableTextComponents}
+        />
+      </BlogContainer>
+      <HintBG>
+        <HintTitle>{t(LanguageKeys.HintTitle)}</HintTitle>
+        <HintText>
+          {t(LanguageKeys.HintDesc)}
+          <br />
+          <Link href={t(LanguageKeys.HintLink)} target='_blank'>
+            {t(LanguageKeys.HintLinkAlt)}
+          </Link>
+        </HintText>
+      </HintBG>
+      <MoreBlogsContainer>
+        <h2>{t(LanguageKeys.SimilarArticle)}</h2>
+        <MoreBlogsCardsContainer>
+          {(blog?.otherArticles as IBlog[])?.map((article) => (
+            <PagesConnectorCard
+              title={article.title}
+              href={article?.slug?.current || '#'}
+              img={urlFor(article?.mainImage)?.url()}
+            />
+          ))}
+        </MoreBlogsCardsContainer>
+      </MoreBlogsContainer>
+    </>
+  );
+};
+export default NavidBlogContent;
 const boldTheme = theme('mode', {
   light: css`
     color: var(--color-secondary1) !important;
@@ -37,18 +98,12 @@ const th_a_Color = theme('mode', {
     color: var(--color-gray13) !important;
   `,
 });
-// const HintTextTheme = theme('mode', {
-//   light: css`
-//     color: var(--color-secondary2);
-//   `,
-//   dark: css`
-//     color: var(--color-secondary3);
-//   `,
-// });
-export const BlogContainer = styled.article`
+const BlogContainer = styled.article<{ isRTL: boolean }>`
+  direction: ${({ isRTL }) => (isRTL ? 'rtl' : 'ltr')};
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 2rem;
   img {
     margin-bottom: 2rem;
     width: 80%;
@@ -61,13 +116,11 @@ export const BlogContainer = styled.article`
   p {
     ${Layer1_TextStyle}
   }
-  b {
+  b,
+  strong {
     ${boldTheme}
   }
-  h1 {
-    ${Layer1_TitleStyle}
-    margin-top: 2rem;
-  }
+
   table {
     ${borderTheme}
     border-radius: 15px;
@@ -150,50 +203,34 @@ export const BlogContainer = styled.article`
     color: var(--color-primary2);
   }
 `;
-export const HintBG = styled.section`
-  ${Hint_BGStyle}
-`;
-export const HintTitle = styled.h4`
-  ${Hint_TitleStyle}
-`;
-export const HintText = styled.p`
-  ${Hint_TextStyle}
-`;
-export const HintSecondaryContainer = styled.section`
-  ${Hint_SecondaryContainer}
-`;
-export const HintSecondaryTextStyle = styled.p`
-  ${Hint_SecondaryTextStyle}
-`;
-export const HintSecondaryIcon = styled(FiInfo)`
-  ${Hint_SecondaryIcon};
-`;
-export const ImageContainer = styled.div`
-  position: relative;
-  width: 80%;
-  margin-bottom: 2rem;
-  height: 25rem;
-  border-radius: 15px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
-  align-self: center;
-`;
-export const Images = styled(Image)`
-  border-radius: 15px;
-  object-fit: cover;
+const Title = styled.h1`
+  ${Layer1_TitleStyle}
+  margin-top: 2rem;
 `;
 
-export const MoreBlogsContainer = styled.div`
+const HintBG = styled.section`
+  ${Hint_BGStyle}
+`;
+const HintTitle = styled.h4`
+  ${Hint_TitleStyle}
+`;
+const HintText = styled.p`
+  ${Hint_TextStyle}
+`;
+
+const MoreBlogsContainer = styled.div`
   margin-top: 4rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
   h2 {
+    ${Layer1_TitleStyle}
     text-align: center !important;
   }
 `;
 
-export const MoreBlogsCardsContainer = styled.div`
+const MoreBlogsCardsContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;

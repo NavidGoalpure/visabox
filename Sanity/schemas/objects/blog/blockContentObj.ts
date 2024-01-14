@@ -62,22 +62,6 @@ export default {
               },
             ],
           },
-          {
-            name: 'internalLink',
-            type: 'object',
-            title: 'Internal link',
-            fields: [
-              {
-                name: 'reference',
-                type: 'reference',
-                title: 'Reference',
-                to: [
-                  { type: 'blog' },
-                  // other types you may want to link to
-                ],
-              },
-            ],
-          },
         ],
       },
     },
@@ -97,6 +81,25 @@ export default {
           name: 'fill',
           title: 'Fill',
           type: 'boolean',
+        },
+      ],
+    },
+    {
+      name: 'table',
+      type: 'object',
+      title: 'Table',
+      fields: [
+        {
+          name: 'header',
+          title: 'Header',
+          type: 'array',
+          of: [{ type: 'string' }],
+        },
+        {
+          name: 'rows',
+          title: 'Rows',
+          type: 'array',
+          of: [{ type: 'row' }],
         },
       ],
     },

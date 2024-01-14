@@ -111,6 +111,8 @@ const Content = styled.a`
   flex-direction: column;
   align-items: center;
   transition: 0.3s;
+  justify-content: space-between;
+  padding: 4rem 0;
   ${Container}:hover & {
     transform: rotate(30deg);
   }

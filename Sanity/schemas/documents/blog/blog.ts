@@ -34,6 +34,22 @@ export default {
       },
     },
     {
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      initialValue: 'active',
+      options: {
+        list: [
+          { title: 'ACTIVE', value: 'active' },
+          { title: 'DEACTIVE', value: 'deactive' },
+          { title: 'DELETED', value: 'deleted' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      validation: (Rule: { required: () => any }) => Rule.required(),
+    },
+    {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
@@ -51,6 +67,22 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'blockContent_obj',
+    },
+    {
+      name: 'otherArticles',
+      title: 'Other Articles',
+      type: 'array',
+      of: [
+        {
+          name: 'reference',
+          type: 'reference',
+          title: 'Reference',
+          to: [
+            { type: 'blog' },
+            // other types you may want to link to
+          ],
+        },
+      ],
     },
   ],
 

@@ -1,5 +1,10 @@
 import SuccessToast from 'Elements/Toast/Success';
-import { LocalStorageKeys, SessionStorageKeys, ThemeModes } from 'Interfaces';
+import {
+  Languages,
+  LocalStorageKeys,
+  SessionStorageKeys,
+  ThemeModes,
+} from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import crypto from 'crypto';
@@ -182,6 +187,9 @@ export function containsArabicOrPersianAlphabets(inputString: string): boolean {
   // Check if the input string contains any character within the Arabic and Persian Unicode ranges
   return arabicOrPersianRegex.test(inputString);
 }
+function isRtl(locale: Languages): boolean {
+  return locale === Languages.fa;
+}
 export {
   getThemeFromLocalStorage,
   isItOnLive,
@@ -201,4 +209,6 @@ export {
   slugify,
   getGsapTimeLine_FadeUp,
   convertToMd5,
+  //
+  isRtl,
 };

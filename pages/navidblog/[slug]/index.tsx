@@ -1,27 +1,23 @@
 import { GetStaticProps, NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
-import Content from 'PagesComponents/Lists/Agents/AgentPage';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements } from 'PagesComponents/Lists/Agents/AgentPage/const';
-import Error from 'next/error';
-import { useLocale } from 'Hooks/useLocale';
-import { MaraAgent } from 'Interfaces/Database/Lists/agents';
+import Content from 'PagesComponents/navidBlog';
+
 import styled from 'styled-components';
-import { IBlog } from 'Interfaces/Database/Lists/blog';
+import { IBlog } from 'Interfaces/Database/blog';
 import { getAllBlogsSlugs, getBlogDetail } from 'Queries/blog/Detail';
+import { ContentOrError } from 'Components/contentOrError';
 
 interface Props {
   blog?: IBlog;
   errorCode?: number;
 }
 const BlogPage: NextPage<Props> = ({ blog, errorCode }) => {
-  const { locale } = useLocale();
-  const { t } = useStaticTranslation(componentStatements);
-  if (errorCode) return <Error statusCode={errorCode} />;
-  const date = new Date();
   return (
     <StyledPageLayout>
-      <Content blog={blog} />
+      <ContentOrError
+        isError={!blog || !!errorCode}
+        content={<Content blog={blog as IBlog} />}
+      />
     </StyledPageLayout>
   );
 };
@@ -38,6 +34,7 @@ export const getStaticPaths = async () => {
           params: { slug: blog?.slug?.current },
         });
     });
+  console.log('***navid allBlogs_Slug=', allBlogs_Slug);
 
   return {
     paths,
@@ -48,6 +45,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const blog = await getBlogDetail({ slug: params?.slug?.toString() });
+    console.log('***navid blog=', blog);
+
     return {
       props: {
         blog,

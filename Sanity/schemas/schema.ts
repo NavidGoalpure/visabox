@@ -31,8 +31,10 @@ import agencyObj from './objects/agent/AgencyObj';
 
 //survey
 import surveyChoiceObj from './objects/survey/choice';
-//
+//blog
 import blockContentObj from './objects/blog/blockContentObj';
+import row from './objects/blog/row';
+//
 import AllDegrees from './objects/client/AllDegreesObj';
 import AllJobs from './objects/client/allJobsObj';
 import ClientCompletedFormsObj from './objects/client/CompletedFormsObj';
@@ -85,4 +87,5 @@ export default [
   ////blogRelated////////
   blog,
   blockContentObj,
+  row,
 ];

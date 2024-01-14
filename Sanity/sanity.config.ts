@@ -7,7 +7,7 @@ import schemaTypes from './schemas/schema.js';
 export default defineConfig({
   title: 'Marabox',
   projectId: '5qni5qk5',
-  dataset: 'prelive',
+  dataset: 'production',
   plugins: [deskTool(), visionTool({ defaultApiVersion: '2022-10-21' })],
   schema: {
     types: schemaTypes,

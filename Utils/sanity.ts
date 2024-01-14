@@ -1,9 +1,13 @@
 // lib/sanity.js
 
-import createClient from '@sanity/client';
+import createClient, { ClientConfig } from '@sanity/client';
 import createImageUrlBuilder from '@sanity/image-url';
+import {
+  SanityClientLike,
+  SanityImageSource,
+} from '@sanity/image-url/lib/types/types';
 
-export const config = {
+export const config: ClientConfig = {
   /**
    * Find your project ID and dataset in `sanity.json` in your studio project.
    * These are considered “public”, but you can use environment variables
@@ -12,7 +16,7 @@ export const config = {
    * https://nextjs.org/docs/basic-features/environment-variables
    **/
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'occupation',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  projectId: process?.env?.NEXT_PUBLIC_SANITY_PROJECT_ID || 'defensive',
   apiVersion: '2021-10-21', // Learn more: https://www.sanity.io/docs/api-versioning
   /**
    * Set useCdn to `false` if your application require the freshest possible
@@ -43,6 +47,6 @@ export const sanityClient_WithoutCDN = createClient({
  * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
  * Read more: https://www.sanity.io/docs/image-url
  **/
-
-//@ts-ignore
-export const urlFor = (source) => createImageUrlBuilder(config).image(source);
+export const urlFor = (source: SanityImageSource) =>
+  //@ts-ignore
+  createImageUrlBuilder(config).image(source);

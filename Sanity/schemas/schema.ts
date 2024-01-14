@@ -7,7 +7,10 @@ import visaType from './documents/occupations/visaType';
 import territory from './documents/occupations/territory';
 import unitGroup from './documents/occupations/unitGroup';
 //
+//
 import survey from './documents/survey';
+//
+import blog from './documents/blog/blog';
 //
 import client from './documents/client/client';
 import agency from './documents/agency/agency';
@@ -29,6 +32,7 @@ import agencyObj from './objects/agent/AgencyObj';
 //survey
 import surveyChoiceObj from './objects/survey/choice';
 //
+import blockContentObj from './objects/blog/blockContentObj';
 import AllDegrees from './objects/client/AllDegreesObj';
 import AllJobs from './objects/client/allJobsObj';
 import ClientCompletedFormsObj from './objects/client/CompletedFormsObj';
@@ -78,4 +82,7 @@ export default [
   agency,
   /////agentRelated/////
   agent,
+  ////blogRelated////////
+  blog,
+  blockContentObj,
 ];

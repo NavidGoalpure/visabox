@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
-import Content from 'PagesComponents/navidBlog';
+import Content from 'PagesComponents/navidBlogs/BlogPage';
 
 import styled from 'styled-components';
 import { IBlog } from 'Interfaces/Database/blog';

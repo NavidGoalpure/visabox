@@ -5,19 +5,13 @@ import {
   Hint_BGStyle,
   Hint_TitleStyle,
   Hint_TextStyle,
-  Hint_SecondaryContainer,
-  Hint_SecondaryTextStyle,
-  Hint_SecondaryIcon,
 } from 'Styles/Theme/Hint/style';
 import {
   Layer1_TextStyle,
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import {
-  layer2A_HeaderStyle,
-  layer2A_TextStyle,
-} from 'Styles/Theme/Layers/layer2/style';
+import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_HeaderBG } from 'Styles/Theme/Layers/layer2/theme';
 import theme from 'styled-theming';
 import { IBlog } from 'Interfaces/Database/blog';
@@ -43,18 +37,22 @@ const NavidBlogContent: React.FC<Props> = ({ blog }) => {
   return (
     <>
       <Title>{blog.title}</Title>
-      <ImageContainer>
-        <Images
-          fill
-          src={urlFor(blog?.mainImage).url()}
-          alt={`${blog.title}-header`}
-        />
-      </ImageContainer>
+      {blog?.mainImage && (
+        <ImageContainer>
+          <Images
+            fill
+            src={urlFor(blog?.mainImage).url()}
+            alt={`${blog.title}-header`}
+          />
+        </ImageContainer>
+      )}
       <BlogContainer isRTL={isRtl(locale)}>
-        <PortableText
-          value={blog.body}
-          components={CustomPortableTextComponents}
-        />
+        {blog?.body && (
+          <PortableText
+            value={blog?.body}
+            components={CustomPortableTextComponents}
+          />
+        )}
       </BlogContainer>
       <HintBG>
         <HintTitle>{t(LanguageKeys.HintTitle)}</HintTitle>
@@ -69,13 +67,17 @@ const NavidBlogContent: React.FC<Props> = ({ blog }) => {
       <MoreBlogsContainer>
         <h2>{t(LanguageKeys.SimilarArticle)}</h2>
         <MoreBlogsCardsContainer>
-          {(blog?.otherArticles as IBlog[])?.map((article) => (
-            <PagesConnectorCard
-              title={article.title}
-              href={article?.slug?.current || '#'}
-              img={urlFor(article?.mainImage)?.url()}
-            />
-          ))}
+          {(blog?.otherArticles as IBlog[])?.map((article) => {
+            if (article?.mainImage)
+              return (
+                <PagesConnectorCard
+                  title={article?.title || ''}
+                  href={article?.slug?.current || '#'}
+                  img={urlFor(article?.mainImage)?.url()}
+                />
+              );
+            else return null;
+          })}
         </MoreBlogsCardsContainer>
       </MoreBlogsContainer>
     </>

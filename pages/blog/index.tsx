@@ -4,7 +4,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
 import { componentStatements, LanguageKeys } from 'PagesComponents/Blog/const';
-import SmartBlogWall from 'Components/Cards/Type1/BlogCards';
+import SmartBlogWall from 'PagesComponents/navidBlogs/Cards';
 import NotFound from 'pages/404';
 import { isUserLiveInIran } from 'Utils/country-state-city';
 

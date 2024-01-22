@@ -6,14 +6,17 @@ import { PortableTextBlock } from '@portabletext/types/dist';
 import { ReferenceType } from './Occupation/occupation';
 
 export interface IBlog extends SanityKeys {
-  language: MultiLanguageText;
-  title: string;
-  slug: Slug;
-  mainImage: SanityImageSource;
-  hashtag: string[];
+  language?: MultiLanguageText;
+  title?: string;
+  slug?: Slug;
+  mainImage?: SanityImageSource;
+  hashtag?: string[];
   //navid check the type
-  body: PortableTextBlock;
-  otherArticles: ReferenceType | IBlog;
+  body?: PortableTextBlock;
+  otherArticles?: ReferenceType | IBlog;
+  // این اکسرپت توی دیتابیس وجود نداره. ازش استفاده میکنیم تا خلاصه مقاله رو از بادی بگیریم. میتونه نام دیگه ای هم باشه
+  // اما برای یکدستی بهتره همیشه از همین اسم رسمی استفاده کنیم
+  excerpt?: string;
 }
 interface Row {
   row: string[];

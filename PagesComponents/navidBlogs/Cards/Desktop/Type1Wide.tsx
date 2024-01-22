@@ -9,6 +9,7 @@ import { HTMLAttributes } from 'react';
 import { BsShare } from 'react-icons/bs';
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -26,7 +27,7 @@ const BlogCardType1Wide: React.FC<Props> = ({
 }) => {
   return (
     <Container {...props}>
-      <Wrapper href={href}>
+      <Link href={href}>
         <ImageContainer>
           <BlogImg fill src={img} alt='image-source' />
         </ImageContainer>
@@ -34,7 +35,7 @@ const BlogCardType1Wide: React.FC<Props> = ({
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
         </Content>
-      </Wrapper>
+      </Link>
       <ShareBtn
         onClick={() =>
           copyContent({
@@ -83,8 +84,6 @@ const BlogImg = styled(Image)`
     transform: scale(1.05);
   }
 `;
-
-const Wrapper = styled.a``;
 
 const Content = styled.div`
   gap: 1rem;

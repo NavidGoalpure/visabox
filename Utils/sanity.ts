@@ -47,6 +47,6 @@ export const sanityClient_WithoutCDN = createClient({
  * Set up a helper function for generating Image URLs with only the asset reference data in your documents.
  * Read more: https://www.sanity.io/docs/image-url
  **/
-export const urlFor = (source: SanityImageSource) =>
+export const urlFor = (source: SanityImageSource | undefined) =>
   //@ts-ignore
   createImageUrlBuilder(config).image(source);

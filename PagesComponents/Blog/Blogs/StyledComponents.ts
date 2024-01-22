@@ -45,7 +45,7 @@ const th_a_Color = theme('mode', {
 //     color: var(--color-secondary3);
 //   `,
 // });
-export const BlogContainer = styled.article`
+export const BlogContainer = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;

@@ -1,4 +1,3 @@
-import { getClientDetail } from 'Queries/client';
 import { LOOKUP_STORE } from '../const';
 import { ILookupEnum } from '../Interface';
 
@@ -7,10 +6,14 @@ export function getLookupLabel(lookup: ILookupEnum) {
 }
 
 export function convertMarkdownToHTML(markdown: string): string {
-  // Handle citations: <Citation title="foo" href="bar"/>
-  const citationRegex = /<Citation title="([^"]+)" href="([^"]+)"\s*\/>/g;
+  // Handle citations: <citation title="foo" href="bar">content</citation>
+  const citationRegex =
+    /<citation title="([^"]+)" href="([^"]+)">([^<]+)<\/citation>/g;
   markdown = markdown.replace(citationRegex, '<a href="$2">$1</a>');
 
+  // Handle citations: <citation title="foo" href="bar"/>
+  const citation1Regex = /<citation title="([^"]+)" href="([^"]+)"\s*\/>/g;
+  markdown = markdown.replace(citation1Regex, '<a href="$2">$1</a>');
   // Handle links: [text](url)
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
   markdown = markdown.replace(linkRegex, '<a href="$2">$1</a>');

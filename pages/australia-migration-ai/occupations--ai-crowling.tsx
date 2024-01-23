@@ -29,7 +29,6 @@ export async function getServerSideProps() {
   try {
     // Fetch all occupation slugs
     const allOccupationSlugs = await getAllOccupationSlugs();
-    console.log('***navid getAllOccupationSlugs=', allOccupationSlugs);
 
     return {
       props: { allOccupationSlugs },

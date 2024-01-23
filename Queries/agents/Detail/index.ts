@@ -6,6 +6,7 @@ import { ClientError } from '@sanity/client';
 const getAgentDetailQuery = (): string => {
   const query = `*[_type=='agent' && status=='active' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
    {
+    _id,
     mara_number,
     slug,
     agencies,

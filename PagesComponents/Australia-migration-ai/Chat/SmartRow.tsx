@@ -42,7 +42,7 @@ function SmartRow({ sendMessage, isLoading, stop }: Props) {
   }
 
   if (!userId) return <MustLogin />;
-  if (questionRemain > FREE_CREDIT_THRESHOLD) {
+  if (questionRemain > 0) {
     return (
       <QuestionRow
         asqQuestion={asqQuestion}

@@ -162,15 +162,18 @@ const Content = styled.div`
 `;
 const ContentWrapper = styled.div`
   display: flex;
-  width: var(--max-width-page);
+  flex-direction: column;
+  width: 100%;
   justify-content: center;
-  margin: 0 auto;
   min-height: 4rem;
   align-items: center;
   z-index: 10;
   position: relative;
-  width: var(--max-width-page);
   margin: 0 auto;
+  max-width: var(--max-width-page);
+  @media ${deviceMin.tabletS} {
+    flex-direction: row;
+  }
 `;
 const typing = keyframes`
   from {
@@ -195,19 +198,30 @@ const blinking = keyframes`
 const Title = styled.p`
   ${Headline5Style};
   overflow: hidden;
-  white-space: nowrap;
-  width: 0;
-  animation: ${typing} 3s steps(30, end) forwards, ${blinking} 1s infinite;
   color: var(--color-gray13);
   padding: 0 0.5rem;
-  border-inline-end: 2px solid;
+  white-space: initial;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   span {
     color: var(--color-primary5);
+  }
+  @media ${deviceMin.tabletS} {
+    width: 0;
+    animation: ${typing} 3s steps(30, end) forwards, ${blinking} 1s infinite;
+    border-inline-end: 2px solid;
+    margin: 0 auto;
+    white-space: nowrap;
   }
 `;
 
 const Button = styled(SecondaryButton)`
-  width: auto;block
+  width: auto;
+  margin-bottom: 1rem;
+  @media ${deviceMin.tabletS} {
+    margin: 0;
+  }
 `;
 export const NextIcon = styled(MdNavigateNext)`
   ${NextIconDirectionStyle};

@@ -28,6 +28,13 @@ export const directionStyles = theme('languageDirection', {
     direction: rtl;
   `,
 });
+// باعث میشه عدد فارسی یا انگلیسی نمایش داده بشه
+export const lineStyleBaseOnLanguage = theme('languageDirection', {
+  ltr: css``,
+  rtl: css`
+    list-style: arabic-indic !important;
+  `,
+});
 export const scrollbarStyles = theme('mode', {
   light: css`
     &::-webkit-scrollbar-track {

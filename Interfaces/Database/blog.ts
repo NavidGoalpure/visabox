@@ -11,7 +11,6 @@ export interface IBlog extends SanityKeys {
   slug?: Slug;
   mainImage?: SanityImageSource;
   hashtag?: string[];
-  //navid check the type
   body?: PortableTextBlock;
   otherArticles?: ReferenceType | IBlog;
   // این اکسرپت توی دیتابیس وجود نداره. ازش استفاده میکنیم تا خلاصه مقاله رو از بادی بگیریم. میتونه نام دیگه ای هم باشه

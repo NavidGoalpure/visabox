@@ -92,7 +92,7 @@ export default {
       language: 'language',
       media: 'mainImage',
     },
-    prepare(selection) {
+    prepare(selection: any) {
       const { language } = selection;
       return { ...selection, subtitle: language && `in ${language}` };
     },

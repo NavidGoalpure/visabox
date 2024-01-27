@@ -195,7 +195,7 @@ const blinking = keyframes`
   }
 `;
 
-const Title = styled.p`
+const Title = styled.section`
   ${Headline5Style};
   overflow: hidden;
   color: var(--color-gray13);

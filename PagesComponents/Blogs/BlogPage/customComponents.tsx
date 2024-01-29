@@ -51,15 +51,20 @@ export const CustomPortableTextComponents = {
   },
 
   marks: {
-    //     link: ({ children, value }) => {
-    //       const rel = !value.href.startsWith('/')
-    //         ? 'noreferrer noopener'
-    //         : undefined;
-    //       return (
-    //         <a href={value.href} rel={rel}>
-    //           {children}
-    //         </a>
-    //       );
-    //     },
+    link: ({ children, value }: any) => {
+      const rel = !value.href.startsWith('/')
+        ? 'noreferrer noopener'
+        : undefined;
+
+      return (
+        <a
+          href={value.href}
+          rel={rel}
+          target={value?.blank === false ? '_self' : '_blank'}
+        >
+          {children}
+        </a>
+      );
+    },
   },
 };

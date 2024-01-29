@@ -19,13 +19,11 @@ import OccupationDropdown from './dropdownOccupation';
 import MobileBoxesDropdown from './dropdownLists';
 import { useSession } from 'next-auth/react';
 import AvatarComponent from '../AvatarComponent';
-import { LocalStorageKeys } from 'Interfaces';
-import { getLocalStorage, setLocalStorage } from 'Utils';
+import { Languages, LocalStorageKeys } from 'Interfaces';
+import { setLocalStorage } from 'Utils';
 import { isAgencyLogedIn } from 'Utils/user';
-import { SupportedCountry } from 'Interfaces/Database';
 import MobileFormsDropdown from './dropdownForms';
 import MobileMarcyaDropdown from './dropdownMarcya';
-import { isUserLiveInIran } from 'Utils/country-state-city';
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
@@ -86,10 +84,12 @@ function SmartHeader() {
               <OccupationDropdown />
               <Hr />
               {!isAgencyLogedIn() && <MobileFormsDropdown />}
-              {isUserLiveInIran() && (
+              {locale !== Languages.zh && (
                 <>
                   <Hr />
-                  <MenuLink href={`/fa/blog`}>{t(LanguageKeys.Blogs)}</MenuLink>
+                  <MenuLink href={`/${locale}/blogs`}>
+                    {t(LanguageKeys.Blogs)}
+                  </MenuLink>
                 </>
               )}
               {isAgencyLogedIn() && (

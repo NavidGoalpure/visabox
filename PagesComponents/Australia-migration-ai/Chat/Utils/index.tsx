@@ -6,17 +6,22 @@ export function getLookupLabel(lookup: ILookupEnum) {
 }
 
 export function convertMarkdownToHTML(markdown: string): string {
-  // Handle citations: <citation title="foo" href="bar">content</citation>
   const citationRegex =
-    /<citation title="([^"]+)" href="([^"]+)">([^<]+)<\/citation>/g;
-  markdown = markdown.replace(citationRegex, '<a href="$2">$1</a>');
+    /<citation title="([^"]+)" href="([^"]+)">((?:(?!<\/?citation>).)*)<\/citation>/g;
+  markdown = markdown.replace(
+    citationRegex,
+    '<a target="_blank" href="$2">$1</a>'
+  );
 
-  // Handle citations: <citation title="foo" href="bar"/>
   const citation1Regex = /<citation title="([^"]+)" href="([^"]+)"\s*\/>/g;
-  markdown = markdown.replace(citation1Regex, '<a href="$2">$1</a>');
+  markdown = markdown.replace(
+    citation1Regex,
+    '<a target="_blank" href="$2">$1</a>'
+  );
+
   // Handle links: [text](url)
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  markdown = markdown.replace(linkRegex, '<a href="$2">$1</a>');
+  markdown = markdown.replace(linkRegex, '<a target="_blank" href="$2">$1</a>');
 
   // Handle bold: **text**
   const boldRegex = /\*\*(.*?)\*\*/g;

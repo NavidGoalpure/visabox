@@ -8,12 +8,15 @@ import { getAllBlogsSlugs, getBlogDetail } from 'Queries/blog/Detail';
 import { ContentOrError } from 'Components/contentOrError';
 import Seo from 'Components/Seo';
 import { useLocale } from 'Hooks/useLocale';
+import { getBlogStructuredData } from 'PagesComponents/Blog/BlogPage/utils';
 
 interface Props {
   blog?: IBlog;
   errorCode?: number;
 }
 const BlogPage: NextPage<Props> = ({ blog, errorCode }) => {
+  const structureData = getBlogStructuredData(blog?.qa);
+
   const { locale } = useLocale();
   return (
     <StyledPageLayout>
@@ -21,6 +24,7 @@ const BlogPage: NextPage<Props> = ({ blog, errorCode }) => {
         title={blog?.title}
         description={blog?.excerpt}
         canonical={`https://www.marabox.com.au/${locale}/blog/${blog?.slug}`}
+        structuredData={structureData}
       />
       <ContentOrError
         isError={!blog || !!errorCode}

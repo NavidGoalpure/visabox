@@ -11,7 +11,8 @@ export const getBlogsWithExcerpts = async (
    title,
    slug,
    _updatedAt,
-   hashtag
+   hashtag,
+   
 }`;
   try {
     const blogs = await sanityClient.fetch(query);

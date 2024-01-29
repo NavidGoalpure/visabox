@@ -73,8 +73,15 @@ export default {
       title: 'Question/Answer',
       type: 'array',
       of: [
-        { name: 'question', title: 'Question', type: 'string' },
-        { name: 'answer', title: 'Answer', type: 'string' },
+        {
+          name: 'qa-obj',
+          title: 'QA-Object',
+          type: 'object',
+          fields: [
+            { name: 'question', title: 'Question', type: 'string' },
+            { name: 'answer', title: 'Answer', type: 'string' },
+          ],
+        },
       ],
     },
     {

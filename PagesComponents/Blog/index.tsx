@@ -28,13 +28,13 @@ function BlogsContent({ blogs }: Props) {
           title={blogs[0]?.title || ''}
           desc={blogs[0]?.excerpt || ''}
           img={urlFor(blogs[0]?.mainImage)?.url() || ''}
-          href={`blogs/${blogs[0]?.slug?.current || '#'}`}
+          href={`blog/${blogs[0]?.slug?.current || '#'}`}
         />
         <StyledBlogCardType1WideLeft
           title={blogs[1]?.title || ''}
           desc={blogs[1]?.excerpt || ''}
           img={urlFor(blogs[1]?.mainImage)?.url() || ''}
-          href={`blogs/${blogs[1]?.slug?.current || '#'}`}
+          href={`blog/${blogs[1]?.slug?.current || '#'}`}
         />
       </TwoItemWrapper>
       <br />
@@ -43,21 +43,21 @@ function BlogsContent({ blogs }: Props) {
           title={blogs[2]?.title || ''}
           desc={blogs[2]?.excerpt || ''}
           img={urlFor(blogs[2]?.mainImage)?.url() || ''}
-          href={`blogs/${blogs[2]?.slug?.current || '#'}`}
+          href={`blog/${blogs[2]?.slug?.current || '#'}`}
         />
 
         <StyledBlogCardType2SlimBelow
           title={blogs[3]?.title || ''}
           desc={blogs[3]?.excerpt || ''}
           img={urlFor(blogs[3]?.mainImage)?.url() || ''}
-          href={`blogs/${blogs[3]?.slug?.current || '#'}`}
+          href={`blog/${blogs[3]?.slug?.current || '#'}`}
         />
 
         <StyledBlogCardType1Slim
           title={blogs[4]?.title || ''}
           desc={blogs[4]?.excerpt || ''}
           img={urlFor(blogs[4]?.mainImage)?.url() || ''}
-          href={`blogs/${blogs[4]?.slug?.current || '#'}`}
+          href={`blog/${blogs[4]?.slug?.current || '#'}`}
         />
       </ThreeItemWrapper>
     </Container>

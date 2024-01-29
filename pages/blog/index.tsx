@@ -3,9 +3,9 @@ import PageLayout from 'Components/Layouts/PageContainer';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useLocale } from 'Hooks/useLocale';
 import Seo from 'Components/Seo';
-import { componentStatements, LanguageKeys } from 'PagesComponents/Blogs/const';
-import BlogsContent from 'PagesComponents/Blogs';
-import { getBlogsWithExcerpts } from 'Queries/blogs';
+import { componentStatements, LanguageKeys } from 'PagesComponents/Blog/const';
+import BlogsContent from 'PagesComponents/Blog';
+import { getBlogsWithExcerpts } from 'Queries/blog';
 import { Languages } from 'Interfaces';
 import { IBlog } from 'Interfaces/Database/blog';
 import { ContentOrError } from 'Components/contentOrError';
@@ -23,7 +23,7 @@ const BlogPage: NextPage<Props> = ({ blogs, errorCode }) => {
     <PageLayout>
       <Seo
         title={t(LanguageKeys.SeoTitle)}
-        canonical={`https://www.marabox.com.au/${locale}/blogs`}
+        canonical={`https://www.marabox.com.au/${locale}/blog`}
         description={t(LanguageKeys.SeoDesc)}
       />
       <ContentOrError

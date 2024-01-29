@@ -87,7 +87,7 @@ function SmartHeader() {
               {locale !== Languages.zh && (
                 <>
                   <Hr />
-                  <MenuLink href={`/${locale}/blogs`}>
+                  <MenuLink href={`/${locale}/blog`}>
                     {t(LanguageKeys.Blogs)}
                   </MenuLink>
                 </>

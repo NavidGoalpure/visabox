@@ -32,8 +32,9 @@ const FinalStep = () => {
         {t(LanguageKeys.Step12Desc)} <br />
         {locale === Languages.fa && (
           <>
+            {/* navid check this */}
             اگر میخواهید درباره سابکلاس های ویزا اطلاعات کسب کنید{' '}
-            <StyledLink href={'/fa/blogs/what-is-skilled-worker-visa'}>
+            <StyledLink href={'/fa/blog/what-is-skilled-worker-visa'}>
               اینجا
             </StyledLink>{' '}
             کلیک کنید

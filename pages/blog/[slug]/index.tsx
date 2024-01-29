@@ -1,10 +1,10 @@
 import { GetStaticProps, NextPage } from 'next';
 import PageLayout from 'Components/Layouts/PageContainer';
-import Content from 'PagesComponents/Blogs/BlogPage';
+import Content from 'PagesComponents/Blog/BlogPage';
 
 import styled from 'styled-components';
 import { IBlog } from 'Interfaces/Database/blog';
-import { getAllBlogsSlugs, getBlogDetail } from 'Queries/blogs/Detail';
+import { getAllBlogsSlugs, getBlogDetail } from 'Queries/blog/Detail';
 import { ContentOrError } from 'Components/contentOrError';
 import Seo from 'Components/Seo';
 import { useLocale } from 'Hooks/useLocale';
@@ -20,7 +20,7 @@ const BlogPage: NextPage<Props> = ({ blog, errorCode }) => {
       <Seo
         title={blog?.title}
         description={blog?.excerpt}
-        canonical={`https://www.marabox.com.au/${locale}/blogs/${blog?.slug}`}
+        canonical={`https://www.marabox.com.au/${locale}/blog/${blog?.slug}`}
       />
       <ContentOrError
         isError={!blog || !!errorCode}

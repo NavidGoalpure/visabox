@@ -6,7 +6,7 @@ import { OccupationsSearchPages } from 'PagesComponents/Sitemap/OccupationsSearc
 import { Domain_EN, Domain_FA } from 'PagesComponents/Sitemap/const';
 import { MarcyaIntroducePages } from 'PagesComponents/Sitemap/MarcyaIntroducePages';
 import { MarcyaChatPages } from 'PagesComponents/Sitemap/MarcyaChatPages';
-import { getAllBlogsSlugsAndLang } from 'Queries/blogs/Detail';
+import { getAllBlogsSlugsAndLang } from 'Queries/blog/Detail';
 import { IBlog } from 'Interfaces/Database/blog';
 // import { getAllAgentsSlugs } from 'Queries/agents/Detail';
 // import { getAllOccupationSlugs } from 'Queries/sitemap';

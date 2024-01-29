@@ -71,7 +71,7 @@ function Desktop() {
           {!isAgencyLogedIn() && <DesktopFormsDropdown />}
           {locale !== Languages.zh && (
             <NavigationMenu.Item>
-              <Link href={`/${locale}/blogs`}>
+              <Link href={`/${locale}/blog`}>
                 <Item>{t(LanguageKeys.Blogs)}</Item>
               </Link>
             </NavigationMenu.Item>

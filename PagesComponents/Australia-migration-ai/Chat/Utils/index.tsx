@@ -6,6 +6,16 @@ export function getLookupLabel(lookup: ILookupEnum) {
 }
 
 export function convertMarkdownToHTML(markdown: string): string {
+  const multilineCitationRegex =
+    /<citation title="([^"]+)" href="([^"]+)">([\s\S]*?)<\/citation>/g;
+  markdown = markdown.replace(
+    multilineCitationRegex,
+    (_, rawTitle, href, content) => {
+      // Remove HTML tags from the title
+      const title = rawTitle.replace(/<.*?>/g, '');
+      return `<a target="_blank" href="${href}">${title}</a>${content}`;
+    }
+  );
   const citationRegex =
     /<citation title="([^"]+)" href="([^"]+)">((?:(?!<\/?citation>).)*)<\/citation>/g;
   markdown = markdown.replace(
@@ -18,7 +28,7 @@ export function convertMarkdownToHTML(markdown: string): string {
     citation1Regex,
     '<a target="_blank" href="$2">$1</a>'
   );
-
+  //
   // Handle links: [text](url)
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
   markdown = markdown.replace(linkRegex, '<a target="_blank" href="$2">$1</a>');

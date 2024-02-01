@@ -6,6 +6,7 @@ export enum LanguageKeys {
   HintLink = 'HintLink',
   HintLinkAlt = 'HintLinkAlt',
   SimilarArticle = 'SimilarArticle',
+  QATitle = 'QATitle',
 }
 
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
@@ -33,6 +34,11 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'مقالات مشابه',
     en: 'Similar Articles',
     zh: '类似文章',
+  },
+  QATitle: {
+    en: 'Common Questions and Answers',
+    fa: 'سوالات متداول و پاسخ‌ها',
+    zh: '常见问题与解答',
   },
 };
 

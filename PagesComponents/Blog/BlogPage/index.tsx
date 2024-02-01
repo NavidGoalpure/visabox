@@ -1,6 +1,10 @@
 import { FiInfo } from 'react-icons/fi';
 import styled, { css } from 'styled-components';
-import { borderTheme, lineStyleBaseOnLanguage } from 'Styles/Theme';
+import {
+  borderTheme,
+  directionStyles,
+  lineStyleBaseOnLanguage,
+} from 'Styles/Theme';
 import {
   Hint_BGStyle,
   Hint_TitleStyle,
@@ -25,6 +29,8 @@ import Link from 'next/link';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
+import { MaraAccordion } from 'Elements/Accordion';
+import { Headline4Style } from 'Styles/Typo';
 
 interface Props {
   blog: IBlog;
@@ -54,16 +60,6 @@ const BlogContent: React.FC<Props> = ({ blog }) => {
           />
         )}
       </BlogContainer>
-      <HintBG>
-        <HintTitle>{t(LanguageKeys.HintTitle)}</HintTitle>
-        <HintText>
-          {t(LanguageKeys.HintDesc)}
-          <br />
-          <Link href={t(LanguageKeys.HintLink)} target='_blank'>
-            {t(LanguageKeys.HintLinkAlt)}
-          </Link>
-        </HintText>
-      </HintBG>
       <MoreBlogsContainer>
         <h2>{t(LanguageKeys.SimilarArticle)}</h2>
         <MoreBlogsCardsContainer>
@@ -81,6 +77,24 @@ const BlogContent: React.FC<Props> = ({ blog }) => {
           })}
         </MoreBlogsCardsContainer>
       </MoreBlogsContainer>
+      {blog?.qa && <QATitle>{t(LanguageKeys.QATitle)}</QATitle>}
+      {blog?.qa?.map((qa) => (
+        <MaraAccordion
+          triggerText={qa.question}
+          content={qa?.answer}
+          backgroundLayer={'1'}
+        />
+      ))}
+      <HintBG>
+        <HintTitle>{t(LanguageKeys.HintTitle)}</HintTitle>
+        <HintText>
+          {t(LanguageKeys.HintDesc)}
+          <br />
+          <Link href={t(LanguageKeys.HintLink)} target='_blank'>
+            {t(LanguageKeys.HintLinkAlt)}
+          </Link>
+        </HintText>
+      </HintBG>
     </>
   );
 };
@@ -129,7 +143,6 @@ const BlogContainer = styled.section<{ isRTL: boolean }>`
     border-radius: 15px;
     overflow: hidden;
     margin-bottom: 4rem;
-    margin-top: 4rem;
     border-spacing: 0px;
   }
 
@@ -214,16 +227,24 @@ const Title = styled.h1`
 
 const HintBG = styled.section`
   ${Hint_BGStyle}
+  margin-top:4rem;
 `;
+
 const HintTitle = styled.h4`
   ${Hint_TitleStyle}
+`;
+const QATitle = styled(HintTitle)`
+  ${Headline4Style};
+  ${directionStyles};
+  text-align: center !important;
+  color: var(--color-primary6) !important;
 `;
 const HintText = styled.p`
   ${Hint_TextStyle}
 `;
 
 const MoreBlogsContainer = styled.div`
-  margin-top: 4rem;
+  margin-bottom: 4rem;
   display: flex;
   justify-content: center;
   flex-direction: column;

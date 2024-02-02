@@ -1,4 +1,3 @@
-import { getClientDetail } from 'Queries/client';
 import { LOOKUP_STORE } from '../const';
 import { ILookupEnum } from '../Interface';
 
@@ -7,13 +6,32 @@ export function getLookupLabel(lookup: ILookupEnum) {
 }
 
 export function convertMarkdownToHTML(markdown: string): string {
-  // Handle citations: <Citation title="foo" href="bar"/>
-  const citationRegex = /<Citation title="([^"]+)" href="([^"]+)"\s*\/>/g;
-  markdown = markdown.replace(citationRegex, '<a href="$2">$1</a>');
+  const multilineCitationRegex =
+    /<citation title="([^"]+)" href="([^"]+)">([\s\S]*?)<\/citation>/g;
+  markdown = markdown.replace(
+    multilineCitationRegex,
+    (_, rawTitle, href, content) => {
+      // Remove HTML tags from the title
+      const title = rawTitle.replace(/<.*?>/g, '');
+      return `<a target="_blank" href="${href}">${title}</a>${content}`;
+    }
+  );
+  const citationRegex =
+    /<citation title="([^"]+)" href="([^"]+)">((?:(?!<\/?citation>).)*)<\/citation>/g;
+  markdown = markdown.replace(
+    citationRegex,
+    '<a target="_blank" href="$2">$1</a>'
+  );
 
+  const citation1Regex = /<citation title="([^"]+)" href="([^"]+)"\s*\/>/g;
+  markdown = markdown.replace(
+    citation1Regex,
+    '<a target="_blank" href="$2">$1</a>'
+  );
+  //
   // Handle links: [text](url)
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  markdown = markdown.replace(linkRegex, '<a href="$2">$1</a>');
+  markdown = markdown.replace(linkRegex, '<a target="_blank" href="$2">$1</a>');
 
   // Handle bold: **text**
   const boldRegex = /\*\*(.*?)\*\*/g;
@@ -51,6 +69,26 @@ export function convertMarkdownToHTML(markdown: string): string {
   // Handle UI (Underline): __text__
   const uiRegex = /__(.*?)__/g;
   markdown = markdown.replace(uiRegex, '<u>$1</u>');
+
+  // Handle tables: | Header 1 | Header 2 | ... |
+  const tableRegex = /^\|(.+)\|$/gm;
+  markdown = markdown.replace(tableRegex, (tableRow) => {
+    const cells = tableRow
+      .split('|')
+      .map((cell) => cell.trim())
+      .filter(Boolean);
+    const isHeader = tableRow.startsWith('|:') && tableRow.endsWith(':|');
+    if (isHeader) {
+      return (
+        '<thead><tr>' +
+        cells.map((cell) => `<th>${cell}</th>`).join('') +
+        '</tr></thead><tbody>'
+      );
+    }
+    return '<tr>' + cells.map((cell) => `<td>${cell}</td>`).join('') + '</tr>';
+  });
+  // Close the tbody for table if opened
+  markdown = markdown.replace(/<tbody>/g, '</tbody>');
 
   return markdown;
 }

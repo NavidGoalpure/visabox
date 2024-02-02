@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { PrimaryButton } from 'Elements/Button/Primary';
 import { IPriceIds } from 'Interfaces/Payment';
-import { Dispatch, HTMLAttributes, SetStateAction } from 'react';
+import { Dispatch, HTMLAttributes, SetStateAction, useState } from 'react';
 import LoginButton from 'Components/LoginButton';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useSession } from 'next-auth/react';
 import { isUserLiveInIran } from 'Utils/country-state-city';
+import { boolean } from 'yup';
+import { Loading } from 'Elements/Loading';
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   label: string;
@@ -26,6 +28,7 @@ const SmartStripeButton: React.FC<Props> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { data: session } = useSession();
 
   //اگه لاگین نکرده بود لاگین کنه
@@ -50,6 +53,7 @@ const SmartStripeButton: React.FC<Props> = ({
   ///////////////////////
   /// وگرنه دکمه پرداخت استرایپ
   const stripeHandler = async (e: any) => {
+    setIsLoading(true);
     e.preventDefault();
     try {
       const { data } = await axios.post(
@@ -63,7 +67,11 @@ const SmartStripeButton: React.FC<Props> = ({
       console.log(error);
     }
   };
-  return <CustomButton onClick={stripeHandler}>{label}</CustomButton>;
+  return (
+    <CustomButton onClick={stripeHandler}>
+      {isLoading ? <Loading /> : label}
+    </CustomButton>
+  );
 };
 
 export default SmartStripeButton;

@@ -40,7 +40,17 @@ const vcColumnInner_Color = theme('mode', {
     background: var(--color-gray5);
   `,
 });
-
+////////////////////////////////
+const Hint_HTML_BG = theme('mode', {
+  light: css`
+    background-color: var(--color-gray6) !important;
+    border: 1px solid var(--color-gray9);
+  `,
+  dark: css`
+    background-color: var(--color-gray2) !important;
+    border: 1px solid var(--color-gray9);
+  `,
+});
 export const Details = styled.div`
   padding: 0 1rem 2rem;
   flex-direction: column;
@@ -80,7 +90,7 @@ export const Details = styled.div`
     margin-bottom: 1rem;
     border-spacing: 0px;
   }
-  
+
   tbody {
     margin: 0 0 20px;
     padding: 0;
@@ -101,7 +111,7 @@ export const Details = styled.div`
     padding: 0.5rem;
     line-height: 1.5rem;
   }
-  
+
   th {
     ${layer2A_HeaderBG}
     ${layer2A_TextStyle}
@@ -111,7 +121,7 @@ export const Details = styled.div`
     padding-inline-start: 32px;
     padding-inline-end: 32px;
     line-height: 1.5rem;
-  
+
     border-color: #ececec;
     :last-child {
       border-right: none;
@@ -139,7 +149,12 @@ export const Details = styled.div`
   i {
     font-style: normal;
   }
+  div:has(> i.fa.fa-warning) {
+    ${Hint_HTML_BG}// background-color: red !important;;;;;;;;;
+  }
   div {
+    //navid
+
     p {
       ${layer2A_TextStyle}
       ${layer2A_TextColor}

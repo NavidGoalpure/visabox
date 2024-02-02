@@ -13,7 +13,7 @@ import ChinaFlag from 'public/Images/Flags/ChinaFlag.svg';
 import IndiaFlag from 'public/Images/Flags/IndiaFlag.svg';
 import AustraliaFlag from 'public/Images/Flags/AustraliaFlag.svg';
 import UnknownFlag from 'public/Images/Flags/UnknownFlag.svg';
-import { getLocalStorage, setLocalStorage } from 'Utils';
+import { setLocalStorage } from 'Utils';
 import { LocalStorageKeys } from 'Interfaces';
 import { deviceMin } from 'Consts/device';
 import { SupportedCountry } from 'Interfaces/Database';
@@ -45,19 +45,19 @@ const CountryModal: React.FC<Props> = ({
       <OptionsContainer>
         <Option onClick={() => clickHandler({ value: SupportedCountry.Iran })}>
           <FlagWrapper>
-            <Flag fill src={IranFlag} alt={'iran flag'} sizes='2.25rem' />
+            <Flag fill src={IranFlag} alt={'iran flag'} priority={false} />
           </FlagWrapper>
           <Optiontext>Iran</Optiontext>
         </Option>
         <Option onClick={() => clickHandler({ value: SupportedCountry.India })}>
           <FlagWrapper>
-            <Flag fill src={IndiaFlag} alt={'india flag'} sizes='2.25rem' />
+            <Flag fill src={IndiaFlag} alt={'india flag'} priority={false} />
           </FlagWrapper>
           <Optiontext>India</Optiontext>
         </Option>
         <Option onClick={() => clickHandler({ value: SupportedCountry.China })}>
           <FlagWrapper>
-            <Flag fill src={ChinaFlag} alt={'china flag'} sizes='2.25rem' />
+            <Flag fill src={ChinaFlag} alt={'china flag'} priority={false} />
           </FlagWrapper>
           <Optiontext>China</Optiontext>
         </Option>
@@ -70,7 +70,7 @@ const CountryModal: React.FC<Props> = ({
               fill
               src={AustraliaFlag}
               alt={'australia flag'}
-              sizes='2.25rem'
+              priority={false}
             />
           </FlagWrapper>
           <Optiontext>Australia</Optiontext>
@@ -81,7 +81,7 @@ const CountryModal: React.FC<Props> = ({
               fill
               src={UnknownFlag}
               alt={'question mark'}
-              sizes='2.25rem'
+              priority={false}
             />
           </FlagWrapper>
           <Optiontext>Other countries</Optiontext>
@@ -122,7 +122,7 @@ const FlagWrapper = styled.div`
 //
 const DYImage = dynamic(() => import('next/image'));
 const Flag = styled(DYImage)`
-  position: relative !important;
+  // position: relative !important;
 `;
 const Optiontext = styled.h4`
   ${Headline6Style};

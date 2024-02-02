@@ -2,7 +2,6 @@ import { MultiLanguageText } from 'Interfaces/Database';
 import { AssessingAuthorityAbv } from 'Interfaces/Database/Occupation/occupation';
 import { AssssingAuthority } from './interfaces';
 
-
 export enum LanguageKeys {
   SeoTitle = 'SeoTitle',
   SeoDesc = 'SeoDesc',
@@ -39,7 +38,7 @@ Civic. Square
 Canberra ACT 2608
 Australia`,
     email: 'mail@aaca.org.au',
-    website: 'http://www.aaca.org.au',
+    website: 'https://www.aaca.org.au',
   },
   {
     title: { en: 'Australian Association of Social Workers' },
@@ -76,7 +75,7 @@ Suite 7.12
 Mascot NSW 2020
 Australia`,
     email: 'admin.support@acpsem.org.au',
-    website: 'http://www.acpsem.org.au',
+    website: 'https://www.acpsem.org.au',
   },
   {
     title: {
@@ -90,7 +89,7 @@ Civic Square
 Kingston ACT 2604
 Australia`,
     email: 'aaswiqa@aasw.asn.au',
-    website: 'http://www.aasw.asn.au',
+    website: 'https://www.aasw.asn.au',
   },
   {
     title: {
@@ -103,7 +102,7 @@ Queen Victoria Building
 Sydney NSW 1230
 Australia`,
     email: 'assessment@acs.org.au',
-    website: 'http://www.acs.org.au',
+    website: 'https://www.acs.org.au',
   },
   {
     title: {
@@ -116,7 +115,7 @@ Level 2
 Melbourne Vic. 3000
 Australia`,
     email: 'info@adc.org.au',
-    website: 'http://www.adc.org.au',
+    website: 'https://www.adc.org.au',
   },
   {
     title: {
@@ -130,7 +129,7 @@ Suite 7.12
 Mascot NSW 2020
 Australia`,
     email: 'admin.support@acpsem.org.au',
-    website: 'http://www.acpsem.org.au',
+    website: 'https://www.acpsem.org.au',
   },
   {
     title: {
@@ -142,7 +141,7 @@ PO Box 1911
 MILFORD Qld 4064
 Australia`,
     email: 'aimsnat@aims.org.au',
-    website: 'http://www.aims.org.au',
+    website: 'https://www.aims.org.au',
   },
   {
     title: {
@@ -155,7 +154,7 @@ Level 2
 Sydney NSW 2000
 Australia`,
     email: 'skilledmigration@aiqs.com.au',
-    website: 'http://www.aiqs.com.au',
+    website: 'https://www.aiqs.com.au',
   },
   {
     title: {
@@ -168,7 +167,7 @@ Collins Street West
 Melbourne Vic. 8007
 Australia`,
     email: 'standards@air.asn.au',
-    website: 'http://www.air.asn.au',
+    website: 'https://www.air.asn.au',
   },
   {
     title: {
@@ -181,7 +180,7 @@ PO Box 347
 Curtin ACT 2605
 Australia`,
     email: 'overseasquals@aitsl.edu.au',
-    website: 'http://www.aitsl.edu.au',
+    website: 'https://www.aitsl.edu.au',
   },
   {
     title: {
@@ -194,7 +193,7 @@ Flinders Lane Post Office
 Melbourne Vic. 8009
 Australia`,
     email: 'info@acwa.org.au',
-    website: 'http://www.acwa.org.au',
+    website: 'https://www.acwa.org.au',
   },
   {
     title: {
@@ -209,7 +208,7 @@ GPO Box 2181
 Canberra ACT 2601
 Australia`,
     email: 'maritime.qualifications@amsa.gov.au',
-    website: 'https://www.amsa.gov.au',
+    website: 'httpss://www.amsa.gov.au',
   },
   {
     title: {
@@ -221,7 +220,7 @@ PO Box 400
 Canberra City ACT 2601
 Australia`,
     email: 'anmac@anmac.org.au',
-    website: 'http://www.anmac.org.au',
+    website: 'https://www.anmac.org.au',
   },
 
   {
@@ -245,7 +244,7 @@ Canberra City ACT 2601`,
 Williamstown Vic. 3016
 Australia`,
     email: 'admin@anzpac.org.au',
-    website: 'http://www.anzpac.org.au',
+    website: 'https://www.anzpac.org.au',
   },
   {
     title: {
@@ -257,7 +256,7 @@ PO Box 2195
 Wellington Point Qld 4160
 Australia`,
     email: 'secretariat@anzsnm.org.au',
-    website: 'http://www.anzsnm.org.au',
+    website: 'https://www.anzsnm.org.au',
   },
   {
     title: {
@@ -282,7 +281,7 @@ Suite 933
 Melbourne Vic. 3004
 Australia`,
     email: 'enquiries@physiocouncil.com.au',
-    website: 'http://www.physiocouncil.com.au',
+    website: 'https://www.physiocouncil.com.au',
   },
   {
     title: {
@@ -295,7 +294,7 @@ Flinders Lane Post Office
 Melbourne Vic. 8009
 Australia`,
     email: 'contactus@psychology.org.au',
-    website: 'http://www.psychology.org.au',
+    website: 'https://www.psychology.org.au',
   },
   {
     title: {
@@ -307,7 +306,7 @@ Level 8, 470 Collins Street
 Melbourne Vic. 3000
 Australia`,
     email: 'admin@avbc.asn.au',
-    website: 'http://www.avbc.asn.au',
+    website: 'https://www.avbc.asn.au',
   },
   {
     title: {
@@ -332,7 +331,7 @@ G.P.O. Box 9958
 Melbourne Vic. 3001
 Australia`,
     email: '',
-    website: 'http://www.chinesemedicineboard.gov.au',
+    website: 'https://www.chinesemedicineboard.gov.au',
   },
   {
     title: {
@@ -344,7 +343,7 @@ PO Box 268
 Civic Square ACT 2601
 Australia`,
     email: 'admin@ccea.com.au',
-    website: 'http://www.ccea.com.au',
+    website: 'https://www.ccea.com.au',
   },
   {
     title: {
@@ -442,7 +441,7 @@ PO Box 16179
 Collins Street West Vic. 8007 
 Australia`,
     email: 'enquiries@ocanz.org',
-    website: 'http://www.ocanz.org',
+    website: 'https://www.ocanz.org',
   },
   {
     title: {

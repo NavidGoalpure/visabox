@@ -34,7 +34,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '登入',
   },
   Blogs: {
-    en: 'Blogs',
+    en: 'Blog',
     fa: 'مقاله ها',
     zh: '博客',
   },

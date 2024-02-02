@@ -1,6 +1,5 @@
 import { MultiLanguageText } from 'Interfaces/Database';
 
-
 // export enum LanguageKeys {
 //   SeoTitle = 'SeoTitle',
 //   SeoDesc = 'SeoDesc',
@@ -144,7 +143,6 @@ export const structuredData = {
           <tr>
             <th> آیلتس</th>
             <th>PTE</th>
-            <th> iBT TOEFL</th>
             <th>امتیاز کسب شده</th>
           </tr>
         </thead>
@@ -158,13 +156,11 @@ export const structuredData = {
           <tr>
             <td>7 هر اسکیل</td>
             <td>65 در هر اسکیل</td>
-            <td>L24,R24,W27,S23</td>
             <td>10 امتیاز</td>
           </tr>
           <tr>
             <td>8 اسکیل</td>
             <td>79 در هر اسکیل</td>
-            <td>L28,R29,W30,S26</td>
             <td>20 امتیاز</td>
           </tr>
         </tbody>

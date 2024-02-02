@@ -51,7 +51,7 @@ const config = {
   },
   images: {
     formats: ['image/webp'],
-    domains: ['binsta.dev', 'lh3.googleusercontent.com'],
+    domains: ['binsta.dev', 'lh3.googleusercontent.com', 'cdn.sanity.io'],
     disableStaticImages: false,
   },
 };

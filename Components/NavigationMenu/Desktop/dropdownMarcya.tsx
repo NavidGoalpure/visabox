@@ -22,8 +22,9 @@ function DesktopMarcyaDropdown() {
           placeholder: t(LanguageKeys.BotName),
         }}
       >
-        {MarcyaItems.map((item) => (
+        {MarcyaItems.map((item, i) => (
           <MaraSelect.Item
+            key={i}
             text={item.title[locale]}
             value={item.title[locale] as string}
             onClick={() => router.push(`${item.href}`)}

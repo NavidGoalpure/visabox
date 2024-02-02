@@ -10,6 +10,8 @@ import { useRouter } from 'next/router';
 import DarkBackground from './Images/DarkBackground.svg';
 import DarkBackgroundHover from './Images/DarkBackgroundHover.svg';
 import theme from 'styled-theming';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -24,15 +26,18 @@ const PagesConnectorCard: React.FC<Props> = ({
   ...props
 }) => {
   const router = useRouter();
+  const { t } = useStaticTranslation(componentStatements);
   return (
     <Container {...props}>
       <ImageContainer>
-        <BlogImg fill src={img} alt='image-source' />
+        <BlogImg fill src={img} alt='image-source' sizes='100%' />
       </ImageContainer>
       <Wrapper href={href}>
         <Content>
           <Title>{title}</Title>
-          <Button onClick={() => router.push(href)}>رفتن به مقاله</Button>
+          <Button onClick={() => router.push(href)}>
+            {t(LanguageKeys.GoToArticle)}
+          </Button>
         </Content>
       </Wrapper>
     </Container>
@@ -104,13 +109,15 @@ const Wrapper = styled.a`
   }
 `;
 
-const Content = styled.a`
+const Content = styled.section`
   gap: 2rem;
   padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: 0.3s;
+  justify-content: space-between;
+  padding: 4rem 0;
   ${Container}:hover & {
     transform: rotate(30deg);
   }

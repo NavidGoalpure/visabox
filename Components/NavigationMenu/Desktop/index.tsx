@@ -16,13 +16,11 @@ import DesktopOccupationDropdown from './dropdownOccupation';
 import { useSession } from 'next-auth/react';
 import AvatarComponent from '../AvatarComponent';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { LocalStorageKeys } from 'Interfaces';
-import { getLocalStorage, setLocalStorage } from 'Utils';
+import { Languages, LocalStorageKeys } from 'Interfaces';
+import { setLocalStorage } from 'Utils';
 import { isAgencyLogedIn } from 'Utils/user';
-import { SupportedCountry } from 'Interfaces/Database';
 import DesktopFormsDropdown from './dropdownForms';
 import DesktopMarcyaDropdown from './dropdownMarcya';
-import { isUserLiveInIran } from 'Utils/country-state-city';
 
 function Desktop() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
@@ -71,9 +69,9 @@ function Desktop() {
           <DesktopOccupationDropdown />
           <DesktopBusinessDropdown />
           {!isAgencyLogedIn() && <DesktopFormsDropdown />}
-          {isUserLiveInIran() && (
+          {locale !== Languages.zh && (
             <NavigationMenu.Item>
-              <Link href={`/fa/blog`}>
+              <Link href={`/${locale}/blog`}>
                 <Item>{t(LanguageKeys.Blogs)}</Item>
               </Link>
             </NavigationMenu.Item>

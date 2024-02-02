@@ -10,9 +10,7 @@ export default async function handler(
     typescript: true,
     apiVersion: '2023-10-16',
   });
-  const domain = isItOnLive()
-    ? process.env.NEXT_PUBLIC_DOMAIN
-    : 'http://localhost:3000';
+  const domain = 'https://www.marabox.com.au';
   const { priceId } = await req.body;
   try {
     const session = await stripe.checkout.sessions.create({

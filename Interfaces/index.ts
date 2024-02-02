@@ -9,11 +9,6 @@ enum Locations {
   india = 'india',
   other = 'other',
 }
-enum Country {
-  Iran = 'Iran',
-  Australia = 'Australia',
-  Global = 'Global',
-}
 
 enum ThemeModes {
   LIGHT = 'light',
@@ -26,10 +21,12 @@ enum LanguageDirection {
 
 enum LocalStorageKeys {
   Theme = 'Theme',
-  Client_IsFormBannerClosed = 'Client_IsFormBannerClosed',
   Url_Before_Login = 'Url_Before_Login',
   User_Role = 'User_Role',
   Country = 'Country',
+}
+enum SessionStorageKeys {
+  isCloseMarcyaBanner = 'isCloseMarcyaBanner',
 }
 enum CookieKeys {
   // وقتی با گوگل یا چیز دیگه ای لاگین میکنیم از دامین خودمون خارج میشیم و وقتی برمیگردیم مشخص نبوده
@@ -47,6 +44,7 @@ export {
   LanguageDirection,
   ThemeModes,
   LocalStorageKeys,
+  SessionStorageKeys,
   CookieKeys,
   GtmEvents,
 };

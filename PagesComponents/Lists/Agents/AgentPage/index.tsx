@@ -183,15 +183,6 @@ const ProfileCircle = theme('mode', {
   `,
 });
 
-const MaraPageButtonTheme = theme('mode', {
-  light: css`
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    color: var(--color-gray10);
-  `,
-});
-
 const TitleColor = theme('mode', {
   light: css`
     color: var(--color-gray6);
@@ -327,19 +318,6 @@ const MaraNumberContainer = styled.div`
   margin-bottom: 2rem;
   ${layer2A_Value}
 `;
-
-// const MaraPageButton = styled.button`
-//   ${Headline7Style};
-//   ${MaraPageButtonTheme}
-//   outline: none;
-//   border: none;
-//   background: transparent;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   gap: 0.5rem;
-//   transition: all 0.3s ease;
-// `;
 
 const LinkIcon = styled(GoLinkExternal)`
   margin-inline-start: 0.5rem;

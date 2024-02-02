@@ -1,12 +1,12 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 import {
   Headline4Style,
   Headline5Style,
   Headline6Style,
   Headline7Style,
-} from "Styles/Typo";
-import { directionStyles } from "..";
-import { SecondaryTextTheme, IconTheme, Hint_BG } from "./theme";
+} from 'Styles/Typo';
+import { directionStyles } from '..';
+import { SecondaryTextTheme, IconTheme, Hint_BG } from './theme';
 
 export const Hint_TitleStyle = css`
   ${Headline4Style};

@@ -76,7 +76,7 @@ export async function activeBoughtItems({
       // Update the user's credit in Sanity
       await sanityClient
         .patch(userId)
-        .setIfMissing({ credit: [] })
+        .setIfMissing({ credit: 0 })
         .inc({ credit: mustAddQuestion }) // Ensure that this matches your Sanity schema
         .commit()
         .then(() => {

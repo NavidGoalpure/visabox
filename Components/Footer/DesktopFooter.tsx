@@ -1,5 +1,5 @@
 import { Logo } from 'Elements/Logo';
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { FaTelegramPlane } from 'react-icons/fa';
@@ -16,7 +16,8 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { BiWorld } from 'react-icons/bi';
 import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
-import CountryModal from 'Components/CountryModal';
+// Lazy load CountryModal
+const CountryModal = lazy(() => import('Components/CountryModal'));
 
 function DesktopFooter() {
   const { locale } = useLocale();
@@ -29,10 +30,14 @@ function DesktopFooter() {
 
   return (
     <Container>
-      <CountryModal
-        isOpen={mustShowCountryModal}
-        setIsOpen={setMustShowCountryModal}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        {mustShowCountryModal && (
+          <CountryModal
+            isOpen={mustShowCountryModal}
+            setIsOpen={setMustShowCountryModal}
+          />
+        )}
+      </Suspense>
       <StyledLogo />
       <Wrapper>
         <Top>

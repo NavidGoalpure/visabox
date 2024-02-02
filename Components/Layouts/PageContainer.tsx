@@ -7,6 +7,13 @@ import { directionStyles } from 'Styles/Theme';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import Header from '../NavigationMenu';
 import { Loading } from 'Elements/Loading';
+import SmartBanner from 'Components/SmartBanner';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { setSessionStorage } from 'Utils';
+import { SessionStorageKeys } from 'Interfaces';
+import { mustShowSmartBannerBaseOnUrl } from './utils';
+import { useRouter } from 'next/router';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   hasFooter?: boolean;
@@ -21,8 +28,9 @@ const PageContainer: React.FC<Props> = ({
   children,
   ...props
 }) => {
+  const { t } = useStaticTranslation(componentStatements);
+  const router = useRouter();
   const [hasWindow, setHasWindow] = useState<boolean>(false);
-
   // this is needed in order to verify serverside rendering is over and it is on the client side
   useEffect(() => {
     if (typeof window !== 'undefined') setHasWindow(true);
@@ -38,7 +46,23 @@ const PageContainer: React.FC<Props> = ({
     <Container {...props}>
       <ToasterContainer />
       {hasMenu && <Header />}
-      {/* تا وقتی وکیلی نداریم، اسمارت بنر دعوت به پر کردن فرم هم نداریم */}
+      {mustShowSmartBannerBaseOnUrl(router) && (
+        <SmartBanner
+          navigateTo={'/australia-migration-ai/chat'}
+          desc={
+            <div
+              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
+            />
+          }
+          buttonText={t(LanguageKeys.BannerButtonText)}
+          onClose={() => {
+            setSessionStorage({
+              key: SessionStorageKeys.isCloseMarcyaBanner,
+              value: 'true',
+            });
+          }}
+        />
+      )}
       {/* {hasBanner &&
         (
         !isAgencyLogedIn() && (

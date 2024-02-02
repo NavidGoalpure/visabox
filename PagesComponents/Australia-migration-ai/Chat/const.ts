@@ -19,9 +19,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: 'Marcya聊天机器人：您的澳大利亚移民辅助AI伴侣 | Mara Box',
   },
   SeoDesc: {
-    en: 'Explore the capabilities of Marcya, the AI chatbot designed to assist you with comprehensive guidance on Australian immigration. From assessment systems to visa processes, Marcya is your virtual companion on the journey to realizing your Australian dream. | Mara Box',
-    fa: 'تجربه قابلیت‌های چت‌بات مارسیا، چت‌بات هوش مصنوعی طراحی شده برای همراهی شما در ارائه راهنمای جامع در مهاجرت به استرالیا. از سیستم‌های ارزیابی تا روند اخذ ویزا، مارسیا همراه مجازی‌تان در سفر به تحقق آرزوی استرالیایی‌تان است. | Mara Box',
-    zh: '探索Marcya的功能，这是一款旨在为您提供关于澳大利亚移民的全面指导的AI聊天机器人。从评估系统到签证流程，Marcya是您在实现澳大利亚梦想之旅中的虚拟伴侣。| Mara Box',
+    en: 'the AI chatbot designed to assist you with comprehensive guidance on Australian immigration. From assessment systems to visa processes, The latest backlog status, Marcya is your virtual companion on the journey to realizing your Australian dream. | Mara Box',
+    fa: 'تجربه قابلیت‌های چت‌بات مارسیا، چت‌بات هوش مصنوعی طراحی شده برای همراهی شما در ارائه راهنمای جامع در مهاجرت به استرالیا. از سیستم‌های ارزیابی تا روند اخذ ویزا و اطلاعات آخرین وضعیت بک لاگ، مارسیا همراه مجازی‌تان در سفر به تحقق آرزوی استرالیایی‌تان است. | Mara Box',
+    zh: '这是一个AI聊天机器人，旨在为您提供关于澳大利亚移民的全面指导。从评估系统到签证流程，以及最新的积压状态，Marcya是您在实现澳大利亚梦想旅程中的虚拟伴侣',
   },
 
   //
@@ -53,21 +53,14 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 };
 export const LOOKUP_STORE: Record<ILookupEnum, string> = {
-  lookUpKnowVetassess: 'Vetassess documents',
-  lookUpKnowACS: 'ACS documents',
-  lookUpKnowTRA: 'TRA documents',
-  lookUpKnowSkillWorker: 'SkillWorker documents',
-  loadBySimilarity: 'similarity documents',
+  lookUpKnowMigrationStrategy: 'Migration Strategy documents',
+  lookUpKnowVetassess: 'Vetassess Documents',
+  lookUpKnowACS: 'ACS Documents',
+  lookUpKnowTRA: 'TRA Documents',
+  lookUpKnowEA: ' EA Documents',
+  lookUpKnowRegionsStates: 'States And Territories Documents',
+  lookUpKnowSkillWorker: 'Skilled Worker Documents',
+  loadBySimilarity: 'Similarity Documents',
 };
-const navidAnswer = `برای ویزای توریستی مادرتان به کشور استرالیا می‌توانید از ویزاهای مختلف بازدید کننده استفاده کنید که شامل دسته‌های زیر می‌شوند:
-
-1. **ویزای توریستی (Subclass 600) - Tourist Stream**: برای افرادی که قصد گردش یا بازدید از خانواده و دوستان را دارند.
-2. **ویزای توریستی (Subclass 600) - Sponsored Family Stream**: برای کسانی که توسط یک نفر از اهالی استرالیا یا شخصی دارای ویزای موقت اسپانسر شده‌اند.
-3. **ویزای برنامه‌ریزی شده (Subclass 600) - Approved Destination Status Stream**: برای افرادی که از کشورهای خاص در قالب تورهای گروهی وارد استرالیا می‌شوند.
-4. **ویزای توریستی الکترونیکی (eVisitor - Subclass 651)**: برای اتباع برخی کشورها که برای اقامت کوتاه مدت به استرالیا سفر می‌کنند.
-
-شما باید شرایط خاص مادرتان و همچنین الزامات هر نوع ویزا را در نظر بگیرید تا ببینید کدام یک از گزینه‌ها با نیازهای ایشان همخوانی بیشتری دارد. همیشه توصیه می‌شود قبل از اقدام برای ویزا، با یک متخصص در زمینه مهاجرت مشورت کنید تا بتوانید گزینه‌ها را به دقت بررسی و انتخاب کنید.
-
-<NextStepsButton prompt="آیا نیاز به کمک بیشتری برای انتخاب نوع ویزا یا فرایند درخواست ویزا دارید؟" />`;
 
 export const FREE_CREDIT_THRESHOLD = -3;

@@ -93,7 +93,7 @@ const wrapperBG = theme('mode', {
     background: var(--color-gray7);
   `,
   dark: css`
-    background: var(--color-primary4);
+    background: var(--color-primary2);
   `,
 });
 const Wrapper = styled.div`

@@ -11,6 +11,7 @@ const Logo: React.FC<Props> = ({ height = 60, width = 60, ...props }) => {
       width={width}
       alt={'Marabox Logo'}
       src={darkLogo}
+      priority={true}
     />
   );
 };

@@ -1,15 +1,20 @@
-import { AgentLintInCountries } from 'PagesComponents/sitemap/AgentLintInCountries';
-import { AssessingAuthoritiesListPages } from 'PagesComponents/sitemap/AssessingAuthoritiesListPages';
-import { BlogsDetailsPages } from 'PagesComponents/sitemap/BlogsDetailsPages';
-import { NaatiListPages } from 'PagesComponents/sitemap/NaatiListPages';
-import { OccupationsSearchPages } from 'PagesComponents/sitemap/OccupationsSearchPage';
-import { Domain_EN, Domain_FA } from 'PagesComponents/sitemap/const';
-import { MarcyaIntroducePages } from 'PagesComponents/sitemap/MarcyaIntroducePages';
-import { MarcyaChatPages } from 'PagesComponents/sitemap/MarcyaChatPages';
+import { AgentLinkInCountries } from 'PagesComponents/Sitemap/AgentLinkInCountries';
+import { AssessingAuthoritiesListPages } from 'PagesComponents/Sitemap/AssessingAuthoritiesListPages';
+import { BlogsDetailsPages } from 'PagesComponents/Sitemap/BlogsDetailsPages';
+import { NaatiListPages } from 'PagesComponents/Sitemap/NaatiListPages';
+import { OccupationsSearchPages } from 'PagesComponents/Sitemap/OccupationsSearchPage';
+import { Domain_EN, Domain_FA } from 'PagesComponents/Sitemap/const';
+import { MarcyaIntroducePages } from 'PagesComponents/Sitemap/MarcyaIntroducePages';
+import { MarcyaChatPages } from 'PagesComponents/Sitemap/MarcyaChatPages';
+import { getAllBlogsSlugsAndLang } from 'Queries/blog/Detail';
+import { IBlog } from 'Interfaces/Database/blog';
 // import { getAllAgentsSlugs } from 'Queries/agents/Detail';
 // import { getAllOccupationSlugs } from 'Queries/sitemap';
 
-async function generateSiteMap() {
+interface Props {
+  allBlogsSlugsAndLang: IBlog[];
+}
+async function generateSiteMap({ allBlogsSlugsAndLang }: Props) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${MarcyaIntroducePages()}
@@ -20,15 +25,11 @@ async function generateSiteMap() {
     ${NaatiListPages()}
     <url>
     <loc>${Domain_FA}/lists/exchanges</loc>
-    </url>
-    ${BlogsDetailsPages()}
-    <url>
+
       <loc>${Domain_EN}/lists/agents</loc>
     </url>
-    ${AgentLintInCountries()}
-    
-    ${MarcyaIntroducePages()}
-    ${MarcyaChatPages()}
+    ${AgentLinkInCountries()}
+  ${BlogsDetailsPages({ allBlogsSlugsAndLang })}
    </urlset>
  `;
 }
@@ -47,9 +48,10 @@ export async function getServerSideProps({ res }: any) {
     //   getAllOccupationSlugs(),
     //   getAllAgentsSlugs(),
     // ]);
+    const allBlogsSlugsAndLang = await getAllBlogsSlugsAndLang();
 
     // We generate the XML sitemap with the posts data
-    const sitemap = await generateSiteMap();
+    const sitemap = await generateSiteMap({ allBlogsSlugsAndLang });
 
     res.setHeader('Content-Type', 'text/xml');
     // we send the XML to the browser

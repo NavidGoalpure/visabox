@@ -1,5 +1,10 @@
 import SuccessToast from 'Elements/Toast/Success';
-import { LocalStorageKeys, ThemeModes } from 'Interfaces';
+import {
+  Languages,
+  LocalStorageKeys,
+  SessionStorageKeys,
+  ThemeModes,
+} from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import crypto from 'crypto';
@@ -51,6 +56,41 @@ function isItOnLive(): boolean {
     return true;
   return false;
 }
+//////////SessionStorage tools////////////
+
+function setSessionStorage({
+  key,
+  value,
+  isReloadPage = false,
+}: {
+  key: SessionStorageKeys;
+  value: string;
+  isReloadPage?: boolean;
+}) {
+  if (typeof window === 'undefined') return;
+  //
+  window.sessionStorage.setItem(key, value);
+  //
+  if (isReloadPage) window.location.reload();
+}
+///////////////////
+function getSessionStorage(key: SessionStorageKeys): string | null {
+  if (typeof window === 'undefined') return null;
+  //
+  return window.sessionStorage.getItem(key);
+  //
+}
+///////////////////////
+function removeSessionStorage(key: SessionStorageKeys) {
+  sessionStorage.removeItem(key);
+}
+////////////////
+function removeALLSessionStorage() {
+  sessionStorage.clear();
+}
+///////////////
+//////////LocalStorage tools////////////
+
 function setLocalStorage({
   key,
   value,
@@ -147,16 +187,28 @@ export function containsArabicOrPersianAlphabets(inputString: string): boolean {
   // Check if the input string contains any character within the Arabic and Persian Unicode ranges
   return arabicOrPersianRegex.test(inputString);
 }
+function isRtl(locale: Languages): boolean {
+  return locale === Languages.fa;
+}
 export {
   getThemeFromLocalStorage,
   isItOnLive,
+  //
   setLocalStorage,
   getLocalStorage,
   removeLocalStorage,
   removeALLLocalStorage,
+  //
+  setSessionStorage,
+  getSessionStorage,
+  removeSessionStorage,
+  removeALLSessionStorage,
+  //
   deleteAllCookies,
   copyContent,
   slugify,
   getGsapTimeLine_FadeUp,
   convertToMd5,
+  //
+  isRtl,
 };

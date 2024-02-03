@@ -106,7 +106,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                           <HintItem>
                             <Tag>
                               {t(LanguageKeys.LastUpdate)}
-                              <span> 30/12/2023 </span>
+                              <span> 30/01/2024 </span>
                             </Tag>
                           </HintItem>
                         </AccordionContentContainer>

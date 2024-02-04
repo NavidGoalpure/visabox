@@ -36,7 +36,7 @@
     "axios": "^1.4.0",
     "cloudinary-build-url": "^0.2.4",
     "country-state-city": "^3.2.1",
-    "eslint-config-next": "^13.0.7",
+    "eslint-config-next": "^14.1.0",
     "fixie": "^6.3.4",
     "gsap": "^3.11.4",
     "js-cookie": "^3.0.5",

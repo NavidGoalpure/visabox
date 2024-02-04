@@ -3,13 +3,17 @@ import {
   layer2A_TextStyle,
 } from 'Styles/Theme/Layers/layer2/style';
 import { layer2A_Bg } from 'Styles/Theme/Layers/layer2/theme';
-import { copyContent } from 'Utils';
+import { copyContent, isRtl } from 'Utils';
 import { HTMLAttributes } from 'react';
 import { BsShare } from 'react-icons/bs';
 import styled from 'styled-components';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
+import { componentStatements, LanguageKeys } from './const';
+import { useLocale } from 'Hooks/useLocale';
+import { deviceMin } from 'Consts/device';
+import { Languages } from 'Interfaces';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -18,40 +22,36 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   href: string;
 }
 
-const BlogCardType1Slim: React.FC<Props> = ({
-  title,
-  desc,
-  img,
-  href,
-  ...props
-}) => {
+const BlogCard: React.FC<Props> = ({ title, desc, img, href, ...props }) => {
   const { t } = useStaticTranslation(componentStatements);
+  const { locale } = useLocale();
   return (
     <Container {...props}>
-      <Wrapper href={href}>
+      <Link href={href}>
         <ImageContainer>
           <BlogImg fill src={img} alt='image-source' />
+          <ShareBtn
+            isRTL={isRtl(locale)}
+            onClick={() =>
+              copyContent({
+                text: `www.marabox.com.au/${locale}/${href}`,
+                toastMessage: t(LanguageKeys.CopyInClipboard),
+              })
+            }
+          >
+            <BsShare />
+          </ShareBtn>
         </ImageContainer>
         <Content>
           <Title>{title}</Title>
           <Desc>{desc}</Desc>
         </Content>
-      </Wrapper>
-      <ShareBtn
-        onClick={() =>
-          copyContent({
-            text: `www.marabox.com.au/${href}`,
-            toastMessage: t(LanguageKeys.CopyInClipboard),
-          })
-        }
-      >
-        <BsShare />
-      </ShareBtn>
+      </Link>
     </Container>
   );
 };
 
-export default BlogCardType1Slim;
+export default BlogCard;
 
 const Container = styled.div`
   ${layer2A_Bg}
@@ -63,16 +63,16 @@ const Container = styled.div`
   overflow: hidden;
   position: relative;
   flex-direction: column;
-  gap: 1rem;
-  padding-bottom: 1rem;
   transition: 0.3s;
+  gap: 1rem;
   :hover {
     box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
     transform: translateY(-0.5rem);
   }
+  @media ${deviceMin.tabletS} {
+    width: 48%;
+  }
 `;
-
-const Wrapper = styled.a``;
 
 const ImageContainer = styled.div`
   height: 16rem;
@@ -89,7 +89,7 @@ const BlogImg = styled(Image)`
   }
 `;
 
-const Content = styled.a`
+const Content = styled.div`
   gap: 1rem;
   padding: 1rem 1rem;
   display: flex;
@@ -110,15 +110,12 @@ const Desc = styled.div`
   overflow: hidden;
 `;
 
-const ShareBtn = styled.div`
+const ShareBtn = styled.div<{ isRTL: boolean }>`
   width: 3rem;
   height: 3rem;
   background-color: var(--color-primary4);
   border-radius: 100px 100px 100px 100px;
   color: white;
-  position: absolute;
-  top: -10%;
-  left: -10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,11 +123,13 @@ const ShareBtn = styled.div`
   box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   z-index: 1000;
-  ${Container}:hover & {
-    top: 0;
-    left: 0;
-    border-radius: 0px 0px 20px 0px;
-  }
+  position: absolute;
+  top: 0;
+  ${({ isRTL }) =>
+    isRTL
+      ? `left: 0;border-radius: 0px 0px 20px 0px;`
+      : `right: 0;border-radius: 0px 0px 0px 20px;`}
+
   :hover {
     background-color: var(--color-primary2);
   }

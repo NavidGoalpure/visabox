@@ -60,6 +60,8 @@ export const LOOKUP_STORE: Record<ILookupEnum, string> = {
   lookUpKnowEA: ' EA Documents',
   lookUpKnowRegionsStates: 'States And Territories Documents',
   lookUpKnowSkillWorker: 'Skilled Worker Documents',
+  lookUpKnowAPharmC: 'APharmC Documents',
+  lookUpKnowACWA: 'ACWA Documents',
   loadBySimilarity: 'Similarity Documents',
 };
 

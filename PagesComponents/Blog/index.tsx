@@ -24,39 +24,16 @@ function BlogsContent({ blogs }: Props) {
       <Title>{t(LanguageKeys.PageTitle)}</Title>
       <Subtitle>{t(LanguageKeys.PageSubtitle)}</Subtitle>
       <BlogsContainer>
-        <StyledBlogCard
-          title={blogs[0]?.title || ''}
-          desc={blogs[0]?.excerpt || ''}
-          img={urlFor(blogs[0]?.mainImage)?.url() || ''}
-          href={`blog/${blogs[0]?.slug?.current || '#'}`}
-        />
-        <StyledBlogCard
-          title={blogs[1]?.title || ''}
-          desc={blogs[1]?.excerpt || ''}
-          img={urlFor(blogs[1]?.mainImage)?.url() || ''}
-          href={`blog/${blogs[1]?.slug?.current || '#'}`}
-        />
-
-        <StyledBlogCard
-          title={blogs[2]?.title || ''}
-          desc={blogs[2]?.excerpt || ''}
-          img={urlFor(blogs[2]?.mainImage)?.url() || ''}
-          href={`blog/${blogs[2]?.slug?.current || '#'}`}
-        />
-
-        <StyledBlogCard
-          title={blogs[3]?.title || ''}
-          desc={blogs[3]?.excerpt || ''}
-          img={urlFor(blogs[3]?.mainImage)?.url() || ''}
-          href={`blog/${blogs[3]?.slug?.current || '#'}`}
-        />
-
-        <StyledBlogCard
-          title={blogs[4]?.title || ''}
-          desc={blogs[4]?.excerpt || ''}
-          img={urlFor(blogs[4]?.mainImage)?.url() || ''}
-          href={`blog/${blogs[4]?.slug?.current || '#'}`}
-        />
+        {blogs?.map((blog, i) => (
+          <StyledBlogCard
+            key={i}
+            title={blog?.title || ''}
+            desc={blog?.excerpt || ''}
+            img={urlFor(blog?.mainImage)?.url() || ''}
+            href={`blog/${blog?.slug?.current || '#'}`}
+            imgPriority={i < 4}
+          />
+        ))}
       </BlogsContainer>
     </Container>
   );

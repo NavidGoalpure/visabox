@@ -78,8 +78,9 @@ const BlogContent: React.FC<Props> = ({ blog }) => {
         </MoreBlogsCardsContainer>
       </MoreBlogsContainer>
       {blog?.qa && <QATitle>{t(LanguageKeys.QATitle)}</QATitle>}
-      {blog?.qa?.map((qa) => (
+      {blog?.qa?.map((qa, i) => (
         <MaraAccordion
+          key={i}
           triggerText={qa.question}
           content={qa?.answer}
           backgroundLayer={'1'}

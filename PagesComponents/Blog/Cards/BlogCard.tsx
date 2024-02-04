@@ -12,24 +12,38 @@ import Link from 'next/link';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { useLocale } from 'Hooks/useLocale';
-import { deviceMin } from 'Consts/device';
-import { Languages } from 'Interfaces';
+import { device, deviceMin } from 'Consts/device';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
   desc: string;
   img: string;
   href: string;
+  imgPriority?: boolean;
 }
 
-const BlogCard: React.FC<Props> = ({ title, desc, img, href, ...props }) => {
+const BlogCard: React.FC<Props> = ({
+  title,
+  desc,
+  img,
+  href,
+  imgPriority = false,
+  ...props
+}) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
   return (
     <Container {...props}>
       <Link href={href}>
         <ImageContainer>
-          <BlogImg fill src={img} alt='image-source' />
+          <BlogImg
+            src={img}
+            alt='image-source'
+            fill
+            sizes={`${device.mobileL} 100vw, 48vw`}
+            quality={100}
+            priority={imgPriority}
+          />
           <ShareBtn
             isRTL={isRtl(locale)}
             onClick={() =>

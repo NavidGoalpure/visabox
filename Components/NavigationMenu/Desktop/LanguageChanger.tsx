@@ -83,7 +83,7 @@ const FlagWrapper = styled.div`
 ///////////
 const DYImage = dynamic(() => import('next/image'));
 const Flag = styled(DYImage)`
-  position: relative !important;
+  position: relative;
 `;
 ///////////////
 const LanguageIcon = styled(IoLanguage)`

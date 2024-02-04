@@ -1,20 +1,40 @@
+import {
+  useState,
+  useEffect,
+  lazy,
+  Suspense,
+  useCallback,
+  HTMLAttributes,
+} from 'react';
 import useDevice from 'Hooks/useDevice';
-import { useState, useEffect, HTMLAttributes } from 'react';
-import Desktop from './Desktop';
 import { Contact } from 'Interfaces/Database';
-import Mobile from './Mobile';
+import { Loading } from 'Elements/Loading';
+
+// Lazy load the components
+const Desktop = lazy(() => import('./Desktop'));
+const Mobile = lazy(() => import('./Mobile'));
 
 interface Props extends HTMLAttributes<HTMLDivElement>, Contact {
   // Your additional properties from Contact interface go here
 }
+
 function ShowContacts(props: Props) {
-  const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
+  const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
+
+  const setScreenSize = useCallback(() => {
+    setScreen(isLaptop ? 'DESKTOP' : 'MOBILE');
+  }, [isLaptop]);
 
   useEffect(() => {
-    if (isLaptop) setScreen('DESKTOP');
-  });
-  if (screen === 'MOBILE') return <Mobile {...props} />;
-  return <Desktop {...props} />;
+    setScreenSize();
+  }, [setScreenSize]);
+
+  return (
+    <Suspense fallback={<Loading />}>
+      {screen === 'MOBILE' ? <Mobile {...props} /> : <Desktop {...props} />}
+    </Suspense>
+  );
 }
+
 export default ShowContacts;

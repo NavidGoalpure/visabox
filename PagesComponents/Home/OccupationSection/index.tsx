@@ -1,16 +1,24 @@
+import { Loading } from 'Elements/Loading';
 import useDevice from 'Hooks/useDevice';
-import { HTMLAttributes, useEffect, useState } from 'react';
-import DesktopIndex from './desktop';
-import MobileIndex from './mobile';
+import { HTMLAttributes, lazy, Suspense, useEffect, useState } from 'react';
+const DesktopIndex = lazy(() => import('./desktop'));
+const MobileIndex = lazy(() => import('./mobile'));
 
 const index: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
-  const [screen, setScreen] = useState<"MOBILE" | "DESKTOP">("MOBILE");
+  const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
   useEffect(() => {
-    if (isLaptop) setScreen("DESKTOP");
+    if (isLaptop) setScreen('DESKTOP');
   });
-  if (screen === "MOBILE") return <MobileIndex {...props} />;
-  else return <DesktopIndex {...props} />;
+  return (
+    <Suspense fallback={<Loading />}>
+      {screen === 'MOBILE' ? (
+        <MobileIndex {...props} />
+      ) : (
+        <DesktopIndex {...props} />
+      )}
+    </Suspense>
+  );
 };
 export default index;
 

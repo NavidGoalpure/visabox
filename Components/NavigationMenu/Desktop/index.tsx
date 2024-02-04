@@ -89,7 +89,7 @@ function Desktop() {
   );
 }
 
-export { Desktop };
+export default Desktop;
 
 const Container = styled(NavigationMenu.Root)`
   ${layer1_BG}

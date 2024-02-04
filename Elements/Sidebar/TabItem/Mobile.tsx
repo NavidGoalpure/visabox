@@ -11,12 +11,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   value: string;
   icon: ReactNode;
 }
-export const MobileTabItem: React.FC<Props> = ({
-  title,
-  value,
-  icon,
-  className,
-}) => {
+const MobileTabItem: React.FC<Props> = ({ title, value, icon, className }) => {
   return (
     <TabsTrigger value={value} className={className} data-testid='sidebar-head'>
       <ContentContainer>
@@ -26,6 +21,7 @@ export const MobileTabItem: React.FC<Props> = ({
     </TabsTrigger>
   );
 };
+export default MobileTabItem;
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;

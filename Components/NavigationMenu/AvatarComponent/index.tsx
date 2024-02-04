@@ -1,28 +1,25 @@
-import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import { useSession } from "next-auth/react";
-import SwitchTheme from "../switchTheme";
-import { Headline6Style, Headline7Style } from "Styles/Typo";
-import PopOver from "Elements/PopOver";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
-import { componentStatements, LanguageKeys } from "./const";
-import { directionStyles } from "Styles/Theme";
-import MaraSwitch from "Elements/MaraSwitch";
-import { CiLogout } from "react-icons/ci";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { getClientDetail } from "Queries/client";
-import { ClientQueryKeys } from "Utils/query/keys";
-import { ClientCompletedForms } from "Interfaces/Database/Client";
-import SuccessToast from "Elements/Toast/Success";
-import ErrorToast from "Elements/Toast/Error";
-import { deviceMin } from "Consts/device";
-import { listOfBasicForm_ResParams } from "Consts/agents";
-import { Logout } from "Utils/user";
-import { useRouter } from "next/router";
-import { useLocale } from "Hooks/useLocale";
-import { FaUser } from "react-icons/fa";
-import { ThemeContext } from "Contexts/ThemeContext";
+import React, { useState, useEffect, useContext } from 'react';
+import styled from 'styled-components';
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import { useSession } from 'next-auth/react';
+import SwitchTheme from '../switchTheme';
+import { Headline6Style, Headline7Style } from 'Styles/Typo';
+import PopOver from 'Elements/PopOver';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
+import { componentStatements, LanguageKeys } from './const';
+import { directionStyles } from 'Styles/Theme';
+import { CiLogout } from 'react-icons/ci';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { getClientDetail } from 'Queries/client';
+import { ClientQueryKeys } from 'Utils/query/keys';
+import ErrorToast from 'Elements/Toast/Error';
+import { deviceMin } from 'Consts/device';
+import { listOfBasicForm_ResParams } from 'Consts/agents';
+import { Logout } from 'Utils/user';
+import { useRouter } from 'next/router';
+import { useLocale } from 'Hooks/useLocale';
+import { FaUser } from 'react-icons/fa';
+import { ThemeContext } from 'Contexts/ThemeContext';
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);
@@ -37,7 +34,7 @@ function DesktopProfileOptions() {
   const showDataMessage = t(LanguageKeys.ShowDataToast);
   const hideDataMessage = t(LanguageKeys.HideDataToast);
   const FailedToastMessage = t(LanguageKeys.FailedToastMessage);
-  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
+  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
   const resParams = `is_sharable,completed_forms,_id`;
   ///////////////
 
@@ -56,8 +53,8 @@ function DesktopProfileOptions() {
   ///////////// mutation on is-sharable clicked ///////
   const mutation = useMutation({
     mutationFn: () => {
-      return fetch("/api/clients/is-sharable", {
-        method: "POST",
+      return fetch('/api/clients/is-sharable', {
+        method: 'POST',
         body: JSON.stringify({
           is_sharable: !isSharableChecked,
           _id: data?.client?.[0]?._id,
@@ -66,7 +63,7 @@ function DesktopProfileOptions() {
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        throw new Error("couldnt patch the user");
+        throw new Error('couldnt patch the user');
       }
       setIsSharableChecked((prevState) => !prevState);
       if (isSharableChecked === true) {
@@ -76,7 +73,7 @@ function DesktopProfileOptions() {
       }
       queryClient.removeQueries(
         ClientQueryKeys.detail({
-          reqParams: `email == "${session?.user?.email || "defensive"}"`,
+          reqParams: `email == "${session?.user?.email || 'defensive'}"`,
         })
       );
       queryClient.removeQueries(
@@ -98,8 +95,8 @@ function DesktopProfileOptions() {
       <PopOver
         trigger={
           <Avatar
-            src={session?.user?.image || "/Images/placeholder.jpeg"}
-            alt={"user-profile"}
+            src={session?.user?.image || '/Images/placeholder.jpeg'}
+            alt={'user-profile'}
           />
         }
         content={

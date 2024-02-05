@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useLocale } from 'Hooks/useLocale';
 import { useEffect } from 'react';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 function Content() {
   const { status } = useSession();
   const router = useRouter();

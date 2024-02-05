@@ -1,4 +1,4 @@
-import { deviceMin } from 'Consts/device';
+import { device, deviceMin } from 'Consts/device';
 import { useCallback, useRef } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
@@ -6,8 +6,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import styled, { css } from 'styled-components';
 import theme from 'styled-theming';
 import { componentStatements, LanguageKeys, tsParticleOption } from './const';
-import planeMobile from './planeMobile.svg';
-import planeDesktop from './planeDesktop.svg';
+
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
@@ -37,31 +36,15 @@ const Hero: React.FC = () => {
         <ImageCards
           src={'/Images/australia-pictures.webp'}
           alt='Picture of the australia'
-          // blurDataURL="data:..." automatically provided
-          // placeholder="blur" // Optional blur-up while loading
           fill
+          priority
+          sizes={`${device.mobileL} 0vw, ${device.laptopM} 33vw`}
         />
       </ImageContainer>
       <ContentContainer>
-        <PlaneMobileContainer>
-          <PlaneMobile
-            fill
-            src={planeMobile}
-            alt='airplane' />
-        </PlaneMobileContainer>
-        <PlaneDesktopContainer>
-          <PlaneDesktop
-            fill
-            src={planeDesktop}
-            alt='airplane' />
-        </PlaneDesktopContainer>
-        <TitleContainer>
-          <Title
-            dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Title) }}
-            role='heading'
-            aria-level={1}
-          />
-        </TitleContainer>
+        <Title role='heading' aria-level={1}>
+          {t(LanguageKeys.Title)}
+        </Title>
         <Subtitle
           dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Subtitle) }}
           role='heading'
@@ -122,6 +105,8 @@ const StyledParticles = styled(Particles)`
 const ImageContainer = styled.div`
   display: none;
   height: inherit;
+  position: relative;
+  width: 100%;
   @media ${deviceMin.laptopM} {
     display: initial;
   }
@@ -146,49 +131,6 @@ const ContentContainer = styled.div`
   }
 `;
 
-const PlaneMobileContainer = styled.div`
-position: relative;
-width: 100%;
-height: 40%;
-@media ${deviceMin.laptopM} {
-  display: none;
-}
-`
-
-const PlaneMobile = styled(Image)`
-  display: initial;
-  max-width: 30rem;
-  margin: 0 auto;
-  @media ${deviceMin.laptopM} {
-    display: none;
-  }
-`;
-
-const PlaneDesktopContainer = styled.div`
-display: none;
-width: 100%;
-height: 100%;
-position: relative;
-@media ${deviceMin.laptopM} {
-  width: 100%;
-  height: 40%;
-  display: initial;
-  position: relative;
-}
-`;
-
-const PlaneDesktop = styled(Image)`
-    display: none;
-  @media ${deviceMin.laptopM} {
-    display: initial;
-    max-width: 30rem;
-    // margin-inline-end: -5rem;
-    margin-left: auto;
-  }
-  @media ${deviceMin.laptopL} {
-    // margin-inline-end: -5rem;
-  }
-`;
 ///////////////////////
 const titleFont = theme('mode', {
   light: css`
@@ -196,14 +138,9 @@ const titleFont = theme('mode', {
   `,
   dark: css``,
 });
-const TitleContainer = styled.div`
-  margin-top: -5rem;
-  @media ${deviceMin.laptopM} {
-    margin-top: -7.5rem;
-  }
-`;
+
 ////////////
-const spanColor = theme('mode', {
+const titleColor = theme('mode', {
   light: css`
     color: var(--color-secondary3);
   `,
@@ -211,26 +148,22 @@ const spanColor = theme('mode', {
     color: var(--color-primary4);
   `,
 });
-const Title = styled.div`
+const Title = styled.h1`
   ${titleFont}
-  display: grid;
-  font-style: normal;
+  ${titleColor}
   font-weight: 700;
   font-size: 52px;
-  line-height: 72px;
+  line-height: 0;
   letter-spacing: -0.5px;
   width: 100%;
   text-align: center;
-  color: white;
-
-  span {
-    margin-left: 0.5rem;
-    ${spanColor}
-  }
   @media ${deviceMin.mobileL} {
-    font-size: 61px;
+    font-size: 54px;
+    line-height: 54px;
   }
+
   @media ${deviceMin.laptopM} {
+    font-size: 74px;
     max-width: 33rem;
   }
 `;
@@ -258,11 +191,17 @@ const Subtitle = styled.div`
   span {
     ${subtitleColor}
   }
+  @media ${deviceMin.tabletS} {
+    font-size: 34px;
+    line-height: 38px;
+  }
   @media ${deviceMin.laptopXS} {
     width: 70%;
   }
   @media ${deviceMin.laptopM} {
     width: 33rem;
+    font-size: 38px;
+    line-height: 42px;
   }
 `;
 const Blured1 = styled.div`

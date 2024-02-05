@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { ComponentError } from 'Elements/Error/componentContent';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 
 interface Props {
   isError: boolean;

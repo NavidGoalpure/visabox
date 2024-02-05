@@ -1,4 +1,4 @@
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import useDevice from 'Hooks/useDevice';
 import { lazy, Suspense } from 'react';
 

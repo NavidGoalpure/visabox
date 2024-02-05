@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { directionStyles } from 'Styles/Theme';
 import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
 import Header from '../NavigationMenu';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import SmartBanner from 'Components/SmartBanner';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';

@@ -1,6 +1,6 @@
 import { ClientError } from '@sanity/client';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { Occupation } from 'Interfaces/Database/Occupation/occupation';
 import React, { useRef } from 'react';
@@ -38,7 +38,6 @@ export const SmartButton: React.FC<Props> = ({
   return null;
 };
 
-
 const IsLoading = styled(Loading)`
-margin: auto;
-`
+  margin: auto;
+`;

@@ -1,6 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import useDevice from 'Hooks/useDevice';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 
 // Lazy load the components
 const Desktop = lazy(() => import('./Desktop'));

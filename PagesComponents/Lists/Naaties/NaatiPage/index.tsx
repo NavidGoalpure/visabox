@@ -5,7 +5,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 const DesktopAgentsPage = lazy(() => import('./Desktop/DesktopNaatiPage'));
 const MobileAgentsPage = lazy(() => import('./Mobile/MobileNaatiPage'));
 import { Naati } from 'Interfaces/Database/Lists/naaties';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 interface Props {
   chosenNaati?: Naati;
 }

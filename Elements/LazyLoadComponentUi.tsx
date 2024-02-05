@@ -1,7 +1,6 @@
 import { HTMLAttributes, useRef } from 'react';
-
 import { useIntersectionObserver } from 'usehooks-ts';
-import { Loading } from './Loading';
+import { LoadingRow } from './Loading/LoadingRow';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 const LazyLoadComponentUi: React.FC<Props> = ({ children }) => {
@@ -9,8 +8,10 @@ const LazyLoadComponentUi: React.FC<Props> = ({ children }) => {
   const entry = useIntersectionObserver(ref, {});
   const isVisible = !!entry?.isIntersecting;
 
-  console.log(`Render Section `, { isVisible });
-
-  return <div ref={ref}> {isVisible ? children : <Loading />}</div>;
+  return (
+    <div ref={ref} style={{ width: '100%' }}>
+      {isVisible ? children : <LoadingRow />}
+    </div>
+  );
 };
 export default LazyLoadComponentUi;

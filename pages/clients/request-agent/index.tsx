@@ -14,7 +14,7 @@ import { useSession } from 'next-auth/react';
 import { getClientDetail } from 'Queries/client';
 import { useQuery } from 'react-query';
 import { ClientQueryKeys } from 'Utils/query/keys';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { ContentOrError } from 'Components/contentOrError';
 import ErrorToast from 'Elements/Toast/Error';
 import { Point_Calculator_Fragment } from 'Consts/GroqFragments';

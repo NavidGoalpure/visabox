@@ -9,7 +9,7 @@ import React, {
 import { HTMLAttributes } from 'react';
 import useDevice from 'Hooks/useDevice';
 import { deviceSize } from 'Consts/device';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 
 const Mobile = lazy(() => import('./Mobile'));
 const DesktopTop = lazy(() => import('./DesktopTop'));

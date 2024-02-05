@@ -1,4 +1,4 @@
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import useDevice from 'Hooks/useDevice';
 import { HTMLAttributes, lazy, Suspense, useEffect, useState } from 'react';
 // Lazy load the components

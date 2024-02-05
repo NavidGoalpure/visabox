@@ -8,7 +8,7 @@ import {
 } from 'react';
 import useDevice from 'Hooks/useDevice';
 import { Contact } from 'Interfaces/Database';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 
 // Lazy load the components
 const Desktop = lazy(() => import('./Desktop'));

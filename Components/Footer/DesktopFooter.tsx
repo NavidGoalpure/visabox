@@ -16,6 +16,7 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { BiWorld } from 'react-icons/bi';
 import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
+import { Loading } from 'Elements/Loading/Loading';
 // Lazy load CountryModal
 const CountryModal = lazy(() => import('Components/CountryModal'));
 
@@ -30,7 +31,7 @@ function DesktopFooter() {
 
   return (
     <Container>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         {mustShowCountryModal && (
           <CountryModal
             isOpen={mustShowCountryModal}

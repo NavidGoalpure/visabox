@@ -21,7 +21,7 @@ import { LocalStorageKeys } from 'Interfaces';
 import ErrorToast from 'Elements/Toast/Error';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { ContentOrError } from 'Components/contentOrError';
 import { isAgencyLogedIn, Logout } from 'Utils/user';
 import { useRouter } from 'next/router';

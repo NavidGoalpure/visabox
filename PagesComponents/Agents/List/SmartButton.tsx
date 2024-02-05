@@ -1,6 +1,6 @@
 import { ClientError } from '@sanity/client';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import React from 'react';
 import { FetchNextPageOptions, InfiniteQueryObserverResult } from 'react-query';

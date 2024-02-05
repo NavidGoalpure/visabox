@@ -1,8 +1,8 @@
-import { deviceMin } from "Consts/device";
-import { Loading } from "Elements/Loading";
-import React, { ButtonHTMLAttributes, ReactNode } from "react";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
+import { deviceMin } from 'Consts/device';
+import { Loading } from 'Elements/Loading/Loading';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
 
 /**
  * Primary UI component for user interaction
@@ -20,7 +20,7 @@ export const PrimaryButton = ({
   isLoading = false,
   hasAnimation = true,
   icon,
-  type = "button",
+  type = 'button',
   ...props
 }: ButtonProps) => {
   return (
@@ -36,7 +36,7 @@ export const PrimaryButton = ({
     </Container>
   );
 };
-const DisabledTheme = theme("mode", {
+const DisabledTheme = theme('mode', {
   light: css`
     background: var(--color-gray10);
     color: var(--color-gray12);

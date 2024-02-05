@@ -3,7 +3,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { Client } from 'Interfaces/Database/Client';
 import EditModal from './EditModal';
 import { EditModalContentKeys } from './const';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 
 // Lazy load the components
 const DesktopAgentsPage = lazy(() => import('./Desktop'));

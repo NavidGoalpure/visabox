@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
 import useDevice from 'Hooks/useDevice';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 
 // Lazy load the footer components
 const DesktopFooter = lazy(() => import('./DesktopFooter'));

@@ -14,7 +14,7 @@ import { useFixie } from 'fixie/web';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { layer2A_BodyStyle } from 'Styles/Theme/Layers/layer2/style';
 import ShowConversation from './ShowConversation';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { ChatScrollAnchor } from './chatScrollAnchor';
 import React, { useContext, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';

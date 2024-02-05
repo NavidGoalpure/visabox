@@ -19,7 +19,7 @@ const LazyLoadComponentUi: React.FC<Props> = ({ children }) => {
 
   return (
     <div ref={ref} style={{ width: '100%' }}>
-      {!isItBot && isVisible ? children : <LoadingRow />}
+      {isItBot || isVisible ? children : <LoadingRow />}
     </div>
   );
 };

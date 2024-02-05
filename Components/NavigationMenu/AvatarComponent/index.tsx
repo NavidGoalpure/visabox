@@ -20,6 +20,7 @@ import { useRouter } from 'next/router';
 import { useLocale } from 'Hooks/useLocale';
 import { FaUser } from 'react-icons/fa';
 import { ThemeContext } from 'Contexts/ThemeContext';
+import SuccessToast from 'Elements/Toast/Success';
 
 function DesktopProfileOptions() {
   const { t } = useStaticTranslation(componentStatements);

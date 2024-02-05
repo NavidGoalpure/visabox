@@ -1,6 +1,5 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
 import useDevice from 'Hooks/useDevice';
-import { Loading } from 'Elements/Loading';
 
 // Lazy load the components
 const Desktop = lazy(() => import('./Desktop'));
@@ -15,7 +14,7 @@ const SmartHeader = () => {
   }, [isLaptop]);
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Mobile />}>
       {screen === 'MOBILE' ? <Mobile /> : <Desktop />}
     </Suspense>
   );

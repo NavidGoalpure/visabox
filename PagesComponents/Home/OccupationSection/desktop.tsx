@@ -13,6 +13,8 @@ import {
   ViewAll,
 } from './styledComponents';
 
+import LazyLoadComponentUi from 'Elements/LazyLoadComponentUi';
+
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {

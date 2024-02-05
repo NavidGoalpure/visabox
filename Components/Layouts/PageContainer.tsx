@@ -14,6 +14,7 @@ import { setSessionStorage } from 'Utils';
 import { SessionStorageKeys } from 'Interfaces';
 import { mustShowSmartBannerBaseOnUrl } from './utils';
 import { useRouter } from 'next/router';
+import LazyLoadComponentUi from 'Elements/LazyLoadComponentUi';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   hasFooter?: boolean;
@@ -63,47 +64,8 @@ const PageContainer: React.FC<Props> = ({
           }}
         />
       )}
-      {/* {hasBanner &&
-        (
-        !isAgencyLogedIn() && (
-          <SmartBanner
-            navigateTo={`/${locale}/clients/request-agent`}
-            desc={
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: bannerDesc,
-                }}
-              ></div>
-            }
-            buttonText={buttonText}
-            stampText={stampText}
-          />
-        )} */}
-      {/* <Survay.Root
-        title={{
-          en: 'How do you prefer to do the legal procedures of immigration?',
-          fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
-        }}
-      >
-        <MultiChoice>
-          <Item
-            value={'foo1'}
-            text={{
-              en: 'Lawer',
-              fa: 'وکیل',
-            }}
-          />
-          <Item
-            value={'foo'}
-            text={{
-              en: 'Myself',
-              fa: 'خودم',
-            }}
-          />
-        </MultiChoice>
-      </Survay.Root> */}
       <Content id='PageContainer-content'>{children}</Content>
-      {hasFooter && <Footer />}
+      <LazyLoadComponentUi>{hasFooter && <Footer />}</LazyLoadComponentUi>
     </Container>
   );
 };

@@ -7,12 +7,14 @@ import Banner from '../../Components/Banner';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import AgentsSection from './AgentsSection';
-
+import { useRenderInfo } from '@uidotdev/usehooks';
+import LazyLoadComponentUi from 'Elements/LazyLoadComponentUi';
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
 
   const { t } = useStaticTranslation(componentStatements);
-
+  const info = useRenderInfo('HomeContent');
+  console.log('navid info=', info);
   return (
     <>
       <Hero />
@@ -27,10 +29,15 @@ const HomeContent: React.FC = () => {
           stampText={t(LanguageKeys.StampText)}
           buttonText={t(LanguageKeys.BannerButtonText)}
         />
-
-        <OccupationSection className='section' />
-        <AgentsSection className='section' />
-        <MarcyaSection className='section' />
+        <LazyLoadComponentUi>
+          <OccupationSection className='section' />
+        </LazyLoadComponentUi>
+        <LazyLoadComponentUi>
+          <AgentsSection className='section' />
+        </LazyLoadComponentUi>
+        <LazyLoadComponentUi>
+          <MarcyaSection className='section' />
+        </LazyLoadComponentUi>
       </Container>
     </>
   );

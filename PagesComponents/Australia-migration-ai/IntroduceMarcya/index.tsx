@@ -1,6 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import useDevice from 'Hooks/useDevice';
-import { Loading } from 'Elements/Loading/Loading';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 
 // Lazy load the components
 const Desktop = lazy(() => import('./Desktop'));
@@ -16,7 +16,7 @@ function Content() {
   }, [isLaptop]);
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingRow />}>
       {screen === 'MOBILE' ? <Mobile /> : <Desktop />}
     </Suspense>
   );

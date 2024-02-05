@@ -5,7 +5,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 const DesktopAgentsPage = lazy(() => import('./Desktop/DesktopNaatiPage'));
 const MobileAgentsPage = lazy(() => import('./Mobile/MobileNaatiPage'));
 import { Naati } from 'Interfaces/Database/Lists/naaties';
-import { Loading } from 'Elements/Loading/Loading';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 interface Props {
   chosenNaati?: Naati;
 }
@@ -17,7 +17,7 @@ function Content({ chosenNaati }: Props) {
     if (isLaptop) setScreen('DESKTOP');
   });
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingRow />}>
       {screen === 'MOBILE' ? (
         <MobileAgentsPage chosenNaati={chosenNaati} />
       ) : (

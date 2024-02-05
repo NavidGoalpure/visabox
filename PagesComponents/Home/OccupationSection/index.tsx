@@ -1,4 +1,4 @@
-import { Loading } from 'Elements/Loading/Loading';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 import useDevice from 'Hooks/useDevice';
 import { HTMLAttributes, lazy, Suspense, useEffect, useState } from 'react';
 const DesktopIndex = lazy(() => import('./desktop'));
@@ -11,7 +11,7 @@ const index: React.FC<HTMLAttributes<HTMLDivElement>> = ({ ...props }) => {
     if (isLaptop) setScreen('DESKTOP');
   });
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingRow />}>
       {screen === 'MOBILE' ? (
         <MobileIndex {...props} />
       ) : (

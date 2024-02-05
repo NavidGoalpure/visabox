@@ -1,6 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
 import useDevice from 'Hooks/useDevice';
-import { Loading } from 'Elements/Loading/Loading';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 
 // Lazy load the footer components
 const DesktopFooter = lazy(() => import('./DesktopFooter'));
@@ -22,7 +22,7 @@ const SmartFooter = () => {
     }
   };
 
-  return <Suspense fallback={<Loading />}>{renderFooter()}</Suspense>;
+  return <Suspense fallback={<LoadingRow />}>{renderFooter()}</Suspense>;
 };
 
 export default SmartFooter;

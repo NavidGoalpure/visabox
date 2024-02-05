@@ -106,7 +106,7 @@ const ImageContainer = styled.div`
   display: none;
   height: inherit;
   position: relative;
-  width: 100%;
+  width: 50%;
   @media ${deviceMin.laptopM} {
     display: initial;
   }

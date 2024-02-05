@@ -3,7 +3,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { Client } from 'Interfaces/Database/Client';
 import EditModal from './EditModal';
 import { EditModalContentKeys } from './const';
-import { Loading } from 'Elements/Loading/Loading';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 
 // Lazy load the components
 const DesktopAgentsPage = lazy(() => import('./Desktop'));
@@ -27,7 +27,7 @@ const Content: React.FC<Props> = ({ client }) => {
 
   if (!client) return null;
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingRow />}>
       {screen === 'MOBILE' ? (
         <>
           <EditModal

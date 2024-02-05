@@ -9,6 +9,7 @@ import {
 import useDevice from 'Hooks/useDevice';
 import { Contact } from 'Interfaces/Database';
 import { Loading } from 'Elements/Loading/Loading';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 
 // Lazy load the components
 const Desktop = lazy(() => import('./Desktop'));
@@ -31,7 +32,7 @@ function ShowContacts(props: Props) {
   }, [setScreenSize]);
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingRow />}>
       {screen === 'MOBILE' ? <Mobile {...props} /> : <Desktop {...props} />}
     </Suspense>
   );

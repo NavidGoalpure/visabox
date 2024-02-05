@@ -32,15 +32,7 @@ const Hero: React.FC = () => {
         init={particlesInit}
         options={tsParticleOption}
       />
-      <ImageContainer>
-        <ImageCards
-          src={'/Images/australia-pictures.webp'}
-          alt='Picture of the australia'
-          fill
-          priority
-          sizes={`${device.mobileL} 0vw, ${device.laptopM} 33vw`}
-        />
-      </ImageContainer>
+
       <ContentContainer>
         <Title role='heading' aria-level={1}>
           {t(LanguageKeys.Title)}
@@ -51,6 +43,15 @@ const Hero: React.FC = () => {
           aria-level={2}
         />
       </ContentContainer>
+      <ImageContainer>
+        <ImageCards
+          src={'/Images/australia-pictures.webp'}
+          alt='Picture of the australia'
+          fill
+          priority
+          sizes={`${device.mobileL} 0vw, ${device.laptopM} 33vw`}
+        />
+      </ImageContainer>
       <Blured1 />
       <Blured2 />
     </Container>
@@ -77,6 +78,7 @@ const BorderColor_Desktop = theme('mode', {
 });
 const Container = styled.section`
   ${BorderColor_Mobile}
+  direction: ltr;
   display: flex;
   align-items: center;
   justify-content: flex-start;

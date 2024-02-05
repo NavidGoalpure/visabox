@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
+    "@next/bundle-analyzer": "^14.1.0",
     "@next/mdx": "^13.2.4",
     "@portabletext/react": "^3.0.11",
     "@radix-ui/colors": "^0.1.8",
@@ -28,8 +29,6 @@
     "@radix-ui/react-tooltip": "^1.0.2",
     "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.2",
-    "@sentry/cli": "^2.11.0",
-    "@sentry/nextjs": "^7.34.0",
     "@types/gsap": "^3.0.0",
     "@types/react-gtm-module": "^2.0.1",
     "ai": "^2.2.29",

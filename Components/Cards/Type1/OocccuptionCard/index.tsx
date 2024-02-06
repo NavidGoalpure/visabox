@@ -8,7 +8,6 @@ import { Container, Wrapper, Code, Title } from '../StyledComponents';
 import Popup from '../popup';
 import styled from 'styled-components';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
-import { getGsapTimeLine_FadeUp } from 'Utils';
 import { Slug } from 'Interfaces/Database/Fields';
 
 interface Props {
@@ -20,20 +19,11 @@ interface Props {
   hasAnimation?: boolean;
 }
 
-function OccupationCard({
-  code,
-  title,
-  description,
-  slug,
-  tasks,
-  hasAnimation = true,
-}: Props) {
+function OccupationCard({ code, title, description, slug, tasks }: Props) {
   const { dt } = useDynamicTranslation();
   const { locale } = useLocale();
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-  useEffect(() => {
-    if (hasAnimation) getGsapTimeLine_FadeUp(`c${code}`);
-  }, []);
+
   return (
     <Container className={`c${code}`}>
       <Link

@@ -1,4 +1,3 @@
-import gsap from 'gsap';
 import { MultiLanguageText } from 'Interfaces/Database';
 
 export enum LanguageKeys {

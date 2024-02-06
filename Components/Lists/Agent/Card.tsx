@@ -1,5 +1,4 @@
 import { HTMLAttributes, useEffect, useState } from 'react';
-import { getGsapTimeLine_FadeUp } from 'Utils';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
@@ -61,7 +60,6 @@ function AgentCard({
       fetchAvatar();
     }
   }, [hasAvatar]);
-  useEffect(() => getGsapTimeLine_FadeUp(slug), []);
   const agencyCountries = agencies?.map((agency) =>
     getCountryOrAlias(agency?.country)
   );

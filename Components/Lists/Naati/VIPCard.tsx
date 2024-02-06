@@ -19,7 +19,6 @@ import { deviceMin } from 'Consts/device';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from '../const';
 import Link from 'next/link';
-import { getGsapTimeLine_VipCard } from '../const';
 import { useLocale } from 'Hooks/useLocale';
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
@@ -39,8 +38,6 @@ function VIPNaatiCard({
 }: Props) {
   const { dt } = useDynamicTranslation();
   const { t } = useStaticTranslation(componentStatements);
-  useEffect(() => getGsapTimeLine_VipCard(slug));
-  const { locale } = useLocale();
   const [imgSrc, setImgSrc] = useState(`/Images/placeholder.jpeg`);
 
   useEffect(() => {

@@ -25,9 +25,8 @@ import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Headline4Style, Headline5Style } from 'Styles/Typo';
+import { Headline5Style } from 'Styles/Typo';
 import theme from 'styled-theming';
-import { getGsapTimeLine_Hero } from 'Utils/animations';
 import { tsParticleOption_Desktop } from 'Styles/animation';
 import PriceList from './PriceTable/ForClients';
 import { Hint_BG } from 'Styles/Theme/Hint/theme';
@@ -37,9 +36,7 @@ import { Hint_SubTitleStyle } from 'Styles/Theme/Hint/style';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
-  useEffect(() => {
-    getGsapTimeLine_Hero(setIsActive);
-  }, []);
+
   /////////
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);

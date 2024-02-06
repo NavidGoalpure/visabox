@@ -1,9 +1,8 @@
 import OccupationCard from 'Components/Cards/Type1/OocccuptionCard';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { HTMLAttributes, useEffect } from 'react';
+import { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { GsapSectionAnimation_2 } from '../utils';
 import { CardData, componentStatements, LanguageKeys } from './const';
 import {
   Container,
@@ -20,9 +19,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  useEffect(() => {
-    GsapSectionAnimation_2('occupation');
-  }, []);
+
   return (
     <Container {...props}>
       <Side className='occupation-card-section'>

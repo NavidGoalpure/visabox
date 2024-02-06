@@ -5,8 +5,7 @@ import {
   SessionStorageKeys,
   ThemeModes,
 } from 'Interfaces';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
 import TagManager from 'react-gtm-module';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
@@ -144,26 +143,6 @@ const copyContent = async ({
     .writeText(text)
     .then(() => SuccessToast(toastMessage));
 };
-function getGsapTimeLine_FadeUp(id: string | number) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.fromTo(
-    `.${id}`,
-    {
-      y: 40,
-      opacity: 0,
-    },
-    {
-      scrollTrigger: {
-        trigger: `.${id}`,
-        start: '20 bottom',
-        toggleActions: 'play none none none',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    }
-  );
-}
 
 /////////////////
 const slugify = (str: string) =>
@@ -202,7 +181,6 @@ export {
   deleteAllCookies,
   copyContent,
   slugify,
-  getGsapTimeLine_FadeUp,
   //
   isRtl,
 };

@@ -1,7 +1,4 @@
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import gsap from 'gsap';
 import { MultiLanguageText } from 'Interfaces/Database';
-
 
 export enum LanguageKeys {
   Email = 'Email',
@@ -12,7 +9,7 @@ export enum LanguageKeys {
   Translator = 'Translator',
   copyEmailToastMessage = 'copyEmailToastMessage',
   copyPhoneToastMessage = 'copyPhoneToastMessage',
-  Agency = "Agency"
+  Agency = 'Agency',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Email: {
@@ -63,23 +60,3 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 
 ////////////
-
-export function getGsapTimeLine_VipCard(slug: string) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.fromTo(
-    `.${slug}`,
-    {
-      y: 40,
-    },
-    {
-      scrollTrigger: {
-        trigger: `.${slug}`,
-        start: '-10 bottom',
-        toggleActions: 'play none none none',
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    }
-  );
-}

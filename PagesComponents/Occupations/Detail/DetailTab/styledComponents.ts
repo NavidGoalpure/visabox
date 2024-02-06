@@ -150,11 +150,9 @@ export const Details = styled.div`
     font-style: normal;
   }
   div:has(> i.fa.fa-warning) {
-    ${Hint_HTML_BG}// background-color: red !important;;;;;;;;;
+    ${Hint_HTML_BG}// background-color: red !important;;;;;;;;;;
   }
   div {
-    //navid
-
     p {
       ${layer2A_TextStyle}
       ${layer2A_TextColor}

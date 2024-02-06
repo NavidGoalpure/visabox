@@ -14,7 +14,7 @@ import {
 import MobileLanguageChanger from './LanguageChanger';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, getGsapTimeLine, LanguageKeys } from '../const';
+import { componentStatements, LanguageKeys } from '../const';
 import OccupationDropdown from './dropdownOccupation';
 import MobileBoxesDropdown from './dropdownLists';
 import { useSession } from 'next-auth/react';
@@ -31,25 +31,6 @@ function SmartHeader() {
 
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
-  const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
-  const popupAnimationRef = useRef<gsap.core.Timeline>();
-  useEffect(
-    () => getGsapTimeLine({ hamburgerAnimationRef, popupAnimationRef }),
-    []
-  );
-  useEffect(() => {
-    document.body.style.overflow = 'unset';
-    if (isMenuClicked) {
-      popupAnimationRef.current?.restart();
-      hamburgerAnimationRef.current?.restart();
-      document.body.style.overflow = 'hidden';
-    }
-    if (isMenuClicked === false) {
-      popupAnimationRef.current?.reverse();
-      hamburgerAnimationRef.current?.reverse();
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuClicked]);
 
   return (
     <Container>

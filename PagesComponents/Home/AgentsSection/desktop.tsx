@@ -10,9 +10,7 @@ import {
   Title,
   ViewAll,
 } from './styledComponents';
-import { HTMLAttributes, useEffect } from 'react';
-import { GsapSectionAnimation_1 } from '../utils';
-import { Exchanges } from 'Consts/Lists/exchages';
+import { HTMLAttributes } from 'react';
 import ExchangeCard from 'Components/Lists/Exchange/ExchangeCard';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -20,9 +18,6 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  useEffect(() => {
-    GsapSectionAnimation_1('Agent');
-  }, []);
 
   return (
     <>

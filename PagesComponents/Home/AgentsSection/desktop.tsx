@@ -29,12 +29,12 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             agencies={ExampleAgent?.agencies}
             layerContext='1'
           />
+
           {/* <StyledExchangeCard {...Exchanges[1]} /> */}
         </Side>
         <Side className='Agent-text-section'>
           <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-
           <StyledLink href={`${locale}/lists/agents`}>
             <ViewAll id={`home_all-agents_${locale}`}>
               {t(LanguageKeys.CTA)}
@@ -48,10 +48,12 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 export default DesktopIndex;
 const Side = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 const StyledCard = styled(AgentCard)`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const StyledExchangeCard = styled(ExchangeCard)``;

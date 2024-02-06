@@ -5,23 +5,18 @@ import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import {
-  componentStatements,
-  FREE_CREDIT_THRESHOLD,
-  LanguageKeys,
-} from './const';
+import { componentStatements, LanguageKeys } from './const';
 import { useFixie } from 'fixie/web';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { layer2A_BodyStyle } from 'Styles/Theme/Layers/layer2/style';
 import ShowConversation from './ShowConversation';
 import { Loading } from 'Elements/Loading/Loading';
 import { ChatScrollAnchor } from './chatScrollAnchor';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useSession } from 'next-auth/react';
 
 import SmartRow from './SmartRow';
-import { AiChatContext, AiChatContextProvider } from './hooks/useAiCredit';
-import { findSmartHeight } from 'Elements/Select/utils';
+import { AiChatContext } from './hooks/useAiCredit';
 import useDevice from 'Hooks/useDevice';
 
 interface Props {

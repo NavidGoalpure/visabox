@@ -139,7 +139,7 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3.5rem;
+  gap: 1.5rem;
   backdrop-filter: blur(5px);
   @media ${deviceMin.tabletS} {
     padding: 1.5rem 2rem;

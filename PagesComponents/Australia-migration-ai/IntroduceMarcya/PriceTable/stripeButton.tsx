@@ -9,7 +9,6 @@ import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { useSession } from 'next-auth/react';
 import { isUserLiveInIran } from 'Utils/country-state-city';
-import { boolean } from 'yup';
 import { Loading } from 'Elements/Loading/Loading';
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {

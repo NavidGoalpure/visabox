@@ -11,7 +11,7 @@ import { SearchFilterContext } from '../Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
 
 import { LuSettings2 } from 'react-icons/lu';
-import { Country, ICountry, State } from 'country-state-city';
+import { Country, State } from 'country-state-city';
 import { useRouter } from 'next/router';
 import { getDefaultCountry } from 'Utils/country-state-city';
 

@@ -7,7 +7,6 @@ import {
 } from 'Interfaces';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import crypto from 'crypto';
 import TagManager from 'react-gtm-module';
 
 const getThemeFromLocalStorage = (): ThemeModes => {
@@ -175,10 +174,6 @@ const slugify = (str: string) =>
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '');
 
-function convertToMd5(text: string) {
-  return crypto.createHash('md5').update(text).digest('hex');
-}
-
 export function containsArabicOrPersianAlphabets(inputString: string): boolean {
   // Regular expression for Arabic and Persian alphabets
   const arabicOrPersianRegex =
@@ -208,7 +203,6 @@ export {
   copyContent,
   slugify,
   getGsapTimeLine_FadeUp,
-  convertToMd5,
   //
   isRtl,
 };

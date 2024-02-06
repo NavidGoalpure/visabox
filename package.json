@@ -4,6 +4,7 @@
     "partytown": "partytown copylib public/~partytown",
     "dev": "yarn run partytown && next dev",
     "build": "yarn run partytown && next build",
+    "analyze": "ANALYZE= true yarn run partytown && next build",
     "start": "next start",
     "test": "jest --watch",
     "test:ci": "jest --ci",

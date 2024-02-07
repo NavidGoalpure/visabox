@@ -26,8 +26,9 @@ import MobileFormsDropdown from './dropdownForms';
 import MobileMarcyaDropdown from './dropdownMarcya';
 
 function SmartHeader() {
-  const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const { locale } = useLocale();
+  console.log('navid menu=', isMenuClicked);
 
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
@@ -51,44 +52,48 @@ function SmartHeader() {
           </Signin>
         )}
 
-        <MenuPopupContainer id={'popup'}>
-          <ScrollBox id={'scrollbox'} height={'18rem'}>
-            <MenuPopupWrapper>
-              <Nav>
-                <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
+        {isMenuClicked && (
+          <MenuPopupContainer id={'popup'}>
+            <ScrollBox id={'scrollbox'} height={'18rem'}>
+              <MenuPopupWrapper>
+                <Nav>
+                  <MenuLink href={`/${locale}`}>
+                    {t(LanguageKeys.Home)}
+                  </MenuLink>
+                  <Hr />
+                </Nav>
+                <MobileMarcyaDropdown />
                 <Hr />
-              </Nav>
-              <MobileMarcyaDropdown />
-              <Hr />
-              <MobileBoxesDropdown />
-              <Hr />
-              <OccupationDropdown />
-              <Hr />
-              {!isAgencyLogedIn() && <MobileFormsDropdown />}
-              {locale !== Languages.zh && (
-                <>
-                  <Hr />
-                  <MenuLink href={`/${locale}/blog`}>
-                    {t(LanguageKeys.Blogs)}
-                  </MenuLink>
-                </>
-              )}
-              {isAgencyLogedIn() && (
-                <>
-                  <Hr />
-                  <MenuLink href={`/${locale}/agency/forms-wall`}>
-                    {t(LanguageKeys.FormsWall)}
-                  </MenuLink>
-                </>
-              )}
-              <Hr />
-              <RowContainer>
-                <MobileLanguageChanger />
-                <SwitchTheme />
-              </RowContainer>
-            </MenuPopupWrapper>
-          </ScrollBox>
-        </MenuPopupContainer>
+                <MobileBoxesDropdown />
+                <Hr />
+                <OccupationDropdown />
+                <Hr />
+                {!isAgencyLogedIn() && <MobileFormsDropdown />}
+                {locale !== Languages.zh && (
+                  <>
+                    <Hr />
+                    <MenuLink href={`/${locale}/blog`}>
+                      {t(LanguageKeys.Blogs)}
+                    </MenuLink>
+                  </>
+                )}
+                {isAgencyLogedIn() && (
+                  <>
+                    <Hr />
+                    <MenuLink href={`/${locale}/agency/forms-wall`}>
+                      {t(LanguageKeys.FormsWall)}
+                    </MenuLink>
+                  </>
+                )}
+                <Hr />
+                <RowContainer>
+                  <MobileLanguageChanger />
+                  <SwitchTheme />
+                </RowContainer>
+              </MenuPopupWrapper>
+            </ScrollBox>
+          </MenuPopupContainer>
+        )}
         <MenuBurger
           id={`hamburg`}
           onClick={() => setIsMenuClicked(!isMenuClicked)}
@@ -134,7 +139,7 @@ const MenuPopupContainer = styled.div`
   height: 100vh;
   position: absolute;
   top: 0;
-  left: -100vw;
+  left: 0;
   padding-top: 6.5rem;
   z-index: 3;
   #scrollbox {

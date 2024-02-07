@@ -28,7 +28,6 @@ import MobileMarcyaDropdown from './dropdownMarcya';
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const { locale } = useLocale();
-  console.log('navid menu=', isMenuClicked);
 
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();

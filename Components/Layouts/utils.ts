@@ -6,6 +6,10 @@ import { NextRouter } from 'next/router';
  * @returns {boolean} Returns `false` if URL is '/foo', otherwise returns `true`.
  */
 export const mustShowSmartBannerBaseOnUrl = (router: NextRouter): boolean => {
-  if (router.pathname === '/australia-migration-ai/chat') return false;
+  if (
+    router.pathname === '/australia-migration-ai/chat' ||
+    router.pathname.includes('/auth/signin')
+  )
+    return false;
   return true;
 };

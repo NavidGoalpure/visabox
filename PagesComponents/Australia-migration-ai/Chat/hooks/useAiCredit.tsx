@@ -1,16 +1,11 @@
-// به صورت نرمال هروقت یوزر توسط سایت ساخته میشه آیدی اون برابر با هش ام دی فایو ایمیل هست
-// اما چون شاید یک زمانی این قاعده عوض شه یا یوزری با پنل ساخته بشه، این تابع روش بهتری برای پیدا کردن یوزر کلاینت هست
-
 import axios from 'axios';
 import { useSession } from 'next-auth/react';
+import React, { useState, useEffect } from 'react';
 import { getAgencyCredit } from 'Queries/agency';
 import { getClientCredit } from 'Queries/client';
-import React from 'react';
-import { useState } from 'react';
 import { isAgencyLogedIn, isClientLogedIn } from 'Utils/user';
 import { FREE_CREDIT_THRESHOLD } from '../const';
 
-//
 interface AiChatState {
   userId: string | undefined;
   questionRemain: number;
@@ -21,41 +16,39 @@ type Props = {
 };
 
 const AiChatContext = React.createContext({} as AiChatState);
-//
+
 function AiChatContextProvider(props: Props) {
   const { data: session } = useSession();
+  const [userChatData, setUserChatData] = useState<{
+    userId: string | undefined;
+    credit?: number;
+  }>();
 
-  const [userChatData, setUserChatData] = useState<
-    | {
-        userId: string;
-        credit?: number;
-      }
-    | undefined
-  >(undefined);
-  ////////////Decrease credit//////////
+  useEffect(() => {
+    if (!userChatData) {
+      getUserDataAndSave();
+    }
+  }, [userChatData]);
+
   const decreaseCreditByOne = async (): Promise<void> => {
     try {
       const response = await axios.post('/api/user/decrease-credit-by-one', {
         userId: userChatData?.userId,
       });
-
-      // Handle the response here if needed
       getUserDataAndSave();
-      return response.data; // Assuming you want to return data from the response
+      return response.data;
     } catch (error) {
-      // Handle errors here
       console.error('Error while decreasing credit:', error);
-      throw error; // Or handle the error according to your requirements
+      throw error;
     }
   };
 
-  // Check if the user is a clientimport { Client } from 'Interfaces/Database/Client';
   function getUserDataAndSave() {
     const isUserClient = isClientLogedIn();
     const isUserAgency = isAgencyLogedIn();
-    /////////////////GetAgencyData////////////
+
     async function getAgencyChatData() {
-      const agency = await getAgencyCredit(session?.user?.email); // Assuming this function returns the agency details
+      const agency = await getAgencyCredit(session?.user?.email);
       if (agency?._id) {
         setUserChatData({
           userId: agency._id,
@@ -63,28 +56,25 @@ function AiChatContextProvider(props: Props) {
         });
       }
     }
-    /////////////////GetClientData////////////
+
     async function getClientChatData() {
-      const client = await getClientCredit(session?.user?.email); // Assuming this function returns the client details
+      const client = await getClientCredit(session?.user?.email);
       if (client?._id) {
         setUserChatData({
-          userId: client._id,
+          userId: client?._id,
           credit: client?.credit,
         });
       }
     }
-    ///////////////////////////////////
+
     if (isUserClient) {
       getClientChatData();
     }
     if (isUserAgency) {
-      if (isUserAgency) {
-        getAgencyChatData;
-      }
+      getAgencyChatData();
     }
   }
-  ///////////////////////
-  if (!userChatData) getUserDataAndSave();
+
   return (
     <AiChatContext.Provider
       value={{
@@ -98,4 +88,5 @@ function AiChatContextProvider(props: Props) {
     </AiChatContext.Provider>
   );
 }
+
 export { AiChatContextProvider, AiChatContext };

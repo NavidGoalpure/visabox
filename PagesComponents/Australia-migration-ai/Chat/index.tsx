@@ -65,7 +65,7 @@ function Content({ aiAgentId }: Props) {
           {isLoading && <Loading />}
           <ChatScrollAnchor trackVisibility={isLoading} />;
         </Scroll>
-
+        {/* اسمارت رو، تصمیم میگره که چت رو نشون بده یا لاگین رو یا پیام تموم شدن اعتبار */}
         <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
       </ChatArea>
       {isMobile && (

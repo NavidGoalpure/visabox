@@ -109,7 +109,7 @@ function MobileFooter() {
           <GmailLogo
             onClick={() =>
               copyContent({
-                text: 'maraboxmigration@gmail.com',
+                text: 'hello@marabox.com.au',
                 toastMessage: gmailToastMessage,
               })
             }

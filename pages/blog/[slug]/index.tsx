@@ -15,7 +15,7 @@ interface Props {
   errorCode?: number;
 }
 const BlogPage: NextPage<Props> = ({ blog, errorCode }) => {
-  const structureData = getBlogStructuredData(blog?.qa);
+  const structureData = getBlogStructuredData(blog);
 
   const { locale } = useLocale();
   return (

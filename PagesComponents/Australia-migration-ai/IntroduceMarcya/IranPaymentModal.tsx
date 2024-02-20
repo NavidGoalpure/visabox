@@ -43,13 +43,13 @@ const IranPaymentModal: React.FC<Props> = ({ isOpen, setIsOpen, price }) => {
           <GmailContainer
             onClick={() =>
               copyContent({
-                text: 'marketing@marabox.com.au',
+                text: 'hello@marabox.com.au',
                 toastMessage: 'آدرس ایمیل در حافظه کپی شد',
               })
             }
           >
             <GmailIcon />
-            <GmailLink>marketing@marabox.com.au</GmailLink>
+            <GmailLink>hello@marabox.com.au</GmailLink>
           </GmailContainer>
           <TelegramContainer
             href={'https://t.me/maraboxmigration'}

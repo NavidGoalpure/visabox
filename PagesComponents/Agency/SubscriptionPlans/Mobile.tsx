@@ -173,13 +173,13 @@ function MobileAgentsPage() {
             <StyledGmailContainer
               onClick={() =>
                 copyContent({
-                  text: 'marketing@marabox.com.au',
+                  text: 'hello@marabox.com.au',
                   toastMessage: gmailToastMessage,
                 })
               }
             >
               <GmailIcon />
-              <GmailLink>marketing@marabox.com.au</GmailLink>
+              <GmailLink>hello@marabox.com.au</GmailLink>
             </StyledGmailContainer>
             <StyledTelegramContainer
               href={'https://t.me/maraboxmigration'}

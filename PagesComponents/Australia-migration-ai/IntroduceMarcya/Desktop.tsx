@@ -133,13 +133,13 @@ function Desktop() {
             <GmailContainer
               onClick={() =>
                 copyContent({
-                  text: 'marketing@marabox.com.au',
+                  text: 'hello@marabox.com.au',
                   toastMessage: phoneToastMessage,
                 })
               }
             >
               <GmailIcon />
-              <GmailLink>marketing@marabox.com.au</GmailLink>
+              <GmailLink>hello@marabox.com.au</GmailLink>
             </GmailContainer>
             <TelegramContainer
               href={'https://t.me/maraboxmigration'}

@@ -103,9 +103,9 @@ function Mobile() {
               }}
             />
             <ContactsWrapper>
-              <GmailContainer href='mailto:marketing@marabox.com.au'>
+              <GmailContainer href='mailto:hello@marabox.com.au'>
                 <GmailIcon />
-                <GmailLink>marketing@marabox.com.au</GmailLink>
+                <GmailLink>hello@marabox.com.au</GmailLink>
               </GmailContainer>
               <TelegramContainer
                 href={'https://t.me/maraboxmigration'}

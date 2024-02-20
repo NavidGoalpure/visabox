@@ -93,19 +93,17 @@ export const getCountrySymbolBaseOnNameOrAlias = (
 };
 
 //
-export const getCountryBasedOnSymbol = (
+export const getSpecificCountryBasedOnSymbol = (
   countrySymbol: string | undefined
-): ICountry | undefined => {
-  if (!countrySymbol) {
+): string | undefined => {
+  if (!countrySymbol) { 
     return undefined;
   }
 
-  const allCountries = Country.getAllCountries();
-  const foundCountry = allCountries.find(
-    (country) => country.isoCode === countrySymbol
-  );
-
-  return foundCountry;
+  if (countrySymbol === 'IN') return 'India';
+  if (countrySymbol === 'FA') return 'Iran';
+  if (countrySymbol === 'CN') return 'China';
+  return undefined;
 };
 //////////////////
 export const convertSupportedCountryToCountryObj = (

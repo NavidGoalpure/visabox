@@ -22,7 +22,6 @@ export function getBlogStructuredData(
         name: 'Marabox',
         email: 'hello@marabox.com.au',
         logo: 'https://www.marabox.com.au/favicon.ico',
-        review: 'foo',
         url: 'https://www.marabox.com.au',
       },
     ],

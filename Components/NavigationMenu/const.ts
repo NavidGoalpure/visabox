@@ -48,9 +48,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '工具',
   },
   BotName: {
-    en: 'Marcya-AI',
+    en: 'Ask AI',
     fa: 'هوش مصنوعی مارسیا',
-    zh: 'Marcya-AI',
+    zh: 'Ask AI',
   },
 };
 export const listsItems: DropdownItem[] = [

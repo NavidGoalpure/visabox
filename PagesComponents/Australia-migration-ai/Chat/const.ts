@@ -65,4 +65,4 @@ export const LOOKUP_STORE: Record<ILookupEnum, string> = {
   loadBySimilarity: 'Similarity Documents',
 };
 
-export const FREE_CREDIT_THRESHOLD = -3;
+export const FREE_CREDIT_THRESHOLD = -5;

@@ -1,35 +1,35 @@
-import { signIn } from "next-auth/react";
+import { signIn } from 'next-auth/react';
 
-import { Key, useEffect, useState } from "react";
-import MaraBgAnimation from "Components/MaraBgAnimation";
-import styled, { css } from "styled-components";
-import { FcGoogle } from "react-icons/fc";
-import theme from "styled-theming";
-import { FaDiscord, FaUser } from "react-icons/fa";
-import { RiBuilding2Fill } from "react-icons/ri";
-import { Layer1_TitleStyle } from "Styles/Theme/Layers/layer1/style";
-import { CookieKeys } from "Interfaces";
-import { useLocale } from "Hooks/useLocale";
-import Cookies from "js-cookie";
-import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Key, useEffect, useState } from 'react';
+import MaraBgAnimation from 'Components/MaraBgAnimation';
+import styled, { css } from 'styled-components';
+import { FcGoogle } from 'react-icons/fc';
+import theme from 'styled-theming';
+import { FaDiscord, FaUser } from 'react-icons/fa';
+import { RiBuilding2Fill } from 'react-icons/ri';
+import { Layer1_TitleStyle } from 'Styles/Theme/Layers/layer1/style';
+import { CookieKeys } from 'Interfaces';
+import { useLocale } from 'Hooks/useLocale';
+import Cookies from 'js-cookie';
+import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import {
   componentStatements,
   LanguageKeys,
-} from "PagesComponents/Auth/Signin/const";
-import { Provider } from "next-auth/providers";
-import { UserRole } from "Interfaces/Database";
+} from 'PagesComponents/Auth/Signin/const';
+import { Provider } from 'next-auth/providers';
+import { UserRole } from 'Interfaces/Database';
 import {
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
   layer2A_style,
-} from "Styles/Theme/Layers/layer2/style";
-import { boxShadow } from "Styles/Theme";
-import { useRouter } from "next/router";
+} from 'Styles/Theme/Layers/layer2/style';
+import { boxShadow } from 'Styles/Theme';
+import { useRouter } from 'next/router';
 import {
   layer2A_Bg,
   layer2A_TextColor,
-} from "Styles/Theme/Layers/layer2/theme";
-import { deviceMin } from "Consts/device";
+} from 'Styles/Theme/Layers/layer2/theme';
+import { deviceMin } from 'Consts/device';
 
 interface Props {
   authProviders: Provider[];
@@ -39,9 +39,10 @@ export default function SignInContent({ authProviders }: Props) {
 
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const [userRole, setUserRole] = useState<UserRole | null>(null);
+  // اگه لاگین ایحنت ها داشتیم دیفالت این باید نال بشه
+  const [userRole, setUserRole] = useState<UserRole | null>(UserRole.Client);
   useEffect(() => {
-    const userRole_QueryParam = router?.query?.["user_role"];
+    const userRole_QueryParam = router?.query?.['user_role'];
     if (userRole_QueryParam === UserRole.Agency.toLowerCase())
       setUserRole(UserRole.Agency);
 
@@ -61,13 +62,14 @@ export default function SignInContent({ authProviders }: Props) {
             <RoleUserIcon isActive={userRole === UserRole.Client} />
             {t(LanguageKeys.ClientTitle)}
           </RoleBox>
-          <RoleBox
+          {/* این برای وقتیه که بخوایم ایجنت ها هم لاگین کنن */}
+          {/* <RoleBox
             isActive={userRole === UserRole.Agency}
             onClick={() => setUserRole(UserRole.Agency)}
           >
             <RoleInstitueIcon isActive={userRole === UserRole.Agency} />
             {t(LanguageKeys.AgentTitle)}
-          </RoleBox>
+          </RoleBox> */}
         </RoleBoxContainer>
         {userRole &&
           authProviders?.map(
@@ -94,8 +96,8 @@ export default function SignInContent({ authProviders }: Props) {
                 }}
                 key={i}
               >
-                {provider.name === "Google" && <GoogleIcon />}
-                {provider.name === "Discord" && <DiscordIcon />}
+                {provider.name === 'Google' && <GoogleIcon />}
+                {provider.name === 'Discord' && <DiscordIcon />}
                 Sign in with {provider.name}
               </SocialButton>
             )
@@ -107,7 +109,7 @@ export default function SignInContent({ authProviders }: Props) {
 
 /////////////styles/////////
 
-export const ContainerSelectColor = theme("mode", {
+export const ContainerSelectColor = theme('mode', {
   light: css`
     background: var(--color-gray12);
   `,
@@ -173,7 +175,7 @@ const RoleBox = styled.div<{ isActive: boolean }>`
 
 const RoleUserIcon = styled(FaUser)<{ isActive: boolean }>`
   ${({ isActive }) =>
-    isActive ? "width: 3rem; height: 3rem;" : "width: 2rem; height: 2rem;"}
+    isActive ? 'width: 3rem; height: 3rem;' : 'width: 2rem; height: 2rem;'}
 
   flex-shrink: 0;
   background: var(--color-primary4);
@@ -185,7 +187,7 @@ const RoleUserIcon = styled(FaUser)<{ isActive: boolean }>`
 `;
 const RoleInstitueIcon = styled(RiBuilding2Fill)<{ isActive: boolean }>`
   ${({ isActive }) =>
-    isActive ? "width: 3rem; height: 3rem;" : "width: 2rem; height: 2rem;"}
+    isActive ? 'width: 3rem; height: 3rem;' : 'width: 2rem; height: 2rem;'}
 
   transition: all 400ms ease;
   flex-shrink: 0;
@@ -195,7 +197,7 @@ const RoleInstitueIcon = styled(RiBuilding2Fill)<{ isActive: boolean }>`
   border-radius: 50%;
 `;
 
-const SocialButtonTheme = theme("mode", {
+const SocialButtonTheme = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);

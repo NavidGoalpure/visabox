@@ -54,9 +54,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   PlanDescription3: {
-    en: 'Additional +3 Credits',
-    fa: 'اعتبار اضافی برای ۳ سوال',
-    zh: '额外+3积分',
+    en: 'Additional +5 Credits',
+    fa: 'اعتبار اضافی برای ۵ سوال',
+    zh: '额外+5积分',
   },
 
   ContactUs: {
@@ -79,9 +79,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   FreePlan_ABV: {
-    en: '3 Questions',
-    fa: 'برای ۳ پرسش',
-    zh: '3个问题',
+    en: '5 Questions',
+    fa: 'برای ۵ پرسش',
+    zh: '5个问题',
   },
   FreePlan_Button: {
     en: 'Chat Now',

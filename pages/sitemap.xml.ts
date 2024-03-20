@@ -4,8 +4,7 @@ import { BlogsDetailsPages } from 'PagesComponents/Sitemap/BlogsDetailsPages';
 import { NaatiListPages } from 'PagesComponents/Sitemap/NaatiListPages';
 import { OccupationsSearchPages } from 'PagesComponents/Sitemap/OccupationsSearchPage';
 import { Domain_EN, Domain_FA } from 'PagesComponents/Sitemap/const';
-import { MarcyaIntroducePages } from 'PagesComponents/Sitemap/MarcyaIntroducePages';
-import { MarcyaChatPages } from 'PagesComponents/Sitemap/MarcyaChatPages';
+
 import { getAllBlogsSlugsAndLang } from 'Queries/blog/Detail';
 import { IBlog } from 'Interfaces/Database/blog';
 // import { getAllAgentsSlugs } from 'Queries/agents/Detail';
@@ -17,9 +16,6 @@ interface Props {
 async function generateSiteMap({ allBlogsSlugsAndLang }: Props) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${MarcyaIntroducePages()}
-    ${MarcyaChatPages()}
-
     ${OccupationsSearchPages()}
     ${AssessingAuthoritiesListPages()}
     ${NaatiListPages()}

@@ -18,6 +18,7 @@ import { useSession } from 'next-auth/react';
 import SmartRow from './SmartRow';
 import { AiChatContext } from './hooks/useAiCredit';
 import useDevice from 'Hooks/useDevice';
+import ServiceIsDown from './ThisServiceIsDown';
 
 interface Props {
   aiAgentId: string;
@@ -51,7 +52,8 @@ function Content({ aiAgentId }: Props) {
           __html: t(LanguageKeys.QuestionRemain, [
             // به عدد باقیمانده سوالات ۳ تا اضافه میکنیم چون همیشه ۳ ا اشانتیون وجود دارد
             {
-              $number: questionRemain.toString(),
+              // $number: questionRemain.toString(),
+              $number: '0',
             },
           ]),
         }}
@@ -66,7 +68,9 @@ function Content({ aiAgentId }: Props) {
           <ChatScrollAnchor trackVisibility={isLoading} />;
         </Scroll>
         {/* اسمارت رو، تصمیم میگره که چت رو نشون بده یا لاگین رو یا پیام تموم شدن اعتبار */}
-        <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
+        {/* اما در حال حاضر به خاطر اینکه این سرویس رو غیر فعال کردین کامنت شده */}
+        {/* <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} /> */}
+        <ServiceIsDown />
       </ChatArea>
       {isMobile && (
         <Hint

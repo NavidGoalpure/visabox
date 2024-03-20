@@ -12,7 +12,6 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { setSessionStorage } from 'Utils';
 import { SessionStorageKeys } from 'Interfaces';
-import { mustShowSmartBannerBaseOnUrl } from './utils';
 import { useRouter } from 'next/router';
 import LazyLoadComponentUi from 'Elements/LazyLoadComponentUi';
 
@@ -47,23 +46,6 @@ const PageContainer: React.FC<Props> = ({
     <Container {...props}>
       <ToasterContainer />
       {hasMenu && <Header />}
-      {mustShowSmartBannerBaseOnUrl(router) && (
-        <SmartBanner
-          navigateTo={'/australia-migration-ai/chat'}
-          desc={
-            <div
-              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-            />
-          }
-          buttonText={t(LanguageKeys.BannerButtonText)}
-          onClose={() => {
-            setSessionStorage({
-              key: SessionStorageKeys.isCloseMarcyaBanner,
-              value: 'true',
-            });
-          }}
-        />
-      )}
       <Content id='PageContainer-content'>{children}</Content>
       <LazyLoadComponentUi>{hasFooter && <Footer />}</LazyLoadComponentUi>
     </Container>

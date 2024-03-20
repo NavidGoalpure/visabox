@@ -9,7 +9,6 @@ export enum LanguageKeys {
   Blogs = 'Blogs',
   FormsWall = 'FormsWall',
   Forms = 'Forms',
-  BotName = 'BotName',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Home: {
@@ -46,11 +45,6 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     en: 'Tools',
     fa: 'ابزار ها ‌',
     zh: '工具',
-  },
-  BotName: {
-    en: 'Ask AI',
-    fa: 'هوش مصنوعی مارسیا',
-    zh: 'Ask AI',
   },
 };
 export const listsItems: DropdownItem[] = [

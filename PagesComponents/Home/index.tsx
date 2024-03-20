@@ -29,7 +29,7 @@ const HomeContent: React.FC = () => {
         <LazyLoadComponentUi>
           <OccupationSection className='section' />
           <AgentsSection className='section' />
-          <MarcyaSection className='section' />
+          {/* <MarcyaSection className='section' /> */}
         </LazyLoadComponentUi>
       </Container>
     </>

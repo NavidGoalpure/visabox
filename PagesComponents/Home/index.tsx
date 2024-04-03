@@ -16,7 +16,7 @@ const HomeContent: React.FC = () => {
     <>
       <Hero />
       <Container id='section-container'>
-        <Banner
+        {/* <Banner
           navigateTo={`/${locale}/australia-migration-ai/chat`}
           desc={
             <div
@@ -25,7 +25,7 @@ const HomeContent: React.FC = () => {
           }
           stampText={t(LanguageKeys.StampText)}
           buttonText={t(LanguageKeys.BannerButtonText)}
-        />
+        /> */}
         <LazyLoadComponentUi>
           <OccupationSection className='section' />
           <AgentsSection className='section' />

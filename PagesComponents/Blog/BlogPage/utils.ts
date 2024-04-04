@@ -20,7 +20,7 @@ export function getBlogStructuredData(
         '@type': 'Organization',
         brand: 'Marabox',
         name: 'Marabox',
-        email: 'hello@marabox.com.au',
+        email: 'maraboxmigration@gmail.com',
         logo: 'https://www.marabox.com.au/favicon.ico',
         url: 'https://www.marabox.com.au',
       },

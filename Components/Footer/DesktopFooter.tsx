@@ -98,7 +98,7 @@ function DesktopFooter() {
               <GmailLogo
                 onClick={() =>
                   copyContent({
-                    text: 'hello@marabox.com.au',
+                    text: 'maraboxmigration@gmail.com',
                     toastMessage: gmailToastMessage,
                   })
                 }

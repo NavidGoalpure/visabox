@@ -104,7 +104,7 @@ function DesktopFooter() {
                 }
               />
             </LogosContainer>
-            {/* //////Country Changer//////////////// */}
+            {/* //////Country Changer////////////// */}
             <Items
               href={'#footer'}
               onClick={() => {

@@ -6,7 +6,6 @@ export function getBlogStructuredData(
 ): Record<string, any> | undefined {
   if (!blog) return undefined;
   const mainImageUrl = urlFor(blog?.mainImage)?.url();
-  console.log('navid url=', mainImageUrl);
 
   return {
     '@context': 'https://schema.org',

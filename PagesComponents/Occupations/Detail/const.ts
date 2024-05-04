@@ -156,9 +156,9 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     fa: 'دسته‌های طبقه‌بندی‌شده (nec) در جای دیگر برای مشاغل شناخته‌شده و مجزا استفاده می‌شوند که به‌دلیل عدم اهمیت عددی آنها در استرالیا یا نیوزلند، به طور جداگانه در ANZSCO نسخه 1.3 شناسایی نشده‌اند. عناوین شغلی که در زیر دسته‌های nec فهرست شده‌اند، گویای دامنه و دامنه مشاغل موجود در دسته‌بندی nec هستند.',
   },
   SkillPriorityLists: {
-    en: '2022 Skill Priority Lists',
-    zh: '2022 年技能优先列表',
-    fa: 'لیست اولویت مهارت 2022',
+    en: '2023 Skill Priority Lists',
+    zh: '2023 年技能优先列表',
+    fa: 'لیست اولویت مهارت 2023',
   },
   Description: {
     en: 'Description',
@@ -378,14 +378,14 @@ In some instances, no formal qualification or on-the-job training may be require
     zh: '已为此职业提交的文件数量。',
   },
   Points: { en: 'Points', fa: 'امتیازات', zh: '积分' },
-  Submitted: { en: 'Submitted', fa: 'ثبت شده‌ها', zh: '已提交', },
-  Invited: { en: 'Invited', fa: 'دعوت شده‌ها', zh: '受邀', },
+  Submitted: { en: 'Submitted', fa: 'ثبت شده‌ها', zh: '已提交' },
+  Invited: { en: 'Invited', fa: 'دعوت شده‌ها', zh: '受邀' },
   Lodged: {
     en: 'Lodged',
     fa: 'لاج شده‌ها',
     zh: '住宿',
   },
-  LastUpdate: { en: 'Last Update:', fa: 'آخرین آپدیت: ', zh: '最后更新：', },
+  LastUpdate: { en: 'Last Update:', fa: 'آخرین آپدیت: ', zh: '最后更新：' },
 };
 
 //////

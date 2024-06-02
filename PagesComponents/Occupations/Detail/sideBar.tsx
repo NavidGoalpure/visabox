@@ -106,6 +106,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                           <HintItem>
                             <Tag>
                               {t(LanguageKeys.LastUpdate)}
+                              {/* //navid */}
                               <span> 31/05/2024 </span>
                             </Tag>
                           </HintItem>

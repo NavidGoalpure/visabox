@@ -48,7 +48,7 @@ const AgentList: NextPage<Props> = ({ statusCode }) => {
       <Seo
         title={getSeoTitle(countryInUrlParam)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com.au/${locale}/agents/`}
+        // canonical={`https://www.marabox.com.au/${locale}/agents/`}
       />
       <FiltersContextProvider>
         <Content />

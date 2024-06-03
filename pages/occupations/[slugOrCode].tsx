@@ -40,7 +40,7 @@ const OccupationPage: NextPage<Props> = ({ occupation, errorCode }) => {
         description={
           occupation?.anzsco_section?.description?.en || t(LanguageKeys.SeoDesc)
         }
-        canonical={`https://www.marabox.com.au/${locale}/occupations/${occupation?.slug?.current}`}
+        // canonical={`https://www.marabox.com.au/${locale}/occupations/${occupation?.slug?.current}`}
       />
       {occupation ? <Content occupation={occupation} /> : null}
     </PageLayout>

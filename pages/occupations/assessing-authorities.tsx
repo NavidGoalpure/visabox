@@ -18,7 +18,7 @@ const OccupationPage: NextPage = () => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        canonical={`https://www.marabox.com.au/${locale}/occupations/assessing-authorities`}
+        // canonical={`https://www.marabox.com.au/${locale}/occupations/assessing-authorities`}
       />
       <Content />
     </PageLayout>

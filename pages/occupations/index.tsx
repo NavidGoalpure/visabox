@@ -30,7 +30,7 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
       <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
-        // canonical={`https://www.marabox.com.au/${locale}/occupations/`}
+        canonical={`https://www.marabox.com.au/${locale}/occupations/`}
       />
       <FiltersContextProvider>
         <Content />

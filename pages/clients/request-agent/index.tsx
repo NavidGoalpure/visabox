@@ -81,7 +81,7 @@ const UserForms: NextPage = ({}) => {
         <Seo
           title={t(LanguageKeys.SeoTitle)}
           description={t(LanguageKeys.SeoDesc)}
-          // canonical={`https://www.marabox.com.au/${locale}/clients/point-calculator`}
+          canonical={`https://www.marabox.com.au/${locale}/clients/point-calculator`}
           isNoIndex={true}
         />
         {isLoading ? (

@@ -41,7 +41,7 @@
     "isbot-fast": "^1.2.0",
     "js-cookie": "^3.0.5",
     "next": "13.2.0",
-    "next-auth": "^4.19.2",
+    "next-auth": "^4.24.9",
     "next-images": "^1.8.4",
     "next-sanity": "^1.0.0",
     "nextjs-progressbar": "^0.0.16",

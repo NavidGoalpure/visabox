@@ -31,7 +31,7 @@
     "@sanity/image-url": "^1.0.2",
     "@types/crypto-js": "^4.2.2",
     "@types/react-gtm-module": "^2.0.1",
-    "ai": "^2.2.29",
+    "ai": "^3.4.20",
     "axios": "^1.4.0",
     "cloudinary-build-url": "^0.2.4",
     "country-state-city": "^3.2.1",

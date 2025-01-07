@@ -31,22 +31,18 @@ import {
 } from './styledComponents';
 import { LanguageKeys, componentStatements } from './const';
 import Link from 'next/link';
-import theme from 'styled-theming';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import type { Engine } from 'tsparticles-engine';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { tsParticleOption_Desktop } from 'Styles/animation';
-import { getGsapTimeLine_Hero } from 'Utils/animations';
 import PriceList from './PriceTable';
 import { ThemeContext } from 'Contexts/ThemeContext';
 
 function Desktop() {
   const [isActive, setIsActive] = useState(true);
   const { theme } = useContext(ThemeContext);
-  useEffect(() => {
-    getGsapTimeLine_Hero(setIsActive);
-  }, []);
+
   /////////
   const particlesInit = useCallback(async (engine: Engine) => {
     // console.log(engine);
@@ -211,13 +207,13 @@ function Desktop() {
               <GmailContainer
                 onClick={() =>
                   copyContent({
-                    text: 'marketing@marabox.com.au',
+                    text: 'maraboxmigration@gmail.com',
                     toastMessage: phoneToastMessage,
                   })
                 }
               >
                 <GmailIcon />
-                <GmailLink>marketing@marabox.com.au</GmailLink>
+                <GmailLink>maraboxmigration@gmail.com</GmailLink>
               </GmailContainer>
               <TelegramContainer
                 href={'https://t.me/maraboxmigration'}

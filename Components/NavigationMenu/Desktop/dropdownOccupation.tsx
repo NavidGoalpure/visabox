@@ -6,9 +6,6 @@ import { useRouter } from 'next/router';
 import { componentStatements, LanguageKeys, occupationItems } from '../const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { Languages, LocalStorageKeys } from 'Interfaces';
-import { SupportedCountry } from 'Interfaces/Database';
-import { getLocalStorage } from 'Utils';
 import { isUserLiveInIran } from 'Utils/country-state-city';
 
 function DesktopOccupationDropdown() {

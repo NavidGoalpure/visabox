@@ -1,11 +1,16 @@
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 import useDevice from 'Hooks/useDevice';
-import Desktop from './Desktop';
-import Mobile from './Mobile';
+import { lazy, Suspense } from 'react';
+
+const Mobile = lazy(() => import('./Mobile'));
+const Desktop = lazy(() => import('./Desktop'));
 
 function Content() {
   const { isMobile } = useDevice();
-
-  if (isMobile) return <Mobile />;
-  return <Desktop />;
+  return (
+    <Suspense fallback={<LoadingRow />}>
+      {isMobile ? <Mobile /> : <Desktop />}
+    </Suspense>
+  );
 }
 export default Content;

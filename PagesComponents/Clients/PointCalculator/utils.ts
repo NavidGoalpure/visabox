@@ -1,4 +1,4 @@
-import { object, string, date, mixed, boolean, array } from "yup";
+import { object, string, date, mixed, boolean, array } from 'yup';
 import {
   AustralianWorkExperience,
   ClientCompletedForms,
@@ -9,9 +9,9 @@ import {
   IELTSScore,
   UniSections,
   WorkExperience,
-} from "Interfaces/Database/Client";
-import { Status, SupportedCountry } from "Interfaces/Database";
-import ErrorToast from "Elements/Toast/Error";
+} from 'Interfaces/Database/Client';
+import { Status, SupportedCountry } from 'Interfaces/Database';
+import ErrorToast from 'Elements/Toast/Error';
 // this is made for all_degrees
 const clientAllDegreesSchema = object().shape({
   label: mixed<ClientDegree>().oneOf(Object.values(ClientDegree)).required(),
@@ -54,18 +54,8 @@ export function validateClientDataWithYup(client: Client | undefined) {
     uni_section: mixed<UniSections>()
       .oneOf(Object.values(UniSections))
       .required(),
-    is_sharable: boolean(),
     status: mixed<Status>().oneOf(Object.values(Status)).required(),
     role: mixed<ClientRole>().oneOf(Object.values(ClientRole)).required(),
-    completed_forms: array().of(
-      object().shape({
-        forms: mixed<ClientCompletedForms>()
-          .oneOf(Object.values(ClientCompletedForms))
-          .required(),
-        _type: string().required(),
-        _key: string().required(),
-      })
-    ),
     australian_educational_qualification: boolean().required(),
     designated_regional_area_study: boolean().notRequired(),
     specialist_educational_qualification: boolean().required(),
@@ -78,7 +68,9 @@ export function validateClientDataWithYup(client: Client | undefined) {
   try {
     return userSchema.validateSync(client);
   } catch (error: unknown) {
-    ErrorToast("Data is wrong. Please try again");
+    ErrorToast('Data is wrong. Please try again');
+    console.error('error=', error);
+
     throw new Error(error as string);
   }
 }

@@ -1,20 +1,28 @@
+import { useEffect, useState, lazy, Suspense } from 'react';
 import useDevice from 'Hooks/useDevice';
-import { useEffect, useState } from 'react';
-import DesktopFooter from './DesktopFooter';
-import MobileFooter from './MobileFooter';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
+
+// Lazy load the footer components
+const DesktopFooter = lazy(() => import('./DesktopFooter'));
+const MobileFooter = lazy(() => import('./MobileFooter'));
 
 const SmartFooter = () => {
-  const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
   const { isLaptop } = useDevice();
+  const [screen, setScreen] = useState('MOBILE');
 
   useEffect(() => {
-    if (isLaptop) setScreen('DESKTOP');
+    setScreen(isLaptop ? 'DESKTOP' : 'MOBILE');
   }, [isLaptop]);
-  if (screen === 'MOBILE') {
-    return <MobileFooter />;
-  } else {
-    return <DesktopFooter />;
-  }
+
+  const renderFooter = () => {
+    if (screen === 'MOBILE') {
+      return <MobileFooter />;
+    } else {
+      return <DesktopFooter />;
+    }
+  };
+
+  return <Suspense fallback={<LoadingRow />}>{renderFooter()}</Suspense>;
 };
 
 export default SmartFooter;

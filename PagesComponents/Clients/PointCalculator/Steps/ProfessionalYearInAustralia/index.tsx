@@ -22,7 +22,7 @@ import { YesOrNo } from 'Consts/Client';
 import ErrorToast from 'Elements/Toast/Error';
 import SuccessToast from 'Elements/Toast/Success';
 import { LocalStorageKeys } from 'Interfaces';
-import { Status } from 'Interfaces/Database';
+import { Status, SupportedCountry } from 'Interfaces/Database';
 import {
   ClientCompletedForms_obj,
   ClientCompletedForms,
@@ -30,9 +30,9 @@ import {
   ClientRole,
 } from 'Interfaces/Database/Client';
 import { useSession } from 'next-auth/react';
-import { validateClientDataWithYup } from './utils';
+import { validateClientDataWithYup } from '../../utils';
 import { useQueryClient, useMutation } from 'react-query';
-import { removeLocalStorage } from 'Utils';
+import { getLocalStorage, removeLocalStorage } from 'Utils';
 import { ClientQueryKeys } from 'Utils/query/keys';
 
 const ProfessionalYearInAustraliaStep = () => {
@@ -82,12 +82,18 @@ const ProfessionalYearInAustraliaStep = () => {
       const fullData: Client | undefined = client
         ? {
             ...client,
-            is_sharable: getSmartIsSharable(client?.completed_forms),
+            country:
+              (getLocalStorage(LocalStorageKeys.Country) as SupportedCountry) ||
+              SupportedCountry.Australia,
+            // remove is_sharable everywhere needs
+            // is_sharable: getSmartIsSharable(client?.completed_forms),
             role: ClientRole.Normal,
             status: Status.ACTIVE,
-            completed_forms: getSmartCompletedForms(client?.completed_forms),
+            // remove completed_forms everywhere needs
+            // completed_forms: getSmartCompletedForms(client?.completed_forms),
           }
         : undefined;
+      console.log('navid fulldata=', fullData);
 
       // ولیدیت دیتایی که به سرور فرستاده میشه
       const validatedData = validateClientDataWithYup(fullData);

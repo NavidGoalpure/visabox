@@ -12,9 +12,6 @@ import theme from 'styled-theming';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys, occupationItems } from '../const';
 import Link from 'next/link';
-import { LocalStorageKeys } from 'Interfaces';
-import { SupportedCountry } from 'Interfaces/Database';
-import { getLocalStorage } from 'Utils';
 import { isUserLiveInIran } from 'Utils/country-state-city';
 
 const MobileOccupationDropdown = () => {

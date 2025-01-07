@@ -11,7 +11,7 @@ export const layer2A_HeaderBG = theme('mode', {
     background-color: var(--color-gray7);
   `,
 });
-export const layer2A_Bg = theme("mode", {
+export const layer2A_Bg = theme('mode', {
   light: css`
     background: var(--color-gray13);
     box-shadow: var(--box-shadow-layer2);
@@ -31,10 +31,10 @@ export const layer2A_TitleColor = theme('mode', {
 });
 export const layer2A_SubtitleColor = theme('mode', {
   light: css`
-    color: var(--color-gray7);
+    color: var(--color-primary2);
   `,
   dark: css`
-    color: var(--color-gray13);
+    color: var(--color-primary6);
   `,
 });
 export const layer2A_TextColor = theme('mode', {

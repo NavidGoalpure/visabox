@@ -37,7 +37,7 @@ export const testOccupation: OccupationDetailRes = {
         TAS: 'NS',
         VIC: 'NS',
         WA: 'NS',
-        year: '2022-01-01',
+        year: '2023-01-01',
       },
     ],
     specialisations: {

@@ -13,7 +13,7 @@ import { SmartButton } from './SmartButton';
 import { useEffect, useState } from 'react';
 import CardsSection from './CardsSection';
 import { useOldestBasicForm } from './useOldestBasicForm';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 
 function Content() {
   const { t } = useStaticTranslation(componentStatements);

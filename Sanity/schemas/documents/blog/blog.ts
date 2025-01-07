@@ -69,22 +69,6 @@ export default {
       type: 'blockContent_obj',
     },
     {
-      name: 'qa',
-      title: 'Question/Answer',
-      type: 'array',
-      of: [
-        {
-          name: 'qa-obj',
-          title: 'QA-Object',
-          type: 'object',
-          fields: [
-            { name: 'question', title: 'Question', type: 'string' },
-            { name: 'answer', title: 'Answer', type: 'string' },
-          ],
-        },
-      ],
-    },
-    {
       name: 'otherArticles',
       title: 'Other Articles',
       type: 'array',

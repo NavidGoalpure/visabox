@@ -2,8 +2,7 @@ import MarcyaMovingRobot from './Images/MarcyaMovingRobot.svg';
 import { useLocale } from 'Hooks/useLocale';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { HTMLAttributes, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { GsapSectionAnimation_2 } from '../utils';
+import styled from 'styled-components';
 import { componentStatements, LanguageKeys } from './const';
 import {
   Container,
@@ -20,9 +19,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
   ...props
 }) => {
   const { t } = useStaticTranslation(componentStatements);
-  useEffect(() => {
-    GsapSectionAnimation_2('exchanges');
-  }, []);
+
   const { locale } = useLocale();
   return (
     <Container {...props}>

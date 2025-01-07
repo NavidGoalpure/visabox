@@ -1,15 +1,25 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, {
+  ReactNode,
+  useEffect,
+  useState,
+  lazy,
+  Suspense,
+  useCallback,
+} from 'react';
 import { HTMLAttributes } from 'react';
 import useDevice from 'Hooks/useDevice';
-import { MobileTabItem as Mobile } from './Mobile';
-import { DesktopTabItem_Top as DesktopTop } from './DesktopTop';
 import { deviceSize } from 'Consts/device';
+import { Loading } from 'Elements/Loading/Loading';
+
+const Mobile = lazy(() => import('./Mobile'));
+const DesktopTop = lazy(() => import('./DesktopTop'));
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
   value: string;
   icon: ReactNode;
 }
+
 export const TabItem: React.FC<Props> = ({ title, value, icon }) => {
   const { useMediaQuery } = useDevice();
   const [screen, setScreen] = useState<'MOBILE' | 'DESKTOP'>('MOBILE');
@@ -17,17 +27,27 @@ export const TabItem: React.FC<Props> = ({ title, value, icon }) => {
   const islaptopS = useMediaQuery({
     maxWidth: deviceSize.laptopXS,
   });
-  useEffect(() => {
+
+  const setScreenSize = useCallback(() => {
     if (!islaptopS) setScreen('DESKTOP');
-  }, []);
-  return screen === 'MOBILE' ? (
-    <Mobile title={title} value={value} icon={icon} />
-  ) : (
-    <DesktopTop
-      title={title}
-      value={value}
-      icon={icon}
-      data-testid='sidebar-head'
-    />
+  }, [islaptopS]);
+
+  useEffect(() => {
+    setScreenSize();
+  }, [setScreenSize]);
+
+  return (
+    <Suspense fallback={<Loading />}>
+      {screen === 'MOBILE' ? (
+        <Mobile title={title} value={value} icon={icon} />
+      ) : (
+        <DesktopTop
+          title={title}
+          value={value}
+          icon={icon}
+          data-testid='sidebar-head'
+        />
+      )}
+    </Suspense>
   );
 };

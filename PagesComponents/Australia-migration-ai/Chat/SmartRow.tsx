@@ -1,10 +1,7 @@
 import { useMutation } from 'react-query';
-import { useSession } from 'next-auth/react';
 import QuestionRow from './InputRow';
 import MustLogin from './MustLogin';
 import NoCredit from './NoCredit';
-import { UserRole } from 'Interfaces/Database';
-import { FREE_CREDIT_THRESHOLD } from './const';
 import { useContext } from 'react';
 import { AiChatContext } from './hooks/useAiCredit';
 

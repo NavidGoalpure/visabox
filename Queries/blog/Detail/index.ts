@@ -2,7 +2,6 @@ const getBlogDetailQuery = (): string => {
   const query = `*[_type=='blog' && status=='active' && !(_id in path('drafts.**')) && slug.current == $slug] [0]
    {
   _id,
-  qa,
 hashtag,
 language,
 body,

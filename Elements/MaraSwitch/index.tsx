@@ -1,11 +1,11 @@
-import * as RdxSwitch from "@radix-ui/react-switch";
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import theme from "styled-theming";
-import { ThemeModes } from "Interfaces";
-import { Loading } from "Elements/Loading";
-import { IoMdClose } from "react-icons/io";
-import { AiOutlineCheck } from "react-icons/ai";
+import * as RdxSwitch from '@radix-ui/react-switch';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+import theme from 'styled-theming';
+import { ThemeModes } from 'Interfaces';
+import { Loading } from 'Elements/Loading/Loading';
+import { IoMdClose } from 'react-icons/io';
+import { AiOutlineCheck } from 'react-icons/ai';
 interface Props {
   isChecked?: boolean;
   onCheckedChange?: () => void;
@@ -16,17 +16,18 @@ const MaraSwitch: React.FC<Props> = ({
   isLoading = false,
   onCheckedChange,
 }) => {
-  if (isLoading || isChecked === undefined) return <Loading style={{ width: "auto" }} />;
+  if (isLoading || isChecked === undefined)
+    return <Loading style={{ width: 'auto' }} />;
   return (
     <SwitchRoot
-      aria-label={isChecked ? "checked" : "not checked"}
+      aria-label={isChecked ? 'checked' : 'not checked'}
       checked={isChecked}
       onCheckedChange={() => {
         onCheckedChange && onCheckedChange();
       }}
     >
       <SwitchThumb>
-        {" "}
+        {' '}
         {isChecked ? <CheckedIcon /> : <NotCheckedIcon />}
       </SwitchThumb>
     </SwitchRoot>
@@ -34,7 +35,7 @@ const MaraSwitch: React.FC<Props> = ({
 };
 
 export default MaraSwitch;
-const NotCheckedColorTheme = theme("mode", {
+const NotCheckedColorTheme = theme('mode', {
   light: css`
     border-color: var(--color-gray10);
     background: var(--color-gray12);
@@ -44,7 +45,7 @@ const NotCheckedColorTheme = theme("mode", {
     background: var(--color-gray5);
   `,
 });
-const CheckedBorderColor = theme("mode", {
+const CheckedBorderColor = theme('mode', {
   light: css`
     border-color: var(--color-gray9);
     background: var(--color-secondary4);
@@ -54,7 +55,7 @@ const CheckedBorderColor = theme("mode", {
     background: var(--color-secondary4);
   `,
 });
-const NotCheckedThumbColor = theme("mode", {
+const NotCheckedThumbColor = theme('mode', {
   light: css`
     background-color: var(--color-gray10);
   `,
@@ -62,7 +63,7 @@ const NotCheckedThumbColor = theme("mode", {
     background-color: var(--color-gray8);
   `,
 });
-const CheckedThumbColor = theme("mode", {
+const CheckedThumbColor = theme('mode', {
   light: css`
     background-color: var(--color-gray9);
   `,
@@ -70,7 +71,7 @@ const CheckedThumbColor = theme("mode", {
     background-color: var(--color-gray9);
   `,
 });
-const CrossColor = theme("mode", {
+const CrossColor = theme('mode', {
   light: css`
     color: var(--color-gray12);
   `,
@@ -92,7 +93,7 @@ const SwitchRoot = styled(RdxSwitch.Root)`
   align-items: center;
   direction: ltr;
   scale: 0.7;
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     justify-content: flex-end;
     ${CheckedBorderColor};
   }
@@ -110,7 +111,7 @@ const SwitchThumb = styled(RdxSwitch.Thumb)`
   display: flex;
   align-items: center;
   justify-content: center;
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     width: 75%;
     transform: translateX(3px);
     ${CheckedThumbColor};

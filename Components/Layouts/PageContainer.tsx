@@ -1,19 +1,20 @@
-import Footer from 'Components/Footer';
-import ToasterContainer from 'Components/ToasterContainer';
-import { deviceMin } from 'Consts/device';
-import React, { HTMLAttributes, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { directionStyles } from 'Styles/Theme';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import Header from '../NavigationMenu';
-import { Loading } from 'Elements/Loading';
-import SmartBanner from 'Components/SmartBanner';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from './const';
-import { setSessionStorage } from 'Utils';
-import { SessionStorageKeys } from 'Interfaces';
-import { mustShowSmartBannerBaseOnUrl } from './utils';
-import { useRouter } from 'next/router';
+import Footer from "Components/Footer";
+import ToasterContainer from "Components/ToasterContainer";
+import { deviceMin } from "Consts/device";
+import React, { HTMLAttributes, useEffect, useState } from "react";
+import styled from "styled-components";
+import { directionStyles } from "Styles/Theme";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import Header from "../NavigationMenu";
+import { Loading } from "Elements/Loading/Loading";
+import SmartBanner from "Components/SmartBanner";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "./const";
+import { setSessionStorage } from "Utils";
+import { SessionStorageKeys } from "Interfaces";
+import { useRouter } from "next/router";
+import LazyLoadComponentUi from "Elements/LazyLoadComponentUi";
+import { useLocale } from "Hooks/useLocale";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   hasFooter?: boolean;
@@ -31,9 +32,10 @@ const PageContainer: React.FC<Props> = ({
   const { t } = useStaticTranslation(componentStatements);
   const router = useRouter();
   const [hasWindow, setHasWindow] = useState<boolean>(false);
+  const { locale } = useLocale();
   // this is needed in order to verify serverside rendering is over and it is on the client side
   useEffect(() => {
-    if (typeof window !== 'undefined') setHasWindow(true);
+    if (typeof window !== "undefined") setHasWindow(true);
   }, []);
   if (!hasWindow)
     return (
@@ -46,64 +48,22 @@ const PageContainer: React.FC<Props> = ({
     <Container {...props}>
       <ToasterContainer />
       {hasMenu && <Header />}
-      {mustShowSmartBannerBaseOnUrl(router) && (
+      {hasBanner && (
         <SmartBanner
-          navigateTo={'/australia-migration-ai/chat'}
+          navigateTo={`/${locale}/clients/point-calculator`}
           desc={
             <div
-              dangerouslySetInnerHTML={{ __html: t(LanguageKeys.BannerDesc) }}
-            />
+              dangerouslySetInnerHTML={{
+                __html: t(LanguageKeys.BannerDesc),
+              }}></div>
           }
+          stampText={t(LanguageKeys.StampText)}
           buttonText={t(LanguageKeys.BannerButtonText)}
-          onClose={() => {
-            setSessionStorage({
-              key: SessionStorageKeys.isCloseMarcyaBanner,
-              value: 'true',
-            });
-          }}
+          onClose={function (): void {}}
         />
       )}
-      {/* {hasBanner &&
-        (
-        !isAgencyLogedIn() && (
-          <SmartBanner
-            navigateTo={`/${locale}/clients/request-agent`}
-            desc={
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: bannerDesc,
-                }}
-              ></div>
-            }
-            buttonText={buttonText}
-            stampText={stampText}
-          />
-        )} */}
-      {/* <Survay.Root
-        title={{
-          en: 'How do you prefer to do the legal procedures of immigration?',
-          fa: 'ترجیح میدهید برای رفتن به مهاجرت چه روشی را انتخاب کنید؟',
-        }}
-      >
-        <MultiChoice>
-          <Item
-            value={'foo1'}
-            text={{
-              en: 'Lawer',
-              fa: 'وکیل',
-            }}
-          />
-          <Item
-            value={'foo'}
-            text={{
-              en: 'Myself',
-              fa: 'خودم',
-            }}
-          />
-        </MultiChoice>
-      </Survay.Root> */}
-      <Content id='PageContainer-content'>{children}</Content>
-      {hasFooter && <Footer />}
+      <Content id="PageContainer-content">{children}</Content>
+      <LazyLoadComponentUi>{hasFooter && <Footer />}</LazyLoadComponentUi>
     </Container>
   );
 };

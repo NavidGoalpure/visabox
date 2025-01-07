@@ -5,24 +5,20 @@ import {
   Layer1_TitleStyle,
   Layer1_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-import {
-  componentStatements,
-  FREE_CREDIT_THRESHOLD,
-  LanguageKeys,
-} from './const';
+import { componentStatements, LanguageKeys } from './const';
 import { useFixie } from 'fixie/web';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { layer2A_BodyStyle } from 'Styles/Theme/Layers/layer2/style';
 import ShowConversation from './ShowConversation';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { ChatScrollAnchor } from './chatScrollAnchor';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useSession } from 'next-auth/react';
 
 import SmartRow from './SmartRow';
-import { AiChatContext, AiChatContextProvider } from './hooks/useAiCredit';
-import { findSmartHeight } from 'Elements/Select/utils';
+import { AiChatContext } from './hooks/useAiCredit';
 import useDevice from 'Hooks/useDevice';
+import ServiceIsDown from './ThisServiceIsDown';
 
 interface Props {
   aiAgentId: string;
@@ -56,7 +52,8 @@ function Content({ aiAgentId }: Props) {
           __html: t(LanguageKeys.QuestionRemain, [
             // به عدد باقیمانده سوالات ۳ تا اضافه میکنیم چون همیشه ۳ ا اشانتیون وجود دارد
             {
-              $number: questionRemain.toString(),
+              // $number: questionRemain.toString(),
+              $number: '0',
             },
           ]),
         }}
@@ -70,8 +67,10 @@ function Content({ aiAgentId }: Props) {
           {isLoading && <Loading />}
           <ChatScrollAnchor trackVisibility={isLoading} />;
         </Scroll>
-
-        <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
+        {/* اسمارت رو، تصمیم میگره که چت رو نشون بده یا لاگین رو یا پیام تموم شدن اعتبار */}
+        {/* اما در حال حاضر به خاطر اینکه این سرویس رو غیر فعال کردین کامنت شده */}
+        {/* <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} /> */}
+        <ServiceIsDown />
       </ChatArea>
       {isMobile && (
         <Hint

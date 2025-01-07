@@ -14,7 +14,7 @@ import {
 import MobileLanguageChanger from './LanguageChanger';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, getGsapTimeLine, LanguageKeys } from '../const';
+import { componentStatements, LanguageKeys } from '../const';
 import OccupationDropdown from './dropdownOccupation';
 import MobileBoxesDropdown from './dropdownLists';
 import { useSession } from 'next-auth/react';
@@ -23,33 +23,13 @@ import { Languages, LocalStorageKeys } from 'Interfaces';
 import { setLocalStorage } from 'Utils';
 import { isAgencyLogedIn } from 'Utils/user';
 import MobileFormsDropdown from './dropdownForms';
-import MobileMarcyaDropdown from './dropdownMarcya';
 
 function SmartHeader() {
-  const [isMenuClicked, setIsMenuClicked] = useState<boolean | null>(null);
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const { locale } = useLocale();
 
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
-  const hamburgerAnimationRef = useRef<gsap.core.Timeline>();
-  const popupAnimationRef = useRef<gsap.core.Timeline>();
-  useEffect(
-    () => getGsapTimeLine({ hamburgerAnimationRef, popupAnimationRef }),
-    []
-  );
-  useEffect(() => {
-    document.body.style.overflow = 'unset';
-    if (isMenuClicked) {
-      popupAnimationRef.current?.restart();
-      hamburgerAnimationRef.current?.restart();
-      document.body.style.overflow = 'hidden';
-    }
-    if (isMenuClicked === false) {
-      popupAnimationRef.current?.reverse();
-      hamburgerAnimationRef.current?.reverse();
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMenuClicked]);
 
   return (
     <Container>
@@ -70,44 +50,46 @@ function SmartHeader() {
           </Signin>
         )}
 
-        <MenuPopupContainer id={'popup'}>
-          <ScrollBox id={'scrollbox'} height={'18rem'}>
-            <MenuPopupWrapper>
-              <Nav>
-                <MenuLink href={`/${locale}`}>{t(LanguageKeys.Home)}</MenuLink>
+        {isMenuClicked && (
+          <MenuPopupContainer id={'popup'}>
+            <ScrollBox id={'scrollbox'} height={'18rem'}>
+              <MenuPopupWrapper>
+                <Nav>
+                  <MenuLink href={`/${locale}`}>
+                    {t(LanguageKeys.Home)}
+                  </MenuLink>
+                  <Hr />
+                </Nav>
+                <MobileBoxesDropdown />
                 <Hr />
-              </Nav>
-              <MobileMarcyaDropdown />
-              <Hr />
-              <MobileBoxesDropdown />
-              <Hr />
-              <OccupationDropdown />
-              <Hr />
-              {!isAgencyLogedIn() && <MobileFormsDropdown />}
-              {locale !== Languages.zh && (
-                <>
-                  <Hr />
-                  <MenuLink href={`/${locale}/blog`}>
-                    {t(LanguageKeys.Blogs)}
-                  </MenuLink>
-                </>
-              )}
-              {isAgencyLogedIn() && (
-                <>
-                  <Hr />
-                  <MenuLink href={`/${locale}/agency/forms-wall`}>
-                    {t(LanguageKeys.FormsWall)}
-                  </MenuLink>
-                </>
-              )}
-              <Hr />
-              <RowContainer>
-                <MobileLanguageChanger />
-                <SwitchTheme />
-              </RowContainer>
-            </MenuPopupWrapper>
-          </ScrollBox>
-        </MenuPopupContainer>
+                <OccupationDropdown />
+                <Hr />
+                {!isAgencyLogedIn() && <MobileFormsDropdown />}
+                {locale !== Languages.zh && (
+                  <>
+                    <Hr />
+                    <MenuLink href={`/${locale}/blog`}>
+                      {t(LanguageKeys.Blogs)}
+                    </MenuLink>
+                  </>
+                )}
+                {isAgencyLogedIn() && (
+                  <>
+                    <Hr />
+                    <MenuLink href={`/${locale}/agency/forms-wall`}>
+                      {t(LanguageKeys.FormsWall)}
+                    </MenuLink>
+                  </>
+                )}
+                <Hr />
+                <RowContainer>
+                  <MobileLanguageChanger />
+                  <SwitchTheme />
+                </RowContainer>
+              </MenuPopupWrapper>
+            </ScrollBox>
+          </MenuPopupContainer>
+        )}
         <MenuBurger
           id={`hamburg`}
           onClick={() => setIsMenuClicked(!isMenuClicked)}
@@ -153,7 +135,7 @@ const MenuPopupContainer = styled.div`
   height: 100vh;
   position: absolute;
   top: 0;
-  left: -100vw;
+  left: 0;
   padding-top: 6.5rem;
   z-index: 3;
   #scrollbox {

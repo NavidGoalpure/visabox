@@ -13,7 +13,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   value: string;
   icon: ReactNode;
 }
-export const DesktopTabItem_Top: React.FC<Props> = ({
+const DesktopTabItem_Top: React.FC<Props> = ({
   title,
   value,
   icon,
@@ -33,6 +33,7 @@ export const DesktopTabItem_Top: React.FC<Props> = ({
     </TabsTrigger>
   );
 };
+export default DesktopTabItem_Top;
 //////////////////////////
 const contentContainerActiveColor = theme('mode', {
   light: css`

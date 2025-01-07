@@ -29,8 +29,6 @@ import Link from 'next/link';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import PagesConnectorCard from 'Components/Cards/Type1/PagesConnectorCard/PagesConnectorCard';
-import { MaraAccordion } from 'Elements/Accordion';
-import { Headline4Style } from 'Styles/Typo';
 
 interface Props {
   blog: IBlog;
@@ -77,14 +75,7 @@ const BlogContent: React.FC<Props> = ({ blog }) => {
           })}
         </MoreBlogsCardsContainer>
       </MoreBlogsContainer>
-      {blog?.qa && <QATitle>{t(LanguageKeys.QATitle)}</QATitle>}
-      {blog?.qa?.map((qa) => (
-        <MaraAccordion
-          triggerText={qa.question}
-          content={qa?.answer}
-          backgroundLayer={'1'}
-        />
-      ))}
+
       <HintBG>
         <HintTitle>{t(LanguageKeys.HintTitle)}</HintTitle>
         <HintText>
@@ -233,12 +224,7 @@ const HintBG = styled.section`
 const HintTitle = styled.h4`
   ${Hint_TitleStyle}
 `;
-const QATitle = styled(HintTitle)`
-  ${Headline4Style};
-  ${directionStyles};
-  text-align: center !important;
-  color: var(--color-primary6) !important;
-`;
+
 const HintText = styled.p`
   ${Hint_TextStyle}
 `;

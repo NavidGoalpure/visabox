@@ -16,6 +16,7 @@ import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
 import SwitchTheme from 'Components/NavigationMenu/switchTheme';
 import { BiWorld } from 'react-icons/bi';
 import { getUserCountry, isUserLiveInIran } from 'Utils/country-state-city';
+import { LoadingRow } from 'Elements/Loading/LoadingRow';
 // Lazy load CountryModal
 const CountryModal = lazy(() => import('Components/CountryModal'));
 
@@ -30,7 +31,7 @@ function DesktopFooter() {
 
   return (
     <Container>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoadingRow />}>
         {mustShowCountryModal && (
           <CountryModal
             isOpen={mustShowCountryModal}
@@ -82,12 +83,6 @@ function DesktopFooter() {
                 {t(LanguageKeys.UniversitySection)}
               </Items>
             )}
-            <Items
-              href={`/australia-migration-ai/chat`}
-              data-name={t(LanguageKeys.AssessingAuthority)}
-            >
-              {t(LanguageKeys.AskMarcya)}
-            </Items>
           </CenterItemsContainer>
           <LeftSideContainer locale={locale}>
             <ContactUs>{t(LanguageKeys.ContactUs)}</ContactUs>

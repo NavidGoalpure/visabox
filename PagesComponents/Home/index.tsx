@@ -7,17 +7,16 @@ import Banner from '../../Components/Banner';
 import { componentStatements, LanguageKeys } from './const';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import AgentsSection from './AgentsSection';
-
+import LazyLoadComponentUi from 'Elements/LazyLoadComponentUi';
 const HomeContent: React.FC = () => {
   const { locale } = useLocale();
 
   const { t } = useStaticTranslation(componentStatements);
-
   return (
     <>
       <Hero />
       <Container id='section-container'>
-        <Banner
+        {/* <Banner
           navigateTo={`/${locale}/australia-migration-ai/chat`}
           desc={
             <div
@@ -26,11 +25,12 @@ const HomeContent: React.FC = () => {
           }
           stampText={t(LanguageKeys.StampText)}
           buttonText={t(LanguageKeys.BannerButtonText)}
-        />
-
-        <OccupationSection className='section' />
-        <AgentsSection className='section' />
-        <MarcyaSection className='section' />
+        /> */}
+        <LazyLoadComponentUi>
+          <OccupationSection className='section' />
+          <AgentsSection className='section' />
+          {/* <MarcyaSection className='section' /> */}
+        </LazyLoadComponentUi>
       </Container>
     </>
   );

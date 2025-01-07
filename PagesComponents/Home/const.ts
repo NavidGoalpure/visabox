@@ -28,13 +28,13 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     <h3>
        Your AI Guide to Australian Immigration
     </h3>
-    <p>Navigating the complexities of Australian immigration? Let <span>Marcya</span> be your AI-powered companion. From assessment systems to visa processes and the latest updates, <span>Marcya</span> provides expert guidance tailored to your needs.</p>
+    <p> From assessment systems to visa processes and the latest updates, <span>Marcya</span> provides expert guidance tailored to your needs.</p>
   </div>`,
     fa: `<div>
     <h3>
-       راهنمای هوش مصنوعی شما در موضوع مهاجرت به استرالیا
+       دستیار هوش مصنوعی شما در مهاجرت به استرالیا
     </h3>
-    <p>در پیچیدگی‌های مهاجرت به استرالیا گم شده‌اید؟ به <span>مارسیا</span> به عنوان همراه قدرتمند هوش مصنوعی خود متوسل شوید. از سیستم‌های ارزیابی گرفته تا روند اخذ ویزا و به‌روزرسانی‌های جدید، <span>مارسیا</span> به شما راهنمایی تخصصی ارائه می‌دهد.</p>
+    <p> از سیستم‌های ارزیابی گرفته تا روند اخذ ویزا و به‌روزرسانی‌های جدید،  سوالات خود را از<span>مارسیا</span> بپرسید.</p>
   </div>`,
     zh: `<div>
     <h3>

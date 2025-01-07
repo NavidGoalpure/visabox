@@ -10,9 +10,7 @@ import {
   Title,
   ViewAll,
 } from './styledComponents';
-import { HTMLAttributes, useEffect } from 'react';
-import { GsapSectionAnimation_1 } from '../utils';
-import { Exchanges } from 'Consts/Lists/exchages';
+import { HTMLAttributes } from 'react';
 import ExchangeCard from 'Components/Lists/Exchange/ExchangeCard';
 
 const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -20,9 +18,6 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  useEffect(() => {
-    GsapSectionAnimation_1('Agent');
-  }, []);
 
   return (
     <>
@@ -33,13 +28,14 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             slug={ExampleAgent?.slug?.current || ''}
             agencies={ExampleAgent?.agencies}
             layerContext='1'
+            hasAvatar={ExampleAgent?.hasAvatar}
           />
+
           {/* <StyledExchangeCard {...Exchanges[1]} /> */}
         </Side>
         <Side className='Agent-text-section'>
           <Title>{t(LanguageKeys.Title)}</Title>
           <Subtitle>{t(LanguageKeys.Subtitle)}</Subtitle>
-
           <StyledLink href={`${locale}/lists/agents`}>
             <ViewAll id={`home_all-agents_${locale}`}>
               {t(LanguageKeys.CTA)}
@@ -53,10 +49,12 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
 export default DesktopIndex;
 const Side = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 const StyledCard = styled(AgentCard)`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const StyledExchangeCard = styled(ExchangeCard)``;

@@ -16,7 +16,8 @@ import Seo from 'Components/Seo';
 import { FiltersContextProvider } from 'PagesComponents/Agents/List/Context/SearchFilter';
 import { AgentsQueryKeys } from 'Utils/query/keys';
 import { useRouter } from 'next/router';
-import { getCountryBasedOnSymbol } from 'Utils/country-state-city';
+import React from 'react';
+import { getSpecificCountryBasedOnSymbol } from 'Utils/country-state-city';
 
 interface Props {
   statusCode: number | null;
@@ -34,10 +35,10 @@ const AgentList: NextPage<Props> = ({ statusCode }) => {
   function getSeoTitle(countrySymbol: string | undefined): string {
     if (!countrySymbol) return t(LanguageKeys.SeoDesc);
     else {
-      const country = getCountryBasedOnSymbol(countryInUrlParam);
+      const country = getSpecificCountryBasedOnSymbol(countryInUrlParam);
       return t(LanguageKeys.SeoTitleWithCountry, [
         {
-          $countryName: country?.name || '',
+          $countryName: country || '',
         },
       ]);
     }

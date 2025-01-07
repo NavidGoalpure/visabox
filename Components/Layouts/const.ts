@@ -3,17 +3,22 @@ import { MultiLanguageText } from 'Interfaces/Database';
 export enum LanguageKeys {
   BannerDesc = 'BannerDesc',
   BannerButtonText = 'BannerButtonText',
+  StampText = 'StampText',
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   BannerDesc: {
-    en: 'Need Answers on Australian <span>Migration?</span>',
-    fa: 'اگه درباره مهاجرت به استرالیا <span>سوال</span> داری؟',
-    zh: '需要关于<span>澳大利亚移民</span>的答案吗？',
+    en: "Free Consultation: Let's Discuss <span>Your Options</span>",
+    fa: 'فرم مشاوره رایگان با وکیل مارا به همراه <span>محاسبه امتیاز شما</span> ',
+    zh: '为您获得专业帮助 <span>移民</span>',
   },
-
   BannerButtonText: {
-    en: 'Ask AI',
-    fa: 'از AI بپرس',
-    zh: '与AI聊天',
+    en: 'Assessment form',
+    fa: 'فرم ارزیابی',
+    zh: '评估表',
+  },
+  StampText: {
+    en: 'Point Calculator',
+    fa: 'ماشین حساب امتیازات',
+    zh: '积分计算器',
   },
 };

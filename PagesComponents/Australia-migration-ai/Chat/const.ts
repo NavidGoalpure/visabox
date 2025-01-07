@@ -60,7 +60,9 @@ export const LOOKUP_STORE: Record<ILookupEnum, string> = {
   lookUpKnowEA: ' EA Documents',
   lookUpKnowRegionsStates: 'States And Territories Documents',
   lookUpKnowSkillWorker: 'Skilled Worker Documents',
+  lookUpKnowAPharmC: 'APharmC Documents',
+  lookUpKnowACWA: 'ACWA Documents',
   loadBySimilarity: 'Similarity Documents',
 };
 
-export const FREE_CREDIT_THRESHOLD = -3;
+export const FREE_CREDIT_THRESHOLD = -5;

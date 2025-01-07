@@ -207,13 +207,6 @@ const Title = styled.section`
   span {
     color: var(--color-primary5);
   }
-  @media ${deviceMin.tabletS} {
-    width: 0;
-    animation: ${typing} 3s steps(30, end) forwards, ${blinking} 1s infinite;
-    border-inline-end: 2px solid;
-    margin: 0 auto;
-    white-space: nowrap;
-  }
 `;
 
 const Button = styled(SecondaryButton)`

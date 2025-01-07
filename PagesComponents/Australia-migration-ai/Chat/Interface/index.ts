@@ -6,6 +6,8 @@ enum ILookupEnum {
   lookUpKnowTRA = 'lookUpKnowTRA',
   lookUpKnowRegionsStates = 'lookUpKnowRegionsStates',
   lookUpKnowSkillWorker = 'lookUpKnowSkillWorker',
+  lookUpKnowAPharmC = 'lookUpKnowAPharmC',
+  lookUpKnowACWA = 'lookUpKnowACWA',
   loadBySimilarity = 'loadBySimilarity',
 }
 export type { ILookupEnum };

@@ -14,7 +14,7 @@ import { useSession } from 'next-auth/react';
 import { getClientDetail } from 'Queries/client';
 import { useQuery } from 'react-query';
 import { ClientQueryKeys } from 'Utils/query/keys';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { ContentOrError } from 'Components/contentOrError';
 import ErrorToast from 'Elements/Toast/Error';
 import { Point_Calculator_Fragment } from 'Consts/GroqFragments';
@@ -82,6 +82,7 @@ const UserForms: NextPage = ({}) => {
           title={t(LanguageKeys.SeoTitle)}
           description={t(LanguageKeys.SeoDesc)}
           canonical={`https://www.marabox.com.au/${locale}/clients/point-calculator`}
+          isNoIndex={true}
         />
         {isLoading ? (
           <Loading style={{ width: 'auto' }} />

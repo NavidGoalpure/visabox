@@ -86,7 +86,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 };
-
 const StyledPageLayout = styled(PageLayout)`
   #PageContainer-content {
     padding: 0;

@@ -56,15 +56,13 @@ export default function SignInContent({ authProviders }: Props) {
         <RoleBoxContainer>
           <RoleBox
             isActive={userRole === UserRole.Client}
-            onClick={() => setUserRole(UserRole.Client)}
-          >
+            onClick={() => setUserRole(UserRole.Client)}>
             <RoleUserIcon isActive={userRole === UserRole.Client} />
             {t(LanguageKeys.ClientTitle)}
           </RoleBox>
           <RoleBox
             isActive={userRole === UserRole.Agency}
-            onClick={() => setUserRole(UserRole.Agency)}
-          >
+            onClick={() => setUserRole(UserRole.Agency)}>
             <RoleInstitueIcon isActive={userRole === UserRole.Agency} />
             {t(LanguageKeys.AgentTitle)}
           </RoleBox>
@@ -92,8 +90,7 @@ export default function SignInContent({ authProviders }: Props) {
 
                   signIn(provider.id);
                 }}
-                key={i}
-              >
+                key={i}>
                 {provider.name === "Google" && <GoogleIcon />}
                 {provider.name === "Discord" && <DiscordIcon />}
                 Sign in with {provider.name}

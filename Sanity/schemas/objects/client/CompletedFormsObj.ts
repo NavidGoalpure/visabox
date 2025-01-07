@@ -11,6 +11,7 @@ export default {
         list: [
           { title: 'Basic Form', value: 'basic_form' },
           { title: 'Extended From', value: 'extended_from' },
+          { title: 'Blank', value: '' },
         ],
       },
       layout: 'radio',

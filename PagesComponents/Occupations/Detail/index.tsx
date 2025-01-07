@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import ToggleTag from 'Elements/ToggleTag';
 import styled, { css } from 'styled-components';
 import { SidebarPage } from './sideBar';
@@ -22,6 +22,7 @@ import {
   Layer1_SubtitleStyle,
   Layer1_TextStyle,
 } from 'Styles/Theme/Layers/layer1/style';
+import LazyLoadComponentUi from 'Elements/LazyLoadComponentUi';
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -97,13 +98,14 @@ const Content: React.FC<Props> = ({ occupation }) => {
       {/*  */}
       {/*********** SideBar ***************/}
       {occupation && <SidebarPage occupation={occupation} />}
-
       {/**********Similar Occupation***** */}
       {occupation.similarOccupations && (
-        <SimilarOccupations
-          similarOccupations={occupation.similarOccupations}
-          currentCode={occupation?.code}
-        />
+        <LazyLoadComponentUi>
+          <SimilarOccupations
+            similarOccupations={occupation.similarOccupations}
+            currentCode={occupation?.code}
+          />
+        </LazyLoadComponentUi>
       )}
     </Container>
   );

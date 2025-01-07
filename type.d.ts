@@ -4,3 +4,7 @@ declare module '*module.css' {
   };
   export default styles;
 }
+declare module 'isbot-fast' {
+  function isbot(userAgent: string): boolean;
+  export = isbot;
+}

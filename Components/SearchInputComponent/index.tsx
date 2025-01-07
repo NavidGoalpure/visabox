@@ -6,7 +6,7 @@ import theme from 'styled-theming';
 import { Headline7Style } from 'Styles/Typo';
 import { iran } from 'Consts/Occupations/university';
 import { Card } from './Card';
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import { IoCloseOutline } from 'react-icons/io5';
 import { UniSections } from 'Interfaces/Database/Client';
 import {

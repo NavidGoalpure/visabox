@@ -1,4 +1,4 @@
-import { Loading } from 'Elements/Loading';
+import { Loading } from 'Elements/Loading/Loading';
 import ErrorToast from 'Elements/Toast/Error';
 import SuccessToast from 'Elements/Toast/Success';
 import { useLocale } from 'Hooks/useLocale';

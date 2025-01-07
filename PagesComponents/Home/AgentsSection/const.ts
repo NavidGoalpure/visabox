@@ -24,50 +24,34 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
 };
 /////////////////
 export const ExampleAgent: MaraAgent = {
-  _id: '58e26e02-a352-e311-9402-005056ab0eca',
+  _id: 'a95d12a2-8ab0-4568-92c2-b08e4fd0aabb',
   slug: {
-    current: 'mohammad-azimi',
+    current: 'majid-panahandeh-fard',
     _type: 'slug',
   },
   name: {
-    en: 'Mohammad Azimi',
-    zh: 'Mohammad Azimi',
-    fa: 'محمد عظیمی',
+    en: 'Majid Panahandeh Fard',
+    zh: 'Majid Panahandeh Fard',
+    fa: 'دکتر مجید پناهنده فرد',
   },
-  mara_number: '0958292',
+  mara_number: '2418637',
   agencies: [
     {
-      mara_number_ref: '0958292',
-      state: 'NSW',
+      mara_number_ref: '2418637',
+      state: 'Vic',
       title: {
-        en: 'Shada Migration and Education Services',
-        fa: 'موسسه شادا',
-        zh: 'Shada Migration and Education Services',
+        en: 'Sleek Migration',
+        fa: 'اسلیک میگریشن',
+        zh: 'Sleek Migration',
       },
       country: 'Australia',
-      city: 'PARRAMATTA',
+      city: 'victoria',
       contact: {
-        phone: '61290025511',
+        phone: '0431970959',
         full_address:
-          'Suite 70 Civic Arcade\n48-50 George Street\nPARRAMATTA NSW 2150\nAustralia',
-        email: 'azimi@shada.com.au',
+          '	36 Wordsworth Street Unit 2703 Moonee Ponds VIC 3039 Australia',
+        email: 'info@sleekmigration.com',
       },
-    },
-    {
-      city: 'Shariati',
-      contact: {
-        phone: '00982191009946',
-        full_address:
-          'Unit B6, 6th Floor, No 1643, Safiran Business Complex, Next to the British Embassy Garden, Shariati Street, Shariati, Tehran, Iran, Islamic Republic of',
-      },
-      mara_number_ref: '0958292',
-      state: 'Tehran',
-      title: {
-        en: 'Shada Migration and International Recruitment Agency',
-        fa: 'موسسه شادا',
-        zh: 'Shada Migration and Education Services',
-      },
-      country: 'Iran, Islamic Republic of',
     },
   ],
 };

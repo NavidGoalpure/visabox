@@ -78,7 +78,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   },
 
   Naati: {
-    fa: 'لیست مترجمین',
+    fa: 'لیست مترجمین ناتی',
     en: 'Naati',
     zh: '纳蒂',
   },
@@ -93,18 +93,18 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '已将电子邮件复制到剪贴板',
   },
   IranianAgents: {
-    fa: 'وکلای ایرانی',
-    en: 'Iranian Agents',
+    fa: 'لیست وکلای ایرانی مهاجرت به استرالیا',
+    en: 'Iranian Mara Agent list',
     zh: '伊朗特工',
   },
   IndianAgents: {
-    fa: 'وکلای هندی',
-    en: 'Indian Agents',
+    fa: 'لیست وکلای مهاجرت هندی',
+    en: 'Find Mara Agents in India',
     zh: '印度特工',
   },
   ChineseAgents: {
-    fa: 'وکلای چینی',
-    en: 'Chinese Agent',
+    fa: 'لیست وکلای چینی مهاجرت به استرالیا',
+    en: 'Find Mara Agents in China',
     zh: '中国代理商',
   },
 };

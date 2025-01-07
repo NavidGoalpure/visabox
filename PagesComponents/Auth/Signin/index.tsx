@@ -148,6 +148,7 @@ const RoleBox = styled.div<{ isActive: boolean }>`
   justify-content: center;
   align-items: center;
   text-align: center;
+
   ${({ isActive }) =>
     isActive
       ? css`
@@ -161,6 +162,7 @@ const RoleBox = styled.div<{ isActive: boolean }>`
           ${layer2A_TextStyle};
           width: 13.25rem;
           height: 9rem;
+          cursor: pointer;
         `}
   border-radius: 15px;
   padding: 1rem;

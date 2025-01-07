@@ -39,7 +39,7 @@ const CountryModal: React.FC<Props> = ({
     <ModalComponent
       open={isOpen}
       DialogTitleText='
-              Please select your country
+              Select Your Living Country
     '
     >
       <OptionsContainer>

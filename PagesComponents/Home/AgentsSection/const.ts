@@ -35,6 +35,7 @@ export const ExampleAgent: MaraAgent = {
     fa: 'دکتر مجید پناهنده فرد',
   },
   mara_number: '2418637',
+  hasAvatar: true,
   agencies: [
     {
       mara_number_ref: '2418637',

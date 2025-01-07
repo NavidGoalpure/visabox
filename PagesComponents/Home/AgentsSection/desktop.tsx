@@ -28,6 +28,7 @@ const DesktopIndex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
             slug={ExampleAgent?.slug?.current || ''}
             agencies={ExampleAgent?.agencies}
             layerContext='1'
+            hasAvatar={ExampleAgent?.hasAvatar}
           />
 
           {/* <StyledExchangeCard {...Exchanges[1]} /> */}

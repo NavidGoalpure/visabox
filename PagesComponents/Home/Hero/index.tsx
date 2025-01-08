@@ -1,14 +1,14 @@
-import { device, deviceMin } from 'Consts/device';
-import { useCallback, useRef } from 'react';
-import type { Engine } from 'tsparticles-engine';
-import { loadFull } from 'tsparticles';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { componentStatements, LanguageKeys, tsParticleOption } from './const';
+import { device, deviceMin } from "Consts/device";
+import { useCallback, useRef } from "react";
+import type { Engine } from "tsparticles-engine";
+import { loadFull } from "tsparticles";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { componentStatements, LanguageKeys, tsParticleOption } from "./const";
 
-import dynamic from 'next/dynamic';
-import Image from 'next/image';
+import dynamic from "next/dynamic";
+import Image from "next/image";
 
 const Hero: React.FC = () => {
   /////////
@@ -25,28 +25,28 @@ const Hero: React.FC = () => {
   const { t } = useStaticTranslation(componentStatements);
 
   return (
-    <Container id='hero-container' ref={particlesContainer}>
+    <Container id="hero-container" ref={particlesContainer}>
       <StyledParticles
         container={particlesContainer}
-        id='tsparticles'
+        id="tsparticles"
         init={particlesInit}
         options={tsParticleOption}
       />
 
       <ContentContainer>
-        <Title role='heading' aria-level={1}>
+        <Title role="heading" aria-level={1}>
           {t(LanguageKeys.Title)}
         </Title>
         <Subtitle
           dangerouslySetInnerHTML={{ __html: t(LanguageKeys.Subtitle) }}
-          role='heading'
+          role="heading"
           aria-level={2}
         />
       </ContentContainer>
       <ImageContainer>
         <ImageCards
-          src={'/Images/australia-pictures.webp'}
-          alt='Picture of the australia'
+          src={"/Images/australia-pictures.webp"}
+          alt="Picture of the australia"
           fill
           priority
           sizes={`${device.mobileL} 0vw, ${device.laptopM} 33vw`}
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
 export default Hero;
 
 ///////////////
-const BorderColor_Mobile = theme('mode', {
+const BorderColor_Mobile = theme("mode", {
   light: css`
     background: linear-gradient(360deg, #09c0b0 26.13%, #00ebd6 100%);
   `,
@@ -68,7 +68,7 @@ const BorderColor_Mobile = theme('mode', {
     background: #282828;
   `,
 });
-const BorderColor_Desktop = theme('mode', {
+const BorderColor_Desktop = theme("mode", {
   light: css`
     background: linear-gradient(103.22deg, #1bada1 0.64%, #00ebd6 77.23%);
   `,
@@ -95,7 +95,7 @@ const Container = styled.section`
   }
 `;
 
-const Particles = dynamic(() => import('react-tsparticles'), {
+const Particles = dynamic(() => import("react-tsparticles"), {
   ssr: false,
 });
 const StyledParticles = styled(Particles)`
@@ -107,16 +107,15 @@ const StyledParticles = styled(Particles)`
 const ImageContainer = styled.div`
   display: none;
   height: inherit;
-  position: relative;
-  width: 50%;
+  position: absolute;
+  width: 100%;
   @media ${deviceMin.laptopM} {
     display: initial;
   }
 `;
 const ImageCards = styled(Image)`
   position: absolute;
-  top: 0;
-  right: 0;
+  inset: 0;
   object-fit: contain;
   object-position: right;
 `;
@@ -134,7 +133,7 @@ const ContentContainer = styled.div`
 `;
 
 ///////////////////////
-const titleFont = theme('mode', {
+const titleFont = theme("mode", {
   light: css`
     text-shadow: 0px 2px 3px var(--color-gray5);
   `,
@@ -142,7 +141,7 @@ const titleFont = theme('mode', {
 });
 
 ////////////
-const titleColor = theme('mode', {
+const titleColor = theme("mode", {
   light: css`
     color: var(--color-secondary3);
   `,
@@ -172,7 +171,7 @@ const Title = styled.h1`
 ///////////
 
 ///////////////////////////////
-const subtitleColor = theme('mode', {
+const subtitleColor = theme("mode", {
   light: css`
     color: var(--color-secondary3);
   `,

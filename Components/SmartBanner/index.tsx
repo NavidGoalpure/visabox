@@ -202,8 +202,6 @@ const Title = styled.section`
   padding: 0 0.5rem;
   white-space: initial;
   width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
   span {
     color: var(--color-primary5);
   }
@@ -220,7 +218,6 @@ export const NextIcon = styled(MdNavigateNext)`
   ${NextIconDirectionStyle};
   width: auto;
   height: 1.5rem;
-  margin-bottom: 0.2rem;
 `;
 const CloseIconWrapper = styled.div`
   cursor: pointer;

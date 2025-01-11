@@ -51,41 +51,41 @@ const AgentPage: NextPage<Props> = ({ agent, errorCode }) => {
 };
 export default AgentPage;
 
-export const getStaticPaths = async () => {
-  let paths: { params: { slug: string }; locale: Languages }[] = [];
-  /////get Allpage base on their slug////////
-  const allAgents_Slug = await getAllAgentsSlugs();
-  if (allAgents_Slug?.length > 0)
-    allAgents_Slug?.map((agent: MaraAgent) => {
-      if (agent?.slug?.current)
-        paths.push({
-          params: { slug: agent?.slug?.current },
-          locale: Languages.en,
-        });
-    });
+// export const getStaticPaths = async () => {
+//   let paths: { params: { slug: string }; locale: Languages }[] = [];
+//   /////get Allpage base on their slug////////
+//   const allAgents_Slug = await getAllAgentsSlugs();
+//   if (allAgents_Slug?.length > 0)
+//     allAgents_Slug?.map((agent: MaraAgent) => {
+//       if (agent?.slug?.current)
+//         paths.push({
+//           params: { slug: agent?.slug?.current },
+//           locale: Languages.en,
+//         });
+//     });
 
-  return {
-    paths,
-    fallback: 'blocking',
-  };
-};
+//   return {
+//     paths,
+//     fallback: 'blocking',
+//   };
+// };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  try {
-    const agent = await getAgentDetail({ slug: params?.slug?.toString() });
-    return {
-      props: {
-        agent,
-      },
-    };
-  } catch (error) {
-    return {
-      props: {
-        errorCode: 500,
-      },
-    };
-  }
-};
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   try {
+//     const agent = await getAgentDetail({ slug: params?.slug?.toString() });
+//     return {
+//       props: {
+//         agent,
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       props: {
+//         errorCode: 500,
+//       },
+//     };
+//   }
+// };
 const StyledPageLayout = styled(PageLayout)`
   #PageContainer-content {
     padding: 0;

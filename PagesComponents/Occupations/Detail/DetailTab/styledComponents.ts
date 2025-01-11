@@ -102,6 +102,8 @@ export const Details = styled.div`
   tr {
     width: auto;
     height: 4rem;
+    background-color: transparent !important;
+    border: 1px white solid !important;
   }
   td {
     text-align: center;
@@ -150,7 +152,7 @@ export const Details = styled.div`
     font-style: normal;
   }
   div:has(> i.fa.fa-warning) {
-    ${Hint_HTML_BG}// background-color: red !important;;;;;;;;;;
+    ${Hint_HTML_BG}// background-color: red !important;;;;;;;;;;;;;;
   }
   div {
     p {

@@ -53,6 +53,7 @@ function OccupationCard({ code, title, description, slug, tasks }: Props) {
 export default OccupationCard;
 const Description = styled.p`
   ${layer2A_TextStyle}
+  word-break: break-word;
   direction: ltr;
   text-align: center;
   margin: 0;
@@ -60,5 +61,4 @@ const Description = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  text-align: start;
 `;

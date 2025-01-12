@@ -52,7 +52,6 @@ export const Container = styled.div`
   padding-top: 5rem;
   margin-bottom: 1rem;
   width: 100%;
-  opacity: 0;
   @media ${deviceMin.mobileL} {
     min-width: 20rem;
     width: 31%;

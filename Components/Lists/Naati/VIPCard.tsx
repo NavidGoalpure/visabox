@@ -95,7 +95,6 @@ const LogoBackground = theme('mode', {
 });
 const Container = styled(Link)`
   padding: 5rem 0 2rem 0rem;
-  opacity: 0;
   width: 100%;
   @media ${deviceMin.mobileL} {
     width: auto;

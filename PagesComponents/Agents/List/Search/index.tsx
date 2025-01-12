@@ -172,7 +172,7 @@ const SearchElement = styled(SearchInput)<{ isShowPanel: boolean }>`
   margin: 0 auto;
   height: 4rem;
   #input-container {
-    ${({ isShowPanel }) => isShowPanel && 'border-radius: 35px 35px 0 0'};
+    ${({ isShowPanel }) => isShowPanel && 'border-radius: 16px 16px 0 0'};
   }
 `;
 const SearchIcon = styled(CiSearch)`
@@ -198,7 +198,7 @@ const Panel = styled.div`
   width: 100%;
   height: auto;
   min-height: 4rem;
-  border-radius: 0px 0px 30px 30px;
+  border-radius: 0px 0px 16px 16px;
   width: 100%;
 `;
 const FilterContainer = styled.div`

@@ -26,16 +26,15 @@ export const Container = styled.section`
   max-width: var(--max-width-page);
   margin: 0 auto;
   padding: 2rem 1rem;
-  position: relative;
   :before {
     ${ContainerTheme};
     content: '';
     position: absolute;
-    top: -2rem;
+    top: 0rem;
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: calc(100% + 2rem);
+    height: 100%;
   }
   @media ${deviceMin.tabletS} {
     flex-direction: row;

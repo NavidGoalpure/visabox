@@ -1,16 +1,16 @@
-import MaraBgAnimation from 'Components/MaraBgAnimation';
-import { deviceMin } from 'Consts/device';
-import { SecondaryButton } from 'Elements/Button/Secondary';
-import { LocalStorageKeys, SessionStorageKeys } from 'Interfaces';
-import { useRouter } from 'next/router';
-import { HTMLAttributes, ReactNode, useEffect, useState } from 'react';
-import { IoCloseOutline } from 'react-icons/io5';
-import { MdNavigateNext } from 'react-icons/md';
-import styled, { css, keyframes } from 'styled-components';
-import theme from 'styled-theming';
-import { Headline5Style, Headline7Style } from 'Styles/Typo';
-import { getSessionStorage } from 'Utils';
-import BannerStamp from './Images/BannerStamp.svg';
+import MaraBgAnimation from "Components/MaraBgAnimation";
+import { deviceMin } from "Consts/device";
+import { SecondaryButton } from "Elements/Button/Secondary";
+import { LocalStorageKeys, SessionStorageKeys } from "Interfaces";
+import { useRouter } from "next/router";
+import { HTMLAttributes, ReactNode, useEffect, useState } from "react";
+import { IoCloseOutline } from "react-icons/io5";
+import { MdNavigateNext } from "react-icons/md";
+import styled, { css, keyframes } from "styled-components";
+import theme from "styled-theming";
+import { Headline5Style, Headline7Style } from "Styles/Typo";
+import { getSessionStorage } from "Utils";
+import BannerStamp from "./Images/BannerStamp.svg";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   navigateTo: string;
   desc: ReactNode;
@@ -28,7 +28,9 @@ const SmartBanner: React.FC<Props> = ({
   const router = useRouter();
   const [isBannerClosed, setIsBannerClosed] = useState(true);
   useEffect(() => {
-    if (getSessionStorage(SessionStorageKeys.isCloseMarcyaBanner) === 'true') {
+    if (
+      getSessionStorage(SessionStorageKeys.IS_SMART_BANNER_CLOSE) === "true"
+    ) {
       setIsBannerClosed(true);
     } else {
       setIsBannerClosed(false);
@@ -52,8 +54,7 @@ const SmartBanner: React.FC<Props> = ({
             onClick={() => {
               onClose();
               setIsBannerClosed(true);
-            }}
-          >
+            }}>
             <CloseIcon />
           </CloseIconWrapper>
         </ContentWrapper>
@@ -101,7 +102,7 @@ color: var(--color-secondary1);
   bottom: -4rem;
 }
 `;
-const NextIconDirectionStyle = theme('languageDirection', {
+const NextIconDirectionStyle = theme("languageDirection", {
   ltr: css``,
   rtl: css`
     transform: rotate(180deg);
@@ -117,7 +118,7 @@ const Wrapper = styled.div`
   z-index: 0;
   overflow: hidden;
   :before {
-    content: '';
+    content: "";
     width: 20%;
     height: 50%;
     background: var(--color-primary3);
@@ -130,7 +131,7 @@ const Wrapper = styled.div`
     z-index: 0;
   }
   :after {
-    content: '';
+    content: "";
     width: 20%;
     height: 50%;
     background: var(--color-primary3);

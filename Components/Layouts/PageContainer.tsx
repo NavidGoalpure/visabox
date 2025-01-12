@@ -15,6 +15,7 @@ import { SessionStorageKeys } from "Interfaces";
 import { useRouter } from "next/router";
 import LazyLoadComponentUi from "Elements/LazyLoadComponentUi";
 import { useLocale } from "Hooks/useLocale";
+import { stringify } from "querystring";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   hasFooter?: boolean;
@@ -59,7 +60,12 @@ const PageContainer: React.FC<Props> = ({
           }
           stampText={t(LanguageKeys.StampText)}
           buttonText={t(LanguageKeys.BannerButtonText)}
-          onClose={function (): void {}}
+          onClose={() =>
+            setSessionStorage({
+              key: SessionStorageKeys.IS_SMART_BANNER_CLOSE,
+              value: "true",
+            })
+          }
         />
       )}
       <Content id="PageContainer-content">{children}</Content>

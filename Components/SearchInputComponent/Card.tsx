@@ -61,12 +61,11 @@ export const Card: React.FC<Props> = ({
         callbackFunction();
 
         setInputValue(university?.title?.fa || "defensive");
-      }}
-    >
+      }}>
       <UniName isInputInModal={isInputInModal}>{dt(university.title)}</UniName>
       <UniWrapper>
         <UniSection isInputInModal={isInputInModal}>
-          {t(LanguageKeys.UniInput_SectionTitle)} &nbsp; {university.section}
+          {t(LanguageKeys.UniInput_SectionTitle)} {university.section}
         </UniSection>
         <UniCity isInputInModal={isInputInModal}>{dt(university.city)}</UniCity>
       </UniWrapper>
@@ -145,8 +144,9 @@ const UniWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.5rem;
+  white-space: pre;
 `;
 const UniSection = styled.h4<{ isInputInModal: boolean }>`
   ${Headline7Style};

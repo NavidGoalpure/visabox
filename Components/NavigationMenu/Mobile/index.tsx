@@ -1,28 +1,28 @@
-import React, { useEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
-import { boxShadow, directionStyles } from 'Styles/Theme';
-import { layer1_BG } from 'Styles/Theme/Layers/layer1/theme';
-import theme from 'styled-theming';
+import React, { useEffect, useRef, useState } from "react";
+import styled, { css } from "styled-components";
+import { boxShadow, directionStyles } from "Styles/Theme";
+import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
+import theme from "styled-theming";
 
-import SwitchTheme from '../switchTheme';
-import Link from 'next/link';
-import { useLocale } from 'Hooks/useLocale';
+import SwitchTheme from "../switchTheme";
+import Link from "next/link";
+import { useLocale } from "Hooks/useLocale";
 import {
   layer3_SubtitleStyle,
   layer3_TitleStyle,
-} from 'Styles/Theme/Layers/layer3/style';
-import MobileLanguageChanger from './LanguageChanger';
-import { ScrollBox } from 'Elements/ScrollBox';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import OccupationDropdown from './dropdownOccupation';
-import MobileBoxesDropdown from './dropdownLists';
-import { useSession } from 'next-auth/react';
-import AvatarComponent from '../AvatarComponent';
-import { Languages, LocalStorageKeys } from 'Interfaces';
-import { setLocalStorage } from 'Utils';
-import { isAgencyLogedIn } from 'Utils/user';
-import MobileFormsDropdown from './dropdownForms';
+} from "Styles/Theme/Layers/layer3/style";
+import MobileLanguageChanger from "./LanguageChanger";
+import { ScrollBox } from "Elements/ScrollBox";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import OccupationDropdown from "./dropdownOccupation";
+import MobileBoxesDropdown from "./dropdownLists";
+import { useSession } from "next-auth/react";
+import AvatarComponent from "../AvatarComponent";
+import { Languages, LocalStorageKeys } from "Interfaces";
+import { setLocalStorage } from "Utils";
+import { isAgencyLogedIn } from "Utils/user";
+import MobileFormsDropdown from "./dropdownForms";
 
 function SmartHeader() {
   const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
@@ -44,15 +44,14 @@ function SmartHeader() {
                 value: window.location.href,
               })
             }
-            href={`/${locale}/auth/signin`}
-          >
+            href={`/${locale}/auth/signin`}>
             {t(LanguageKeys.Login)}
           </Signin>
         )}
 
         {isMenuClicked && (
-          <MenuPopupContainer id={'popup'}>
-            <ScrollBox id={'scrollbox'} height={'18rem'}>
+          <MenuPopupContainer id={"popup"}>
+            <ScrollBox id={"scrollbox"} height={"18rem"}>
               <MenuPopupWrapper>
                 <Nav>
                   <MenuLink href={`/${locale}`}>
@@ -63,7 +62,7 @@ function SmartHeader() {
                 <MobileBoxesDropdown />
                 <Hr />
                 <OccupationDropdown />
-                <Hr />
+
                 {!isAgencyLogedIn() && <MobileFormsDropdown />}
                 {locale !== Languages.zh && (
                   <>
@@ -92,10 +91,9 @@ function SmartHeader() {
         )}
         <MenuBurger
           id={`hamburg`}
-          onClick={() => setIsMenuClicked(!isMenuClicked)}
-        >
-          <span aria-hidden id={'line1'} />
-          <span aria-hidden id={'line2'} />
+          onClick={() => setIsMenuClicked(!isMenuClicked)}>
+          <span aria-hidden id={"line1"} />
+          <span aria-hidden id={"line2"} />
         </MenuBurger>
       </Wrapper>
     </Container>
@@ -103,7 +101,7 @@ function SmartHeader() {
 }
 export default SmartHeader;
 
-const PopupBagroundTheme = theme('mode', {
+const PopupBagroundTheme = theme("mode", {
   light: css`
     background: var(--color-gray13);
   `,

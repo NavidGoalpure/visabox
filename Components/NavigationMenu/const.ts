@@ -37,7 +37,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '博客',
   },
   FormsWall: {
-    en: 'forms-wall',
+    en: 'Forms Wall',
     fa: 'صفحه فرم ها',
     zh: '形式墙',
   },

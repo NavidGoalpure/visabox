@@ -35,14 +35,7 @@ const DesktopTabItem_Top: React.FC<Props> = ({
 };
 export default DesktopTabItem_Top;
 //////////////////////////
-const contentContainerActiveColor = theme('mode', {
-  light: css`
-    color: var(--color-gray8);
-  `,
-  dark: css`
-    color: var(--color-gray11);
-  `,
-});
+
 //////////
 const contentContainerDeactiveColor = theme('mode', {
   light: css`
@@ -64,29 +57,18 @@ const ContentContainer = styled.div`
 `;
 ////////////
 
-const TabsTriggerActivehover = theme('mode', {
-  light: css`
-    background: var(--color-primary4);
-    color: white;
-  `,
-  dark: css`
-    background: var(--color-primary3);
-    color: white;
-  `,
-});
 const TabsTriggerhover = theme('mode', {
   light: css`
-    background: var(--color-primary7);
+    background: var(--color-gray12);
     color: var(--color-gray6);
   `,
   dark: css`
-    background: var(--color-primary5);
+    background: var(--color-gray5);
     color: white;
   `,
 });
 const TabsTrigger = styled(Tabs.Trigger)`
   ${layer2A_TextStyle};
-  ${contentContainerActiveColor};
   margin-bottom: 0rem;
   //
   ${directionStyles}
@@ -102,9 +84,6 @@ const TabsTrigger = styled(Tabs.Trigger)`
     background: var(--color-primary2);
     box-shadow: 0px 0px 4px var(--color-primary4);
     color: white;
-    :hover {
-      ${TabsTriggerActivehover}
-    }
     div {
       ${contentContainerDeactiveColor}
     }

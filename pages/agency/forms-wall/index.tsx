@@ -93,8 +93,7 @@ const FormsWall: NextPage = () => {
         {isShow === false && (
           <NeedConfirmDesc>{t(LanguageKeys.NeedConfirm)}</NeedConfirmDesc>
         )}
-        {/* farzam change to true when you are done */}
-        {isShow === false && (
+        {isShow === true && (
           <ContentOrError isError={isError} content={<Content />} />
         )}
       </PageLayout>

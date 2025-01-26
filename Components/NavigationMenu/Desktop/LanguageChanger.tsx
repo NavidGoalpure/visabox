@@ -9,7 +9,7 @@ import ChinaFlag from 'public/Images/Flags/ChinaFlag.svg';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { IoLanguage } from 'react-icons/io5';
+import { FaEarthAmericas } from "react-icons/fa6";
 
 function DesktopLanguageChanger() {
   const { locale } = useLocale();
@@ -86,7 +86,7 @@ const Flag = styled(DYImage)`
   position: relative;
 `;
 ///////////////
-const LanguageIcon = styled(IoLanguage)`
+const LanguageIcon = styled(FaEarthAmericas)`
   width: 1rem;
   height: auto;
   color: var(--color-gray10);

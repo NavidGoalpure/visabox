@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { boxShadow, directionStyles } from "Styles/Theme";
 import { layer1_BG } from "Styles/Theme/Layers/layer1/theme";
 import theme from "styled-theming";
@@ -31,6 +31,18 @@ function SmartHeader() {
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
 
+  //
+  useEffect(() => {
+    if (isMenuClicked) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto"; // Reset on component unmount
+    };
+  }, [isMenuClicked]);
   return (
     <Container>
       <Wrapper>
@@ -90,6 +102,7 @@ function SmartHeader() {
           </MenuPopupContainer>
         )}
         <MenuBurger
+          isMenuClicked={isMenuClicked}
           id={`hamburg`}
           onClick={() => setIsMenuClicked(!isMenuClicked)}>
           <span aria-hidden id={"line1"} />
@@ -109,6 +122,14 @@ const PopupBagroundTheme = theme("mode", {
     background: var(--color-gray2);
   `,
 });
+const popupFromLeft = keyframes`
+  0% {
+    left:-100%;
+  }
+  100% {
+    left:0;
+  }
+`;
 const Container = styled.div`
   ${layer1_BG}
   ${directionStyles}
@@ -129,9 +150,11 @@ const Wrapper = styled.div`
 `;
 const MenuPopupContainer = styled.div`
   ${PopupBagroundTheme};
+  animation: ${popupFromLeft} 0.3s ease;
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   padding-top: 6.5rem;
@@ -181,7 +204,7 @@ const Signin = styled(MenuLink)`
   direction: rtl;
 `;
 
-const MenuBurger = styled.div`
+const MenuBurger = styled.div<{ isMenuClicked: boolean }>`
   position: absolute;
   top: 0;
   height: 100%;
@@ -196,8 +219,25 @@ const MenuBurger = styled.div`
     border-radius: 100px;
     width: 2.5rem;
     height: 4px;
+    transform-origin: center top;
+    transition: all 0.3s 0.3s ease, rotate 0.3s ease;
   }
   span:nth-child(2) {
     top: 65%;
   }
+  ${({ isMenuClicked }) =>
+    isMenuClicked &&
+    css`
+      span {
+        top: 50%;
+        transform: translateY(-50%);
+        rotate: 45deg;
+        transition: all 0.3s ease, rotate 0.3s 0.3s ease;
+      }
+      span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        rotate: -45deg;
+      }
+    `}
 `;

@@ -93,7 +93,6 @@ const ProfessionalYearInAustraliaStep = () => {
             // completed_forms: getSmartCompletedForms(client?.completed_forms),
           }
         : undefined;
-      console.log('navid fulldata=', fullData);
 
       // ولیدیت دیتایی که به سرور فرستاده میشه
       const validatedData = validateClientDataWithYup(fullData);

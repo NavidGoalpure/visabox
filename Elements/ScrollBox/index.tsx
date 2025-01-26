@@ -1,8 +1,8 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
-import * as ScrollArea from '@radix-ui/react-scroll-area';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
-import { directionStyles } from 'Styles/Theme';
+import React, { HTMLAttributes, ReactNode } from "react";
+import * as ScrollArea from "@radix-ui/react-scroll-area";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
+import { directionStyles } from "Styles/Theme";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -13,19 +13,17 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 const ScrollBox: React.FC<Props> = ({ className, id, children, height }) => {
   return (
     <ScrollAreaRoot
-      data-testid='scroll-area-root'
+      data-testid="scroll-area-root"
       className={className}
       id={id}
-      $height={height}
-    >
+      $height={height}>
       <ScrollAreaViewport>{children}</ScrollAreaViewport>
-      <ScrollAreaScrollbar id={'scroll-area-scrollbar'} orientation='vertical'>
+      <ScrollAreaScrollbar id={"scroll-area-scrollbar"} orientation="vertical">
         <ScrollAreaThumb />
       </ScrollAreaScrollbar>
       <ScrollAreaScrollbar
-        id={'scroll-area-scrollbar'}
-        orientation='horizontal'
-      >
+        id={"scroll-area-scrollbar"}
+        orientation="horizontal">
         <ScrollArea.Thumb />
       </ScrollAreaScrollbar>
       <ScrollAreaCorner />
@@ -39,7 +37,7 @@ const ScrollAreaRoot = styled(ScrollArea.Root)<{ $height?: string }>`
   ${directionStyles}
   width: 100%;
   height: auto;
-  height: ${({ $height }) => ($height ? $height : 'auto')};
+  height: ${({ $height }) => ($height ? $height : "auto")};
   overflow: hidden;
   --scrollbar-size: 0.5rem;
 `;
@@ -49,7 +47,7 @@ const ScrollAreaViewport = styled(ScrollArea.Viewport)`
   border-radius: inherit;
 `;
 ////////////
-export const positionDirStyle = theme('languageDirection', {
+export const positionDirStyle = theme("languageDirection", {
   ltr: css``,
   rtl: css`
     left: 0;
@@ -65,17 +63,17 @@ const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   padding: 2px;
   background: lightgray;
   transition: background 160ms ease-out;
-
+  z-index: 10000;
   ${positionDirStyle}
   ${ScrollAreaRoot}:hover & {
     background: lightgray;
     ${positionDirStyle}
   }
-  &[data-orientation='vertical'] {
+  &[data-orientation="vertical"] {
     width: var(--scrollbar-size);
     border-radius: 10px;
   }
-  &[data-orientation='horizontal'] {
+  &[data-orientation="horizontal"] {
     flex-direction: column;
     height: var(--scrollbar-size);
   }
@@ -87,7 +85,7 @@ const ScrollAreaThumb = styled(ScrollArea.Thumb)`
   position: relative;
 
   :before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;

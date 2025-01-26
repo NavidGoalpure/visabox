@@ -1,26 +1,30 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { SearchInput } from 'Elements/SearchInput/input';
-import styled from 'styled-components';
-import { CiSearch } from 'react-icons/ci';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { componentStatements, LanguageKeys } from '../const';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
-import * as MaraSelect from 'Elements/Select';
-import { SearchFilterContext } from '../Context/SearchFilter';
-import { deviceMin } from 'Consts/device';
+import React, { useContext, useEffect, useState } from "react";
+import { SearchInput } from "Elements/SearchInput/input";
+import styled from "styled-components";
+import { CiSearch } from "react-icons/ci";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { componentStatements, LanguageKeys } from "../const";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { layer2A_Bg, layer2A_Key } from "Styles/Theme/Layers/layer2/theme";
+import * as MaraSelect from "Elements/Select";
+import { SearchFilterContext } from "../Context/SearchFilter";
+import { deviceMin } from "Consts/device";
 
-import { LuSettings2 } from 'react-icons/lu';
-import { Country, State } from 'country-state-city';
-import { useRouter } from 'next/router';
-import { getDefaultCountry } from 'Utils/country-state-city';
+import { LuSettings2 } from "react-icons/lu";
+import { Country, ICountry, State } from "country-state-city";
+import { useRouter } from "next/router";
+import {
+  getDefaultCountry,
+  getPopularCountriesOnTop,
+} from "Utils/country-state-city";
 
 interface Props {
   searchValue: string;
   setSearchValue: (e: React.FormEvent<HTMLInputElement>) => void;
 }
+const targetElement = ["IR", "AU", "CN", "IN"];
 
-const allCountries = Country.getAllCountries();
+const countriesList = getPopularCountriesOnTop(targetElement);
 function Search({ searchValue, setSearchValue }: Props) {
   // get Url Params
   const router = useRouter();
@@ -101,18 +105,18 @@ function Search({ searchValue, setSearchValue }: Props) {
                 maxHeightInRem={20}
                 value={selectedFiltersObj?.location?.country?.isoCode}
                 triggerProps={{ placeholder: t(LanguageKeys.Select) }}
+                
                 onValueChange={(newCountry) => {
                   const countryObj = Country.getCountryByCode(newCountry);
                   setSelectedFiltersObj({
                     location: { country: countryObj },
                   });
-                }}
-              >
-                {allCountries?.map((country) => (
+                }}>
+                {countriesList?.map((country) => (
                   <MaraSelect.Item
                     key={country?.isoCode}
-                    value={country?.isoCode}
-                    text={country?.name || ''}
+                    value={country?.isoCode || ""}
+                    text={country?.name || ""}
                   />
                 ))}
               </SelectRoot>
@@ -137,13 +141,12 @@ function Search({ searchValue, setSearchValue }: Props) {
                         state: newState,
                       },
                     });
-                  }}
-                >
+                  }}>
                   {allStates?.map((state) => (
                     <MaraSelect.Item
                       key={state?.isoCode}
-                      value={state?.name || ''}
-                      text={state?.name || ''}
+                      value={state?.name}
+                      text={state?.name || ""}
                     />
                   ))}
                 </SelectRoot>
@@ -166,13 +169,13 @@ const Container = styled.div<{ isShowPanel: boolean }>`
   margin-bottom: 4rem;
   transition: all 0.3s ease;
   max-width: 865px;
-  ${({ isShowPanel }) => isShowPanel && 'max-width: 100%;'}
+  ${({ isShowPanel }) => isShowPanel && "max-width: 100%;"}
 `;
 const SearchElement = styled(SearchInput)<{ isShowPanel: boolean }>`
   margin: 0 auto;
   height: 4rem;
   #input-container {
-    ${({ isShowPanel }) => isShowPanel && 'border-radius: 16px 16px 0 0'};
+    ${({ isShowPanel }) => isShowPanel && "border-radius: 16px 16px 0 0"};
   }
 `;
 const SearchIcon = styled(CiSearch)`

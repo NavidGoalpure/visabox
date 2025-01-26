@@ -64,6 +64,7 @@ const Root: React.FC<Props> = ({
             document.body.style.pointerEvents = 'none';
           }
         }}
+        
         {...props}
       >
         {!disabled && (

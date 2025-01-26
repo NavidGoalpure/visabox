@@ -1,7 +1,7 @@
-import { Country, ICountry } from 'country-state-city';
-import { LocalStorageKeys } from 'Interfaces';
-import { SupportedCountry } from 'Interfaces/Database';
-import { getLocalStorage } from 'Utils';
+import { Country, ICountry } from "country-state-city";
+import { LocalStorageKeys } from "Interfaces";
+import { SupportedCountry } from "Interfaces/Database";
+import { getLocalStorage } from "Utils";
 
 /**
  * Retrieves the flag of a country based on either the exact country name or a possible country name found in an address.
@@ -35,7 +35,7 @@ export function getCountryFlag({
 
   if (countryInAddress) {
     // Extract the last word in the address as a possible country name
-    const possibleCountry = countryInAddress.split(' ').pop();
+    const possibleCountry = countryInAddress.split(" ").pop();
 
     const possibleFlag = Country.getAllCountries().find(
       (myCountry) =>
@@ -62,7 +62,7 @@ export const getCountryOrAlias = (
 ): string | undefined => {
   if (!country) return undefined;
   const COUNTRY_ALIASES: { [key: string]: string } = {
-    'Iran, Islamic Republic of': 'Iran',
+    "Iran, Islamic Republic of": "Iran",
     // Add more aliases as needed
   };
 
@@ -83,9 +83,9 @@ export const getCountrySymbolBaseOnNameOrAlias = (
 ): string | undefined => {
   if (!country) return undefined;
   const COUNTRY_ALIASES: { [key: string]: string } = {
-    iran: 'IR',
-    chinese: 'CN',
-    india: 'IN',
+    iran: "IR",
+    chinese: "CN",
+    india: "IN",
     // Add more aliases as needed
   };
 
@@ -96,13 +96,13 @@ export const getCountrySymbolBaseOnNameOrAlias = (
 export const getSpecificCountryBasedOnSymbol = (
   countrySymbol: string | undefined
 ): string | undefined => {
-  if (!countrySymbol) { 
+  if (!countrySymbol) {
     return undefined;
   }
 
-  if (countrySymbol === 'IN') return 'India';
-  if (countrySymbol === 'FA') return 'Iran';
-  if (countrySymbol === 'CN') return 'China';
+  if (countrySymbol === "IN") return "India";
+  if (countrySymbol === "FA") return "Iran";
+  if (countrySymbol === "CN") return "China";
   return undefined;
 };
 //////////////////
@@ -113,15 +113,32 @@ export const convertSupportedCountryToCountryObj = (
   const allCountries = Country.getAllCountries();
 
   if (supportedCountry === SupportedCountry.Australia)
-    return allCountries.find((country) => country.isoCode === 'AU');
+    return allCountries.find((country) => country.isoCode === "AU");
   if (supportedCountry === SupportedCountry.China)
-    return allCountries.find((country) => country.isoCode === 'CN');
+    return allCountries.find((country) => country.isoCode === "CN");
   if (supportedCountry === SupportedCountry.India)
-    return allCountries.find((country) => country.isoCode === 'IN');
+    return allCountries.find((country) => country.isoCode === "IN");
   if (supportedCountry === SupportedCountry.Iran)
-    return allCountries.find((country) => country.isoCode === 'IR');
+    return allCountries.find((country) => country.isoCode === "IR");
   //
   return undefined;
+};
+////////////////////
+export const getPopularCountriesOnTop = (targetElements:string[]) => {
+  const allCountries = Country.getAllCountries();
+  
+  const foundElements = allCountries.filter((country) =>
+    targetElements.includes(country.isoCode)
+  );
+  foundElements.map((element) => {
+    const index = allCountries.indexOf(element || ({} as ICountry));
+    if (index !== -1) {
+      allCountries.splice(index, 1); // Remove the target element
+      allCountries.unshift(element || ({} as ICountry));
+    }
+  });
+
+  return allCountries;
 };
 ////////////////////
 // only work on csr
@@ -151,7 +168,7 @@ export function getDefaultCountry({
   if (userCountry)
     return Country.getCountryByCode(
       // AU is defensive
-      getCountrySymbolBaseOnNameOrAlias(userCountry) || 'AU'
+      getCountrySymbolBaseOnNameOrAlias(userCountry) || "AU"
     );
   return undefined;
 }

@@ -62,7 +62,7 @@ function BasicFormCard({ formData }: Props) {
           </Value>
         </DataWrapper>
       </Wrapper>
-      <PrimaryButton style={{ margin: "0 auto" }}>
+      <PrimaryButton style={{ margin: "0 auto",width:"100%",boxSizing:"border-box" }}>
         {t(LanguageKeys.ViewMore)}
       </PrimaryButton>
     </CardContainer>
@@ -73,11 +73,9 @@ const codeColor = theme("mode", {
   light: css`
     background: var(--color-gray13);
     color: var(--color-gray8);
-    border: 2px solid var(--color-primary3);
   `,
   dark: css`
     color: var(--color-primary6);
-    border: 2px solid var(--color-primary4);
   `,
 });
 const LabelTheme = theme("mode", {
@@ -135,10 +133,7 @@ const Title = styled.h3`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
-  padding: 0.5rem;
-  align-items: center;
-  border-radius: 55px;
-  margin-bottom: 1rem;
+  width: 100%;
 `;
 
 const DataWrapper = styled.div`
@@ -157,6 +152,10 @@ const Label = styled.h4`
 const Value = styled.h4`
   ${layer2A_TextStyle};
   line-height: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow:hidden;
 `;
 const ScoreValue = styled(Value)`
   ${ScoreValueTheme};

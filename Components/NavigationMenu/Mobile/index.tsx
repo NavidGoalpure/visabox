@@ -136,7 +136,7 @@ const Container = styled.div`
   ${boxShadow};
   z-index: 10;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0.5rem 1rem;
   position: relative;
 `;
 const Wrapper = styled.div`

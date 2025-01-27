@@ -39,7 +39,7 @@ function Desktop() {
             <span aria-hidden id={"line2"} />
           </MenuBurger>
           <Link href={`/${locale}`}>
-            <Logo />
+            <StyledLogo />
           </Link>
           <Box>
             <NavigationMenu.List>
@@ -142,6 +142,13 @@ const Top = styled.div`
   width: 100%;
   padding: 0 0.5rem;
   align-items: center;
+  position: relative;
+`;
+const StyledLogo = styled(Logo)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 const Box = styled.div`
   display: flex;

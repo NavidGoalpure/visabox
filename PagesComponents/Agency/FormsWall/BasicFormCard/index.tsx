@@ -22,7 +22,7 @@ interface Props {
 function BasicFormCard({ formData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const dataCreatedAt = formData?._createdAt?.toString().substring(0, 10);
+  const dataUpdatedAt = formData?._updatedAt?.toString().substring(0, 10);
   const clientScore = CalculateClientScore(formData);
   return (
     <CardContainer
@@ -47,7 +47,7 @@ function BasicFormCard({ formData }: Props) {
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.DateLabel)} </Label>
-          <Value>{dataCreatedAt}</Value>
+          <Value>{dataUpdatedAt}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.LanguageSkillsLabel)}</Label>

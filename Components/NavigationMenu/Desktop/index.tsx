@@ -38,9 +38,9 @@ function Desktop() {
             <span aria-hidden id={"line1"} />
             <span aria-hidden id={"line2"} />
           </MenuBurger>
-          <Link href={`/${locale}`}>
+          <StyledLink href={`/${locale}`}>
             <Logo />
-          </Link>
+          </StyledLink>
           <Box>
             <NavigationMenu.List>
               <DesktopLanguageChanger />
@@ -136,12 +136,19 @@ const Wrapper = styled.div`
   direction: ltr;
 `;
 const Top = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   padding: 0 0.5rem;
   align-items: center;
+`;
+const StyledLink = styled(Link)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 const Box = styled.div`
   display: flex;

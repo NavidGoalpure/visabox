@@ -19,11 +19,11 @@ const getlistOfBasicFormQuery = ({
   resParams: string;
 }): string => {
   const query = `*[_type=='client' &&
-   _createdAt < "${lastFormDate}" &&
+   _updatedAt < "${lastFormDate}" &&
    "${ClientCompletedForms.BasicForm}" in completed_forms[].forms &&
    !(_id in path('drafts.**')) &&
     is_sharable == true ]
-   | order(_createdAt desc) [0...${Forms_PER_PAGE}] {
+   | order(_updatedAt desc) [0...${Forms_PER_PAGE}] {
  ${resParams}
 }`;
   return query;

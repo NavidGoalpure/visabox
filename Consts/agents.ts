@@ -7,6 +7,7 @@ export const listOfBasicForm_ResParams = `
 ${Point_Calculator_Fragment}
       _id,
       _createdAt,
+      _updatedAt,
       name,
       lastname,
       current_job,

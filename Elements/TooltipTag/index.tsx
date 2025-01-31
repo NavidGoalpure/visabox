@@ -158,7 +158,7 @@ const TooltipContent = styled(Tooltip.Content)`
   ${TooltipContentTheme};
   ${directionStyles};
   ${Headline7Style};
-  z-index: 1000;
+  z-index: 10;
   white-space: break-spaces;
   padding: 0.75em 1em;
   transition: all 0.3s linear;

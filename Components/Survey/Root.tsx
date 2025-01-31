@@ -56,7 +56,7 @@ const Container = styled.section<{ isShow: boolean }>`
   position: fixed;
   bottom: 0;
   margin: auto;
-  z-index: 10000;
+  z-index: 10;
   width: 80%;
   right: 0;
   left: 0;
@@ -91,7 +91,7 @@ const Trigger = styled.div`
   padding-top: 2px;
   cursor: pointer;
   border-bottom: none;
-  z-index: 2147483640;
+  z-index: 100;
   border-radius: 5px 5px 0 0;
   align-items: center;
   display: flex;

@@ -63,7 +63,7 @@ const ScrollAreaScrollbar = styled(ScrollArea.Scrollbar)`
   padding: 2px;
   background: lightgray;
   transition: background 160ms ease-out;
-  z-index: 10000;
+  z-index: 100;
   ${positionDirStyle}
   ${ScrollAreaRoot}:hover & {
     background: lightgray;

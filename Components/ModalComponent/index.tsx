@@ -88,11 +88,11 @@ const DialogOverlay = styled(Dialog.Overlay)`
   backdrop-filter: blur(2.5px);
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 10;
   animation: ${OverlayShow} 300ms cubic-bezier(0.16, 1, 0.3, 1);
 `;
 const DialogContent = styled(Dialog.Content)`
-  z-index: 1000;
+  z-index: 10;
   max-height: 80vh;
   width: 100%;
   display: flex;

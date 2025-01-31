@@ -287,7 +287,7 @@ const StyledContactsDesc = styled(ContactsDesc)``;
 const StyledContactsWrapper = styled(ContactsWrapper)`
   flex-direction: column;
   gap: 1.5rem;
-  z-index: 1000;
+  z-index: 10;
 `;
 const StyledGmailContainer = styled(GmailContainer)`
   flex-direction: column;

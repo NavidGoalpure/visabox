@@ -134,7 +134,7 @@ const Container = styled.div`
   ${layer1_BG}
   ${directionStyles}
   ${boxShadow};
-  z-index: 10;
+  z-index: 100;
   width: 100%;
   padding: 0.5rem 1rem;
   position: relative;
@@ -158,7 +158,6 @@ const MenuPopupContainer = styled.div`
   top: 0;
   left: 0;
   padding-top: 6.5rem;
-  z-index: 3;
   #scrollbox {
     height: 100%;
   }
@@ -210,7 +209,7 @@ const MenuBurger = styled.div<{ isMenuClicked: boolean }>`
   height: 100%;
   left: 1rem;
   width: 3rem;
-  z-index: 4;
+  z-index: 1000;
   span {
     position: absolute;
     top: 40%;

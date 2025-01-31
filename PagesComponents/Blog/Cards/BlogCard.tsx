@@ -136,7 +136,7 @@ const ShareBtn = styled.div<{ isRTL: boolean }>`
   transition: 0.3s;
   box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  z-index: 1000;
+  z-index: 10;
   position: absolute;
   top: 0;
   ${({ isRTL }) =>

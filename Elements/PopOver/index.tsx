@@ -33,7 +33,7 @@ const ContainerBorder = theme("mode", {
   `,
 });
 const Portal = styled(Popover.Portal)`
-  z-index: 100;
+  z-index: 10;
 `;
 const Content = styled(Popover.Content)`
   ${ContainerBorder}
@@ -41,7 +41,7 @@ const Content = styled(Popover.Content)`
   height: max-content;
   background: var(--color-gray13);
   border-radius: 15px;
-  z-index: 100;
+  z-index: 10;
 `;
 const Arrow = styled(Popover.Arrow)`
   fill: var(--color-gray13);

@@ -15,7 +15,6 @@ import DesktopBusinessDropdown from "./dropdownLists";
 import DesktopOccupationDropdown from "./dropdownOccupation";
 import { useSession } from "next-auth/react";
 import AvatarComponent from "../AvatarComponent";
-import { layer2A_TextStyle } from "Styles/Theme/Layers/layer2/style";
 import { Languages, LocalStorageKeys } from "Interfaces";
 import { setLocalStorage } from "Utils";
 import { isAgencyLogedIn } from "Utils/user";
@@ -261,7 +260,7 @@ const StyledMenuItem = styled(NavigationMenu.Item)`
   align-items: center;
 `;
 const Item = styled.h4`
-  ${layer2A_TextStyle}
+  ${layer3_TextStyle}
   text-align: center;
   cursor: pointer;
   position: relative;

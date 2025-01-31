@@ -8,14 +8,7 @@ import {
   Layer1_SubtitleStyle,
   Layer1_HrStyle,
 } from 'Styles/Theme/Layers/layer1/style';
-const ContainerTheme = theme('mode', {
-  light: css`
-    background: var(--color-gray13);
-  `,
-  dark: css`
-    background: var(--color-gray4);
-  `,
-});
+
 export const Container = styled.section`
   display: flex;
   align-items: center;
@@ -27,7 +20,6 @@ export const Container = styled.section`
   margin: 0 auto;
   padding: 2rem 1rem;
   :before {
-    ${ContainerTheme};
     content: '';
     position: absolute;
     top: 0rem;

@@ -75,7 +75,12 @@ function SmartHeader() {
                 <Hr />
                 <OccupationDropdown />
 
-                {!isAgencyLogedIn() && <MobileFormsDropdown />}
+                {!isAgencyLogedIn() && (
+                  <>
+                    <Hr />
+                    <MobileFormsDropdown />
+                  </>
+                )}
                 {locale !== Languages.zh && (
                   <>
                     <Hr />

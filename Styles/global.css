@@ -42,7 +42,7 @@
   --color-disable-dark: var(--color-primary1);
   /* // */
 /* box-shadows */
---box-shadow-layer2: 0px 0px 4px 0px rgba(0, 0, 0, 0.50);
+--box-shadow-layer2: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 /* // */
   --max-width-page: 1134px;
 }

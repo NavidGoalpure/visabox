@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { SearchInput } from 'Elements/SearchInput/input';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CiSearch } from 'react-icons/ci';
 import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import { componentStatements, LanguageKeys } from './const';
 import { PrimaryButton } from 'Elements/Button/Primary';
-import { layer2A_Bg, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
+import { layer2A_Bg, layer2A_HeaderBG, layer2A_Key } from 'Styles/Theme/Layers/layer2/theme';
 import * as MaraSelect from 'Elements/Select';
 import { AnszcoGroup, MAJOR_GROUP } from 'Consts/Occupations/anszco';
 import { useLocale } from 'Hooks/useLocale';
@@ -13,6 +13,8 @@ import { SearchFilterContext } from './Context/SearchFilter';
 import { deviceMin } from 'Consts/device';
 import { SelectItemCss } from 'Elements/Select/Item';
 import { LuSettings2 } from 'react-icons/lu';
+import { layer3_BG } from 'Styles/Theme/Layers/layer3/theme';
+import theme from 'styled-theming';
 
 interface Props {
   searchValue: string;
@@ -121,6 +123,16 @@ function Search({ searchValue, setSearchValue }: Props) {
 }
 
 export default Search;
+const panel_Bg = theme('mode', {
+  light: css`
+    background-color: var(--color-gray13);
+    border: 1px solid var(--color-gray11);
+  `,
+  dark: css`
+    background-color: var(--color-gray5);
+  `,
+});
+
 const Container = styled.div<{ isShowPanel: boolean }>`
   display: flex;
   flex-direction: column;
@@ -129,19 +141,19 @@ const Container = styled.div<{ isShowPanel: boolean }>`
   margin: auto;
   margin-bottom: 4rem;
   transition: all 0.3s ease;
-  max-width: 865px;
+  
   ${({ isShowPanel }) => isShowPanel && 'max-width: 100%;'}
 `;
 const SearchElement = styled(SearchInput)<{ isShowPanel: boolean }>`
   margin: 0 auto;
   height: 4rem;
   #input-container {
-    ${({ isShowPanel }) => isShowPanel && 'border-radius: 16px 16px 0 0'};
+    ${({ isShowPanel }) => isShowPanel && 'border-radius: 15px 15px 0 0'};
   }
 `;
 const SearchIcon = styled(CiSearch)`
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: auto;
   color: var(--color-primary4);
   margin-inline-end: 0.5rem;
 `;
@@ -154,7 +166,7 @@ const PanelButton = styled(PrimaryButton)`
 `;
 
 const Panel = styled.div`
-  ${layer2A_Bg};
+  ${panel_Bg};
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -164,7 +176,7 @@ const Panel = styled.div`
   row-gap: 1rem;
   width: 100%;
   min-height: 4rem;
-  border-radius: 0px 0px 16px 16px;
+  border-radius: 0px 0px 15px 15px;
   width: 100%;
   @media ${deviceMin.tabletS} {
     flex-direction: row;

@@ -1,5 +1,5 @@
-import React, { Dispatch, ReactNode, SetStateAction } from 'react';
-import { Arrow, StyledScrollBox, PopupContainer } from './StyledComponents';
+import React, { Dispatch, ReactNode, SetStateAction } from "react";
+import { Arrow, StyledScrollBox, PopupContainer } from "./StyledComponents";
 
 interface Props {
   isPopupOpen: boolean;
@@ -8,15 +8,17 @@ interface Props {
 }
 const Popup: React.FC<Props> = ({ isPopupOpen, setIsPopupOpen, content }) => {
   return (
-    <PopupContainer $isPopupOpen={isPopupOpen}>
+    <PopupContainer
+      onClick={() => setIsPopupOpen((prevState) => !prevState)}
+      $isPopupOpen={isPopupOpen}>
       <Arrow
         $isPopupOpen={isPopupOpen}
         onClick={() => {
           setIsPopupOpen((prevState) => !prevState);
           return false;
         }}
-      />{' '}
-      <StyledScrollBox $isPopupOpen={isPopupOpen} height={'30rem'}>
+      />{" "}
+      <StyledScrollBox $isPopupOpen={isPopupOpen} height={"30rem"}>
         {content}
       </StyledScrollBox>
     </PopupContainer>

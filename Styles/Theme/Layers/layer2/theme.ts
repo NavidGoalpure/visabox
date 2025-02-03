@@ -1,9 +1,9 @@
-import { css } from 'styled-components';
-import theme from 'styled-theming';
+import { css } from "styled-components";
+import theme from "styled-theming";
 
 //////////LAYER2_A/////////
 
-export const layer2A_HeaderBG = theme('mode', {
+export const layer2A_HeaderBG = theme("mode", {
   light: css`
     background-color: var(--color-gray12);
   `,
@@ -11,25 +11,25 @@ export const layer2A_HeaderBG = theme('mode', {
     background-color: var(--color-gray7);
   `,
 });
-export const layer2A_Bg = theme('mode', {
+export const layer2A_Bg = theme("mode", {
   light: css`
-    background: var(--color-gray13);
-    box-shadow: var(--box-shadow-layer2);
+    background: white;
+    border: 1px solid var(--color-gray10);
   `,
   dark: css`
     background: var(--color-gray6);
   `,
 });
 
-export const layer2A_TitleColor = theme('mode', {
+export const layer2A_TitleColor = theme("mode", {
   light: css`
-    color: var(--color-primary4);
+    color: var(--color-gray8);
   `,
   dark: css`
     color: var(--color-gray13);
   `,
 });
-export const layer2A_SubtitleColor = theme('mode', {
+export const layer2A_SubtitleColor = theme("mode", {
   light: css`
     color: var(--color-primary2);
   `,
@@ -37,7 +37,7 @@ export const layer2A_SubtitleColor = theme('mode', {
     color: var(--color-primary6);
   `,
 });
-export const layer2A_TextColor = theme('mode', {
+export const layer2A_TextColor = theme("mode", {
   light: css`
     color: var(--color-gray6);
   `,
@@ -45,7 +45,7 @@ export const layer2A_TextColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
-export const layer2A_Key = theme('mode', {
+export const layer2A_Key = theme("mode", {
   light: css`
     color: var(--color-gray8);
   `,
@@ -54,7 +54,7 @@ export const layer2A_Key = theme('mode', {
   `,
 });
 //////////////
-export const layer2A_Value = theme('mode', {
+export const layer2A_Value = theme("mode", {
   light: css`
     color: var(--color-gray6);
   `,
@@ -62,7 +62,7 @@ export const layer2A_Value = theme('mode', {
     color: white;
   `,
 });
-export const layer2A_BorderColor = theme('mode', {
+export const layer2A_BorderColor = theme("mode", {
   light: css`
     border: 2px solid var(--color-gray12);
   `,
@@ -71,7 +71,7 @@ export const layer2A_BorderColor = theme('mode', {
   `,
 });
 //////////LAYER2B/////////
-export const layer2B_BG = theme('mode', {
+export const layer2B_BG = theme("mode", {
   light: css`
     background-color: var(--color-gray8);
   `,
@@ -79,7 +79,7 @@ export const layer2B_BG = theme('mode', {
     background-color: var(--color-gray2);
   `,
 });
-export const layer2B_TitleColor = theme('mode', {
+export const layer2B_TitleColor = theme("mode", {
   light: css`
     color: var(--color-gray13);
   `,
@@ -87,7 +87,7 @@ export const layer2B_TitleColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
-export const layer2B_SubtitleColor = theme('mode', {
+export const layer2B_SubtitleColor = theme("mode", {
   light: css`
     color: var(--color-gray13);
   `,
@@ -95,7 +95,7 @@ export const layer2B_SubtitleColor = theme('mode', {
     color: var(--color-gray13);
   `,
 });
-export const layer2B_TextColor = theme('mode', {
+export const layer2B_TextColor = theme("mode", {
   light: css`
     color: var(--color-gray13);
   `,

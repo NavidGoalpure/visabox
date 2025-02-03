@@ -5,7 +5,7 @@ import theme from 'styled-theming';
 export const layer3_BG = theme('mode', {
   light: css`
     background-color: white;
-    border: 2px solid var(--color-gray11);
+    border: 1px solid var(--color-gray11);
   `,
   dark: css`
     background-color: var(--color-gray5);

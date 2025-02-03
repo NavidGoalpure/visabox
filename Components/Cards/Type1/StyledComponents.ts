@@ -1,20 +1,20 @@
-import { device, deviceMin } from 'Consts/device';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import { ScrollBox } from 'Elements/ScrollBox';
-import { IoIosArrowDown } from 'react-icons/io';
-import styled, { css } from 'styled-components';
-import theme from 'styled-theming';
+import { device, deviceMin } from "Consts/device";
+import { PrimaryButton } from "Elements/Button/Primary";
+import { ScrollBox } from "Elements/ScrollBox";
+import { IoIosArrowDown } from "react-icons/io";
+import styled, { css } from "styled-components";
+import theme from "styled-theming";
 import {
   layer2A_BodyStyle,
   layer2A_SubtitleStyle,
   layer2A_TextStyle,
-} from 'Styles/Theme/Layers/layer2/style';
+} from "Styles/Theme/Layers/layer2/style";
 import {
   layer2A_Key,
   layer2A_TextColor,
   layer2A_TitleColor,
   layer2A_Value,
-} from 'Styles/Theme/Layers/layer2/theme';
+} from "Styles/Theme/Layers/layer2/theme";
 
 export const Container = styled.section`
   ${layer2A_BodyStyle}
@@ -23,11 +23,12 @@ export const Container = styled.section`
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 19rem;
+  min-width: 19rem;
+  width: 100%;
   height: 19rem;
   border-radius: 15px;
   cursor: pointer;
-  max-width: 320px;
+  max-width: calc(34% - 2rem);
   position: relative;
   padding: 1rem 1rem 2rem 1rem;
 
@@ -44,14 +45,11 @@ export const Wrapper = styled.div`
   width: 100%;
   overflow: hidden;
 `;
-export const codeColor = theme('mode', {
+export const codeColor = theme("mode", {
   light: css`
-    background: var(--color-gray13);
-    color: var(--color-gray8);
     border: 2px solid var(--color-primary3);
   `,
   dark: css`
-    color: var(--color-primary6);
     border: 2px solid var(--color-primary4);
   `,
 });
@@ -59,10 +57,12 @@ export const codeColor = theme('mode', {
 export const Code = styled.h3`
   ${layer2A_SubtitleStyle}
   ${codeColor}
-  width:min-content;
-  padding: 0.5rem;
+  ${layer2A_TitleColor}
+  background: transparent;
+  width: min-content;
+  padding: 0.5rem 1rem;
   align-items: center;
-  border-radius: 16px;
+  border-radius: 100px;
   margin-bottom: 1rem;
 `;
 
@@ -74,7 +74,7 @@ export const Title = styled.h2`
 `;
 
 //////popup///////
-export const ContainerHoverColor = theme('mode', {
+export const ContainerHoverColor = theme("mode", {
   light: css`
     background-color: var(--color-gray13);
   `,
@@ -98,7 +98,7 @@ export const PopupContentContainerHoverCss = css`
   transform: translateY(0);
   opacity: 1;
 `;
-export const ContainerColor = theme('mode', {
+export const ContainerColor = theme("mode", {
   light: css`
     background-color: var(--color-gray12);
   `,
@@ -173,10 +173,10 @@ export const Arrow = styled(IoIosArrowDown)<{ $isPopupOpen: boolean }>`
   transform: translateX(-50%) rotate(180deg);
   fill: white;
   background-color: var(--color-primary4);
-  width: 3rem;
+  width: 2.6rem;
   height: auto;
   border-radius: 50px;
-  padding: 0.5rem;
+  padding: 0.3rem;
   transition: all 0.4s ease;
   transition-delay: 0.3s;
   pointer-events: all;

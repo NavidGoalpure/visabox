@@ -28,17 +28,8 @@ export const layer2A_TextStyle = css`
   ${Headline7Style}
 `;
 
-export const layer2A_HeaderBg = theme('mode', {
-  light: css`
-    background: var(--color-gray13);
-  `,
-  dark: css`
-    background: var(--color-gray7);
-  `,
-});
-
 export const layer2A_HeaderStyle = css`
-  ${layer2A_HeaderBg}
+  ${layer2A_HeaderBG}
   padding: 1rem 2rem;
   border-radius: 15px 15px 0 0;
   border-top: none;

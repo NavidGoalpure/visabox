@@ -1,28 +1,29 @@
-import React, { lazy } from 'react';
-import ToggleTag from 'Elements/ToggleTag';
-import styled, { css } from 'styled-components';
-import { SidebarPage } from './sideBar';
-import { useDynamicTranslation } from 'Hooks/useDynamicTraslation';
-import TooltipTag from 'Elements/TooltipTag';
-import { deviceMin } from 'Consts/device';
-import { componentStatements, LanguageKeys } from './const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { OccupationDetailRes } from 'Queries/occupations/Detail/interface';
-import SimilarOccupations from './similarOccupations';
-import Link from 'next/link';
-import { useLocale } from 'Hooks/useLocale';
+import React, { lazy } from "react";
+import ToggleTag from "Elements/ToggleTag";
+import styled, { css } from "styled-components";
+import { SidebarPage } from "./sideBar";
+import { useDynamicTranslation } from "Hooks/useDynamicTraslation";
+import TooltipTag from "Elements/TooltipTag";
+import { deviceMin } from "Consts/device";
+import { componentStatements, LanguageKeys } from "./const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { OccupationDetailRes } from "Queries/occupations/Detail/interface";
+import SimilarOccupations from "./similarOccupations";
+import Link from "next/link";
+import { useLocale } from "Hooks/useLocale";
 import {
   getSmartAssessingAuthorities,
   has189Visa,
   has190Visa,
   has491FamilyVisa,
   has491StateVisa,
-} from './utils';
+} from "./utils";
 import {
   Layer1_SubtitleStyle,
   Layer1_TextStyle,
-} from 'Styles/Theme/Layers/layer1/style';
-import LazyLoadComponentUi from 'Elements/LazyLoadComponentUi';
+} from "Styles/Theme/Layers/layer1/style";
+import LazyLoadComponentUi from "Elements/LazyLoadComponentUi";
+import theme from "styled-theming";
 
 interface Props {
   occupation: OccupationDetailRes;
@@ -53,13 +54,12 @@ const Content: React.FC<Props> = ({ occupation }) => {
               <Link
                 key={i}
                 href={`/${locale}/occupations/assessing-authorities/#${
-                  assess.split('_')[0]
+                  assess.split("_")[0]
                 }`}
-                target='_blank'
-                scroll={false}
-              >
+                target="_blank"
+                scroll={false}>
                 <TooltipTag
-                  content={assess.replaceAll('_', ' ')}
+                  content={assess.replaceAll("_", " ")}
                   // popupContent={
                   //   <a href='https://visaenvoy.com/skills-assessment-and-assessing-authorities/'>
                   //     {t(LanguageKeys.TooltipTagDesc)}
@@ -73,26 +73,26 @@ const Content: React.FC<Props> = ({ occupation }) => {
       </VetassesContainer>
       <ToggleContainer>
         <StyledToggleTag
-          contentKey={'189'}
+          contentKey={"189"}
           isOn={has189Visa(occupation.code)}
-          backgroundtheme='PAGE'
+          backgroundtheme="PAGE"
         />
         <StyledToggleTag
-          contentKey={'190'}
+          contentKey={"190"}
           isOn={has190Visa(occupation.code)}
-          backgroundtheme='PAGE'
+          backgroundtheme="PAGE"
         />
 
         <StyledToggleTag
-          contentKey={'491'}
+          contentKey={"491"}
           isOn={has491StateVisa(occupation.code)}
-          backgroundtheme='PAGE'
+          backgroundtheme="PAGE"
         />
         <StyledToggleTag
-          contentKey={t(LanguageKeys['491-family'])}
+          contentKey={t(LanguageKeys["491-family"])}
           isOn={has491FamilyVisa(occupation.code)}
-          backgroundtheme='PAGE'
-          style={{ marginInlineEnd: '0' }}
+          backgroundtheme="PAGE"
+          style={{ marginInlineEnd: "0" }}
         />
       </ToggleContainer>
       {/*  */}
@@ -112,8 +112,15 @@ const Content: React.FC<Props> = ({ occupation }) => {
 };
 
 export default Content;
+const ToggleContainerBorderColorTheme = theme("mode", {
+  light: css`
+    border-color: var(--color-gray11);
+  `,
+  dark: css`
+    border-color: var(--color-gray6);
+  `,
+});
 //there was a bug which the text wasn't vertically aligned in persian so I needed to fix it this way
-
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -133,7 +140,7 @@ const VetassesContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   @media ${deviceMin.tabletS} {
     display: flex;
     flex-direction: row;
@@ -170,14 +177,36 @@ const TitleContainer = styled.div`
 `;
 
 const ToggleContainer = styled.div`
+  border: 1px solid;
+  ${ToggleContainerBorderColorTheme};
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  border-radius: 15px;
   margin-bottom: 4rem;
+  flex-wrap: wrap;
+  overflow: hidden;
+  *:nth-child(even) {
+    border-right: none;
+  }
+  *:first-child {
+    border-top: none;
+  }
+  *:nth-child(2) {
+    border-top: none;
+  }
+  *:last-child {
+    border-right: none;
+  }
+  @media ${deviceMin.laptopXS} {
+    flex-wrap: nowrap;
+    *:nth-child(even) {
+      border-right: inherit;
+    }
+    *:last-child {
+      border-right: none;
+    }
+  }
 `;
-const StyledToggleTag = styled(ToggleTag)`
-  margin-inline-end: 2rem;
-`;
+const StyledToggleTag = styled(ToggleTag)``;

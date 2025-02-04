@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
 import { HTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as Tabs from '@radix-ui/react-tabs';
 import { directionStyles } from 'Styles/Theme';
 import { deviceMin } from 'Consts/device';
 import { layer2A_TextStyle } from 'Styles/Theme/Layers/layer2/style';
+import theme from 'styled-theming';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -22,6 +23,14 @@ const MobileTabItem: React.FC<Props> = ({ title, value, icon, className }) => {
   );
 };
 export default MobileTabItem;
+const TabsBorderColor = theme("mode", {
+  light: css`
+    border: 1px solid var(--color-gray11);
+  `,
+  dark: css`
+    border: 1px solid var(--color-gray6);
+  `,
+});
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
@@ -35,6 +44,7 @@ const ContentContainer = styled.div`
 
 const TabsTrigger = styled(Tabs.Trigger)`
   ${layer2A_TextStyle}
+  ${TabsBorderColor}
   margin-bottom: 0rem;
   //
   ${directionStyles}
@@ -45,12 +55,14 @@ const TabsTrigger = styled(Tabs.Trigger)`
   width: 100%;
   height: 100%;
   cursor: pointer;
+  border-radius: 15px;
 
   ////////////selected//////////
-  &[aria-selected='true'] {
+  &[aria-selected="true"] {
     background: var(--color-primary2);
-    box-shadow: 0px 0px 4px var(--color-primary4);
     color: white;
+    box-shadow: 0px 0px 4px 0px #00c8b6;
+    border: none;
   }
 
   ////////////hover//////////

@@ -20,7 +20,7 @@ export enum deviceMin {
   tabletM = `(min-width: 601px) `,
   tabletL = `(min-width: 769px) `,
   laptopXS = `(min-width: 801px) `,
-  laptopS = `(min-width: 1025px)`,
+  laptopS = `(min-width: 1024px)`,
   laptopM = `(min-width: 1281px)`,
   laptopL = `(min-width: 1367px)`,
   desktop = `(min-width: 1441px)`,

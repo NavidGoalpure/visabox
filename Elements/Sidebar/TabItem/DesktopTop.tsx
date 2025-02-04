@@ -36,14 +36,7 @@ export default DesktopTabItem_Top;
 //////////////////////////
 
 //////////
-const contentContainerDeactiveColor = theme("mode", {
-  light: css`
-    color: var(--color-gray5);
-  `,
-  dark: css`
-    color: var(--color-gray13);
-  `,
-});
+
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
@@ -65,12 +58,24 @@ const TabsTriggerhover = theme("mode", {
     color: white;
   `,
 });
+const TabsBorderColor = theme("mode", {
+  light: css`
+    border: 1px solid var(--color-gray11);
+  `,
+  dark: css`
+    border: 1px solid var(--color-gray6);
+  `,
+});
 const TabsTrigger = styled(Tabs.Trigger)`
   ${layer2A_TextStyle};
+  ${TabsBorderColor}
   margin-bottom: 0rem;
+  background: transparent;
+
   //
   ${directionStyles}
   padding: 1rem;
+  border-radius: 15px;
   position: relative;
   list-style: none;
   width: 100%;
@@ -80,11 +85,9 @@ const TabsTrigger = styled(Tabs.Trigger)`
   ////////////selected//////////
   &[aria-selected="true"] {
     background: var(--color-primary2);
-    box-shadow: 0px 0px 4px var(--color-primary4);
     color: white;
-    div {
-      ${contentContainerDeactiveColor}
-    }
+    box-shadow: 0px 0px 4px 0px #00c8b6;
+    border: none;
   }
 
   ////////////hover//////////

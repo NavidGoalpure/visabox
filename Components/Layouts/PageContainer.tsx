@@ -49,26 +49,26 @@ const PageContainer: React.FC<Props> = ({
     <Container {...props}>
       <ToasterContainer />
       {hasMenu && <Header />}
-      {/* navid فعلا باید  این قسمت کامنت باشه تابفهمیم چرا فرم هایی که پر میشن نشون داده نمیشن */}
-      {/* {hasBanner && (
+      {hasBanner && (
         <SmartBanner
           navigateTo={`/${locale}/clients/point-calculator`}
           desc={
             <div
               dangerouslySetInnerHTML={{
                 __html: t(LanguageKeys.BannerDesc),
-              }}></div>
+              }}
+            ></div>
           }
           stampText={t(LanguageKeys.StampText)}
           buttonText={t(LanguageKeys.BannerButtonText)}
           onClose={() =>
             setSessionStorage({
               key: SessionStorageKeys.IS_SMART_BANNER_CLOSE,
-              value: "true",
+              value: 'true',
             })
           }
         />
-      )} */}
+      )}
       <Content id='PageContainer-content'>{children}</Content>
       <LazyLoadComponentUi>{hasFooter && <Footer />}</LazyLoadComponentUi>
     </Container>

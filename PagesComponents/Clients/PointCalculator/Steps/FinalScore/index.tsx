@@ -116,7 +116,7 @@ const Desc = styled.p`
   white-space: pre-line;
   margin-bottom: 1rem;
   @media ${deviceMin.tabletS} {
-    ${layer2A_SubtitleStyle};
+    ${Headline6Style};
   }
 `;
 const ButtonWrapper = styled.div`

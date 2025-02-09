@@ -79,12 +79,7 @@ const FormsWall: NextPage = () => {
       );
     }
   }, []);
-  // farzam change back
-  return (
-    <PageLayout>
-      <ContentOrError isError={isError} content={<Content />} />
-    </PageLayout>
-  );
+
   //
   if (isAgencyLogedIn())
     return (

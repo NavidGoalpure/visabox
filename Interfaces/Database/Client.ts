@@ -71,6 +71,7 @@ export interface Client extends SanityKeys {
   phone?: string;
   birthday?: string;
   age?: string;
+  form_updated?:string;
   marital: ClientMarital;
   does_partner_have_assessment?: boolean;
   is_partner_competent_english_speaker?: boolean;

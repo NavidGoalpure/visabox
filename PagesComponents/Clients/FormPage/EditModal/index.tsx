@@ -1,25 +1,25 @@
-import ModalComponent from 'Components/ModalComponent';
-import { PrimaryButton } from 'Elements/Button/Primary';
-import ErrorToast from 'Elements/Toast/Error';
-import SuccessToast from 'Elements/Toast/Success';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { Client } from 'Interfaces/Database/Client';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { AiOutlineSave } from 'react-icons/ai';
-import { MdNavigateNext } from 'react-icons/md';
-import { useMutation, useQueryClient } from 'react-query';
-import styled from 'styled-components';
-import { Headline7Style } from 'Styles/Typo';
-import { ClientQueryKeys } from 'Utils/query/keys';
-import * as ToggleGroup from 'Elements/ToggleGroup';
+import ModalComponent from "Components/ModalComponent";
+import { PrimaryButton } from "Elements/Button/Primary";
+import ErrorToast from "Elements/Toast/Error";
+import SuccessToast from "Elements/Toast/Success";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { Client } from "Interfaces/Database/Client";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { AiOutlineSave } from "react-icons/ai";
+import { MdNavigateNext } from "react-icons/md";
+import { useMutation, useQueryClient } from "react-query";
+import styled from "styled-components";
+import { Headline7Style } from "Styles/Typo";
+import { ClientQueryKeys } from "Utils/query/keys";
+import * as ToggleGroup from "Elements/ToggleGroup";
 import {
   componentStatements,
   LanguageKeys,
   EditModalContentKeys,
   profileResParams,
-} from '../const';
+} from "../const";
 
-import { ContentBasedOnKeys } from './Content';
+import { ContentBasedOnKeys } from "./Content";
 
 interface Props {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -43,18 +43,27 @@ const EditModal: React.FC<Props> = ({
   }, [client]);
   const mutation = useMutation({
     mutationFn: () => {
-      return fetch('/api/clients/edit-profile', {
-        method: 'POST',
-        body: JSON.stringify({ client: editedClient }),
-      });
+      if (areImmigrationPointsUpdated()) {
+        return fetch("/api/clients/edit-profile", {
+          method: "POST",
+          body: JSON.stringify({
+            client: { ...editedClient, form_updated: new Date().toISOString() },
+          }),
+        });
+      } else {
+        return fetch("/api/clients/edit-profile", {
+          method: "POST",
+          body: JSON.stringify({ client: editedClient }),
+        });
+      }
     },
     onSuccess: (res) => {
       if (!res.ok) {
-        throw new Error('couldnt patch the user');
+        throw new Error("couldnt patch the user");
       }
       queryClient.refetchQueries({
         queryKey: ClientQueryKeys.detail({
-          reqParams: `_id == "${client?._id || 'defensive'}"`,
+          reqParams: `_id == "${client?._id || "defensive"}"`,
         }),
       });
       setIsModalOpen(false);
@@ -64,7 +73,34 @@ const EditModal: React.FC<Props> = ({
       ErrorToast(FailedToastMessage);
     },
   });
-
+  function areImmigrationPointsUpdated(): boolean {
+    switch (modalContentKeys) {
+      case EditModalContentKeys.CURRENT_JOB:
+        return true;
+      case EditModalContentKeys.BIRTH_DATE:
+        return true;
+      case EditModalContentKeys.ENGLISH_SKILL:
+        return true;
+      case EditModalContentKeys.MARRIAGE_STATUS:
+        return true;
+      case EditModalContentKeys.FIELD_OF_STUDY:
+        return true;
+      case EditModalContentKeys.DEGREE:
+        return true;
+      case EditModalContentKeys.PROFESSIONAL_YEAR_IN_AUSTRALIA:
+        return true;
+      case EditModalContentKeys.ACCREDITED_COMMUNITY_LANGUAGE:
+        return true;
+      case EditModalContentKeys.UNIVERSITY_SECTION:
+        return true;
+      case EditModalContentKeys.WORK_EXPERIENCE_OVERSEAS:
+        return true;
+      case EditModalContentKeys.AUSTRALIAN_WORK_EXPERIENCE:
+        return true;
+      default:
+        return false;
+    }
+  }
   function TitleBasedOnKeys() {
     switch (modalContentKeys) {
       case EditModalContentKeys.NAME:
@@ -99,7 +135,7 @@ const EditModal: React.FC<Props> = ({
         return t(LanguageKeys.EmailTitle);
 
       default:
-        return '';
+        return "";
     }
   }
   // if this useEffect was not here the user could make a change then close the popup
@@ -115,8 +151,7 @@ const EditModal: React.FC<Props> = ({
       doesModalCloseOnOutsideInteraction={true}
       DialogTitleText={TitleBasedOnKeys()}
       setOpen={setIsModalOpen}
-      open={isModalOpen}
-    >
+      open={isModalOpen}>
       <ContentBasedOnKeys
         setEditedClient={setEditedClient}
         editedClient={editedClient}
@@ -125,8 +160,9 @@ const EditModal: React.FC<Props> = ({
       <ButtonWrapper>
         <SaveButton
           isLoading={mutation.isLoading}
-          onClick={() => mutation.mutate()}
-        >
+          onClick={() => {
+            mutation.mutate();
+          }}>
           {t(LanguageKeys.SaveTitle)} <SaveIcon />
         </SaveButton>
         <BackButton onClick={() => setIsModalOpen(false)}>

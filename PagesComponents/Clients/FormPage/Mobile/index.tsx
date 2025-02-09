@@ -55,7 +55,7 @@ function MobileAgentsPage({
   setEditModalContentKey,
   setIsModalOpen,
 }: Props) {
-  const dataCreatedAt = client?._createdAt?.toString().substring(0, 10);
+  const formUpdatedAt = client?.form_updated?.toString().substring(0, 10);
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
   const isViewerOwner = client?.email === session?.user?.email;
@@ -108,7 +108,7 @@ function MobileAgentsPage({
             )}
           </JobTitle>
         )}
-        <CreatedDate>{dataCreatedAt}</CreatedDate>
+        <CreatedDate>{formUpdatedAt}</CreatedDate>
         {client?.completed_forms?.length === 1 && (
           <HeaderLabel>
             {t(LanguageKeys.ScoreTitle)}{" "}

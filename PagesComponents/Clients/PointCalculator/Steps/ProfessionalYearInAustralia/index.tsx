@@ -34,6 +34,7 @@ import { validateClientDataWithYup } from "../../utils";
 import { useQueryClient, useMutation } from "react-query";
 import { getLocalStorage, removeLocalStorage } from "Utils";
 import { ClientQueryKeys } from "Utils/query/keys";
+import { date } from "yup";
 
 const ProfessionalYearInAustraliaStep = () => {
   const { step, handleBackPress, handleNextPress } = useContext(WizardContext);
@@ -90,8 +91,9 @@ const ProfessionalYearInAustraliaStep = () => {
             role: ClientRole.Normal,
             status: Status.ACTIVE,
             is_sharable: true,
+            form_updated: new Date().toISOString(),
             // remove completed_forms everywhere needs
-            // completed_forms: getSmartCompletedForms(client?.completed_forms),
+            completed_forms: getSmartCompletedForms(client?.completed_forms),
           }
         : undefined;
 

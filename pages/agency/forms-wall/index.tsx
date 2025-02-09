@@ -1,32 +1,32 @@
-import { NextPage, GetServerSideProps, NextPageContext } from 'next';
-import PageLayout from 'Components/Layouts/PageContainer';
-import { dehydrate, QueryClient, useQuery } from 'react-query';
-import { useLocale } from 'Hooks/useLocale';
-import Seo from 'Components/Seo';
-import Content from 'PagesComponents/Agency/FormsWall';
-import { withCSR } from 'Hoc/withCSR';
-import { AgencyQueryKeys, ClientQueryKeys } from 'Utils/query/keys';
-import { getlistOfBasicForm } from 'Queries/agency/ListOfForms';
+import { NextPage, GetServerSideProps, NextPageContext } from "next";
+import PageLayout from "Components/Layouts/PageContainer";
+import { dehydrate, QueryClient, useQuery } from "react-query";
+import { useLocale } from "Hooks/useLocale";
+import Seo from "Components/Seo";
+import Content from "PagesComponents/Agency/FormsWall";
+import { withCSR } from "Hoc/withCSR";
+import { AgencyQueryKeys, ClientQueryKeys } from "Utils/query/keys";
+import { getlistOfBasicForm } from "Queries/agency/ListOfForms";
 import {
   componentStatements,
   LanguageKeys,
-} from 'PagesComponents/Agency/FormsWall/const';
-import { useStaticTranslation } from 'Hooks/useStaticTraslation';
-import { listOfBasicForm_ResParams } from 'Consts/agents';
-import { signOut, useSession } from 'next-auth/react';
-import { getAgencyDetail } from 'Queries/agency';
-import { getLocalStorage } from 'Utils';
-import { Status, UserRole } from 'Interfaces/Database';
-import { LocalStorageKeys } from 'Interfaces';
-import ErrorToast from 'Elements/Toast/Error';
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { Loading } from 'Elements/Loading/Loading';
-import { ContentOrError } from 'Components/contentOrError';
-import { isAgencyLogedIn, Logout } from 'Utils/user';
-import { useRouter } from 'next/router';
-import NotFound from 'pages/404';
-import { Layer1_SubtitleStyle } from 'Styles/Theme/Layers/layer1/style';
+} from "PagesComponents/Agency/FormsWall/const";
+import { useStaticTranslation } from "Hooks/useStaticTraslation";
+import { listOfBasicForm_ResParams } from "Consts/agents";
+import { signOut, useSession } from "next-auth/react";
+import { getAgencyDetail } from "Queries/agency";
+import { getLocalStorage } from "Utils";
+import { Status, UserRole } from "Interfaces/Database";
+import { LocalStorageKeys } from "Interfaces";
+import ErrorToast from "Elements/Toast/Error";
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Loading } from "Elements/Loading/Loading";
+import { ContentOrError } from "Components/contentOrError";
+import { isAgencyLogedIn, Logout } from "Utils/user";
+import { useRouter } from "next/router";
+import NotFound from "pages/404";
+import { Layer1_SubtitleStyle } from "Styles/Theme/Layers/layer1/style";
 
 const FormsWall: NextPage = () => {
   const { locale } = useLocale();
@@ -34,7 +34,7 @@ const FormsWall: NextPage = () => {
   const { t } = useStaticTranslation(componentStatements);
   const { data: session } = useSession();
 
-  const reqParams = `email == "${session?.user?.email || 'defensive'}"`;
+  const reqParams = `email == "${session?.user?.email || "defensive"}"`;
   const resParams = `
       email,
       status
@@ -59,7 +59,7 @@ const FormsWall: NextPage = () => {
           data?.agency?.[0]?.email &&
           data?.agency?.[0]?.email !== session?.user?.email
         ) {
-          ErrorToast('We have trouble with your account. Please login again');
+          ErrorToast("We have trouble with your account. Please login again");
           Logout(`/${locale}/auth/signin`);
         }
         // اگه اکانت ایجنسی دی اکتیو بود چیزی نشون نده
@@ -79,6 +79,12 @@ const FormsWall: NextPage = () => {
       );
     }
   }, []);
+  // farzam change back
+  return (
+    <PageLayout>
+      <ContentOrError isError={isError} content={<Content />} />
+    </PageLayout>
+  );
   //
   if (isAgencyLogedIn())
     return (
@@ -101,7 +107,7 @@ const FormsWall: NextPage = () => {
   else {
     return (
       <>
-        <NotFound />{' '}
+        <NotFound />{" "}
       </>
     );
   }

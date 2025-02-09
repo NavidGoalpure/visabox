@@ -112,6 +112,7 @@ export function ContentBasedOnKeys({
             setEditedClient({
               ...editedClient,
               birthday: e.target.value.slice(0, 10),
+              form_updated:new Date().toISOString()
             });
           }}
           id={"date-input"}

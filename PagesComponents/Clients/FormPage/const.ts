@@ -414,6 +414,7 @@ export const profileResParams = `
       completed_forms,
       all_degrees,
       all_jobs,
+      form_updated,
       `;
 export enum EditModalContentKeys {
   NAME = "NAME",

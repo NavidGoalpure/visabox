@@ -22,7 +22,7 @@ interface Props {
 function BasicFormCard({ formData }: Props) {
   const { t } = useStaticTranslation(componentStatements);
   const { locale } = useLocale();
-  const dataUpdatedAt = formData?._updatedAt?.toString().substring(0, 10);
+  const FormUpdatedAt = formData?.form_updated?.toString().substring(0, 10);
   const clientScore = CalculateClientScore(formData);
   return (
     <CardContainer
@@ -31,8 +31,7 @@ function BasicFormCard({ formData }: Props) {
       style={{ height: "100%" }}
       href={`/clients/${formData._id}`}
       locale={locale}
-      prefetch={false}
-    >
+      prefetch={false}>
       <Wrapper>
         <Title>{formData.current_job}</Title>
         <DataWrapper>
@@ -47,7 +46,7 @@ function BasicFormCard({ formData }: Props) {
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.DateLabel)} </Label>
-          <Value>{dataUpdatedAt}</Value>
+          <Value>{FormUpdatedAt}</Value>
         </DataWrapper>
         <DataWrapper>
           <Label>{t(LanguageKeys.LanguageSkillsLabel)}</Label>
@@ -62,7 +61,8 @@ function BasicFormCard({ formData }: Props) {
           </Value>
         </DataWrapper>
       </Wrapper>
-      <PrimaryButton style={{ margin: "0 auto",width:"100%",boxSizing:"border-box" }}>
+      <PrimaryButton
+        style={{ margin: "0 auto", width: "100%", boxSizing: "border-box" }}>
         {t(LanguageKeys.ViewMore)}
       </PrimaryButton>
     </CardContainer>
@@ -155,7 +155,7 @@ const Value = styled.h4`
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
-  overflow:hidden;
+  overflow: hidden;
 `;
 const ScoreValue = styled(Value)`
   ${ScoreValueTheme};

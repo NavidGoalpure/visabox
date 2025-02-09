@@ -49,7 +49,8 @@ const PageContainer: React.FC<Props> = ({
     <Container {...props}>
       <ToasterContainer />
       {hasMenu && <Header />}
-      {hasBanner && (
+      {/* // navid: چون فعلا وکیلمون نمیتونه زنگ بزنه موقتا دی اکتیو کردم */}
+      {/* {hasBanner && (
         <SmartBanner
           navigateTo={`/${locale}/clients/point-calculator`}
           desc={
@@ -68,7 +69,7 @@ const PageContainer: React.FC<Props> = ({
             })
           }
         />
-      )}
+      )} */}
       <Content id='PageContainer-content'>{children}</Content>
       <LazyLoadComponentUi>{hasFooter && <Footer />}</LazyLoadComponentUi>
     </Container>

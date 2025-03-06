@@ -23,7 +23,7 @@ const BlogPage: NextPage<Props> = ({ blog, errorCode }) => {
       <Seo
         title={blog?.title}
         description={blog?.excerpt}
-        canonical={`https://www.marabox.com.au/${locale}/blog/${blog?.slug}`}
+        canonical={`https://www.marabox.com.au/${locale}/blog/${blog?.slug?.current}`}
         structuredData={structureData}
       />
       <ContentOrError

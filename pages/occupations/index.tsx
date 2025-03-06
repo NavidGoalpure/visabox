@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage, NextPageContext } from "next";
+import type { GetServerSideProps, Metadata, NextPage, NextPageContext } from "next";
 import {
   LanguageKeys,
   componentStatements,
@@ -18,19 +18,19 @@ import { FiltersContextProvider } from "PagesComponents/Occupations/List/Context
 import { OccupationsQueryKeys } from "Utils/query/keys";
 
 // farzam fix later
-export const metadata = {
-  title: "Skill Occupation List | Mara Box",
-  description:
-    "See the full Skilled Occupations List & find out whether your occupation is eligible to apply for an Australian Skilled or Work Visa | Contact us for more info",
-  openGraph: {
-    title: "Skill Occupation List | Mara Box",
-    description:
-      "See the full Skilled Occupations List & find out whether your occupation is eligible to apply for an Australian Skilled or Work Visa | Contact us for more info",
-    images: ["https://marabox.com.au/ogImage.png"], // Absolute URL
-    url: "https://www.marabox.com.au/en/occupations/", // important for telegram.
-    type: "website",
-  },
-};
+// export const metadata: Metadata = {
+//   title: "Skill Occupation List | Mara Box",
+//   description:
+//     "See the full Skilled Occupations List & find out whether your occupation is eligible to apply for an Australian Skilled or Work Visa | Contact us for more info",
+//   openGraph: {
+//     title: "Skill Occupation List | Mara Box",
+//     description:
+//       "See the full Skilled Occupations List & find out whether your occupation is eligible to apply for an Australian Skilled or Work Visa | Contact us for more info",
+//     images: ["https://marabox.com.au/ogImage.png"], // Absolute URL
+//     url: "https://www.marabox.com.au/en/occupations/", // important for telegram.
+//     type: "website",
+//   },
+// };
 interface Props {
   statusCode: number | null;
 }
@@ -41,11 +41,11 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
   if (statusCode) <Error statusCode={statusCode} />;
   return (
     <PageLayout>
-      {/* <Seo
+      <Seo
         title={t(LanguageKeys.SeoTitle)}
         description={t(LanguageKeys.SeoDesc)}
         canonical={`https://www.marabox.com.au/${locale}/occupations/`}
-      /> */}
+      />
       <FiltersContextProvider>
         <Content />
       </FiltersContextProvider>
@@ -54,6 +54,7 @@ const OccupationList: NextPage<Props> = ({ statusCode }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = withCSR(
+
   async (ctx: NextPageContext) => {
     //
     const queryClient = new QueryClient();

@@ -32,7 +32,7 @@
     "@types/crypto-js": "^4.2.2",
     "@types/react-gtm-module": "^2.0.1",
     "ai": "^2.2.29",
-    "axios": "^1.4.0",
+    "axios": "^1.8.3",
     "cloudinary-build-url": "^0.2.4",
     "country-state-city": "^3.2.1",
     "crypto-js": "^4.2.0",

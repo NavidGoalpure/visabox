@@ -100,7 +100,7 @@ const SidebarPage: React.FC<Props> = ({ occupation }) => {
                             {t(LanguageKeys.HintInvited)}
                           </HintItem>
                           <HintItem>
-                            <Tag>{t(LanguageKeys.Lodged)}</Tag>
+                            <Tag>{t(LanguageKeys.Lodged)}</Tag>c{' '}
                             {t(LanguageKeys.HintLodged)}
                           </HintItem>
                           <HintItem>

@@ -23,6 +23,7 @@ function AiChatContextProvider(props: Props) {
     userId: string | undefined;
     credit?: number;
   }>();
+  console.log('navid userChatData=', userChatData);
 
   useEffect(() => {
     if (!userChatData) {

@@ -50,10 +50,8 @@ function Content({ aiAgentId }: Props) {
       <QuestionRemain
         dangerouslySetInnerHTML={{
           __html: t(LanguageKeys.QuestionRemain, [
-            // به عدد باقیمانده سوالات ۳ تا اضافه میکنیم چون همیشه ۳ ا اشانتیون وجود دارد
             {
-              // $number: questionRemain.toString(),
-              $number: '0',
+              $number: questionRemain.toString(),
             },
           ]),
         }}
@@ -68,9 +66,9 @@ function Content({ aiAgentId }: Props) {
           <ChatScrollAnchor trackVisibility={isLoading} />;
         </Scroll>
         {/* اسمارت رو، تصمیم میگره که چت رو نشون بده یا لاگین رو یا پیام تموم شدن اعتبار */}
-        {/* اما در حال حاضر به خاطر اینکه این سرویس رو غیر فعال کردین کامنت شده */}
-        {/* <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} /> */}
-        <ServiceIsDown />
+        <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
+        {/* اگه خواستیم سرویس رو غیرفغال کنیم باید اینرو به جای اسمارت رو نشون بدیم */}
+        {/* <ServiceIsDown /> */}
       </ChatArea>
       {isMobile && (
         <Hint

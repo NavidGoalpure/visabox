@@ -12,7 +12,7 @@ import { useStaticTranslation } from 'Hooks/useStaticTraslation';
 import useDevice from 'Hooks/useDevice';
 
 interface Props {
-  asqQuestion: (message?: string | undefined) => void;
+  asqQuestion: (message?: string | undefined) => Promise<void>;
   isLoading: boolean;
   stopStream: () => boolean;
 }
@@ -22,14 +22,16 @@ function QuestionRow({ asqQuestion, isLoading, stopStream }: Props) {
   const { isMobile } = useDevice();
   const [inputValue, setInputValue] = useState<string>('');
   const { locale } = useLocale();
-  //
-  function sendQuestionHandler() {
-    asqQuestion(inputValue);
+  
+  async function sendQuestionHandler() {
+    await asqQuestion(inputValue);
     setInputValue('');
   }
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  
+  const handleKeyPress = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
-      sendQuestionHandler();
+      e.preventDefault();
+      await sendQuestionHandler();
     }
   };
 

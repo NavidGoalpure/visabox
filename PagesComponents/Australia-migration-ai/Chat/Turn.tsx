@@ -1,19 +1,20 @@
-import { ConversationTurn, TextMessage } from 'fixie';
+import { BedrockTurn, BedrockMessage } from './types/bedrock';
 import styled from 'styled-components';
 import { SelfMessage_Style } from 'Styles/Theme/Layers/layer3/style';
 import AssistantMsg from './AssistantMsg';
 
 interface Props {
-  turn: ConversationTurn | undefined;
+  turn: BedrockTurn | undefined;
 }
 function Turn({ turn }: Props) {
   if (!turn) return null;
-  // if(turn.messages)
-  const message = (turn.messages[0] as TextMessage)?.content;
+  
+  const message = turn.messages[0]?.content;
   const { role, timestamp, state } = turn;
+  
   if (role === 'assistant') return <AssistantMsg messages={turn?.messages} />;
 
-  return <SelfMessage>{message.trim()}</SelfMessage>;
+  return <SelfMessage>{message?.trim()}</SelfMessage>;
 }
 export default Turn;
 

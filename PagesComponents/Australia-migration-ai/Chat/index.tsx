@@ -6,7 +6,7 @@ import {
   Layer1_SubtitleStyle,
 } from 'Styles/Theme/Layers/layer1/style';
 import { componentStatements, LanguageKeys } from './const';
-import { useFixie } from 'fixie/web';
+import { useBedrockChat } from './hooks/useBedrockChat';
 import { ScrollBox } from 'Elements/ScrollBox';
 import { layer2A_BodyStyle } from 'Styles/Theme/Layers/layer2/style';
 import ShowConversation from './ShowConversation';
@@ -23,22 +23,32 @@ import ServiceIsDown from './ThisServiceIsDown';
 interface Props {
   aiAgentId: string;
 }
+
 function Content({ aiAgentId }: Props) {
   const { status } = useSession();
   const { t } = useStaticTranslation(componentStatements);
   const { questionRemain } = useContext(AiChatContext);
   const { isMobile } = useDevice();
-  //
-  const { conversation, sendMessage, stop } = useFixie({
-    agentId: aiAgentId,
-    agentStartsConversation: false,
+
+  // Use the external Bedrock API
+  const { conversation, sendMessage, stop, isLoading, error } = useBedrockChat({
+    modelId: 'external-api', // Not used but required by interface
+    region: 'ap-southeast-2', // Your API region
+    maxTokens: 1000,
+    temperature: 0.7,
+    systemPrompt: `You are Marcya, an AI assistant specialized in Australian immigration guidance. 
+    You help users with questions about:
+    - VETASSESS assessment
+    - ACS (Australian Computer Society) assessment
+    - TRA (Trades Recognition Australia) assessment
+    - Migration strategies
+    - Australian states and territories
+    - Skilled worker visas
+    - APharmC and ACWA assessments
+    
+    Provide accurate, helpful information while always recommending users consult with qualified immigration professionals for official advice.`
   });
 
-  //////isLoading logic//////
-  const conversationLength = conversation?.turns?.length || 0;
-  const isLoading =
-    conversation?.turns?.[conversationLength - 1]?.state === 'in-progress';
-  //
   if (status === 'loading') return <Loading />;
 
   return (
@@ -59,15 +69,14 @@ function Content({ aiAgentId }: Props) {
       <ChatArea>
         <Scroll
           $size={conversation ? 'full' : 'mini'}
-          // height={'40vh'}
         >
           <ShowConversation turns={conversation?.turns} />
           {isLoading && <Loading />}
-          <ChatScrollAnchor trackVisibility={isLoading} />;
+          <ChatScrollAnchor trackVisibility={isLoading} />
         </Scroll>
-        {/* اسمارت رو، تصمیم میگره که چت رو نشون بده یا لاگین رو یا پیام تموم شدن اعتبار */}
+        {/* SmartRow decides whether to show chat, login, or credit message */}
         <SmartRow sendMessage={sendMessage} isLoading={isLoading} stop={stop} />
-        {/* اگه خواستیم سرویس رو غیرفغال کنیم باید اینرو به جای اسمارت رو نشون بدیم */}
+        {/* If you want to disable the service, show this instead of SmartRow */}
         {/* <ServiceIsDown /> */}
       </ChatArea>
       {isMobile && (
@@ -81,7 +90,9 @@ function Content({ aiAgentId }: Props) {
     </Container>
   );
 }
+
 export default Content;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;

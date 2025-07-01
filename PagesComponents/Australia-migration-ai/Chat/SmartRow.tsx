@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AiChatContext } from './hooks/useAiCredit';
 
 interface Props {
-  sendMessage: (message?: string | undefined) => boolean;
+  sendMessage: (message?: string | undefined) => Promise<boolean>;
   isLoading: boolean;
   stop: () => boolean;
 }
@@ -31,10 +31,11 @@ function SmartRow({ sendMessage, isLoading, stop }: Props) {
       },
     }
   );
-  function asqQuestion(message: string | undefined) {
+  
+  async function asqQuestion(message: string | undefined) {
     if (message) {
       mutation.mutate();
-      sendMessage(message);
+      await sendMessage(message);
     }
   }
 

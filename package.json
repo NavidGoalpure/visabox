@@ -37,7 +37,6 @@
     "country-state-city": "^3.2.1",
     "crypto-js": "^4.2.0",
     "eslint-config-next": "^13.0.7",
-    "fixie": "^6.3.4",
     "isbot-fast": "^1.2.0",
     "js-cookie": "^3.0.5",
     "next": "13.2.0",

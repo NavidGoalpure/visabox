@@ -9,7 +9,7 @@ export enum LanguageKeys {
 }
 export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   Title: {
-    en: 'Sign in',
+    en: 'sign in',
     fa: 'ورود',
     zh: '登入',
   },
@@ -37,6 +37,6 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
   AgentTitle: {
     en: `I'm A Mara Agent`,
     fa: 'یک موسسه مهاجرتی هستم',
-    zh: '我是玛拉特工', 
+    zh: '我是玛拉特工',
   },
 };

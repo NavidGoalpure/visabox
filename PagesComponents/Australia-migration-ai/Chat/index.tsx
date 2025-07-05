@@ -18,13 +18,11 @@ import { useSession } from 'next-auth/react';
 import SmartRow from './SmartRow';
 import { AiChatContext } from './hooks/useAiCredit';
 import useDevice from 'Hooks/useDevice';
-import ServiceIsDown from './ThisServiceIsDown';
+// import ServiceIsDown from './ThisServiceIsDown';
 
-interface Props {
-  aiAgentId: string;
-}
 
-function Content({ aiAgentId }: Props) {
+
+function Content() {
   const { status } = useSession();
   const { t } = useStaticTranslation(componentStatements);
   const { questionRemain } = useContext(AiChatContext);

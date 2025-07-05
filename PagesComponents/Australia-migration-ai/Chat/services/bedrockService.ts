@@ -1,13 +1,11 @@
-import { BedrockMessage, BedrockTurn, BedrockConfig } from '../types/bedrock';
+import { BedrockMessage, BedrockTurn } from '../types/bedrock';
 
 // External Bedrock API Service - Using your existing API endpoint
 export class BedrockService {
-  private config: BedrockConfig;
   private sessionId: string;
   private apiEndpoint: string;
 
-  constructor(config: BedrockConfig) {
-    this.config = config;
+  constructor() {
     this.sessionId = this.generateSessionId();
     // navid change this hard coding
     this.apiEndpoint = 'https://mve9rre4i6.execute-api.ap-southeast-2.amazonaws.com/prod/chat';
@@ -21,10 +19,6 @@ export class BedrockService {
   private formatConversationToPrompt(turns: BedrockTurn[]): string {
     let prompt = '';
     
-    // Add system prompt if provided
-    if (this.config.systemPrompt) {
-      prompt += `${this.config.systemPrompt}\n\n`;
-    }
 
     // Convert conversation turns to a conversation format
     turns.forEach(turn => {

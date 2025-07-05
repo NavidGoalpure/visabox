@@ -26,10 +26,3 @@ export interface BedrockChatHook {
   error: string | null;
 }
 
-export interface BedrockConfig {
-  modelId: string;
-  region: string;
-  maxTokens?: number;
-  temperature?: number;
-  systemPrompt?: string;
-} 

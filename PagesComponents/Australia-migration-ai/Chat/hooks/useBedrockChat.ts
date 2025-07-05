@@ -1,14 +1,13 @@
 import { useState, useRef, useCallback } from 'react';
 import { BedrockService } from '../services/bedrockService';
-import { BedrockConversation, BedrockTurn, BedrockConfig } from '../types/bedrock';
+import { BedrockConversation, BedrockTurn } from '../types/bedrock';
 
-// Custom hook to replace useFixie with AWS Bedrock
-export const useBedrockChat = (config: BedrockConfig) => {
+export const useBedrockChat = () => {
   const [conversation, setConversation] = useState<BedrockConversation | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
-  const bedrockService = useRef<BedrockService>(new BedrockService(config));
+  const bedrockService = useRef<BedrockService>(new BedrockService());
   const abortController = useRef<AbortController | null>(null);
 
   // Send message function - replaces Fixie's sendMessage

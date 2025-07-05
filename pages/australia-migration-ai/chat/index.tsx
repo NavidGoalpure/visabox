@@ -14,10 +14,9 @@ import { ContentOrError } from 'Components/contentOrError';
 import { AiChatContextProvider } from 'PagesComponents/Australia-migration-ai/Chat/hooks/useAiCredit';
 
 interface Props {
-  aiAgentId: string;
   errorCode?: string;
 }
-const AIChatPages: NextPage<Props> = ({ aiAgentId, errorCode }) => {
+const AIChatPages: NextPage<Props> = ({ errorCode }) => {
   const { locale } = useLocale();
   const { t } = useStaticTranslation(componentStatements);
 
@@ -32,7 +31,7 @@ const AIChatPages: NextPage<Props> = ({ aiAgentId, errorCode }) => {
         isError={!!errorCode}
         content={
           <AiChatContextProvider>
-            <Content aiAgentId={aiAgentId} />
+            <Content />
           </AiChatContextProvider>
         }
       />
@@ -49,7 +48,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         //When you supply a session prop in _app.js, useSession won't show a loading state, as it'll already have the session available.
         // In this way, you can provide a more seamless user experience.
         session,
-        aiAgentId: process?.env?.MIGRATION_AGENT_ID || 'defensive',
       },
     };
   } catch (error: any) {

@@ -27,7 +27,7 @@ export const componentStatements: Record<LanguageKeys, MultiLanguageText> = {
     zh: '技术工人签证',
   },
   Login: {
-    en: 'Sign in',
+    en: 'sign in',
     fa: 'ورود',
     zh: '登入',
   },

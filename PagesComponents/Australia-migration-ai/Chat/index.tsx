@@ -29,23 +29,7 @@ function Content() {
   const { isMobile } = useDevice();
 
   // Use the external Bedrock API
-  const { conversation, sendMessage, stop, isLoading, error } = useBedrockChat({
-    modelId: 'external-api', // Not used but required by interface
-    region: 'ap-southeast-2', // Your API region
-    maxTokens: 1000,
-    temperature: 0.7,
-    systemPrompt: `You are Marcya, an AI assistant specialized in Australian immigration guidance. 
-    You help users with questions about:
-    - VETASSESS assessment
-    - ACS (Australian Computer Society) assessment
-    - TRA (Trades Recognition Australia) assessment
-    - Migration strategies
-    - Australian states and territories
-    - Skilled worker visas
-    - APharmC and ACWA assessments
-    
-    Provide accurate, helpful information while always recommending users consult with qualified immigration professionals for official advice.`
-  });
+  const { conversation, sendMessage, stop, isLoading, error } = useBedrockChat();
 
   if (status === 'loading') return <Loading />;
 

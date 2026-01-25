@@ -10,7 +10,7 @@
     "lint": "npx tsc --noEmit"
   },
   "dependencies": {
-    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/loader": "^3.0.0",
     "@next/bundle-analyzer": "^14.1.0",
     "@next/mdx": "^13.2.4",
     "@portabletext/react": "^3.0.11",
